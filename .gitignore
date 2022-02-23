@@ -43,8 +43,9 @@ junit.xml
 !/.github/pull_request_template.md
 !/test/
 !/tsconfig.dev.json
-!/src/
-/lib
+!/lib/
+/lib/**/*.js
+/lib/**/*.d.ts
 /dist/
 !/.eslintrc.json
 .jsii
