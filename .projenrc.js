@@ -1,4 +1,4 @@
-const { awscdk } = require('projen');
+const { awscdk, DependencyType} = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'CDK Monitoring Constructs Team',
   authorAddress: 'monitoring-cdk-constructs@amazon.com',
@@ -50,4 +50,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'cdk_monitoring_constructs',
   },
 });
+// these deps are still coming up, removing them manually
+project.deps.removeDependency("@aws-cdk/core", DependencyType.PEER);
+project.deps.removeDependency("@aws-cdk/core", DependencyType.RUNTIME);
+project.deps.removeDependency("@aws-cdk/assert");
+project.deps.removeDependency("@aws-cdk/assertions");
+project.deps.removeDependency("monocdk", DependencyType.RUNTIME);
 project.synth();
