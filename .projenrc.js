@@ -50,4 +50,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'cdk_monitoring_constructs',
   },
 });
+// these deps are still coming up, removing them manually
+project.deps.removeDependency("@aws-cdk/assert");
+project.deps.removeDependency("@aws-cdk/assertions");
 project.synth();
