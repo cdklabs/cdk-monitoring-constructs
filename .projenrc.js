@@ -66,14 +66,14 @@ project.deps.removeDependency("@aws-cdk/assert");
 project.deps.removeDependency("@aws-cdk/assertions");
 project.deps.removeDependency("monocdk", DependencyType.RUNTIME);
 project.deps.removeDependency("constructs", DependencyType.RUNTIME);
-project.deps.addDependency("monocdk@" + monocdkVersion, DependencyType.DEVENV);
+project.deps.addDependency(`monocdk@${CDK_VERSION}`, DependencyType.DEVENV);
 project.deps.addDependency(
-  "constructs@" + constructsVersion,
+  `constructs@${CONSTRUCTS_VERSION}`,
   DependencyType.DEVENV
 );
-project.deps.addDependency("monocdk@^" + monocdkVersion, DependencyType.PEER);
+project.deps.addDependency(`monocdk@^${CDK_VERSION}`, DependencyType.PEER);
 project.deps.addDependency(
-  "constructs@^" + constructsVersion,
+  `constructs@^${CONSTRUCTS_VERSION}`,
   DependencyType.PEER
 );
 project.synth();
