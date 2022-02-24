@@ -1,16 +1,31 @@
 const { awscdk, DependencyType } = require("projen");
+
 const CDK_VERSION = "1.123.0";
 const CONSTRUCTS_VERSION = "3.3.69";
+
 const project = new awscdk.AwsCdkConstructLibrary({
-  author: "CDK Monitoring Constructs Team",
-  authorAddress: "monitoring-cdk-constructs@amazon.com",
-  cdkVersion: CDK_VERSION,
-  cdkVersionPinning: true,
-  defaultReleaseBranch: "main",
   name: "cdk-monitoring-constructs",
   repositoryUrl: "git@github.com:cdklabs/cdk-monitoring-constructs.git",
+  author: "CDK Monitoring Constructs Team",
+  authorAddress: "monitoring-cdk-constructs@amazon.com",
+  defaultReleaseBranch: "main",
+
+  cdkVersion: CDK_VERSION,
+  cdkVersionPinning: true,
+
   cdkDependencies: ["monocdk"],
   cdkTestDependencies: ["@monocdk-experiment/assert"],
+
+  srcdir: "lib",
+  testdir: "test",
+
+  // Artifact config
+  publishToPypi: {
+    distName: "cdk-monitoring-constructs",
+    module: "cdk_monitoring_constructs",
+  },
+
+  // Code linting config
   prettier: true,
   prettierOptions: {
     arrowParens: "always",
@@ -52,28 +67,28 @@ const project = new awscdk.AwsCdkConstructLibrary({
       "prettier/prettier": "error",
     },
   },
-  srcdir: "lib",
-  testdir: "test",
-  publishToPypi: {
-    distName: "cdk-monitoring-constructs",
-    module: "cdk_monitoring_constructs",
-  },
 });
-// these deps are still coming up, removing them manually
+
+// Projen doesn't handle monocdk properly; remove @aws-cdk manually
 project.deps.removeDependency("@aws-cdk/core", DependencyType.PEER);
 project.deps.removeDependency("@aws-cdk/core", DependencyType.RUNTIME);
 project.deps.removeDependency("@aws-cdk/assert");
 project.deps.removeDependency("@aws-cdk/assertions");
+
+// Declare monocdk and constructs as peer dependencies
 project.deps.removeDependency("monocdk", DependencyType.RUNTIME);
 project.deps.removeDependency("constructs", DependencyType.RUNTIME);
-project.deps.addDependency(`monocdk@${CDK_VERSION}`, DependencyType.DEVENV);
-project.deps.addDependency(
-  `constructs@${CONSTRUCTS_VERSION}`,
-  DependencyType.DEVENV
-);
 project.deps.addDependency(`monocdk@^${CDK_VERSION}`, DependencyType.PEER);
 project.deps.addDependency(
   `constructs@^${CONSTRUCTS_VERSION}`,
   DependencyType.PEER
 );
+
+// Pin to lowest version in dev dependencies to ensure compatability
+project.deps.addDependency(`monocdk@${CDK_VERSION}`, DependencyType.DEVENV);
+project.deps.addDependency(
+  `constructs@${CONSTRUCTS_VERSION}`,
+  DependencyType.DEVENV
+);
+
 project.synth();
