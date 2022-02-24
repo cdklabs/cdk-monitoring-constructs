@@ -4,7 +4,7 @@ const CONSTRUCTS_VERSION = "3.3.69";
 const project = new awscdk.AwsCdkConstructLibrary({
   author: "CDK Monitoring Constructs Team",
   authorAddress: "monitoring-cdk-constructs@amazon.com",
-  cdkVersion: monocdkVersion,
+  cdkVersion: CDK_VERSION,
   cdkVersionPinning: true,
   defaultReleaseBranch: "main",
   name: "cdk-monitoring-constructs",
