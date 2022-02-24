@@ -286,7 +286,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @monocdk-experiment/assert @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii jsii-diff jsii-docgen json-schema npm-check-updates standard-version ts-jest typescript @aws-cdk/core constructs monocdk @aws-cdk/core monocdk @aws-cdk/assert @aws-cdk/assertions"
+          "exec": "yarn upgrade @monocdk-experiment/assert @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii jsii-diff jsii-docgen json-schema npm-check-updates standard-version ts-jest typescript constructs monocdk"
         },
         {
           "exec": "npx projen"
