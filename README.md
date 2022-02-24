@@ -1,17 +1,17 @@
-## My Project
+## cdk-monitoring-constructs
 
-TODO: Fill this README out!
+⚠️ This package isn't ready for use yet! ⚠️
 
-Be sure to:
+> Easy-to-use CDK constructs for monitoring your AWS infrastructure
 
-* Change the title in this README
-* Edit your repository description on GitHub
+## Usage
 
-## Security
+Coming soon!
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+## Contributing/Security
+
+See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
 ## License
 
 This project is licensed under the Apache-2.0 License.
-
