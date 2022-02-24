@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Queue4A7E3555": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "QueueName": "DummyQueue",
+      },
+      "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ScopeTestDummyQueueQueueIncomingMessagesCountMaxWarningEF044B70": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of incoming messages into the queue is too high.",
+        "AlarmName": "Test-DummyQueue-Queue-Incoming-Messages-Count-Max-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Incoming",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfMessagesSent",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyQueueQueueIncomingMessagesCountMinWarningC7CBC2CF": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of incoming messages into the queue is too low.",
+        "AlarmName": "Test-DummyQueue-Queue-Incoming-Messages-Count-Min-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Incoming",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfMessagesSent",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyQueueQueueMessageAgeMaxWarning6EBEF7A3": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Age of the oldest message in the queue is too high.",
+        "AlarmName": "Test-DummyQueue-Queue-Message-Age-Max-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Age",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "ApproximateAgeOfOldestMessage",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyQueueQueueMessageCountMaxWarning5CFB392D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of messages in the queue is too high.",
+        "AlarmName": "Test-DummyQueue-Queue-Message-Count-Max-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Visible",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "ApproximateNumberOfMessagesVisible",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyQueueQueueMessageCountMinWarning8CB774D3": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of messages in the queue is too low.",
+        "AlarmName": "Test-DummyQueue-Queue-Message-Count-Min-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Visible",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "ApproximateNumberOfMessagesVisible",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyQueueQueueTimeToDrainMaxWarningD9560D70": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Time to drain messages in the queue is too high.",
+        "AlarmName": "Test-DummyQueue-Queue-TimeToDrain-Max-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))",
+            "Id": "expr_1",
+            "Label": "Time to Drain (seconds)",
+          },
+          Object {
+            "Id": "visibleMessages",
+            "Label": "Visible",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "ApproximateNumberOfMessagesVisible",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "incomingVolume",
+            "Label": "Incoming",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfMessagesSent",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "consumptionVolume",
+            "Label": "Deleted",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfMessagesDeleted",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 21600,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Queue4A7E3555": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "QueueName": "DummyQueue",
+      },
+      "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
+    },
+  },
+}
+`;

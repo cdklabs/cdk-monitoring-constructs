@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: ASG, no alarms 1`] = `Object {}`;
+
+exports[`snapshot test: all instances, no alarms 1`] = `Object {}`;

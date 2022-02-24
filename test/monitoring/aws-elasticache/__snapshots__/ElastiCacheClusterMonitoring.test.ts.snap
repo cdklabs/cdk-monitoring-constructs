@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestMemcachedALLCPUUsageWarningB9311F1B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "Test-Memcached-ALL-CPU-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "CPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestMemcachedALLItemsCountWarningBCDA36CB": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The number of items in the cache is too high.",
+        "AlarmName": "Test-Memcached-ALL-Items-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "CurrItems",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 20,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestMemcachedALLItemsEvictedWarning7D7F5BE2": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The number of items evicted by the cache is too high.",
+        "AlarmName": "Test-Memcached-ALL-Items-Evicted-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Evictions",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Evictions",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 30,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestMemcachedALLMemoryFreeableWarningDCD9279E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The size of freeable memory is too low.",
+        "AlarmName": "Test-Memcached-ALL-Memory-Freeable-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Freeable",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "FreeableMemory",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 40,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestMemcachedALLMemorySwapWarning19BA1398": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The size of swap memory used is too high.",
+        "AlarmName": "Test-Memcached-ALL-Memory-Swap-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Swap",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 50,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestRedisALLCPUUsageWarningF75B1746": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "Test-Redis-ALL-CPU-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "CPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 11,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestRedisALLItemsCountWarning95D20971": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The number of items in the cache is too high.",
+        "AlarmName": "Test-Redis-ALL-Items-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "CurrItems",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 21,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestRedisALLItemsEvictedWarningF77927A9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The number of items evicted by the cache is too high.",
+        "AlarmName": "Test-Redis-ALL-Items-Evicted-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Evictions",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Evictions",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 31,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestRedisALLMemoryFreeableWarning6141794B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The size of freeable memory is too low.",
+        "AlarmName": "Test-Redis-ALL-Memory-Freeable-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Freeable",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "FreeableMemory",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 41,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestRedisALLMemorySwapWarningBE380050": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The size of swap memory used is too high.",
+        "AlarmName": "Test-Redis-ALL-Memory-Swap-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Swap",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 51,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: cluster ID specified 1`] = `Object {}`;
+
+exports[`snapshot test: no alarms 1`] = `Object {}`;

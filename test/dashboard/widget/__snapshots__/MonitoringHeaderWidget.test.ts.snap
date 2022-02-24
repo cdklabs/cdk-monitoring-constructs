@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: title and family 1`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### DummyFamily **DummyTitle**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: title only 1`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### DummyTitle",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: with link 1`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### DummyFamily **[DummyTitle](http://amazon.com)**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: with link and custom text 1`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### DummyFamily **[DummyTitle](http://amazon.com)**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;

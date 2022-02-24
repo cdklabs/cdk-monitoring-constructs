@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlarmSummaryMatrixWidget: snapshot test 1`] = `
+Array [
+  Object {
+    "height": 2,
+    "properties": Object {
+      "alarms": Array [
+        "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TestAlarm1",
+        "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TestAlarm2",
+        "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TestAlarm3",
+      ],
+      "title": undefined,
+    },
+    "type": "alarm",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;

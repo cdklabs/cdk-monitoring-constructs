@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestDummyTopicTopicNotificationsFailedWarning39FB74A9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of failed sns messages exceeded threshold of 5.",
+        "AlarmName": "Test-DummyTopic-Topic-Notifications-Failed-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TopicName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "TopicBFC7AF6E",
+                        "TopicName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfNotificationsFailed",
+                "Namespace": "AWS/SNS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTopicTopicPublishedHighWarningCDE28531": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of SNS messages published is too high.",
+        "AlarmName": "Test-DummyTopic-Topic-Published-High-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Incoming",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TopicName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "TopicBFC7AF6E",
+                        "TopicName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfMessagesPublished",
+                "Namespace": "AWS/SNS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 200,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTopicTopicPublishedLowWarning53240D68": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of SNS messages published is too low.",
+        "AlarmName": "Test-DummyTopic-Topic-Published-Low-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Incoming",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TopicName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "TopicBFC7AF6E",
+                        "TopicName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfMessagesPublished",
+                "Namespace": "AWS/SNS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicBFC7AF6E": Object {
+      "Properties": Object {
+        "TopicName": "DummyTopic",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "TopicBFC7AF6E": Object {
+      "Properties": Object {
+        "TopicName": "DummyTopic",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+}
+`;

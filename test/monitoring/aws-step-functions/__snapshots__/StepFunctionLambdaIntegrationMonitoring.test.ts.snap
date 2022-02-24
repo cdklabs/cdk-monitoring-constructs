@@ -1,0 +1,351 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Function76856677": Object {
+      "DependsOn": Array [
+        "FunctionServiceRole675BB04A",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "{}",
+        },
+        "FunctionName": "DummyLambda",
+        "Handler": "Dummy::handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "FunctionServiceRole675BB04A",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "FunctionServiceRole675BB04A": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScopeTestDummyLambdaIntegrationDurationP50Warning6F621EAC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P50 duration is too long.",
+        "AlarmName": "Test-DummyLambdaIntegration-Duration-P50-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LambdaFunctionArn",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Function76856677",
+                        "Arn",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "LambdaFunctionRunTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 60000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaIntegrationDurationP90Warning9F3D43F5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 duration is too long.",
+        "AlarmName": "Test-DummyLambdaIntegration-Duration-P90-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LambdaFunctionArn",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Function76856677",
+                        "Arn",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "LambdaFunctionRunTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 120000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaIntegrationDurationP99Warning87A8E30F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P99 duration is too long.",
+        "AlarmName": "Test-DummyLambdaIntegration-Duration-P99-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LambdaFunctionArn",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Function76856677",
+                        "Arn",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "LambdaFunctionRunTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 180000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaIntegrationFailureCountWarning52AC3BD6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Failure count is too high.",
+        "AlarmName": "Test-DummyLambdaIntegration-Failure-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LambdaFunctionArn",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Function76856677",
+                        "Arn",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "LambdaFunctionsFailed",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaIntegrationFailureRateWarning31D72EE7": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Failure rate is too high.",
+        "AlarmName": "Test-DummyLambdaIntegration-Failure-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LambdaFunctionArn",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Function76856677",
+                        "Arn",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "LambdaFunctionsFailed",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaIntegrationTimedOutCountWarningAD5965F9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TimedOut count is too high.",
+        "AlarmName": "Test-DummyLambdaIntegration-TimedOut-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Timeout",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LambdaFunctionArn",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Function76856677",
+                        "Arn",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "LambdaFunctionsTimedOut",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Function76856677": Object {
+      "DependsOn": Array [
+        "FunctionServiceRole675BB04A",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "{}",
+        },
+        "FunctionName": "DummyLambda",
+        "Handler": "Dummy::handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "FunctionServiceRole675BB04A",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "FunctionServiceRole675BB04A": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+}
+`;

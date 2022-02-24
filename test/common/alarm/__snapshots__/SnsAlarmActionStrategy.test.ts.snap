@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all actions 1`] = `
+Object {
+  "Resources": Object {
+    "DummyAlarm234203A9": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "DummyTopic75B5E033",
+          },
+        ],
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 1,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "DummyInsufficientDataTopic5C2BB5B5",
+          },
+        ],
+        "MetricName": "Dummy",
+        "Namespace": "Dummy",
+        "OKActions": Array [
+          Object {
+            "Ref": "DummyOkTopicD5349398",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyInsufficientDataTopic5C2BB5B5": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "DummyOkTopicD5349398": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "DummyTopic75B5E033": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: default action only 1`] = `
+Object {
+  "Resources": Object {
+    "DummyAlarm234203A9": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "DummyTopic75B5E033",
+          },
+        ],
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 1,
+        "MetricName": "Dummy",
+        "Namespace": "Dummy",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyTopic75B5E033": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+}
+`;

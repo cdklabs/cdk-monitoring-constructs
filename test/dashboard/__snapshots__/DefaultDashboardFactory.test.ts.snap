@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`default dashboards created 1`] = `
+Object {
+  "Resources": Object {
+    "DashboardsAlarmDashboard02C1603A": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardName": "DummyDashboard-Alarms",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardsDashboard0712AF28": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardName": "DummyDashboard",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardsSummaryDashboard1CD44475": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"start\\":\\"-P14D\\",\\"widgets\\":[]}",
+        "DashboardName": "DummyDashboard-Summary",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+}
+`;
+
+exports[`no dashboards created 1`] = `Object {}`;

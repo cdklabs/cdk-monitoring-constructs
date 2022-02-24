@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "TestBucket560B80BC": Object {
+      "DeletionPolicy": "Retain",
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: override StorageType with IntelligentTieringFAStorage 1`] = `
+Object {
+  "Resources": Object {
+    "TestBucket560B80BC": Object {
+      "DeletionPolicy": "Retain",
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+}
+`;
