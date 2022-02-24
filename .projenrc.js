@@ -1,6 +1,6 @@
 const { awscdk, DependencyType } = require("projen");
-const monocdkVersion = "1.123.0";
-const constructsVersion = "3.3.69";
+const CDK_VERSION = "1.123.0";
+const CONSTRUCTS_VERSION = "3.3.69";
 const project = new awscdk.AwsCdkConstructLibrary({
   author: "CDK Monitoring Constructs Team",
   authorAddress: "monitoring-cdk-constructs@amazon.com",
