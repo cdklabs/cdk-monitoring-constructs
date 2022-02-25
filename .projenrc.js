@@ -9,6 +9,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: "CDK Monitoring Constructs Team",
   authorAddress: "monitoring-cdk-constructs@amazon.com",
   defaultReleaseBranch: "main",
+  stability: "experimental",
 
   cdkVersion: CDK_VERSION,
   cdkVersionPinning: true,
@@ -90,5 +91,10 @@ project.eslint.addRules({
   "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
   "prettier/prettier": "error",
 });
+
+// Don't need to include the TypeScript source files in the tarball; the transpiled JS files and
+// typing files are sufficient.
+project.addPackageIgnore("*.ts");
+project.addPackageIgnore("!*.d.ts");
 
 project.synth();
