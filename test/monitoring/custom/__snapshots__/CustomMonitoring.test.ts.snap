@@ -1,0 +1,401 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`anomaly detection 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestAnomalyAlarmNameMetric1CriticalAEAE04A6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Threshold of 50 has been breached.",
+        "AlarmName": "Test-AnomalyAlarmName-Metric1-Critical",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "ANOMALY_DETECTION_BAND(expression,2)",
+            "Id": "expr_1",
+            "Label": "AnomalyLabel",
+            "ReturnData": true,
+          },
+          Object {
+            "Id": "expression",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CustomDimension",
+                    "Value": "CustomDimensionValue",
+                  },
+                ],
+                "MetricName": "DummyMetric1",
+                "Namespace": "DummyCustomNamespace",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`enhanced anomaly detection 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestAnomalyAlarmNameAnomalyGroupRenderAndAlarmAboveOnly1F1A54F4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Anomaly detection: value is above the expected band.",
+        "AlarmName": "Test-AnomalyAlarmName-AnomalyGroup-RenderAndAlarm-AboveOnly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "ANOMALY_DETECTION_BAND(alarm_160ded88355f64,1)",
+            "Id": "expr_1",
+            "Label": "Band (stdev 1)",
+            "ReturnData": true,
+          },
+          Object {
+            "Id": "alarm_160ded88355f64",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "AnomalyMetric",
+                "Namespace": "AnomalyNamespace",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestAnomalyAlarmNameAnomalyGroupRenderAndAlarmAboveOrBelow5CF3E353": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Anomaly detection: value is outside of the expected band.",
+        "AlarmName": "Test-AnomalyAlarmName-AnomalyGroup-RenderAndAlarm-AboveOrBelow",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "ANOMALY_DETECTION_BAND(alarm_1466186e115a6,3)",
+            "Id": "expr_1",
+            "Label": "Band (stdev 3)",
+            "ReturnData": true,
+          },
+          Object {
+            "Id": "alarm_1466186e115a6",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "AnomalyMetric",
+                "Namespace": "AnomalyNamespace",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestAnomalyAlarmNameAnomalyGroupRenderAndAlarmBelowOnlyE9AF1161": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Anomaly detection: value is below the expected band.",
+        "AlarmName": "Test-AnomalyAlarmName-AnomalyGroup-RenderAndAlarm-BelowOnly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "ANOMALY_DETECTION_BAND(alarm_114045999754c1,2)",
+            "Id": "expr_1",
+            "Label": "Band (stdev 2)",
+            "ReturnData": true,
+          },
+          Object {
+            "Id": "alarm_114045999754c1",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "AnomalyMetric",
+                "Namespace": "AnomalyNamespace",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`enhanced anomaly detection with metric math 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestAnomalyAlarmNameAnomalyWithMetricMathCriticalAnomaly04BB00BD": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Anomaly detection: value is outside of the expected band.",
+        "AlarmName": "Test-AnomalyAlarmName-AnomalyWithMetricMath-CriticalAnomaly",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "ANOMALY_DETECTION_BAND(alarm_39cd98a4dd0f0,1)",
+            "Id": "expr_1",
+            "Label": "Band (stdev 1)",
+            "ReturnData": true,
+          },
+          Object {
+            "Expression": "m1/(m1+m2)",
+            "Id": "alarm_39cd98a4dd0f0",
+            "ReturnData": true,
+          },
+          Object {
+            "Id": "m1",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Metric1",
+                "Namespace": "AnomalyNamespace",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+          Object {
+            "Id": "m2",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Metric2",
+                "Namespace": "AnomalyNamespace",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "alarm_39cd98a4dd0f0",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`enhanced anomaly detection with more complex metric 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestAnomalyAlarmNameDNSQueriesanomalyCriticalAnomaly48F387D0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Anomaly detection: value is outside of the expected band.",
+        "AlarmName": "Test-AnomalyAlarmName-DNSQueries anomaly-CriticalAnomaly",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "ANOMALY_DETECTION_BAND(alarm_a7a830ab781b2,1)",
+            "Id": "expr_1",
+            "Label": "Band (stdev 1)",
+            "ReturnData": true,
+          },
+          Object {
+            "Id": "alarm_a7a830ab781b2",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "HostedZoneId",
+                    "Value": "ID",
+                  },
+                ],
+                "MetricName": "DNSQueries",
+                "Namespace": "AWS/Route53",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestDummyAlarmNameAlarmForDummyMetric12Critical71A1C38A": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Threshold of 50 has been breached.",
+        "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric12-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "DummyMetric12",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 50,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAlarmNameAlarmForDummyMetric12WarningA3D33CD3": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Threshold of 10 has been breached.",
+        "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric12-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "DummyMetric12",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAlarmNameAlarmForDummyMetric22CriticalB723921F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Threshold of 50 has been breached.",
+        "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric22-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "DummyMetric22",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 50,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAlarmNameAlarmForDummyMetric22Warning4F0C643F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Threshold of 10 has been breached.",
+        "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric22-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "DummyMetric22",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAlarmNameAlarmForDummyMetric3Critical2B202C0B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Threshold of 50 has been breached.",
+        "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric3-Critical",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "DummyMetric3",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 50,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAlarmNameAlarmForDummyMetric3WarningA3421ECE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Threshold of 90 has been breached.",
+        "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric3-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "DummyMetric3",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 90,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;

@@ -1,0 +1,290 @@
+import {
+  GraphWidget,
+  HorizontalAnnotation,
+  IWidget,
+} from "monocdk/aws-cloudwatch";
+
+import {
+  AlarmFactory,
+  BaseMonitoringProps,
+  CountAxisFromZero,
+  DefaultGraphWidgetHeight,
+  DefaultSummaryWidgetHeight,
+  ErrorAlarmFactory,
+  ErrorCountThreshold,
+  ErrorRateThreshold,
+  ErrorType,
+  HighTpsThreshold,
+  LatencyAlarmFactory,
+  LatencyThreshold,
+  LatencyType,
+  LowTpsThreshold,
+  MetricWithAlarmSupport,
+  Monitoring,
+  MonitoringScope,
+  QuarterWidth,
+  RateAxisFromZero,
+  ThirdWidth,
+  TimeAxisMillisFromZero,
+  TpsAlarmFactory,
+} from "../../common";
+import {
+  MonitoringHeaderWidget,
+  MonitoringNamingStrategy,
+} from "../../dashboard";
+import {
+  AppSyncMetricFactory,
+  AppSyncMetricFactoryProps,
+} from "./AppSyncMetricFactory";
+
+export interface AppSyncMonitoringProps
+  extends BaseMonitoringProps,
+    AppSyncMetricFactoryProps {
+  readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
+  readonly add4XXErrorCountAlarm?: Record<string, ErrorCountThreshold>;
+  readonly add4XXErrorRateAlarm?: Record<string, ErrorRateThreshold>;
+  readonly add5XXFaultCountAlarm?: Record<string, ErrorCountThreshold>;
+  readonly add5XXFaultRateAlarm?: Record<string, ErrorRateThreshold>;
+  readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
+  readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
+}
+
+export class AppSyncMonitoring extends Monitoring {
+  protected readonly title: string;
+
+  protected readonly namingStrategy: MonitoringNamingStrategy;
+  protected readonly metricFactory: AppSyncMetricFactory;
+  protected readonly alarmFactory: AlarmFactory;
+  protected readonly errorAlarmFactory: ErrorAlarmFactory;
+  protected readonly latencyAlarmFactory: LatencyAlarmFactory;
+  protected readonly tpsAlarmFactory: TpsAlarmFactory;
+
+  protected readonly tpsAnnotations: HorizontalAnnotation[];
+  protected readonly latencyAnnotations: HorizontalAnnotation[];
+  protected readonly errorCountAnnotations: HorizontalAnnotation[];
+  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+
+  protected readonly tpsMetric: MetricWithAlarmSupport;
+  protected readonly p50LatencyMetric: MetricWithAlarmSupport;
+  protected readonly p90LatencyMetric: MetricWithAlarmSupport;
+  protected readonly p99LatencyMetric: MetricWithAlarmSupport;
+  protected readonly fault5xxCountMetric: MetricWithAlarmSupport;
+  protected readonly fault5xxRateMetric: MetricWithAlarmSupport;
+  protected readonly error4xxCountMetric: MetricWithAlarmSupport;
+  protected readonly error4xxRateMetric: MetricWithAlarmSupport;
+
+  constructor(scope: MonitoringScope, props: AppSyncMonitoringProps) {
+    super(scope, props);
+
+    this.namingStrategy = new MonitoringNamingStrategy({ ...props });
+    this.title = this.namingStrategy.resolveHumanReadableName();
+    this.metricFactory = new AppSyncMetricFactory(
+      scope.createMetricFactory(),
+      props
+    );
+    this.alarmFactory = this.createAlarmFactory(
+      this.namingStrategy.resolveAlarmFriendlyName()
+    );
+    this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
+    this.latencyAlarmFactory = new LatencyAlarmFactory(this.alarmFactory);
+    this.tpsAlarmFactory = new TpsAlarmFactory(this.alarmFactory);
+
+    this.tpsAnnotations = [];
+    this.latencyAnnotations = [];
+    this.errorCountAnnotations = [];
+    this.errorRateAnnotations = [];
+
+    this.tpsMetric = this.metricFactory.metricTps();
+    this.p50LatencyMetric = this.metricFactory.metricLatencyP50InMillis();
+    this.p90LatencyMetric = this.metricFactory.metricLatencyP90InMillis();
+    this.p99LatencyMetric = this.metricFactory.metricLatencyP99InMillis();
+    this.fault5xxCountMetric = this.metricFactory.metric5XXFaultCount();
+    this.fault5xxRateMetric = this.metricFactory.metric5XXFaultRate();
+    this.error4xxCountMetric = this.metricFactory.metric4XXErrorCount();
+    this.error4xxRateMetric = this.metricFactory.metric4XXErrorRate();
+
+    for (const disambiguator in props.addLatencyP50Alarm) {
+      const alarmProps = props.addLatencyP50Alarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.p50LatencyMetric,
+        LatencyType.P50,
+        alarmProps,
+        disambiguator
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addLatencyP90Alarm) {
+      const alarmProps = props.addLatencyP90Alarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.p90LatencyMetric,
+        LatencyType.P90,
+        alarmProps,
+        disambiguator
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addLatencyP99Alarm) {
+      const alarmProps = props.addLatencyP99Alarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.p99LatencyMetric,
+        LatencyType.P99,
+        alarmProps,
+        disambiguator
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.add4XXErrorCountAlarm) {
+      const alarmProps = props.add4XXErrorCountAlarm[disambiguator];
+      const createdAlarm = this.errorAlarmFactory.addErrorCountAlarm(
+        this.error4xxCountMetric,
+        ErrorType.ERROR,
+        alarmProps,
+        disambiguator
+      );
+      this.errorCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.add4XXErrorRateAlarm) {
+      const alarmProps = props.add4XXErrorRateAlarm[disambiguator];
+      const createdAlarm = this.errorAlarmFactory.addErrorRateAlarm(
+        this.error4xxRateMetric,
+        ErrorType.ERROR,
+        alarmProps,
+        disambiguator
+      );
+      this.errorRateAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.add5XXFaultCountAlarm) {
+      const alarmProps = props.add5XXFaultCountAlarm[disambiguator];
+      const createdAlarm = this.errorAlarmFactory.addErrorCountAlarm(
+        this.fault5xxCountMetric,
+        ErrorType.FAULT,
+        alarmProps,
+        disambiguator
+      );
+      this.errorCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.add5XXFaultRateAlarm) {
+      const alarmProps = props.add5XXFaultRateAlarm[disambiguator];
+      const createdAlarm = this.errorAlarmFactory.addErrorRateAlarm(
+        this.fault5xxRateMetric,
+        ErrorType.FAULT,
+        alarmProps,
+        disambiguator
+      );
+      this.errorRateAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addLowTpsAlarm) {
+      const alarmProps = props.addLowTpsAlarm[disambiguator];
+      const createdAlarm = this.tpsAlarmFactory.addMinTpsAlarm(
+        this.tpsMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.tpsAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addHighTpsAlarm) {
+      const alarmProps = props.addHighTpsAlarm[disambiguator];
+      const createdAlarm = this.tpsAlarmFactory.addMaxTpsAlarm(
+        this.tpsMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.tpsAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    props.useCreatedAlarms?.consume(this.createdAlarms());
+  }
+
+  summaryWidgets(): IWidget[] {
+    return [
+      this.createtTitleWidget(),
+      this.createTpsWidget(ThirdWidth, DefaultSummaryWidgetHeight),
+      this.createLatencyWidget(ThirdWidth, DefaultSummaryWidgetHeight),
+      this.createErrorRateWidget(ThirdWidth, DefaultSummaryWidgetHeight),
+    ];
+  }
+
+  widgets(): IWidget[] {
+    return [
+      this.createtTitleWidget(),
+      this.createTpsWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createErrorCountWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createErrorRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
+    ];
+  }
+
+  protected createtTitleWidget() {
+    return new MonitoringHeaderWidget({
+      family: "AppSync GraphQL API",
+      title: this.title,
+    });
+  }
+
+  protected createTpsWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "TPS",
+      left: [this.tpsMetric],
+      leftAnnotations: this.tpsAnnotations,
+      leftYAxis: RateAxisFromZero,
+    });
+  }
+
+  protected createLatencyWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Latency",
+      left: [
+        this.p50LatencyMetric,
+        this.p90LatencyMetric,
+        this.p99LatencyMetric,
+      ],
+      leftAnnotations: this.latencyAnnotations,
+      leftYAxis: TimeAxisMillisFromZero,
+    });
+  }
+
+  protected createErrorCountWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Errors",
+      left: [this.error4xxCountMetric, this.fault5xxCountMetric],
+      leftAnnotations: this.errorCountAnnotations,
+      leftYAxis: CountAxisFromZero,
+    });
+  }
+
+  protected createErrorRateWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Errors (rate)",
+      left: [this.error4xxRateMetric, this.fault5xxRateMetric],
+      leftAnnotations: this.errorRateAnnotations,
+      leftYAxis: RateAxisFromZero,
+    });
+  }
+}

@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addAlarm: evaluateLowSampleCountPercentile can be overridden 1`] = `
+Object {
+  "Resources": Object {
+    "DummyServiceAlarmsprefixDefaultValue87B4F584": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Description",
+        "AlarmName": "DummyServiceAlarms-prefix-DefaultValue",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "MetricName": "DummyMetric1",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyServiceAlarmsprefixFalseValueBDCEF17E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Description",
+        "AlarmName": "DummyServiceAlarms-prefix-FalseValue",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluateLowSampleCountPercentile": "ignore",
+        "EvaluationPeriods": 10,
+        "MetricName": "DummyMetric1",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyServiceAlarmsprefixTrueValue589160E5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Description",
+        "AlarmName": "DummyServiceAlarms-prefix-TrueValue",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "MetricName": "DummyMetric1",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`addCompositeAlarm: snapshot for operator 1`] = `
+Object {
+  "Resources": Object {
+    "DummyServiceAlarmsprefixAlarm1F4FCF957": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Testing alarm 1",
+        "AlarmName": "DummyServiceAlarms-prefix-Alarm1",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 6,
+        "EvaluationPeriods": 6,
+        "MetricName": "DummyMetric",
+        "Namespace": "DummyNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyServiceAlarmsprefixAlarm25ADF8B37": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Testing alarm 2",
+        "AlarmName": "DummyServiceAlarms-prefix-Alarm2",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 6,
+        "EvaluationPeriods": 6,
+        "MetricName": "DummyMetric",
+        "Namespace": "DummyNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 2,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyServiceAlarmsprefixCompositeAnd5A0BD2BE": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-CompositeAnd",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm1F4FCF957",
+                  "Arn",
+                ],
+              },
+              "\\") AND ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm25ADF8B37",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+    "DummyServiceAlarmsprefixCompositeOr52DCE220": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-CompositeOr",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm1F4FCF957",
+                  "Arn",
+                ],
+              },
+              "\\") OR ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm25ADF8B37",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+  },
+}
+`;

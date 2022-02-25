@@ -1,5 +1,4 @@
-export class Hello {
-  public sayHello() {
-    return "hello, world!";
-  }
-}
+export * from "./common";
+export * from "./dashboard";
+export * from "./facade";
+export * from "./monitoring";

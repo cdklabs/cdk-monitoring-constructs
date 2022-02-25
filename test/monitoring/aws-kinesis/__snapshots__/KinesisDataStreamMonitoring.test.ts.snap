@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test for stream: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestmykinesisdatastreamIteratorAgeMaxWarningFF567B0D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Iterator Max Age is too high.",
+        "AlarmName": "Test-my-kinesis-data-stream-Iterator-Age-Max-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Iterator Age",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StreamName",
+                    "Value": "my-kinesis-data-stream",
+                  },
+                ],
+                "MetricName": "GetRecords.IteratorAgeMilliseconds",
+                "Namespace": "AWS/Kinesis",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmykinesisdatastreamPutRecordsFailedCritical0D738405": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of failed PutRecords exceeded threshold of 5",
+        "AlarmName": "Test-my-kinesis-data-stream-PutRecordsFailed-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "PutRecords.FailedRecords",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StreamName",
+                    "Value": "my-kinesis-data-stream",
+                  },
+                ],
+                "MetricName": "PutRecords.FailedRecords",
+                "Namespace": "AWS/Kinesis",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmykinesisdatastreamPutRecordsThrottledCriticalA7AA987B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of throttled PutRecords exceeded threshold of 5",
+        "AlarmName": "Test-my-kinesis-data-stream-PutRecordsThrottled-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "PutRecords.ThrottledRecords",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StreamName",
+                    "Value": "my-kinesis-data-stream",
+                  },
+                ],
+                "MetricName": "PutRecords.ThrottledRecords",
+                "Namespace": "AWS/Kinesis",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test for stream: no alarms 1`] = `Object {}`;

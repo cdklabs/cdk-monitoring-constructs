@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Certificate1987B5EDC": Object {
+      "Properties": Object {
+        "DomainName": "www.monitoring.cdk",
+        "DomainValidationOptions": Array [
+          Object {
+            "DomainName": "www.monitoring.cdk",
+            "ValidationDomain": "cdk",
+          },
+        ],
+        "ValidationMethod": "EMAIL",
+      },
+      "Type": "AWS::CertificateManager::Certificate",
+    },
+    "ScopeTestCertificatesDaysToExpiryWarning5B528B29": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of days until expiration is too low.",
+        "AlarmName": "Test-Certificates-DaysToExpiry-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Days to expiry",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CertificateArn",
+                    "Value": Object {
+                      "Ref": "Certificate1987B5EDC",
+                    },
+                  },
+                ],
+                "MetricName": "DaysToExpiry",
+                "Namespace": "AWS/CertificateManager",
+              },
+              "Period": 300,
+              "Stat": "Minimum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 14,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Certificate1987B5EDC": Object {
+      "Properties": Object {
+        "DomainName": "www.monitoring.cdk",
+        "DomainValidationOptions": Array [
+          Object {
+            "DomainName": "www.monitoring.cdk",
+            "ValidationDomain": "cdk",
+          },
+        ],
+        "ValidationMethod": "EMAIL",
+      },
+      "Type": "AWS::CertificateManager::Certificate",
+    },
+  },
+}
+`;

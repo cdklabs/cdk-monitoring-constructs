@@ -1,0 +1,799 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "DummyStateMachine912BDB94": Object {
+      "DependsOn": Array [
+        "DummyStateMachineRoleC6C4FF37",
+      ],
+      "Properties": Object {
+        "DefinitionString": "{\\"StartAt\\":\\"DummyStep\\",\\"States\\":{\\"DummyStep\\":{\\"Type\\":\\"Pass\\",\\"End\\":true}}}",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "DummyStateMachineRoleC6C4FF37",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+    },
+    "DummyStateMachineRoleC6C4FF37": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "states.",
+                      Object {
+                        "Ref": "AWS::Region",
+                      },
+                      ".amazonaws.com",
+                    ],
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScopeTestDummyStateMachineAbortedCountWarningAAE60EC9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Aborted count is too high.",
+        "AlarmName": "Test-DummyStateMachine-Aborted-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Aborted",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsAborted",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineDurationP50Warning6D0C59ED": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P50 duration is too long.",
+        "AlarmName": "Test-DummyStateMachine-Duration-P50-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 60000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineDurationP90Warning02138D72": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 duration is too long.",
+        "AlarmName": "Test-DummyStateMachine-Duration-P90-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 120000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineDurationP99Warning60BD82B4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P99 duration is too long.",
+        "AlarmName": "Test-DummyStateMachine-Duration-P99-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 180000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineFailureCountWarningE1694389": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Failure count is too high.",
+        "AlarmName": "Test-DummyStateMachine-Failure-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsFailed",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineFailureRateWarningFBFDE9DB": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Failure rate is too high.",
+        "AlarmName": "Test-DummyStateMachine-Failure-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsFailed",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineRunningTasksLowWarningDF8F9A9E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of running tasks is too low.",
+        "AlarmName": "Test-DummyStateMachine-Running-Tasks-Low-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Started",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsStarted",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineThrottledCountWarning9BCA6279": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Throttled count is too high.",
+        "AlarmName": "Test-DummyStateMachine-Throttled-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Throttled",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionThrottled",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineTimedOutCountWarningAA8D33D5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TimedOut count is too high.",
+        "AlarmName": "Test-DummyStateMachine-TimedOut-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Timeout",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsTimedOut",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: all alarms, alarmPrefix on latency dedupeString 1`] = `
+Object {
+  "Resources": Object {
+    "DummyStateMachine912BDB94": Object {
+      "DependsOn": Array [
+        "DummyStateMachineRoleC6C4FF37",
+      ],
+      "Properties": Object {
+        "DefinitionString": "{\\"StartAt\\":\\"DummyStep\\",\\"States\\":{\\"DummyStep\\":{\\"Type\\":\\"Pass\\",\\"End\\":true}}}",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "DummyStateMachineRoleC6C4FF37",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+    },
+    "DummyStateMachineRoleC6C4FF37": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "states.",
+                      Object {
+                        "Ref": "AWS::Region",
+                      },
+                      ".amazonaws.com",
+                    ],
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScopeTestDummyStateMachineAbortedCountWarningAAE60EC9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Aborted count is too high.",
+        "AlarmName": "Test-DummyStateMachine-Aborted-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Aborted",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsAborted",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineDurationP50Warning6D0C59ED": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P50 duration is too long.",
+        "AlarmName": "Test-DummyStateMachine-Duration-P50-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 60000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineDurationP90Warning02138D72": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 duration is too long.",
+        "AlarmName": "Test-DummyStateMachine-Duration-P90-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 120000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineDurationP99Warning60BD82B4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P99 duration is too long.",
+        "AlarmName": "Test-DummyStateMachine-Duration-P99-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionTime",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "p99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 180000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineFailureCountWarningE1694389": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Failure count is too high.",
+        "AlarmName": "Test-DummyStateMachine-Failure-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsFailed",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineFailureRateWarningFBFDE9DB": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Failure rate is too high.",
+        "AlarmName": "Test-DummyStateMachine-Failure-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsFailed",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineRunningTasksLowWarningDF8F9A9E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of running tasks is too low.",
+        "AlarmName": "Test-DummyStateMachine-Running-Tasks-Low-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Started",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsStarted",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineThrottledCountWarning9BCA6279": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Throttled count is too high.",
+        "AlarmName": "Test-DummyStateMachine-Throttled-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Throttled",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionThrottled",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyStateMachineTimedOutCountWarningAA8D33D5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TimedOut count is too high.",
+        "AlarmName": "Test-DummyStateMachine-TimedOut-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Timeout",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "StateMachineArn",
+                    "Value": Object {
+                      "Ref": "DummyStateMachine912BDB94",
+                    },
+                  },
+                ],
+                "MetricName": "ExecutionsTimedOut",
+                "Namespace": "AWS/States",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "DummyStateMachine912BDB94": Object {
+      "DependsOn": Array [
+        "DummyStateMachineRoleC6C4FF37",
+      ],
+      "Properties": Object {
+        "DefinitionString": "{\\"StartAt\\":\\"DummyStep\\",\\"States\\":{\\"DummyStep\\":{\\"Type\\":\\"Pass\\",\\"End\\":true}}}",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "DummyStateMachineRoleC6C4FF37",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+    },
+    "DummyStateMachineRoleC6C4FF37": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "states.",
+                      Object {
+                        "Ref": "AWS::Region",
+                      },
+                      ".amazonaws.com",
+                    ],
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+}
+`;
