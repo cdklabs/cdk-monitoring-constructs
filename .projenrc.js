@@ -1,4 +1,4 @@
-const { awscdk, DependencyType } = require("projen");
+const { awscdk, DependencyType, release } = require("projen");
 
 const CDK_VERSION = "1.123.0";
 const CONSTRUCTS_VERSION = "3.3.69";
@@ -9,6 +9,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: "CDK Monitoring Constructs Team",
   authorAddress: "monitoring-cdk-constructs@amazon.com",
   defaultReleaseBranch: "main",
+  releaseTrigger: release.ReleaseTrigger.manual(),
 
   cdkVersion: CDK_VERSION,
   cdkVersionPinning: true,
@@ -34,7 +35,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     mavenGroupId: "io.github.cdklabs",
     javaPackage: "io.github.cdklabs.cdkmonitoringconstructs",
     mavenArtifactId: "cdkmonitoringconstructs",
-    mavenEndpoint: "https://aws.oss.sonatype.org",
+    mavenEndpoint: "https://s01.oss.sonatype.org",
   },
 
   // Auto approval config
