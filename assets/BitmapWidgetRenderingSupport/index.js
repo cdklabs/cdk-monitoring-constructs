@@ -1,18 +1,15 @@
-// Ignoring some checks since the function is in pure JS
-
-/* eslint-disable */
 const aws = require('aws-sdk');
 
 const DOCS = `
           ## Display a CloudWatch bitmap graph
           Displays CloudWatch metrics as a bitmap, for faster display of metrics.
-          
+
           ### Widget parameters
           Param | Description
           ---|---
           **graph** | The graph definition. Use the parameters from the **Source** tab in CloudWatch Console's **Metrics** page.
           **useMonitorPortal** (default = true) | Flag indicating whether we want to use MonitorPortal to render the graph. False will switch to CloudWatch API.
-          
+
           ### Example parameters
           \`\`\` yaml
           useMonitorPortal: boolean
@@ -24,11 +21,11 @@ const DOCS = `
           \`\`\`
           `;
 
-exports.handler = async (event: any) => {
-    async function renderUsingCloudWatch(graph: any, width: number, height: number) {
+exports.handler = async (event) => {
+    async function renderUsingCloudWatch(graph, width, height) {
         const params = {MetricWidget: JSON.stringify(graph)};
         const region = graph.region;
-        const customBackoff = (retryCount: number) => {
+        const customBackoff = (retryCount) => {
             // Keep retrying with a random delay, long enough to overcome throttling from CW
             const delay = 300 + Math.floor(Math.random() * 500);
             console.log(`retry number ${retryCount} with a delay of ${delay} ms`);

@@ -1,4 +1,4 @@
-import aws = require("aws-sdk");
+const aws = require("aws-sdk");
 
 const region = process.env.AWS_REGION;
 const millisPerDay = 1000 * 60 * 60 * 24;
@@ -15,13 +15,13 @@ const clientOptions = {
 const cloudwatch = new aws.CloudWatch(clientOptions);
 const sm = new aws.SecretsManager(clientOptions);
 
-function daysSince(date: any, now = Date.now()) {
+function daysSince(date, now = Date.now()) {
     const millis = now - date.getTime();
     const days = millis / millisPerDay;
     return Math.floor(days);
 }
 
-exports.handler = async (event: any, context: any) => {
+exports.handler = async (event, context) => {
     console.debug("event:", JSON.stringify(event));
     console.debug("context:", JSON.stringify(context));
 
