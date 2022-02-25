@@ -2,7 +2,7 @@
   "name": "cdk-monitoring-constructs",
   "repository": {
     "type": "git",
-    "url": "git@github.com:cdklabs/cdk-monitoring-constructs.git"
+    "url": "https://github.com/cdklabs/cdk-monitoring-constructs"
   },
   "scripts": {
     "build": "npx projen build",
