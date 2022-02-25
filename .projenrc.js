@@ -19,10 +19,22 @@ const project = new awscdk.AwsCdkConstructLibrary({
   srcdir: "lib",
   testdir: "test",
 
-  // Artifact config
+  // Artifact config: Python
   publishToPypi: {
     distName: "cdk-monitoring-constructs",
     module: "cdk_monitoring_constructs",
+  },
+  // Artifact config: C#
+  publishToNuget: {
+    packageId: "Cdklabs.CdkMonitoringConstructs",
+    dotNetNamespace: "Cdklabs.CdkMonitoringConstructs",
+  },
+  // Artifact config: Java
+  publishToMaven: {
+    mavenGroupId: "io.github.cdklabs",
+    javaPackage: "io.github.cdklabs.cdkmonitoringconstructs",
+    mavenArtifactId: "cdkmonitoringconstructs",
+    mavenEndpoint: "https://aws.oss.sonatype.org",
   },
 
   // Auto approval config
