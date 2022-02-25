@@ -59,6 +59,7 @@ project.deps.addDependency(
   DependencyType.DEVENV
 );
 
+// Add some other eslint rules followed across this project
 project.eslint.addRules({
   "no-case-declarations": "off",
   "no-bitwise": "off",
