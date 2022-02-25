@@ -35,38 +35,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     tabWidth: 4,
     trailingComma: "all",
   },
-  eslint: true,
-  eslintOptions: {
-    env: {
-      es2021: true,
-    },
-    extends: [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended",
-    ],
-    parser: "@typescript-eslint/parser",
-    parserOptions: {
-      ecmaVersion: 2018,
-      sourceType: "module",
-    },
-    plugins: ["@typescript-eslint", "unused-imports"],
-    rules: {
-      "unused-imports/no-unused-imports": "error",
-      "no-case-declarations": "off",
-      "no-bitwise": "off",
-      "no-shadow": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-shadow": "off",
-      "@typescript-eslint/member-ordering": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^_" },
-      ],
-      "prettier/prettier": "error",
-    },
-  },
 });
 
 // Projen doesn't handle monocdk properly; remove @aws-cdk manually
@@ -90,5 +58,18 @@ project.deps.addDependency(
   `constructs@${CONSTRUCTS_VERSION}`,
   DependencyType.DEVENV
 );
+
+// Add some other eslint rules followed across this project
+project.eslint.addRules({
+  "no-case-declarations": "off",
+  "no-bitwise": "off",
+  "no-shadow": "off",
+  "@typescript-eslint/no-explicit-any": "off",
+  "@typescript-eslint/no-shadow": "off",
+  "@typescript-eslint/member-ordering": "off",
+  "@typescript-eslint/explicit-module-boundary-types": "off",
+  "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+  "prettier/prettier": "error",
+});
 
 project.synth();

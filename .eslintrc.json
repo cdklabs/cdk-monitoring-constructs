@@ -44,9 +44,7 @@
     "coverage"
   ],
   "rules": {
-    "prettier/prettier": [
-      "error"
-    ],
+    "prettier/prettier": "error",
     "@typescript-eslint/no-require-imports": [
       "error"
     ],
@@ -80,12 +78,8 @@
     "no-duplicate-imports": [
       "error"
     ],
-    "no-shadow": [
-      "off"
-    ],
-    "@typescript-eslint/no-shadow": [
-      "error"
-    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "off",
     "key-spacing": [
       "error"
     ],
@@ -107,23 +101,15 @@
     "dot-notation": [
       "error"
     ],
-    "no-bitwise": [
-      "error"
-    ],
-    "@typescript-eslint/member-ordering": [
+    "no-bitwise": "off",
+    "@typescript-eslint/member-ordering": "off",
+    "no-case-declarations": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": [
       "error",
       {
-        "default": [
-          "public-static-field",
-          "public-static-method",
-          "protected-static-field",
-          "protected-static-method",
-          "private-static-field",
-          "private-static-method",
-          "field",
-          "constructor",
-          "method"
-        ]
+        "argsIgnorePattern": "^_"
       }
     ]
   },
