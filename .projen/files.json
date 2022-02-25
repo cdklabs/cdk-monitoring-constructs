@@ -6,6 +6,7 @@
     ".github/workflows/auto-approve.yml",
     ".github/workflows/build.yml",
     ".github/workflows/pull-request-lint.yml",
+    ".github/workflows/release.yml",
     ".github/workflows/stale.yml",
     ".github/workflows/upgrade-main.yml",
     ".gitignore",

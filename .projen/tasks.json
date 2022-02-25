@@ -221,27 +221,6 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
-    "publish:git": {
-      "name": "publish:git",
-      "description": "Prepends the release changelog onto the project changelog, creates a release commit, and tags the release",
-      "env": {
-        "CHANGELOG": "dist/changelog.md",
-        "RELEASE_TAG_FILE": "dist/releasetag.txt",
-        "PROJECT_CHANGELOG_FILE": "CHANGELOG.md",
-        "VERSION_FILE": "dist/version.txt"
-      },
-      "steps": [
-        {
-          "builtin": "release/update-changelog"
-        },
-        {
-          "builtin": "release/tag-version"
-        },
-        {
-          "exec": "git push --follow-tags origin main"
-        }
-      ]
-    },
     "release": {
       "name": "release",
       "description": "Prepare a release from \"main\" branch",
@@ -260,9 +239,6 @@
         },
         {
           "spawn": "unbump"
-        },
-        {
-          "spawn": "publish:git"
         },
         {
           "exec": "git diff --ignore-space-at-eol --exit-code"
