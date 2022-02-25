@@ -19,6 +19,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   srcdir: "lib",
   testdir: "test",
 
+  // Non-standard includes/excludes
+  tsconfig: {
+    include: ["assets/**/*.ts"],
+    exclude: ["dist/**/*.ts"],
+  },
+
   // Artifact config: Python
   publishToPypi: {
     distName: "cdk-monitoring-constructs",
