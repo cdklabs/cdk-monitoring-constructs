@@ -25,6 +25,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: "cdk_monitoring_constructs",
   },
 
+  // Auto approval config
+  autoApproveOptions: {
+    allowedUsernames: ["cdklabs-automation"],
+    secret: "GITHUB_TOKEN",
+  },
+  autoApproveUpgrades: true,
+
   // Code linting config
   prettier: true,
   prettierOptions: {
