@@ -24,6 +24,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: "cdk-monitoring-constructs",
     module: "cdk_monitoring_constructs",
   },
+  // Artifact config: Go
+  publishToGo: {
+    moduleName: "github.com/cdklabs/cdkmonitoringconstructs",
+  },
 
   // Auto approval config
   autoApproveOptions: {

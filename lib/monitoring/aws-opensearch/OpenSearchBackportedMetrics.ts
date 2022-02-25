@@ -5,16 +5,22 @@ import {
   MetricOptions,
   Statistic,
 } from "monocdk/aws-cloudwatch";
-import * as elasticsearch from "monocdk/aws-elasticsearch";
-import * as opensearch from "monocdk/aws-opensearchservice";
+import type {
+  CfnDomain as ElasticSearchCfnDomain,
+  IDomain as ElasticSearchIDomain,
+} from "monocdk/aws-elasticsearch";
+import type {
+  CfnDomain as OpenSearchCfnDomain,
+  IDomain as OpenSearchIDomain,
+} from "monocdk/aws-opensearchservice";
 
 const ElasticsearchNamespace = "AWS/ES";
 
 export type Domain =
-  | opensearch.CfnDomain
-  | opensearch.IDomain
-  | elasticsearch.CfnDomain
-  | elasticsearch.IDomain;
+  | ElasticSearchCfnDomain
+  | ElasticSearchIDomain
+  | OpenSearchCfnDomain
+  | OpenSearchIDomain;
 
 /**
  * Backported set of metric functions added in @aws-cdk/aws-elasticsearch@1.65.0.
