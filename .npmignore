@@ -20,3 +20,5 @@ dist
 tsconfig.tsbuildinfo
 /.eslintrc.json
 !.jsii
+*.ts
+!*.d.ts
