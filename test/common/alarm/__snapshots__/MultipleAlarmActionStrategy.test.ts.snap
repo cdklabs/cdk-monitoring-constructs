@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: multiple actions 1`] = `
+Object {
+  "Resources": Object {
+    "DummyAlarm234203A9": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "DummyTopic18541D2D0",
+          },
+          Object {
+            "Ref": "DummyTopic2F00C887A",
+          },
+          Object {
+            "Ref": "DummyTopic389AA825B",
+          },
+        ],
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 1,
+        "MetricName": "Dummy",
+        "Namespace": "Dummy",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyTopic18541D2D0": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "DummyTopic2F00C887A": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "DummyTopic389AA825B": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+}
+`;

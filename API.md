@@ -35506,6 +35506,55 @@ MonitoringNamingStrategy.isAlarmFriendly(str: string)
 
 
 
+### MultipleAlarmActionStrategy <a name="MultipleAlarmActionStrategy" id="cdk-monitoring-constructs.MultipleAlarmActionStrategy"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+
+Alarm action strategy that combines multiple actions in the same order as they were given.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.MultipleAlarmActionStrategy.Initializer"></a>
+
+```typescript
+import { MultipleAlarmActionStrategy } from 'cdk-monitoring-constructs'
+
+new MultipleAlarmActionStrategy(actions: IAlarmActionStrategy[])
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy.Initializer.parameter.actions">actions</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>[]</code> | *No description.* |
+
+---
+
+##### `actions`<sup>Required</sup> <a name="actions" id="cdk-monitoring-constructs.MultipleAlarmActionStrategy.Initializer.parameter.actions"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>[]
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy.addAlarmActions">addAlarmActions</a></code> | *No description.* |
+
+---
+
+##### `addAlarmActions` <a name="addAlarmActions" id="cdk-monitoring-constructs.MultipleAlarmActionStrategy.addAlarmActions"></a>
+
+```typescript
+public addAlarmActions(props: AlarmActionStrategyProps): void
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MultipleAlarmActionStrategy.addAlarmActions.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmActionStrategyProps">AlarmActionStrategyProps</a>
+
+---
+
+
+
+
 ### NetworkLoadBalancerMetricFactory <a name="NetworkLoadBalancerMetricFactory" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory"></a>
 
 - *Implements:* <a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory">ILoadBalancerMetricFactory</a>
@@ -40155,7 +40204,7 @@ public with(options: MathExpressionOptions): IMetric
 
 ### IAlarmActionStrategy <a name="IAlarmActionStrategy" id="cdk-monitoring-constructs.IAlarmActionStrategy"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.NoopAlarmActionStrategy">NoopAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.SnsAlarmActionStrategy">SnsAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy">MultipleAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.NoopAlarmActionStrategy">NoopAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.SnsAlarmActionStrategy">SnsAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
 
 An object that appends actions to alarms.
 
