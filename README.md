@@ -20,7 +20,7 @@ Easy-to-use CDK constructs for monitoring your AWS infrastructure.
 
 ### TypeScript (NPM)
 
-> Repository: https://www.npmjs.com/package/cdk-monitoring-constructs
+> https://www.npmjs.com/package/cdk-monitoring-constructs
 
 Add the dependency to your `package.json`:
 
@@ -38,9 +38,11 @@ Add the dependency to your `package.json`:
 }
 ```
 
-### Java (Maven)
+### Java
 
-> Repository: https://mvnrepository.com/artifact/io.github.cdklabs/cdkmonitoringconstructs
+> https://mvnrepository.com/artifact/io.github.cdklabs/cdkmonitoringconstructs
+
+#### Maven
 
 Add the following Maven project to your `pom.xml`:
 
@@ -52,123 +54,65 @@ Add the following Maven project to your `pom.xml`:
 </dependency>
 ```
 
+#### Gradle
+
+```kotlin
+implementation("io.github.cdklabs:cdkmonitoringconstructs:0.0.11")
+```
+
 ### Python (PyPi)
 
-> Repository: https://pypi.org/project/cdk-monitoring-constructs/
+> https://pypi.org/project/cdk-monitoring-constructs/
 
 TODO: describe usage
 
 ### C# (Nuget)
 
-> Repository: https://www.nuget.org/packages/Cdklabs.CdkMonitoringConstructs/
+> https://www.nuget.org/packages/Cdklabs.CdkMonitoringConstructs/
 
 TODO: describe usage
 
-## Documentation
+## Features
 
 See [API](API.md) for complete auto-generated documentation.
+
+You can also browse the documentation at https://constructs.dev/packages/cdk-monitoring-constructs/
+
+| Item | Monitoring | Alarms | Notes |
+| ---- | ---------- | ------ | ----- |
+| AWS API Gateway (REST API) (`.monitorApiGateway()`) | TPS, latency, errors | Latency, error count/rate |  To see metrics, you have to enable Advanced Monitoring |
+| AWS API Gateway V2 (HTTP API) (`.monitorApiGatewayV2HttpApi()`) | TPS, latency, errors | Latency, error count/rate | To see route level metrics, you have to enable Advanced Monitoring|
+| AWS AppSync (GraphQL API) (`.monitorAppSyncApi()`) | TPS, latency, errors | Latency, error count/rate, low/high TPS | |
+| AWS Billing (`.monitorBilling()`) | AWS account cost | | [Requires enabling](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) the **Receive Billing Alerts** option in AWS Console / Billing Preferences |
+| AWS Certificate Manager (`.monitorCertificate()`) | Certificate expiration | Days until expiration | |
+| AWS CloudFront (`.monitorCloudFrontDistribution()`) | TPS, traffic, latency, errors | | |
+| AWS CodeBuild (`.monitorCodeBuildProject()`) | Build counts (total, successful, failed), failed rate, duration | Failed build count/rate, duration | |
+| AWS DynamoDB (`.monitorDynamoTable()`) | Read and write capacity provisioned / used | Consumed capacity, throttling, latency, errors | |
+| AWS DynamoDB Global Secondary Index (`.monitorDynamoTableGlobalSecondaryIndex()`) | Read and write capacity, indexing progress, throttled events | | |
+| AWS EC2 (`.monitorEC2Instances()`) | CPU, disk operations, network | | |
+| AWS EC2 Auto Scaling Groups (`.monitorAutoScalingGroup()`) | Group size, instance status | | |
+| AWS ECS (`.monitorFargateService()`, `.monitorEc2Service()`, `.monitorSimpleFargateService()`, `monitorSimpleEc2Service()`, `.monitorQueueProcessingFargateService()`, `.monitorQueueProcessingEc2Service()`) | System resources and task health | Unhealthy task count, running tasks count, CPU/memory usage, and bytes processed by load balancer (if any) | Use for ecs-patterns load balanced ec2/fargate constructs (NetworkLoadBalancedEc2Service, NetworkLoadBalancedFargateService, ApplicationLoadBalancedEc2Service, ApplicationLoadBalancedFargateService) |
+| AWS ElastiCache (`.monitorElastiCacheCluster()`) | CPU/memory usage, evictions and connections | | |
+| AWS Glue (`.monitorGlueJob()`) | Traffic, job status, memory/CPU usage | | |
+| AWS Kinesis Data Analytics (`.monitorKinesisDataAnalytics`) | Up/Downtime, CPU/memory usage, KPU usage, checkpoint metrics, and garbage collection metrics | Downtime | |
+| AWS Kinesis Data Stream (`.monitorKinesisDataStream()`) | Put/Get/Incoming Record/s and Throttling | Iterator max age | |
+| AWS Kinesis Firehose (`.monitorKinesisFirehose()`) | Number of records, requests, latency | | |
+| AWS Lambda (`.monitorLambdaFunction()`) | Latency, errors, iterator max age | Latency, errors, throttles, iterator max age | Optional Lambda Insights metrics (opt-in) support |
+| AWS Load Balancing (`.monitorNetworkLoadBalancer()`, `.monitorFargateApplicationLoadBalancer()`, `.monitorFargateNetworkLoadBalancer()`, `.monitorEc2ApplicationLoadBalancer()`, `.monitorEc2NetworkLoadBalancer()`) | System resources and task health | Unhealthy task count, running tasks count, (for Fargate/Ec2 apps) CPU/memory usage | Use for FargateService or Ec2Service backed by a NetworkLoadBalancer or ApplicationLoadBalancer |
+| AWS OpenSearch/Elasticsearch (`.monitorOpenSearchCluster()`, `.monitorElasticsearchCluster()`) | Indexing and search latency, disk/memory/CPU usage | Indexing and search latency, disk/memory/CPU usage, cluster status | |
+| AWS RDS (`.monitorRdsCluster()`) | Query duration, connections, latency, disk/CPU usage | Disk and CPU usage | |
+| AWS Redshift (`.monitorRedshiftCluster()`) | Query duration, connections, latency, disk/CPU usage | Disk and CPU usage | |
+| AWS S3 Bucket (`.monitorS3Bucket()`) | Bucket size and number of objects | | |
+| AWS SecretsManager (`.monitorSecretsManagerSecret()`) | Days since last rotation | Days since last rotation | Requires the `@aws-cdk/aws-secretsmanager:parseOwnedSecretName` [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html) |
+| AWS SNS Topic (`.monitorSnsTopic()`) | Message count, size, failed notifications | Failed notifications | |
+| AWS SQS Queue (`.monitorSqsQueue()`, `.monitorSqsQueueWithDlq()`) | Message count, age, size | Message count, age, DLQ incoming messages | |
+| AWS Step Functions (`.monitorStepFunction()`, `.monitorStepFunctionActivity()`, `monitorStepFunctionLambdaIntegration()`, `.monitorStepFunctionServiceIntegration()`) | Execution count and breakdown per state | Duration, failed, failed rate, aborted, throttled, timed out executions | |
+| CloudWatch Logs (`.monitorLog()`) | Patterns present in the log group | | |
+| Custom metrics (`.monitorCustom()`) | Addition of custom metrics into the dashboard (each group is a widget) | | Supports anomaly detection |
 
 ## Contributing/Security
 
 See [CONTRIBUTING](CONTRIBUTING.md) for more information.
-
-## Features
-
-- AWS API Gateway (REST API) (`.monitorApiGateway()`)
-    - **To see metrics, you have to enable Advanced Monitoring**
-    - monitoring of TPS, latency, errors
-    - alarm on latency, error count/rate
-- AWS API Gateway V2 (HTTP API) (`.monitorApiGatewayV2HttpApi()`)
-    - **To see route level metrics, you have to enable Advanced Monitoring**
-    - monitoring of TPS, latency, errors
-    - alarm on latency, error count/rate
-- AWS AppSync (GraphQL API) (`.monitorAppSyncApi()`)
-    - monitoring of TPS, latency, errors
-    - alarm on latency, error count/rate, low/high TPS
-- AWS Certificate Manager (`.monitorCertificate()`)
-    - monitoring of certificate expiration
-    - alarm on days until expiration
-- AWS CloudFront (`.monitorCloudFrontDistribution()`)
-    - monitoring of TPS, traffic, latency, errors
-    - no alarms supported yet
-- AWS CodeBuild (`.monitorCodeBuildProject()`)
-    - monitoring of build counts (total, successful, failed), failed rate, duration
-    - alarm on failed build count/rate, duration
-- AWS DynamoDB (`.monitorDynamoTable()`)
-    - monitoring of read and write capacity provisioned / used
-    - alarm on consumed capacity, throttling, latency, errors
-- AWS DynamoDB Global Secondary Index (`.monitorDynamoTableGlobalSecondaryIndex()`)
-    - monitoring of read and write capacity, indexing progress, throttled events
-    - no alarm support yet
-- AWS EC2 (`.monitorEC2Instances()`)
-    - monitoring of CPU, disk operations, network
-    - no alarms supported yet
-- AWS EC2 Auto Scaling Groups (`.monitorAutoScalingGroup()`)
-    - monitoring of group size, instance status
-    - no alarms supported yet
-- AWS ECS (`.monitorFargateService()`, `.monitorEc2Service()`, `.monitorSimpleFargateService()`, `monitorSimpleEc2Service()`, `.monitorQueueProcessingFargateService()`, `.monitorQueueProcessingEc2Service()`)
-    - monitoring of system resources and task health
-    - alarm on unhealthy task count, running tasks count, CPU/memory usage, and bytes processed by load balancer (if any)
-    - use for ecs-patterns load balanced ec2/fargate constructs (NetworkLoadBalancedEc2Service, NetworkLoadBalancedFargateService, ApplicationLoadBalancedEc2Service, ApplicationLoadBalancedFargateService)
-- AWS ElastiCache (`.monitorElastiCacheCluster()`)
-    - monitoring of CPU/memory usage, evictions and connections
-    - no alarms supported yet
-- AWS Glue (`.monitorGlueJob()`)
-    - monitoring of traffic, job status, memory/CPU usage
-    - no alarms supported yet
-- AWS Kinesis Data Analytics (`.monitorKinesisDataAnalytics`)
-    - monitoring of Up/Downtime, CPU/memory usage, KPU usage, checkpoint metrics, and garbage collection metrics
-    - alarm on downtime
-- AWS Kinesis Data Stream (`.monitorKinesisDataStream()`)
-    - monitoring of Put/Get/Incoming Record/s and Throttling
-    - alarm on iterator max age
-- AWS Kinesis Firehose (`.monitorKinesisFirehose()`)
-    - monitoring of number of records, requests, latency
-    - no alarms supported yet
-- AWS Lambda (`.monitorLambdaFunction()`)
-    - monitoring of latency, errors, iterator max age
-    - alarm on latency, errors, throttles, iterator max age
-    - monitoring of Lambda Insights metrics (opt-in)
-- AWS Load Balancing (`.monitorNetworkLoadBalancer()`, `.monitorFargateApplicationLoadBalancer()`, `.monitorFargateNetworkLoadBalancer()`, `.monitorEc2ApplicationLoadBalancer()`, `.monitorEc2NetworkLoadBalancer()`)
-    - monitoring of system resources and task health
-    - alarm on unhealthy task count, running tasks count, (for Fargate/Ec2 apps) CPU/memory usage
-    - use for FargateService or Ec2Service backed by a NetworkLoadBalancer or ApplicationLoadBalancer.
-- AWS OpenSearch/Elasticsearch (`.monitorOpenSearchCluster()`/`.monitorElasticsearchCluster()`)
-    - monitoring of indexing and search latency, disk/memory/CPU usage
-    - alarm on indexing and search latency, disk/memory/CPU usage, cluster status
-- AWS RDS (`.monitorRdsCluster()`)
-    - monitoring of query duration, connections, latency, disk/CPU usage
-    - alarm on disk and CPU usage
-- AWS Redshift (`.monitorRedshiftCluster()`)
-    - monitoring of query duration, connections, latency, disk/CPU usage
-    - alarm on disk and CPU usage
-- AWS S3 Bucket (`.monitorS3Bucket()`)
-    - monitoring of bucket size and number of objects
-    - no alarms supported yet
-- AWS SecretsManager (`.monitorSecretsManagerSecret()`)
-    - monitoring of days since last rotation
-    - alarm on days since last rotation
-    - requires the `@aws-cdk/aws-secretsmanager:parseOwnedSecretName` [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html)
-- AWS SNS Topic (`.monitorSnsTopic()`)
-    - monitoring of message count, size, failed notifications
-    - alarm on failed notifications
-- AWS SQS Queue (`.monitorSqsQueue()`, `.monitorSqsQueueWithDlq()`)
-    - monitoring of message count, age, size
-    - alarm on message count, age
-    - the same alarms for dead letter queue (DLQ)
-    - DLQ alarm on incoming messages
-- AWS Step Functions (`.monitorStepFunction()`, `.monitorStepFunctionActivity()`,
-  `.monitorStepFunctionLambdaIntegration()`, `.monitorStepFunctionServiceIntegration()`)
-    - monitoring of execution count and breakdown per state
-    - alarms on duration, failed, failed rate, aborted, throttled, timed out executions
-- AWS Billing (`.monitorBilling()`)
-    - monitoring AWS account cost ([you need to enable](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) the **Receive Billing Alerts** option in AWS Console / Billing Preferences)
-    - no alarms support yet
-- CloudWatch Logs (`.monitorLog()`)
-    - monitoring of patterns present in the log group
-- Custom metrics (`.monitorCustom()`)
-    - simple addition of custom metrics into the dashboard (each group is a widget)
-    - supports anomaly detection
 
 ## License
 
