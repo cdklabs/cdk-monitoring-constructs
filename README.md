@@ -18,8 +18,8 @@ Add the dependency to your `package.json`:
     "cdk-monitoring-constructs": "^0.0.11",
 
     // peer dependencies
-    "constructs": "^3.3.69",  // 3.3.69 >= x < 4.0.0
-    "monocdk": "^1.123.0",    // 1.123.0 >= x < 2.0.0
+    "constructs": "^3.3.69",
+    "monocdk": "^1.123.0",
 
     // (your other dependencies)
   }
@@ -33,7 +33,6 @@ Add the dependency to your `package.json`:
 Add the following Maven project to your `pom.xml`:
 
 ```xml
-<!-- https://mvnrepository.com/artifact/io.github.cdklabs/cdkmonitoringconstructs -->
 <dependency>
     <groupId>io.github.cdklabs</groupId>
     <artifactId>cdkmonitoringconstructs</artifactId>
@@ -55,8 +54,11 @@ TODO: describe usage
 
 ## Documentation
 
-* See [API](API.md) for complete auto-generated documentation.
-* See [CONTRIBUTING](CONTRIBUTING.md) for more information about contributing back to this project.
+See [API](API.md) for complete auto-generated documentation.
+
+## Contributing/Security
+
+See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
 ## Features
 
