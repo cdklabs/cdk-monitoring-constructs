@@ -1,8 +1,20 @@
-## cdk-monitoring-constructs
+# CDK Monitoring Constructs
 
 ⚠️ This package isn't ready for use yet! ⚠️
 
-> Easy-to-use CDK constructs for monitoring your AWS infrastructure
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/cdklabs/cdk-monitoring-constructs)
+[![NPM version](https://badge.fury.io/js/cdk-monitoring-constructs.svg)](https://badge.fury.io/js/cdk-monitoring-constructs)
+[![PyPI version](https://badge.fury.io/py/cdk-monitoring-constructs.svg)](https://badge.fury.io/py/cdk-monitoring-constructs)
+[![NuGet version](https://badge.fury.io/nu/Cdklabs.CdkMonitoringConstructs.svg)](https://badge.fury.io/nu/Cdklabs.CdkMonitoringConstructs)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.cdklabs/cdkmonitoringconstructs/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.cdklabs/cdkmonitoringconstructs)
+[![Mergify](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/cdklabs/cdk-monitoring-constructs&style=flat)](https://mergify.io)
+
+Easy-to-use CDK constructs for monitoring your AWS infrastructure.
+
+* Easily add commonly-used alarms using predefined properties
+* Generate concise Cloudwatch dashboards that indicate your alarms
+* Extend the library with your own extensions or custom metrics
+* Consume the library in multiple languages (see below)
 
 ## Usage
 
