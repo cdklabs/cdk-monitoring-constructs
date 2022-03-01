@@ -47,7 +47,7 @@ Add the following Maven project to your `pom.xml`:
 
 TODO: describe usage
 
-### C# (Nugget)
+### C# (Nuget)
 
 > Repository: https://www.nuget.org/packages/Cdklabs.CdkMonitoringConstructs/
 
