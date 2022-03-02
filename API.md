@@ -738,6 +738,7 @@ new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRdsCluster">monitorRdsCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRedshiftCluster">monitorRedshiftCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorS3Bucket">monitorS3Bucket</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorScope">monitorScope</a></code> | Monitor all the resources in the given scope. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManagerSecret">monitorSecretsManagerSecret</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSimpleEc2Service">monitorSimpleEc2Service</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSimpleFargateService">monitorSimpleFargateService</a></code> | *No description.* |
@@ -1424,6 +1425,26 @@ public monitorS3Bucket(props: S3BucketMonitoringProps): MonitoringFacade
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorS3Bucket.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.S3BucketMonitoringProps">S3BucketMonitoringProps</a>
+
+---
+
+##### `monitorScope` <a name="monitorScope" id="cdk-monitoring-constructs.MonitoringFacade.monitorScope"></a>
+
+```typescript
+public monitorScope(scope: Construct, aspectProps?: MonitoringAspectProps): void
+```
+
+Monitor all the resources in the given scope.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.MonitoringFacade.monitorScope.parameter.scope"></a>
+
+- *Type:* monocdk.Construct
+
+---
+
+###### `aspectProps`<sup>Optional</sup> <a name="aspectProps" id="cdk-monitoring-constructs.MonitoringFacade.monitorScope.parameter.aspectProps"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectProps">MonitoringAspectProps</a>
 
 ---
 
@@ -19277,6 +19298,64 @@ public readonly minRunningTasks: number;
 
 ---
 
+### MonitoringAspectProps <a name="MonitoringAspectProps" id="cdk-monitoring-constructs.MonitoringAspectProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MonitoringAspectProps.Initializer"></a>
+
+```typescript
+import { MonitoringAspectProps } from 'cdk-monitoring-constructs'
+
+const monitoringAspectProps: MonitoringAspectProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.acm">acm</a></code> | <code>boolean</code> | Automatically monitor ACM Certificats in the scope. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway">apiGateway</a></code> | <code>boolean</code> | Automatically monitor API Gateway Rest Apis in the scope. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2">apiGatewayV2</a></code> | <code>boolean</code> | Automatically monitor API Gateway HTTP Apis in the scope. |
+
+---
+
+##### `acm`<sup>Optional</sup> <a name="acm" id="cdk-monitoring-constructs.MonitoringAspectProps.property.acm"></a>
+
+```typescript
+public readonly acm: boolean;
+```
+
+- *Type:* boolean
+
+Automatically monitor ACM Certificats in the scope.
+
+---
+
+##### `apiGateway`<sup>Optional</sup> <a name="apiGateway" id="cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway"></a>
+
+```typescript
+public readonly apiGateway: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically monitor API Gateway Rest Apis in the scope.
+
+---
+
+##### `apiGatewayV2`<sup>Optional</sup> <a name="apiGatewayV2" id="cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2"></a>
+
+```typescript
+public readonly apiGatewayV2: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically monitor API Gateway HTTP Apis in the scope.
+
+---
+
 ### MonitoringDashboardsOverrideProps <a name="MonitoringDashboardsOverrideProps" id="cdk-monitoring-constructs.MonitoringDashboardsOverrideProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MonitoringDashboardsOverrideProps.Initializer"></a>
@@ -35337,6 +35416,64 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+
+
+
+### MonitoringAspect <a name="MonitoringAspect" id="cdk-monitoring-constructs.MonitoringAspect"></a>
+
+- *Implements:* monocdk.IAspect
+
+A CDK aspect that adds support for monitoring all resources within scope.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.MonitoringAspect.Initializer"></a>
+
+```typescript
+import { MonitoringAspect } from 'cdk-monitoring-constructs'
+
+new MonitoringAspect(monitoringFacade: MonitoringFacade, props?: MonitoringAspectProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspect.Initializer.parameter.monitoringFacade">monitoringFacade</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringFacade">MonitoringFacade</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspect.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps">MonitoringAspectProps</a></code> | *No description.* |
+
+---
+
+##### `monitoringFacade`<sup>Required</sup> <a name="monitoringFacade" id="cdk-monitoring-constructs.MonitoringAspect.Initializer.parameter.monitoringFacade"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringFacade">MonitoringFacade</a>
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectProps">MonitoringAspectProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspect.visit">visit</a></code> | (experimental) All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="cdk-monitoring-constructs.MonitoringAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+(experimental) All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.MonitoringAspect.visit.parameter.node"></a>
+
+- *Type:* monocdk.IConstruct
+
+---
 
 
 
