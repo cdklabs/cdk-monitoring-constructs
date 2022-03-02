@@ -16,13 +16,14 @@ Easy-to-use CDK constructs for monitoring your AWS infrastructure.
 * Extend the library with your own extensions or custom metrics
 * Consume the library in multiple languages (see below)
 
-## Usage
 
-### TypeScript (NPM)
+## Installation
+
+<details><summary><strong>TypeScript</strong></summary>
 
 > https://www.npmjs.com/package/cdk-monitoring-constructs
 
-Add the dependency to your `package.json`:
+In your `package.json`:
 
 ```json
 {
@@ -37,8 +38,9 @@ Add the dependency to your `package.json`:
   }
 }
 ```
+</details>
 
-### Java
+<details><summary><strong>Java</strong></summary>
 
 > https://mvnrepository.com/artifact/io.github.cdklabs/cdkmonitoringconstructs
 
@@ -59,18 +61,22 @@ Add the following Maven project to your `pom.xml`:
 ```kotlin
 implementation("io.github.cdklabs:cdkmonitoringconstructs:0.0.11")
 ```
+</details>
 
-### Python (PyPi)
+<details><summary><strong>Python</strong></summary>
 
 > https://pypi.org/project/cdk-monitoring-constructs/
 
 TODO: describe usage
+</details>
 
-### C# (Nuget)
+<details><summary><strong>C#</strong></summary>
 
 > https://www.nuget.org/packages/Cdklabs.CdkMonitoringConstructs/
 
 TODO: describe usage
+</details>
+
 
 ## Features
 
@@ -110,9 +116,104 @@ You can also browse the documentation at https://constructs.dev/packages/cdk-mon
 | CloudWatch Logs (`.monitorLog()`) | Patterns present in the log group | | |
 | Custom metrics (`.monitorCustom()`) | Addition of custom metrics into the dashboard (each group is a widget) | | Supports anomaly detection |
 
+
+## Getting started
+
+### Create monitoring stack and facade
+
+_Important note_: **Please, do NOT import anything from the `/dist/lib` package.** This is unsupported and might break any time.
+
+Create an instance of `MonitoringFacade`, which is the main entry point:
+
+```ts
+export interface MonitoringStackProps extends DeploymentStackProps {
+  // ...
+}
+
+export class MonitoringStack extends DeploymentStack {
+  constructor(parent: App, name: string, props: MonitoringStackProps) {
+    super(parent, name, props);
+
+    const monitoring = new MonitoringFacade(this, "Monitoring", {
+      // Define all necessary props
+    });
+
+    // Setup your monitoring
+    monitoring
+      .addLargeHeader("Storage")
+      .monitorDynamoTable({ /* table1 */ })
+      .monitorDynamoTable({ /* table2 */ })
+      .monitorDynamoTable({ /* table3 */ })
+      // ...and more
+  }
+}
+```
+
+### Set up your monitoring
+
+Once the facade is created, you can use it to call methods like `.monitorLambdaFunction()` and chain them together to define your monitors.
+
+You can also use facade methods to add your own widgets, headers of various sizes, and more.
+
+
+### Customize actions
+
+Alarms should have an action setup, otherwise they are not very useful. Currently, we support notifying an SNS queue.
+
+```ts
+const onAlarmTopic = new Topic(this, "AlarmTopic");
+
+const monitoring = new MonitoringFacade(this, "Monitoring", {
+  // ...other props
+  alarmFactoryDefaults: {
+    // ....other props
+    action: new SnsAlarmActionStrategy({ onAlarmTopic }),
+  },
+});
+```
+
+You can override the default topic for any alarm like this:
+
+```ts
+monitoring
+  .monitorSomething(something, {
+    addSomeAlarm: {
+      Warning: {
+        // ...other props
+        threshold: 42,
+        actionOverride: new SnsAlarmActionStrategy({ onAlarmTopic }),
+      }
+    }
+  });
+```
+
+### Custom metrics
+
+For simply adding some custom metrics, you can use `.monitorCustom()` and specify your own title and metric groups.
+Each metric group will be rendered as a single graph widget, and all widgets will be placed next to each other.
+All the widgets will have the same size, which is chosen based on the number of groups to maximize dashboard space usage.
+
+Custom metric monitoring can be created for simple metrics, simple metrics with anomaly detection and search metrics.
+The first two also support alarming.
+
+### Custom monitoring
+
+If you want even more flexibility, you can create your own Dashboard Segment.
+
+This is a general procedure on how to do it:
+
+1. Extend the `Monitoring` ckass
+1. Override the `widgets()` method (and/or similar ones)
+1. Leverage the metric factor and alarm factory, provided by the base class (you can create additional factories, if you will)
+1. Add all alarms to `.addAlarm()` so they are visible to the user and being placed on the alarm summary dashboard
+
+Both of these monitoring base classes are dashboard segments, so you can add them to your monitoring by calling `.addSegment()`.
+
+
 ## Contributing/Security
 
 See [CONTRIBUTING](CONTRIBUTING.md) for more information.
+
 
 ## License
 
