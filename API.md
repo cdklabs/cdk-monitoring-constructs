@@ -3735,6 +3735,226 @@ public readonly rateComputationMethod: RateComputationMethod;
 
 ---
 
+### ApiGatewayMonitoringOptions <a name="ApiGatewayMonitoringOptions" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.Initializer"></a>
+
+```typescript
+import { ApiGatewayMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const apiGatewayMonitoringOptions: ApiGatewayMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.add4XXErrorCountAlarm">add4XXErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.add4XXErrorRateAlarm">add4XXErrorRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.add5XXFaultCountAlarm">add5XXFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.add5XXFaultRateAlarm">add5XXFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `add4XXErrorCountAlarm`<sup>Optional</sup> <a name="add4XXErrorCountAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.add4XXErrorCountAlarm"></a>
+
+```typescript
+public readonly add4XXErrorCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add4XXErrorRateAlarm`<sup>Optional</sup> <a name="add4XXErrorRateAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.add4XXErrorRateAlarm"></a>
+
+```typescript
+public readonly add4XXErrorRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `add5XXFaultCountAlarm`<sup>Optional</sup> <a name="add5XXFaultCountAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.add5XXFaultCountAlarm"></a>
+
+```typescript
+public readonly add5XXFaultCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add5XXFaultRateAlarm`<sup>Optional</sup> <a name="add5XXFaultRateAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.add5XXFaultRateAlarm"></a>
+
+```typescript
+public readonly add5XXFaultRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addHighTpsAlarm`<sup>Optional</sup> <a name="addHighTpsAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addHighTpsAlarm"></a>
+
+```typescript
+public readonly addHighTpsAlarm: {[ key: string ]: HighTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}
+
+---
+
+##### `addLatencyP50Alarm`<sup>Optional</sup> <a name="addLatencyP50Alarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyP50Alarm"></a>
+
+```typescript
+public readonly addLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP90Alarm`<sup>Optional</sup> <a name="addLatencyP90Alarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyP90Alarm"></a>
+
+```typescript
+public readonly addLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP99Alarm`<sup>Optional</sup> <a name="addLatencyP99Alarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyP99Alarm"></a>
+
+```typescript
+public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLowTpsAlarm"></a>
+
+```typescript
+public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}
+
+---
+
 ### ApiGatewayMonitoringProps <a name="ApiGatewayMonitoringProps" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.Initializer"></a>
@@ -4437,6 +4657,259 @@ public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
 ---
 
 ##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLowTpsAlarm"></a>
+
+```typescript
+public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}
+
+---
+
+### ApiGatewayV2MonitoringOptions <a name="ApiGatewayV2MonitoringOptions" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.Initializer"></a>
+
+```typescript
+import { ApiGatewayV2MonitoringOptions } from 'cdk-monitoring-constructs'
+
+const apiGatewayV2MonitoringOptions: ApiGatewayV2MonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.add4xxCountAlarm">add4xxCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.add4xxRateAlarm">add4xxRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.add5xxCountAlarm">add5xxCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.add5xxRateAlarm">add5xxRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyP50Alarm">addIntegrationLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyP90Alarm">addIntegrationLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyP99Alarm">addIntegrationLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `add4xxCountAlarm`<sup>Optional</sup> <a name="add4xxCountAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.add4xxCountAlarm"></a>
+
+```typescript
+public readonly add4xxCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add4xxRateAlarm`<sup>Optional</sup> <a name="add4xxRateAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.add4xxRateAlarm"></a>
+
+```typescript
+public readonly add4xxRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `add5xxCountAlarm`<sup>Optional</sup> <a name="add5xxCountAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.add5xxCountAlarm"></a>
+
+```typescript
+public readonly add5xxCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add5xxRateAlarm`<sup>Optional</sup> <a name="add5xxRateAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.add5xxRateAlarm"></a>
+
+```typescript
+public readonly add5xxRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addHighTpsAlarm`<sup>Optional</sup> <a name="addHighTpsAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addHighTpsAlarm"></a>
+
+```typescript
+public readonly addHighTpsAlarm: {[ key: string ]: HighTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}
+
+---
+
+##### `addIntegrationLatencyP50Alarm`<sup>Optional</sup> <a name="addIntegrationLatencyP50Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyP50Alarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addIntegrationLatencyP90Alarm`<sup>Optional</sup> <a name="addIntegrationLatencyP90Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyP90Alarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addIntegrationLatencyP99Alarm`<sup>Optional</sup> <a name="addIntegrationLatencyP99Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyP99Alarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP50Alarm`<sup>Optional</sup> <a name="addLatencyP50Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyP50Alarm"></a>
+
+```typescript
+public readonly addLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP90Alarm`<sup>Optional</sup> <a name="addLatencyP90Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyP90Alarm"></a>
+
+```typescript
+public readonly addLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP99Alarm`<sup>Optional</sup> <a name="addLatencyP99Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyP99Alarm"></a>
+
+```typescript
+public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLowTpsAlarm"></a>
 
 ```typescript
 public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
@@ -19447,7 +19920,9 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.acm">acm</a></code> | <code>boolean</code> | Automatically monitor ACM Certificates in the scope. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway">apiGateway</a></code> | <code>boolean</code> | Automatically monitor API Gateway Rest Apis in the scope. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2">apiGatewayV2</a></code> | <code>boolean</code> | Automatically monitor API Gateway HTTP Apis in the scope. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.defaultAcmProps">defaultAcmProps</a></code> | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.defaultAcmMonitoringProps">defaultAcmMonitoringProps</a></code> | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a></code> | Default properties for ACM Certificates Monitoring. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.defaultApiGatewayMonitoringProps">defaultApiGatewayMonitoringProps</a></code> | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions">ApiGatewayMonitoringOptions</a></code> | Default properties for API Gateway Rest Apis Monitoring. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.defaultApiGatewayV2HttpApiMonitoringProps">defaultApiGatewayV2HttpApiMonitoringProps</a></code> | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions">ApiGatewayV2MonitoringOptions</a></code> | Default properties for API Gateway HTTP Apis Monitoring. |
 
 ---
 
@@ -19458,6 +19933,7 @@ public readonly acm: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* true
 
 Automatically monitor ACM Certificates in the scope.
 
@@ -19489,13 +19965,42 @@ Automatically monitor API Gateway HTTP Apis in the scope.
 
 ---
 
-##### `defaultAcmProps`<sup>Optional</sup> <a name="defaultAcmProps" id="cdk-monitoring-constructs.MonitoringAspectProps.property.defaultAcmProps"></a>
+##### `defaultAcmMonitoringProps`<sup>Optional</sup> <a name="defaultAcmMonitoringProps" id="cdk-monitoring-constructs.MonitoringAspectProps.property.defaultAcmMonitoringProps"></a>
 
 ```typescript
-public readonly defaultAcmProps: CertificateManagerMonitoringOptions;
+public readonly defaultAcmMonitoringProps: CertificateManagerMonitoringOptions;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a>
+- *Default:* none
+
+Default properties for ACM Certificates Monitoring.
+
+---
+
+##### `defaultApiGatewayMonitoringProps`<sup>Optional</sup> <a name="defaultApiGatewayMonitoringProps" id="cdk-monitoring-constructs.MonitoringAspectProps.property.defaultApiGatewayMonitoringProps"></a>
+
+```typescript
+public readonly defaultApiGatewayMonitoringProps: ApiGatewayMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions">ApiGatewayMonitoringOptions</a>
+- *Default:* none
+
+Default properties for API Gateway Rest Apis Monitoring.
+
+---
+
+##### `defaultApiGatewayV2HttpApiMonitoringProps`<sup>Optional</sup> <a name="defaultApiGatewayV2HttpApiMonitoringProps" id="cdk-monitoring-constructs.MonitoringAspectProps.property.defaultApiGatewayV2HttpApiMonitoringProps"></a>
+
+```typescript
+public readonly defaultApiGatewayV2HttpApiMonitoringProps: ApiGatewayV2MonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions">ApiGatewayV2MonitoringOptions</a>
+- *Default:* none
+
+Default properties for API Gateway HTTP Apis Monitoring.
 
 ---
 
