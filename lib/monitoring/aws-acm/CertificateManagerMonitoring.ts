@@ -24,11 +24,14 @@ import {
   CertificateManagerMetricFactoryProps,
 } from "./CertificateManagerMetricFactory";
 
-export interface CertificateManagerMonitoringProps
-  extends BaseMonitoringProps,
-    CertificateManagerMetricFactoryProps {
+export interface CertificateManagerMonitoringOptions
+  extends BaseMonitoringProps {
   readonly addDaysToExpiryAlarm?: Record<string, DaysToExpiryThreshold>;
 }
+
+export interface CertificateManagerMonitoringProps
+  extends CertificateManagerMonitoringOptions,
+    CertificateManagerMetricFactoryProps {}
 
 export class CertificateManagerMonitoring extends Monitoring {
   protected readonly title: string;

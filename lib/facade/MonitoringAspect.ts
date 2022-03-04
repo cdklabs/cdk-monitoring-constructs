@@ -3,26 +3,8 @@ import * as apigw from "monocdk/aws-apigateway";
 import * as apigwv2 from "monocdk/aws-apigatewayv2";
 import * as acm from "monocdk/aws-certificatemanager";
 
+import { MonitoringAspectProps } from "./aspect-types";
 import { MonitoringFacade } from "./MonitoringFacade";
-
-export interface MonitoringAspectProps {
-  /**
-   * Automatically monitor ACM Certificats in the scope
-   */
-  readonly acm?: boolean;
-
-  /**
-   * Automatically monitor API Gateway Rest Apis in the scope
-   * @default true
-   */
-  readonly apiGateway?: boolean;
-
-  /**
-   * Automatically monitor API Gateway HTTP Apis in the scope
-   * @default true
-   */
-  readonly apiGatewayV2?: boolean;
-}
 
 /**
  * A CDK aspect that adds support for monitoring all resources within scope.
@@ -34,22 +16,41 @@ export class MonitoringAspect implements IAspect {
   ) {}
 
   public visit(node: IConstruct): void {
-    const monitorAcmCertificate = this.props.acm ?? true;
-    if (monitorAcmCertificate && node instanceof acm.Certificate) {
+    this.monitorAcmCertificate(node);
+    this.monitorApiGateway(node);
+    this.monitorApiGatewayV2HttpApi(node);
+  }
+
+  private monitorAcmCertificate(node: IConstruct) {
+    const doMonitor = this.props.acm ?? true;
+    if (doMonitor && node instanceof acm.Certificate) {
       this.monitoringFacade.monitorCertificate({
         certificate: node,
         alarmFriendlyName: node.node.path,
+        ...this.props.defaultAcmMonitoringProps,
       });
     }
+  }
 
-    const monitorApiGateway = this.props.apiGateway ?? true;
-    if (monitorApiGateway && node instanceof apigw.RestApi) {
-      this.monitoringFacade.monitorApiGateway({ api: node });
+  private monitorApiGateway(node: IConstruct) {
+    const doMonitor = this.props.apiGateway ?? true;
+    if (doMonitor && node instanceof apigw.RestApi) {
+      this.monitoringFacade.monitorApiGateway({
+        api: node,
+        ...this.props.defaultApiGatewayMonitoringProps,
+      });
     }
+  }
 
-    const monitorApiGatewayV2 = this.props.apiGatewayV2 ?? true;
-    if (monitorApiGatewayV2 && node instanceof apigwv2.HttpApi) {
-      this.monitoringFacade.monitorApiGatewayV2HttpApi({ api: node });
+  private monitorApiGatewayV2HttpApi(node: IConstruct) {
+    const doMonitor = this.props.apiGatewayV2 ?? true;
+    if (doMonitor && node instanceof apigwv2.HttpApi) {
+      this.monitoringFacade.monitorApiGatewayV2HttpApi({
+        api: node,
+        ...this.props.defaultApiGatewayV2HttpApiMonitoringProps,
+      });
     }
   }
 }
+
+export * from "./aspect-types";

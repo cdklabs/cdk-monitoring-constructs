@@ -5734,6 +5734,138 @@ public readonly certificate: ICertificate;
 
 ---
 
+### CertificateManagerMonitoringOptions <a name="CertificateManagerMonitoringOptions" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.Initializer"></a>
+
+```typescript
+import { CertificateManagerMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const certificateManagerMonitoringOptions: CertificateManagerMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addDaysToExpiryAlarm">addDaysToExpiryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysToExpiryThreshold">DaysToExpiryThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addDaysToExpiryAlarm`<sup>Optional</sup> <a name="addDaysToExpiryAlarm" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addDaysToExpiryAlarm"></a>
+
+```typescript
+public readonly addDaysToExpiryAlarm: {[ key: string ]: DaysToExpiryThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DaysToExpiryThreshold">DaysToExpiryThreshold</a>}
+
+---
+
 ### CertificateManagerMonitoringProps <a name="CertificateManagerMonitoringProps" id="cdk-monitoring-constructs.CertificateManagerMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CertificateManagerMonitoringProps.Initializer"></a>
@@ -5755,8 +5887,8 @@ const certificateManagerMonitoringProps: CertificateManagerMonitoringProps = { .
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.certificate">certificate</a></code> | <code>monocdk.aws_certificatemanager.ICertificate</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.addDaysToExpiryAlarm">addDaysToExpiryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysToExpiryThreshold">DaysToExpiryThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.certificate">certificate</a></code> | <code>monocdk.aws_certificatemanager.ICertificate</code> | *No description.* |
 
 ---
 
@@ -5857,16 +5989,6 @@ Calls provided function to process all alarms created.
 
 ---
 
-##### `certificate`<sup>Required</sup> <a name="certificate" id="cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.certificate"></a>
-
-```typescript
-public readonly certificate: ICertificate;
-```
-
-- *Type:* monocdk.aws_certificatemanager.ICertificate
-
----
-
 ##### `addDaysToExpiryAlarm`<sup>Optional</sup> <a name="addDaysToExpiryAlarm" id="cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.addDaysToExpiryAlarm"></a>
 
 ```typescript
@@ -5874,6 +5996,16 @@ public readonly addDaysToExpiryAlarm: {[ key: string ]: DaysToExpiryThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DaysToExpiryThreshold">DaysToExpiryThreshold</a>}
+
+---
+
+##### `certificate`<sup>Required</sup> <a name="certificate" id="cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.certificate"></a>
+
+```typescript
+public readonly certificate: ICertificate;
+```
+
+- *Type:* monocdk.aws_certificatemanager.ICertificate
 
 ---
 
@@ -19312,9 +19444,10 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.acm">acm</a></code> | <code>boolean</code> | Automatically monitor ACM Certificats in the scope. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.acm">acm</a></code> | <code>boolean</code> | Automatically monitor ACM Certificates in the scope. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway">apiGateway</a></code> | <code>boolean</code> | Automatically monitor API Gateway Rest Apis in the scope. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2">apiGatewayV2</a></code> | <code>boolean</code> | Automatically monitor API Gateway HTTP Apis in the scope. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.defaultAcmProps">defaultAcmProps</a></code> | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a></code> | *No description.* |
 
 ---
 
@@ -19326,7 +19459,7 @@ public readonly acm: boolean;
 
 - *Type:* boolean
 
-Automatically monitor ACM Certificats in the scope.
+Automatically monitor ACM Certificates in the scope.
 
 ---
 
@@ -19353,6 +19486,16 @@ public readonly apiGatewayV2: boolean;
 - *Default:* true
 
 Automatically monitor API Gateway HTTP Apis in the scope.
+
+---
+
+##### `defaultAcmProps`<sup>Optional</sup> <a name="defaultAcmProps" id="cdk-monitoring-constructs.MonitoringAspectProps.property.defaultAcmProps"></a>
+
+```typescript
+public readonly defaultAcmProps: CertificateManagerMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a>
 
 ---
 

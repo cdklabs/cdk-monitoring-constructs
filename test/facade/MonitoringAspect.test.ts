@@ -10,23 +10,8 @@ import {
   MonitoringFacade,
 } from "../../lib";
 
-test("snapshot test: MonitoringAspect", () => {
-  // GIVEN
-  const stack = new Stack();
-
-  new acm.Certificate(stack, "DummyCertificate", {
-    domainName: "www.monitoring.cdk",
-  });
-
-  const api = new apigw.RestApi(stack, "DummyRestApi");
-  api.root.addMethod("ANY");
-
-  new apigwv2.HttpApi(stack, "DummyHttpApi", {
-    apiName: "DummyHttpApi",
-  });
-
-  // WHEN
-  const facade = new MonitoringFacade(stack, "MonitoringFacade", {
+function createDummyMonitoringFacade(stack: Stack): MonitoringFacade {
+  return new MonitoringFacade(stack, "MonitoringFacade", {
     alarmFactoryDefaults: {
       alarmNamePrefix: "DummyMonitoring",
       actionsEnabled: true,
@@ -42,8 +27,50 @@ test("snapshot test: MonitoringAspect", () => {
       renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
     }),
   });
-  facade.monitorScope(stack);
+}
 
-  // THEN
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+describe("MonitoringAspect", () => {
+  test("ACM", () => {
+    // GIVEN
+    const stack = new Stack();
+    const facade = createDummyMonitoringFacade(stack);
+    new acm.Certificate(stack, "DummyCertificate", {
+      domainName: "www.monitoring.cdk",
+    });
+
+    // WHEN
+    facade.monitorScope(stack);
+
+    // THEN
+    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  });
+
+  test("API Gateway", () => {
+    // GIVEN
+    const stack = new Stack();
+    const facade = createDummyMonitoringFacade(stack);
+    const api = new apigw.RestApi(stack, "DummyRestApi");
+    api.root.addMethod("ANY");
+
+    // WHEN
+    facade.monitorScope(stack);
+
+    // THEN
+    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  });
+
+  test("API Gateway V2", () => {
+    // GIVEN
+    const stack = new Stack();
+    const facade = createDummyMonitoringFacade(stack);
+    new apigwv2.HttpApi(stack, "DummyHttpApi", {
+      apiName: "DummyHttpApi",
+    });
+
+    // WHEN
+    facade.monitorScope(stack);
+
+    // THEN
+    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  });
 });

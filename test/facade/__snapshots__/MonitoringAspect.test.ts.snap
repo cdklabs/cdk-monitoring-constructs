@@ -1,6 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot test: MonitoringAspect 1`] = `
+exports[`MonitoringAspect ACM 1`] = `
+Object {
+  "Resources": Object {
+    "DashboardFactoryAlarmDashboard6286FAD3": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardName": "DummyDashboard-Alarms",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardFactoryDashboard3E20AD6E": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Certificate **Default/DummyCertificate**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Expiration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CertificateManager\\",\\"DaysToExpiry\\",\\"CertificateArn\\",\\"",
+              Object {
+                "Ref": "DummyCertificate611A1363",
+              },
+              "\\",{\\"label\\":\\"Days to expiry\\",\\"stat\\":\\"Minimum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "DummyDashboard",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardFactorySummaryDashboard5F4BC8C5": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"start\\":\\"-P14D\\",\\"widgets\\":[]}",
+        "DashboardName": "DummyDashboard-Summary",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DummyCertificate611A1363": Object {
+      "Properties": Object {
+        "DomainName": "www.monitoring.cdk",
+        "DomainValidationOptions": Array [
+          Object {
+            "DomainName": "www.monitoring.cdk",
+            "ValidationDomain": "cdk",
+          },
+        ],
+        "ValidationMethod": "EMAIL",
+      },
+      "Type": "AWS::CertificateManager::Certificate",
+    },
+  },
+}
+`;
+
+exports[`MonitoringAspect API Gateway 1`] = `
 Object {
   "Outputs": Object {
     "DummyRestApiEndpoint3DE3EBDB": Object {
@@ -44,95 +100,23 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Certificate **Default/DummyCertificate**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Expiration\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/CertificateManager\\",\\"DaysToExpiry\\",\\"CertificateArn\\",\\"",
-              Object {
-                "Ref": "DummyCertificate611A1363",
-              },
-              "\\",{\\"label\\":\\"Days to expiry\\",\\"stat\\":\\"Minimum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              " $default  **\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":13,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"requests / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":13,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 Latency\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 Integration Latency\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 Latency\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 Integration Latency\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 Latency\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 Integration Latency\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":13,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":13,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -158,95 +142,13 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              " $default  **\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"requests / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 Latency\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 Integration Latency\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 Latency\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 Integration Latency\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 Latency\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 Integration Latency\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
         "DashboardName": "DummyDashboard-Summary",
       },
       "Type": "AWS::CloudWatch::Dashboard",
-    },
-    "DummyCertificate611A1363": Object {
-      "Properties": Object {
-        "DomainName": "www.monitoring.cdk",
-        "DomainValidationOptions": Array [
-          Object {
-            "DomainName": "www.monitoring.cdk",
-            "ValidationDomain": "cdk",
-          },
-        ],
-        "ValidationMethod": "EMAIL",
-      },
-      "Type": "AWS::CertificateManager::Certificate",
-    },
-    "DummyHttpApi8EEBCC85": Object {
-      "Properties": Object {
-        "Name": "DummyHttpApi",
-        "ProtocolType": "HTTP",
-      },
-      "Type": "AWS::ApiGatewayV2::Api",
-    },
-    "DummyHttpApiDefaultStage62F2901C": Object {
-      "Properties": Object {
-        "ApiId": Object {
-          "Ref": "DummyHttpApi8EEBCC85",
-        },
-        "AutoDeploy": true,
-        "StageName": "$default",
-      },
-      "Type": "AWS::ApiGatewayV2::Stage",
     },
     "DummyRestApi328A173A": Object {
       "Properties": Object {
@@ -341,6 +243,181 @@ Object {
         "StageName": "prod",
       },
       "Type": "AWS::ApiGateway::Stage",
+    },
+  },
+}
+`;
+
+exports[`MonitoringAspect API Gateway V2 1`] = `
+Object {
+  "Resources": Object {
+    "DashboardFactoryAlarmDashboard6286FAD3": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardName": "DummyDashboard-Alarms",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardFactoryDashboard3E20AD6E": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              " $default  **\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"requests / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 Latency\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 Integration Latency\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 Latency\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 Integration Latency\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 Latency\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 Integration Latency\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "DummyDashboard",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardFactorySummaryDashboard5F4BC8C5": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              " $default  **\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"requests / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 Latency\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 Integration Latency\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 Latency\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 Integration Latency\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 Latency\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 Integration Latency\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "DummyHttpApi8EEBCC85",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "DummyDashboard-Summary",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DummyHttpApi8EEBCC85": Object {
+      "Properties": Object {
+        "Name": "DummyHttpApi",
+        "ProtocolType": "HTTP",
+      },
+      "Type": "AWS::ApiGatewayV2::Api",
+    },
+    "DummyHttpApiDefaultStage62F2901C": Object {
+      "Properties": Object {
+        "ApiId": Object {
+          "Ref": "DummyHttpApi8EEBCC85",
+        },
+        "AutoDeploy": true,
+        "StageName": "$default",
+      },
+      "Type": "AWS::ApiGatewayV2::Stage",
     },
   },
 }

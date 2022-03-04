@@ -37,9 +37,7 @@ import {
   ApiGatewayMetricFactoryProps,
 } from "./ApiGatewayMetricFactory";
 
-export interface ApiGatewayMonitoringProps
-  extends ApiGatewayMetricFactoryProps,
-    BaseMonitoringProps {
+export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
@@ -50,6 +48,10 @@ export interface ApiGatewayMonitoringProps
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
   readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
 }
+
+export interface ApiGatewayMonitoringProps
+  extends ApiGatewayMetricFactoryProps,
+    ApiGatewayMonitoringOptions {}
 
 export class ApiGatewayMonitoring extends Monitoring {
   protected readonly title: string;
