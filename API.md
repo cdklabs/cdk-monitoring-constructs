@@ -22558,7 +22558,7 @@ const monitoringAspectType: MonitoringAspectType = { ... }
 
 ---
 
-##### `enabled`<sup>Required</sup> <a name="enabled" id="cdk-monitoring-constructs.MonitoringAspectType.property.enabled"></a>
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.MonitoringAspectType.property.enabled"></a>
 
 ```typescript
 public readonly enabled: boolean;
