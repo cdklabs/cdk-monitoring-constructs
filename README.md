@@ -209,6 +209,28 @@ This is a general procedure on how to do it:
 
 Both of these monitoring base classes are dashboard segments, so you can add them to your monitoring by calling `.addSegment()`.
 
+### Monitoring Scopes
+
+With CDK Monitoring Constructs, you can monitor complete CDK construct scopes. It will automatically discover all monitorable resources within the scope (recursively)) and add them to your dashboard.
+
+```ts
+monitoring.monitorScope(stack);
+```
+
+You can also specify default alarms for any specific resource and disable automatic monitoring for it as well.
+
+```ts
+monitoring.monitorScope(stack, {
+  lambda: {
+    props: {
+      addLatencyP50Alarm: {
+        Critical: { maxLatency: Duration.seconds(10) },
+      },
+    },
+  },
+  billing: { enabled: false },
+});
+```
 
 ## Contributing/Security
 

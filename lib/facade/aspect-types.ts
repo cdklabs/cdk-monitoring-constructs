@@ -30,7 +30,7 @@ export interface MonitoringAspectType<T> {
    * If the monitoring aspect is enabled for this resource.
    * @default true
    */
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
   /**
    * The monitoring props for this resource.
