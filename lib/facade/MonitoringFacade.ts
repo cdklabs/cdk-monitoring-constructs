@@ -621,6 +621,7 @@ export class MonitoringFacade extends MonitoringScope {
    * Monitor all the resources in the given scope.
    * @param scope
    * @param aspectProps
+   * @experimental
    */
   monitorScope(scope: Construct, aspectProps?: MonitoringAspectProps) {
     const aspect = new MonitoringAspect(this, aspectProps);

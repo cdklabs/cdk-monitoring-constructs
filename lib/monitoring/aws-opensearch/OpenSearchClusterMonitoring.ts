@@ -40,9 +40,8 @@ import {
   OpenSearchClusterMetricFactoryProps,
 } from "./OpenSearchClusterMetricFactory";
 
-export interface OpenSearchClusterMonitoringProps
-  extends OpenSearchClusterMetricFactoryProps,
-    BaseMonitoringProps {
+export interface OpenSearchClusterMonitoringOptions
+  extends BaseMonitoringProps {
   readonly addIndexingLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addIndexingLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addIndexingLatencyP99Alarm?: Record<string, LatencyThreshold>;
@@ -76,6 +75,10 @@ export interface OpenSearchClusterMonitoringProps
     OpenSearchKmsKeyInaccessibleThreshold
   >;
 }
+
+export interface OpenSearchClusterMonitoringProps
+  extends OpenSearchClusterMetricFactoryProps,
+    OpenSearchClusterMonitoringOptions {}
 
 export class OpenSearchClusterMonitoring extends Monitoring {
   protected readonly title: string;

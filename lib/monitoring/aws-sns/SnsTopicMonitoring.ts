@@ -30,9 +30,7 @@ import {
   SnsTopicMetricFactoryProps,
 } from "./SnsTopicMetricFactory";
 
-export interface SnsTopicMonitoringProps
-  extends SnsTopicMetricFactoryProps,
-    BaseMonitoringProps {
+export interface SnsTopicMonitoringOptions extends BaseMonitoringProps {
   readonly addMessageNotificationsFailedAlarm?: Record<
     string,
     NotificationsFailedThreshold
@@ -46,6 +44,10 @@ export interface SnsTopicMonitoringProps
     HighMessagesPublishedThreshold
   >;
 }
+
+export interface SnsTopicMonitoringProps
+  extends SnsTopicMetricFactoryProps,
+    SnsTopicMonitoringOptions {}
 
 export class SnsTopicMonitoring extends Monitoring {
   protected readonly title: string;

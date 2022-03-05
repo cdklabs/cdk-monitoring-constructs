@@ -21,9 +21,11 @@ import {
   KinesisFirehoseMetricFactoryProps,
 } from "./KinesisFirehoseMetricFactory";
 
+export interface KinesisFirehoseMonitoringOptions extends BaseMonitoringProps {}
+
 export interface KinesisFirehoseMonitoringProps
   extends KinesisFirehoseMetricFactoryProps,
-    BaseMonitoringProps {}
+    KinesisFirehoseMonitoringOptions {}
 
 export class KinesisFirehoseMonitoring extends Monitoring {
   protected readonly title: string;

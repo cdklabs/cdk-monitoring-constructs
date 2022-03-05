@@ -54,10 +54,13 @@ export interface BaseSqsQueueAlarms {
   >;
 }
 
+export interface SqsQueueMonitoringOptions
+  extends BaseSqsQueueAlarms,
+    BaseMonitoringProps {}
+
 export interface SqsQueueMonitoringProps
   extends SqsQueueMetricFactoryProps,
-    BaseMonitoringProps,
-    BaseSqsQueueAlarms {}
+    SqsQueueMonitoringOptions {}
 
 export class SqsQueueMonitoring extends Monitoring {
   protected readonly title: string;

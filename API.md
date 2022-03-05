@@ -1083,12 +1083,12 @@ public monitorAutoScalingGroup(props: AutoScalingGroupMonitoringProps): Monitori
 ##### `monitorBilling` <a name="monitorBilling" id="cdk-monitoring-constructs.MonitoringFacade.monitorBilling"></a>
 
 ```typescript
-public monitorBilling(props?: BaseMonitoringProps): MonitoringFacade
+public monitorBilling(props?: BillingMonitoringProps): MonitoringFacade
 ```
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorBilling.parameter.props"></a>
 
-- *Type:* <a href="#cdk-monitoring-constructs.BaseMonitoringProps">BaseMonitoringProps</a>
+- *Type:* <a href="#cdk-monitoring-constructs.BillingMonitoringProps">BillingMonitoringProps</a>
 
 ---
 
@@ -5018,6 +5018,226 @@ method to compute TPS.
 
 ---
 
+### AppSyncMonitoringOptions <a name="AppSyncMonitoringOptions" id="cdk-monitoring-constructs.AppSyncMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.Initializer"></a>
+
+```typescript
+import { AppSyncMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const appSyncMonitoringOptions: AppSyncMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.add4XXErrorCountAlarm">add4XXErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.add4XXErrorRateAlarm">add4XXErrorRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.add5XXFaultCountAlarm">add5XXFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.add5XXFaultRateAlarm">add5XXFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `add4XXErrorCountAlarm`<sup>Optional</sup> <a name="add4XXErrorCountAlarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.add4XXErrorCountAlarm"></a>
+
+```typescript
+public readonly add4XXErrorCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add4XXErrorRateAlarm`<sup>Optional</sup> <a name="add4XXErrorRateAlarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.add4XXErrorRateAlarm"></a>
+
+```typescript
+public readonly add4XXErrorRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `add5XXFaultCountAlarm`<sup>Optional</sup> <a name="add5XXFaultCountAlarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.add5XXFaultCountAlarm"></a>
+
+```typescript
+public readonly add5XXFaultCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add5XXFaultRateAlarm`<sup>Optional</sup> <a name="add5XXFaultRateAlarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.add5XXFaultRateAlarm"></a>
+
+```typescript
+public readonly add5XXFaultRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addHighTpsAlarm`<sup>Optional</sup> <a name="addHighTpsAlarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addHighTpsAlarm"></a>
+
+```typescript
+public readonly addHighTpsAlarm: {[ key: string ]: HighTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}
+
+---
+
+##### `addLatencyP50Alarm`<sup>Optional</sup> <a name="addLatencyP50Alarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLatencyP50Alarm"></a>
+
+```typescript
+public readonly addLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP90Alarm`<sup>Optional</sup> <a name="addLatencyP90Alarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLatencyP90Alarm"></a>
+
+```typescript
+public readonly addLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP99Alarm`<sup>Optional</sup> <a name="addLatencyP99Alarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLatencyP99Alarm"></a>
+
+```typescript
+public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLowTpsAlarm"></a>
+
+```typescript
+public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}
+
+---
+
 ### AppSyncMonitoringProps <a name="AppSyncMonitoringProps" id="cdk-monitoring-constructs.AppSyncMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AppSyncMonitoringProps.Initializer"></a>
@@ -5039,9 +5259,6 @@ const appSyncMonitoringProps: AppSyncMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>monocdk.aws_appsync.GraphqlApi</code> | the GraphQL API to monitor. |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.add4XXErrorCountAlarm">add4XXErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.add4XXErrorRateAlarm">add4XXErrorRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.add5XXFaultCountAlarm">add5XXFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
@@ -5051,6 +5268,9 @@ const appSyncMonitoringProps: AppSyncMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>monocdk.aws_appsync.GraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
 ---
 
@@ -5151,44 +5371,6 @@ Calls provided function to process all alarms created.
 
 ---
 
-##### `api`<sup>Required</sup> <a name="api" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.api"></a>
-
-```typescript
-public readonly api: GraphqlApi;
-```
-
-- *Type:* monocdk.aws_appsync.GraphqlApi
-
-the GraphQL API to monitor.
-
----
-
-##### `fillTpsWithZeroes`<sup>Optional</sup> <a name="fillTpsWithZeroes" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes"></a>
-
-```typescript
-public readonly fillTpsWithZeroes: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-whether the TPS should be filled with zeroes.
-
----
-
-##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod"></a>
-
-```typescript
-public readonly rateComputationMethod: RateComputationMethod;
-```
-
-- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
-- *Default:* average
-
-method to compute TPS.
-
----
-
 ##### `add4XXErrorCountAlarm`<sup>Optional</sup> <a name="add4XXErrorCountAlarm" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.add4XXErrorCountAlarm"></a>
 
 ```typescript
@@ -5279,6 +5461,44 @@ public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
 
 ---
 
+##### `api`<sup>Required</sup> <a name="api" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.api"></a>
+
+```typescript
+public readonly api: GraphqlApi;
+```
+
+- *Type:* monocdk.aws_appsync.GraphqlApi
+
+the GraphQL API to monitor.
+
+---
+
+##### `fillTpsWithZeroes`<sup>Optional</sup> <a name="fillTpsWithZeroes" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes"></a>
+
+```typescript
+public readonly fillTpsWithZeroes: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+whether the TPS should be filled with zeroes.
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
+
+method to compute TPS.
+
+---
+
 ### AutoScalingGroupMetricFactoryProps <a name="AutoScalingGroupMetricFactoryProps" id="cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps.Initializer"></a>
@@ -5304,6 +5524,127 @@ public readonly autoScalingGroup: IAutoScalingGroup;
 ```
 
 - *Type:* monocdk.aws_autoscaling.IAutoScalingGroup
+
+---
+
+### AutoScalingGroupMonitoringOptions <a name="AutoScalingGroupMonitoringOptions" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.Initializer"></a>
+
+```typescript
+import { AutoScalingGroupMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const autoScalingGroupMonitoringOptions: AutoScalingGroupMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
 
 ---
 
@@ -6179,6 +6520,248 @@ public readonly addQueueMinSizeAlarm: {[ key: string ]: MinMessageCountThreshold
 
 ---
 
+### BillingMonitoringOptions <a name="BillingMonitoringOptions" id="cdk-monitoring-constructs.BillingMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.BillingMonitoringOptions.Initializer"></a>
+
+```typescript
+import { BillingMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const billingMonitoringOptions: BillingMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+### BillingMonitoringProps <a name="BillingMonitoringProps" id="cdk-monitoring-constructs.BillingMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.BillingMonitoringProps.Initializer"></a>
+
+```typescript
+import { BillingMonitoringProps } from 'cdk-monitoring-constructs'
+
+const billingMonitoringProps: BillingMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.BillingMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.BillingMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.BillingMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.BillingMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.BillingMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.BillingMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.BillingMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
 ### CertificateManagerMetricFactoryProps <a name="CertificateManagerMetricFactoryProps" id="cdk-monitoring-constructs.CertificateManagerMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CertificateManagerMetricFactoryProps.Initializer"></a>
@@ -6522,6 +7105,127 @@ public readonly fillTpsWithZeroes: boolean;
 
 ---
 
+### CloudFrontDistributionMonitoringOptions <a name="CloudFrontDistributionMonitoringOptions" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.Initializer"></a>
+
+```typescript
+import { CloudFrontDistributionMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const cloudFrontDistributionMonitoringOptions: CloudFrontDistributionMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
 ### CloudFrontDistributionMonitoringProps <a name="CloudFrontDistributionMonitoringProps" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.Initializer"></a>
@@ -6691,6 +7395,182 @@ public readonly project: IProject;
 ```
 
 - *Type:* monocdk.aws_codebuild.IProject
+
+---
+
+### CodeBuildProjectMonitoringOptions <a name="CodeBuildProjectMonitoringOptions" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.Initializer"></a>
+
+```typescript
+import { CodeBuildProjectMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const codeBuildProjectMonitoringOptions: CodeBuildProjectMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addDurationP50Alarm">addDurationP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addDurationP90Alarm">addDurationP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addDurationP99Alarm">addDurationP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addFailedBuildCountAlarm">addFailedBuildCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addFailedBuildRateAlarm">addFailedBuildRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addDurationP50Alarm`<sup>Optional</sup> <a name="addDurationP50Alarm" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addDurationP50Alarm"></a>
+
+```typescript
+public readonly addDurationP50Alarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addDurationP90Alarm`<sup>Optional</sup> <a name="addDurationP90Alarm" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addDurationP90Alarm"></a>
+
+```typescript
+public readonly addDurationP90Alarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addDurationP99Alarm`<sup>Optional</sup> <a name="addDurationP99Alarm" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addDurationP99Alarm"></a>
+
+```typescript
+public readonly addDurationP99Alarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addFailedBuildCountAlarm`<sup>Optional</sup> <a name="addFailedBuildCountAlarm" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addFailedBuildCountAlarm"></a>
+
+```typescript
+public readonly addFailedBuildCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addFailedBuildRateAlarm`<sup>Optional</sup> <a name="addFailedBuildRateAlarm" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addFailedBuildRateAlarm"></a>
+
+```typescript
+public readonly addFailedBuildRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
 
 ---
 
@@ -9919,6 +10799,281 @@ public readonly table: ITable;
 
 ---
 
+### DynamoTableMonitoringOptions <a name="DynamoTableMonitoringOptions" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.Initializer"></a>
+
+```typescript
+import { DynamoTableMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const dynamoTableMonitoringOptions: DynamoTableMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulBatchGetItemLatencyAlarm">addAverageSuccessfulBatchGetItemLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulBatchWriteItemLatencyAlarm">addAverageSuccessfulBatchWriteItemLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulDeleteItemLatencyAlarm">addAverageSuccessfulDeleteItemLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulGetItemLatencyAlarm">addAverageSuccessfulGetItemLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulGetRecordsLatencyAlarm">addAverageSuccessfulGetRecordsLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulPutItemLatencyAlarm">addAverageSuccessfulPutItemLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulQueryLatencyAlarm">addAverageSuccessfulQueryLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulScanLatencyAlarm">addAverageSuccessfulScanLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulUpdateItemLatencyAlarm">addAverageSuccessfulUpdateItemLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addConsumedReadCapacityAlarm">addConsumedReadCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addConsumedWriteCapacityAlarm">addConsumedWriteCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addReadThrottledEventsCountAlarm">addReadThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addSystemErrorCountAlarm">addSystemErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addWriteThrottledEventsCountAlarm">addWriteThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addAverageSuccessfulBatchGetItemLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulBatchGetItemLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulBatchGetItemLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulBatchGetItemLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addAverageSuccessfulBatchWriteItemLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulBatchWriteItemLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulBatchWriteItemLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulBatchWriteItemLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addAverageSuccessfulDeleteItemLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulDeleteItemLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulDeleteItemLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulDeleteItemLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addAverageSuccessfulGetItemLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulGetItemLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulGetItemLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulGetItemLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addAverageSuccessfulGetRecordsLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulGetRecordsLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulGetRecordsLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulGetRecordsLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addAverageSuccessfulPutItemLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulPutItemLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulPutItemLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulPutItemLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addAverageSuccessfulQueryLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulQueryLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulQueryLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulQueryLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addAverageSuccessfulScanLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulScanLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulScanLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulScanLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addAverageSuccessfulUpdateItemLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulUpdateItemLatencyAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulUpdateItemLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulUpdateItemLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addConsumedReadCapacityAlarm`<sup>Optional</sup> <a name="addConsumedReadCapacityAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addConsumedReadCapacityAlarm"></a>
+
+```typescript
+public readonly addConsumedReadCapacityAlarm: {[ key: string ]: ConsumedCapacityThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}
+
+---
+
+##### `addConsumedWriteCapacityAlarm`<sup>Optional</sup> <a name="addConsumedWriteCapacityAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addConsumedWriteCapacityAlarm"></a>
+
+```typescript
+public readonly addConsumedWriteCapacityAlarm: {[ key: string ]: ConsumedCapacityThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}
+
+---
+
+##### `addReadThrottledEventsCountAlarm`<sup>Optional</sup> <a name="addReadThrottledEventsCountAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addReadThrottledEventsCountAlarm"></a>
+
+```typescript
+public readonly addReadThrottledEventsCountAlarm: {[ key: string ]: ThrottledEventsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}
+
+---
+
+##### `addSystemErrorCountAlarm`<sup>Optional</sup> <a name="addSystemErrorCountAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addSystemErrorCountAlarm"></a>
+
+```typescript
+public readonly addSystemErrorCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addWriteThrottledEventsCountAlarm`<sup>Optional</sup> <a name="addWriteThrottledEventsCountAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addWriteThrottledEventsCountAlarm"></a>
+
+```typescript
+public readonly addWriteThrottledEventsCountAlarm: {[ key: string ]: ThrottledEventsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}
+
+---
+
 ### DynamoTableMonitoringProps <a name="DynamoTableMonitoringProps" id="cdk-monitoring-constructs.DynamoTableMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.DynamoTableMonitoringProps.Initializer"></a>
@@ -10463,6 +11618,138 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}
+
+---
+
+### EC2MonitoringOptions <a name="EC2MonitoringOptions" id="cdk-monitoring-constructs.EC2MonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EC2MonitoringOptions.Initializer"></a>
+
+```typescript
+import { EC2MonitoringOptions } from 'cdk-monitoring-constructs'
+
+const eC2MonitoringOptions: EC2MonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup">autoScalingGroup</a></code> | <code>monocdk.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup"></a>
+
+```typescript
+public readonly autoScalingGroup: IAutoScalingGroup;
+```
+
+- *Type:* monocdk.aws_autoscaling.IAutoScalingGroup
 
 ---
 
@@ -11126,6 +12413,205 @@ public readonly clusterId: string;
 - *Default:* monitor all clusters
 
 Cluster to monitor.
+
+---
+
+### ElastiCacheClusterMonitoringOptions <a name="ElastiCacheClusterMonitoringOptions" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const elastiCacheClusterMonitoringOptions: ElastiCacheClusterMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.clusterType">clusterType</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterType">ElastiCacheClusterType</a></code> | Cluster type (needed, since each type has their own specific metrics). |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add CPU usage alarm. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxEvictedItemsCountAlarm">addMaxEvictedItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on number of evicted items. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxItemsCountAlarm">addMaxItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on total number of items. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold">MaxUsedSwapMemoryThreshold</a>}</code> | Add alarm on amount of used swap memory. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}</code> | Add alarm on amount of freeable memory. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `clusterType`<sup>Required</sup> <a name="clusterType" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.clusterType"></a>
+
+```typescript
+public readonly clusterType: ElastiCacheClusterType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheClusterType">ElastiCacheClusterType</a>
+
+Cluster type (needed, since each type has their own specific metrics).
+
+---
+
+##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addCpuUsageAlarm"></a>
+
+```typescript
+public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Add CPU usage alarm.
+
+---
+
+##### `addMaxEvictedItemsCountAlarm`<sup>Optional</sup> <a name="addMaxEvictedItemsCountAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxEvictedItemsCountAlarm"></a>
+
+```typescript
+public readonly addMaxEvictedItemsCountAlarm: {[ key: string ]: MaxItemsCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}
+
+Add alarm on number of evicted items.
+
+---
+
+##### `addMaxItemsCountAlarm`<sup>Optional</sup> <a name="addMaxItemsCountAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxItemsCountAlarm"></a>
+
+```typescript
+public readonly addMaxItemsCountAlarm: {[ key: string ]: MaxItemsCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}
+
+Add alarm on total number of items.
+
+---
+
+##### `addMaxUsedSwapMemoryAlarm`<sup>Optional</sup> <a name="addMaxUsedSwapMemoryAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxUsedSwapMemoryAlarm"></a>
+
+```typescript
+public readonly addMaxUsedSwapMemoryAlarm: {[ key: string ]: MaxUsedSwapMemoryThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold">MaxUsedSwapMemoryThreshold</a>}
+
+Add alarm on amount of used swap memory.
+
+---
+
+##### `addMinFreeableMemoryAlarm`<sup>Optional</sup> <a name="addMinFreeableMemoryAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMinFreeableMemoryAlarm"></a>
+
+```typescript
+public readonly addMinFreeableMemoryAlarm: {[ key: string ]: MinFreeableMemoryThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}
+
+Add alarm on amount of freeable memory.
 
 ---
 
@@ -12874,6 +14360,127 @@ public readonly maxFullRestartCount: number;
 
 ---
 
+### GlueJobMonitoringOptions <a name="GlueJobMonitoringOptions" id="cdk-monitoring-constructs.GlueJobMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.Initializer"></a>
+
+```typescript
+import { GlueJobMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const glueJobMonitoringOptions: GlueJobMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
 ### GlueJobMonitoringProps <a name="GlueJobMonitoringProps" id="cdk-monitoring-constructs.GlueJobMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.GlueJobMonitoringProps.Initializer"></a>
@@ -14062,6 +15669,149 @@ public readonly application: string;
 
 ---
 
+### KinesisDataAnalyticsMonitoringOptions <a name="KinesisDataAnalyticsMonitoringOptions" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.Initializer"></a>
+
+```typescript
+import { KinesisDataAnalyticsMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const kinesisDataAnalyticsMonitoringOptions: KinesisDataAnalyticsMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addDowntimeAlarm">addDowntimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxDowntimeThreshold">MaxDowntimeThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addFullRestartCountAlarm">addFullRestartCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addDowntimeAlarm`<sup>Optional</sup> <a name="addDowntimeAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addDowntimeAlarm"></a>
+
+```typescript
+public readonly addDowntimeAlarm: {[ key: string ]: MaxDowntimeThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxDowntimeThreshold">MaxDowntimeThreshold</a>}
+
+---
+
+##### `addFullRestartCountAlarm`<sup>Optional</sup> <a name="addFullRestartCountAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addFullRestartCountAlarm"></a>
+
+```typescript
+public readonly addFullRestartCountAlarm: {[ key: string ]: FullRestartCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}
+
+---
+
 ### KinesisDataAnalyticsMonitoringProps <a name="KinesisDataAnalyticsMonitoringProps" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.Initializer"></a>
@@ -14241,6 +15991,160 @@ public readonly streamName: string;
 ```
 
 - *Type:* string
+
+---
+
+### KinesisDataStreamMonitoringOptions <a name="KinesisDataStreamMonitoringOptions" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.Initializer"></a>
+
+```typescript
+import { KinesisDataStreamMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const kinesisDataStreamMonitoringOptions: KinesisDataStreamMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addIteratorMaxAgeAlarm">addIteratorMaxAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold">MaxIteratorAgeThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addPutRecordsFailedAlarm">addPutRecordsFailedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsFailedThreshold">RecordsFailedThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addPutRecordsThrottledAlarm">addPutRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addIteratorMaxAgeAlarm`<sup>Optional</sup> <a name="addIteratorMaxAgeAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addIteratorMaxAgeAlarm"></a>
+
+```typescript
+public readonly addIteratorMaxAgeAlarm: {[ key: string ]: MaxIteratorAgeThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold">MaxIteratorAgeThreshold</a>}
+
+---
+
+##### `addPutRecordsFailedAlarm`<sup>Optional</sup> <a name="addPutRecordsFailedAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addPutRecordsFailedAlarm"></a>
+
+```typescript
+public readonly addPutRecordsFailedAlarm: {[ key: string ]: RecordsFailedThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsFailedThreshold">RecordsFailedThreshold</a>}
+
+---
+
+##### `addPutRecordsThrottledAlarm`<sup>Optional</sup> <a name="addPutRecordsThrottledAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addPutRecordsThrottledAlarm"></a>
+
+```typescript
+public readonly addPutRecordsThrottledAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
 
 ---
 
@@ -14434,6 +16338,127 @@ public readonly deliveryStreamName: string;
 ```
 
 - *Type:* string
+
+---
+
+### KinesisFirehoseMonitoringOptions <a name="KinesisFirehoseMonitoringOptions" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.Initializer"></a>
+
+```typescript
+import { KinesisFirehoseMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const kinesisFirehoseMonitoringOptions: KinesisFirehoseMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
 
 ---
 
@@ -14634,6 +16659,336 @@ public readonly rateComputationMethod: RateComputationMethod;
 
 - *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
 - *Default:* average
+
+---
+
+### LambdaFunctionMonitoringOptions <a name="LambdaFunctionMonitoringOptions" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.Initializer"></a>
+
+```typescript
+import { LambdaFunctionMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addConcurrentExecutionsCountAlarm">addConcurrentExecutionsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgCpuTotalTimeAlarm">addEnhancedMonitoringAvgCpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgMemoryUtilizationAlarm">addEnhancedMonitoringAvgMemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxCpuTotalTimeAlarm">addEnhancedMonitoringMaxCpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxMemoryUtilizationAlarm">addEnhancedMonitoringMaxMemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringP90CpuTotalTimeAlarm">addEnhancedMonitoringP90CpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringP90MemoryUtilizationAlarm">addEnhancedMonitoringP90MemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addFaultCountAlarm">addFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addFaultRateAlarm">addFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addConcurrentExecutionsCountAlarm`<sup>Optional</sup> <a name="addConcurrentExecutionsCountAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addConcurrentExecutionsCountAlarm"></a>
+
+```typescript
+public readonly addConcurrentExecutionsCountAlarm: {[ key: string ]: RunningTaskCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}
+
+---
+
+##### `addEnhancedMonitoringAvgCpuTotalTimeAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringAvgCpuTotalTimeAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgCpuTotalTimeAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringAvgCpuTotalTimeAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addEnhancedMonitoringAvgMemoryUtilizationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringAvgMemoryUtilizationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgMemoryUtilizationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringAvgMemoryUtilizationAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addEnhancedMonitoringMaxCpuTotalTimeAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringMaxCpuTotalTimeAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxCpuTotalTimeAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringMaxCpuTotalTimeAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addEnhancedMonitoringMaxMemoryUtilizationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringMaxMemoryUtilizationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxMemoryUtilizationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringMaxMemoryUtilizationAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addEnhancedMonitoringP90CpuTotalTimeAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringP90CpuTotalTimeAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringP90CpuTotalTimeAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringP90CpuTotalTimeAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addEnhancedMonitoringP90MemoryUtilizationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringP90MemoryUtilizationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringP90MemoryUtilizationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringP90MemoryUtilizationAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addFaultCountAlarm`<sup>Optional</sup> <a name="addFaultCountAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addFaultCountAlarm"></a>
+
+```typescript
+public readonly addFaultCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addFaultRateAlarm`<sup>Optional</sup> <a name="addFaultRateAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addFaultRateAlarm"></a>
+
+```typescript
+public readonly addFaultRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addHighTpsAlarm`<sup>Optional</sup> <a name="addHighTpsAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addHighTpsAlarm"></a>
+
+```typescript
+public readonly addHighTpsAlarm: {[ key: string ]: HighTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}
+
+---
+
+##### `addLatencyP50Alarm`<sup>Optional</sup> <a name="addLatencyP50Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP50Alarm"></a>
+
+```typescript
+public readonly addLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP90Alarm`<sup>Optional</sup> <a name="addLatencyP90Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP90Alarm"></a>
+
+```typescript
+public readonly addLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyP99Alarm`<sup>Optional</sup> <a name="addLatencyP99Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP99Alarm"></a>
+
+```typescript
+public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLowTpsAlarm"></a>
+
+```typescript
+public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}
+
+---
+
+##### `addMaxIteratorAgeAlarm`<sup>Optional</sup> <a name="addMaxIteratorAgeAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxIteratorAgeAlarm"></a>
+
+```typescript
+public readonly addMaxIteratorAgeAlarm: {[ key: string ]: MaxAgeThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}
+
+---
+
+##### `addProvisionedConcurrencySpilloverInvocationsCountAlarm`<sup>Optional</sup> <a name="addProvisionedConcurrencySpilloverInvocationsCountAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm"></a>
+
+```typescript
+public readonly addProvisionedConcurrencySpilloverInvocationsCountAlarm: {[ key: string ]: RunningTaskCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}
+
+---
+
+##### `addProvisionedConcurrencySpilloverInvocationsRateAlarm`<sup>Optional</sup> <a name="addProvisionedConcurrencySpilloverInvocationsRateAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm"></a>
+
+```typescript
+public readonly addProvisionedConcurrencySpilloverInvocationsRateAlarm: {[ key: string ]: RunningTaskRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}
+
+---
+
+##### `addThrottlesCountAlarm`<sup>Optional</sup> <a name="addThrottlesCountAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesCountAlarm"></a>
+
+```typescript
+public readonly addThrottlesCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addThrottlesRateAlarm`<sup>Optional</sup> <a name="addThrottlesRateAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesRateAlarm"></a>
+
+```typescript
+public readonly addThrottlesRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
 
 ---
 
@@ -19917,90 +22272,315 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.acm">acm</a></code> | <code>boolean</code> | Automatically monitor ACM Certificates in the scope. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway">apiGateway</a></code> | <code>boolean</code> | Automatically monitor API Gateway Rest Apis in the scope. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2">apiGatewayV2</a></code> | <code>boolean</code> | Automatically monitor API Gateway HTTP Apis in the scope. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.defaultAcmMonitoringProps">defaultAcmMonitoringProps</a></code> | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a></code> | Default properties for ACM Certificates Monitoring. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.defaultApiGatewayMonitoringProps">defaultApiGatewayMonitoringProps</a></code> | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions">ApiGatewayMonitoringOptions</a></code> | Default properties for API Gateway Rest Apis Monitoring. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.defaultApiGatewayV2HttpApiMonitoringProps">defaultApiGatewayV2HttpApiMonitoringProps</a></code> | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions">ApiGatewayV2MonitoringOptions</a></code> | Default properties for API Gateway HTTP Apis Monitoring. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.acm">acm</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway">apiGateway</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2">apiGatewayV2</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.appSync">appSync</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.billing">billing</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.cloudFront">cloudFront</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.codeBuild">codeBuild</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.dynamoDB">dynamoDB</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.ec2">ec2</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.elasticCache">elasticCache</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.glue">glue</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataAnalytics">kinesisDataAnalytics</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataStream">kinesisDataStream</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisFirehose">kinesisFirehose</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.lambda">lambda</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.openSearch">openSearch</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rds">rds</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.redshift">redshift</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.s3">s3</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.secretsManager">secretsManager</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sns">sns</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sqs">sqs</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.stepFunctions">stepFunctions</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 
 ---
 
 ##### `acm`<sup>Optional</sup> <a name="acm" id="cdk-monitoring-constructs.MonitoringAspectProps.property.acm"></a>
 
 ```typescript
-public readonly acm: boolean;
+public readonly acm: MonitoringAspectType;
 ```
 
-- *Type:* boolean
-- *Default:* true
-
-Automatically monitor ACM Certificates in the scope.
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
 
 ---
 
 ##### `apiGateway`<sup>Optional</sup> <a name="apiGateway" id="cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway"></a>
 
 ```typescript
-public readonly apiGateway: boolean;
+public readonly apiGateway: MonitoringAspectType;
 ```
 
-- *Type:* boolean
-- *Default:* true
-
-Automatically monitor API Gateway Rest Apis in the scope.
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
 
 ---
 
 ##### `apiGatewayV2`<sup>Optional</sup> <a name="apiGatewayV2" id="cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2"></a>
 
 ```typescript
-public readonly apiGatewayV2: boolean;
+public readonly apiGatewayV2: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `appSync`<sup>Optional</sup> <a name="appSync" id="cdk-monitoring-constructs.MonitoringAspectProps.property.appSync"></a>
+
+```typescript
+public readonly appSync: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.MonitoringAspectProps.property.autoScalingGroup"></a>
+
+```typescript
+public readonly autoScalingGroup: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `billing`<sup>Optional</sup> <a name="billing" id="cdk-monitoring-constructs.MonitoringAspectProps.property.billing"></a>
+
+```typescript
+public readonly billing: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `cloudFront`<sup>Optional</sup> <a name="cloudFront" id="cdk-monitoring-constructs.MonitoringAspectProps.property.cloudFront"></a>
+
+```typescript
+public readonly cloudFront: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `codeBuild`<sup>Optional</sup> <a name="codeBuild" id="cdk-monitoring-constructs.MonitoringAspectProps.property.codeBuild"></a>
+
+```typescript
+public readonly codeBuild: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `dynamoDB`<sup>Optional</sup> <a name="dynamoDB" id="cdk-monitoring-constructs.MonitoringAspectProps.property.dynamoDB"></a>
+
+```typescript
+public readonly dynamoDB: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `ec2`<sup>Optional</sup> <a name="ec2" id="cdk-monitoring-constructs.MonitoringAspectProps.property.ec2"></a>
+
+```typescript
+public readonly ec2: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `elasticCache`<sup>Optional</sup> <a name="elasticCache" id="cdk-monitoring-constructs.MonitoringAspectProps.property.elasticCache"></a>
+
+```typescript
+public readonly elasticCache: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `glue`<sup>Optional</sup> <a name="glue" id="cdk-monitoring-constructs.MonitoringAspectProps.property.glue"></a>
+
+```typescript
+public readonly glue: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `kinesisDataAnalytics`<sup>Optional</sup> <a name="kinesisDataAnalytics" id="cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataAnalytics"></a>
+
+```typescript
+public readonly kinesisDataAnalytics: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `kinesisDataStream`<sup>Optional</sup> <a name="kinesisDataStream" id="cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataStream"></a>
+
+```typescript
+public readonly kinesisDataStream: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `kinesisFirehose`<sup>Optional</sup> <a name="kinesisFirehose" id="cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisFirehose"></a>
+
+```typescript
+public readonly kinesisFirehose: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `lambda`<sup>Optional</sup> <a name="lambda" id="cdk-monitoring-constructs.MonitoringAspectProps.property.lambda"></a>
+
+```typescript
+public readonly lambda: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `openSearch`<sup>Optional</sup> <a name="openSearch" id="cdk-monitoring-constructs.MonitoringAspectProps.property.openSearch"></a>
+
+```typescript
+public readonly openSearch: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `rds`<sup>Optional</sup> <a name="rds" id="cdk-monitoring-constructs.MonitoringAspectProps.property.rds"></a>
+
+```typescript
+public readonly rds: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `redshift`<sup>Optional</sup> <a name="redshift" id="cdk-monitoring-constructs.MonitoringAspectProps.property.redshift"></a>
+
+```typescript
+public readonly redshift: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `s3`<sup>Optional</sup> <a name="s3" id="cdk-monitoring-constructs.MonitoringAspectProps.property.s3"></a>
+
+```typescript
+public readonly s3: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `secretsManager`<sup>Optional</sup> <a name="secretsManager" id="cdk-monitoring-constructs.MonitoringAspectProps.property.secretsManager"></a>
+
+```typescript
+public readonly secretsManager: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `sns`<sup>Optional</sup> <a name="sns" id="cdk-monitoring-constructs.MonitoringAspectProps.property.sns"></a>
+
+```typescript
+public readonly sns: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `sqs`<sup>Optional</sup> <a name="sqs" id="cdk-monitoring-constructs.MonitoringAspectProps.property.sqs"></a>
+
+```typescript
+public readonly sqs: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `stepFunctions`<sup>Optional</sup> <a name="stepFunctions" id="cdk-monitoring-constructs.MonitoringAspectProps.property.stepFunctions"></a>
+
+```typescript
+public readonly stepFunctions: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+### MonitoringAspectType <a name="MonitoringAspectType" id="cdk-monitoring-constructs.MonitoringAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MonitoringAspectType.Initializer"></a>
+
+```typescript
+import { MonitoringAspectType } from 'cdk-monitoring-constructs'
+
+const monitoringAspectType: MonitoringAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectType.property.props">props</a></code> | <code>any</code> | The monitoring props for this resource. |
+
+---
+
+##### `enabled`<sup>Required</sup> <a name="enabled" id="cdk-monitoring-constructs.MonitoringAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
 ```
 
 - *Type:* boolean
 - *Default:* true
 
-Automatically monitor API Gateway HTTP Apis in the scope.
+If the monitoring aspect is enabled for this resource.
 
 ---
 
-##### `defaultAcmMonitoringProps`<sup>Optional</sup> <a name="defaultAcmMonitoringProps" id="cdk-monitoring-constructs.MonitoringAspectProps.property.defaultAcmMonitoringProps"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringAspectType.property.props"></a>
 
 ```typescript
-public readonly defaultAcmMonitoringProps: CertificateManagerMonitoringOptions;
+public readonly props: any;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a>
+- *Type:* any
 - *Default:* none
 
-Default properties for ACM Certificates Monitoring.
-
----
-
-##### `defaultApiGatewayMonitoringProps`<sup>Optional</sup> <a name="defaultApiGatewayMonitoringProps" id="cdk-monitoring-constructs.MonitoringAspectProps.property.defaultApiGatewayMonitoringProps"></a>
-
-```typescript
-public readonly defaultApiGatewayMonitoringProps: ApiGatewayMonitoringOptions;
-```
-
-- *Type:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions">ApiGatewayMonitoringOptions</a>
-- *Default:* none
-
-Default properties for API Gateway Rest Apis Monitoring.
-
----
-
-##### `defaultApiGatewayV2HttpApiMonitoringProps`<sup>Optional</sup> <a name="defaultApiGatewayV2HttpApiMonitoringProps" id="cdk-monitoring-constructs.MonitoringAspectProps.property.defaultApiGatewayV2HttpApiMonitoringProps"></a>
-
-```typescript
-public readonly defaultApiGatewayV2HttpApiMonitoringProps: ApiGatewayV2MonitoringOptions;
-```
-
-- *Type:* <a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions">ApiGatewayV2MonitoringOptions</a>
-- *Default:* none
-
-Default properties for API Gateway HTTP Apis Monitoring.
+The monitoring props for this resource.
 
 ---
 
@@ -21444,6 +24024,314 @@ public readonly fillTpsWithZeroes: boolean;
 
 - *Type:* boolean
 - *Default:* true
+
+---
+
+### OpenSearchClusterMonitoringOptions <a name="OpenSearchClusterMonitoringOptions" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.Initializer"></a>
+
+```typescript
+import { OpenSearchClusterMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const openSearchClusterMonitoringOptions: OpenSearchClusterMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addClusterAutomatedSnapshotFailureAlarm">addClusterAutomatedSnapshotFailureAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold">OpenSearchClusterAutomatedSnapshotFailureThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addClusterIndexWritesBlockedAlarm">addClusterIndexWritesBlockedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold">OpenSearchClusterIndexWritesBlockedThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addClusterNodeCountAlarm">addClusterNodeCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold">OpenSearchClusterNodesThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addClusterStatusAlarm">addClusterStatusAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization">OpenSearchClusterStatusCustomization</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addCpuSpaceUsageAlarm">addCpuSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addIndexingLatencyP50Alarm">addIndexingLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addIndexingLatencyP90Alarm">addIndexingLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addIndexingLatencyP99Alarm">addIndexingLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addJvmMemoryPressureAlarm">addJvmMemoryPressureAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addKmsKeyErrorAlarm">addKmsKeyErrorAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold">OpenSearchKmsKeyErrorThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addKmsKeyInaccessibleAlarm">addKmsKeyInaccessibleAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold">OpenSearchKmsKeyInaccessibleThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addMasterCpuSpaceUsageAlarm">addMasterCpuSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addMasterJvmMemoryPressureAlarm">addMasterJvmMemoryPressureAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP50Alarm">addSearchLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP90Alarm">addSearchLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP99Alarm">addSearchLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addClusterAutomatedSnapshotFailureAlarm`<sup>Optional</sup> <a name="addClusterAutomatedSnapshotFailureAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addClusterAutomatedSnapshotFailureAlarm"></a>
+
+```typescript
+public readonly addClusterAutomatedSnapshotFailureAlarm: {[ key: string ]: OpenSearchClusterAutomatedSnapshotFailureThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold">OpenSearchClusterAutomatedSnapshotFailureThreshold</a>}
+
+---
+
+##### `addClusterIndexWritesBlockedAlarm`<sup>Optional</sup> <a name="addClusterIndexWritesBlockedAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addClusterIndexWritesBlockedAlarm"></a>
+
+```typescript
+public readonly addClusterIndexWritesBlockedAlarm: {[ key: string ]: OpenSearchClusterIndexWritesBlockedThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold">OpenSearchClusterIndexWritesBlockedThreshold</a>}
+
+---
+
+##### `addClusterNodeCountAlarm`<sup>Optional</sup> <a name="addClusterNodeCountAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addClusterNodeCountAlarm"></a>
+
+```typescript
+public readonly addClusterNodeCountAlarm: {[ key: string ]: OpenSearchClusterNodesThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold">OpenSearchClusterNodesThreshold</a>}
+
+---
+
+##### `addClusterStatusAlarm`<sup>Optional</sup> <a name="addClusterStatusAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addClusterStatusAlarm"></a>
+
+```typescript
+public readonly addClusterStatusAlarm: {[ key: string ]: OpenSearchClusterStatusCustomization};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization">OpenSearchClusterStatusCustomization</a>}
+
+---
+
+##### `addCpuSpaceUsageAlarm`<sup>Optional</sup> <a name="addCpuSpaceUsageAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addCpuSpaceUsageAlarm"></a>
+
+```typescript
+public readonly addCpuSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addDiskSpaceUsageAlarm`<sup>Optional</sup> <a name="addDiskSpaceUsageAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addDiskSpaceUsageAlarm"></a>
+
+```typescript
+public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addIndexingLatencyP50Alarm`<sup>Optional</sup> <a name="addIndexingLatencyP50Alarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addIndexingLatencyP50Alarm"></a>
+
+```typescript
+public readonly addIndexingLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addIndexingLatencyP90Alarm`<sup>Optional</sup> <a name="addIndexingLatencyP90Alarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addIndexingLatencyP90Alarm"></a>
+
+```typescript
+public readonly addIndexingLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addIndexingLatencyP99Alarm`<sup>Optional</sup> <a name="addIndexingLatencyP99Alarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addIndexingLatencyP99Alarm"></a>
+
+```typescript
+public readonly addIndexingLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addJvmMemoryPressureAlarm`<sup>Optional</sup> <a name="addJvmMemoryPressureAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addJvmMemoryPressureAlarm"></a>
+
+```typescript
+public readonly addJvmMemoryPressureAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addKmsKeyErrorAlarm`<sup>Optional</sup> <a name="addKmsKeyErrorAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addKmsKeyErrorAlarm"></a>
+
+```typescript
+public readonly addKmsKeyErrorAlarm: {[ key: string ]: OpenSearchKmsKeyErrorThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold">OpenSearchKmsKeyErrorThreshold</a>}
+
+---
+
+##### `addKmsKeyInaccessibleAlarm`<sup>Optional</sup> <a name="addKmsKeyInaccessibleAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addKmsKeyInaccessibleAlarm"></a>
+
+```typescript
+public readonly addKmsKeyInaccessibleAlarm: {[ key: string ]: OpenSearchKmsKeyInaccessibleThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold">OpenSearchKmsKeyInaccessibleThreshold</a>}
+
+---
+
+##### `addMasterCpuSpaceUsageAlarm`<sup>Optional</sup> <a name="addMasterCpuSpaceUsageAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addMasterCpuSpaceUsageAlarm"></a>
+
+```typescript
+public readonly addMasterCpuSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addMasterJvmMemoryPressureAlarm`<sup>Optional</sup> <a name="addMasterJvmMemoryPressureAlarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addMasterJvmMemoryPressureAlarm"></a>
+
+```typescript
+public readonly addMasterJvmMemoryPressureAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addSearchLatencyP50Alarm`<sup>Optional</sup> <a name="addSearchLatencyP50Alarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP50Alarm"></a>
+
+```typescript
+public readonly addSearchLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSearchLatencyP90Alarm`<sup>Optional</sup> <a name="addSearchLatencyP90Alarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP90Alarm"></a>
+
+```typescript
+public readonly addSearchLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSearchLatencyP99Alarm`<sup>Optional</sup> <a name="addSearchLatencyP99Alarm" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP99Alarm"></a>
+
+```typescript
+public readonly addSearchLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
 
 ---
 
@@ -23164,6 +26052,149 @@ public readonly clusterIdentifier: string;
 
 ---
 
+### RdsClusterMonitoringOptions <a name="RdsClusterMonitoringOptions" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.Initializer"></a>
+
+```typescript
+import { RdsClusterMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const rdsClusterMonitoringOptions: RdsClusterMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCpuUsageAlarm"></a>
+
+```typescript
+public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addDiskSpaceUsageAlarm`<sup>Optional</sup> <a name="addDiskSpaceUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDiskSpaceUsageAlarm"></a>
+
+```typescript
+public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
 ### RdsClusterMonitoringProps <a name="RdsClusterMonitoringProps" id="cdk-monitoring-constructs.RdsClusterMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.Initializer"></a>
@@ -23857,6 +26888,149 @@ public readonly clusterIdentifier: string;
 ```
 
 - *Type:* string
+
+---
+
+### RedshiftClusterMonitoringOptions <a name="RedshiftClusterMonitoringOptions" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.Initializer"></a>
+
+```typescript
+import { RedshiftClusterMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const redshiftClusterMonitoringOptions: RedshiftClusterMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addCpuUsageAlarm"></a>
+
+```typescript
+public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addDiskSpaceUsageAlarm`<sup>Optional</sup> <a name="addDiskSpaceUsageAlarm" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addDiskSpaceUsageAlarm"></a>
+
+```typescript
+public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
 
 ---
 
@@ -24567,6 +27741,127 @@ public readonly storageType: StorageType;
 
 ---
 
+### S3BucketMonitoringOptions <a name="S3BucketMonitoringOptions" id="cdk-monitoring-constructs.S3BucketMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.Initializer"></a>
+
+```typescript
+import { S3BucketMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const s3BucketMonitoringOptions: S3BucketMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
 ### S3BucketMonitoringProps <a name="S3BucketMonitoringProps" id="cdk-monitoring-constructs.S3BucketMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.S3BucketMonitoringProps.Initializer"></a>
@@ -24735,6 +28030,161 @@ public readonly secret: ISecret;
 ```
 
 - *Type:* monocdk.aws_secretsmanager.ISecret
+
+---
+
+### SecretsManagerSecretMonitoringOptions <a name="SecretsManagerSecretMonitoringOptions" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.Initializer"></a>
+
+```typescript
+import { SecretsManagerSecretMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const secretsManagerSecretMonitoringOptions: SecretsManagerSecretMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addDaysSinceLastChangeAlarm">addDaysSinceLastChangeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addDaysSinceLastRotationAlarm">addDaysSinceLastRotationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.showLastRotationWidget">showLastRotationWidget</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addDaysSinceLastChangeAlarm`<sup>Optional</sup> <a name="addDaysSinceLastChangeAlarm" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addDaysSinceLastChangeAlarm"></a>
+
+```typescript
+public readonly addDaysSinceLastChangeAlarm: {[ key: string ]: DaysSinceUpdateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}
+
+---
+
+##### `addDaysSinceLastRotationAlarm`<sup>Optional</sup> <a name="addDaysSinceLastRotationAlarm" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addDaysSinceLastRotationAlarm"></a>
+
+```typescript
+public readonly addDaysSinceLastRotationAlarm: {[ key: string ]: DaysSinceUpdateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}
+
+---
+
+##### `showLastRotationWidget`<sup>Optional</sup> <a name="showLastRotationWidget" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.showLastRotationWidget"></a>
+
+```typescript
+public readonly showLastRotationWidget: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true, if `addDaysSinceLastRotationAlarm` is set, otherwise `false`.
 
 ---
 
@@ -25382,6 +28832,160 @@ public readonly topic: ITopic;
 
 ---
 
+### SnsTopicMonitoringOptions <a name="SnsTopicMonitoringOptions" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.Initializer"></a>
+
+```typescript
+import { SnsTopicMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const snsTopicMonitoringOptions: SnsTopicMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMaxNumberOfMessagesPublishedAlarm">addMaxNumberOfMessagesPublishedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold">HighMessagesPublishedThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMessageNotificationsFailedAlarm">addMessageNotificationsFailedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.NotificationsFailedThreshold">NotificationsFailedThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMinNumberOfMessagesPublishedAlarm">addMinNumberOfMessagesPublishedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold">LowMessagesPublishedThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addMaxNumberOfMessagesPublishedAlarm`<sup>Optional</sup> <a name="addMaxNumberOfMessagesPublishedAlarm" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMaxNumberOfMessagesPublishedAlarm"></a>
+
+```typescript
+public readonly addMaxNumberOfMessagesPublishedAlarm: {[ key: string ]: HighMessagesPublishedThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold">HighMessagesPublishedThreshold</a>}
+
+---
+
+##### `addMessageNotificationsFailedAlarm`<sup>Optional</sup> <a name="addMessageNotificationsFailedAlarm" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMessageNotificationsFailedAlarm"></a>
+
+```typescript
+public readonly addMessageNotificationsFailedAlarm: {[ key: string ]: NotificationsFailedThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.NotificationsFailedThreshold">NotificationsFailedThreshold</a>}
+
+---
+
+##### `addMinNumberOfMessagesPublishedAlarm`<sup>Optional</sup> <a name="addMinNumberOfMessagesPublishedAlarm" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMinNumberOfMessagesPublishedAlarm"></a>
+
+```typescript
+public readonly addMinNumberOfMessagesPublishedAlarm: {[ key: string ]: LowMessagesPublishedThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold">LowMessagesPublishedThreshold</a>}
+
+---
+
 ### SnsTopicMonitoringProps <a name="SnsTopicMonitoringProps" id="cdk-monitoring-constructs.SnsTopicMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SnsTopicMonitoringProps.Initializer"></a>
@@ -25575,6 +29179,193 @@ public readonly queue: IQueue;
 
 ---
 
+### SqsQueueMonitoringOptions <a name="SqsQueueMonitoringOptions" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.Initializer"></a>
+
+```typescript
+import { SqsQueueMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const sqsQueueMonitoringOptions: SqsQueueMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxSizeAlarm">addQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxTimeToDrainMessagesAlarm">addQueueMaxTimeToDrainMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMinIncomingMessagesAlarm">addQueueMinIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMinSizeAlarm">addQueueMinSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `addQueueMaxIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxIncomingMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMaxIncomingMessagesAlarm: {[ key: string ]: MaxIncomingMessagesCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}
+
+---
+
+##### `addQueueMaxMessageAgeAlarm`<sup>Optional</sup> <a name="addQueueMaxMessageAgeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxMessageAgeAlarm"></a>
+
+```typescript
+public readonly addQueueMaxMessageAgeAlarm: {[ key: string ]: MaxMessageAgeThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}
+
+---
+
+##### `addQueueMaxSizeAlarm`<sup>Optional</sup> <a name="addQueueMaxSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxSizeAlarm"></a>
+
+```typescript
+public readonly addQueueMaxSizeAlarm: {[ key: string ]: MaxMessageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}
+
+---
+
+##### `addQueueMaxTimeToDrainMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxTimeToDrainMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxTimeToDrainMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMaxTimeToDrainMessagesAlarm: {[ key: string ]: MaxTimeToDrainThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}
+
+---
+
+##### `addQueueMinIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMinIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMinIncomingMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMinIncomingMessagesAlarm: {[ key: string ]: MinIncomingMessagesCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}
+
+---
+
+##### `addQueueMinSizeAlarm`<sup>Optional</sup> <a name="addQueueMinSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMinSizeAlarm"></a>
+
+```typescript
+public readonly addQueueMinSizeAlarm: {[ key: string ]: MinMessageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
 ### SqsQueueMonitoringProps <a name="SqsQueueMonitoringProps" id="cdk-monitoring-constructs.SqsQueueMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.Initializer"></a>
@@ -25590,6 +29381,12 @@ const sqsQueueMonitoringProps: SqsQueueMonitoringProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.queue">queue</a></code> | <code>monocdk.aws_sqs.IQueue</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxSizeAlarm">addQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxTimeToDrainMessagesAlarm">addQueueMaxTimeToDrainMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMinIncomingMessagesAlarm">addQueueMinIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMinSizeAlarm">addQueueMinSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -25597,12 +29394,6 @@ const sqsQueueMonitoringProps: SqsQueueMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxSizeAlarm">addQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxTimeToDrainMessagesAlarm">addQueueMaxTimeToDrainMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMinIncomingMessagesAlarm">addQueueMinIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMinSizeAlarm">addQueueMinSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -25613,6 +29404,66 @@ public readonly queue: IQueue;
 ```
 
 - *Type:* monocdk.aws_sqs.IQueue
+
+---
+
+##### `addQueueMaxIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxIncomingMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMaxIncomingMessagesAlarm: {[ key: string ]: MaxIncomingMessagesCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}
+
+---
+
+##### `addQueueMaxMessageAgeAlarm`<sup>Optional</sup> <a name="addQueueMaxMessageAgeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxMessageAgeAlarm"></a>
+
+```typescript
+public readonly addQueueMaxMessageAgeAlarm: {[ key: string ]: MaxMessageAgeThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}
+
+---
+
+##### `addQueueMaxSizeAlarm`<sup>Optional</sup> <a name="addQueueMaxSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxSizeAlarm"></a>
+
+```typescript
+public readonly addQueueMaxSizeAlarm: {[ key: string ]: MaxMessageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}
+
+---
+
+##### `addQueueMaxTimeToDrainMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxTimeToDrainMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxTimeToDrainMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMaxTimeToDrainMessagesAlarm: {[ key: string ]: MaxTimeToDrainThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}
+
+---
+
+##### `addQueueMinIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMinIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMinIncomingMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMinIncomingMessagesAlarm: {[ key: string ]: MinIncomingMessagesCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}
+
+---
+
+##### `addQueueMinSizeAlarm`<sup>Optional</sup> <a name="addQueueMinSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMinSizeAlarm"></a>
+
+```typescript
+public readonly addQueueMinSizeAlarm: {[ key: string ]: MinMessageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}
 
 ---
 
@@ -25713,66 +29564,6 @@ Calls provided function to process all alarms created.
 
 ---
 
-##### `addQueueMaxIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxIncomingMessagesAlarm"></a>
-
-```typescript
-public readonly addQueueMaxIncomingMessagesAlarm: {[ key: string ]: MaxIncomingMessagesCountThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}
-
----
-
-##### `addQueueMaxMessageAgeAlarm`<sup>Optional</sup> <a name="addQueueMaxMessageAgeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxMessageAgeAlarm"></a>
-
-```typescript
-public readonly addQueueMaxMessageAgeAlarm: {[ key: string ]: MaxMessageAgeThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}
-
----
-
-##### `addQueueMaxSizeAlarm`<sup>Optional</sup> <a name="addQueueMaxSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxSizeAlarm"></a>
-
-```typescript
-public readonly addQueueMaxSizeAlarm: {[ key: string ]: MaxMessageCountThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}
-
----
-
-##### `addQueueMaxTimeToDrainMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxTimeToDrainMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxTimeToDrainMessagesAlarm"></a>
-
-```typescript
-public readonly addQueueMaxTimeToDrainMessagesAlarm: {[ key: string ]: MaxTimeToDrainThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}
-
----
-
-##### `addQueueMinIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMinIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMinIncomingMessagesAlarm"></a>
-
-```typescript
-public readonly addQueueMinIncomingMessagesAlarm: {[ key: string ]: MinIncomingMessagesCountThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}
-
----
-
-##### `addQueueMinSizeAlarm`<sup>Optional</sup> <a name="addQueueMinSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMinSizeAlarm"></a>
-
-```typescript
-public readonly addQueueMinSizeAlarm: {[ key: string ]: MinMessageCountThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}
-
----
-
 ### SqsQueueMonitoringWithDlqProps <a name="SqsQueueMonitoringWithDlqProps" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.Initializer"></a>
@@ -25788,6 +29579,12 @@ const sqsQueueMonitoringWithDlqProps: SqsQueueMonitoringWithDlqProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.queue">queue</a></code> | <code>monocdk.aws_sqs.IQueue</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxSizeAlarm">addQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxTimeToDrainMessagesAlarm">addQueueMaxTimeToDrainMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMinIncomingMessagesAlarm">addQueueMinIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMinSizeAlarm">addQueueMinSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -25795,12 +29592,6 @@ const sqsQueueMonitoringWithDlqProps: SqsQueueMonitoringWithDlqProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxSizeAlarm">addQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxTimeToDrainMessagesAlarm">addQueueMaxTimeToDrainMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMinIncomingMessagesAlarm">addQueueMinIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMinSizeAlarm">addQueueMinSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxIncomingMessagesAlarm">addDeadLetterQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxMessageAgeAlarm">addDeadLetterQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxSizeAlarm">addDeadLetterQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
@@ -25816,6 +29607,66 @@ public readonly queue: IQueue;
 ```
 
 - *Type:* monocdk.aws_sqs.IQueue
+
+---
+
+##### `addQueueMaxIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxIncomingMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMaxIncomingMessagesAlarm: {[ key: string ]: MaxIncomingMessagesCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}
+
+---
+
+##### `addQueueMaxMessageAgeAlarm`<sup>Optional</sup> <a name="addQueueMaxMessageAgeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxMessageAgeAlarm"></a>
+
+```typescript
+public readonly addQueueMaxMessageAgeAlarm: {[ key: string ]: MaxMessageAgeThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}
+
+---
+
+##### `addQueueMaxSizeAlarm`<sup>Optional</sup> <a name="addQueueMaxSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxSizeAlarm"></a>
+
+```typescript
+public readonly addQueueMaxSizeAlarm: {[ key: string ]: MaxMessageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}
+
+---
+
+##### `addQueueMaxTimeToDrainMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxTimeToDrainMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxTimeToDrainMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMaxTimeToDrainMessagesAlarm: {[ key: string ]: MaxTimeToDrainThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}
+
+---
+
+##### `addQueueMinIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMinIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMinIncomingMessagesAlarm"></a>
+
+```typescript
+public readonly addQueueMinIncomingMessagesAlarm: {[ key: string ]: MinIncomingMessagesCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}
+
+---
+
+##### `addQueueMinSizeAlarm`<sup>Optional</sup> <a name="addQueueMinSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMinSizeAlarm"></a>
+
+```typescript
+public readonly addQueueMinSizeAlarm: {[ key: string ]: MinMessageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}
 
 ---
 
@@ -25913,66 +29764,6 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
-
----
-
-##### `addQueueMaxIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxIncomingMessagesAlarm"></a>
-
-```typescript
-public readonly addQueueMaxIncomingMessagesAlarm: {[ key: string ]: MaxIncomingMessagesCountThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}
-
----
-
-##### `addQueueMaxMessageAgeAlarm`<sup>Optional</sup> <a name="addQueueMaxMessageAgeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxMessageAgeAlarm"></a>
-
-```typescript
-public readonly addQueueMaxMessageAgeAlarm: {[ key: string ]: MaxMessageAgeThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}
-
----
-
-##### `addQueueMaxSizeAlarm`<sup>Optional</sup> <a name="addQueueMaxSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxSizeAlarm"></a>
-
-```typescript
-public readonly addQueueMaxSizeAlarm: {[ key: string ]: MaxMessageCountThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}
-
----
-
-##### `addQueueMaxTimeToDrainMessagesAlarm`<sup>Optional</sup> <a name="addQueueMaxTimeToDrainMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxTimeToDrainMessagesAlarm"></a>
-
-```typescript
-public readonly addQueueMaxTimeToDrainMessagesAlarm: {[ key: string ]: MaxTimeToDrainThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}
-
----
-
-##### `addQueueMinIncomingMessagesAlarm`<sup>Optional</sup> <a name="addQueueMinIncomingMessagesAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMinIncomingMessagesAlarm"></a>
-
-```typescript
-public readonly addQueueMinIncomingMessagesAlarm: {[ key: string ]: MinIncomingMessagesCountThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}
-
----
-
-##### `addQueueMinSizeAlarm`<sup>Optional</sup> <a name="addQueueMinSizeAlarm" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMinSizeAlarm"></a>
-
-```typescript
-public readonly addQueueMinSizeAlarm: {[ key: string ]: MinMessageCountThreshold};
-```
-
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}
 
 ---
 
@@ -26566,6 +30357,228 @@ public readonly rateComputationMethod: RateComputationMethod;
 
 - *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
 - *Default:* average
+
+---
+
+### StepFunctionMonitoringOptions <a name="StepFunctionMonitoringOptions" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.Initializer"></a>
+
+```typescript
+import { StepFunctionMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const stepFunctionMonitoringOptions: StepFunctionMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addAbortedExecutionCountAlarm">addAbortedExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addDurationP50Alarm">addDurationP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addDurationP90Alarm">addDurationP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addDurationP99Alarm">addDurationP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addFailedExecutionCountAlarm">addFailedExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addFailedExecutionRateAlarm">addFailedExecutionRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addMinStartedExecutionCountAlarm">addMinStartedExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold">MinRunningTaskCountThreshold</a>}</code> | Add minimum started execution count alarm for the stepfunctions. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addThrottledExecutionCountAlarm">addThrottledExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addTimedOutExecutionCountAlarm">addTimedOutExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addAbortedExecutionCountAlarm`<sup>Optional</sup> <a name="addAbortedExecutionCountAlarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addAbortedExecutionCountAlarm"></a>
+
+```typescript
+public readonly addAbortedExecutionCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addDurationP50Alarm`<sup>Optional</sup> <a name="addDurationP50Alarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addDurationP50Alarm"></a>
+
+```typescript
+public readonly addDurationP50Alarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addDurationP90Alarm`<sup>Optional</sup> <a name="addDurationP90Alarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addDurationP90Alarm"></a>
+
+```typescript
+public readonly addDurationP90Alarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addDurationP99Alarm`<sup>Optional</sup> <a name="addDurationP99Alarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addDurationP99Alarm"></a>
+
+```typescript
+public readonly addDurationP99Alarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addFailedExecutionCountAlarm`<sup>Optional</sup> <a name="addFailedExecutionCountAlarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addFailedExecutionCountAlarm"></a>
+
+```typescript
+public readonly addFailedExecutionCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addFailedExecutionRateAlarm`<sup>Optional</sup> <a name="addFailedExecutionRateAlarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addFailedExecutionRateAlarm"></a>
+
+```typescript
+public readonly addFailedExecutionRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addMinStartedExecutionCountAlarm`<sup>Optional</sup> <a name="addMinStartedExecutionCountAlarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addMinStartedExecutionCountAlarm"></a>
+
+```typescript
+public readonly addMinStartedExecutionCountAlarm: {[ key: string ]: MinRunningTaskCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold">MinRunningTaskCountThreshold</a>}
+
+Add minimum started execution count alarm for the stepfunctions.
+
+---
+
+##### `addThrottledExecutionCountAlarm`<sup>Optional</sup> <a name="addThrottledExecutionCountAlarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addThrottledExecutionCountAlarm"></a>
+
+```typescript
+public readonly addThrottledExecutionCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addTimedOutExecutionCountAlarm`<sup>Optional</sup> <a name="addTimedOutExecutionCountAlarm" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addTimedOutExecutionCountAlarm"></a>
+
+```typescript
+public readonly addTimedOutExecutionCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
 
 ---
 
@@ -30473,13 +34486,13 @@ public metricTotalCostInUsd(): IMetric
 ```typescript
 import { BillingMonitoring } from 'cdk-monitoring-constructs'
 
-new BillingMonitoring(scope: MonitoringScope, props: BaseMonitoringProps)
+new BillingMonitoring(scope: MonitoringScope, props: BillingMonitoringProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps">BaseMonitoringProps</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps">BillingMonitoringProps</a></code> | *No description.* |
 
 ---
 
@@ -30491,7 +34504,7 @@ new BillingMonitoring(scope: MonitoringScope, props: BaseMonitoringProps)
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.BillingMonitoring.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#cdk-monitoring-constructs.BaseMonitoringProps">BaseMonitoringProps</a>
+- *Type:* <a href="#cdk-monitoring-constructs.BillingMonitoringProps">BillingMonitoringProps</a>
 
 ---
 

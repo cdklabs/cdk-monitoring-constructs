@@ -22,9 +22,12 @@ import {
   CloudFrontDistributionMetricFactoryProps,
 } from "./CloudFrontDistributionMetricFactory";
 
+export interface CloudFrontDistributionMonitoringOptions
+  extends BaseMonitoringProps {}
+
 export interface CloudFrontDistributionMonitoringProps
   extends CloudFrontDistributionMetricFactoryProps,
-    BaseMonitoringProps {
+    CloudFrontDistributionMonitoringOptions {
   // empty
 }
 

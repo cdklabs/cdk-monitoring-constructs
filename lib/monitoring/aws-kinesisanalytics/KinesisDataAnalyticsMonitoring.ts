@@ -29,12 +29,15 @@ import {
   KinesisDataAnalyticsMetricFactoryProps,
 } from "./KinesisDataAnalyticsMetricFactory";
 
-export interface KinesisDataAnalyticsMonitoringProps
-  extends KinesisDataAnalyticsMetricFactoryProps,
-    BaseMonitoringProps {
+export interface KinesisDataAnalyticsMonitoringOptions
+  extends BaseMonitoringProps {
   readonly addDowntimeAlarm?: Record<string, MaxDowntimeThreshold>;
   readonly addFullRestartCountAlarm?: Record<string, FullRestartCountThreshold>;
 }
+
+export interface KinesisDataAnalyticsMonitoringProps
+  extends KinesisDataAnalyticsMetricFactoryProps,
+    KinesisDataAnalyticsMonitoringOptions {}
 
 export class KinesisDataAnalyticsMonitoring extends Monitoring {
   protected readonly title: string;

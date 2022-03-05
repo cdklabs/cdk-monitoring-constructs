@@ -19,9 +19,11 @@ import {
 } from "../../dashboard";
 import { EC2MetricFactory } from "./EC2MetricFactory";
 
-export interface EC2MonitoringProps extends BaseMonitoringProps {
+export interface EC2MonitoringOptions extends BaseMonitoringProps {
   readonly autoScalingGroup?: IAutoScalingGroup;
 }
+
+export interface EC2MonitoringProps extends EC2MonitoringOptions {}
 
 export class EC2Monitoring extends Monitoring {
   protected readonly family: string;

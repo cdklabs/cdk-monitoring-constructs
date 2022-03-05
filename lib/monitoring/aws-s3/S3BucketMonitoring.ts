@@ -21,9 +21,11 @@ import {
   S3BucketMetricFactoryProps,
 } from "./S3BucketMetricFactory";
 
+export interface S3BucketMonitoringOptions extends BaseMonitoringProps {}
+
 export interface S3BucketMonitoringProps
   extends S3BucketMetricFactoryProps,
-    BaseMonitoringProps {}
+    S3BucketMonitoringOptions {}
 
 export class S3BucketMonitoring extends Monitoring {
   protected readonly title: string;

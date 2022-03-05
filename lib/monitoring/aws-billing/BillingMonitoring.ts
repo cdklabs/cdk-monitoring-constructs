@@ -28,7 +28,8 @@ import {
   BillingRegion,
 } from "./BillingMetricFactory";
 
-export type BillingMonitoringProps = BaseMonitoringProps;
+export interface BillingMonitoringOptions extends BaseMonitoringProps {}
+export interface BillingMonitoringProps extends BillingMonitoringOptions {}
 
 export class BillingMonitoring extends Monitoring {
   private readonly title: string;

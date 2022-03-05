@@ -29,12 +29,14 @@ import {
   RdsClusterMetricFactoryProps,
 } from "./RdsClusterMetricFactory";
 
-export interface RdsClusterMonitoringProps
-  extends RdsClusterMetricFactoryProps,
-    BaseMonitoringProps {
+export interface RdsClusterMonitoringOptions extends BaseMonitoringProps {
   readonly addDiskSpaceUsageAlarm?: Record<string, UsageThreshold>;
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
 }
+
+export interface RdsClusterMonitoringProps
+  extends RdsClusterMetricFactoryProps,
+    RdsClusterMonitoringOptions {}
 
 export class RdsClusterMonitoring extends Monitoring {
   protected readonly title: string;

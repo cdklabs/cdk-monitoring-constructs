@@ -1,43 +1,67 @@
 import {
   ApiGatewayMonitoringOptions,
   ApiGatewayV2MonitoringOptions,
+  AppSyncMonitoringOptions,
+  AutoScalingGroupMonitoringOptions,
+  BillingMonitoringOptions,
   CertificateManagerMonitoringOptions,
+  CloudFrontDistributionMonitoringOptions,
+  CodeBuildProjectMonitoringOptions,
+  DynamoTableMonitoringOptions,
+  EC2MonitoringOptions,
+  ElastiCacheClusterMonitoringOptions,
+  GlueJobMonitoringOptions,
+  KinesisDataAnalyticsMonitoringOptions,
+  KinesisDataStreamMonitoringOptions,
+  KinesisFirehoseMonitoringOptions,
+  LambdaFunctionMonitoringOptions,
+  OpenSearchClusterMonitoringOptions,
+  RdsClusterMonitoringOptions,
+  RedshiftClusterMonitoringOptions,
+  S3BucketMonitoringOptions,
+  SecretsManagerSecretMonitoringOptions,
+  SnsTopicMonitoringOptions,
+  SqsQueueMonitoringOptions,
+  StepFunctionMonitoringOptions,
 } from "../monitoring";
 
+export interface MonitoringAspectType<T> {
+  /**
+   * If the monitoring aspect is enabled for this resource.
+   * @default true
+   */
+  readonly enabled: boolean;
+
+  /**
+   * The monitoring props for this resource.
+   * @default - none
+   */
+  readonly props?: T;
+}
+
 export interface MonitoringAspectProps {
-  /**
-   * Automatically monitor ACM Certificates in the scope
-   * @default true
-   */
-  readonly acm?: boolean;
-
-  /**
-   * Default properties for ACM Certificates Monitoring
-   * @default - none
-   */
-  readonly defaultAcmMonitoringProps?: CertificateManagerMonitoringOptions;
-
-  /**
-   * Automatically monitor API Gateway Rest Apis in the scope
-   * @default true
-   */
-  readonly apiGateway?: boolean;
-
-  /**
-   * Default properties for API Gateway Rest Apis Monitoring
-   * @default - none
-   */
-  readonly defaultApiGatewayMonitoringProps?: ApiGatewayMonitoringOptions;
-
-  /**
-   * Automatically monitor API Gateway HTTP Apis in the scope
-   * @default true
-   */
-  readonly apiGatewayV2?: boolean;
-
-  /**
-   * Default properties for API Gateway HTTP Apis Monitoring
-   * @default - none
-   */
-  readonly defaultApiGatewayV2HttpApiMonitoringProps?: ApiGatewayV2MonitoringOptions;
+  readonly acm?: MonitoringAspectType<CertificateManagerMonitoringOptions>;
+  readonly apiGateway?: MonitoringAspectType<ApiGatewayMonitoringOptions>;
+  readonly apiGatewayV2?: MonitoringAspectType<ApiGatewayV2MonitoringOptions>;
+  readonly appSync?: MonitoringAspectType<AppSyncMonitoringOptions>;
+  readonly autoScalingGroup?: MonitoringAspectType<AutoScalingGroupMonitoringOptions>;
+  readonly billing?: MonitoringAspectType<BillingMonitoringOptions>;
+  readonly cloudFront?: MonitoringAspectType<CloudFrontDistributionMonitoringOptions>;
+  readonly codeBuild?: MonitoringAspectType<CodeBuildProjectMonitoringOptions>;
+  readonly dynamoDB?: MonitoringAspectType<DynamoTableMonitoringOptions>;
+  readonly ec2?: MonitoringAspectType<EC2MonitoringOptions>;
+  readonly elasticCache?: MonitoringAspectType<ElastiCacheClusterMonitoringOptions>;
+  readonly glue?: MonitoringAspectType<GlueJobMonitoringOptions>;
+  readonly kinesisDataAnalytics?: MonitoringAspectType<KinesisDataAnalyticsMonitoringOptions>;
+  readonly kinesisDataStream?: MonitoringAspectType<KinesisDataStreamMonitoringOptions>;
+  readonly kinesisFirehose?: MonitoringAspectType<KinesisFirehoseMonitoringOptions>;
+  readonly lambda?: MonitoringAspectType<LambdaFunctionMonitoringOptions>;
+  readonly openSearch?: MonitoringAspectType<OpenSearchClusterMonitoringOptions>;
+  readonly rds?: MonitoringAspectType<RdsClusterMonitoringOptions>;
+  readonly redshift?: MonitoringAspectType<RedshiftClusterMonitoringOptions>;
+  readonly s3?: MonitoringAspectType<S3BucketMonitoringOptions>;
+  readonly secretsManager?: MonitoringAspectType<SecretsManagerSecretMonitoringOptions>;
+  readonly sns?: MonitoringAspectType<SnsTopicMonitoringOptions>;
+  readonly sqs?: MonitoringAspectType<SqsQueueMonitoringOptions>;
+  readonly stepFunctions?: MonitoringAspectType<StepFunctionMonitoringOptions>;
 }
