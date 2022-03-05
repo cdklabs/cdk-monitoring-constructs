@@ -37,9 +37,7 @@ import {
   AppSyncMetricFactoryProps,
 } from "./AppSyncMetricFactory";
 
-export interface AppSyncMonitoringProps
-  extends BaseMonitoringProps,
-    AppSyncMetricFactoryProps {
+export interface AppSyncMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
@@ -50,6 +48,10 @@ export interface AppSyncMonitoringProps
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
   readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
 }
+
+export interface AppSyncMonitoringProps
+  extends AppSyncMonitoringOptions,
+    AppSyncMetricFactoryProps {}
 
 export class AppSyncMonitoring extends Monitoring {
   protected readonly title: string;

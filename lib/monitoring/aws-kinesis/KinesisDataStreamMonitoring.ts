@@ -32,9 +32,8 @@ import {
   KinesisDataStreamMetricFactoryProps,
 } from "./KinesisDataStreamMetricFactory";
 
-export interface KinesisDataStreamMonitoringProps
-  extends KinesisDataStreamMetricFactoryProps,
-    BaseMonitoringProps {
+export interface KinesisDataStreamMonitoringOptions
+  extends BaseMonitoringProps {
   readonly addIteratorMaxAgeAlarm?: Record<string, MaxIteratorAgeThreshold>;
   readonly addPutRecordsThrottledAlarm?: Record<
     string,
@@ -42,6 +41,10 @@ export interface KinesisDataStreamMonitoringProps
   >;
   readonly addPutRecordsFailedAlarm?: Record<string, RecordsFailedThreshold>;
 }
+
+export interface KinesisDataStreamMonitoringProps
+  extends KinesisDataStreamMetricFactoryProps,
+    KinesisDataStreamMonitoringOptions {}
 
 export class KinesisDataStreamMonitoring extends Monitoring {
   protected readonly title: string;

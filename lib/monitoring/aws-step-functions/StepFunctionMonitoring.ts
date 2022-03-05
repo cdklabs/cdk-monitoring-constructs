@@ -34,9 +34,7 @@ import {
   StepFunctionMetricFactoryProps,
 } from "./StepFunctionMetricFactory";
 
-export interface StepFunctionMonitoringProps
-  extends StepFunctionMetricFactoryProps,
-    BaseMonitoringProps {
+export interface StepFunctionMonitoringOptions extends BaseMonitoringProps {
   readonly addDurationP50Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP90Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP99Alarm?: Record<string, DurationThreshold>;
@@ -56,6 +54,10 @@ export interface StepFunctionMonitoringProps
     MinRunningTaskCountThreshold
   >;
 }
+
+export interface StepFunctionMonitoringProps
+  extends StepFunctionMetricFactoryProps,
+    StepFunctionMonitoringOptions {}
 
 export class StepFunctionMonitoring extends Monitoring {
   protected readonly title: string;

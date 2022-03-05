@@ -32,18 +32,20 @@ import {
   CodeBuildProjectMetricFactoryProps,
 } from "./CodeBuildProjectMetricFactory";
 
-/**
- * Monitoring props for CodeBuild projects.
- */
-export interface CodeBuildProjectMonitoringProps
-  extends CodeBuildProjectMetricFactoryProps,
-    BaseMonitoringProps {
+export interface CodeBuildProjectMonitoringOptions extends BaseMonitoringProps {
   readonly addDurationP99Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP90Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP50Alarm?: Record<string, DurationThreshold>;
   readonly addFailedBuildCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFailedBuildRateAlarm?: Record<string, ErrorRateThreshold>;
 }
+
+/**
+ * Monitoring props for CodeBuild projects.
+ */
+export interface CodeBuildProjectMonitoringProps
+  extends CodeBuildProjectMetricFactoryProps,
+    CodeBuildProjectMonitoringOptions {}
 
 export class CodeBuildProjectMonitoring extends Monitoring {
   protected readonly title: string;

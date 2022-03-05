@@ -52,9 +52,7 @@ import {
   LambdaFunctionMetricFactoryProps,
 } from "./LambdaFunctionMetricFactory";
 
-export interface LambdaFunctionMonitoringProps
-  extends LambdaFunctionMetricFactoryProps,
-    BaseMonitoringProps {
+export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
@@ -104,6 +102,10 @@ export interface LambdaFunctionMonitoringProps
     UsageThreshold
   >;
 }
+
+export interface LambdaFunctionMonitoringProps
+  extends LambdaFunctionMetricFactoryProps,
+    LambdaFunctionMonitoringOptions {}
 
 export class LambdaFunctionMonitoring extends Monitoring {
   protected readonly title: string;

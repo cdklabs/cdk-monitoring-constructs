@@ -30,12 +30,14 @@ import {
   RedshiftClusterMetricFactoryProps,
 } from "./RedshiftClusterMetricFactory";
 
-export interface RedshiftClusterMonitoringProps
-  extends RedshiftClusterMetricFactoryProps,
-    BaseMonitoringProps {
+export interface RedshiftClusterMonitoringOptions extends BaseMonitoringProps {
   readonly addDiskSpaceUsageAlarm?: Record<string, UsageThreshold>;
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
 }
+
+export interface RedshiftClusterMonitoringProps
+  extends RedshiftClusterMetricFactoryProps,
+    RedshiftClusterMonitoringOptions {}
 
 export class RedshiftClusterMonitoring extends Monitoring {
   protected readonly title: string;

@@ -37,9 +37,7 @@ import {
   ApiGatewayV2HttpApiMetricFactoryProps,
 } from "./ApiGatewayV2HttpApiMetricFactory";
 
-export interface ApiGatewayV2HttpApiMonitoringProps
-  extends ApiGatewayV2HttpApiMetricFactoryProps,
-    BaseMonitoringProps {
+export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly add4xxCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly add4xxRateAlarm?: Record<string, ErrorRateThreshold>;
 
@@ -57,6 +55,10 @@ export interface ApiGatewayV2HttpApiMonitoringProps
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
   readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
 }
+
+export interface ApiGatewayV2HttpApiMonitoringProps
+  extends ApiGatewayV2HttpApiMetricFactoryProps,
+    ApiGatewayV2MonitoringOptions {}
 
 export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
   protected readonly title: string;

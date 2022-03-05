@@ -26,12 +26,8 @@ import {
   SecretsManagerSecretMetricFactoryProps,
 } from "./SecretsManagerSecretMetricFactory";
 
-/**
- * Monitoring props for Secrets Manager secrets.
- */
-export interface SecretsManagerSecretMonitoringProps
-  extends SecretsManagerSecretMetricFactoryProps,
-    BaseMonitoringProps {
+export interface SecretsManagerSecretMonitoringOptions
+  extends BaseMonitoringProps {
   readonly addDaysSinceLastChangeAlarm?: Record<
     string,
     DaysSinceUpdateThreshold
@@ -46,6 +42,13 @@ export interface SecretsManagerSecretMonitoringProps
    */
   readonly showLastRotationWidget?: boolean;
 }
+
+/**
+ * Monitoring props for Secrets Manager secrets.
+ */
+export interface SecretsManagerSecretMonitoringProps
+  extends SecretsManagerSecretMetricFactoryProps,
+    SecretsManagerSecretMonitoringOptions {}
 
 export class SecretsManagerSecretMonitoring extends Monitoring {
   protected readonly title: string;

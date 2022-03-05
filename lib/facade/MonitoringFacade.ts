@@ -1,4 +1,4 @@
-import { Construct, Stack } from "monocdk";
+import { Aspects, Construct, Stack } from "monocdk";
 import { CompositeAlarm, Dashboard, IWidget } from "monocdk/aws-cloudwatch";
 
 import {
@@ -102,6 +102,7 @@ import {
   getQueueProcessingEc2ServiceMonitoring,
   getQueueProcessingFargateServiceMonitoring,
 } from "../monitoring";
+import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
 
 export interface MonitoringFacadeProps {
   readonly metricFactoryDefaults: MetricFactoryDefaults;
@@ -614,5 +615,16 @@ export class MonitoringFacade extends MonitoringScope {
     const segment = new CustomMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
+  }
+
+  /**
+   * Monitor all the resources in the given scope.
+   * @param scope
+   * @param aspectProps
+   * @experimental
+   */
+  monitorScope(scope: Construct, aspectProps?: MonitoringAspectProps) {
+    const aspect = new MonitoringAspect(this, aspectProps);
+    Aspects.of(scope).add(aspect);
   }
 }

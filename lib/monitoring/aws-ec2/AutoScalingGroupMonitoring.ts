@@ -20,9 +20,12 @@ import {
   AutoScalingGroupMetricFactoryProps,
 } from "./AutoScalingGroupMetricFactory";
 
+export interface AutoScalingGroupMonitoringOptions
+  extends BaseMonitoringProps {}
+
 export interface AutoScalingGroupMonitoringProps
   extends AutoScalingGroupMetricFactoryProps,
-    BaseMonitoringProps {}
+    AutoScalingGroupMonitoringOptions {}
 
 export class AutoScalingGroupMonitoring extends Monitoring {
   protected readonly title: string;

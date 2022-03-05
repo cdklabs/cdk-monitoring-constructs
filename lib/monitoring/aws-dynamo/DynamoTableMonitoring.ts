@@ -43,9 +43,7 @@ import {
   DynamoTableMetricFactoryProps,
 } from "./DynamoTableMetricFactory";
 
-export interface DynamoTableMonitoringProps
-  extends DynamoTableMetricFactoryProps,
-    BaseMonitoringProps {
+export interface DynamoTableMonitoringOptions extends BaseMonitoringProps {
   readonly addConsumedReadCapacityAlarm?: Record<
     string,
     ConsumedCapacityThreshold
@@ -100,6 +98,10 @@ export interface DynamoTableMonitoringProps
     LatencyThreshold
   >;
 }
+
+export interface DynamoTableMonitoringProps
+  extends DynamoTableMetricFactoryProps,
+    DynamoTableMonitoringOptions {}
 
 export class DynamoTableMonitoring extends Monitoring {
   protected readonly title: string;

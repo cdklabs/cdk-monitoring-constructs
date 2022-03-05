@@ -19,7 +19,9 @@ import {
 } from "../../dashboard";
 import { GlueJobMetricFactory } from "./GlueJobMetricFactory";
 
-export interface GlueJobMonitoringProps extends BaseMonitoringProps {
+export interface GlueJobMonitoringOptions extends BaseMonitoringProps {}
+
+export interface GlueJobMonitoringProps extends GlueJobMonitoringOptions {
   readonly jobName: string;
 }
 

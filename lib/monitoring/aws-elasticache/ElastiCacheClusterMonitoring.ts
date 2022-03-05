@@ -34,9 +34,8 @@ import {
   ElastiCacheClusterType,
 } from "./ElastiCacheClusterMetricFactory";
 
-export interface ElastiCacheClusterMonitoringProps
-  extends ElastiCacheClusterMetricFactoryProps,
-    BaseMonitoringProps {
+export interface ElastiCacheClusterMonitoringOptions
+  extends BaseMonitoringProps {
   /**
    * Cluster type (needed, since each type has their own specific metrics)
    */
@@ -71,6 +70,10 @@ export interface ElastiCacheClusterMonitoringProps
     MaxUsedSwapMemoryThreshold
   >;
 }
+
+export interface ElastiCacheClusterMonitoringProps
+  extends ElastiCacheClusterMetricFactoryProps,
+    ElastiCacheClusterMonitoringOptions {}
 
 export class ElastiCacheClusterMonitoring extends Monitoring {
   protected readonly title: string;
