@@ -1389,9 +1389,9 @@ camelcase@^6.2.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001312:
-  version "1.0.30001312"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001312.tgz#e11eba4b87e24d22697dae05455d5aea28550d5f"
-  integrity sha512-Wiz1Psk2MEK0pX3rUzWaunLTZzqS2JYZFzNKqAiJGiuxIjRPLgV6+VDPOg6lQOUxmDwhTlh198JsTTi8Hzw6aQ==
+  version "1.0.30001313"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001313.tgz#a380b079db91621e1b7120895874e2fd62ed2e2f"
+  integrity sha512-rI1UN0koZUiKINjysQDuRi2VeSCce3bYJNmDcj3PIKREiAmjakugBul1QSkg/fPrlULYl6oWfGg3PbgOSY9X4Q==
 
 case@1.6.3, case@^1.6.3:
   version "1.6.3"
@@ -3788,10 +3788,10 @@ jsii-diff@^1.54.0:
     typescript "~3.9.10"
     yargs "^16.2.0"
 
-jsii-docgen@^6.1.20:
-  version "6.1.20"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-6.1.20.tgz#2313d468e9aa6ec2f70ac60d896a1bb2ef7aaa14"
-  integrity sha512-RbKhCq9m+7Omw1wLj64NaXSSs+9Sjfh1pNxipFc/at3N96s6DMcTQDObJvOFIjgN9i260bPWsjJ3+6vF7xrBwA==
+jsii-docgen@^6.1.21:
+  version "6.1.21"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-6.1.21.tgz#66ae68a64a85788bdd9eaf84179e257b3667cda0"
+  integrity sha512-UHi3GE6mDh0HJ2fi6gykL5ka84Q6HBPROt+6OtZL+FUf6RRk7t0sLAHHcVNBG+IxlPuoBuTp6Jvd0nD+rsmvNg==
   dependencies:
     "@jsii/spec" "^1.54.0"
     case "^1.6.3"
