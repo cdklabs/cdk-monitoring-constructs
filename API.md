@@ -45614,6 +45614,7 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 | <code><a href="#cdk-monitoring-constructs.LatencyType.P50">P50</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.P70">P70</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.P90">P90</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyType.P95">P95</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.P99">P99</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.P999">P999</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.P9999">P9999</a></code> | *No description.* |
@@ -45621,6 +45622,7 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM50">TM50</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM70">TM70</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM90">TM90</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyType.TM95">TM95</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM99">TM99</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM999">TM999</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM9999">TM9999</a></code> | *No description.* |
@@ -45639,6 +45641,11 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 #### `P90` <a name="P90" id="cdk-monitoring-constructs.LatencyType.P90"></a>
+
+---
+
+
+#### `P95` <a name="P95" id="cdk-monitoring-constructs.LatencyType.P95"></a>
 
 ---
 
@@ -45674,6 +45681,11 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 #### `TM90` <a name="TM90" id="cdk-monitoring-constructs.LatencyType.TM90"></a>
+
+---
+
+
+#### `TM95` <a name="TM95" id="cdk-monitoring-constructs.LatencyType.TM95"></a>
 
 ---
 
@@ -45726,6 +45738,7 @@ Level of a given log.
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.P50">P50</a></code> | 50th percentile of all datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.P70">P70</a></code> | 70th percentile of all datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.P90">P90</a></code> | 90th percentile of all datapoints. |
+| <code><a href="#cdk-monitoring-constructs.MetricStatistic.P95">P95</a></code> | 95th percentile of all datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.P99">P99</a></code> | 99th percentile of all datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.P999">P999</a></code> | 99.9th percentile of all datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.P9999">P9999</a></code> | 99.99th percentile of all datapoints. |
@@ -45733,6 +45746,7 @@ Level of a given log.
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM50">TM50</a></code> | trimmed mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM70">TM70</a></code> | trimmed mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM90">TM90</a></code> | trimmed mean; |
+| <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM95">TM95</a></code> | trimmed mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM99">TM99</a></code> | trimmed mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM999">TM999</a></code> | trimmed mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM9999">TM9999</a></code> | trimmed mean; |
@@ -45746,6 +45760,7 @@ Level of a given log.
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM50">WM50</a></code> | winsorized mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM70">WM70</a></code> | winsorized mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM90">WM90</a></code> | winsorized mean; |
+| <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM95">WM95</a></code> | winsorized mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM99">WM99</a></code> | winsorized mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM999">WM999</a></code> | winsorized mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM9999">WM9999</a></code> | winsorized mean; |
@@ -45785,6 +45800,13 @@ Metric aggregation statistic to be used with the IMetric objects.
 #### `P90` <a name="P90" id="cdk-monitoring-constructs.MetricStatistic.P90"></a>
 
 90th percentile of all datapoints.
+
+---
+
+
+#### `P95` <a name="P95" id="cdk-monitoring-constructs.MetricStatistic.P95"></a>
+
+95th percentile of all datapoints.
 
 ---
 
@@ -45840,6 +45862,15 @@ calculates the average after removing the 30% of data points with the highest va
 trimmed mean;
 
 calculates the average after removing the 10% of data points with the highest values
+
+---
+
+
+#### `TM95` <a name="TM95" id="cdk-monitoring-constructs.MetricStatistic.TM95"></a>
+
+trimmed mean;
+
+calculates the average after removing the 5% of data points with the highest values
 
 ---
 
@@ -45957,6 +45988,15 @@ calculates the average while treating the 30% of the highest values to be equal 
 winsorized mean;
 
 calculates the average while treating the 10% of the highest values to be equal to the value at the 90th percentile
+
+---
+
+
+#### `WM95` <a name="WM95" id="cdk-monitoring-constructs.MetricStatistic.WM95"></a>
+
+winsorized mean;
+
+calculates the average while treating the 5% of the highest values to be equal to the value at the 95th percentile
 
 ---
 
