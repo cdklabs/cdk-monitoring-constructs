@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Duration, Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { ComparisonOperator } from "monocdk/aws-cloudwatch";
 import {
   Function,
@@ -38,7 +38,7 @@ test("snapshot test: no alarms", () => {
     }),
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -138,7 +138,7 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(12);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -178,7 +178,7 @@ test("snapshot test: all alarms", () => {
     lambdaInsightsEnabled: true,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
@@ -278,7 +278,7 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(12);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
@@ -378,5 +378,5 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(12);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

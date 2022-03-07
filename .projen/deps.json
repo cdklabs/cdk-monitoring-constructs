@@ -1,11 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "@monocdk-experiment/assert",
-      "version": "1.123.0",
-      "type": "build"
-    },
-    {
       "name": "@types/jest",
       "type": "build"
     },

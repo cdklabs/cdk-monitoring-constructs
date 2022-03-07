@@ -15,7 +15,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkVersionPinning: true,
 
   cdkDependencies: ["monocdk"],
-  cdkTestDependencies: ["@monocdk-experiment/assert"],
 
   srcdir: "lib",
   testdir: "test",

@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { App, Duration, Stack, cx_api } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Secret } from "monocdk/aws-secretsmanager";
 
 import {
@@ -72,7 +72,7 @@ test("snapshot test", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(4);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("throws an error when feature flag is not set", () => {
@@ -104,7 +104,7 @@ test("each stack in an app gets its own publisher instance", () => {
       });
     }
 
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   }
 });
 

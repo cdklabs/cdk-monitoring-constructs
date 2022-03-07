@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Duration, Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { RestApi } from "monocdk/aws-apigateway";
 
 import { AlarmWithAnnotation, ApiGatewayMonitoring } from "../../../lib";
@@ -18,7 +18,7 @@ test("snapshot test: no alarms", () => {
     alarmFriendlyName: "DummyApi",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -90,7 +90,7 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(9);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms without alarmFriendlyName", () => {
@@ -162,5 +162,5 @@ test("snapshot test: all alarms without alarmFriendlyName", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(9);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

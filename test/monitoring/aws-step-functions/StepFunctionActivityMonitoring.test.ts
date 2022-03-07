@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Duration, Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Activity } from "monocdk/aws-stepfunctions";
 
 import {
@@ -22,7 +22,7 @@ test("snapshot test: no alarms", () => {
     activity,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -77,5 +77,5 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(6);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

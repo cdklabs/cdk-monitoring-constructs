@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { InstanceType } from "monocdk/aws-ec2";
 import { Repository } from "monocdk/aws-ecr";
 import { Cluster, EcrImage, FargateTaskDefinition } from "monocdk/aws-ecs";
@@ -30,7 +30,7 @@ test("Fargate: snapshot test: no alarms", () => {
 
   getQueueProcessingFargateServiceMonitoring(scope, { fargateService });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("Fargate: snapshot test: one alarm in each aspect", () => {
@@ -67,7 +67,7 @@ test("Fargate: snapshot test: one alarm in each aspect", () => {
     },
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("EC2: snapshot test: no alarms", () => {
@@ -86,7 +86,7 @@ test("EC2: snapshot test: no alarms", () => {
 
   getQueueProcessingEc2ServiceMonitoring(scope, { ec2Service });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("EC2: snapshot test: one alarm in each aspect", () => {
@@ -123,5 +123,5 @@ test("EC2: snapshot test: one alarm in each aspect", () => {
     },
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

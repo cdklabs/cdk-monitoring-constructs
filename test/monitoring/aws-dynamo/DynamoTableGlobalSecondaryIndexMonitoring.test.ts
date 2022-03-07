@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { AttributeType, Table } from "monocdk/aws-dynamodb";
 
 import { DynamoTableGlobalSecondaryIndexMonitoring } from "../../../lib";
@@ -23,5 +23,5 @@ test("snapshot test: no alarms", () => {
     globalSecondaryIndexName: "non-existing-index",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

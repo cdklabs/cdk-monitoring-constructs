@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import {
   ComparisonOperator,
   MathExpression,
@@ -154,7 +154,7 @@ test("snapshot test", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(6);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("anomaly detection", () => {
@@ -195,7 +195,7 @@ test("anomaly detection", () => {
     ],
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("enhanced anomaly detection", () => {
@@ -251,7 +251,7 @@ test("enhanced anomaly detection", () => {
     ],
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("enhanced anomaly detection with more complex metric", () => {
@@ -287,7 +287,7 @@ test("enhanced anomaly detection with more complex metric", () => {
     ],
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("enhanced anomaly detection with metric math", () => {
@@ -329,7 +329,7 @@ test("enhanced anomaly detection with metric math", () => {
     ],
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("throws error if attempting to add alarm on a search query", () => {

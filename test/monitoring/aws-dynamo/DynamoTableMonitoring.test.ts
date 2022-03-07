@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Duration, Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { AttributeType, Table } from "monocdk/aws-dynamodb";
 
 import { AlarmWithAnnotation, DynamoTableMonitoring } from "../../../lib";
@@ -30,7 +30,7 @@ test("snapshot test: no alarms", () => {
     }),
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -131,5 +131,5 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(14);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { InstanceType } from "monocdk/aws-ec2";
 import { Repository } from "monocdk/aws-ecr";
 import { Cluster, EcrImage } from "monocdk/aws-ecs";
@@ -40,7 +40,7 @@ test("snapshot test: EC2 + NLB, no alarms", () => {
     alarmFriendlyName: "DummyEc2Service",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: EC2 + NLB, all alarms", () => {
@@ -115,7 +115,7 @@ test("snapshot test: EC2 + NLB, all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(7);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: EC2 + ALB, no alarms", () => {
@@ -147,7 +147,7 @@ test("snapshot test: EC2 + ALB, no alarms", () => {
     alarmFriendlyName: "DummyEc2Service",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: EC2 + ALB, all alarms", () => {
@@ -222,5 +222,5 @@ test("snapshot test: EC2 + ALB, all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(7);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

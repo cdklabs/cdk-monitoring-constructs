@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Repository } from "monocdk/aws-ecr";
 import {
   Cluster,
@@ -47,7 +47,7 @@ test("snapshot test: fargate, NLB, no alarms", () => {
     alarmFriendlyName: "DummyFargateService",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: fargate, NLB, all alarms", () => {
@@ -119,7 +119,7 @@ test("snapshot test: fargate, NLB, all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(6);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: fargate with NLB, no alarms", () => {
@@ -150,7 +150,7 @@ test("snapshot test: fargate with NLB, no alarms", () => {
     alarmFriendlyName: "DummyFargateService",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: fargate with NLB, all alarms", () => {
@@ -224,7 +224,7 @@ test("snapshot test: fargate with NLB, all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(7);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: fargate with ALB, no alarms", () => {
@@ -255,7 +255,7 @@ test("snapshot test: fargate with ALB, no alarms", () => {
     alarmFriendlyName: "DummyFargateService",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: fargate with ALB, all alarms", () => {
@@ -329,7 +329,7 @@ test("snapshot test: fargate with ALB, all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(7);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: fargate, no alarms", () => {
@@ -358,7 +358,7 @@ test("snapshot test: fargate, no alarms", () => {
     alarmFriendlyName: "DummyFargateService",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: fargate, all alarms", () => {
@@ -410,5 +410,5 @@ test("snapshot test: fargate, all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(3);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

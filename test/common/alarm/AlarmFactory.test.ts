@@ -1,9 +1,5 @@
-import {
-  SynthUtils,
-  expect as cdkExpect,
-  haveResource,
-} from "@monocdk-experiment/assert";
 import { Construct, Duration, Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import {
   ComparisonOperator,
   Metric,
@@ -118,43 +114,32 @@ test("addAlarm: verify actions enabled", () => {
     ...props,
     alarmNameSuffix: "DisabledByDefault",
   });
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      ActionsEnabled: true,
-      AlarmName: "DummyServiceAlarms-prefix-EnabledByFlag",
-    })
-  );
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      ActionsEnabled: false,
-      AlarmName: "DummyServiceAlarms-prefix-DisabledByFlag",
-    })
-  );
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      ActionsEnabled: true,
-      AlarmName: "DummyServiceAlarms-prefix-EnabledByDisambiguator-Critical",
-    })
-  );
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      ActionsEnabled: false,
-      AlarmName: "DummyServiceAlarms-prefix-DisabledByDisambiguator-Warning",
-    })
-  );
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      ActionsEnabled: false,
-      AlarmName:
-        "DummyServiceAlarms-prefix-DisabledByInvalidDisambiguator-Invalid",
-    })
-  );
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      ActionsEnabled: false,
-      AlarmName: "DummyServiceAlarms-prefix-DisabledByDefault",
-    })
-  );
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    ActionsEnabled: true,
+    AlarmName: "DummyServiceAlarms-prefix-EnabledByFlag",
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    ActionsEnabled: false,
+    AlarmName: "DummyServiceAlarms-prefix-DisabledByFlag",
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    ActionsEnabled: true,
+    AlarmName: "DummyServiceAlarms-prefix-EnabledByDisambiguator-Critical",
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    ActionsEnabled: false,
+    AlarmName: "DummyServiceAlarms-prefix-DisabledByDisambiguator-Warning",
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    ActionsEnabled: false,
+    AlarmName:
+      "DummyServiceAlarms-prefix-DisabledByInvalidDisambiguator-Invalid",
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    ActionsEnabled: false,
+    AlarmName: "DummyServiceAlarms-prefix-DisabledByDefault",
+  });
 });
 
 test("addAlarm: description can be overridden", () => {
@@ -192,7 +177,7 @@ test("addAlarm: evaluateLowSampleCountPercentile can be overridden", () => {
     evaluateLowSampleCountPercentile: true,
     alarmNameSuffix: "TrueValue",
   });
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("addAlarm: period override is propagated to alarm metric", () => {
@@ -278,5 +263,5 @@ test("addCompositeAlarm: snapshot for operator", () => {
     alarmNameSuffix: "CompositeOr",
     compositeOperator: CompositeAlarmOperator.OR,
   });
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

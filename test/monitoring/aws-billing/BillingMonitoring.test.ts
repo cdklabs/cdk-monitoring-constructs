@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 
 import { BillingMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";
@@ -11,5 +11,5 @@ test("snapshot test", () => {
 
   new BillingMonitoring(scope, {});
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

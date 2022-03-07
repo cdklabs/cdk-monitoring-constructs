@@ -39,7 +39,6 @@
     "organization": false
   },
   "devDependencies": {
-    "@monocdk-experiment/assert": "1.123.0",
     "@types/jest": "^27.4.1",
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",

@@ -1,6 +1,5 @@
-import { haveResource } from "@monocdk-experiment/assert";
-import { expect as cdkExpect } from "@monocdk-experiment/assert/lib/expect";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 
 import { DashboardWithBitmapCopy } from "../../lib";
 
@@ -11,13 +10,11 @@ test("named dashboard has a bitmap copy", () => {
     dashboardName: "DummyDashboard",
   });
 
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Dashboard", {
-      DashboardName: "DummyDashboard",
-    }).and(
-      haveResource("AWS::CloudWatch::Dashboard", {
-        DashboardName: "Bitmap-DummyDashboard",
-      })
-    )
-  );
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::CloudWatch::Dashboard", {
+    DashboardName: "DummyDashboard",
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Dashboard", {
+    DashboardName: "Bitmap-DummyDashboard",
+  });
 });

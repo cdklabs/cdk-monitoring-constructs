@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Duration, Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { TreatMissingData } from "monocdk/aws-cloudwatch";
 import { Pass, StateMachine } from "monocdk/aws-stepfunctions";
 
@@ -20,7 +20,7 @@ test("snapshot test: no alarms", () => {
     stateMachine,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -91,7 +91,7 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(9);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
@@ -162,5 +162,5 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(9);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
