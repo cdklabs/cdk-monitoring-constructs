@@ -17,6 +17,10 @@ export enum MetricStatistic {
    */
   P90 = "p90",
   /**
+   * 95th percentile of all datapoints
+   */
+  P95 = "p95",
+  /**
    * 99th percentile of all datapoints
    */
   P99 = "p99",
@@ -45,6 +49,10 @@ export enum MetricStatistic {
    * trimmed mean; calculates the average after removing the 10% of data points with the highest values
    */
   TM90 = "tm90",
+  /**
+   * trimmed mean; calculates the average after removing the 5% of data points with the highest values
+   */
+  TM95 = "tm95",
   /**
    * trimmed mean; calculates the average after removing the 1% of data points with the highest values
    */
@@ -98,6 +106,10 @@ export enum MetricStatistic {
    * winsorized mean; calculates the average while treating the 10% of the highest values to be equal to the value at the 90th percentile
    */
   WM90 = "wm90",
+  /**
+   * winsorized mean; calculates the average while treating the 5% of the highest values to be equal to the value at the 95th percentile
+   */
+  WM95 = "wm95",
   /**
    * winsorized mean; calculates the average while treating the 1% of the highest values to be equal to the value at the 99th percentile
    */

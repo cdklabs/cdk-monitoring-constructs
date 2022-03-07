@@ -8,6 +8,7 @@ export enum LatencyType {
   P50 = "P50",
   P70 = "P70",
   P90 = "P90",
+  P95 = "P95",
   P99 = "P99",
   P999 = "P999",
   P9999 = "P9999",
@@ -15,6 +16,7 @@ export enum LatencyType {
   TM50 = "TM50",
   TM70 = "TM70",
   TM90 = "TM90",
+  TM95 = "TM95",
   TM99 = "TM99",
   TM999 = "TM999",
   TM9999 = "TM9999",
@@ -29,6 +31,8 @@ export function getLatencyTypeStatistic(latencyType: LatencyType) {
       return MetricStatistic.P70;
     case LatencyType.P90:
       return MetricStatistic.P90;
+    case LatencyType.P95:
+      return MetricStatistic.P95;
     case LatencyType.P99:
       return MetricStatistic.P99;
     case LatencyType.P999:
@@ -43,6 +47,8 @@ export function getLatencyTypeStatistic(latencyType: LatencyType) {
       return MetricStatistic.TM70;
     case LatencyType.TM90:
       return MetricStatistic.TM90;
+    case LatencyType.TM95:
+      return MetricStatistic.TM95;
     case LatencyType.TM99:
       return MetricStatistic.TM99;
     case LatencyType.TM999:
@@ -63,6 +69,7 @@ export function getLatencyTypeExpressionId(latencyType: LatencyType) {
     case LatencyType.P50:
     case LatencyType.P70:
     case LatencyType.P90:
+    case LatencyType.P95:
     case LatencyType.P99:
     case LatencyType.P999:
     case LatencyType.P9999:
