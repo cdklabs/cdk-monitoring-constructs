@@ -1,0 +1,56 @@
+name: Bug report
+description: Report an issue
+labels: [bug]
+body:
+
+  - type: input
+    id: bug-version
+    attributes:
+      label: Version
+      description: The version of cdk-monitoring-constructs you're using.
+      placeholder: |
+        Example: "v0.0.20"
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-reproduce-steps
+    attributes:
+      label: Steps and/or minimal code example to reproduce
+      description: Provide an example of the issue.
+      placeholder: |
+        Example:
+          1. First step
+          2. Second step
+          3. Issue here
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-expected-behavior
+    attributes:
+      label: Expected behavior
+      description: Explain what you expect to happen.
+      placeholder: |
+        Example:
+          "This should happen..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-actual-behavior
+    attributes:
+      label: Actual behavior
+      description: Explain what actually happens.
+      placeholder: |
+        Example:
+          "This happened instead..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-other-details
+    attributes:
+      label: Other details
+      placeholder: |
+        Additional details and attachments.
