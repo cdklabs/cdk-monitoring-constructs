@@ -7126,6 +7126,10 @@ const cloudFrontDistributionMonitoringOptions: CloudFrontDistributionMonitoringO
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addError4xxRate">addError4xxRate</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addError5xxRate">addError5xxRate</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -7226,6 +7230,46 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addError4xxRate`<sup>Optional</sup> <a name="addError4xxRate" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addError4xxRate"></a>
+
+```typescript
+public readonly addError4xxRate: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addError5xxRate`<sup>Optional</sup> <a name="addError5xxRate" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addError5xxRate"></a>
+
+```typescript
+public readonly addError5xxRate: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addHighTpsAlarm`<sup>Optional</sup> <a name="addHighTpsAlarm" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addHighTpsAlarm"></a>
+
+```typescript
+public readonly addHighTpsAlarm: {[ key: string ]: HighTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}
+
+---
+
+##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addLowTpsAlarm"></a>
+
+```typescript
+public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}
+
+---
+
 ### CloudFrontDistributionMonitoringProps <a name="CloudFrontDistributionMonitoringProps" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.Initializer"></a>
@@ -7249,6 +7293,10 @@ const cloudFrontDistributionMonitoringProps: CloudFrontDistributionMonitoringPro
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addError4xxRate">addError4xxRate</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addError5xxRate">addError5xxRate</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -7367,6 +7415,46 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addError4xxRate`<sup>Optional</sup> <a name="addError4xxRate" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addError4xxRate"></a>
+
+```typescript
+public readonly addError4xxRate: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addError5xxRate`<sup>Optional</sup> <a name="addError5xxRate" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addError5xxRate"></a>
+
+```typescript
+public readonly addError5xxRate: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addHighTpsAlarm`<sup>Optional</sup> <a name="addHighTpsAlarm" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addHighTpsAlarm"></a>
+
+```typescript
+public readonly addHighTpsAlarm: {[ key: string ]: HighTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}
+
+---
+
+##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addLowTpsAlarm"></a>
+
+```typescript
+public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}
 
 ---
 

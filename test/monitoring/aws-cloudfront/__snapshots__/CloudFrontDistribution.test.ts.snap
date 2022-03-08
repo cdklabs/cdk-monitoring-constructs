@@ -98,3 +98,272 @@ Object {
   },
 }
 `;
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Bucket83908E77": Object {
+      "DeletionPolicy": "Retain",
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
+          "Ref": "Bucket83908E77",
+        },
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "s3:GetObject",
+              "Effect": "Allow",
+              "Principal": Object {
+                "CanonicalUser": Object {
+                  "Fn::GetAtt": Array [
+                    "DistributionOrigin1S3Origin5F5C0696",
+                    "S3CanonicalUserId",
+                  ],
+                },
+              },
+              "Resource": Object {
+                "Fn::Join": Array [
+                  "",
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
+                        "Bucket83908E77",
+                        "Arn",
+                      ],
+                    },
+                    "/*",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::S3::BucketPolicy",
+    },
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
+            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "Compress": true,
+            "TargetOriginId": "DistributionOrigin13547B94F",
+            "ViewerProtocolPolicy": "allow-all",
+          },
+          "Enabled": true,
+          "HttpVersion": "http2",
+          "IPV6Enabled": true,
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
+                  "Bucket83908E77",
+                  "RegionalDomainName",
+                ],
+              },
+              "Id": "DistributionOrigin13547B94F",
+              "S3OriginConfig": Object {
+                "OriginAccessIdentity": Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "origin-access-identity/cloudfront/",
+                      Object {
+                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
+                      },
+                    ],
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+      "Type": "AWS::CloudFront::Distribution",
+    },
+    "DistributionOrigin1S3Origin5F5C0696": Object {
+      "Properties": Object {
+        "CloudFrontOriginAccessIdentityConfig": Object {
+          "Comment": "Identity for DistributionOrigin13547B94F",
+        },
+      },
+      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+    },
+    "ScopeTestDistributionErrorRateWarning079D566A": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Error rate is too high.",
+        "AlarmName": "Test-Distribution-Error-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "EvaluationPeriods": 10,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "4XX",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DistributionId",
+                    "Value": Object {
+                      "Ref": "Distribution830FAC52",
+                    },
+                  },
+                  Object {
+                    "Name": "Region",
+                    "Value": "Global",
+                  },
+                ],
+                "MetricName": "4xxErrorRate",
+                "Namespace": "AWS/CloudFront",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDistributionFaultRateWarning02013C05": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault rate is too high.",
+        "AlarmName": "Test-Distribution-Fault-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "EvaluationPeriods": 10,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DistributionId",
+                    "Value": Object {
+                      "Ref": "Distribution830FAC52",
+                    },
+                  },
+                  Object {
+                    "Name": "Region",
+                    "Value": "Global",
+                  },
+                ],
+                "MetricName": "5xxErrorRate",
+                "Namespace": "AWS/CloudFront",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDistributionMaxTPSWarningAC289EB2": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "Test-Distribution-MaxTPS-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 1,
+        "EvaluationPeriods": 1,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Uploaded/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Uploaded",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DistributionId",
+                    "Value": Object {
+                      "Ref": "Distribution830FAC52",
+                    },
+                  },
+                  Object {
+                    "Name": "Region",
+                    "Value": "Global",
+                  },
+                ],
+                "MetricName": "Requests",
+                "Namespace": "AWS/CloudFront",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 20,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDistributionMinTPSWarning6CB7ACEE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "Test-Distribution-MinTPS-Warning",
+        "ComparisonOperator": "LessThanOrEqualToThreshold",
+        "DatapointsToAlarm": 1,
+        "EvaluationPeriods": 1,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Uploaded/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Uploaded",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DistributionId",
+                    "Value": Object {
+                      "Ref": "Distribution830FAC52",
+                    },
+                  },
+                  Object {
+                    "Name": "Region",
+                    "Value": "Global",
+                  },
+                ],
+                "MetricName": "Requests",
+                "Namespace": "AWS/CloudFront",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
