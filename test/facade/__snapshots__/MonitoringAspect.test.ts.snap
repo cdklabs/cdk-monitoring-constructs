@@ -1394,7 +1394,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"5XX\\",\\"region\\":\\"us-east-1\\"}]],\\"yAxis\\":{}}}]}",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"5XX\\",\\"region\\":\\"us-east-1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -1456,7 +1456,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"5XX\\",\\"region\\":\\"us-east-1\\"}]],\\"yAxis\\":{}}}]}",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"5XX\\",\\"region\\":\\"us-east-1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

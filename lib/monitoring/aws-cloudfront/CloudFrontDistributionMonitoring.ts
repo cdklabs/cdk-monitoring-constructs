@@ -1,17 +1,29 @@
-import { GraphWidget, IWidget } from "monocdk/aws-cloudwatch";
+import {
+  GraphWidget,
+  HorizontalAnnotation,
+  IWidget,
+} from "monocdk/aws-cloudwatch";
 
 import {
+  AlarmFactory,
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
+  ErrorAlarmFactory,
+  ErrorRateThreshold,
+  ErrorType,
   HalfWidth,
+  HighTpsThreshold,
+  LowTpsThreshold,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
+  RateAxisFromZero,
   SizeAxisBytesFromZero,
+  TpsAlarmFactory,
 } from "../../common";
 import {
   MonitoringHeaderWidget,
@@ -28,12 +40,23 @@ export interface CloudFrontDistributionMonitoringOptions
 export interface CloudFrontDistributionMonitoringProps
   extends CloudFrontDistributionMetricFactoryProps,
     CloudFrontDistributionMonitoringOptions {
-  // empty
+  readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
+  readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
+  readonly addError4xxRate?: Record<string, ErrorRateThreshold>;
+  readonly addFault5xxRate?: Record<string, ErrorRateThreshold>;
 }
 
 export class CloudFrontDistributionMonitoring extends Monitoring {
   private readonly title: string;
   private readonly distributionUrl?: string;
+
+  protected readonly namingStrategy: MonitoringNamingStrategy;
+  protected readonly alarmFactory: AlarmFactory;
+  protected readonly errorAlarmFactory: ErrorAlarmFactory;
+  protected readonly tpsAlarmFactory: TpsAlarmFactory;
+
+  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  protected readonly tpsAnnotations: HorizontalAnnotation[];
 
   protected readonly tpsMetric: MetricWithAlarmSupport;
   protected readonly downloadedBytesMetric: MetricWithAlarmSupport;
@@ -51,15 +74,24 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
     const namedConstruct = props.distribution;
     const fallbackConstructName = namedConstruct.distributionId;
 
-    const namingStrategy = new MonitoringNamingStrategy({
+    this.namingStrategy = new MonitoringNamingStrategy({
       ...props,
       namedConstruct,
       fallbackConstructName,
     });
-    this.title = namingStrategy.resolveHumanReadableName();
+    this.title = this.namingStrategy.resolveHumanReadableName();
     this.distributionUrl = scope
       .createAwsConsoleUrlFactory()
       .getCloudFrontDistributionUrl(namedConstruct.distributionId);
+
+    this.alarmFactory = this.createAlarmFactory(
+      this.namingStrategy.resolveAlarmFriendlyName()
+    );
+    this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
+    this.tpsAlarmFactory = new TpsAlarmFactory(this.alarmFactory);
+
+    this.errorRateAnnotations = [];
+    this.tpsAnnotations = [];
 
     const metricFactory = new CloudFrontDistributionMetricFactory(
       scope.createMetricFactory(),
@@ -71,6 +103,53 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
     this.cacheHitRate = metricFactory.metricCacheHitRateAverageInPercent();
     this.error4xxRate = metricFactory.metric4xxErrorRateAverage();
     this.error5xxRate = metricFactory.metric5xxErrorRateAverage();
+
+    for (const disambiguator in props.addLowTpsAlarm) {
+      const alarmProps = props.addLowTpsAlarm[disambiguator];
+      const createdAlarm = this.tpsAlarmFactory.addMinTpsAlarm(
+        this.tpsMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.tpsAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addHighTpsAlarm) {
+      const alarmProps = props.addHighTpsAlarm[disambiguator];
+      const createdAlarm = this.tpsAlarmFactory.addMaxTpsAlarm(
+        this.tpsMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.tpsAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addError4xxRate) {
+      const alarmProps = props.addError4xxRate[disambiguator];
+      const createdAlarm = this.errorAlarmFactory.addErrorRateAlarm(
+        this.error4xxRate,
+        ErrorType.ERROR,
+        alarmProps,
+        disambiguator
+      );
+      this.errorRateAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addFault5xxRate) {
+      const alarmProps = props.addFault5xxRate[disambiguator];
+      const createdAlarm = this.errorAlarmFactory.addErrorRateAlarm(
+        this.error5xxRate,
+        ErrorType.FAULT,
+        alarmProps,
+        disambiguator
+      );
+      this.errorRateAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    if (props.useCreatedAlarms) {
+      props.useCreatedAlarms.consume(this.createdAlarms());
+    }
   }
 
   summaryWidgets(): IWidget[] {
@@ -106,6 +185,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
       title: "TPS",
       left: [this.tpsMetric],
       leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.tpsAnnotations,
     });
   }
 
@@ -135,6 +215,8 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
       height,
       title: "Errors (rate)",
       left: [this.error4xxRate, this.error5xxRate],
+      leftAnnotations: this.errorRateAnnotations,
+      leftYAxis: RateAxisFromZero,
     });
   }
 }
