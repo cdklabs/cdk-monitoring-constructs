@@ -51,6 +51,14 @@ const project = new awscdk.AwsCdkConstructLibrary({
     },
   },
 
+  pullRequestTemplateContents: [
+    `Fixes #
+
+---
+
+_By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license_`,
+  ],
+
   // Code linting config
   prettier: true,
   prettierOptions: {
