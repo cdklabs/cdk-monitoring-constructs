@@ -1,4 +1,4 @@
-const { awscdk, DependencyType } = require("projen");
+const { awscdk, DependencyType, javascript } = require("projen");
 
 const CDK_VERSION = "1.123.0";
 const CONSTRUCTS_VERSION = "3.3.69";
@@ -43,6 +43,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
     secret: "GITHUB_TOKEN",
   },
   autoApproveUpgrades: true,
+  depsUpgradeOptions: {
+    workflowOptions: {
+      schedule: javascript.UpgradeDependenciesSchedule.expressions([
+        "0 0 * * 1",
+      ]),
+    },
+  },
 
   // Code linting config
   prettier: true,
