@@ -290,7 +290,7 @@ export class CustomMonitoring extends Monitoring {
       rows.push(
         new Row(
           this.createDescriptionWidget(
-            `▼ ${this.description}`,
+            this.description,
             this.descriptionWidgetHeight
           )
         )
