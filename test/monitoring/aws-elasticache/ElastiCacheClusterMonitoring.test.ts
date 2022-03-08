@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 
 import {
   AlarmWithAnnotation,
@@ -24,7 +24,7 @@ test("snapshot test: no alarms", () => {
     clusterType: ElastiCacheClusterType.REDIS,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -65,7 +65,7 @@ test("snapshot test: all alarms", () => {
 
   expect(numAlarmsCreatedForMemcached).toStrictEqual(5);
   expect(numAlarmsCreatedForRedis).toStrictEqual(5);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: cluster ID specified", () => {
@@ -87,5 +87,5 @@ test("snapshot test: cluster ID specified", () => {
     alarmFriendlyName: DummyRedisClusterId,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

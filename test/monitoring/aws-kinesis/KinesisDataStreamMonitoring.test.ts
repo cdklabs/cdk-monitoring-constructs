@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 
 import { KinesisDataStreamMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";
@@ -13,7 +13,7 @@ test("snapshot test for stream: no alarms", () => {
     streamName: "my-kinesis-data-stream",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test for stream: all alarms", () => {
@@ -48,5 +48,5 @@ test("snapshot test for stream: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(3);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Alarm, Metric } from "monocdk/aws-cloudwatch";
 import { Topic } from "monocdk/aws-sns";
 
@@ -16,7 +16,7 @@ test("snapshot test: default action only", () => {
   const action = new SnsAlarmActionStrategy({ onAlarmTopic });
   action.addAlarmActions({ alarm, action });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all actions", () => {
@@ -39,5 +39,5 @@ test("snapshot test: all actions", () => {
   });
   action.addAlarmActions({ alarm, action });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

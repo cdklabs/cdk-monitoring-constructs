@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { AutoScalingGroup } from "monocdk/aws-autoscaling";
 import {
   InstanceClass,
@@ -33,5 +33,5 @@ test("snapshot test", () => {
     autoScalingGroup,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

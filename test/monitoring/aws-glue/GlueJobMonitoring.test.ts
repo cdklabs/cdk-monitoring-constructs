@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 
 import { GlueJobMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";
@@ -13,5 +13,5 @@ test("snapshot test", () => {
     jobName: "DummyGlueJob",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

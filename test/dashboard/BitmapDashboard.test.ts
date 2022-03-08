@@ -1,6 +1,5 @@
-import { haveResource } from "@monocdk-experiment/assert";
-import { expect as cdkExpect } from "@monocdk-experiment/assert/lib/expect";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Column, GraphWidget, Metric, Row } from "monocdk/aws-cloudwatch";
 
 import { BitmapDashboard } from "../../lib";
@@ -49,5 +48,5 @@ test("check the bitmap dashboard is generated with rows/columns", () => {
     )
   );
 
-  cdkExpect(stack).to(haveResource("AWS::CloudWatch::Dashboard"));
+  Template.fromStack(stack).resourceCountIs("AWS::CloudWatch::Dashboard", 1);
 });

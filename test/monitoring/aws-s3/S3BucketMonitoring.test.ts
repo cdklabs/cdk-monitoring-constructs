@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Bucket } from "monocdk/aws-s3";
 
 import { S3BucketMonitoring, StorageType } from "../../../lib";
@@ -18,7 +18,7 @@ test("snapshot test: no alarms", () => {
   });
 
   // THEN
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: override StorageType with IntelligentTieringFAStorage", () => {
@@ -35,5 +35,5 @@ test("snapshot test: override StorageType with IntelligentTieringFAStorage", () 
   });
 
   // THEN
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

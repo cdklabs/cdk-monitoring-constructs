@@ -1,6 +1,5 @@
-import { ABSENT, haveResource } from "@monocdk-experiment/assert";
-import { expect as cdkExpect } from "@monocdk-experiment/assert/lib/expect";
 import { Stack } from "monocdk";
+import { Match, Template } from "monocdk/assertions";
 import { ComparisonOperator, Metric } from "monocdk/aws-cloudwatch";
 import { Topic } from "monocdk/aws-sns";
 
@@ -60,28 +59,23 @@ test("test actions", () => {
     ],
   });
 
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-NoActionOverride",
-      AlarmActions: ABSENT,
-      OKActions: ABSENT,
-      InsufficientDataActions: ABSENT,
-    })
-  );
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-SimpleSnsAction",
-      AlarmActions: [{ Ref: "OnAlarmTopicF22649A2" }],
-      OKActions: ABSENT,
-      InsufficientDataActions: ABSENT,
-    })
-  );
-  cdkExpect(stack).to(
-    haveResource("AWS::CloudWatch::Alarm", {
-      AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-ComplexSnsAction",
-      AlarmActions: [{ Ref: "OnAlarmTopicF22649A2" }],
-      OKActions: [{ Ref: "OnOkTopic5903F4A2" }],
-      InsufficientDataActions: [{ Ref: "OnNoDataTopic5F9CF206" }],
-    })
-  );
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-NoActionOverride",
+    AlarmActions: Match.absentProperty(),
+    OKActions: Match.absentProperty(),
+    InsufficientDataActions: Match.absentProperty(),
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-SimpleSnsAction",
+    AlarmActions: [{ Ref: "OnAlarmTopicF22649A2" }],
+    OKActions: Match.absentProperty(),
+    InsufficientDataActions: Match.absentProperty(),
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-ComplexSnsAction",
+    AlarmActions: [{ Ref: "OnAlarmTopicF22649A2" }],
+    OKActions: [{ Ref: "OnOkTopic5903F4A2" }],
+    InsufficientDataActions: [{ Ref: "OnNoDataTopic5F9CF206" }],
+  });
 });

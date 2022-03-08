@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Queue } from "monocdk/aws-sqs";
 
 import { AlarmWithAnnotation, SqsQueueMonitoringWithDlq } from "../../../lib";
@@ -23,7 +23,7 @@ test("snapshot test: no alarms", () => {
     deadLetterQueue,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -77,7 +77,7 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(5);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("useCreatedAlarms is only called once with all alarms", () => {

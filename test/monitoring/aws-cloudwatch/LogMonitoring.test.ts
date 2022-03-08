@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 
 import { LogMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";
@@ -15,7 +15,7 @@ test("snapshot test", () => {
     title: "DummyTitle",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: custom limit", () => {
@@ -29,5 +29,5 @@ test("snapshot test: custom limit", () => {
     limit: 500,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

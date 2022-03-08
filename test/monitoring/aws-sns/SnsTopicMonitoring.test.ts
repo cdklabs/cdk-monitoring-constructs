@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Topic } from "monocdk/aws-sns";
 
 import { AlarmWithAnnotation, SnsTopicMonitoring } from "../../../lib";
@@ -28,7 +28,7 @@ test("snapshot test: no alarms", () => {
     ),
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: all alarms", () => {
@@ -71,5 +71,5 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(3);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

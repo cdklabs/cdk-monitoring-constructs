@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Duration, Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import * as elasticsearch from "monocdk/aws-elasticsearch";
 import * as opensearch from "monocdk/aws-opensearchservice";
 
@@ -37,7 +37,7 @@ const stack = new Stack();
       domain,
     });
 
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test(`snapshot test: all alarms for ${domain.node.id}`, () => {
@@ -147,6 +147,6 @@ const stack = new Stack();
     });
 
     expect(numAlarmsCreated).toStrictEqual(18);
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 });

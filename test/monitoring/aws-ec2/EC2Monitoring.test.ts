@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { AutoScalingGroup } from "monocdk/aws-autoscaling";
 
 import { EC2Monitoring } from "../../../lib";
@@ -14,7 +14,7 @@ test("snapshot test: all instances, no alarms", () => {
     alarmFriendlyName: "EC2",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot test: ASG, no alarms", () => {
@@ -31,5 +31,5 @@ test("snapshot test: ASG, no alarms", () => {
     ),
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

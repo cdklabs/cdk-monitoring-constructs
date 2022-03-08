@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { GraphWidget } from "monocdk/aws-cloudwatch";
 
 import { BitmapWidgetRenderingSupport } from "../../../lib";
@@ -9,7 +9,7 @@ test("support", () => {
 
   new BitmapWidgetRenderingSupport(stack, "Support");
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("widget", () => {

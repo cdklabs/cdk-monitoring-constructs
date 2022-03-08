@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 
 import { KinesisFirehoseMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";
@@ -13,5 +13,5 @@ test("snapshot test", () => {
     deliveryStreamName: "my-firehose-delivery-stream",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

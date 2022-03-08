@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { App, SecretValue, Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import * as apigw from "monocdk/aws-apigateway";
 import * as apigwv2 from "monocdk/aws-apigatewayv2";
 import * as appsync from "monocdk/aws-appsync";
@@ -72,7 +72,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("API Gateway", () => {
@@ -87,7 +87,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("API Gateway V2", () => {
@@ -103,7 +103,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("AppSync", () => {
@@ -119,7 +119,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("AutoScaling", () => {
@@ -145,7 +145,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("Billing", () => {
@@ -160,7 +160,7 @@ describe("MonitoringAspect", () => {
     });
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("CloudFront", () => {
@@ -179,7 +179,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("CodeBuild", () => {
@@ -198,7 +198,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("DynamoDB", () => {
@@ -214,7 +214,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("EC2", () => {
@@ -239,7 +239,7 @@ describe("MonitoringAspect", () => {
     });
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("ElasticCache", () => {
@@ -260,7 +260,7 @@ describe("MonitoringAspect", () => {
     });
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("Glue", () => {
@@ -282,7 +282,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   describe("Kinesis", () => {
@@ -299,7 +299,7 @@ describe("MonitoringAspect", () => {
       facade.monitorScope(stack, defaultAspectProps);
 
       // THEN
-      expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+      expect(Template.fromStack(stack)).toMatchSnapshot();
     });
 
     test("DataAnalytics", () => {
@@ -335,7 +335,7 @@ describe("MonitoringAspect", () => {
       facade.monitorScope(stack, defaultAspectProps);
 
       // THEN
-      expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+      expect(Template.fromStack(stack)).toMatchSnapshot();
     });
 
     test("Firehose", () => {
@@ -349,7 +349,7 @@ describe("MonitoringAspect", () => {
       facade.monitorScope(stack, defaultAspectProps);
 
       // THEN
-      expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+      expect(Template.fromStack(stack)).toMatchSnapshot();
     });
   });
 
@@ -368,7 +368,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("OpenSearch", () => {
@@ -388,7 +388,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("RDS", () => {
@@ -413,7 +413,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("RedShift", () => {
@@ -434,7 +434,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("S3", () => {
@@ -448,7 +448,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("SecretsManager", () => {
@@ -467,7 +467,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("SNS", () => {
@@ -481,7 +481,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("SQS", () => {
@@ -495,7 +495,7 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("StepFunctions", () => {
@@ -511,6 +511,6 @@ describe("MonitoringAspect", () => {
     facade.monitorScope(stack, defaultAspectProps);
 
     // THEN
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 });

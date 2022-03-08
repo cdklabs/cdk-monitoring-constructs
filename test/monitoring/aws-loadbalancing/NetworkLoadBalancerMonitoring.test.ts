@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Vpc } from "monocdk/aws-ec2";
 import { NetworkLoadBalancer } from "monocdk/aws-elasticloadbalancingv2";
 
@@ -28,7 +28,7 @@ test("snapshot nlb test: no alarms", () => {
     alarmFriendlyName: "DummyNetworkLoadBalancer",
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("snapshot nlb test: all alarms", () => {
@@ -78,5 +78,5 @@ test("snapshot nlb test: all alarms", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(4);
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

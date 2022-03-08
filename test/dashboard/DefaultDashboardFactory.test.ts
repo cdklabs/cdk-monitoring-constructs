@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { TextWidget } from "monocdk/aws-cloudwatch";
 
 import {
@@ -19,7 +19,7 @@ test("default dashboards created", () => {
     renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("no dashboards created", () => {
@@ -39,5 +39,5 @@ test("no dashboards created", () => {
     ),
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });

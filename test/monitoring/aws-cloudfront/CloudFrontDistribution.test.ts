@@ -1,5 +1,5 @@
-import { SynthUtils } from "@monocdk-experiment/assert";
 import { Stack } from "monocdk";
+import { Template } from "monocdk/assertions";
 import { Distribution } from "monocdk/aws-cloudfront";
 import { S3Origin } from "monocdk/aws-cloudfront-origins";
 import { Bucket } from "monocdk/aws-s3";
@@ -20,5 +20,5 @@ test("snapshot test", () => {
 
   new CloudFrontDistributionMonitoring(scope, { distribution });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
