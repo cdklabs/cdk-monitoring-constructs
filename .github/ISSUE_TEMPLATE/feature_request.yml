@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest a new feature or enhancement
+labels: [feature-request]
+body:
+
+  - type: input
+    id: feature-scope
+    attributes:
+      label: Feature scope
+      description: The relevant metric namespace.
+      placeholder: |
+        Example: "DynamoDB"
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe your suggested feature
+      description: What new feature or enhancement should be added?
+    validations:
+      required: true
