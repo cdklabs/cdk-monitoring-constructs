@@ -249,6 +249,12 @@ export class CustomMonitoring extends Monitoring {
       }
 
       metricGroup.metrics.forEach((metric) => {
+        if (this.hasAlarm(metric) && this.hasAnomalyDetection(metric)) {
+          throw new Error(
+            "Adding both a regular alarm and an anomoly detection alarm at the same time is not supported"
+          );
+        }
+
         if (this.hasAlarm(metric)) {
           this.setupAlarm(metricGroupWithAnnotation, metric);
         } else if (this.hasAnomalyDetection(metric)) {

@@ -368,5 +368,53 @@ test("throws error if attempting to add alarm on a search query", () => {
           },
         ],
       })
-  ).toThrow();
+  ).toThrow("Alarming on search queries is not supported by CloudWatch");
+});
+
+test("throws error if attempting to add both a regular alarm and an anomoly detection alarm", () => {
+  const stack = new Stack();
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  expect(
+    () =>
+      new CustomMonitoring(scope, {
+        alarmFriendlyName: "DummyAlarmName",
+        humanReadableName: "DummyName",
+        description: "This is a very long description.",
+        metricGroups: [
+          {
+            title: "DummyGroup1",
+            important: true,
+            metrics: [
+              {
+                metric: new Metric({
+                  metricName: "DNSQueries",
+                  namespace: "AWS/Route53",
+                  dimensions: {
+                    HostedZoneId: "ID",
+                  },
+                }),
+                alarmFriendlyName: "DNSQueries anomaly",
+                addAlarm: {
+                  Warning: {
+                    threshold: 90,
+                    comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
+                  },
+                },
+                anomalyDetectionStandardDeviationToRender: 1,
+                addAlarmOnAnomaly: {
+                  CriticalAnomaly: {
+                    standardDeviationForAlarm: 1,
+                    alarmWhenBelowTheBand: true,
+                    alarmWhenAboveTheBand: true,
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      })
+  ).toThrow(
+    "Adding both a regular alarm and an anomoly detection alarm at the same time is not supported"
+  );
 });
