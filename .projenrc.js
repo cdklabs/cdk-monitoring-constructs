@@ -1,4 +1,5 @@
 const { awscdk, DependencyType, javascript } = require("projen");
+const { workflows } = require("projen/lib/github");
 
 const CDK_VERSION = "1.123.0";
 const CONSTRUCTS_VERSION = "3.3.69";
@@ -110,5 +111,43 @@ project.eslint.addRules({
 // typing files are sufficient.
 project.addPackageIgnore("*.ts");
 project.addPackageIgnore("!*.d.ts");
+
+project.release.addJobs({
+  notify_slack: {
+    name: "Send Slack notification",
+    runsOn: "ubuntu-latest",
+    permissions: {
+      actions: workflows.JobPermission.READ,
+    },
+    needs: [
+      "release",
+      "release_github",
+      "release_maven",
+      "release_npm",
+      "release_nuget",
+      "release_pypi",
+    ],
+    steps: [
+      {
+        name: "Get release",
+        id: "get_release",
+        uses: "bruceadams/get-release@v1.2.3",
+        env: {
+          GITHUB_TOKEN: "${{ github.token }}",
+        },
+      },
+      {
+        name: "Send notification",
+        uses: "slackapi/slack-github-action@v1.18.0",
+        with: {
+          payload: `{"html_url": "\${{ steps.get_release.outputs.html_url }}", "tag_name": "\${{ steps.get_release.outputs.tag_name }}"}`,
+        },
+        env: {
+          SLACK_WEBHOOK_URL: "${{ secrets.SLACK_WEBHOOK_URL }}",
+        },
+      },
+    ],
+  },
+});
 
 project.synth();
