@@ -195,3 +195,27 @@ jobs:
         run: npx -p publib@latest publib-nuget
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+  notify_slack:
+    name: Send Slack notification
+    needs:
+      - release
+      - release_github
+      - release_maven
+      - release_npm
+      - release_nuget
+      - release_pypi
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+    steps:
+      - name: Get release
+        id: get_release
+        uses: bruceadams/get-release@v1.2.3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Send notification
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          payload: '{"html_url": "${{ steps.get_release.outputs.html_url }}", "tag_name": "${{ steps.get_release.outputs.tag_name }}"}'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
