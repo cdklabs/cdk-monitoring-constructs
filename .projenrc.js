@@ -131,7 +131,10 @@ project.release.addJobs({
       {
         name: "Get release",
         id: "get_release",
-        uses: "bruceadams/get-release@v1.2.3",
+        uses: "cardinalby/git-get-release-action@v1",
+        with: {
+          searchLimit: 1,
+        },
         env: {
           GITHUB_TOKEN: "${{ github.token }}",
         },
