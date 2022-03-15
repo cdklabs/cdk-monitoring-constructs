@@ -21,6 +21,7 @@ import * as secretsmanager from "monocdk/aws-secretsmanager";
 import * as sns from "monocdk/aws-sns";
 import * as sqs from "monocdk/aws-sqs";
 import * as stepfunctions from "monocdk/aws-stepfunctions";
+import * as synthetics from "monocdk/aws-synthetics";
 
 import { ElastiCacheClusterType } from "../monitoring";
 import { MonitoringAspectProps, MonitoringAspectType } from "./aspect-types";
@@ -61,7 +62,8 @@ export class MonitoringAspect implements IAspect {
     this.monitorSecretsManager(node);
     this.monitorSns(node);
     this.monitorSqs(node);
-    this.monitorStepFuntions(node);
+    this.monitorStepFunctions(node);
+    this.monitorSyntheticsCanaries(node);
 
     if (!this.addedNodeIndependentMonitoringToScope) {
       this.addedNodeIndependentMonitoringToScope = true;
@@ -340,13 +342,25 @@ export class MonitoringAspect implements IAspect {
     }
   }
 
-  private monitorStepFuntions(node: IConstruct) {
+  private monitorStepFunctions(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
       this.props.stepFunctions
     );
     if (isEnabled && node instanceof stepfunctions.StateMachine) {
       this.monitoringFacade.monitorStepFunction({
         stateMachine: node,
+        ...props,
+      });
+    }
+  }
+
+  private monitorSyntheticsCanaries(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.syntheticsCanaries
+    );
+    if (isEnabled && node instanceof synthetics.Canary) {
+      this.monitoringFacade.monitorSyntheticsCanary({
+        canary: node,
         ...props,
       });
     }

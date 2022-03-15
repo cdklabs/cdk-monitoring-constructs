@@ -749,6 +749,7 @@ new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorStepFunctionActivity">monitorStepFunctionActivity</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorStepFunctionLambdaIntegration">monitorStepFunctionLambdaIntegration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorStepFunctionServiceIntegration">monitorStepFunctionServiceIntegration</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSyntheticsCanary">monitorSyntheticsCanary</a></code> | *No description.* |
 
 ---
 
@@ -1565,6 +1566,18 @@ public monitorStepFunctionServiceIntegration(props: StepFunctionServiceIntegrati
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorStepFunctionServiceIntegration.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps">StepFunctionServiceIntegrationMonitoringProps</a>
+
+---
+
+##### `monitorSyntheticsCanary` <a name="monitorSyntheticsCanary" id="cdk-monitoring-constructs.MonitoringFacade.monitorSyntheticsCanary"></a>
+
+```typescript
+public monitorSyntheticsCanary(props: SyntheticsCanaryMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorSyntheticsCanary.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps">SyntheticsCanaryMonitoringProps</a>
 
 ---
 
@@ -22340,6 +22353,7 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sns">sns</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sqs">sqs</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.stepFunctions">stepFunctions</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.syntheticsCanaries">syntheticsCanaries</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 
 ---
 
@@ -22577,6 +22591,16 @@ public readonly sqs: MonitoringAspectType;
 
 ```typescript
 public readonly stepFunctions: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `syntheticsCanaries`<sup>Optional</sup> <a name="syntheticsCanaries" id="cdk-monitoring-constructs.MonitoringAspectProps.property.syntheticsCanaries"></a>
+
+```typescript
+public readonly syntheticsCanaries: MonitoringAspectType;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
@@ -31118,6 +31142,429 @@ public readonly addTimedOutServiceIntegrationsCountAlarm: {[ key: string ]: Erro
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+### SyntheticsCanaryMetricFactoryProps <a name="SyntheticsCanaryMetricFactoryProps" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { SyntheticsCanaryMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const syntheticsCanaryMetricFactoryProps: SyntheticsCanaryMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.canary">canary</a></code> | <code>monocdk.aws_synthetics.Canary</code> | CloudWatch Canary to monitor. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | Method used to calculate relative rates. |
+
+---
+
+##### `canary`<sup>Required</sup> <a name="canary" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.canary"></a>
+
+```typescript
+public readonly canary: Canary;
+```
+
+- *Type:* monocdk.aws_synthetics.Canary
+
+CloudWatch Canary to monitor.
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
+
+Method used to calculate relative rates.
+
+---
+
+### SyntheticsCanaryMonitoringOptions <a name="SyntheticsCanaryMonitoringOptions" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.Initializer"></a>
+
+```typescript
+import { SyntheticsCanaryMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const syntheticsCanaryMonitoringOptions: SyntheticsCanaryMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add4xxErrorCountAlarm">add4xxErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add4xxErrorRateAlarm">add4xxErrorRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add5xxFaultCountAlarm">add5xxFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add5xxFaultRateAlarm">add5xxFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addAverageLatencyAlarm">addAverageLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `add4xxErrorCountAlarm`<sup>Optional</sup> <a name="add4xxErrorCountAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add4xxErrorCountAlarm"></a>
+
+```typescript
+public readonly add4xxErrorCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add4xxErrorRateAlarm`<sup>Optional</sup> <a name="add4xxErrorRateAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add4xxErrorRateAlarm"></a>
+
+```typescript
+public readonly add4xxErrorRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `add5xxFaultCountAlarm`<sup>Optional</sup> <a name="add5xxFaultCountAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add5xxFaultCountAlarm"></a>
+
+```typescript
+public readonly add5xxFaultCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add5xxFaultRateAlarm`<sup>Optional</sup> <a name="add5xxFaultRateAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add5xxFaultRateAlarm"></a>
+
+```typescript
+public readonly add5xxFaultRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addAverageLatencyAlarm`<sup>Optional</sup> <a name="addAverageLatencyAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addAverageLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+### SyntheticsCanaryMonitoringProps <a name="SyntheticsCanaryMonitoringProps" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.Initializer"></a>
+
+```typescript
+import { SyntheticsCanaryMonitoringProps } from 'cdk-monitoring-constructs'
+
+const syntheticsCanaryMonitoringProps: SyntheticsCanaryMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.canary">canary</a></code> | <code>monocdk.aws_synthetics.Canary</code> | CloudWatch Canary to monitor. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | Method used to calculate relative rates. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add4xxErrorCountAlarm">add4xxErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add4xxErrorRateAlarm">add4xxErrorRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add5xxFaultCountAlarm">add5xxFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add5xxFaultRateAlarm">add5xxFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addAverageLatencyAlarm">addAverageLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `canary`<sup>Required</sup> <a name="canary" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.canary"></a>
+
+```typescript
+public readonly canary: Canary;
+```
+
+- *Type:* monocdk.aws_synthetics.Canary
+
+CloudWatch Canary to monitor.
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
+
+Method used to calculate relative rates.
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `add4xxErrorCountAlarm`<sup>Optional</sup> <a name="add4xxErrorCountAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add4xxErrorCountAlarm"></a>
+
+```typescript
+public readonly add4xxErrorCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add4xxErrorRateAlarm`<sup>Optional</sup> <a name="add4xxErrorRateAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add4xxErrorRateAlarm"></a>
+
+```typescript
+public readonly add4xxErrorRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `add5xxFaultCountAlarm`<sup>Optional</sup> <a name="add5xxFaultCountAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add5xxFaultCountAlarm"></a>
+
+```typescript
+public readonly add5xxFaultCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add5xxFaultRateAlarm`<sup>Optional</sup> <a name="add5xxFaultRateAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add5xxFaultRateAlarm"></a>
+
+```typescript
+public readonly add5xxFaultRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addAverageLatencyAlarm`<sup>Optional</sup> <a name="addAverageLatencyAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addAverageLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
 
 ---
 
@@ -44248,6 +44695,222 @@ Returns widgets to be placed on the main dashboard.
 
 
 
+### SyntheticsCanaryMetricFactory <a name="SyntheticsCanaryMetricFactory" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.Initializer"></a>
+
+```typescript
+import { SyntheticsCanaryMetricFactory } from 'cdk-monitoring-constructs'
+
+new SyntheticsCanaryMetricFactory(metricFactory: MetricFactory, props: SyntheticsCanaryMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps">SyntheticsCanaryMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps">SyntheticsCanaryMetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metric4xxErrorCount">metric4xxErrorCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metric4xxErrorRate">metric4xxErrorRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metric5xxFaultCount">metric5xxFaultCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metric5xxFaultRate">metric5xxFaultRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metricLatencyAverageInMillis">metricLatencyAverageInMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metricSuccessInPercent">metricSuccessInPercent</a></code> | *No description.* |
+
+---
+
+##### `metric4xxErrorCount` <a name="metric4xxErrorCount" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metric4xxErrorCount"></a>
+
+```typescript
+public metric4xxErrorCount(): Metric | MathExpression
+```
+
+##### `metric4xxErrorRate` <a name="metric4xxErrorRate" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metric4xxErrorRate"></a>
+
+```typescript
+public metric4xxErrorRate(): Metric | MathExpression
+```
+
+##### `metric5xxFaultCount` <a name="metric5xxFaultCount" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metric5xxFaultCount"></a>
+
+```typescript
+public metric5xxFaultCount(): Metric | MathExpression
+```
+
+##### `metric5xxFaultRate` <a name="metric5xxFaultRate" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metric5xxFaultRate"></a>
+
+```typescript
+public metric5xxFaultRate(): Metric | MathExpression
+```
+
+##### `metricLatencyAverageInMillis` <a name="metricLatencyAverageInMillis" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metricLatencyAverageInMillis"></a>
+
+```typescript
+public metricLatencyAverageInMillis(): Metric | MathExpression
+```
+
+##### `metricSuccessInPercent` <a name="metricSuccessInPercent" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory.metricSuccessInPercent"></a>
+
+```typescript
+public metricSuccessInPercent(): Metric | MathExpression
+```
+
+
+
+
+### SyntheticsCanaryMonitoring <a name="SyntheticsCanaryMonitoring" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring"></a>
+
+Monitoring for CloudWatch Synthetics Canaries.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html)
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.Initializer"></a>
+
+```typescript
+import { SyntheticsCanaryMonitoring } from 'cdk-monitoring-constructs'
+
+new SyntheticsCanaryMonitoring(scope: MonitoringScope, props: SyntheticsCanaryMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps">SyntheticsCanaryMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps">SyntheticsCanaryMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+
+
+
 ### TaskHealthAlarmFactory <a name="TaskHealthAlarmFactory" id="cdk-monitoring-constructs.TaskHealthAlarmFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.TaskHealthAlarmFactory.Initializer"></a>
@@ -45258,7 +45921,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
