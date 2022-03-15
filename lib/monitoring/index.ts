@@ -23,4 +23,5 @@ export * from "./aws-secretsmanager";
 export * from "./aws-sns";
 export * from "./aws-sqs";
 export * from "./aws-step-functions";
+export * from "./aws-synthetics";
 export * from "./custom";

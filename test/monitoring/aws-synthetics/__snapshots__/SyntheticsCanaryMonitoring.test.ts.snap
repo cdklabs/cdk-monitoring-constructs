@@ -1,0 +1,459 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Canary11957FE2": Object {
+      "Properties": Object {
+        "ArtifactS3Location": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "s3://",
+              Object {
+                "Ref": "CanaryArtifactsBucket4A60D32B",
+              },
+            ],
+          ],
+        },
+        "Code": Object {
+          "Handler": "index.handler",
+          "Script": "/* nothing */",
+        },
+        "ExecutionRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "CanaryServiceRoleD132250E",
+            "Arn",
+          ],
+        },
+        "Name": "canary",
+        "RuntimeVersion": "syn-nodejs-2.0",
+        "Schedule": Object {
+          "DurationInSeconds": "0",
+          "Expression": "rate(5 minutes)",
+        },
+        "StartCanaryAfterCreation": true,
+      },
+      "Type": "AWS::Synthetics::Canary",
+    },
+    "CanaryArtifactsBucket4A60D32B": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "BucketEncryption": Object {
+          "ServerSideEncryptionConfiguration": Array [
+            Object {
+              "ServerSideEncryptionByDefault": Object {
+                "SSEAlgorithm": "aws:kms",
+              },
+            },
+          ],
+        },
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "CanaryServiceRoleD132250E": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Policies": Array [
+          Object {
+            "PolicyDocument": Object {
+              "Statement": Array [
+                Object {
+                  "Action": "s3:ListAllMyBuckets",
+                  "Effect": "Allow",
+                  "Resource": "*",
+                },
+                Object {
+                  "Action": Array [
+                    "s3:PutObject",
+                    "s3:GetBucketLocation",
+                  ],
+                  "Effect": "Allow",
+                  "Resource": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        Object {
+                          "Fn::GetAtt": Array [
+                            "CanaryArtifactsBucket4A60D32B",
+                            "Arn",
+                          ],
+                        },
+                        "/*",
+                      ],
+                    ],
+                  },
+                },
+                Object {
+                  "Action": "cloudwatch:PutMetricData",
+                  "Condition": Object {
+                    "StringEquals": Object {
+                      "cloudwatch:namespace": "CloudWatchSynthetics",
+                    },
+                  },
+                  "Effect": "Allow",
+                  "Resource": "*",
+                },
+                Object {
+                  "Action": Array [
+                    "logs:CreateLogStream",
+                    "logs:CreateLogGroup",
+                    "logs:PutLogEvents",
+                  ],
+                  "Effect": "Allow",
+                  "Resource": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":logs:::*",
+                      ],
+                    ],
+                  },
+                },
+              ],
+              "Version": "2012-10-17",
+            },
+            "PolicyName": "canaryPolicy",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScopeTestCanaryErrorCountWarningE11B5E8D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Error count is too high.",
+        "AlarmName": "Test-Canary-Error-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "4xx",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CanaryName",
+                    "Value": Object {
+                      "Ref": "Canary11957FE2",
+                    },
+                  },
+                ],
+                "MetricName": "4xx",
+                "Namespace": "CloudWatchSynthetics",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestCanaryErrorRateWarning879600BF": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Error rate is too high.",
+        "AlarmName": "Test-Canary-Error-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "4xx (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CanaryName",
+                    "Value": Object {
+                      "Ref": "Canary11957FE2",
+                    },
+                  },
+                ],
+                "MetricName": "4xx",
+                "Namespace": "CloudWatchSynthetics",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestCanaryFaultCountWarningBE79A4B2": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "Test-Canary-Fault-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5xx",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CanaryName",
+                    "Value": Object {
+                      "Ref": "Canary11957FE2",
+                    },
+                  },
+                ],
+                "MetricName": "5xx",
+                "Namespace": "CloudWatchSynthetics",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestCanaryFaultRateWarning65C6A70B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault rate is too high.",
+        "AlarmName": "Test-Canary-Fault-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5xx (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CanaryName",
+                    "Value": Object {
+                      "Ref": "Canary11957FE2",
+                    },
+                  },
+                ],
+                "MetricName": "5xx",
+                "Namespace": "CloudWatchSynthetics",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.8,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestCanaryLatencyAverageWarning318006A9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-Canary-Latency-Average-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CanaryName",
+                    "Value": Object {
+                      "Ref": "Canary11957FE2",
+                    },
+                  },
+                ],
+                "MetricName": "Duration",
+                "Namespace": "CloudWatchSynthetics",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Canary11957FE2": Object {
+      "Properties": Object {
+        "ArtifactS3Location": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "s3://",
+              Object {
+                "Ref": "CanaryArtifactsBucket4A60D32B",
+              },
+            ],
+          ],
+        },
+        "Code": Object {
+          "Handler": "index.handler",
+          "Script": "/* nothing */",
+        },
+        "ExecutionRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "CanaryServiceRoleD132250E",
+            "Arn",
+          ],
+        },
+        "Name": "canary",
+        "RuntimeVersion": "syn-nodejs-2.0",
+        "Schedule": Object {
+          "DurationInSeconds": "0",
+          "Expression": "rate(5 minutes)",
+        },
+        "StartCanaryAfterCreation": true,
+      },
+      "Type": "AWS::Synthetics::Canary",
+    },
+    "CanaryArtifactsBucket4A60D32B": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "BucketEncryption": Object {
+          "ServerSideEncryptionConfiguration": Array [
+            Object {
+              "ServerSideEncryptionByDefault": Object {
+                "SSEAlgorithm": "aws:kms",
+              },
+            },
+          ],
+        },
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "CanaryServiceRoleD132250E": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Policies": Array [
+          Object {
+            "PolicyDocument": Object {
+              "Statement": Array [
+                Object {
+                  "Action": "s3:ListAllMyBuckets",
+                  "Effect": "Allow",
+                  "Resource": "*",
+                },
+                Object {
+                  "Action": Array [
+                    "s3:PutObject",
+                    "s3:GetBucketLocation",
+                  ],
+                  "Effect": "Allow",
+                  "Resource": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        Object {
+                          "Fn::GetAtt": Array [
+                            "CanaryArtifactsBucket4A60D32B",
+                            "Arn",
+                          ],
+                        },
+                        "/*",
+                      ],
+                    ],
+                  },
+                },
+                Object {
+                  "Action": "cloudwatch:PutMetricData",
+                  "Condition": Object {
+                    "StringEquals": Object {
+                      "cloudwatch:namespace": "CloudWatchSynthetics",
+                    },
+                  },
+                  "Effect": "Allow",
+                  "Resource": "*",
+                },
+                Object {
+                  "Action": Array [
+                    "logs:CreateLogStream",
+                    "logs:CreateLogGroup",
+                    "logs:PutLogEvents",
+                  ],
+                  "Effect": "Allow",
+                  "Resource": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":logs:::*",
+                      ],
+                    ],
+                  },
+                },
+              ],
+              "Version": "2012-10-17",
+            },
+            "PolicyName": "canaryPolicy",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+}
+`;

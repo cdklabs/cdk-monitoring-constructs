@@ -1,4 +1,4 @@
-import { App, SecretValue, Stack } from "monocdk";
+import { App, Duration, SecretValue, Stack } from "monocdk";
 import { Template } from "monocdk/assertions";
 import * as apigw from "monocdk/aws-apigateway";
 import * as apigwv2 from "monocdk/aws-apigatewayv2";
@@ -25,6 +25,7 @@ import * as secretsmanager from "monocdk/aws-secretsmanager";
 import * as sns from "monocdk/aws-sns";
 import * as sqs from "monocdk/aws-sqs";
 import * as stepfunctions from "monocdk/aws-stepfunctions";
+import * as synthetics from "monocdk/aws-synthetics";
 
 import {
   DefaultDashboardFactory,
@@ -505,6 +506,27 @@ describe("MonitoringAspect", () => {
 
     new stepfunctions.StateMachine(stack, "DummyStateMachine", {
       definition: new stepfunctions.Pass(stack, "DummyStep"),
+    });
+
+    // WHEN
+    facade.monitorScope(stack, defaultAspectProps);
+
+    // THEN
+    expect(Template.fromStack(stack)).toMatchSnapshot();
+  });
+
+  test("Canaries", () => {
+    // GIVEN
+    const stack = new Stack();
+    const facade = createDummyMonitoringFacade(stack);
+
+    new synthetics.Canary(stack, "Canary", {
+      schedule: synthetics.Schedule.rate(Duration.minutes(5)),
+      test: synthetics.Test.custom({
+        code: synthetics.Code.fromInline("/* nothing */"),
+        handler: "index.handler",
+      }),
+      runtime: synthetics.Runtime.SYNTHETICS_NODEJS_2_0,
     });
 
     // WHEN

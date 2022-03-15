@@ -23,6 +23,7 @@ import {
   SnsTopicMonitoringOptions,
   SqsQueueMonitoringOptions,
   StepFunctionMonitoringOptions,
+  SyntheticsCanaryMonitoringOptions,
 } from "../monitoring";
 
 export interface MonitoringAspectType<T> {
@@ -64,4 +65,5 @@ export interface MonitoringAspectProps {
   readonly sns?: MonitoringAspectType<SnsTopicMonitoringOptions>;
   readonly sqs?: MonitoringAspectType<SqsQueueMonitoringOptions>;
   readonly stepFunctions?: MonitoringAspectType<StepFunctionMonitoringOptions>;
+  readonly syntheticsCanaries?: MonitoringAspectType<SyntheticsCanaryMonitoringOptions>;
 }

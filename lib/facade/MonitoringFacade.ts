@@ -101,6 +101,8 @@ import {
   StepFunctionServiceIntegrationMonitoringProps,
   getQueueProcessingEc2ServiceMonitoring,
   getQueueProcessingFargateServiceMonitoring,
+  SyntheticsCanaryMonitoringProps,
+  SyntheticsCanaryMonitoring,
 } from "../monitoring";
 import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
 
@@ -601,6 +603,12 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorLog(props: LogMonitoringProps) {
     const segment = new LogMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorSyntheticsCanary(props: SyntheticsCanaryMonitoringProps) {
+    const segment = new SyntheticsCanaryMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

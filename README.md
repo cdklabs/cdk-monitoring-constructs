@@ -90,6 +90,7 @@ You can also browse the documentation at https://constructs.dev/packages/cdk-mon
 | AWS Billing (`.monitorBilling()`) | AWS account cost | | [Requires enabling](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) the **Receive Billing Alerts** option in AWS Console / Billing Preferences |
 | AWS Certificate Manager (`.monitorCertificate()`) | Certificate expiration | Days until expiration | |
 | AWS CloudFront (`.monitorCloudFrontDistribution()`) | TPS, traffic, latency, errors | Error rate, low/high TPS | |
+| AWS CloudWatch Synthetics Canary (`.monitorSyntheticsCanary()`) | Latency, error count/rate | Error count/rate, latency | |
 | AWS CodeBuild (`.monitorCodeBuildProject()`) | Build counts (total, successful, failed), failed rate, duration | Failed build count/rate, duration | |
 | AWS DynamoDB (`.monitorDynamoTable()`) | Read and write capacity provisioned / used | Consumed capacity, throttling, latency, errors | |
 | AWS DynamoDB Global Secondary Index (`.monitorDynamoTableGlobalSecondaryIndex()`) | Read and write capacity, indexing progress, throttled events | | |
