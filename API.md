@@ -46055,6 +46055,8 @@ alarm to represent.
 
 ### AxisPosition <a name="AxisPosition" id="cdk-monitoring-constructs.AxisPosition"></a>
 
+#### Members <a name="Members" id="Members"></a>
+
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AxisPosition.LEFT">LEFT</a></code> | *No description.* |
@@ -46062,17 +46064,19 @@ alarm to represent.
 
 ---
 
-#### `LEFT` <a name="LEFT" id="cdk-monitoring-constructs.AxisPosition.LEFT"></a>
+##### `LEFT` <a name="LEFT" id="cdk-monitoring-constructs.AxisPosition.LEFT"></a>
 
 ---
 
 
-#### `RIGHT` <a name="RIGHT" id="cdk-monitoring-constructs.AxisPosition.RIGHT"></a>
+##### `RIGHT` <a name="RIGHT" id="cdk-monitoring-constructs.AxisPosition.RIGHT"></a>
 
 ---
 
 
 ### CapacityType <a name="CapacityType" id="cdk-monitoring-constructs.CapacityType"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46081,17 +46085,19 @@ alarm to represent.
 
 ---
 
-#### `READ` <a name="READ" id="cdk-monitoring-constructs.CapacityType.READ"></a>
+##### `READ` <a name="READ" id="cdk-monitoring-constructs.CapacityType.READ"></a>
 
 ---
 
 
-#### `WRITE` <a name="WRITE" id="cdk-monitoring-constructs.CapacityType.WRITE"></a>
+##### `WRITE` <a name="WRITE" id="cdk-monitoring-constructs.CapacityType.WRITE"></a>
 
 ---
 
 
 ### CompositeAlarmOperator <a name="CompositeAlarmOperator" id="cdk-monitoring-constructs.CompositeAlarmOperator"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46100,14 +46106,14 @@ alarm to represent.
 
 ---
 
-#### `AND` <a name="AND" id="cdk-monitoring-constructs.CompositeAlarmOperator.AND"></a>
+##### `AND` <a name="AND" id="cdk-monitoring-constructs.CompositeAlarmOperator.AND"></a>
 
 trigger only if all the alarms are triggered.
 
 ---
 
 
-#### `OR` <a name="OR" id="cdk-monitoring-constructs.CompositeAlarmOperator.OR"></a>
+##### `OR` <a name="OR" id="cdk-monitoring-constructs.CompositeAlarmOperator.OR"></a>
 
 trigger if any of the alarms is triggered.
 
@@ -46115,6 +46121,10 @@ trigger if any of the alarms is triggered.
 
 
 ### DashboardRenderingPreference <a name="DashboardRenderingPreference" id="cdk-monitoring-constructs.DashboardRenderingPreference"></a>
+
+Preferred way of rendering the widgets.
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46124,23 +46134,21 @@ trigger if any of the alarms is triggered.
 
 ---
 
-Preferred way of rendering the widgets.
-
-#### `INTERACTIVE_ONLY` <a name="INTERACTIVE_ONLY" id="cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_ONLY"></a>
+##### `INTERACTIVE_ONLY` <a name="INTERACTIVE_ONLY" id="cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_ONLY"></a>
 
 create standard set of dashboards with interactive widgets only.
 
 ---
 
 
-#### `BITMAP_ONLY` <a name="BITMAP_ONLY" id="cdk-monitoring-constructs.DashboardRenderingPreference.BITMAP_ONLY"></a>
+##### `BITMAP_ONLY` <a name="BITMAP_ONLY" id="cdk-monitoring-constructs.DashboardRenderingPreference.BITMAP_ONLY"></a>
 
 create standard set of dashboards with bitmap widgets only.
 
 ---
 
 
-#### `INTERACTIVE_AND_BITMAP` <a name="INTERACTIVE_AND_BITMAP" id="cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_AND_BITMAP"></a>
+##### `INTERACTIVE_AND_BITMAP` <a name="INTERACTIVE_AND_BITMAP" id="cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_AND_BITMAP"></a>
 
 create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
@@ -46149,6 +46157,8 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ### ElastiCacheClusterType <a name="ElastiCacheClusterType" id="cdk-monitoring-constructs.ElastiCacheClusterType"></a>
 
+#### Members <a name="Members" id="Members"></a>
+
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterType.MEMCACHED">MEMCACHED</a></code> | *No description.* |
@@ -46156,17 +46166,19 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ---
 
-#### `MEMCACHED` <a name="MEMCACHED" id="cdk-monitoring-constructs.ElastiCacheClusterType.MEMCACHED"></a>
+##### `MEMCACHED` <a name="MEMCACHED" id="cdk-monitoring-constructs.ElastiCacheClusterType.MEMCACHED"></a>
 
 ---
 
 
-#### `REDIS` <a name="REDIS" id="cdk-monitoring-constructs.ElastiCacheClusterType.REDIS"></a>
+##### `REDIS` <a name="REDIS" id="cdk-monitoring-constructs.ElastiCacheClusterType.REDIS"></a>
 
 ---
 
 
 ### ElasticsearchClusterStatus <a name="ElasticsearchClusterStatus" id="cdk-monitoring-constructs.ElasticsearchClusterStatus"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46175,17 +46187,19 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ---
 
-#### `RED` <a name="RED" id="cdk-monitoring-constructs.ElasticsearchClusterStatus.RED"></a>
+##### `RED` <a name="RED" id="cdk-monitoring-constructs.ElasticsearchClusterStatus.RED"></a>
 
 ---
 
 
-#### `YELLOW` <a name="YELLOW" id="cdk-monitoring-constructs.ElasticsearchClusterStatus.YELLOW"></a>
+##### `YELLOW` <a name="YELLOW" id="cdk-monitoring-constructs.ElasticsearchClusterStatus.YELLOW"></a>
 
 ---
 
 
 ### ErrorType <a name="ErrorType" id="cdk-monitoring-constructs.ErrorType"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46203,62 +46217,64 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ---
 
-#### `FAULT` <a name="FAULT" id="cdk-monitoring-constructs.ErrorType.FAULT"></a>
+##### `FAULT` <a name="FAULT" id="cdk-monitoring-constructs.ErrorType.FAULT"></a>
 
 ---
 
 
-#### `ERROR` <a name="ERROR" id="cdk-monitoring-constructs.ErrorType.ERROR"></a>
+##### `ERROR` <a name="ERROR" id="cdk-monitoring-constructs.ErrorType.ERROR"></a>
 
 ---
 
 
-#### `SYSTEM_ERROR` <a name="SYSTEM_ERROR" id="cdk-monitoring-constructs.ErrorType.SYSTEM_ERROR"></a>
+##### `SYSTEM_ERROR` <a name="SYSTEM_ERROR" id="cdk-monitoring-constructs.ErrorType.SYSTEM_ERROR"></a>
 
 ---
 
 
-#### `USER_ERROR` <a name="USER_ERROR" id="cdk-monitoring-constructs.ErrorType.USER_ERROR"></a>
+##### `USER_ERROR` <a name="USER_ERROR" id="cdk-monitoring-constructs.ErrorType.USER_ERROR"></a>
 
 ---
 
 
-#### `FAILURE` <a name="FAILURE" id="cdk-monitoring-constructs.ErrorType.FAILURE"></a>
+##### `FAILURE` <a name="FAILURE" id="cdk-monitoring-constructs.ErrorType.FAILURE"></a>
 
 ---
 
 
-#### `ABORTED` <a name="ABORTED" id="cdk-monitoring-constructs.ErrorType.ABORTED"></a>
+##### `ABORTED` <a name="ABORTED" id="cdk-monitoring-constructs.ErrorType.ABORTED"></a>
 
 ---
 
 
-#### `THROTTLED` <a name="THROTTLED" id="cdk-monitoring-constructs.ErrorType.THROTTLED"></a>
+##### `THROTTLED` <a name="THROTTLED" id="cdk-monitoring-constructs.ErrorType.THROTTLED"></a>
 
 ---
 
 
-#### `TIMED_OUT` <a name="TIMED_OUT" id="cdk-monitoring-constructs.ErrorType.TIMED_OUT"></a>
+##### `TIMED_OUT` <a name="TIMED_OUT" id="cdk-monitoring-constructs.ErrorType.TIMED_OUT"></a>
 
 ---
 
 
-#### `READ_ERROR` <a name="READ_ERROR" id="cdk-monitoring-constructs.ErrorType.READ_ERROR"></a>
+##### `READ_ERROR` <a name="READ_ERROR" id="cdk-monitoring-constructs.ErrorType.READ_ERROR"></a>
 
 ---
 
 
-#### `WRITE_ERROR` <a name="WRITE_ERROR" id="cdk-monitoring-constructs.ErrorType.WRITE_ERROR"></a>
+##### `WRITE_ERROR` <a name="WRITE_ERROR" id="cdk-monitoring-constructs.ErrorType.WRITE_ERROR"></a>
 
 ---
 
 
-#### `EXPIRED` <a name="EXPIRED" id="cdk-monitoring-constructs.ErrorType.EXPIRED"></a>
+##### `EXPIRED` <a name="EXPIRED" id="cdk-monitoring-constructs.ErrorType.EXPIRED"></a>
 
 ---
 
 
 ### GraphWidgetType <a name="GraphWidgetType" id="cdk-monitoring-constructs.GraphWidgetType"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46269,27 +46285,29 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ---
 
-#### `LINE` <a name="LINE" id="cdk-monitoring-constructs.GraphWidgetType.LINE"></a>
+##### `LINE` <a name="LINE" id="cdk-monitoring-constructs.GraphWidgetType.LINE"></a>
 
 ---
 
 
-#### `STACKED_AREA` <a name="STACKED_AREA" id="cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA"></a>
+##### `STACKED_AREA` <a name="STACKED_AREA" id="cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA"></a>
 
 ---
 
 
-#### `PIE` <a name="PIE" id="cdk-monitoring-constructs.GraphWidgetType.PIE"></a>
+##### `PIE` <a name="PIE" id="cdk-monitoring-constructs.GraphWidgetType.PIE"></a>
 
 ---
 
 
-#### `BAR` <a name="BAR" id="cdk-monitoring-constructs.GraphWidgetType.BAR"></a>
+##### `BAR` <a name="BAR" id="cdk-monitoring-constructs.GraphWidgetType.BAR"></a>
 
 ---
 
 
 ### HeaderLevel <a name="HeaderLevel" id="cdk-monitoring-constructs.HeaderLevel"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46299,22 +46317,24 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ---
 
-#### `LARGE` <a name="LARGE" id="cdk-monitoring-constructs.HeaderLevel.LARGE"></a>
+##### `LARGE` <a name="LARGE" id="cdk-monitoring-constructs.HeaderLevel.LARGE"></a>
 
 ---
 
 
-#### `MEDIUM` <a name="MEDIUM" id="cdk-monitoring-constructs.HeaderLevel.MEDIUM"></a>
+##### `MEDIUM` <a name="MEDIUM" id="cdk-monitoring-constructs.HeaderLevel.MEDIUM"></a>
 
 ---
 
 
-#### `SMALL` <a name="SMALL" id="cdk-monitoring-constructs.HeaderLevel.SMALL"></a>
+##### `SMALL` <a name="SMALL" id="cdk-monitoring-constructs.HeaderLevel.SMALL"></a>
 
 ---
 
 
 ### LatencyType <a name="LatencyType" id="cdk-monitoring-constructs.LatencyType"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46337,87 +46357,91 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ---
 
-#### `P50` <a name="P50" id="cdk-monitoring-constructs.LatencyType.P50"></a>
+##### `P50` <a name="P50" id="cdk-monitoring-constructs.LatencyType.P50"></a>
 
 ---
 
 
-#### `P70` <a name="P70" id="cdk-monitoring-constructs.LatencyType.P70"></a>
+##### `P70` <a name="P70" id="cdk-monitoring-constructs.LatencyType.P70"></a>
 
 ---
 
 
-#### `P90` <a name="P90" id="cdk-monitoring-constructs.LatencyType.P90"></a>
+##### `P90` <a name="P90" id="cdk-monitoring-constructs.LatencyType.P90"></a>
 
 ---
 
 
-#### `P95` <a name="P95" id="cdk-monitoring-constructs.LatencyType.P95"></a>
+##### `P95` <a name="P95" id="cdk-monitoring-constructs.LatencyType.P95"></a>
 
 ---
 
 
-#### `P99` <a name="P99" id="cdk-monitoring-constructs.LatencyType.P99"></a>
+##### `P99` <a name="P99" id="cdk-monitoring-constructs.LatencyType.P99"></a>
 
 ---
 
 
-#### `P999` <a name="P999" id="cdk-monitoring-constructs.LatencyType.P999"></a>
+##### `P999` <a name="P999" id="cdk-monitoring-constructs.LatencyType.P999"></a>
 
 ---
 
 
-#### `P9999` <a name="P9999" id="cdk-monitoring-constructs.LatencyType.P9999"></a>
+##### `P9999` <a name="P9999" id="cdk-monitoring-constructs.LatencyType.P9999"></a>
 
 ---
 
 
-#### `P100` <a name="P100" id="cdk-monitoring-constructs.LatencyType.P100"></a>
+##### `P100` <a name="P100" id="cdk-monitoring-constructs.LatencyType.P100"></a>
 
 ---
 
 
-#### `TM50` <a name="TM50" id="cdk-monitoring-constructs.LatencyType.TM50"></a>
+##### `TM50` <a name="TM50" id="cdk-monitoring-constructs.LatencyType.TM50"></a>
 
 ---
 
 
-#### `TM70` <a name="TM70" id="cdk-monitoring-constructs.LatencyType.TM70"></a>
+##### `TM70` <a name="TM70" id="cdk-monitoring-constructs.LatencyType.TM70"></a>
 
 ---
 
 
-#### `TM90` <a name="TM90" id="cdk-monitoring-constructs.LatencyType.TM90"></a>
+##### `TM90` <a name="TM90" id="cdk-monitoring-constructs.LatencyType.TM90"></a>
 
 ---
 
 
-#### `TM95` <a name="TM95" id="cdk-monitoring-constructs.LatencyType.TM95"></a>
+##### `TM95` <a name="TM95" id="cdk-monitoring-constructs.LatencyType.TM95"></a>
 
 ---
 
 
-#### `TM99` <a name="TM99" id="cdk-monitoring-constructs.LatencyType.TM99"></a>
+##### `TM99` <a name="TM99" id="cdk-monitoring-constructs.LatencyType.TM99"></a>
 
 ---
 
 
-#### `TM999` <a name="TM999" id="cdk-monitoring-constructs.LatencyType.TM999"></a>
+##### `TM999` <a name="TM999" id="cdk-monitoring-constructs.LatencyType.TM999"></a>
 
 ---
 
 
-#### `TM9999` <a name="TM9999" id="cdk-monitoring-constructs.LatencyType.TM9999"></a>
+##### `TM9999` <a name="TM9999" id="cdk-monitoring-constructs.LatencyType.TM9999"></a>
 
 ---
 
 
-#### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.LatencyType.AVERAGE"></a>
+##### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.LatencyType.AVERAGE"></a>
 
 ---
 
 
 ### LogLevel <a name="LogLevel" id="cdk-monitoring-constructs.LogLevel"></a>
+
+Level of a given log.
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46426,19 +46450,23 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ---
 
-Level of a given log.
-
-#### `ERROR` <a name="ERROR" id="cdk-monitoring-constructs.LogLevel.ERROR"></a>
+##### `ERROR` <a name="ERROR" id="cdk-monitoring-constructs.LogLevel.ERROR"></a>
 
 ---
 
 
-#### `CRITICAL` <a name="CRITICAL" id="cdk-monitoring-constructs.LogLevel.CRITICAL"></a>
+##### `CRITICAL` <a name="CRITICAL" id="cdk-monitoring-constructs.LogLevel.CRITICAL"></a>
 
 ---
 
 
 ### MetricStatistic <a name="MetricStatistic" id="cdk-monitoring-constructs.MetricStatistic"></a>
+
+Metric aggregation statistic to be used with the IMetric objects.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html)
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46486,67 +46514,63 @@ Level of a given log.
 
 ---
 
-Metric aggregation statistic to be used with the IMetric objects.
-
-> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html)
-
-#### `P50` <a name="P50" id="cdk-monitoring-constructs.MetricStatistic.P50"></a>
+##### `P50` <a name="P50" id="cdk-monitoring-constructs.MetricStatistic.P50"></a>
 
 50th percentile of all datapoints.
 
 ---
 
 
-#### `P70` <a name="P70" id="cdk-monitoring-constructs.MetricStatistic.P70"></a>
+##### `P70` <a name="P70" id="cdk-monitoring-constructs.MetricStatistic.P70"></a>
 
 70th percentile of all datapoints.
 
 ---
 
 
-#### `P90` <a name="P90" id="cdk-monitoring-constructs.MetricStatistic.P90"></a>
+##### `P90` <a name="P90" id="cdk-monitoring-constructs.MetricStatistic.P90"></a>
 
 90th percentile of all datapoints.
 
 ---
 
 
-#### `P95` <a name="P95" id="cdk-monitoring-constructs.MetricStatistic.P95"></a>
+##### `P95` <a name="P95" id="cdk-monitoring-constructs.MetricStatistic.P95"></a>
 
 95th percentile of all datapoints.
 
 ---
 
 
-#### `P99` <a name="P99" id="cdk-monitoring-constructs.MetricStatistic.P99"></a>
+##### `P99` <a name="P99" id="cdk-monitoring-constructs.MetricStatistic.P99"></a>
 
 99th percentile of all datapoints.
 
 ---
 
 
-#### `P999` <a name="P999" id="cdk-monitoring-constructs.MetricStatistic.P999"></a>
+##### `P999` <a name="P999" id="cdk-monitoring-constructs.MetricStatistic.P999"></a>
 
 99.9th percentile of all datapoints.
 
 ---
 
 
-#### `P9999` <a name="P9999" id="cdk-monitoring-constructs.MetricStatistic.P9999"></a>
+##### `P9999` <a name="P9999" id="cdk-monitoring-constructs.MetricStatistic.P9999"></a>
 
 99.99th percentile of all datapoints.
 
 ---
 
 
-#### `P100` <a name="P100" id="cdk-monitoring-constructs.MetricStatistic.P100"></a>
+##### `P100` <a name="P100" id="cdk-monitoring-constructs.MetricStatistic.P100"></a>
 
 100th percentile of all datapoints.
 
 ---
 
 
-#### `TM50` <a name="TM50" id="cdk-monitoring-constructs.MetricStatistic.TM50"></a>
+##### `TM50` <a name="TM50" id="cdk-monitoring-constructs.MetricStatistic.TM50"></a>
 
 trimmed mean;
 
@@ -46555,7 +46579,7 @@ calculates the average after removing the 50% of data points with the highest va
 ---
 
 
-#### `TM70` <a name="TM70" id="cdk-monitoring-constructs.MetricStatistic.TM70"></a>
+##### `TM70` <a name="TM70" id="cdk-monitoring-constructs.MetricStatistic.TM70"></a>
 
 trimmed mean;
 
@@ -46564,7 +46588,7 @@ calculates the average after removing the 30% of data points with the highest va
 ---
 
 
-#### `TM90` <a name="TM90" id="cdk-monitoring-constructs.MetricStatistic.TM90"></a>
+##### `TM90` <a name="TM90" id="cdk-monitoring-constructs.MetricStatistic.TM90"></a>
 
 trimmed mean;
 
@@ -46573,7 +46597,7 @@ calculates the average after removing the 10% of data points with the highest va
 ---
 
 
-#### `TM95` <a name="TM95" id="cdk-monitoring-constructs.MetricStatistic.TM95"></a>
+##### `TM95` <a name="TM95" id="cdk-monitoring-constructs.MetricStatistic.TM95"></a>
 
 trimmed mean;
 
@@ -46582,7 +46606,7 @@ calculates the average after removing the 5% of data points with the highest val
 ---
 
 
-#### `TM99` <a name="TM99" id="cdk-monitoring-constructs.MetricStatistic.TM99"></a>
+##### `TM99` <a name="TM99" id="cdk-monitoring-constructs.MetricStatistic.TM99"></a>
 
 trimmed mean;
 
@@ -46591,7 +46615,7 @@ calculates the average after removing the 1% of data points with the highest val
 ---
 
 
-#### `TM999` <a name="TM999" id="cdk-monitoring-constructs.MetricStatistic.TM999"></a>
+##### `TM999` <a name="TM999" id="cdk-monitoring-constructs.MetricStatistic.TM999"></a>
 
 trimmed mean;
 
@@ -46600,7 +46624,7 @@ calculates the average after removing the 0.1% of data points with the highest v
 ---
 
 
-#### `TM9999` <a name="TM9999" id="cdk-monitoring-constructs.MetricStatistic.TM9999"></a>
+##### `TM9999` <a name="TM9999" id="cdk-monitoring-constructs.MetricStatistic.TM9999"></a>
 
 trimmed mean;
 
@@ -46609,7 +46633,7 @@ calculates the average after removing the 0.01% of data points with the highest 
 ---
 
 
-#### `TM99_BOTH` <a name="TM99_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM99_BOTH"></a>
+##### `TM99_BOTH` <a name="TM99_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM99_BOTH"></a>
 
 trimmed mean;
 
@@ -46618,7 +46642,7 @@ calculates the average after removing the 1% lowest data points and the 1% highe
 ---
 
 
-#### `TM95_BOTH` <a name="TM95_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM95_BOTH"></a>
+##### `TM95_BOTH` <a name="TM95_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM95_BOTH"></a>
 
 trimmed mean;
 
@@ -46627,7 +46651,7 @@ calculates the average after removing the 5% lowest data points and the 5% highe
 ---
 
 
-#### `TM90_BOTH` <a name="TM90_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM90_BOTH"></a>
+##### `TM90_BOTH` <a name="TM90_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM90_BOTH"></a>
 
 trimmed mean;
 
@@ -46636,7 +46660,7 @@ calculates the average after removing the 10% lowest data points and the 10% hig
 ---
 
 
-#### `TM85_BOTH` <a name="TM85_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM85_BOTH"></a>
+##### `TM85_BOTH` <a name="TM85_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM85_BOTH"></a>
 
 trimmed mean;
 
@@ -46645,7 +46669,7 @@ calculates the average after removing the 15% lowest data points and the 15% hig
 ---
 
 
-#### `TM80_BOTH` <a name="TM80_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM80_BOTH"></a>
+##### `TM80_BOTH` <a name="TM80_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM80_BOTH"></a>
 
 trimmed mean;
 
@@ -46654,7 +46678,7 @@ calculates the average after removing the 20% lowest data points and the 20% hig
 ---
 
 
-#### `TM75_BOTH` <a name="TM75_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM75_BOTH"></a>
+##### `TM75_BOTH` <a name="TM75_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM75_BOTH"></a>
 
 trimmed mean;
 
@@ -46663,7 +46687,7 @@ calculates the average after removing the 25% lowest data points and the 25% hig
 ---
 
 
-#### `TM70_BOTH` <a name="TM70_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM70_BOTH"></a>
+##### `TM70_BOTH` <a name="TM70_BOTH" id="cdk-monitoring-constructs.MetricStatistic.TM70_BOTH"></a>
 
 trimmed mean;
 
@@ -46672,7 +46696,7 @@ calculates the average after removing the 30% lowest data points and the 30% hig
 ---
 
 
-#### `WM50` <a name="WM50" id="cdk-monitoring-constructs.MetricStatistic.WM50"></a>
+##### `WM50` <a name="WM50" id="cdk-monitoring-constructs.MetricStatistic.WM50"></a>
 
 winsorized mean;
 
@@ -46681,7 +46705,7 @@ calculates the average while treating the 50% of the highest values to be equal 
 ---
 
 
-#### `WM70` <a name="WM70" id="cdk-monitoring-constructs.MetricStatistic.WM70"></a>
+##### `WM70` <a name="WM70" id="cdk-monitoring-constructs.MetricStatistic.WM70"></a>
 
 winsorized mean;
 
@@ -46690,7 +46714,7 @@ calculates the average while treating the 30% of the highest values to be equal 
 ---
 
 
-#### `WM90` <a name="WM90" id="cdk-monitoring-constructs.MetricStatistic.WM90"></a>
+##### `WM90` <a name="WM90" id="cdk-monitoring-constructs.MetricStatistic.WM90"></a>
 
 winsorized mean;
 
@@ -46699,7 +46723,7 @@ calculates the average while treating the 10% of the highest values to be equal 
 ---
 
 
-#### `WM95` <a name="WM95" id="cdk-monitoring-constructs.MetricStatistic.WM95"></a>
+##### `WM95` <a name="WM95" id="cdk-monitoring-constructs.MetricStatistic.WM95"></a>
 
 winsorized mean;
 
@@ -46708,7 +46732,7 @@ calculates the average while treating the 5% of the highest values to be equal t
 ---
 
 
-#### `WM99` <a name="WM99" id="cdk-monitoring-constructs.MetricStatistic.WM99"></a>
+##### `WM99` <a name="WM99" id="cdk-monitoring-constructs.MetricStatistic.WM99"></a>
 
 winsorized mean;
 
@@ -46717,7 +46741,7 @@ calculates the average while treating the 1% of the highest values to be equal t
 ---
 
 
-#### `WM999` <a name="WM999" id="cdk-monitoring-constructs.MetricStatistic.WM999"></a>
+##### `WM999` <a name="WM999" id="cdk-monitoring-constructs.MetricStatistic.WM999"></a>
 
 winsorized mean;
 
@@ -46726,7 +46750,7 @@ calculates the average while treating the 0.1% of the highest values to be equal
 ---
 
 
-#### `WM9999` <a name="WM9999" id="cdk-monitoring-constructs.MetricStatistic.WM9999"></a>
+##### `WM9999` <a name="WM9999" id="cdk-monitoring-constructs.MetricStatistic.WM9999"></a>
 
 winsorized mean;
 
@@ -46735,7 +46759,7 @@ calculates the average while treating the 0.01% of the highest values to be equa
 ---
 
 
-#### `WM99_BOTH` <a name="WM99_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM99_BOTH"></a>
+##### `WM99_BOTH` <a name="WM99_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM99_BOTH"></a>
 
 winsorized mean;
 
@@ -46744,7 +46768,7 @@ calculates the average while treating the highest 1% of data points to be the va
 ---
 
 
-#### `WM95_BOTH` <a name="WM95_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM95_BOTH"></a>
+##### `WM95_BOTH` <a name="WM95_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM95_BOTH"></a>
 
 winsorized mean;
 
@@ -46753,7 +46777,7 @@ calculates the average while treating the highest 5% of data points to be the va
 ---
 
 
-#### `WM90_BOTH` <a name="WM90_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM90_BOTH"></a>
+##### `WM90_BOTH` <a name="WM90_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM90_BOTH"></a>
 
 winsorized mean;
 
@@ -46762,7 +46786,7 @@ calculates the average while treating the highest 10% of data points to be the v
 ---
 
 
-#### `WM85_BOTH` <a name="WM85_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM85_BOTH"></a>
+##### `WM85_BOTH` <a name="WM85_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM85_BOTH"></a>
 
 winsorized mean;
 
@@ -46771,7 +46795,7 @@ calculates the average while treating the highest 15% of data points to be the v
 ---
 
 
-#### `WM80_BOTH` <a name="WM80_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM80_BOTH"></a>
+##### `WM80_BOTH` <a name="WM80_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM80_BOTH"></a>
 
 winsorized mean;
 
@@ -46780,7 +46804,7 @@ calculates the average while treating the highest 20% of data points to be the v
 ---
 
 
-#### `WM75_BOTH` <a name="WM75_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM75_BOTH"></a>
+##### `WM75_BOTH` <a name="WM75_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM75_BOTH"></a>
 
 winsorized mean;
 
@@ -46789,7 +46813,7 @@ calculates the average while treating the highest 25% of data points to be the v
 ---
 
 
-#### `WM70_BOTH` <a name="WM70_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM70_BOTH"></a>
+##### `WM70_BOTH` <a name="WM70_BOTH" id="cdk-monitoring-constructs.MetricStatistic.WM70_BOTH"></a>
 
 winsorized mean;
 
@@ -46798,35 +46822,35 @@ calculates the average while treating the highest 30% of data points to be the v
 ---
 
 
-#### `MIN` <a name="MIN" id="cdk-monitoring-constructs.MetricStatistic.MIN"></a>
+##### `MIN` <a name="MIN" id="cdk-monitoring-constructs.MetricStatistic.MIN"></a>
 
 minimum of all datapoints.
 
 ---
 
 
-#### `MAX` <a name="MAX" id="cdk-monitoring-constructs.MetricStatistic.MAX"></a>
+##### `MAX` <a name="MAX" id="cdk-monitoring-constructs.MetricStatistic.MAX"></a>
 
 maximum of all datapoints.
 
 ---
 
 
-#### `SUM` <a name="SUM" id="cdk-monitoring-constructs.MetricStatistic.SUM"></a>
+##### `SUM` <a name="SUM" id="cdk-monitoring-constructs.MetricStatistic.SUM"></a>
 
 sum of all datapoints.
 
 ---
 
 
-#### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.MetricStatistic.AVERAGE"></a>
+##### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.MetricStatistic.AVERAGE"></a>
 
 average of all datapoints.
 
 ---
 
 
-#### `N` <a name="N" id="cdk-monitoring-constructs.MetricStatistic.N"></a>
+##### `N` <a name="N" id="cdk-monitoring-constructs.MetricStatistic.N"></a>
 
 number of datapoints.
 
@@ -46835,6 +46859,8 @@ number of datapoints.
 
 ### OpenSearchClusterStatus <a name="OpenSearchClusterStatus" id="cdk-monitoring-constructs.OpenSearchClusterStatus"></a>
 
+#### Members <a name="Members" id="Members"></a>
+
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatus.RED">RED</a></code> | *No description.* |
@@ -46842,17 +46868,21 @@ number of datapoints.
 
 ---
 
-#### `RED` <a name="RED" id="cdk-monitoring-constructs.OpenSearchClusterStatus.RED"></a>
+##### `RED` <a name="RED" id="cdk-monitoring-constructs.OpenSearchClusterStatus.RED"></a>
 
 ---
 
 
-#### `YELLOW` <a name="YELLOW" id="cdk-monitoring-constructs.OpenSearchClusterStatus.YELLOW"></a>
+##### `YELLOW` <a name="YELLOW" id="cdk-monitoring-constructs.OpenSearchClusterStatus.YELLOW"></a>
 
 ---
 
 
 ### RateComputationMethod <a name="RateComputationMethod" id="cdk-monitoring-constructs.RateComputationMethod"></a>
+
+Enumeration of different rate computation methods.
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46864,9 +46894,7 @@ number of datapoints.
 
 ---
 
-Enumeration of different rate computation methods.
-
-#### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.RateComputationMethod.AVERAGE"></a>
+##### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.RateComputationMethod.AVERAGE"></a>
 
 Number of occurrences relative to requests.
 
@@ -46875,7 +46903,7 @@ Less sensitive than per-second when TPS > 1.
 ---
 
 
-#### `PER_SECOND` <a name="PER_SECOND" id="cdk-monitoring-constructs.RateComputationMethod.PER_SECOND"></a>
+##### `PER_SECOND` <a name="PER_SECOND" id="cdk-monitoring-constructs.RateComputationMethod.PER_SECOND"></a>
 
 Number of occurrences per second.
 
@@ -46884,21 +46912,21 @@ More sensitive than average when TPS > 1.
 ---
 
 
-#### `PER_MINUTE` <a name="PER_MINUTE" id="cdk-monitoring-constructs.RateComputationMethod.PER_MINUTE"></a>
+##### `PER_MINUTE` <a name="PER_MINUTE" id="cdk-monitoring-constructs.RateComputationMethod.PER_MINUTE"></a>
 
 Number of occurrences per minute.
 
 ---
 
 
-#### `PER_HOUR` <a name="PER_HOUR" id="cdk-monitoring-constructs.RateComputationMethod.PER_HOUR"></a>
+##### `PER_HOUR` <a name="PER_HOUR" id="cdk-monitoring-constructs.RateComputationMethod.PER_HOUR"></a>
 
 Number of occurrences per hour.
 
 ---
 
 
-#### `PER_DAY` <a name="PER_DAY" id="cdk-monitoring-constructs.RateComputationMethod.PER_DAY"></a>
+##### `PER_DAY` <a name="PER_DAY" id="cdk-monitoring-constructs.RateComputationMethod.PER_DAY"></a>
 
 Number of occurrences per day.
 
@@ -46906,6 +46934,8 @@ Number of occurrences per day.
 
 
 ### StorageType <a name="StorageType" id="cdk-monitoring-constructs.StorageType"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -46928,87 +46958,89 @@ Number of occurrences per day.
 
 ---
 
-#### `DEEP_ARCHIVE_OBJECT_OVERHEAD` <a name="DEEP_ARCHIVE_OBJECT_OVERHEAD" id="cdk-monitoring-constructs.StorageType.DEEP_ARCHIVE_OBJECT_OVERHEAD"></a>
+##### `DEEP_ARCHIVE_OBJECT_OVERHEAD` <a name="DEEP_ARCHIVE_OBJECT_OVERHEAD" id="cdk-monitoring-constructs.StorageType.DEEP_ARCHIVE_OBJECT_OVERHEAD"></a>
 
 ---
 
 
-#### `DEEP_ARCHIVE_S3_OBJECT_OVERHEAD` <a name="DEEP_ARCHIVE_S3_OBJECT_OVERHEAD" id="cdk-monitoring-constructs.StorageType.DEEP_ARCHIVE_S3_OBJECT_OVERHEAD"></a>
+##### `DEEP_ARCHIVE_S3_OBJECT_OVERHEAD` <a name="DEEP_ARCHIVE_S3_OBJECT_OVERHEAD" id="cdk-monitoring-constructs.StorageType.DEEP_ARCHIVE_S3_OBJECT_OVERHEAD"></a>
 
 ---
 
 
-#### `DEEP_ARCHIVE_STAGING_STORAGE` <a name="DEEP_ARCHIVE_STAGING_STORAGE" id="cdk-monitoring-constructs.StorageType.DEEP_ARCHIVE_STAGING_STORAGE"></a>
+##### `DEEP_ARCHIVE_STAGING_STORAGE` <a name="DEEP_ARCHIVE_STAGING_STORAGE" id="cdk-monitoring-constructs.StorageType.DEEP_ARCHIVE_STAGING_STORAGE"></a>
 
 ---
 
 
-#### `DEEP_ARCHIVE_STORAGE` <a name="DEEP_ARCHIVE_STORAGE" id="cdk-monitoring-constructs.StorageType.DEEP_ARCHIVE_STORAGE"></a>
+##### `DEEP_ARCHIVE_STORAGE` <a name="DEEP_ARCHIVE_STORAGE" id="cdk-monitoring-constructs.StorageType.DEEP_ARCHIVE_STORAGE"></a>
 
 ---
 
 
-#### `GLACIER_OBJECT_OVERHEAD` <a name="GLACIER_OBJECT_OVERHEAD" id="cdk-monitoring-constructs.StorageType.GLACIER_OBJECT_OVERHEAD"></a>
+##### `GLACIER_OBJECT_OVERHEAD` <a name="GLACIER_OBJECT_OVERHEAD" id="cdk-monitoring-constructs.StorageType.GLACIER_OBJECT_OVERHEAD"></a>
 
 ---
 
 
-#### `GLACIER_S3_OBJECT_OVERHEAD` <a name="GLACIER_S3_OBJECT_OVERHEAD" id="cdk-monitoring-constructs.StorageType.GLACIER_S3_OBJECT_OVERHEAD"></a>
+##### `GLACIER_S3_OBJECT_OVERHEAD` <a name="GLACIER_S3_OBJECT_OVERHEAD" id="cdk-monitoring-constructs.StorageType.GLACIER_S3_OBJECT_OVERHEAD"></a>
 
 ---
 
 
-#### `GLACIER_STAGING_STORAGE` <a name="GLACIER_STAGING_STORAGE" id="cdk-monitoring-constructs.StorageType.GLACIER_STAGING_STORAGE"></a>
+##### `GLACIER_STAGING_STORAGE` <a name="GLACIER_STAGING_STORAGE" id="cdk-monitoring-constructs.StorageType.GLACIER_STAGING_STORAGE"></a>
 
 ---
 
 
-#### `GLACIER_STORAGE` <a name="GLACIER_STORAGE" id="cdk-monitoring-constructs.StorageType.GLACIER_STORAGE"></a>
+##### `GLACIER_STORAGE` <a name="GLACIER_STORAGE" id="cdk-monitoring-constructs.StorageType.GLACIER_STORAGE"></a>
 
 ---
 
 
-#### `INTELLIGENT_TIERING_FA_STORAGE` <a name="INTELLIGENT_TIERING_FA_STORAGE" id="cdk-monitoring-constructs.StorageType.INTELLIGENT_TIERING_FA_STORAGE"></a>
+##### `INTELLIGENT_TIERING_FA_STORAGE` <a name="INTELLIGENT_TIERING_FA_STORAGE" id="cdk-monitoring-constructs.StorageType.INTELLIGENT_TIERING_FA_STORAGE"></a>
 
 ---
 
 
-#### `INTELLIGENT_TIERING_IA_STORAGE` <a name="INTELLIGENT_TIERING_IA_STORAGE" id="cdk-monitoring-constructs.StorageType.INTELLIGENT_TIERING_IA_STORAGE"></a>
+##### `INTELLIGENT_TIERING_IA_STORAGE` <a name="INTELLIGENT_TIERING_IA_STORAGE" id="cdk-monitoring-constructs.StorageType.INTELLIGENT_TIERING_IA_STORAGE"></a>
 
 ---
 
 
-#### `ONE_ZONE_IA_SIZE_OVERHEAD` <a name="ONE_ZONE_IA_SIZE_OVERHEAD" id="cdk-monitoring-constructs.StorageType.ONE_ZONE_IA_SIZE_OVERHEAD"></a>
+##### `ONE_ZONE_IA_SIZE_OVERHEAD` <a name="ONE_ZONE_IA_SIZE_OVERHEAD" id="cdk-monitoring-constructs.StorageType.ONE_ZONE_IA_SIZE_OVERHEAD"></a>
 
 ---
 
 
-#### `ONE_ZONE_IA_STORAGE` <a name="ONE_ZONE_IA_STORAGE" id="cdk-monitoring-constructs.StorageType.ONE_ZONE_IA_STORAGE"></a>
+##### `ONE_ZONE_IA_STORAGE` <a name="ONE_ZONE_IA_STORAGE" id="cdk-monitoring-constructs.StorageType.ONE_ZONE_IA_STORAGE"></a>
 
 ---
 
 
-#### `REDUCED_REDUNDANCY_STORAGE` <a name="REDUCED_REDUNDANCY_STORAGE" id="cdk-monitoring-constructs.StorageType.REDUCED_REDUNDANCY_STORAGE"></a>
+##### `REDUCED_REDUNDANCY_STORAGE` <a name="REDUCED_REDUNDANCY_STORAGE" id="cdk-monitoring-constructs.StorageType.REDUCED_REDUNDANCY_STORAGE"></a>
 
 ---
 
 
-#### `STANDARD_IA_SIZE_OVERHEAD` <a name="STANDARD_IA_SIZE_OVERHEAD" id="cdk-monitoring-constructs.StorageType.STANDARD_IA_SIZE_OVERHEAD"></a>
+##### `STANDARD_IA_SIZE_OVERHEAD` <a name="STANDARD_IA_SIZE_OVERHEAD" id="cdk-monitoring-constructs.StorageType.STANDARD_IA_SIZE_OVERHEAD"></a>
 
 ---
 
 
-#### `STANDARD_IA_STORAGE` <a name="STANDARD_IA_STORAGE" id="cdk-monitoring-constructs.StorageType.STANDARD_IA_STORAGE"></a>
+##### `STANDARD_IA_STORAGE` <a name="STANDARD_IA_STORAGE" id="cdk-monitoring-constructs.StorageType.STANDARD_IA_STORAGE"></a>
 
 ---
 
 
-#### `STANDARD_STORAGE` <a name="STANDARD_STORAGE" id="cdk-monitoring-constructs.StorageType.STANDARD_STORAGE"></a>
+##### `STANDARD_STORAGE` <a name="STANDARD_STORAGE" id="cdk-monitoring-constructs.StorageType.STANDARD_STORAGE"></a>
 
 ---
 
 
 ### UsageType <a name="UsageType" id="cdk-monitoring-constructs.UsageType"></a>
+
+#### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
@@ -47024,47 +47056,47 @@ Number of occurrences per day.
 
 ---
 
-#### `P50` <a name="P50" id="cdk-monitoring-constructs.UsageType.P50"></a>
+##### `P50` <a name="P50" id="cdk-monitoring-constructs.UsageType.P50"></a>
 
 ---
 
 
-#### `P70` <a name="P70" id="cdk-monitoring-constructs.UsageType.P70"></a>
+##### `P70` <a name="P70" id="cdk-monitoring-constructs.UsageType.P70"></a>
 
 ---
 
 
-#### `P90` <a name="P90" id="cdk-monitoring-constructs.UsageType.P90"></a>
+##### `P90` <a name="P90" id="cdk-monitoring-constructs.UsageType.P90"></a>
 
 ---
 
 
-#### `P99` <a name="P99" id="cdk-monitoring-constructs.UsageType.P99"></a>
+##### `P99` <a name="P99" id="cdk-monitoring-constructs.UsageType.P99"></a>
 
 ---
 
 
-#### `P999` <a name="P999" id="cdk-monitoring-constructs.UsageType.P999"></a>
+##### `P999` <a name="P999" id="cdk-monitoring-constructs.UsageType.P999"></a>
 
 ---
 
 
-#### `P9999` <a name="P9999" id="cdk-monitoring-constructs.UsageType.P9999"></a>
+##### `P9999` <a name="P9999" id="cdk-monitoring-constructs.UsageType.P9999"></a>
 
 ---
 
 
-#### `P100` <a name="P100" id="cdk-monitoring-constructs.UsageType.P100"></a>
+##### `P100` <a name="P100" id="cdk-monitoring-constructs.UsageType.P100"></a>
 
 ---
 
 
-#### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.UsageType.AVERAGE"></a>
+##### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.UsageType.AVERAGE"></a>
 
 ---
 
 
-#### `MAX` <a name="MAX" id="cdk-monitoring-constructs.UsageType.MAX"></a>
+##### `MAX` <a name="MAX" id="cdk-monitoring-constructs.UsageType.MAX"></a>
 
 ---
 
