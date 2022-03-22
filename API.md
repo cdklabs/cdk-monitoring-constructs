@@ -46447,6 +46447,7 @@ Level of a given log.
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LogLevel.ERROR">ERROR</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogLevel.CRITICAL">CRITICAL</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogLevel.FATAL">FATAL</a></code> | *No description.* |
 
 ---
 
@@ -46456,6 +46457,11 @@ Level of a given log.
 
 
 ##### `CRITICAL` <a name="CRITICAL" id="cdk-monitoring-constructs.LogLevel.CRITICAL"></a>
+
+---
+
+
+##### `FATAL` <a name="FATAL" id="cdk-monitoring-constructs.LogLevel.FATAL"></a>
 
 ---
 

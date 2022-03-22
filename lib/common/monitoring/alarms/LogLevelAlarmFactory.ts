@@ -9,6 +9,7 @@ import { MetricWithAlarmSupport } from "../../metric";
 export enum LogLevel {
   ERROR = "ERROR",
   CRITICAL = "CRITICAL",
+  FATAL = "FATAL",
 }
 
 export interface LogLevelCountThreshold extends CustomAlarmThreshold {
