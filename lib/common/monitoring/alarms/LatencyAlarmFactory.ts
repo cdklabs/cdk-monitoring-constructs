@@ -148,6 +148,33 @@ export class LatencyAlarmFactory {
     });
   }
 
+  addIntegrationLatencyAlarm(
+    metric: MetricWithAlarmSupport,
+    latencyType: LatencyType,
+    props: LatencyThreshold,
+    disambiguator?: string
+  ) {
+    const alarmNameSuffix = `IntegrationLatency-${latencyType}`;
+
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxLatency.toMilliseconds(),
+      alarmNameSuffix,
+      // we will dedupe any kind of latency issue to the same ticket
+      alarmDedupeStringSuffix: this.alarmFactory
+        .shouldUseDefaultDedupeForLatency
+        ? "AnyLatency"
+        : alarmNameSuffix,
+      alarmDescription: `${latencyType} integration latency is too high.`,
+    });
+  }
+
   addDurationAlarm(
     metric: MetricWithAlarmSupport,
     latencyType: LatencyType,
