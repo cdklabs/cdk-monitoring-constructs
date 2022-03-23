@@ -122,42 +122,42 @@ export class ApiGatewayV2HttpApiMetricFactory {
   }
 
   /**
-   * @deprecated please use metricLatencyInMillis instead
+   * @deprecated use metricLatencyInMillis instead
    */
   metricLatencyP50InMillis() {
     return this.metricLatencyInMillis(LatencyType.P50);
   }
 
   /**
-   * @deprecated please use metricLatencyInMillis instead
+   * @deprecated use metricLatencyInMillis instead
    */
   metricLatencyP90InMillis() {
     return this.metricLatencyInMillis(LatencyType.P90);
   }
 
   /**
-   * @deprecated please use metricLatencyInMillis instead
+   * @deprecated use metricLatencyInMillis instead
    */
   metricLatencyP99InMillis() {
     return this.metricLatencyInMillis(LatencyType.P99);
   }
 
   /**
-   * @deprecated please use metricIntegrationLatencyInMillis instead
+   * @deprecated use metricIntegrationLatencyInMillis instead
    */
   metricIntegrationLatencyP50InMillis() {
     return this.metricIntegrationLatencyInMillis(LatencyType.P50);
   }
 
   /**
-   * @deprecated please use metricIntegrationLatencyInMillis instead
+   * @deprecated use metricIntegrationLatencyInMillis instead
    */
   metricIntegrationLatencyP90InMillis() {
     return this.metricIntegrationLatencyInMillis(LatencyType.P90);
   }
 
   /**
-   * @deprecated please use metricIntegrationLatencyInMillis instead
+   * @deprecated use metricIntegrationLatencyInMillis instead
    */
   metricIntegrationLatencyP99InMillis() {
     return this.metricIntegrationLatencyInMillis(LatencyType.P99);

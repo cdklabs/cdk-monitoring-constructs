@@ -126,21 +126,21 @@ export class ApiGatewayMetricFactory {
   }
 
   /**
-   * @deprecated please use metricLatencyInMillis instead
+   * @deprecated use metricLatencyInMillis instead
    */
   metricLatencyP99InMillis() {
     return this.metricLatencyInMillis(LatencyType.P99);
   }
 
   /**
-   * @deprecated please use metricLatencyInMillis instead
+   * @deprecated use metricLatencyInMillis instead
    */
   metricLatencyP90InMillis() {
     return this.metricLatencyInMillis(LatencyType.P90);
   }
 
   /**
-   * @deprecated please use metricLatencyInMillis instead
+   * @deprecated use metricLatencyInMillis instead
    */
   metricLatencyP50InMillis() {
     return this.metricLatencyInMillis(LatencyType.P50);
