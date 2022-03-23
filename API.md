@@ -4103,7 +4103,7 @@ You can specify what latency types you want to be rendered in the dashboards.
 
 Note: any latency type with an alarm will be also added automatically. If the list is undefined, default values will be shown. If the list is empty, only the latency types with an alarm will be shown (if any).
 
-> [DefaultLatencyTypesShown)](DefaultLatencyTypesShown))
+> [DefaultLatencyTypesToRender)](DefaultLatencyTypesToRender))
 
 ---
 
@@ -4537,7 +4537,7 @@ You can specify what latency types you want to be rendered in the dashboards.
 
 Note: any latency type with an alarm will be also added automatically. If the list is undefined, default values will be shown. If the list is empty, only the latency types with an alarm will be shown (if any).
 
-> [DefaultLatencyTypesShown)](DefaultLatencyTypesShown))
+> [DefaultLatencyTypesToRender)](DefaultLatencyTypesToRender))
 
 ---
 
