@@ -70,7 +70,7 @@ export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
    * Note: any latency type with an alarm will be also added automatically.
    * If the list is undefined, default values will be shown.
    * If the list is empty, only the latency types with an alarm will be shown (if any).
-   * @default p50, p90, p99 (@see DefaultLatencyTypesShown)
+   * @default p50, p90, p99 (@see DefaultLatencyTypesToRender)
    */
   readonly latencyTypesToRender?: LatencyType[];
 }
