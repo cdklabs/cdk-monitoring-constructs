@@ -37,16 +37,42 @@ import {
   ApiGatewayMetricFactoryProps,
 } from "./ApiGatewayMetricFactory";
 
+const DefaultLatencyTypesToRender = [
+  LatencyType.P50,
+  LatencyType.P90,
+  LatencyType.P99,
+];
+
 export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP70Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP999Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP9999Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP100Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM50Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM70Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM90Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM99Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM999Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM9999Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyAverageAlarm?: Record<string, LatencyThreshold>;
   readonly add4XXErrorCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly add4XXErrorRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly add5XXFaultCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly add5XXFaultRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
   readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
+
+  /**
+   * You can specify what latency types you want to be rendered in the dashboards.
+   * Note: any latency type with an alarm will be also added automatically.
+   * If the list is undefined, default values will be shown.
+   * If the list is empty, only the latency types with an alarm will be shown (if any).
+   * @default p50, p90, p99 (@see DefaultLatencyTypesToRender)
+   */
+  readonly latencyTypesToRender?: LatencyType[];
 }
 
 export interface ApiGatewayMonitoringProps
@@ -67,13 +93,14 @@ export class ApiGatewayMonitoring extends Monitoring {
   protected readonly errorRateAnnotations: HorizontalAnnotation[];
 
   protected readonly tpsMetric: MetricWithAlarmSupport;
-  protected readonly p50LatencyMetric: MetricWithAlarmSupport;
-  protected readonly p90LatencyMetric: MetricWithAlarmSupport;
-  protected readonly p99LatencyMetric: MetricWithAlarmSupport;
   protected readonly error4XXCountMetric: MetricWithAlarmSupport;
   protected readonly error4XXRateMetric: MetricWithAlarmSupport;
   protected readonly fault5XXCountMetric: MetricWithAlarmSupport;
   protected readonly fault5XXRateMetric: MetricWithAlarmSupport;
+
+  // keys are LatencyType, but JSII doesn't like non-string types
+  protected readonly latencyMetrics: Record<string, MetricWithAlarmSupport>;
+  protected readonly latencyTypesToRender: string[];
 
   constructor(scope: MonitoringScope, props: ApiGatewayMonitoringProps) {
     super(scope, props);
@@ -115,48 +142,60 @@ export class ApiGatewayMonitoring extends Monitoring {
       scope.createMetricFactory(),
       props
     );
+
     this.tpsMetric = metricFactory.metricTps();
-    this.p50LatencyMetric = metricFactory.metricLatencyP50InMillis();
-    this.p90LatencyMetric = metricFactory.metricLatencyP90InMillis();
-    this.p99LatencyMetric = metricFactory.metricLatencyP99InMillis();
+
+    this.latencyMetrics = {};
+    this.latencyTypesToRender = [
+      ...(props.latencyTypesToRender ?? DefaultLatencyTypesToRender),
+    ];
+
     this.error4XXCountMetric = metricFactory.metric4XXErrorCount();
     this.error4XXRateMetric = metricFactory.metric4XXErrorRate();
     this.fault5XXCountMetric = metricFactory.metric5XXFaultCount();
     this.fault5XXRateMetric = metricFactory.metric5XXFaultRate();
 
-    for (const disambiguator in props.addLatencyP50Alarm) {
-      const alarmProps = props.addLatencyP50Alarm[disambiguator];
-      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
-        this.p50LatencyMetric,
-        LatencyType.P50,
-        alarmProps,
-        disambiguator
-      );
-      this.latencyAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
+    const latencyAlarmDefinitions = {
+      [LatencyType.P50]: props.addLatencyP50Alarm,
+      [LatencyType.P70]: props.addLatencyP70Alarm,
+      [LatencyType.P90]: props.addLatencyP90Alarm,
+      [LatencyType.P99]: props.addLatencyP99Alarm,
+      [LatencyType.P999]: props.addLatencyP999Alarm,
+      [LatencyType.P9999]: props.addLatencyP9999Alarm,
+      [LatencyType.P100]: props.addLatencyP100Alarm,
+      [LatencyType.TM50]: props.addLatencyTM50Alarm,
+      [LatencyType.TM70]: props.addLatencyTM70Alarm,
+      [LatencyType.TM90]: props.addLatencyTM90Alarm,
+      [LatencyType.TM99]: props.addLatencyTM99Alarm,
+      [LatencyType.TM999]: props.addLatencyTM999Alarm,
+      [LatencyType.TM9999]: props.addLatencyTM9999Alarm,
+      [LatencyType.AVERAGE]: props.addLatencyAverageAlarm,
+    };
+
+    Object.values(LatencyType).forEach((latencyType) => {
+      this.latencyMetrics[latencyType] =
+        metricFactory.metricLatencyInMillis(latencyType);
+    });
+
+    for (const [latencyType, alarmDefinition] of Object.entries(
+      latencyAlarmDefinitions
+    )) {
+      for (const disambiguator in alarmDefinition) {
+        const alarmProps = alarmDefinition[disambiguator];
+        const latencyTypeEnum = latencyType as LatencyType;
+        const metric = this.latencyMetrics[latencyTypeEnum];
+        const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+          metric,
+          latencyTypeEnum,
+          alarmProps,
+          disambiguator
+        );
+        this.latencyAnnotations.push(createdAlarm.annotation);
+        this.latencyTypesToRender.push(latencyTypeEnum);
+        this.addAlarm(createdAlarm);
+      }
     }
-    for (const disambiguator in props.addLatencyP90Alarm) {
-      const alarmProps = props.addLatencyP90Alarm[disambiguator];
-      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
-        this.p90LatencyMetric,
-        LatencyType.P90,
-        alarmProps,
-        disambiguator
-      );
-      this.latencyAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
-    }
-    for (const disambiguator in props.addLatencyP99Alarm) {
-      const alarmProps = props.addLatencyP99Alarm[disambiguator];
-      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
-        this.p99LatencyMetric,
-        LatencyType.P99,
-        alarmProps,
-        disambiguator
-      );
-      this.latencyAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
-    }
+
     for (const disambiguator in props.add5XXFaultCountAlarm) {
       const alarmProps = props.add5XXFaultCountAlarm[disambiguator];
       const createdAlarm = this.errorAlarmFactory.addErrorCountAlarm(
@@ -262,15 +301,15 @@ export class ApiGatewayMonitoring extends Monitoring {
   }
 
   protected createLatencyWidget(width: number, height: number) {
+    const left = Array.from(new Set(this.latencyTypesToRender))
+      .sort()
+      .map((type) => this.latencyMetrics[type]);
+
     return new GraphWidget({
       width,
       height,
       title: "Latency",
-      left: [
-        this.p50LatencyMetric,
-        this.p90LatencyMetric,
-        this.p99LatencyMetric,
-      ],
+      left,
       leftYAxis: TimeAxisMillisFromZero,
       leftAnnotations: this.latencyAnnotations,
     });

@@ -60,94 +60,88 @@ test("snapshot test: all alarms", () => {
     },
     addLatencyP50Alarm: {
       Warning: {
-        maxLatency: Duration.millis(110),
-        datapointsToAlarm: 11,
+        maxLatency: Duration.millis(150),
+        datapointsToAlarm: 150,
+      },
+    },
+    addLatencyP70Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(170),
+        datapointsToAlarm: 170,
       },
     },
     addLatencyP90Alarm: {
       Warning: {
-        maxLatency: Duration.millis(220),
-        datapointsToAlarm: 22,
+        maxLatency: Duration.millis(190),
+        datapointsToAlarm: 190,
       },
     },
     addLatencyP99Alarm: {
       Warning: {
-        maxLatency: Duration.millis(330),
-        datapointsToAlarm: 33,
+        maxLatency: Duration.millis(199),
+        datapointsToAlarm: 199,
       },
     },
-    addLowTpsAlarm: {
-      Warning: { minTps: 1 },
-    },
-    addHighTpsAlarm: {
-      Warning: { maxTps: 10 },
-    },
-    useCreatedAlarms: {
-      consume(alarms: AlarmWithAnnotation[]) {
-        numAlarmsCreated = alarms.length;
-      },
-    },
-  });
-
-  expect(numAlarmsCreated).toStrictEqual(9);
-  expect(Template.fromStack(stack)).toMatchSnapshot();
-});
-
-test("snapshot test: all alarms without alarmFriendlyName", () => {
-  const stack = new Stack();
-  const api = new RestApi(stack, "DummyApi");
-  api.root.addMethod("ANY");
-
-  const scope = new TestMonitoringScope(stack, "Scope");
-
-  let numAlarmsCreated = 0;
-
-  new ApiGatewayMonitoring(scope, {
-    api,
-    apiMethod: "GET",
-    apiResource: "dummy/resource",
-    add5XXFaultRateAlarm: {
+    addLatencyP999Alarm: {
       Warning: {
-        maxErrorRate: 1,
-        datapointsToAlarm: 10,
+        maxLatency: Duration.millis(1999),
+        datapointsToAlarm: 1999,
       },
     },
-    add5XXFaultCountAlarm: {
+    addLatencyP9999Alarm: {
       Warning: {
-        maxErrorCount: 2,
+        maxLatency: Duration.millis(19999),
+        datapointsToAlarm: 19999,
+      },
+    },
+    addLatencyP100Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(1100),
+        datapointsToAlarm: 1100,
+      },
+    },
+    addLatencyTM50Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(250),
+        datapointsToAlarm: 250,
+      },
+    },
+    addLatencyTM70Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(270),
+        datapointsToAlarm: 270,
+      },
+    },
+    addLatencyTM90Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(290),
+        datapointsToAlarm: 290,
+      },
+    },
+    addLatencyTM99Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(299),
+        datapointsToAlarm: 299,
+      },
+    },
+    addLatencyTM999Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(2999),
+        datapointsToAlarm: 2999,
+      },
+    },
+    addLatencyTM9999Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyAverageAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(20),
         datapointsToAlarm: 20,
       },
     },
-    add4XXErrorRateAlarm: {
-      Warning: {
-        maxErrorRate: 0.01,
-        datapointsToAlarm: 11,
-      },
-    },
-    add4XXErrorCountAlarm: {
-      Warning: {
-        maxErrorCount: 0.02,
-        datapointsToAlarm: 22,
-      },
-    },
-    addLatencyP50Alarm: {
-      Warning: {
-        maxLatency: Duration.millis(110),
-        datapointsToAlarm: 11,
-      },
-    },
-    addLatencyP90Alarm: {
-      Warning: {
-        maxLatency: Duration.millis(220),
-        datapointsToAlarm: 22,
-      },
-    },
-    addLatencyP99Alarm: {
-      Warning: {
-        maxLatency: Duration.millis(330),
-        datapointsToAlarm: 33,
-      },
-    },
     addLowTpsAlarm: {
       Warning: { minTps: 1 },
     },
@@ -161,6 +155,6 @@ test("snapshot test: all alarms without alarmFriendlyName", () => {
     },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(9);
+  expect(numAlarmsCreated).toStrictEqual(20);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

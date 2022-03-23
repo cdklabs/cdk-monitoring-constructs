@@ -2,6 +2,9 @@ import { RestApiBase } from "monocdk/aws-apigateway";
 import { DimensionHash } from "monocdk/aws-cloudwatch";
 
 import {
+  getLatencyTypeLabel,
+  getLatencyTypeStatistic,
+  LatencyType,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
@@ -122,33 +125,33 @@ export class ApiGatewayMetricFactory {
     );
   }
 
+  /**
+   * @deprecated use metricLatencyInMillis instead
+   */
   metricLatencyP99InMillis() {
-    return this.metricFactory.createMetric(
-      "Latency",
-      MetricStatistic.P99,
-      "P99",
-      this.dimensions,
-      undefined,
-      ApiGatewayNamespace
-    );
+    return this.metricLatencyInMillis(LatencyType.P99);
   }
 
+  /**
+   * @deprecated use metricLatencyInMillis instead
+   */
   metricLatencyP90InMillis() {
-    return this.metricFactory.createMetric(
-      "Latency",
-      MetricStatistic.P90,
-      "P90",
-      this.dimensions,
-      undefined,
-      ApiGatewayNamespace
-    );
+    return this.metricLatencyInMillis(LatencyType.P90);
   }
 
+  /**
+   * @deprecated use metricLatencyInMillis instead
+   */
   metricLatencyP50InMillis() {
+    return this.metricLatencyInMillis(LatencyType.P50);
+  }
+
+  metricLatencyInMillis(latencyType: LatencyType) {
+    const label = getLatencyTypeLabel(latencyType);
     return this.metricFactory.createMetric(
       "Latency",
-      MetricStatistic.P50,
-      "P50",
+      getLatencyTypeStatistic(latencyType),
+      label,
       this.dimensions,
       undefined,
       ApiGatewayNamespace

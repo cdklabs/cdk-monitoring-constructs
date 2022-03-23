@@ -2,6 +2,9 @@ import { IHttpApi } from "monocdk/aws-apigatewayv2";
 import { DimensionHash } from "monocdk/aws-cloudwatch";
 
 import {
+  getLatencyTypeLabel,
+  getLatencyTypeStatistic,
+  LatencyType,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
@@ -118,66 +121,66 @@ export class ApiGatewayV2HttpApiMetricFactory {
     );
   }
 
+  /**
+   * @deprecated use metricLatencyInMillis instead
+   */
   metricLatencyP50InMillis() {
-    return this.metricFactory.createMetric(
-      "Latency",
-      MetricStatistic.P50,
-      "P50 Latency",
-      this.dimensions,
-      undefined,
-      ApiGatewayNamespace
-    );
+    return this.metricLatencyInMillis(LatencyType.P50);
   }
 
+  /**
+   * @deprecated use metricLatencyInMillis instead
+   */
   metricLatencyP90InMillis() {
-    return this.metricFactory.createMetric(
-      "Latency",
-      MetricStatistic.P90,
-      "P90 Latency",
-      this.dimensions,
-      undefined,
-      ApiGatewayNamespace
-    );
+    return this.metricLatencyInMillis(LatencyType.P90);
   }
 
+  /**
+   * @deprecated use metricLatencyInMillis instead
+   */
   metricLatencyP99InMillis() {
+    return this.metricLatencyInMillis(LatencyType.P99);
+  }
+
+  /**
+   * @deprecated use metricIntegrationLatencyInMillis instead
+   */
+  metricIntegrationLatencyP50InMillis() {
+    return this.metricIntegrationLatencyInMillis(LatencyType.P50);
+  }
+
+  /**
+   * @deprecated use metricIntegrationLatencyInMillis instead
+   */
+  metricIntegrationLatencyP90InMillis() {
+    return this.metricIntegrationLatencyInMillis(LatencyType.P90);
+  }
+
+  /**
+   * @deprecated use metricIntegrationLatencyInMillis instead
+   */
+  metricIntegrationLatencyP99InMillis() {
+    return this.metricIntegrationLatencyInMillis(LatencyType.P99);
+  }
+
+  metricIntegrationLatencyInMillis(latencyType: LatencyType) {
+    const label = getLatencyTypeLabel(latencyType);
+    return this.metricFactory.createMetric(
+      "IntegrationLatency",
+      getLatencyTypeStatistic(latencyType),
+      label,
+      this.dimensions,
+      undefined,
+      ApiGatewayNamespace
+    );
+  }
+
+  metricLatencyInMillis(latencyType: LatencyType) {
+    const label = getLatencyTypeLabel(latencyType);
     return this.metricFactory.createMetric(
       "Latency",
-      MetricStatistic.P99,
-      "P99 Latency",
-      this.dimensions,
-      undefined,
-      ApiGatewayNamespace
-    );
-  }
-
-  metricIntegrationLatencyP50InMillis() {
-    return this.metricFactory.createMetric(
-      "IntegrationLatency",
-      MetricStatistic.P50,
-      "P50 Integration Latency",
-      this.dimensions,
-      undefined,
-      ApiGatewayNamespace
-    );
-  }
-
-  metricIntegrationLatencyP90InMillis() {
-    return this.metricFactory.createMetric(
-      "IntegrationLatency",
-      MetricStatistic.P90,
-      "P90 Integration Latency",
-      this.dimensions,
-      undefined,
-      ApiGatewayNamespace
-    );
-  }
-
-  metricIntegrationLatencyP99InMillis() {
-    return this.metricFactory.createMetric(
-      "IntegrationLatency",
-      MetricStatistic.P99,
-      "P99 Integration Latency",
+      getLatencyTypeStatistic(latencyType),
+      label,
       this.dimensions,
       undefined,
       ApiGatewayNamespace

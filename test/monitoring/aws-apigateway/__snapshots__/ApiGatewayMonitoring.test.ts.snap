@@ -277,14 +277,90 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyApiLatencyAverageWarning27D59767": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-Average-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 20,
+        "EvaluationPeriods": 20,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 20,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyP100WarningB48A5E64": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P100 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-P100-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 1100,
+        "EvaluationPeriods": 1100,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P100",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p100",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyApiLatencyP50Warning7EEB3E57": Object {
       "Properties": Object {
         "ActionsEnabled": true,
         "AlarmDescription": "P50 latency is too high.",
         "AlarmName": "Test-DummyApi-Latency-P50-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 11,
-        "EvaluationPeriods": 11,
+        "DatapointsToAlarm": 150,
+        "EvaluationPeriods": 150,
         "Metrics": Array [
           Object {
             "Id": "m1",
@@ -310,7 +386,45 @@ Object {
             "ReturnData": true,
           },
         ],
-        "Threshold": 110,
+        "Threshold": 150,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyP70Warning56ABF038": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P70 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-P70-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 170,
+        "EvaluationPeriods": 170,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P70",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p70",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 170,
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -321,8 +435,8 @@ Object {
         "AlarmDescription": "P90 latency is too high.",
         "AlarmName": "Test-DummyApi-Latency-P90-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 22,
-        "EvaluationPeriods": 22,
+        "DatapointsToAlarm": 190,
+        "EvaluationPeriods": 190,
         "Metrics": Array [
           Object {
             "Id": "m1",
@@ -348,7 +462,83 @@ Object {
             "ReturnData": true,
           },
         ],
-        "Threshold": 220,
+        "Threshold": 190,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyP9999Warning89E47C72": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P9999 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-P9999-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 19999,
+        "EvaluationPeriods": 19999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P99.99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p99.99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 19999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyP999Warning8CF0377D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P999 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-P999-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 1999,
+        "EvaluationPeriods": 1999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P99.9",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p99.9",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1999,
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -359,8 +549,8 @@ Object {
         "AlarmDescription": "P99 latency is too high.",
         "AlarmName": "Test-DummyApi-Latency-P99-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 33,
-        "EvaluationPeriods": 33,
+        "DatapointsToAlarm": 199,
+        "EvaluationPeriods": 199,
         "Metrics": Array [
           Object {
             "Id": "m1",
@@ -386,7 +576,235 @@ Object {
             "ReturnData": true,
           },
         ],
-        "Threshold": 330,
+        "Threshold": 199,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM50Warning092E86BF": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM50 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM50-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 250,
+        "EvaluationPeriods": 250,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "tm50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 250,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM70Warning8E657453": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM70 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM70-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 270,
+        "EvaluationPeriods": 270,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM70",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "tm70",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 270,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM90Warning0FDD3108": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM90 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM90-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 290,
+        "EvaluationPeriods": 290,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "tm90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 290,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM9999Warning4181DE97": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM9999 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM9999-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM99.99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "tm99.99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM999WarningD73972C6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM999 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM999-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2999,
+        "EvaluationPeriods": 2999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM99.9",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "tm99.9",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM99WarningFF55C464": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM99 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM99-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 299,
+        "EvaluationPeriods": 299,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "tm99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 299,
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -457,559 +875,6 @@ Object {
                   Object {
                     "Name": "ApiName",
                     "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "Count",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "Sum",
-            },
-            "ReturnData": false,
-          },
-        ],
-        "Threshold": 1,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-  },
-}
-`;
-
-exports[`snapshot test: all alarms without alarmFriendlyName 1`] = `
-Object {
-  "Outputs": Object {
-    "DummyApiEndpoint2E6B19BE": Object {
-      "Value": Object {
-        "Fn::Join": Array [
-          "",
-          Array [
-            "https://",
-            Object {
-              "Ref": "DummyApi80F1E171",
-            },
-            ".execute-api.",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            ".",
-            Object {
-              "Ref": "AWS::URLSuffix",
-            },
-            "/",
-            Object {
-              "Ref": "DummyApiDeploymentStageprod9EB3D152",
-            },
-            "/",
-          ],
-        ],
-      },
-    },
-  },
-  "Resources": Object {
-    "DummyApi80F1E171": Object {
-      "Properties": Object {
-        "Name": "DummyApi",
-      },
-      "Type": "AWS::ApiGateway::RestApi",
-    },
-    "DummyApiANYCEB66499": Object {
-      "Properties": Object {
-        "AuthorizationType": "NONE",
-        "HttpMethod": "ANY",
-        "Integration": Object {
-          "Type": "MOCK",
-        },
-        "ResourceId": Object {
-          "Fn::GetAtt": Array [
-            "DummyApi80F1E171",
-            "RootResourceId",
-          ],
-        },
-        "RestApiId": Object {
-          "Ref": "DummyApi80F1E171",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "DummyApiAccount7A4341D1": Object {
-      "DependsOn": Array [
-        "DummyApi80F1E171",
-      ],
-      "Properties": Object {
-        "CloudWatchRoleArn": Object {
-          "Fn::GetAtt": Array [
-            "DummyApiCloudWatchRole478A67A7",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "AWS::ApiGateway::Account",
-    },
-    "DummyApiCloudWatchRole478A67A7": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "apigateway.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                "arn:",
-                Object {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "DummyApiDeploymentD01F5018548e3dba60631e60c80c03977ce1f18a": Object {
-      "DependsOn": Array [
-        "DummyApiANYCEB66499",
-      ],
-      "Properties": Object {
-        "Description": "Automatically created by the RestApi construct",
-        "RestApiId": Object {
-          "Ref": "DummyApi80F1E171",
-        },
-      },
-      "Type": "AWS::ApiGateway::Deployment",
-    },
-    "DummyApiDeploymentStageprod9EB3D152": Object {
-      "Properties": Object {
-        "DeploymentId": Object {
-          "Ref": "DummyApiDeploymentD01F5018548e3dba60631e60c80c03977ce1f18a",
-        },
-        "RestApiId": Object {
-          "Ref": "DummyApi80F1E171",
-        },
-        "StageName": "prod",
-      },
-      "Type": "AWS::ApiGateway::Stage",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceErrorCountWarningAF0226A6": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "Error count is too high.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-Error-Count-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 22,
-        "EvaluationPeriods": 22,
-        "Metrics": Array [
-          Object {
-            "Id": "m1",
-            "Label": "4XX Error",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "4XXError",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "Sum",
-            },
-            "ReturnData": true,
-          },
-        ],
-        "Threshold": 0.02,
-        "TreatMissingData": "notBreaching",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceErrorRateWarning016C3EC5": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "Error rate is too high.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-Error-Rate-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 11,
-        "EvaluationPeriods": 11,
-        "Metrics": Array [
-          Object {
-            "Id": "m1",
-            "Label": "4XX Error (avg)",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "4XXError",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "Average",
-            },
-            "ReturnData": true,
-          },
-        ],
-        "Threshold": 0.01,
-        "TreatMissingData": "notBreaching",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceFaultCountWarning17579B91": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "Fault count is too high.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-Fault-Count-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 20,
-        "EvaluationPeriods": 20,
-        "Metrics": Array [
-          Object {
-            "Id": "m1",
-            "Label": "5XX Fault",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "5XXError",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "Sum",
-            },
-            "ReturnData": true,
-          },
-        ],
-        "Threshold": 2,
-        "TreatMissingData": "notBreaching",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceFaultRateWarning1991C1B6": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "Fault rate is too high.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-Fault-Rate-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 10,
-        "EvaluationPeriods": 10,
-        "Metrics": Array [
-          Object {
-            "Id": "m1",
-            "Label": "5XX Fault (avg)",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "5XXError",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "Average",
-            },
-            "ReturnData": true,
-          },
-        ],
-        "Threshold": 1,
-        "TreatMissingData": "notBreaching",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceLatencyP50Warning988CD8FE": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "P50 latency is too high.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-Latency-P50-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 11,
-        "EvaluationPeriods": 11,
-        "Metrics": Array [
-          Object {
-            "Id": "m1",
-            "Label": "P50",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "Latency",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "p50",
-            },
-            "ReturnData": true,
-          },
-        ],
-        "Threshold": 110,
-        "TreatMissingData": "notBreaching",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceLatencyP90Warning7B53F4CE": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "P90 latency is too high.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-Latency-P90-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 22,
-        "EvaluationPeriods": 22,
-        "Metrics": Array [
-          Object {
-            "Id": "m1",
-            "Label": "P90",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "Latency",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "p90",
-            },
-            "ReturnData": true,
-          },
-        ],
-        "Threshold": 220,
-        "TreatMissingData": "notBreaching",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceLatencyP99Warning8EE55673": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "P99 latency is too high.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-Latency-P99-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 33,
-        "EvaluationPeriods": 33,
-        "Metrics": Array [
-          Object {
-            "Id": "m1",
-            "Label": "P99",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "Latency",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "p99",
-            },
-            "ReturnData": true,
-          },
-        ],
-        "Threshold": 330,
-        "TreatMissingData": "notBreaching",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceMaxTPSWarning864CD950": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "TPS is too high.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-MaxTPS-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
-        "Metrics": Array [
-          Object {
-            "Expression": "FILL(requests,0) / PERIOD(requests)",
-            "Id": "expr_1",
-            "Label": "Count/s",
-          },
-          Object {
-            "Id": "requests",
-            "Label": "Count",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
-                  },
-                  Object {
-                    "Name": "Stage",
-                    "Value": "prod",
-                  },
-                ],
-                "MetricName": "Count",
-                "Namespace": "AWS/ApiGateway",
-              },
-              "Period": 300,
-              "Stat": "Sum",
-            },
-            "ReturnData": false,
-          },
-        ],
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "ScopeTestDummyApiprodGETdummyresourceMinTPSWarning8ED5EFE3": Object {
-      "Properties": Object {
-        "ActionsEnabled": true,
-        "AlarmDescription": "TPS is too low.",
-        "AlarmName": "Test-DummyApi-prod-GET-dummyresource-MinTPS-Warning",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
-        "Metrics": Array [
-          Object {
-            "Expression": "FILL(requests,0) / PERIOD(requests)",
-            "Id": "expr_1",
-            "Label": "Count/s",
-          },
-          Object {
-            "Id": "requests",
-            "Label": "Count",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "ApiName",
-                    "Value": "DummyApi",
-                  },
-                  Object {
-                    "Name": "Method",
-                    "Value": "GET",
-                  },
-                  Object {
-                    "Name": "Resource",
-                    "Value": "dummy/resource",
                   },
                   Object {
                     "Name": "Stage",
