@@ -166,7 +166,7 @@ export class LatencyAlarmFactory {
       disambiguator,
       threshold: props.maxLatency.toMilliseconds(),
       alarmNameSuffix,
-      // we will dedupe any kind of latency issue to the same ticket
+      // we will dedupe any kind of latency issue to the same alarm
       alarmDedupeStringSuffix: this.alarmFactory
         .shouldUseDefaultDedupeForLatency
         ? "AnyLatency"
