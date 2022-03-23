@@ -166,18 +166,9 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
 
     this.latencyMetrics = {};
     this.integrationLatencyMetrics = {};
-    this.latencyTypesToRender = [];
-    if (props.latencyTypesToRender) {
-      // try adding latency types specified by user first
-      props.latencyTypesToRender.forEach((type) =>
-        this.latencyTypesToRender.push(type)
-      );
-    } else {
-      // fallback to default latency types if user does not specify any
-      DefaultLatencyTypesToRender.forEach((type) =>
-        this.latencyTypesToRender.push(type)
-      );
-    }
+    this.latencyTypesToRender = [
+      ...(props.latencyTypesToRender ?? DefaultLatencyTypesToRender),
+    ];
 
     this.error4xxCountMetric = metricFactory.metric4xxCount();
     this.error4xxRateMetric = metricFactory.metric4xxRate();
