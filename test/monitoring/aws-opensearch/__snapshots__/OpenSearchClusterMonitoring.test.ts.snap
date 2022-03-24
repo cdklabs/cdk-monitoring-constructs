@@ -5,7 +5,7 @@ Object {
   "Resources": Object {
     "ElasticsearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "ElasticsearchCfnDomain",
+        "DomainName": "es-cfn-domain",
       },
       "Type": "AWS::Elasticsearch::Domain",
     },
@@ -19,7 +19,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "ElasticsearchDomain",
+        "DomainName": "es-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -45,7 +45,7 @@ Object {
     },
     "OpenSearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "OpenSearchCfnDomain",
+        "DomainName": "os-cfn-domain",
       },
       "Type": "AWS::OpenSearchService::Domain",
     },
@@ -65,7 +65,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "OpenSearchDomain",
+        "DomainName": "os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -92,7 +92,7 @@ Object {
   "Resources": Object {
     "ElasticsearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "ElasticsearchCfnDomain",
+        "DomainName": "es-cfn-domain",
       },
       "Type": "AWS::Elasticsearch::Domain",
     },
@@ -106,7 +106,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "ElasticsearchDomain",
+        "DomainName": "es-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -132,7 +132,7 @@ Object {
     },
     "OpenSearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "OpenSearchCfnDomain",
+        "DomainName": "os-cfn-domain",
       },
       "Type": "AWS::OpenSearchService::Domain",
     },
@@ -152,7 +152,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "OpenSearchDomain",
+        "DomainName": "os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -179,7 +179,7 @@ Object {
   "Resources": Object {
     "ElasticsearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "ElasticsearchCfnDomain",
+        "DomainName": "es-cfn-domain",
       },
       "Type": "AWS::Elasticsearch::Domain",
     },
@@ -193,7 +193,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "ElasticsearchDomain",
+        "DomainName": "es-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -219,7 +219,7 @@ Object {
     },
     "OpenSearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "OpenSearchCfnDomain",
+        "DomainName": "os-cfn-domain",
       },
       "Type": "AWS::OpenSearchService::Domain",
     },
@@ -239,7 +239,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "OpenSearchDomain",
+        "DomainName": "os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -266,7 +266,7 @@ Object {
   "Resources": Object {
     "ElasticsearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "ElasticsearchCfnDomain",
+        "DomainName": "es-cfn-domain",
       },
       "Type": "AWS::Elasticsearch::Domain",
     },
@@ -280,7 +280,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "ElasticsearchDomain",
+        "DomainName": "es-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -306,7 +306,7 @@ Object {
     },
     "OpenSearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "OpenSearchCfnDomain",
+        "DomainName": "os-cfn-domain",
       },
       "Type": "AWS::OpenSearchService::Domain",
     },
@@ -326,7 +326,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "OpenSearchDomain",
+        "DomainName": "os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -353,7 +353,7 @@ Object {
   "Resources": Object {
     "ElasticsearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "ElasticsearchCfnDomain",
+        "DomainName": "es-cfn-domain",
       },
       "Type": "AWS::Elasticsearch::Domain",
     },
@@ -367,7 +367,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "ElasticsearchDomain",
+        "DomainName": "es-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -393,7 +393,7 @@ Object {
     },
     "OpenSearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "OpenSearchCfnDomain",
+        "DomainName": "os-cfn-domain",
       },
       "Type": "AWS::OpenSearchService::Domain",
     },
@@ -413,7 +413,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "OpenSearchDomain",
+        "DomainName": "os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -440,7 +440,7 @@ Object {
   "Resources": Object {
     "ElasticsearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "ElasticsearchCfnDomain",
+        "DomainName": "es-cfn-domain",
       },
       "Type": "AWS::Elasticsearch::Domain",
     },
@@ -454,7 +454,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "ElasticsearchDomain",
+        "DomainName": "es-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -480,7 +480,7 @@ Object {
     },
     "OpenSearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "OpenSearchCfnDomain",
+        "DomainName": "os-cfn-domain",
       },
       "Type": "AWS::OpenSearchService::Domain",
     },
@@ -500,7 +500,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "OpenSearchDomain",
+        "DomainName": "os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -527,7 +527,7 @@ Object {
   "Resources": Object {
     "ElasticsearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "ElasticsearchCfnDomain",
+        "DomainName": "es-cfn-domain",
       },
       "Type": "AWS::Elasticsearch::Domain",
     },
@@ -541,7 +541,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "ElasticsearchDomain",
+        "DomainName": "es-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -567,7 +567,7 @@ Object {
     },
     "OpenSearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "OpenSearchCfnDomain",
+        "DomainName": "os-cfn-domain",
       },
       "Type": "AWS::OpenSearchService::Domain",
     },
@@ -587,7 +587,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "OpenSearchDomain",
+        "DomainName": "os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -614,7 +614,7 @@ Object {
   "Resources": Object {
     "ElasticsearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "ElasticsearchCfnDomain",
+        "DomainName": "es-cfn-domain",
       },
       "Type": "AWS::Elasticsearch::Domain",
     },
@@ -628,7 +628,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "ElasticsearchDomain",
+        "DomainName": "es-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -654,7 +654,7 @@ Object {
     },
     "OpenSearchCfnDomain": Object {
       "Properties": Object {
-        "DomainName": "OpenSearchCfnDomain",
+        "DomainName": "os-cfn-domain",
       },
       "Type": "AWS::OpenSearchService::Domain",
     },
@@ -674,7 +674,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "OpenSearchDomain",
+        "DomainName": "os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,

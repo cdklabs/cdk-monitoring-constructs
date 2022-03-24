@@ -13,17 +13,17 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
 const stack = new Stack();
 [
   new elasticsearch.CfnDomain(stack, "ElasticsearchCfnDomain", {
-    domainName: "ElasticsearchCfnDomain",
+    domainName: "es-cfn-domain",
   }),
   new elasticsearch.Domain(stack, "ElasticsearchDomain", {
-    domainName: "ElasticsearchDomain",
+    domainName: "es-domain",
     version: elasticsearch.ElasticsearchVersion.V7_7,
   }),
   new opensearch.CfnDomain(stack, "OpenSearchCfnDomain", {
-    domainName: "OpenSearchCfnDomain",
+    domainName: "os-cfn-domain",
   }),
   new opensearch.Domain(stack, "OpenSearchDomain", {
-    domainName: "OpenSearchDomain",
+    domainName: "os-domain",
     version: opensearch.EngineVersion.OPENSEARCH_1_0,
   }),
 ].forEach((domain) => {

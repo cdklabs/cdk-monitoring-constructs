@@ -3818,7 +3818,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "#domain:resource=DummyOSDomain;action=dashboard;tab=TAB_CLUSTER_HEALTH_ID_V2)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "#domain:resource=dummy-os-domain;action=dashboard;tab=TAB_CLUSTER_HEALTH_ID_V2)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3826,7 +3826,7 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3834,15 +3834,15 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ES\\",\\"IndexingLatency\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ES\\",\\"IndexingLatency\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ES\\",\\"IndexingLatency\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ES\\",\\"IndexingLatency\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Search Latency\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Search Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3850,15 +3850,15 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ES\\",\\"SearchLatency\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ES\\",\\"SearchLatency\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ES\\",\\"SearchLatency\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ES\\",\\"SearchLatency\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Node Count\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Node Count\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3866,7 +3866,7 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"Nodes\\",\\"stat\\":\\"Minimum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":17,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory/Disk Usage\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"Nodes\\",\\"stat\\":\\"Minimum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":17,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory/Disk Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3874,19 +3874,19 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"CPU Usage\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"JVMMemoryPressure\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"CPU Usage\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"JVMMemoryPressure\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"JVM Memory Pressure\\",\\"stat\\":\\"Maximum\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/ES\\",\\"ClusterUsedSpace\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"JVM Memory Pressure\\",\\"stat\\":\\"Maximum\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/ES\\",\\"ClusterUsedSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":17,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":17,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3894,11 +3894,11 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"Master CPU Usage\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"MasterJVMMemoryPressure\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"Master CPU Usage\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"MasterJVMMemoryPressure\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"Master JVM Memory Pressure\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":17,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Index/Snapshot/KMS Errors\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"Master JVM Memory Pressure\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":17,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Index/Snapshot/KMS Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3906,19 +3906,19 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"Index Writes Blocked\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"AutomatedSnapshotFailure\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"Index Writes Blocked\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"AutomatedSnapshotFailure\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"Automated Snapshot Failures\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"KMSKeyError\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"Automated Snapshot Failures\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"KMSKeyError\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"KMS Key Error\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"KMSKeyInaccessible\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"KMS Key Error\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"KMSKeyInaccessible\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"KMS Key Inaccessible\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":22,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyESDomain](https://",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"KMS Key Inaccessible\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":22,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyESDomain](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4364,7 +4364,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "#domain:resource=DummyOSDomain;action=dashboard;tab=TAB_CLUSTER_HEALTH_ID_V2)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "#domain:resource=dummy-os-domain;action=dashboard;tab=TAB_CLUSTER_HEALTH_ID_V2)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4372,7 +4372,7 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4380,15 +4380,15 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ES\\",\\"IndexingLatency\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ES\\",\\"IndexingLatency\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ES\\",\\"IndexingLatency\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ES\\",\\"IndexingLatency\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Search Latency\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Search Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4396,15 +4396,15 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ES\\",\\"SearchLatency\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ES\\",\\"SearchLatency\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ES\\",\\"SearchLatency\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ES\\",\\"SearchLatency\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory/Disk Usage\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory/Disk Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4412,27 +4412,27 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"CPU Usage\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"MasterCPUUtilization\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"CPU Usage\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"MasterCPUUtilization\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"Master CPU Usage\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"JVMMemoryPressure\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"Master CPU Usage\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"JVMMemoryPressure\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"JVM Memory Pressure\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"MasterJVMMemoryPressure\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"JVM Memory Pressure\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ES\\",\\"MasterJVMMemoryPressure\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"label\\":\\"Master JVM Memory Pressure\\",\\"stat\\":\\"Maximum\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/ES\\",\\"ClusterUsedSpace\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"label\\":\\"Master JVM Memory Pressure\\",\\"stat\\":\\"Maximum\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/ES\\",\\"ClusterUsedSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"DummyOSDomain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":14,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyESDomain](https://",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":14,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyESDomain](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4697,7 +4697,7 @@ Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
         },
-        "DomainName": "DummyOSDomain",
+        "DomainName": "dummy-os-domain",
         "EBSOptions": Object {
           "EBSEnabled": true,
           "VolumeSize": 10,
@@ -5419,7 +5419,7 @@ Object {
       },
       "Type": "AWS::IAM::Policy",
     },
-    "MonitoringFacadeSecretsManagerMetricsPublisherRuleForSecretAllowEventRuleMonitoringFacadeSecretsManagerMetricsPublisherLambda629BCAEF738371FA": Object {
+    "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyDBClusterSecretD1842629AllowEventRuleMonitoringFacadeSecretsManagerMetricsPublisherLambda629BCAEF0F3129A8": Object {
       "Properties": Object {
         "Action": "lambda:InvokeFunction",
         "FunctionName": Object {
@@ -5431,14 +5431,14 @@ Object {
         "Principal": "events.amazonaws.com",
         "SourceArn": Object {
           "Fn::GetAtt": Array [
-            "MonitoringFacadeSecretsManagerMetricsPublisherRuleForSecretCD702A49",
+            "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyDBClusterSecretD1842629B7399DC7",
             "Arn",
           ],
         },
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "MonitoringFacadeSecretsManagerMetricsPublisherRuleForSecretCD702A49": Object {
+    "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyDBClusterSecretD1842629B7399DC7": Object {
       "Properties": Object {
         "ScheduleExpression": "cron(0 * * * ? *)",
         "State": "ENABLED",
