@@ -1,6 +1,26 @@
 {
   "dependencies": [
     {
+      "name": "@aws-cdk/aws-apigatewayv2-alpha",
+      "version": "2.18.0-alpha.0",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-appsync-alpha",
+      "version": "2.18.0-alpha.0",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-redshift-alpha",
+      "version": "2.18.0-alpha.0",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-synthetics-alpha",
+      "version": "2.18.0-alpha.0",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -17,6 +37,16 @@
     {
       "name": "@typescript-eslint/parser",
       "version": "^5",
+      "type": "build"
+    },
+    {
+      "name": "aws-cdk-lib",
+      "version": "2.18.0",
+      "type": "build"
+    },
+    {
+      "name": "constructs",
+      "version": "10.0.5",
       "type": "build"
     },
     {
@@ -96,23 +126,53 @@
       "type": "build"
     },
     {
-      "name": "constructs",
-      "version": "3.3.69",
+      "name": "@aws-cdk/aws-apigatewayv2-alpha",
+      "version": "2.18.0-alpha.0",
       "type": "devenv"
     },
     {
-      "name": "monocdk",
-      "version": "1.123.0",
+      "name": "@aws-cdk/aws-appsync-alpha",
+      "version": "2.18.0-alpha.0",
       "type": "devenv"
     },
     {
-      "name": "constructs",
-      "version": "^3.3.69",
+      "name": "@aws-cdk/aws-redshift-alpha",
+      "version": "2.18.0-alpha.0",
+      "type": "devenv"
+    },
+    {
+      "name": "@aws-cdk/aws-synthetics-alpha",
+      "version": "2.18.0-alpha.0",
+      "type": "devenv"
+    },
+    {
+      "name": "@aws-cdk/aws-apigatewayv2-alpha",
+      "version": "^2.18.0-alpha.0",
       "type": "peer"
     },
     {
-      "name": "monocdk",
-      "version": "^1.123.0",
+      "name": "@aws-cdk/aws-appsync-alpha",
+      "version": "^2.18.0-alpha.0",
+      "type": "peer"
+    },
+    {
+      "name": "@aws-cdk/aws-redshift-alpha",
+      "version": "^2.18.0-alpha.0",
+      "type": "peer"
+    },
+    {
+      "name": "@aws-cdk/aws-synthetics-alpha",
+      "version": "^2.18.0-alpha.0",
+      "type": "peer"
+    },
+    {
+      "name": "aws-cdk-lib",
+      "version": "^2.18.0",
+      "type": "peer"
+    },
+    {
+      "name": "constructs",
+      "version": "^10.0.5",
       "type": "peer"
     }
   ],

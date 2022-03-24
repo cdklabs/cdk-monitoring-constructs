@@ -1,4 +1,4 @@
-import { AlarmStatusWidget, IAlarm } from "monocdk/aws-cloudwatch";
+import { AlarmStatusWidget, IAlarm } from "aws-cdk-lib/aws-cloudwatch";
 
 import { FullWidth } from "../../common/widget";
 

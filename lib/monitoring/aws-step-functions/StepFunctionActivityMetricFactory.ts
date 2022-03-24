@@ -1,5 +1,5 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
-import { IActivity } from "monocdk/aws-stepfunctions";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
+import { IActivity } from "aws-cdk-lib/aws-stepfunctions";
 
 import {
   MetricFactory,
@@ -20,7 +20,7 @@ export interface StepFunctionActivityMetricFactoryProps {
 export class StepFunctionActivityMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly rateComputationMethod: RateComputationMethod;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
@@ -28,7 +28,7 @@ export class StepFunctionActivityMetricFactory {
   ) {
     this.metricFactory = metricFactory;
     this.rateComputationMethod = RateComputationMethod.AVERAGE;
-    this.dimensions = {
+    this.dimensionsMap = {
       ActivityArn: props.activity.activityArn,
     };
   }
@@ -38,7 +38,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityRunTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -49,7 +49,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityRunTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -60,7 +60,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityRunTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -71,7 +71,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityScheduleTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -82,7 +82,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityScheduleTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -93,7 +93,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityScheduleTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -104,7 +104,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -115,7 +115,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -126,7 +126,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivityTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -137,7 +137,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivitiesFailed",
       MetricStatistic.SUM,
       "Failed",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -158,7 +158,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivitiesHeartbeatTimedOut",
       MetricStatistic.SUM,
       "HeartbeatTimedOut",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -169,7 +169,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivitiesScheduled",
       MetricStatistic.SUM,
       "Scheduled",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -180,7 +180,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivitiesStarted",
       MetricStatistic.SUM,
       "Started",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -191,7 +191,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivitiesSucceeded",
       MetricStatistic.SUM,
       "Succeeded",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -202,7 +202,7 @@ export class StepFunctionActivityMetricFactory {
       "ActivitiesTimedOut",
       MetricStatistic.SUM,
       "Timeout",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );

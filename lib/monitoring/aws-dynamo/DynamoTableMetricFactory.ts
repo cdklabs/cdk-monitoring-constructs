@@ -1,5 +1,5 @@
-import { IMetric } from "monocdk/aws-cloudwatch";
-import { ITable, Operation } from "monocdk/aws-dynamodb";
+import { IMetric } from "aws-cdk-lib/aws-cloudwatch";
+import { ITable, Operation } from "aws-cdk-lib/aws-dynamodb";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -98,7 +98,7 @@ export class DynamoTableMetricFactory {
       'MetricName="SuccessfulRequestLatency"',
       {
         TableName: this.table.tableName,
-        Operation: undefined,
+        Operation: undefined as unknown as string,
       },
       MetricStatistic.AVERAGE,
       DynamoDbNamespace
@@ -109,7 +109,7 @@ export class DynamoTableMetricFactory {
     return this.table.metric("SuccessfulRequestLatency", {
       statistic: MetricStatistic.AVERAGE,
       label: operation,
-      dimensions: {
+      dimensionsMap: {
         TableName: this.table.tableName,
         Operation: operation,
       },
@@ -169,7 +169,10 @@ export class DynamoTableMetricFactory {
 
     crudOperations.forEach((operation) => {
       const metric = this.table.metric("SystemErrors", {
-        dimensions: { TableName: this.table.tableName, Operation: operation },
+        dimensionsMap: {
+          TableName: this.table.tableName,
+          Operation: operation,
+        },
         statistic: MetricStatistic.SUM,
       });
 

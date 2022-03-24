@@ -1,4 +1,4 @@
-import { TextWidget } from "monocdk/aws-cloudwatch";
+import { TextWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import { FullWidth } from "../../common/widget";
 

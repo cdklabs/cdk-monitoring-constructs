@@ -1,6 +1,6 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { CfnWebACL } from "monocdk/aws-wafv2";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { CfnWebACL } from "aws-cdk-lib/aws-wafv2";
 
 import { WafV2Monitoring } from "../../../lib";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";

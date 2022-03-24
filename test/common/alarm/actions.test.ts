@@ -1,13 +1,13 @@
-import { Stack } from "monocdk";
-import { Match, Template } from "monocdk/assertions";
-import { ComparisonOperator, Metric } from "monocdk/aws-cloudwatch";
-import { Topic } from "monocdk/aws-sns";
+import { Stack } from "aws-cdk-lib";
+import { Match, Template } from "aws-cdk-lib/assertions";
+import { ComparisonOperator, Metric } from "aws-cdk-lib/aws-cloudwatch";
+import { Topic } from "aws-cdk-lib/aws-sns";
 
 import { CustomMonitoring, notifySns } from "../../../lib";
 import { TestMonitoringScope } from "../../monitoring/TestMonitoringScope";
 
 const namespace = "DummyCustomNamespace";
-const dimensions = { CustomDimension: "CustomDimensionValue" };
+const dimensionsMap = { CustomDimension: "CustomDimensionValue" };
 
 test("test actions", () => {
   const stack = new Stack();
@@ -30,7 +30,7 @@ test("test actions", () => {
             metric: new Metric({
               metricName: "DummyMetric1",
               namespace,
-              dimensions,
+              dimensionsMap,
             }),
             alarmFriendlyName: "AlarmForDummyMetric1",
             addAlarm: {
@@ -62,15 +62,15 @@ test("test actions", () => {
   const template = Template.fromStack(stack);
   template.hasResourceProperties("AWS::CloudWatch::Alarm", {
     AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-NoActionOverride",
-    AlarmActions: Match.absentProperty(),
-    OKActions: Match.absentProperty(),
-    InsufficientDataActions: Match.absentProperty(),
+    AlarmActions: Match.absent(),
+    OKActions: Match.absent(),
+    InsufficientDataActions: Match.absent(),
   });
   template.hasResourceProperties("AWS::CloudWatch::Alarm", {
     AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-SimpleSnsAction",
     AlarmActions: [{ Ref: "OnAlarmTopicF22649A2" }],
-    OKActions: Match.absentProperty(),
-    InsufficientDataActions: Match.absentProperty(),
+    OKActions: Match.absent(),
+    InsufficientDataActions: Match.absent(),
   });
   template.hasResourceProperties("AWS::CloudWatch::Alarm", {
     AlarmName: "Test-DummyAlarmName-AlarmForDummyMetric1-ComplexSnsAction",

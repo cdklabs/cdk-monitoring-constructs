@@ -1,6 +1,6 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { AttributeType, Table } from "monocdk/aws-dynamodb";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { AttributeType, Table } from "aws-cdk-lib/aws-dynamodb";
 
 import { DynamoTableGlobalSecondaryIndexMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

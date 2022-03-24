@@ -1,4 +1,4 @@
-import { AlarmBase } from "monocdk/aws-cloudwatch";
+import { AlarmBase } from "aws-cdk-lib/aws-cloudwatch";
 
 import { AlarmMetadata } from "./AlarmFactory";
 

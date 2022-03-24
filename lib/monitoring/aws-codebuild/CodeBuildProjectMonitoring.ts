@@ -2,8 +2,8 @@ import {
   GraphWidget,
   HorizontalAnnotation,
   IWidget,
-} from "monocdk/aws-cloudwatch";
-import { CfnProject, IProject } from "monocdk/aws-codebuild";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { CfnProject, IProject } from "aws-cdk-lib/aws-codebuild";
 
 import {
   BaseMonitoringProps,

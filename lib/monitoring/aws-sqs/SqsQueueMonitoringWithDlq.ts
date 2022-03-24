@@ -2,8 +2,8 @@ import {
   GraphWidget,
   HorizontalAnnotation,
   IWidget,
-} from "monocdk/aws-cloudwatch";
-import { IQueue } from "monocdk/aws-sqs";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { IQueue } from "aws-cdk-lib/aws-sqs";
 
 import {
   CountAxisFromZero,

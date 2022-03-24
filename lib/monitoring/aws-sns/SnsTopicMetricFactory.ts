@@ -1,4 +1,4 @@
-import { ITopic } from "monocdk/aws-sns";
+import { ITopic } from "aws-cdk-lib/aws-sns";
 
 import { MetricFactory } from "../../common";
 

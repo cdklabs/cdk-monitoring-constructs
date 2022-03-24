@@ -1,6 +1,6 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { AutoScalingGroup } from "monocdk/aws-autoscaling";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { AutoScalingGroup } from "aws-cdk-lib/aws-autoscaling";
 
 import { EC2Monitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

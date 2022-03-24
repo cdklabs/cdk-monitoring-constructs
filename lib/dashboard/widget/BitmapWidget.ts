@@ -1,10 +1,11 @@
 import * as path from "path";
 
-import { Construct, Duration, Tags } from "monocdk";
-import { IWidget } from "monocdk/aws-cloudwatch";
-import { Effect, PolicyStatement } from "monocdk/aws-iam";
-import { Code, Function, IFunction, Runtime } from "monocdk/aws-lambda";
-import { RetentionDays } from "monocdk/aws-logs";
+import { Duration, Tags } from "aws-cdk-lib";
+import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import { Code, Function, IFunction, Runtime } from "aws-cdk-lib/aws-lambda";
+import { RetentionDays } from "aws-cdk-lib/aws-logs";
+import { Construct } from "constructs";
 
 import { CustomWidget } from "./CustomWidget";
 

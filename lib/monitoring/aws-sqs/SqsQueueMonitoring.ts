@@ -3,8 +3,8 @@ import {
   HorizontalAnnotation,
   IWidget,
   Row,
-} from "monocdk/aws-cloudwatch";
-import { CfnQueue, IQueue } from "monocdk/aws-sqs";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { CfnQueue, IQueue } from "aws-cdk-lib/aws-sqs";
 
 import {
   BaseMonitoringProps,

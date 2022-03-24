@@ -1,6 +1,6 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { GraphWidget } from "monocdk/aws-cloudwatch";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { GraphWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import { BitmapWidgetRenderingSupport } from "../../../lib";
 import { forceStableAssetKeys } from "../../utils/StableTestKeys";

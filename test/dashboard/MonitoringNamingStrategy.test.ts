@@ -1,5 +1,5 @@
-import { CfnWaitCondition, Stack } from "monocdk";
-import { AttributeType, CfnTable, Table } from "monocdk/aws-dynamodb";
+import { CfnWaitCondition, Stack } from "aws-cdk-lib";
+import { AttributeType, CfnTable, Table } from "aws-cdk-lib/aws-dynamodb";
 
 import { MonitoringNamingStrategy } from "../../lib/dashboard/MonitoringNamingStrategy";
 

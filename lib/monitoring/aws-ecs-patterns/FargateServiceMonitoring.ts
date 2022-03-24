@@ -3,18 +3,18 @@ import {
   HorizontalAnnotation,
   IMetric,
   IWidget,
-} from "monocdk/aws-cloudwatch";
-import { FargateService } from "monocdk/aws-ecs";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { FargateService } from "aws-cdk-lib/aws-ecs";
 import {
   ApplicationLoadBalancedFargateService,
   NetworkLoadBalancedFargateService,
-} from "monocdk/aws-ecs-patterns";
+} from "aws-cdk-lib/aws-ecs-patterns";
 import {
   ApplicationLoadBalancer,
   ApplicationTargetGroup,
   NetworkLoadBalancer,
   NetworkTargetGroup,
-} from "monocdk/aws-elasticloadbalancingv2";
+} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import {
   BaseMonitoringProps,

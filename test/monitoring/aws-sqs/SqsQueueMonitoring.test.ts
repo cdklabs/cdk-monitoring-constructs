@@ -1,6 +1,6 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Queue } from "monocdk/aws-sqs";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Queue } from "aws-cdk-lib/aws-sqs";
 
 import { AlarmWithAnnotation, SqsQueueMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

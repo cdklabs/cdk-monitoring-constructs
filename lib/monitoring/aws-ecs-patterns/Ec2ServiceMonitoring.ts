@@ -3,18 +3,18 @@ import {
   HorizontalAnnotation,
   IMetric,
   IWidget,
-} from "monocdk/aws-cloudwatch";
-import { Ec2Service } from "monocdk/aws-ecs";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { Ec2Service } from "aws-cdk-lib/aws-ecs";
 import {
   ApplicationLoadBalancedEc2Service,
   NetworkLoadBalancedEc2Service,
-} from "monocdk/aws-ecs-patterns";
+} from "aws-cdk-lib/aws-ecs-patterns";
 import {
   ApplicationLoadBalancer,
   ApplicationTargetGroup,
   NetworkLoadBalancer,
   NetworkTargetGroup,
-} from "monocdk/aws-elasticloadbalancingv2";
+} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import {
   BaseMonitoringProps,

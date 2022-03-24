@@ -1,4 +1,4 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -20,14 +20,14 @@ interface MetricsSpec {
  */
 export class KinesisDataAnalyticsMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: KinesisDataAnalyticsMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensions = {
+    this.dimensionsMap = {
       Application: props.application,
     };
   }
@@ -117,7 +117,7 @@ export class KinesisDataAnalyticsMetricFactory {
       metricsSpec.name,
       metricsSpec.metricStatistic || MetricStatistic.AVERAGE,
       metricsSpec.description,
-      this.dimensions,
+      this.dimensionsMap,
       undefined, // the hex color code of the metric on a graph
       "AWS/KinesisAnalytics"
     );

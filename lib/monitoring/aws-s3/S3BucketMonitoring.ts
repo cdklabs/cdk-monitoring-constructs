@@ -1,5 +1,5 @@
-import { GraphWidget, IWidget } from "monocdk/aws-cloudwatch";
-import { CfnBucket, IBucket } from "monocdk/aws-s3";
+import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { CfnBucket, IBucket } from "aws-cdk-lib/aws-s3";
 
 import {
   BaseMonitoringProps,

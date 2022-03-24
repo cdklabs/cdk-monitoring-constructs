@@ -1,7 +1,7 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { InstanceType } from "monocdk/aws-ec2";
-import { Repository } from "monocdk/aws-ecr";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { InstanceType } from "aws-cdk-lib/aws-ec2";
+import { Repository } from "aws-cdk-lib/aws-ecr";
 import {
   Cluster,
   Ec2Service,
@@ -9,8 +9,8 @@ import {
   EcrImage,
   FargateService,
   FargateTaskDefinition,
-} from "monocdk/aws-ecs";
-import { ApplicationLoadBalancer } from "monocdk/aws-elasticloadbalancingv2";
+} from "aws-cdk-lib/aws-ecs";
+import { ApplicationLoadBalancer } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import {
   AlarmWithAnnotation,

@@ -1,7 +1,7 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { TreatMissingData } from "monocdk/aws-cloudwatch";
-import { Pass, StateMachine } from "monocdk/aws-stepfunctions";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { TreatMissingData } from "aws-cdk-lib/aws-cloudwatch";
+import { Pass, StateMachine } from "aws-cdk-lib/aws-stepfunctions";
 
 import { AlarmWithAnnotation, StepFunctionMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

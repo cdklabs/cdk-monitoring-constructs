@@ -1,5 +1,5 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
-import { ITable } from "monocdk/aws-dynamodb";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
+import { ITable } from "aws-cdk-lib/aws-dynamodb";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -12,14 +12,14 @@ export interface DynamoTableGlobalSecondaryIndexMetricFactoryProps {
 
 export class DynamoTableGlobalSecondaryIndexMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: DynamoTableGlobalSecondaryIndexMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensions = {
+    this.dimensionsMap = {
       TableName: props.table.tableName,
       GlobalSecondaryIndexName: props.globalSecondaryIndexName,
     };
@@ -30,7 +30,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
       "ProvisionedReadCapacityUnits",
       MetricStatistic.SUM,
       "Provisioned",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DynamoDbNamespace
     );
@@ -41,7 +41,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
       "ProvisionedWriteCapacityUnits",
       MetricStatistic.SUM,
       "Provisioned",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DynamoDbNamespace
     );
@@ -52,7 +52,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
       "ConsumedReadCapacityUnits",
       MetricStatistic.SUM,
       "Consumed",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DynamoDbNamespace
     );
@@ -63,7 +63,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
       "ConsumedWriteCapacityUnits",
       MetricStatistic.SUM,
       "Consumed",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DynamoDbNamespace
     );
@@ -74,7 +74,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
       "OnlineIndexConsumedWriteCapacity",
       MetricStatistic.SUM,
       "Consumed by index",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DynamoDbNamespace
     );
@@ -85,7 +85,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
       "ReadThrottleEvents",
       MetricStatistic.SUM,
       undefined,
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DynamoDbNamespace
     );
@@ -102,7 +102,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
       "WriteThrottleEvents",
       MetricStatistic.SUM,
       undefined,
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DynamoDbNamespace
     );
@@ -119,7 +119,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
       "OnlineIndexThrottleEvents",
       MetricStatistic.SUM,
       undefined,
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DynamoDbNamespace
     );

@@ -1,4 +1,4 @@
-import { IWidget, LogQueryWidget } from "monocdk/aws-cloudwatch";
+import { IWidget, LogQueryWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   BaseMonitoringProps,

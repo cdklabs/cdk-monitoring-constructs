@@ -1,5 +1,5 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
-import { Canary } from "monocdk/aws-synthetics";
+import { Canary } from "@aws-cdk/aws-synthetics-alpha";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import {
   MetricFactory,
   MetricStatistic,
@@ -24,7 +24,7 @@ export class SyntheticsCanaryMetricFactory {
   protected readonly canary: Canary;
   protected readonly metricFactory: MetricFactory;
   protected readonly rateComputationMethod: RateComputationMethod;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
@@ -34,7 +34,7 @@ export class SyntheticsCanaryMetricFactory {
     this.metricFactory = metricFactory;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
-    this.dimensions = {
+    this.dimensionsMap = {
       CanaryName: props.canary.canaryName,
     };
   }
@@ -62,7 +62,7 @@ export class SyntheticsCanaryMetricFactory {
       "4xx",
       MetricStatistic.SUM,
       "4xx",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       MetricNamespace
     );
@@ -83,7 +83,7 @@ export class SyntheticsCanaryMetricFactory {
       "5xx",
       MetricStatistic.SUM,
       "5xx",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       MetricNamespace
     );

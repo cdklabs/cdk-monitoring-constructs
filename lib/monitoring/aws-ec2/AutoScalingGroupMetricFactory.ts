@@ -1,5 +1,5 @@
-import { IAutoScalingGroup } from "monocdk/aws-autoscaling";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { IAutoScalingGroup } from "aws-cdk-lib/aws-autoscaling";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -11,14 +11,14 @@ export interface AutoScalingGroupMetricFactoryProps {
 
 export class AutoScalingGroupMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: AutoScalingGroupMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensions = {
+    this.dimensionsMap = {
       AutoScalingGroupName: props.autoScalingGroup.autoScalingGroupName,
     };
   }
@@ -118,7 +118,7 @@ export class AutoScalingGroupMetricFactory {
       metricName,
       statistic,
       label,
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       AutoScalingNamespace
     );

@@ -30,6 +30,13 @@ Object {
       },
     },
   },
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
   "Resources": Object {
     "DummyApi80F1E171": Object {
       "Properties": Object {
@@ -114,6 +121,9 @@ Object {
       "Type": "AWS::ApiGateway::Deployment",
     },
     "DummyApiDeploymentStageprod9EB3D152": Object {
+      "DependsOn": Array [
+        "DummyApiAccount7A4341D1",
+      ],
       "Properties": Object {
         "DeploymentId": Object {
           "Ref": "DummyApiDeploymentD01F5018548e3dba60631e60c80c03977ce1f18a",
@@ -896,6 +906,33 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
 }
 `;
 
@@ -927,6 +964,13 @@ Object {
           ],
         ],
       },
+    },
+  },
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
   "Resources": Object {
@@ -1013,6 +1057,9 @@ Object {
       "Type": "AWS::ApiGateway::Deployment",
     },
     "DummyApiDeploymentStageprod9EB3D152": Object {
+      "DependsOn": Array [
+        "DummyApiAccount7A4341D1",
+      ],
       "Properties": Object {
         "DeploymentId": Object {
           "Ref": "DummyApiDeploymentD01F5018548e3dba60631e60c80c03977ce1f18a",
@@ -1023,6 +1070,33 @@ Object {
         "StageName": "prod",
       },
       "Type": "AWS::ApiGateway::Stage",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
     },
   },
 }

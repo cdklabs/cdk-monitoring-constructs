@@ -1,17 +1,17 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Repository } from "monocdk/aws-ecr";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Repository } from "aws-cdk-lib/aws-ecr";
 import {
   Cluster,
   EcrImage,
   FargateService,
   FargateTaskDefinition,
-} from "monocdk/aws-ecs";
+} from "aws-cdk-lib/aws-ecs";
 import {
   ApplicationLoadBalancedFargateService,
   NetworkLoadBalancedFargateService,
-} from "monocdk/aws-ecs-patterns";
-import { NetworkLoadBalancer } from "monocdk/aws-elasticloadbalancingv2";
+} from "aws-cdk-lib/aws-ecs-patterns";
+import { NetworkLoadBalancer } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import { AlarmWithAnnotation, FargateServiceMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

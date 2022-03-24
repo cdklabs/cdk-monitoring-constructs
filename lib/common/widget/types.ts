@@ -2,7 +2,7 @@ import {
   GraphWidget,
   GraphWidgetProps,
   GraphWidgetView,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 export enum GraphWidgetType {
   LINE = "Line",

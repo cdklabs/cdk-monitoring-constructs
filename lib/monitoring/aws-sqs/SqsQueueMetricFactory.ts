@@ -1,4 +1,4 @@
-import { IQueue } from "monocdk/aws-sqs";
+import { IQueue } from "aws-cdk-lib/aws-sqs";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 

@@ -1,5 +1,5 @@
-import { Stack } from "monocdk";
-import { Alarm, Metric } from "monocdk/aws-cloudwatch";
+import { Stack } from "aws-cdk-lib";
+import { Alarm, Metric } from "aws-cdk-lib/aws-cloudwatch";
 
 import { AlarmMatrixWidget } from "../../../lib/dashboard/widget/AlarmMatrixWidget";
 

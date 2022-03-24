@@ -1,5 +1,5 @@
-import { IDistribution } from "monocdk/aws-cloudfront";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { IDistribution } from "aws-cdk-lib/aws-cloudfront";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   MetricFactory,
@@ -26,7 +26,7 @@ export interface CloudFrontDistributionMetricFactoryProps {
 export class CloudFrontDistributionMetricFactory {
   private readonly metricFactory: MetricFactory;
   private readonly fillTpsWithZeroes: boolean;
-  private readonly dimensions: DimensionHash;
+  private readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
@@ -34,7 +34,7 @@ export class CloudFrontDistributionMetricFactory {
   ) {
     this.metricFactory = metricFactory;
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
-    this.dimensions = {
+    this.dimensionsMap = {
       DistributionId: props.distribution.distributionId,
       Region: CloudFrontGlobalRegion,
     };
@@ -46,7 +46,7 @@ export class CloudFrontDistributionMetricFactory {
         "Requests",
         MetricStatistic.SUM,
         "Uploaded",
-        this.dimensions,
+        this.dimensionsMap,
         undefined,
         CloudFrontNamespace
       )
@@ -70,7 +70,7 @@ export class CloudFrontDistributionMetricFactory {
         "BytesUploaded",
         MetricStatistic.SUM,
         "Uploaded",
-        this.dimensions,
+        this.dimensionsMap,
         undefined,
         CloudFrontNamespace
       )
@@ -83,7 +83,7 @@ export class CloudFrontDistributionMetricFactory {
         "BytesDownloaded",
         MetricStatistic.SUM,
         "Downloaded",
-        this.dimensions,
+        this.dimensionsMap,
         undefined,
         CloudFrontNamespace
       )
@@ -96,7 +96,7 @@ export class CloudFrontDistributionMetricFactory {
         "CacheHitRate",
         MetricStatistic.AVERAGE,
         "Hit Rate",
-        this.dimensions,
+        this.dimensionsMap,
         undefined,
         CloudFrontNamespace
       )
@@ -109,7 +109,7 @@ export class CloudFrontDistributionMetricFactory {
         "4xxErrorRate",
         MetricStatistic.AVERAGE,
         "4XX",
-        this.dimensions,
+        this.dimensionsMap,
         undefined,
         CloudFrontNamespace
       )
@@ -122,7 +122,7 @@ export class CloudFrontDistributionMetricFactory {
         "5xxErrorRate",
         MetricStatistic.AVERAGE,
         "5XX",
-        this.dimensions,
+        this.dimensionsMap,
         undefined,
         CloudFrontNamespace
       )
@@ -135,7 +135,7 @@ export class CloudFrontDistributionMetricFactory {
         "TotalErrorRate",
         MetricStatistic.AVERAGE,
         "Total",
-        this.dimensions,
+        this.dimensionsMap,
         undefined,
         CloudFrontNamespace
       )

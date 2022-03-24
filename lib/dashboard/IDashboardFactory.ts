@@ -1,4 +1,4 @@
-import { Dashboard } from "monocdk/aws-cloudwatch";
+import { Dashboard } from "aws-cdk-lib/aws-cloudwatch";
 
 import { IDashboardSegment } from "./DashboardSegment";
 

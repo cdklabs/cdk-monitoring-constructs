@@ -1,21 +1,24 @@
-const { awscdk, DependencyType, javascript } = require("projen");
+const { awscdk, javascript, DependencyType } = require("projen");
 const { workflows } = require("projen/lib/github");
 
-const CDK_VERSION = "1.123.0";
-const CONSTRUCTS_VERSION = "3.3.69";
+const CDK_VERSION = "2.18.0";
 
 const project = new awscdk.AwsCdkConstructLibrary({
   name: "cdk-monitoring-constructs",
   repositoryUrl: "https://github.com/cdklabs/cdk-monitoring-constructs",
   author: "CDK Monitoring Constructs Team",
   authorAddress: "monitoring-cdk-constructs@amazon.com",
+
   defaultReleaseBranch: "main",
+  majorVersion: 1,
+  // releaseBranches: {
+  //   monocdk: {
+  //     majorVersion: 0,
+  //   },
+  // },
   stability: "experimental",
 
   cdkVersion: CDK_VERSION,
-  cdkVersionPinning: true,
-
-  cdkDependencies: ["monocdk"],
 
   srcdir: "lib",
   testdir: "test",
@@ -72,27 +75,22 @@ _By submitting this pull request, I confirm that my contribution is made under t
   },
 });
 
-// Projen doesn't handle monocdk properly; remove @aws-cdk manually
-project.deps.removeDependency("@aws-cdk/core", DependencyType.PEER);
-project.deps.removeDependency("@aws-cdk/core", DependencyType.RUNTIME);
-project.deps.removeDependency("@aws-cdk/assert");
-project.deps.removeDependency("@aws-cdk/assertions");
-
-// Declare monocdk and constructs as peer dependencies
-project.deps.removeDependency("monocdk", DependencyType.RUNTIME);
-project.deps.removeDependency("constructs", DependencyType.RUNTIME);
-project.deps.addDependency(`monocdk@^${CDK_VERSION}`, DependencyType.PEER);
-project.deps.addDependency(
-  `constructs@^${CONSTRUCTS_VERSION}`,
-  DependencyType.PEER
-);
-
-// Pin to lowest version in dev dependencies to ensure compatability
-project.deps.addDependency(`monocdk@${CDK_VERSION}`, DependencyType.DEVENV);
-project.deps.addDependency(
-  `constructs@${CONSTRUCTS_VERSION}`,
-  DependencyType.DEVENV
-);
+// Experimental modules
+[
+  "@aws-cdk/aws-apigatewayv2-alpha",
+  "@aws-cdk/aws-appsync-alpha",
+  "@aws-cdk/aws-redshift-alpha",
+  "@aws-cdk/aws-synthetics-alpha",
+].forEach((dep) => {
+  project.deps.addDependency(
+    `${dep}@^${CDK_VERSION}-alpha.0`,
+    DependencyType.PEER
+  );
+  project.deps.addDependency(
+    `${dep}@${CDK_VERSION}-alpha.0`,
+    DependencyType.DEVENV
+  );
+});
 
 // Add some other eslint rules followed across this project
 project.eslint.addRules({

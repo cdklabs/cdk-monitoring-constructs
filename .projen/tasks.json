@@ -225,7 +225,8 @@
       "name": "release",
       "description": "Prepare a release from \"main\" branch",
       "env": {
-        "RELEASE": "true"
+        "RELEASE": "true",
+        "MAJOR": "1"
       },
       "steps": [
         {
@@ -316,7 +317,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit jsii jsii-diff jsii-docgen json-schema npm-check-updates prettier standard-version ts-jest typescript constructs monocdk constructs monocdk"
+          "exec": "yarn upgrade @aws-cdk/aws-apigatewayv2-alpha @aws-cdk/aws-appsync-alpha @aws-cdk/aws-redshift-alpha @aws-cdk/aws-synthetics-alpha @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk-lib constructs eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit jsii jsii-diff jsii-docgen json-schema npm-check-updates prettier standard-version ts-jest typescript @aws-cdk/aws-apigatewayv2-alpha @aws-cdk/aws-appsync-alpha @aws-cdk/aws-redshift-alpha @aws-cdk/aws-synthetics-alpha @aws-cdk/aws-apigatewayv2-alpha @aws-cdk/aws-appsync-alpha @aws-cdk/aws-redshift-alpha @aws-cdk/aws-synthetics-alpha aws-cdk-lib constructs"
         },
         {
           "exec": "npx projen"

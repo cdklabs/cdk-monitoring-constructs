@@ -1,4 +1,4 @@
-import { IWidget } from "monocdk/aws-cloudwatch";
+import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 export interface IDashboardSegment {
   /**

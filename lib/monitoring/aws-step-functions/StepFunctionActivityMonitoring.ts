@@ -2,7 +2,7 @@ import {
   GraphWidget,
   HorizontalAnnotation,
   IWidget,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   BaseMonitoringProps,

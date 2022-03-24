@@ -1,5 +1,5 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
-import { CfnWebACL } from "monocdk/aws-wafv2";
+import { DimensionHash } from "aws-cdk-lib/aws-cloudwatch";
+import { CfnWebACL } from "aws-cdk-lib/aws-wafv2";
 import { MetricFactory, MetricStatistic } from "../../common";
 
 const MetricNamespace = "AWS/WAFV2";

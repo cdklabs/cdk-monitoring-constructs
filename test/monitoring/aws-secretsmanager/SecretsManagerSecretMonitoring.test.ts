@@ -1,6 +1,6 @@
-import { App, Duration, Stack, cx_api } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Secret } from "monocdk/aws-secretsmanager";
+import { App, Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Secret } from "aws-cdk-lib/aws-secretsmanager";
 
 import {
   AlarmWithAnnotation,
@@ -20,7 +20,6 @@ afterAll = beforeEach;
 
 test("snapshot test", () => {
   const stack = new Stack();
-  stack.node.setContext(cx_api.SECRETS_MANAGER_PARSE_OWNED_SECRET_NAME, true);
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
@@ -87,23 +86,9 @@ test("snapshot test", () => {
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
-test("throws an error when feature flag is not set", () => {
-  const stack = new Stack();
-
-  const scope = new TestMonitoringScope(stack, "Scope");
-
-  expect(() => {
-    new SecretsManagerSecretMonitoring(scope, {
-      secret: new Secret(stack, "Secret1"),
-    });
-  }).toThrow(/feature flag/);
-});
-
 test("each stack in an app gets its own publisher instance", () => {
   const app = new App();
   for (const stack of [new Stack(app, "Stack1"), new Stack(app, "Stack2")]) {
-    stack.node.setContext(cx_api.SECRETS_MANAGER_PARSE_OWNED_SECRET_NAME, true);
-
     const scope = new TestMonitoringScope(stack, "Scope");
 
     new SecretsManagerSecretMonitoring(scope, {

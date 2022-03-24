@@ -1,4 +1,3 @@
-import { Construct } from "monocdk";
 import {
   Alarm,
   CfnAlarm,
@@ -6,7 +5,8 @@ import {
   MathExpression,
   MathExpressionOptions,
   MathExpressionProps,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 /**
  * Captures specific MathExpression for anomaly detection, for which alarm generation is different.

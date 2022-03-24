@@ -1,6 +1,6 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { TextWidget } from "monocdk/aws-cloudwatch";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { TextWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   DashboardRenderingPreference,

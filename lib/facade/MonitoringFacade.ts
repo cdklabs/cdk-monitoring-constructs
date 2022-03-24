@@ -1,5 +1,6 @@
-import { Aspects, Construct, Stack } from "monocdk";
-import { CompositeAlarm, Dashboard, IWidget } from "monocdk/aws-cloudwatch";
+import { Aspects, Stack } from "aws-cdk-lib";
+import { CompositeAlarm, Dashboard, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 import {
   AddCompositeAlarmProps,

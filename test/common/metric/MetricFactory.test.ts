@@ -1,4 +1,4 @@
-import { Metric } from "monocdk/aws-cloudwatch";
+import { Metric } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   MetricFactory,
@@ -48,7 +48,10 @@ test("snapshot test: createMetric", () => {
     "DummyMetricName-AllOptionalParams",
     MetricStatistic.P90,
     "DummyLabel",
-    { DummyDimension: undefined, AnotherDummyDimension: undefined },
+    {
+      DummyDimension: undefined as unknown as string,
+      AnotherDummyDimension: undefined as unknown as string,
+    },
     DummyColor,
     "DummyNamespaceOverride"
   );
@@ -209,7 +212,7 @@ test("snapshot test: createMetricSearch", () => {
   const metricWithUndefinedDimensions = metricFactory.createMetricSearch(
     "MyMetricPrefix-",
     {
-      DummyUndefinedDimension: undefined,
+      DummyUndefinedDimension: undefined as unknown as string,
       DummyDefinedDimension: "DummyDimensionValue",
     },
     MetricStatistic.SUM,

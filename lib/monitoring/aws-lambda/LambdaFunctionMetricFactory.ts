@@ -1,4 +1,4 @@
-import { IFunction } from "monocdk/aws-lambda";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
 
 import {
   MetricFactory,

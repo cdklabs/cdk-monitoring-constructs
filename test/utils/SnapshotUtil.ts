@@ -1,5 +1,5 @@
-import { Stack } from "monocdk";
-import { Dashboard } from "monocdk/aws-cloudwatch";
+import { Stack } from "aws-cdk-lib";
+import { Dashboard } from "aws-cdk-lib/aws-cloudwatch";
 import { Monitoring } from "../../lib";
 
 /**

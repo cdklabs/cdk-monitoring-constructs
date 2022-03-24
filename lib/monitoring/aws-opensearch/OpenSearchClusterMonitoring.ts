@@ -3,7 +3,7 @@ import {
   HorizontalAnnotation,
   IWidget,
   Row,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   BaseMonitoringProps,

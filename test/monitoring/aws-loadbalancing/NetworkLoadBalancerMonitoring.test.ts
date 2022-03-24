@@ -1,7 +1,7 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Vpc } from "monocdk/aws-ec2";
-import { NetworkLoadBalancer } from "monocdk/aws-elasticloadbalancingv2";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Vpc } from "aws-cdk-lib/aws-ec2";
+import { NetworkLoadBalancer } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import {
   AlarmWithAnnotation,

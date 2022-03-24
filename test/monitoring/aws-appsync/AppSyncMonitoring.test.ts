@@ -1,6 +1,6 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { GraphqlApi } from "monocdk/aws-appsync";
+import { GraphqlApi } from "@aws-cdk/aws-appsync-alpha";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 
 import { AlarmWithAnnotation, AppSyncMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";
