@@ -1,6 +1,6 @@
 import * as path from "path";
 
-import { Construct, Duration } from "monocdk";
+import { Construct, Duration, Names } from "monocdk";
 import { Rule, RuleTargetInput, Schedule } from "monocdk/aws-events";
 import { LambdaFunction } from "monocdk/aws-events-targets";
 import { Effect, PolicyStatement } from "monocdk/aws-iam";
@@ -60,7 +60,7 @@ export class SecretsManagerMetricsPublisher extends Construct {
   }
 
   static getInstance(scope: MonitoringScope) {
-    const key = scope.node.uniqueId;
+    const key = Names.nodeUniqueId(scope.node);
     let instance = SecretsManagerMetricsPublisher.instances[key];
     if (!instance) {
       instance = new SecretsManagerMetricsPublisher(scope);
@@ -72,7 +72,7 @@ export class SecretsManagerMetricsPublisher extends Construct {
 
   addSecret(secret: ISecret): void {
     // run 1/hr so alarms can recover automatically
-    const rule = new Rule(this, `RuleFor${secret.node.id}`, {
+    const rule = new Rule(this, `RuleFor${Names.nodeUniqueId(secret.node)}`, {
       schedule: Schedule.cron({
         minute: "0",
       }),
