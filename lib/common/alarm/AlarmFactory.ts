@@ -336,7 +336,8 @@ export interface AlarmFactoryDefaults {
 
   /**
    * Default alarm action used for each alarm, unless it is overridden.
-   * If you do not want any actions to be created, just use NoAlarmActionStrategy.
+   *
+   * @default no action.
    */
   readonly action?: IAlarmActionStrategy;
 

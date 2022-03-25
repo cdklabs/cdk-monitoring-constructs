@@ -2703,10 +2703,9 @@ public readonly action: IAlarmActionStrategy;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* no action.
 
 Default alarm action used for each alarm, unless it is overridden.
-
-If you do not want any actions to be created, just use NoAlarmActionStrategy.
 
 ---
 

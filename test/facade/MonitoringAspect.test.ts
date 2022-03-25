@@ -378,7 +378,7 @@ describe("MonitoringAspect", () => {
     const facade = createDummyMonitoringFacade(stack);
 
     new opensearch.Domain(stack, "DummyOSDomain", {
-      domainName: "DummyOSDomain",
+      domainName: "dummy-os-domain",
       version: opensearch.EngineVersion.ELASTICSEARCH_7_10,
     });
     new elasticsearch.Domain(stack, "DummyESDomain", {
