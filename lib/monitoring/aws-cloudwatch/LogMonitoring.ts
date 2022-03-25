@@ -71,7 +71,7 @@ export class LogMonitoring extends Monitoring {
          * https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html
          */
         queryLines: [
-          "fields @timestamp, @message",
+          "fields @timestamp, @logStream, @message",
           `filter @message like /${this.pattern}/`,
           "sort @timestamp desc",
           `limit ${this.limit}`,
