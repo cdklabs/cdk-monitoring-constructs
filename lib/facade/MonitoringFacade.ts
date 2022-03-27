@@ -103,8 +103,8 @@ import {
   getQueueProcessingFargateServiceMonitoring,
   SyntheticsCanaryMonitoringProps,
   SyntheticsCanaryMonitoring,
-  WafMonitoringProps,
-  WafMonitoring,
+  WafV2MonitoringProps,
+  WafV2Monitoring,
 } from "../monitoring";
 import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
 
@@ -615,8 +615,8 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorWebApplicationFirewallAcl(props: WafMonitoringProps) {
-    const segment = new WafMonitoring(this, props);
+  monitorWebApplicationFirewallAclV2(props: WafV2MonitoringProps) {
+    const segment = new WafV2Monitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

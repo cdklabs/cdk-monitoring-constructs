@@ -24,6 +24,7 @@ import {
   SqsQueueMonitoringOptions,
   StepFunctionMonitoringOptions,
   SyntheticsCanaryMonitoringOptions,
+  WafV2MonitoringOptions,
 } from "../monitoring";
 
 export interface MonitoringAspectType<T> {
@@ -66,4 +67,5 @@ export interface MonitoringAspectProps {
   readonly sqs?: MonitoringAspectType<SqsQueueMonitoringOptions>;
   readonly stepFunctions?: MonitoringAspectType<StepFunctionMonitoringOptions>;
   readonly syntheticsCanaries?: MonitoringAspectType<SyntheticsCanaryMonitoringOptions>;
+  readonly webApplicationFirewallAclV2?: MonitoringAspectType<WafV2MonitoringOptions>;
 }

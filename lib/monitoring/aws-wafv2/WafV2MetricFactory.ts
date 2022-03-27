@@ -1,26 +1,27 @@
 import { DimensionHash } from "monocdk/aws-cloudwatch";
-import { MetricFactory, MetricStatistic } from "../../common/index";
+import { CfnWebACL } from "monocdk/aws-wafv2";
+import { MetricFactory, MetricStatistic } from "../../common";
 
 const MetricNamespace = "AWS/WAFV2";
 const AllRulesDimensionValue = "ALL";
 
-export interface WafMetricFactoryProps {
+export interface WafV2MetricFactoryProps {
   readonly region?: string;
-  readonly aclName: string;
+  readonly acl: CfnWebACL;
 }
 
 /**
  * https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html
  */
-export class WafMetricFactory {
+export class WafV2MetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly dimensions: DimensionHash;
 
-  constructor(metricFactory: MetricFactory, props: WafMetricFactoryProps) {
+  constructor(metricFactory: MetricFactory, props: WafV2MetricFactoryProps) {
     this.metricFactory = metricFactory;
     this.dimensions = {
       Rule: AllRulesDimensionValue,
-      WebACL: props.aclName,
+      WebACL: props.acl.name,
     };
   }
 

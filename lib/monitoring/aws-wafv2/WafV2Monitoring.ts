@@ -14,36 +14,39 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import { WafMetricFactory, WafMetricFactoryProps } from "./WafMetricFactory";
+import {
+  WafV2MetricFactory,
+  WafV2MetricFactoryProps,
+} from "./WafV2MetricFactory";
 
-export interface WafMonitoringOptions extends BaseMonitoringProps {}
+export interface WafV2MonitoringOptions extends BaseMonitoringProps {}
 
-export interface WafMonitoringProps
-  extends WafMetricFactoryProps,
-    WafMonitoringOptions {}
+export interface WafV2MonitoringProps
+  extends WafV2MetricFactoryProps,
+    WafV2MonitoringOptions {}
 
 /**
  * Monitoring for AWS Web Application Firewall.
  *
  * @see https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html
  */
-export class WafMonitoring extends Monitoring {
+export class WafV2Monitoring extends Monitoring {
   protected readonly humanReadableName: string;
 
   protected readonly allowedRequestsMetric: MetricWithAlarmSupport;
   protected readonly blockedRequestsMetric: MetricWithAlarmSupport;
   protected readonly blockedRequestsRateMetric: MetricWithAlarmSupport;
 
-  constructor(scope: MonitoringScope, props: WafMonitoringProps) {
+  constructor(scope: MonitoringScope, props: WafV2MonitoringProps) {
     super(scope, props);
 
     const namingStrategy = new MonitoringNamingStrategy({
       ...props,
-      fallbackConstructName: props.aclName,
+      namedConstruct: props.acl,
     });
     this.humanReadableName = namingStrategy.resolveHumanReadableName();
 
-    const metricFactory = new WafMetricFactory(
+    const metricFactory = new WafV2MetricFactory(
       scope.createMetricFactory(),
       props
     );
