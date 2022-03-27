@@ -26,7 +26,7 @@ import * as sns from "monocdk/aws-sns";
 import * as sqs from "monocdk/aws-sqs";
 import * as stepfunctions from "monocdk/aws-stepfunctions";
 import * as synthetics from "monocdk/aws-synthetics";
-import {CfnWebACL} from "monocdk/aws-wafv2";
+import { CfnWebACL } from "monocdk/aws-wafv2";
 
 import {
   DefaultDashboardFactory,
