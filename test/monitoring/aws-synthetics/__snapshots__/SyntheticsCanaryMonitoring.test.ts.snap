@@ -324,7 +324,7 @@ Array [
   Object {
     "height": 1,
     "properties": Object {
-      "markdown": "### Synthetics Canary **\${Token[TOKEN.249]}**",
+      "markdown": "### Synthetics Canary **\${Token[TOKEN.245]}**",
     },
     "type": "text",
     "width": 24,
@@ -364,7 +364,7 @@ Array [
             "CloudWatchSynthetics",
             "4xx",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "4xx",
               "stat": "Sum",
@@ -379,7 +379,7 @@ Array [
             "CloudWatchSynthetics",
             "5xx",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "5xx",
               "stat": "Sum",
@@ -388,7 +388,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -441,7 +441,7 @@ Array [
             "CloudWatchSynthetics",
             "4xx",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "4xx (avg)",
             },
@@ -455,7 +455,7 @@ Array [
             "CloudWatchSynthetics",
             "5xx",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "5xx (avg)",
             },
@@ -463,7 +463,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -493,10 +493,10 @@ Array [
     "properties": Object {
       "annotations": Object {
         "alarms": Array [
-          "\${Token[TOKEN.255]}",
+          "\${Token[TOKEN.251]}",
         ],
       },
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "title": undefined,
       "view": "timeSeries",
       "yAxis": Object {
@@ -518,10 +518,10 @@ Array [
     "properties": Object {
       "annotations": Object {
         "alarms": Array [
-          "\${Token[TOKEN.263]}",
+          "\${Token[TOKEN.259]}",
         ],
       },
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "title": undefined,
       "view": "timeSeries",
       "yAxis": Object {
@@ -543,10 +543,10 @@ Array [
     "properties": Object {
       "annotations": Object {
         "alarms": Array [
-          "\${Token[TOKEN.271]}",
+          "\${Token[TOKEN.267]}",
         ],
       },
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "title": undefined,
       "view": "timeSeries",
       "yAxis": Object {
@@ -568,10 +568,10 @@ Array [
     "properties": Object {
       "annotations": Object {
         "alarms": Array [
-          "\${Token[TOKEN.279]}",
+          "\${Token[TOKEN.275]}",
         ],
       },
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "title": undefined,
       "view": "timeSeries",
       "yAxis": Object {
@@ -593,10 +593,10 @@ Array [
     "properties": Object {
       "annotations": Object {
         "alarms": Array [
-          "\${Token[TOKEN.287]}",
+          "\${Token[TOKEN.283]}",
         ],
       },
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "title": undefined,
       "view": "timeSeries",
       "yAxis": Object {
@@ -616,7 +616,7 @@ Array [
   Object {
     "height": 1,
     "properties": Object {
-      "markdown": "### Synthetics Canary **\${Token[TOKEN.249]}**",
+      "markdown": "### Synthetics Canary **\${Token[TOKEN.245]}**",
     },
     "type": "text",
     "width": 24,
@@ -651,7 +651,7 @@ Array [
             "CloudWatchSynthetics",
             "Duration",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "Average",
             },
@@ -659,7 +659,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -712,7 +712,7 @@ Array [
             "CloudWatchSynthetics",
             "4xx",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "4xx",
               "stat": "Sum",
@@ -727,7 +727,7 @@ Array [
             "CloudWatchSynthetics",
             "5xx",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "5xx",
               "stat": "Sum",
@@ -736,7 +736,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -789,7 +789,7 @@ Array [
             "CloudWatchSynthetics",
             "4xx",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "4xx (avg)",
             },
@@ -803,7 +803,7 @@ Array [
             "CloudWatchSynthetics",
             "5xx",
             "CanaryName",
-            "\${Token[TOKEN.248]}",
+            "\${Token[TOKEN.244]}",
             Object {
               "label": "5xx (avg)",
             },
@@ -811,7 +811,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -978,7 +978,7 @@ Array [
   Object {
     "height": 1,
     "properties": Object {
-      "markdown": "### Synthetics Canary **\${Token[TOKEN.220]}**",
+      "markdown": "### Synthetics Canary **\${Token[TOKEN.216]}**",
     },
     "type": "text",
     "width": 24,
@@ -1005,7 +1005,7 @@ Array [
             "CloudWatchSynthetics",
             "4xx",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "4xx",
               "stat": "Sum",
@@ -1020,7 +1020,7 @@ Array [
             "CloudWatchSynthetics",
             "5xx",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "5xx",
               "stat": "Sum",
@@ -1029,7 +1029,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -1069,7 +1069,7 @@ Array [
             "CloudWatchSynthetics",
             "4xx",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "4xx (avg)",
             },
@@ -1083,7 +1083,7 @@ Array [
             "CloudWatchSynthetics",
             "5xx",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "5xx (avg)",
             },
@@ -1091,7 +1091,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -1119,7 +1119,7 @@ Array [
   Object {
     "height": 1,
     "properties": Object {
-      "markdown": "### Synthetics Canary **\${Token[TOKEN.220]}**",
+      "markdown": "### Synthetics Canary **\${Token[TOKEN.216]}**",
     },
     "type": "text",
     "width": 24,
@@ -1146,7 +1146,7 @@ Array [
             "CloudWatchSynthetics",
             "Duration",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "Average",
             },
@@ -1154,7 +1154,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -1194,7 +1194,7 @@ Array [
             "CloudWatchSynthetics",
             "4xx",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "4xx",
               "stat": "Sum",
@@ -1209,7 +1209,7 @@ Array [
             "CloudWatchSynthetics",
             "5xx",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "5xx",
               "stat": "Sum",
@@ -1218,7 +1218,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
@@ -1258,7 +1258,7 @@ Array [
             "CloudWatchSynthetics",
             "4xx",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "4xx (avg)",
             },
@@ -1272,7 +1272,7 @@ Array [
             "CloudWatchSynthetics",
             "5xx",
             "CanaryName",
-            "\${Token[TOKEN.219]}",
+            "\${Token[TOKEN.215]}",
             Object {
               "label": "5xx (avg)",
             },
@@ -1280,7 +1280,7 @@ Array [
         },
       ],
       "period": undefined,
-      "region": "\${Token[AWS.Region.13]}",
+      "region": "\${Token[AWS.Region.9]}",
       "setPeriodToTimeRange": undefined,
       "stacked": undefined,
       "stat": undefined,
