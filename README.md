@@ -26,7 +26,7 @@ In your `package.json`:
 ```json
 {
   "dependencies": {
-    "cdk-monitoring-constructs": "^0.0.11",
+    "cdk-monitoring-constructs": "~0.0.37",
 
     // peer dependencies
     "constructs": "^3.3.69",
@@ -40,39 +40,17 @@ In your `package.json`:
 
 <details><summary><strong>Java</strong></summary>
 
-> https://mvnrepository.com/artifact/io.github.cdklabs/cdkmonitoringconstructs
-
-#### Maven
-
-Add the following Maven project to your `pom.xml`:
-
-```xml
-<dependency>
-    <groupId>io.github.cdklabs</groupId>
-    <artifactId>cdkmonitoringconstructs</artifactId>
-    <version>0.0.11</version>
-</dependency>
-```
-
-#### Gradle
-
-```kotlin
-implementation("io.github.cdklabs:cdkmonitoringconstructs:0.0.11")
-```
+See https://mvnrepository.com/artifact/io.github.cdklabs/cdkmonitoringconstructs
 </details>
 
 <details><summary><strong>Python</strong></summary>
 
-> https://pypi.org/project/cdk-monitoring-constructs/
-
-TODO: describe usage
+See https://pypi.org/project/cdk-monitoring-constructs/
 </details>
 
 <details><summary><strong>C#</strong></summary>
 
-> https://www.nuget.org/packages/Cdklabs.CdkMonitoringConstructs/
-
-TODO: describe usage
+See https://www.nuget.org/packages/Cdklabs.CdkMonitoringConstructs/
 </details>
 
 
