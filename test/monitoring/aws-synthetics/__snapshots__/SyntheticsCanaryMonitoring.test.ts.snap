@@ -319,6 +319,521 @@ Object {
 }
 `;
 
+exports[`snapshot test: all alarms 2`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### Synthetics Canary **\${Token[TOKEN.241]}**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 3`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": Object {
+        "horizontal": Array [
+          Object {
+            "label": "4xx > 1 for 3 datapoints within 15 minutes",
+            "value": 1,
+            "yAxis": "left",
+          },
+          Object {
+            "label": "5xx > 2 for 3 datapoints within 15 minutes",
+            "value": 2,
+            "yAxis": "left",
+          },
+        ],
+      },
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "4xx",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "4xx",
+              "stat": "Sum",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "5xx",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "5xx",
+              "stat": "Sum",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Errors",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Count",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 12,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 4`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": Object {
+        "horizontal": Array [
+          Object {
+            "label": "4xx (avg) > 0.5 for 3 datapoints within 15 minutes",
+            "value": 0.5,
+            "yAxis": "left",
+          },
+          Object {
+            "label": "5xx (avg) > 0.8 for 3 datapoints within 15 minutes",
+            "value": 0.8,
+            "yAxis": "left",
+          },
+        ],
+      },
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "4xx",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "4xx (avg)",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "5xx",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "5xx (avg)",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Errors (rate)",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Rate",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 12,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 5`] = `
+Array [
+  Object {
+    "height": 4,
+    "properties": Object {
+      "annotations": Object {
+        "alarms": Array [
+          "\${Token[TOKEN.247]}",
+        ],
+      },
+      "region": "\${Token[AWS.Region.5]}",
+      "title": undefined,
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 6,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 6`] = `
+Array [
+  Object {
+    "height": 4,
+    "properties": Object {
+      "annotations": Object {
+        "alarms": Array [
+          "\${Token[TOKEN.255]}",
+        ],
+      },
+      "region": "\${Token[AWS.Region.5]}",
+      "title": undefined,
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 6,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 7`] = `
+Array [
+  Object {
+    "height": 4,
+    "properties": Object {
+      "annotations": Object {
+        "alarms": Array [
+          "\${Token[TOKEN.263]}",
+        ],
+      },
+      "region": "\${Token[AWS.Region.5]}",
+      "title": undefined,
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 6,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 8`] = `
+Array [
+  Object {
+    "height": 4,
+    "properties": Object {
+      "annotations": Object {
+        "alarms": Array [
+          "\${Token[TOKEN.271]}",
+        ],
+      },
+      "region": "\${Token[AWS.Region.5]}",
+      "title": undefined,
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 6,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 9`] = `
+Array [
+  Object {
+    "height": 4,
+    "properties": Object {
+      "annotations": Object {
+        "alarms": Array [
+          "\${Token[TOKEN.279]}",
+        ],
+      },
+      "region": "\${Token[AWS.Region.5]}",
+      "title": undefined,
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 6,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 10`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### Synthetics Canary **\${Token[TOKEN.241]}**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 11`] = `
+Array [
+  Object {
+    "height": 5,
+    "properties": Object {
+      "annotations": Object {
+        "horizontal": Array [
+          Object {
+            "label": "Average > 10000 for 3 datapoints within 15 minutes",
+            "value": 10000,
+            "yAxis": "left",
+          },
+        ],
+      },
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "Duration",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "Average",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Latency",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "ms",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 12`] = `
+Array [
+  Object {
+    "height": 5,
+    "properties": Object {
+      "annotations": Object {
+        "horizontal": Array [
+          Object {
+            "label": "4xx > 1 for 3 datapoints within 15 minutes",
+            "value": 1,
+            "yAxis": "left",
+          },
+          Object {
+            "label": "5xx > 2 for 3 datapoints within 15 minutes",
+            "value": 2,
+            "yAxis": "left",
+          },
+        ],
+      },
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "4xx",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "4xx",
+              "stat": "Sum",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "5xx",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "5xx",
+              "stat": "Sum",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Errors",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Count",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: all alarms 13`] = `
+Array [
+  Object {
+    "height": 5,
+    "properties": Object {
+      "annotations": Object {
+        "horizontal": Array [
+          Object {
+            "label": "4xx (avg) > 0.5 for 3 datapoints within 15 minutes",
+            "value": 0.5,
+            "yAxis": "left",
+          },
+          Object {
+            "label": "5xx (avg) > 0.8 for 3 datapoints within 15 minutes",
+            "value": 0.8,
+            "yAxis": "left",
+          },
+        ],
+      },
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "4xx",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "4xx (avg)",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "5xx",
+            "CanaryName",
+            "\${Token[TOKEN.240]}",
+            Object {
+              "label": "5xx (avg)",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Errors (rate)",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Rate",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
 exports[`snapshot test: no alarms 1`] = `
 Object {
   "Resources": Object {
@@ -456,4 +971,334 @@ Object {
     },
   },
 }
+`;
+
+exports[`snapshot test: no alarms 2`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### Synthetics Canary **\${Token[TOKEN.212]}**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 3`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "4xx",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "4xx",
+              "stat": "Sum",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "5xx",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "5xx",
+              "stat": "Sum",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Errors",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Count",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 12,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 4`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "4xx",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "4xx (avg)",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "5xx",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "5xx (avg)",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Errors (rate)",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Rate",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 12,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 5`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### Synthetics Canary **\${Token[TOKEN.212]}**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 6`] = `
+Array [
+  Object {
+    "height": 5,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "Duration",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "Average",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Latency",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "ms",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 7`] = `
+Array [
+  Object {
+    "height": 5,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "4xx",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "4xx",
+              "stat": "Sum",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "5xx",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "5xx",
+              "stat": "Sum",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Errors",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Count",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 8`] = `
+Array [
+  Object {
+    "height": 5,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "4xx",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "4xx (avg)",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "CloudWatchSynthetics",
+            "5xx",
+            "CanaryName",
+            "\${Token[TOKEN.211]}",
+            Object {
+              "label": "5xx (avg)",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.5]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Errors (rate)",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Rate",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
 `;

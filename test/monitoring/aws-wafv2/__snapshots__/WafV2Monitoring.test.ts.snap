@@ -20,3 +20,387 @@ Object {
   },
 }
 `;
+
+exports[`snapshot test: no alarms 2`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### Web Application Firewall **\${Token[TOKEN.192]}**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 3`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "AWS/WAFV2",
+            "AllowedRequests",
+            "Rule",
+            "ALL",
+            Object {
+              "label": "Allowed",
+              "stat": "Sum",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.8]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Allowed Requests",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Count",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 4`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "AWS/WAFV2",
+            "BlockedRequests",
+            "Rule",
+            "ALL",
+            Object {
+              "label": "Blocked",
+              "stat": "Sum",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.8]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Blocked Requests",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Count",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 5`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            Object {
+              "expression": "100 * (blocked / (allowed + blocked))",
+              "label": "Blocked (rate)",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "AWS/WAFV2",
+            "AllowedRequests",
+            "Rule",
+            "ALL",
+            Object {
+              "id": "allowed",
+              "label": "Allowed",
+              "stat": "Sum",
+              "visible": false,
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "AWS/WAFV2",
+            "BlockedRequests",
+            "Rule",
+            "ALL",
+            Object {
+              "id": "blocked",
+              "label": "Blocked",
+              "stat": "Sum",
+              "visible": false,
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.8]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Blocked Requests (rate)",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Rate",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 6`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "### Web Application Firewall **\${Token[TOKEN.192]}**",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 7`] = `
+Array [
+  Object {
+    "height": 5,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "AWS/WAFV2",
+            "AllowedRequests",
+            "Rule",
+            "ALL",
+            Object {
+              "label": "Allowed",
+              "stat": "Sum",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.8]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Allowed Requests",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Count",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 8`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "AWS/WAFV2",
+            "BlockedRequests",
+            "Rule",
+            "ALL",
+            Object {
+              "label": "Blocked",
+              "stat": "Sum",
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.8]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Blocked Requests",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Count",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: no alarms 9`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "annotations": undefined,
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            Object {
+              "expression": "100 * (blocked / (allowed + blocked))",
+              "label": "Blocked (rate)",
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "AWS/WAFV2",
+            "AllowedRequests",
+            "Rule",
+            "ALL",
+            Object {
+              "id": "allowed",
+              "label": "Allowed",
+              "stat": "Sum",
+              "visible": false,
+            },
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "AWS/WAFV2",
+            "BlockedRequests",
+            "Rule",
+            "ALL",
+            Object {
+              "id": "blocked",
+              "label": "Blocked",
+              "stat": "Sum",
+              "visible": false,
+            },
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": "\${Token[AWS.Region.8]}",
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "Blocked Requests (rate)",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "label": "Rate",
+          "min": 0,
+          "showUnits": false,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 8,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;

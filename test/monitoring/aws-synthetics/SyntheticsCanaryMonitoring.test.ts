@@ -2,9 +2,9 @@ import { Duration, Stack } from "monocdk";
 import { Template } from "monocdk/assertions";
 import { Canary, Code, Runtime, Schedule, Test } from "monocdk/aws-synthetics";
 
-import { AlarmWithAnnotation } from "../../../lib";
-import { SyntheticsCanaryMonitoring } from "../../../lib/monitoring/aws-synthetics";
+import { AlarmWithAnnotation, SyntheticsCanaryMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";
+import { expectWidgetsToMatchSnapshot } from "../TestSnapshotUtil";
 
 test("snapshot test: no alarms", () => {
   const stack = new Stack();
@@ -19,9 +19,10 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new SyntheticsCanaryMonitoring(scope, { canary });
+  const monitoring = new SyntheticsCanaryMonitoring(scope, { canary });
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
+  expectWidgetsToMatchSnapshot(monitoring);
 });
 
 test("snapshot test: all alarms", () => {
@@ -39,7 +40,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new SyntheticsCanaryMonitoring(scope, {
+  const monitoring = new SyntheticsCanaryMonitoring(scope, {
     canary,
     addAverageLatencyAlarm: {
       Warning: {
@@ -75,4 +76,5 @@ test("snapshot test: all alarms", () => {
 
   expect(numAlarmsCreated).toStrictEqual(5);
   expect(Template.fromStack(stack)).toMatchSnapshot();
+  expectWidgetsToMatchSnapshot(monitoring);
 });
