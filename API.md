@@ -33778,7 +33778,8 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -33921,7 +33922,8 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
