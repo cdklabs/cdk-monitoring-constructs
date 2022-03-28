@@ -90,6 +90,7 @@ You can also browse the documentation at https://constructs.dev/packages/cdk-mon
 | AWS SNS Topic (`.monitorSnsTopic()`) | Message count, size, failed notifications | Failed notifications | |
 | AWS SQS Queue (`.monitorSqsQueue()`, `.monitorSqsQueueWithDlq()`) | Message count, age, size | Message count, age, DLQ incoming messages | |
 | AWS Step Functions (`.monitorStepFunction()`, `.monitorStepFunctionActivity()`, `monitorStepFunctionLambdaIntegration()`, `.monitorStepFunctionServiceIntegration()`) | Execution count and breakdown per state | Duration, failed, failed rate, aborted, throttled, timed out executions | |
+| AWS Web Application Firewall (`.monitorWebApplicationFirewallAcl()`) | Allowed/blocked requests | | |
 | CloudWatch Logs (`.monitorLog()`) | Patterns present in the log group | | |
 | Custom metrics (`.monitorCustom()`) | Addition of custom metrics into the dashboard (each group is a widget) | | Supports anomaly detection |
 

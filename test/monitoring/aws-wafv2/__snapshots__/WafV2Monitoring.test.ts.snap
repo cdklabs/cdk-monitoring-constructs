@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "DummyAcl": Object {
+      "Properties": Object {
+        "DefaultAction": Object {
+          "Allow": Object {},
+        },
+        "Scope": "REGIONAL",
+        "VisibilityConfig": Object {
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "DummyMetricName",
+          "SampledRequestsEnabled": true,
+        },
+      },
+      "Type": "AWS::WAFv2::WebACL",
+    },
+  },
+}
+`;

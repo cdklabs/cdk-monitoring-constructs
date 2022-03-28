@@ -26,6 +26,7 @@ import * as sns from "monocdk/aws-sns";
 import * as sqs from "monocdk/aws-sqs";
 import * as stepfunctions from "monocdk/aws-stepfunctions";
 import * as synthetics from "monocdk/aws-synthetics";
+import { CfnWebACL } from "monocdk/aws-wafv2";
 
 import {
   DefaultDashboardFactory,
@@ -527,6 +528,28 @@ describe("MonitoringAspect", () => {
         handler: "index.handler",
       }),
       runtime: synthetics.Runtime.SYNTHETICS_NODEJS_2_0,
+    });
+
+    // WHEN
+    facade.monitorScope(stack, defaultAspectProps);
+
+    // THEN
+    expect(Template.fromStack(stack)).toMatchSnapshot();
+  });
+
+  test("WAF v2", () => {
+    // GIVEN
+    const stack = new Stack();
+    const facade = createDummyMonitoringFacade(stack);
+
+    new CfnWebACL(stack, "DummyAcl", {
+      defaultAction: { allow: {} },
+      scope: "REGIONAL",
+      visibilityConfig: {
+        sampledRequestsEnabled: true,
+        cloudWatchMetricsEnabled: true,
+        metricName: "DummyMetricName",
+      },
     });
 
     // WHEN

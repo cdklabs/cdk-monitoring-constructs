@@ -22,6 +22,7 @@ import * as sns from "monocdk/aws-sns";
 import * as sqs from "monocdk/aws-sqs";
 import * as stepfunctions from "monocdk/aws-stepfunctions";
 import * as synthetics from "monocdk/aws-synthetics";
+import * as wafv2 from "monocdk/aws-wafv2";
 
 import { ElastiCacheClusterType } from "../monitoring";
 import { MonitoringAspectProps, MonitoringAspectType } from "./aspect-types";
@@ -64,6 +65,7 @@ export class MonitoringAspect implements IAspect {
     this.monitorSqs(node);
     this.monitorStepFunctions(node);
     this.monitorSyntheticsCanaries(node);
+    this.monitorWebApplicationFirewallV2Acls(node);
 
     if (!this.addedNodeIndependentMonitoringToScope) {
       this.addedNodeIndependentMonitoringToScope = true;
@@ -361,6 +363,18 @@ export class MonitoringAspect implements IAspect {
     if (isEnabled && node instanceof synthetics.Canary) {
       this.monitoringFacade.monitorSyntheticsCanary({
         canary: node,
+        ...props,
+      });
+    }
+  }
+
+  private monitorWebApplicationFirewallV2Acls(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.webApplicationFirewallAclV2
+    );
+    if (isEnabled && node instanceof wafv2.CfnWebACL) {
+      this.monitoringFacade.monitorWebApplicationFirewallAclV2({
+        acl: node,
         ...props,
       });
     }

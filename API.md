@@ -780,6 +780,7 @@ new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorStepFunctionLambdaIntegration">monitorStepFunctionLambdaIntegration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorStepFunctionServiceIntegration">monitorStepFunctionServiceIntegration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSyntheticsCanary">monitorSyntheticsCanary</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorWebApplicationFirewallAclV2">monitorWebApplicationFirewallAclV2</a></code> | *No description.* |
 
 ---
 
@@ -1610,6 +1611,18 @@ public monitorSyntheticsCanary(props: SyntheticsCanaryMonitoringProps): Monitori
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorSyntheticsCanary.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps">SyntheticsCanaryMonitoringProps</a>
+
+---
+
+##### `monitorWebApplicationFirewallAclV2` <a name="monitorWebApplicationFirewallAclV2" id="cdk-monitoring-constructs.MonitoringFacade.monitorWebApplicationFirewallAclV2"></a>
+
+```typescript
+public monitorWebApplicationFirewallAclV2(props: WafV2MonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorWebApplicationFirewallAclV2.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.WafV2MonitoringProps">WafV2MonitoringProps</a>
 
 ---
 
@@ -23313,6 +23326,7 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sqs">sqs</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.stepFunctions">stepFunctions</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.syntheticsCanaries">syntheticsCanaries</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.webApplicationFirewallAclV2">webApplicationFirewallAclV2</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 
 ---
 
@@ -23560,6 +23574,16 @@ public readonly stepFunctions: MonitoringAspectType;
 
 ```typescript
 public readonly syntheticsCanaries: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `webApplicationFirewallAclV2`<sup>Optional</sup> <a name="webApplicationFirewallAclV2" id="cdk-monitoring-constructs.MonitoringAspectProps.property.webApplicationFirewallAclV2"></a>
+
+```typescript
+public readonly webApplicationFirewallAclV2: MonitoringAspectType;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
@@ -33677,6 +33701,311 @@ If this is defined, the local alarm name prefix used in naming alarms for the co
 The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 > [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+### WafV2MetricFactoryProps <a name="WafV2MetricFactoryProps" id="cdk-monitoring-constructs.WafV2MetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.WafV2MetricFactoryProps.Initializer"></a>
+
+```typescript
+import { WafV2MetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const wafV2MetricFactoryProps: WafV2MetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.acl">acl</a></code> | <code>monocdk.aws_wafv2.CfnWebACL</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `acl`<sup>Required</sup> <a name="acl" id="cdk-monitoring-constructs.WafV2MetricFactoryProps.property.acl"></a>
+
+```typescript
+public readonly acl: CfnWebACL;
+```
+
+- *Type:* monocdk.aws_wafv2.CfnWebACL
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+---
+
+### WafV2MonitoringOptions <a name="WafV2MonitoringOptions" id="cdk-monitoring-constructs.WafV2MonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.WafV2MonitoringOptions.Initializer"></a>
+
+```typescript
+import { WafV2MonitoringOptions } from 'cdk-monitoring-constructs'
+
+const wafV2MonitoringOptions: WafV2MonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+### WafV2MonitoringProps <a name="WafV2MonitoringProps" id="cdk-monitoring-constructs.WafV2MonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.WafV2MonitoringProps.Initializer"></a>
+
+```typescript
+import { WafV2MonitoringProps } from 'cdk-monitoring-constructs'
+
+const wafV2MonitoringProps: WafV2MonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.acl">acl</a></code> | <code>monocdk.aws_wafv2.CfnWebACL</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.region">region</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `acl`<sup>Required</sup> <a name="acl" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.acl"></a>
+
+```typescript
+public readonly acl: CfnWebACL;
+```
+
+- *Type:* monocdk.aws_wafv2.CfnWebACL
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
 
 ---
 
@@ -46733,6 +47062,203 @@ public addMemoryUsagePercentAlarm(percentMetric: Metric | MathExpression, props:
 
 
 
+### WafV2MetricFactory <a name="WafV2MetricFactory" id="cdk-monitoring-constructs.WafV2MetricFactory"></a>
+
+https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.WafV2MetricFactory.Initializer"></a>
+
+```typescript
+import { WafV2MetricFactory } from 'cdk-monitoring-constructs'
+
+new WafV2MetricFactory(metricFactory: MetricFactory, props: WafV2MetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps">WafV2MetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.WafV2MetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.WafV2MetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps">WafV2MetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactory.metricAllowedRequests">metricAllowedRequests</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactory.metricBlockedRequests">metricBlockedRequests</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactory.metricBlockedRequestsRate">metricBlockedRequestsRate</a></code> | *No description.* |
+
+---
+
+##### `metricAllowedRequests` <a name="metricAllowedRequests" id="cdk-monitoring-constructs.WafV2MetricFactory.metricAllowedRequests"></a>
+
+```typescript
+public metricAllowedRequests(): Metric | MathExpression
+```
+
+##### `metricBlockedRequests` <a name="metricBlockedRequests" id="cdk-monitoring-constructs.WafV2MetricFactory.metricBlockedRequests"></a>
+
+```typescript
+public metricBlockedRequests(): Metric | MathExpression
+```
+
+##### `metricBlockedRequestsRate` <a name="metricBlockedRequestsRate" id="cdk-monitoring-constructs.WafV2MetricFactory.metricBlockedRequestsRate"></a>
+
+```typescript
+public metricBlockedRequestsRate(): Metric | MathExpression
+```
+
+
+
+
+### WafV2Monitoring <a name="WafV2Monitoring" id="cdk-monitoring-constructs.WafV2Monitoring"></a>
+
+Monitoring for AWS Web Application Firewall.
+
+> [https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html)
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.WafV2Monitoring.Initializer"></a>
+
+```typescript
+import { WafV2Monitoring } from 'cdk-monitoring-constructs'
+
+new WafV2Monitoring(scope: MonitoringScope, props: WafV2MonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps">WafV2MonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.WafV2Monitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.WafV2Monitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.WafV2MonitoringProps">WafV2MonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.WafV2Monitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.WafV2Monitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.WafV2Monitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.WafV2Monitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.WafV2Monitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.WafV2Monitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.WafV2Monitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.WafV2Monitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.WafV2Monitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.WafV2Monitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+
+
+
 ### XaxrMathExpression <a name="XaxrMathExpression" id="cdk-monitoring-constructs.XaxrMathExpression"></a>
 
 - *Implements:* monocdk.aws_cloudwatch.IMetric
@@ -47027,7 +47553,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
