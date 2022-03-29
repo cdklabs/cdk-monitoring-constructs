@@ -148,14 +148,26 @@ export class DynamoTableMetricFactory {
 
   /**
    * This represents the number of requests that resulted in a 500 (server error) error code.
-   * It summarizes across all operations.
+   * It summarizes across the basic CRUD operations:
+   * GetItem, BatchGetItem, Scan, Query, GetRecords, PutItem, DeleteItem, UpdateItem, BatchWriteItem
+   *
    * It’s usually equal to zero.
    */
   metricSystemErrorsCount() {
-    const allOperations = Object.values(Operation);
+    const crudOperations = [
+      Operation.GET_ITEM,
+      Operation.BATCH_GET_ITEM,
+      Operation.SCAN,
+      Operation.QUERY,
+      Operation.GET_RECORDS,
+      Operation.PUT_ITEM,
+      Operation.DELETE_ITEM,
+      Operation.UPDATE_ITEM,
+      Operation.BATCH_WRITE_ITEM,
+    ];
     const usingMetrics: Record<string, IMetric> = {};
 
-    allOperations.forEach((operation) => {
+    crudOperations.forEach((operation) => {
       const metric = this.table.metric("SystemErrors", {
         dimensions: { TableName: this.table.tableName, Operation: operation },
         statistic: MetricStatistic.SUM,

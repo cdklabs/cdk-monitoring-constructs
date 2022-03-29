@@ -37995,7 +37995,9 @@ public metricSystemErrorsCount(): Metric | MathExpression
 
 This represents the number of requests that resulted in a 500 (server error) error code.
 
-It summarizes across all operations.
+It summarizes across the basic CRUD operations:
+GetItem, BatchGetItem, Scan, Query, GetRecords, PutItem, DeleteItem, UpdateItem, BatchWriteItem
+
 It’s usually equal to zero.
 
 ##### `metricThrottledReadRequestCount` <a name="metricThrottledReadRequestCount" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricThrottledReadRequestCount"></a>
