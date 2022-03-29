@@ -3,6 +3,74 @@
 exports[`snapshot test: all alarms 1`] = `
 Object {
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestCanaryLatencyAverageWarning318006A9",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestCanaryErrorCountWarningE11B5E8D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestCanaryErrorRateWarning879600BF",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestCanaryFaultCountWarningBE79A4B2",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestCanaryFaultRateWarning65C6A70B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Canary11957FE2": Object {
       "Properties": Object {
         "ArtifactS3Location": Object {
@@ -134,6 +202,51 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Synthetics Canary **Canary**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"Duration\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"Average\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Average > 10000 for 3 datapoints within 15 minutes\\",\\"value\\":10000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"4xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"4xx\\",\\"stat\\":\\"Sum\\"}],[\\"CloudWatchSynthetics\\",\\"5xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4xx > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"5xx > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"4xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"CloudWatchSynthetics\\",\\"5xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4xx (avg) > 0.5 for 3 datapoints within 15 minutes\\",\\"value\\":0.5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"5xx (avg) > 0.8 for 3 datapoints within 15 minutes\\",\\"value\\":0.8,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestCanaryErrorCountWarningE11B5E8D": Object {
       "Properties": Object {
@@ -315,6 +428,43 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Synthetics Canary **Canary**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"4xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"4xx\\",\\"stat\\":\\"Sum\\"}],[\\"CloudWatchSynthetics\\",\\"5xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4xx > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"5xx > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"4xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"CloudWatchSynthetics\\",\\"5xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4xx (avg) > 0.5 for 3 datapoints within 15 minutes\\",\\"value\\":0.5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"5xx (avg) > 0.8 for 3 datapoints within 15 minutes\\",\\"value\\":0.8,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
   },
 }
 `;
@@ -322,6 +472,12 @@ Object {
 exports[`snapshot test: no alarms 1`] = `
 Object {
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Canary11957FE2": Object {
       "Properties": Object {
         "ArtifactS3Location": Object {
@@ -453,6 +609,88 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Synthetics Canary **Canary**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"Duration\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"Average\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"4xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"4xx\\",\\"stat\\":\\"Sum\\"}],[\\"CloudWatchSynthetics\\",\\"5xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"4xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"CloudWatchSynthetics\\",\\"5xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Synthetics Canary **Canary**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"4xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"4xx\\",\\"stat\\":\\"Sum\\"}],[\\"CloudWatchSynthetics\\",\\"5xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"CloudWatchSynthetics\\",\\"4xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"CloudWatchSynthetics\\",\\"5xx\\",\\"CanaryName\\",\\"",
+              Object {
+                "Ref": "Canary11957FE2",
+              },
+              "\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
 }
