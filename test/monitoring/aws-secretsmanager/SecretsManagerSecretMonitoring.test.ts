@@ -7,7 +7,16 @@ import {
   SecretsManagerMetricsPublisher,
   SecretsManagerSecretMonitoring,
 } from "../../../lib";
+import { forceStableAssetKeys } from "../../utils/StableTestKeys";
 import { TestMonitoringScope } from "../TestMonitoringScope";
+
+beforeEach(() => {
+  // reset cached publisher instances before each test
+  // test stacks have duplicate uniqueIds since they don't belong to a single construct tree
+  (SecretsManagerMetricsPublisher as any).instances = {};
+});
+
+afterAll = beforeEach;
 
 test("snapshot test", () => {
   const stack = new Stack();
@@ -72,6 +81,9 @@ test("snapshot test", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(4);
+
+  forceStableAssetKeys(stack);
+
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -104,14 +116,8 @@ test("each stack in an app gets its own publisher instance", () => {
       });
     }
 
+    forceStableAssetKeys(stack);
+
     expect(Template.fromStack(stack)).toMatchSnapshot();
   }
 });
-
-beforeEach(() => {
-  // reset cached publisher instances before each test
-  // test stacks have duplicate uniqueIds since they don't belong to a single construct tree
-  (SecretsManagerMetricsPublisher as any).instances = {};
-});
-
-afterAll = beforeEach;

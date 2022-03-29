@@ -3,11 +3,14 @@ import { Template } from "monocdk/assertions";
 import { GraphWidget } from "monocdk/aws-cloudwatch";
 
 import { BitmapWidgetRenderingSupport } from "../../../lib";
+import { forceStableAssetKeys } from "../../utils/StableTestKeys";
 
 test("support", () => {
   const stack = new Stack();
 
   new BitmapWidgetRenderingSupport(stack, "Support");
+
+  forceStableAssetKeys(stack);
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
