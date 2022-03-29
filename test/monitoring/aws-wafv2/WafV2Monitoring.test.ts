@@ -3,6 +3,7 @@ import { Template } from "monocdk/assertions";
 import { CfnWebACL } from "monocdk/aws-wafv2";
 
 import { WafV2Monitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -19,7 +20,8 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new WafV2Monitoring(scope, { acl });
+  const monitoring = new WafV2Monitoring(scope, { acl });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

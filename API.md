@@ -66,13 +66,7 @@ public applyRemovalPolicy(policy: RemovalPolicy): void
 
 Apply the given removal policy to this resource.
 
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+The Removal Policy controls what happens to this resource when it stops being managed by CloudFormation, either because you've removed it from the CDK application or because you've made a change that requires the resource to be replaced.  The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy.parameter.policy"></a>
 
@@ -88,11 +82,7 @@ public addWidgets(widgets: IWidget): void
 
 (experimental) Add a widget to the dashboard.
 
-Widgets given in multiple calls to add() will be laid out stacked on
-top of each other.
-
-Multiple widgets added in the same call to add() will be laid out next
-to each other.
+Widgets given in multiple calls to add() will be laid out stacked on top of each other.  Multiple widgets added in the same call to add() will be laid out next to each other.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.BitmapDashboard.addWidgets.parameter.widgets"></a>
 
@@ -173,12 +163,7 @@ public readonly env: ResourceEnvironment;
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed by the CDK (generally, those created by creating new class instances like Role, Bucket, etc.), this is always the same as the environment of the stack they belong to; however, for imported resources (those obtained from static methods like fromRoleArn, fromBucketName, etc.), that might be different than the stack they were imported into.
 
 ---
 
@@ -379,13 +364,7 @@ public applyRemovalPolicy(policy: RemovalPolicy): void
 
 Apply the given removal policy to this resource.
 
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+The Removal Policy controls what happens to this resource when it stops being managed by CloudFormation, either because you've removed it from the CDK application or because you've made a change that requires the resource to be replaced.  The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy.parameter.policy"></a>
 
@@ -401,11 +380,7 @@ public addWidgets(widgets: IWidget): void
 
 (experimental) Add a widget to the dashboard.
 
-Widgets given in multiple calls to add() will be laid out stacked on
-top of each other.
-
-Multiple widgets added in the same call to add() will be laid out next
-to each other.
+Widgets given in multiple calls to add() will be laid out stacked on top of each other.  Multiple widgets added in the same call to add() will be laid out next to each other.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets.parameter.widgets"></a>
 
@@ -486,12 +461,7 @@ public readonly env: ResourceEnvironment;
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed by the CDK (generally, those created by creating new class instances like Role, Bucket, etc.), this is always the same as the environment of the stack they belong to; however, for imported resources (those obtained from static methods like fromRoleArn, fromBucketName, etc.), that might be different than the stack they were imported into.
 
 ---
 
@@ -954,8 +924,7 @@ public createCompositeAlarmUsingDisambiguator(alarmDisambiguator: string, props?
 
 Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm.
 
-This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-NOTE: This composite alarm is not added among other alarms, so it is not returned by getCreatedAlarms() calls.
+This composite alarm is created with an 'OR' condition, so it triggers with any child alarm. NOTE: This composite alarm is not added among other alarms, so it is not returned by getCreatedAlarms() calls.
 
 ###### `alarmDisambiguator`<sup>Required</sup> <a name="alarmDisambiguator" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator.parameter.alarmDisambiguator"></a>
 
@@ -981,8 +950,7 @@ public createCompositeAlarmUsingTag(customTag: string, props?: AddCompositeAlarm
 
 Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm.
 
-This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-NOTE: This composite alarm is not added among other alarms, so it is not returned by getCreatedAlarms() calls.
+This composite alarm is created with an 'OR' condition, so it triggers with any child alarm. NOTE: This composite alarm is not added among other alarms, so it is not returned by getCreatedAlarms() calls.
 
 ###### `customTag`<sup>Required</sup> <a name="customTag" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag.parameter.customTag"></a>
 
@@ -2041,8 +2009,7 @@ public readonly alarmDedupeStringSuffix: string;
 
 If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
 
-This allows you to specify the same dedupe string for a family of alarms.
-Cannot be defined at the same time as alarmDedupeStringOverride.
+This allows you to specify the same dedupe string for a family of alarms. Cannot be defined at the same time as alarmDedupeStringOverride.
 
 ---
 
@@ -2163,8 +2130,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -2303,8 +2269,7 @@ public readonly alarmDedupeStringSuffix: string;
 
 If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
 
-This allows you to specify the same dedupe string for a family of alarms.
-Cannot be defined at the same time as alarmDedupeStringOverride.
+This allows you to specify the same dedupe string for a family of alarms. Cannot be defined at the same time as alarmDedupeStringOverride.
 
 ---
 
@@ -2740,8 +2705,7 @@ public readonly alarmNamePrefix: string;
 
 Global prefix for all alarm names.
 
-This should be something unique to avoid collisions with other CTIs.
-This is ignored if an alarm's dedupeStringOverride is declared.
+This should be something unique to avoid collisions with other CTIs. This is ignored if an alarm's dedupeStringOverride is declared.
 
 ---
 
@@ -3567,8 +3531,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -3596,8 +3559,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -3854,8 +3816,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -4152,9 +4113,7 @@ public readonly latencyTypesToRender: LatencyType[];
 
 You can specify what latency types you want to be rendered in the dashboards.
 
-Note: any latency type with an alarm will be also added automatically.
-If the list is undefined, default values will be shown.
-If the list is empty, only the latency types with an alarm will be shown (if any).
+Note: any latency type with an alarm will be also added automatically. If the list is undefined, default values will be shown. If the list is empty, only the latency types with an alarm will be shown (if any).
 
 > [DefaultLatencyTypesToRender)](DefaultLatencyTypesToRender))
 
@@ -4291,8 +4250,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -4589,9 +4547,7 @@ public readonly latencyTypesToRender: LatencyType[];
 
 You can specify what latency types you want to be rendered in the dashboards.
 
-Note: any latency type with an alarm will be also added automatically.
-If the list is undefined, default values will be shown.
-If the list is empty, only the latency types with an alarm will be shown (if any).
+Note: any latency type with an alarm will be also added automatically. If the list is undefined, default values will be shown. If the list is empty, only the latency types with an alarm will be shown (if any).
 
 > [DefaultLatencyTypesToRender)](DefaultLatencyTypesToRender))
 
@@ -4830,8 +4786,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -5268,9 +5223,7 @@ public readonly latencyTypesToRender: LatencyType[];
 
 You can specify what latency types you want to be rendered in the dashboards.
 
-Note: any latency type with an alarm will be also added automatically.
-If the list is undefined, default values will be shown.
-If the list is empty, only the latency types with an alarm will be shown (if any).
+Note: any latency type with an alarm will be also added automatically. If the list is undefined, default values will be shown. If the list is empty, only the latency types with an alarm will be shown (if any).
 
 > [DefaultLatencyTypesShown)](DefaultLatencyTypesShown))
 
@@ -5346,8 +5299,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -5784,9 +5736,7 @@ public readonly latencyTypesToRender: LatencyType[];
 
 You can specify what latency types you want to be rendered in the dashboards.
 
-Note: any latency type with an alarm will be also added automatically.
-If the list is undefined, default values will be shown.
-If the list is empty, only the latency types with an alarm will be shown (if any).
+Note: any latency type with an alarm will be also added automatically. If the list is undefined, default values will be shown. If the list is empty, only the latency types with an alarm will be shown (if any).
 
 > [DefaultLatencyTypesShown)](DefaultLatencyTypesShown))
 
@@ -5935,8 +5885,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -6159,8 +6108,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -6437,8 +6385,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -6570,8 +6517,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -6807,8 +6753,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -6836,8 +6781,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -7200,8 +7144,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -7435,8 +7378,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -7557,8 +7499,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -7708,8 +7649,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -7842,8 +7782,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -8024,8 +7963,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -8173,8 +8111,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -8368,8 +8305,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -8558,8 +8494,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -8845,8 +8780,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -8874,8 +8808,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -9105,8 +9038,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -9134,8 +9066,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -9251,8 +9182,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -9511,8 +9441,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -10218,8 +10147,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -10488,8 +10416,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -10517,8 +10444,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -10664,13 +10590,7 @@ public readonly handler: IFunction;
 
 Lambda providing the widget contents.
 
-The Lambda function should return HTML with widget code.
-The simplest Lambda example:
-```typescript
-exports.handler = function (event, context, callback) {
-   return callback(null, "<h1>Hello! This is a custom widget.</h1><pre>" + JSON.stringify(event, null, 2) + "</pre>");
-};
-```
+The Lambda function should return HTML with widget code. The simplest Lambda example: ```typescript exports.handler = function (event, context, callback) {    return callback(null, "<h1>Hello! This is a custom widget.</h1><pre>" + JSON.stringify(event, null, 2) + "</pre>"); }; ```
 
 ---
 
@@ -10915,8 +10835,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -10944,8 +10863,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -11174,8 +11092,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -11203,8 +11120,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -11433,8 +11349,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -11462,8 +11377,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -11638,8 +11552,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -11802,8 +11715,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -12089,8 +12001,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -12385,8 +12296,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -12614,8 +12524,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -12747,8 +12656,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -12913,8 +12821,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -13153,8 +13060,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -13418,8 +13324,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -13632,8 +13537,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -13941,8 +13845,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -13970,8 +13873,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -14200,8 +14102,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -14229,8 +14130,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -14378,8 +14278,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -14640,8 +14539,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -14880,8 +14778,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -15223,8 +15120,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -15252,8 +15148,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -15367,8 +15262,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -15490,8 +15384,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -15737,8 +15630,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -15766,8 +15658,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -15996,8 +15887,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -16025,8 +15915,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -16255,8 +16144,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -16284,8 +16172,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -16514,8 +16401,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -16543,8 +16429,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -16688,8 +16573,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -16843,8 +16727,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -17016,8 +16899,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -17182,8 +17064,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -17362,8 +17243,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -17495,8 +17375,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -17635,8 +17514,7 @@ public readonly lambdaInsightsEnabled: boolean;
 
 Generate dashboard charts for Lambda Insights metrics.
 
-To enable Lambda Insights on your Lambda function, see
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-clouddevelopmentkit.html
+To enable Lambda Insights on your Lambda function, see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-clouddevelopmentkit.html
 
 ---
 
@@ -17705,8 +17583,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -18061,8 +17938,7 @@ public readonly lambdaInsightsEnabled: boolean;
 
 Generate dashboard charts for Lambda Insights metrics.
 
-To enable Lambda Insights on your Lambda function, see
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-clouddevelopmentkit.html
+To enable Lambda Insights on your Lambda function, see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-clouddevelopmentkit.html
 
 ---
 
@@ -18088,8 +17964,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -18515,8 +18390,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -18544,8 +18418,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -18774,8 +18647,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -18803,8 +18675,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -18924,8 +18795,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -19211,8 +19081,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -19240,8 +19109,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -19470,8 +19338,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -19499,8 +19366,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -19729,8 +19595,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -19758,8 +19623,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -19988,8 +19852,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -20017,8 +19880,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -20247,8 +20109,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -20276,8 +20137,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -20506,8 +20366,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -20535,8 +20394,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -20765,8 +20623,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -20794,8 +20651,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -21024,8 +20880,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -21053,8 +20908,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -21283,8 +21137,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -21312,8 +21165,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -21542,8 +21394,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -21571,8 +21422,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -21801,8 +21651,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -21830,8 +21679,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -22140,8 +21988,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -22169,8 +22016,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -22399,8 +22245,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -22428,8 +22273,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -22658,8 +22502,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -22687,8 +22530,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -22917,8 +22759,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -22946,8 +22787,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -23178,8 +23018,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -23207,8 +23046,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -23975,8 +23813,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -24142,8 +23979,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -24419,8 +24255,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -24448,8 +24283,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -24678,8 +24512,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -24707,8 +24540,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -24937,8 +24769,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -24966,8 +24797,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -25138,8 +24968,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -25470,8 +25299,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -25877,8 +25705,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -25906,8 +25733,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -26136,8 +25962,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -26165,8 +25990,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -26395,8 +26219,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -26424,8 +26247,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -26654,8 +26476,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -26683,8 +26504,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -26802,8 +26622,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -26968,8 +26787,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -27160,8 +26978,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -27315,8 +27132,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -27572,8 +27388,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -27601,8 +27416,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -27831,8 +27645,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -27860,8 +27673,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -28005,8 +27817,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -28160,8 +27971,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -28417,8 +28227,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -28446,8 +28255,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -28676,8 +28484,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -28705,8 +28512,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -28859,8 +28665,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -29003,8 +28808,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -29156,8 +28960,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -29325,8 +29128,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -29486,8 +29288,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -29682,8 +29483,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -29959,8 +29759,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -30125,8 +29924,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -30371,8 +30169,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -30570,8 +30367,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -30774,8 +30570,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -31018,8 +30813,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -31269,8 +31063,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -31500,8 +31293,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -31746,8 +31538,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -32029,8 +31820,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -32260,8 +32050,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -32464,8 +32253,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -32751,8 +32539,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -32780,8 +32567,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -33010,8 +32796,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -33039,8 +32824,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -33269,8 +33053,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -33298,8 +33081,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -33528,8 +33310,7 @@ public readonly dedupeStringOverride: string;
 
 If this is defined, the alarm dedupe string is set to this exact value.
 
-Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-Dedupe strings are global and not unique per CTI.
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually. Dedupe strings are global and not unique per CTI.
 
 ---
 
@@ -33557,8 +33338,7 @@ public readonly evaluateLowSampleCountPercentile: boolean;
 
 Used only for alarms based on percentiles.
 
-If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
-If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 
 ---
 
@@ -33668,8 +33448,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -33778,8 +33557,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -33922,8 +33700,7 @@ public readonly alarmFriendlyName: string;
 
 Plain name, used in naming alarms.
 
-This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
-The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names. The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 ---
 
@@ -34074,8 +33851,7 @@ public readonly period: Duration;
 
 The period over which the expression's statistics are applied.
 
-This period overrides all periods in the metrics used in this
-math expression.
+This period overrides all periods in the metrics used in this math expression.
 
 ---
 
@@ -34101,8 +33877,7 @@ public readonly usingMetrics: {[ key: string ]: IMetric};
 
 The metrics used in the expression, in a map.
 
-The key is the identifier that represents the given metric in the
-expression, and the value is the actual Metric object.
+The key is the identifier that represents the given metric in the expression, and the value is the actual Metric object.
 
 ---
 
@@ -34498,9 +34273,7 @@ public getDedupeString(props: AlarmNamingInput): string
 
 Dedupe string resolved like this: - If "dedupeStringOverride" is defined for an alarm, it will be used as a dedupe string.
 
-If "alarmDedupeStringSuffix" from the alarm factory is defined, "GlobalPrefix-LocalPrefix-AlarmDedupeStringSuffix" will be used as a dedupe string.
-- Otherwise, the alarm dedupe string will not be set.
-If a dedupe string strategy is set, it will be used to process the final string.
+If "alarmDedupeStringSuffix" from the alarm factory is defined, "GlobalPrefix-LocalPrefix-AlarmDedupeStringSuffix" will be used as a dedupe string. - Otherwise, the alarm dedupe string will not be set. If a dedupe string strategy is set, it will be used to process the final string.
 
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AlarmNamingStrategy.getDedupeString.parameter.props"></a>
 
@@ -34749,8 +34522,7 @@ public createAlarm(scope: Construct, id: string, props: CreateAlarmOptions): Ala
 
 (experimental) Make a new Alarm for this metric.
 
-Combines both properties that may adjust the metric (aggregation) as well
-as alarm properties.
+Combines both properties that may adjust the metric (aggregation) as well as alarm properties.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.createAlarm.parameter.scope"></a>
 
@@ -35822,8 +35594,7 @@ public metricGroupPendingInstances(): Metric | MathExpression
 
 The number of instances that are pending.
 
-A pending instance is not yet in service.
-This metric does not include instances that are in service or terminating.
+A pending instance is not yet in service. This metric does not include instances that are in service or terminating.
 
 ##### `metricGroupStandbyInstances` <a name="metricGroupStandbyInstances" id="cdk-monitoring-constructs.AutoScalingGroupMetricFactory.metricGroupStandbyInstances"></a>
 
@@ -36674,8 +36445,7 @@ Returns widgets to be placed on the main dashboard.
 
 To get the CloudFront metrics from the CloudWatch API, you must use the US East (N.
 
-Virginia) Region (us-east-1).
-https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/programming-cloudwatch-metrics.html
+Virginia) Region (us-east-1). https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/programming-cloudwatch-metrics.html
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.Initializer"></a>
 
@@ -37187,10 +36957,7 @@ public addCustomAlarm(metric: Metric | MathExpression, alarmNameSuffix: string, 
 
 Custom monitoring is a construct allowing you to monitor your own custom metrics.
 
-The entire construct consists of metric groups.
-Each metric group represents a single graph widget with multiple metrics.
-Each metric inside the metric group represents a single metric inside a graph.
-The widgets will be sized automatically to waste as little space as possible.
+The entire construct consists of metric groups. Each metric group represents a single graph widget with multiple metrics. Each metric inside the metric group represents a single metric inside a graph. The widgets will be sized automatically to waste as little space as possible.
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CustomMonitoring.Initializer"></a>
 
@@ -37995,10 +37762,7 @@ public metricSystemErrorsCount(): Metric | MathExpression
 
 This represents the number of requests that resulted in a 500 (server error) error code.
 
-It summarizes across the basic CRUD operations:
-GetItem, BatchGetItem, Scan, Query, GetRecords, PutItem, DeleteItem, UpdateItem, BatchWriteItem
-
-It’s usually equal to zero.
+It summarizes across the basic CRUD operations: GetItem, BatchGetItem, Scan, Query, GetRecords, PutItem, DeleteItem, UpdateItem, BatchWriteItem  It’s usually equal to zero.
 
 ##### `metricThrottledReadRequestCount` <a name="metricThrottledReadRequestCount" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricThrottledReadRequestCount"></a>
 
@@ -38203,9 +37967,7 @@ public metricAverageCpuUtilisationPercent(): IMetric
 
 The percentage of allocated EC2 compute units that are currently in use on the instance.
 
-This metric identifies the processing power required to run an application on a selected instance.
-Depending on the instance type, tools in your operating system can show a lower percentage than
-CloudWatch when the instance is not allocated a full processor core.
+This metric identifies the processing power required to run an application on a selected instance. Depending on the instance type, tools in your operating system can show a lower percentage than CloudWatch when the instance is not allocated a full processor core.
 
 ##### `metricAverageDiskReadBytes` <a name="metricAverageDiskReadBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskReadBytes"></a>
 
@@ -38215,8 +37977,7 @@ public metricAverageDiskReadBytes(): IMetric
 
 Bytes read from all instance store volumes available to the instance.
 
-This metric is used to determine the volume of the data the application reads from the hard disk of the instance.
-This can be used to determine the speed of the application.
+This metric is used to determine the volume of the data the application reads from the hard disk of the instance. This can be used to determine the speed of the application.
 
 ##### `metricAverageDiskReadOps` <a name="metricAverageDiskReadOps" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskReadOps"></a>
 
@@ -38234,8 +37995,7 @@ public metricAverageDiskWriteBytes(): IMetric
 
 Bytes written to all instance store volumes available to the instance.
 
-This metric is used to determine the volume of the data the application writes onto the hard disk of the instance.
-This can be used to determine the speed of the application.
+This metric is used to determine the volume of the data the application writes onto the hard disk of the instance. This can be used to determine the speed of the application.
 
 ##### `metricAverageDiskWriteOps` <a name="metricAverageDiskWriteOps" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskWriteOps"></a>
 
@@ -41510,9 +41270,7 @@ public createMetricAnomalyDetection(metric: IMetric, stdev: number, label: strin
 
 Factory method that creates anomaly detection on a metric.
 
-Anomaly occurs whenever a metric value falls outside of a precomputed range of predicted values.
-The detection does not need any setup. The model will start learning automatically and should be ready in a few minutes.
-Usually, the anomaly detection is paired with an alarm.
+Anomaly occurs whenever a metric value falls outside of a precomputed range of predicted values. The detection does not need any setup. The model will start learning automatically and should be ready in a few minutes. Usually, the anomaly detection is paired with an alarm.
 
 > [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html)
 
@@ -41804,8 +41562,7 @@ public sanitizeMetricExpressionIdSuffix(expressionId: string): string
 
 Helper method that helps to sanitize the given expression ID and removes all invalid characters.
 
-Valid expression ID regexp is the following: ^[a-z][a-zA-Z0-9_]*$
-As this is just to validate a suffix and not the whole ID, we do not have to verify the first lower case letter.
+Valid expression ID regexp is the following: ^[a-z][a-zA-Z0-9_]*$ As this is just to validate a suffix and not the whole ID, we do not have to verify the first lower case letter.
 
 ###### `expressionId`<sup>Required</sup> <a name="expressionId" id="cdk-monitoring-constructs.MetricFactory.sanitizeMetricExpressionIdSuffix.parameter.expressionId"></a>
 
