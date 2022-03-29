@@ -1,11 +1,12 @@
-/**
- * Executes a snapshot test for widgets, summary widgets and alarm widgets.
- * @param monitoring monitoring to test
- */
 import { Stack } from "monocdk";
 import { Dashboard } from "monocdk/aws-cloudwatch";
 import { Monitoring } from "../../lib";
 
+/**
+ * Executes a snapshot test for widgets, summary widgets and alarm widgets.
+ *
+ * @param monitoring monitoring to test
+ */
 export function addMonitoringDashboardsToStack(
   stack: Stack,
   monitoring: Monitoring

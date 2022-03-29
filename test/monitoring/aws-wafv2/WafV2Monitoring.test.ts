@@ -3,7 +3,7 @@ import { Template } from "monocdk/assertions";
 import { CfnWebACL } from "monocdk/aws-wafv2";
 
 import { WafV2Monitoring } from "../../../lib";
-import { addMonitoringDashboardsToStack } from "../SnapshotUtil";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {

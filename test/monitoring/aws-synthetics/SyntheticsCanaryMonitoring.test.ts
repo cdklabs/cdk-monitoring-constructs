@@ -4,7 +4,7 @@ import { Canary, Code, Runtime, Schedule, Test } from "monocdk/aws-synthetics";
 
 import { AlarmWithAnnotation } from "../../../lib";
 import { SyntheticsCanaryMonitoring } from "../../../lib/monitoring/aws-synthetics";
-import { addMonitoringDashboardsToStack } from "../SnapshotUtil";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
