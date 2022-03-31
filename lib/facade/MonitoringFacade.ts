@@ -209,7 +209,7 @@ export class MonitoringFacade extends MonitoringScope {
   /**
    * Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm.
    * This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-   * NOTE: This composite alarm is not added among other alarms, so it is not returned by getCreatedAlarms() calls.
+   * NOTE: This composite alarm is not added among other alarms, so it is not returned by createdAlarms() calls.
    *
    * @param customTag tag to filter alarms by
    * @param props customization options
@@ -233,7 +233,7 @@ export class MonitoringFacade extends MonitoringScope {
   /**
    * Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm.
    * This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-   * NOTE: This composite alarm is not added among other alarms, so it is not returned by getCreatedAlarms() calls.
+   * NOTE: This composite alarm is not added among other alarms, so it is not returned by createdAlarms() calls.
    *
    * @param alarmDisambiguator disambiguator to filter alarms by
    * @param props customization options
