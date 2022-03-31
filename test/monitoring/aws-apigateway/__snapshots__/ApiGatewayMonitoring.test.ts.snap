@@ -477,6 +477,44 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyApiLatencyP95Warning450538DF": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P95 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-P95-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 195,
+        "EvaluationPeriods": 195,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P95",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p95",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 195,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyApiLatencyP9999Warning89E47C72": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -701,6 +739,44 @@ Object {
           },
         ],
         "Threshold": 290,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM95WarningFFD46CB8": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM95 latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM95-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 295,
+        "EvaluationPeriods": 295,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM95",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "DummyApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "tm95",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 295,
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
