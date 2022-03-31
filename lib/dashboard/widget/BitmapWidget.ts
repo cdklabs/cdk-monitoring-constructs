@@ -3,7 +3,13 @@ import * as path from "path";
 import { Duration, Tags } from "aws-cdk-lib";
 import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
 import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
-import { Code, Function, IFunction, Runtime } from "aws-cdk-lib/aws-lambda";
+import {
+  Architecture,
+  Code,
+  Function,
+  IFunction,
+  Runtime,
+} from "aws-cdk-lib/aws-lambda";
 import { RetentionDays } from "aws-cdk-lib/aws-logs";
 import { Construct } from "constructs";
 
@@ -35,6 +41,7 @@ export class BitmapWidgetRenderingSupport extends Construct {
       handler: "index.handler",
       memorySize: 128,
       runtime: Runtime.NODEJS_14_X,
+      architecture: Architecture.ARM_64,
       timeout: Duration.seconds(60),
       logRetention: RetentionDays.ONE_DAY,
     });
