@@ -15375,6 +15375,10 @@ const glueJobMonitoringOptions: GlueJobMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addFailedTaskCountAlarm">addFailedTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addFailedTaskRateAlarm">addFailedTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskCountAlarm">addKilledTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskRateAlarm">addKilledTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -15476,6 +15480,46 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addFailedTaskCountAlarm`<sup>Optional</sup> <a name="addFailedTaskCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addFailedTaskCountAlarm"></a>
+
+```typescript
+public readonly addFailedTaskCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addFailedTaskRateAlarm`<sup>Optional</sup> <a name="addFailedTaskRateAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addFailedTaskRateAlarm"></a>
+
+```typescript
+public readonly addFailedTaskRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addKilledTaskCountAlarm`<sup>Optional</sup> <a name="addKilledTaskCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskCountAlarm"></a>
+
+```typescript
+public readonly addKilledTaskCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addKilledTaskRateAlarm`<sup>Optional</sup> <a name="addKilledTaskRateAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskRateAlarm"></a>
+
+```typescript
+public readonly addKilledTaskRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
 ### GlueJobMonitoringProps <a name="GlueJobMonitoringProps" id="cdk-monitoring-constructs.GlueJobMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.GlueJobMonitoringProps.Initializer"></a>
@@ -15497,6 +15541,10 @@ const glueJobMonitoringProps: GlueJobMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addFailedTaskCountAlarm">addFailedTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addFailedTaskRateAlarm">addFailedTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskCountAlarm">addKilledTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskRateAlarm">addKilledTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -15596,6 +15644,46 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addFailedTaskCountAlarm`<sup>Optional</sup> <a name="addFailedTaskCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.addFailedTaskCountAlarm"></a>
+
+```typescript
+public readonly addFailedTaskCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addFailedTaskRateAlarm`<sup>Optional</sup> <a name="addFailedTaskRateAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.addFailedTaskRateAlarm"></a>
+
+```typescript
+public readonly addFailedTaskRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addKilledTaskCountAlarm`<sup>Optional</sup> <a name="addKilledTaskCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskCountAlarm"></a>
+
+```typescript
+public readonly addKilledTaskCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addKilledTaskRateAlarm`<sup>Optional</sup> <a name="addKilledTaskRateAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskRateAlarm"></a>
+
+```typescript
+public readonly addKilledTaskRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
 
 ---
 
@@ -39351,6 +39439,11 @@ new GlueJobMetricFactory(metricFactory: MetricFactory, jobName: string)
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricAverageExecutorCpuUsagePercentage">metricAverageExecutorCpuUsagePercentage</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricAverageExecutorMemoryUsagePercentage">metricAverageExecutorMemoryUsagePercentage</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricCompletedStagesSum">metricCompletedStagesSum</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricCompletedTasksSum">metricCompletedTasksSum</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricFailedTasksRate">metricFailedTasksRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricFailedTasksSum">metricFailedTasksSum</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricKilledTasksRate">metricKilledTasksRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricKilledTasksSum">metricKilledTasksSum</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricMaximumNeededExecutors">metricMaximumNeededExecutors</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricTotalReadBytesFromS3">metricTotalReadBytesFromS3</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.metricTotalWrittenBytesToS3">metricTotalWrittenBytesToS3</a></code> | *No description.* |
@@ -39379,6 +39472,36 @@ public metricAverageExecutorMemoryUsagePercentage(): Metric | MathExpression
 
 ```typescript
 public metricCompletedStagesSum(): Metric | MathExpression
+```
+
+##### `metricCompletedTasksSum` <a name="metricCompletedTasksSum" id="cdk-monitoring-constructs.GlueJobMetricFactory.metricCompletedTasksSum"></a>
+
+```typescript
+public metricCompletedTasksSum(): Metric | MathExpression
+```
+
+##### `metricFailedTasksRate` <a name="metricFailedTasksRate" id="cdk-monitoring-constructs.GlueJobMetricFactory.metricFailedTasksRate"></a>
+
+```typescript
+public metricFailedTasksRate(): Metric | MathExpression
+```
+
+##### `metricFailedTasksSum` <a name="metricFailedTasksSum" id="cdk-monitoring-constructs.GlueJobMetricFactory.metricFailedTasksSum"></a>
+
+```typescript
+public metricFailedTasksSum(): Metric | MathExpression
+```
+
+##### `metricKilledTasksRate` <a name="metricKilledTasksRate" id="cdk-monitoring-constructs.GlueJobMetricFactory.metricKilledTasksRate"></a>
+
+```typescript
+public metricKilledTasksRate(): Metric | MathExpression
+```
+
+##### `metricKilledTasksSum` <a name="metricKilledTasksSum" id="cdk-monitoring-constructs.GlueJobMetricFactory.metricKilledTasksSum"></a>
+
+```typescript
+public metricKilledTasksSum(): Metric | MathExpression
 ```
 
 ##### `metricMaximumNeededExecutors` <a name="metricMaximumNeededExecutors" id="cdk-monitoring-constructs.GlueJobMetricFactory.metricMaximumNeededExecutors"></a>
@@ -47898,6 +48021,7 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 | <code><a href="#cdk-monitoring-constructs.ErrorType.READ_ERROR">READ_ERROR</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ErrorType.WRITE_ERROR">WRITE_ERROR</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ErrorType.EXPIRED">EXPIRED</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ErrorType.KILLED">KILLED</a></code> | *No description.* |
 
 ---
 
@@ -47952,6 +48076,11 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 ##### `EXPIRED` <a name="EXPIRED" id="cdk-monitoring-constructs.ErrorType.EXPIRED"></a>
+
+---
+
+
+##### `KILLED` <a name="KILLED" id="cdk-monitoring-constructs.ErrorType.KILLED"></a>
 
 ---
 
