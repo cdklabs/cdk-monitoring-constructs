@@ -1,4 +1,4 @@
-import { YAxisProps } from "monocdk/aws-cloudwatch";
+import { YAxisProps } from "aws-cdk-lib/aws-cloudwatch";
 
 /**
  * Y-Axis showing percentage, ranged from 0.

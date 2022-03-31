@@ -3,8 +3,8 @@ import {
   HorizontalAnnotation,
   IWidget,
   Row,
-} from "monocdk/aws-cloudwatch";
-import { CfnFunction, IFunction } from "monocdk/aws-lambda";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { CfnFunction, IFunction } from "aws-cdk-lib/aws-lambda";
 
 import {
   AgeAlarmFactory,

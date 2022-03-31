@@ -1,5 +1,5 @@
-import { IHttpApi } from "monocdk/aws-apigatewayv2";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { IHttpApi } from "@aws-cdk/aws-apigatewayv2-alpha";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   getLatencyTypeLabel,
@@ -40,7 +40,7 @@ export class ApiGatewayV2HttpApiMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
@@ -50,7 +50,7 @@ export class ApiGatewayV2HttpApiMetricFactory {
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
-    this.dimensions = {
+    this.dimensionsMap = {
       ApiId: props.api.httpApiId,
       Stage: props.apiStage ?? "$default",
       ...(props.apiMethod && { Method: props.apiMethod }),
@@ -73,7 +73,7 @@ export class ApiGatewayV2HttpApiMetricFactory {
       "Count",
       MetricStatistic.SUM,
       "Invocations",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );
@@ -84,7 +84,7 @@ export class ApiGatewayV2HttpApiMetricFactory {
       "4xx",
       MetricStatistic.SUM,
       "4xx",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );
@@ -105,7 +105,7 @@ export class ApiGatewayV2HttpApiMetricFactory {
       "5xx",
       MetricStatistic.SUM,
       "5xx",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );
@@ -169,7 +169,7 @@ export class ApiGatewayV2HttpApiMetricFactory {
       "IntegrationLatency",
       getLatencyTypeStatistic(latencyType),
       label,
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );
@@ -181,7 +181,7 @@ export class ApiGatewayV2HttpApiMetricFactory {
       "Latency",
       getLatencyTypeStatistic(latencyType),
       label,
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );

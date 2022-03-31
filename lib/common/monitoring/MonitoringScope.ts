@@ -1,4 +1,4 @@
-import { Construct } from "monocdk";
+import { Construct } from "constructs";
 
 import { IWidgetFactory } from "../../dashboard";
 import { AlarmFactory } from "../alarm";

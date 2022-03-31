@@ -1,6 +1,6 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Certificate } from "monocdk/aws-certificatemanager";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Certificate } from "aws-cdk-lib/aws-certificatemanager";
 
 import { CertificateManagerMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

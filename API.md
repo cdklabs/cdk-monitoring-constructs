@@ -16,15 +16,15 @@ new BitmapDashboard(scope: Construct, id: string, props: DashboardProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.Initializer.parameter.scope">scope</a></code> | <code>monocdk.Construct</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.Initializer.parameter.props">props</a></code> | <code>monocdk.aws_cloudwatch.DashboardProps</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_cloudwatch.DashboardProps</code> | *No description.* |
 
 ---
 
 ##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.BitmapDashboard.Initializer.parameter.scope"></a>
 
-- *Type:* monocdk.Construct
+- *Type:* constructs.Construct
 
 ---
 
@@ -36,7 +36,7 @@ new BitmapDashboard(scope: Construct, id: string, props: DashboardProps)
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.BitmapDashboard.Initializer.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.DashboardProps
+- *Type:* aws-cdk-lib.aws_cloudwatch.DashboardProps
 
 ---
 
@@ -46,7 +46,7 @@ new BitmapDashboard(scope: Construct, id: string, props: DashboardProps)
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addWidgets">addWidgets</a></code> | (experimental) Add a widget to the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
 
 ---
 
@@ -71,12 +71,12 @@ being managed by CloudFormation, either because you've removed it from the
 CDK application or because you've made a change that requires the resource
 to be replaced.
 
-The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy.parameter.policy"></a>
 
-- *Type:* monocdk.RemovalPolicy
+- *Type:* aws-cdk-lib.RemovalPolicy
 
 ---
 
@@ -86,7 +86,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 public addWidgets(widgets: IWidget): void
 ```
 
-(experimental) Add a widget to the dashboard.
+Add a widget to the dashboard.
 
 Widgets given in multiple calls to add() will be laid out stacked on
 top of each other.
@@ -96,7 +96,7 @@ to each other.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.BitmapDashboard.addWidgets.parameter.widgets"></a>
 
-- *Type:* monocdk.aws_cloudwatch.IWidget
+- *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
 
 ---
 
@@ -104,12 +104,12 @@ to each other.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.isConstruct">isConstruct</a></code> | Return whether the given object is a Construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct"></a>
 
 ```typescript
 import { BitmapDashboard } from 'cdk-monitoring-constructs'
@@ -117,11 +117,13 @@ import { BitmapDashboard } from 'cdk-monitoring-constructs'
 BitmapDashboard.isConstruct(x: any)
 ```
 
-Return whether the given object is a Construct.
+Checks if `x` is a construct.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct.parameter.x"></a>
 
 - *Type:* any
+
+Any object.
 
 ---
 
@@ -137,7 +139,7 @@ Check whether the given construct is a Resource.
 
 ###### `construct`<sup>Required</sup> <a name="construct" id="cdk-monitoring-constructs.BitmapDashboard.isResource.parameter.construct"></a>
 
-- *Type:* monocdk.IConstruct
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -145,21 +147,21 @@ Check whether the given construct is a Resource.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.node">node</a></code> | <code>monocdk.ConstructNode</code> | The construct tree node associated with this construct. |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.env">env</a></code> | <code>monocdk.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.stack">stack</a></code> | <code>monocdk.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 
 ---
 
 ##### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.BitmapDashboard.property.node"></a>
 
 ```typescript
-public readonly node: ConstructNode;
+public readonly node: Node;
 ```
 
-- *Type:* monocdk.ConstructNode
+- *Type:* constructs.Node
 
-The construct tree node associated with this construct.
+The tree node.
 
 ---
 
@@ -169,7 +171,7 @@ The construct tree node associated with this construct.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* monocdk.ResourceEnvironment
+- *Type:* aws-cdk-lib.ResourceEnvironment
 
 The environment this resource belongs to.
 
@@ -188,7 +190,7 @@ that might be different than the stack they were imported into.
 public readonly stack: Stack;
 ```
 
-- *Type:* monocdk.Stack
+- *Type:* aws-cdk-lib.Stack
 
 The stack in which this resource is defined.
 
@@ -211,14 +213,14 @@ new BitmapWidgetRenderingSupport(scope: Construct, id: string)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.Initializer.parameter.scope">scope</a></code> | <code>monocdk.Construct</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
 ##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.Initializer.parameter.scope"></a>
 
-- *Type:* monocdk.Construct
+- *Type:* constructs.Construct
 
 ---
 
@@ -253,7 +255,7 @@ public asBitmap(widget: IWidget): CustomWidget
 
 ###### `widget`<sup>Required</sup> <a name="widget" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.asBitmap.parameter.widget"></a>
 
-- *Type:* monocdk.aws_cloudwatch.IWidget
+- *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
 
 ---
 
@@ -261,11 +263,11 @@ public asBitmap(widget: IWidget): CustomWidget
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct">isConstruct</a></code> | Return whether the given object is a Construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct"></a>
 
 ```typescript
 import { BitmapWidgetRenderingSupport } from 'cdk-monitoring-constructs'
@@ -273,11 +275,13 @@ import { BitmapWidgetRenderingSupport } from 'cdk-monitoring-constructs'
 BitmapWidgetRenderingSupport.isConstruct(x: any)
 ```
 
-Return whether the given object is a Construct.
+Checks if `x` is a construct.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct.parameter.x"></a>
 
 - *Type:* any
+
+Any object.
 
 ---
 
@@ -285,20 +289,20 @@ Return whether the given object is a Construct.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.property.node">node</a></code> | <code>monocdk.ConstructNode</code> | The construct tree node associated with this construct. |
-| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.property.handler">handler</a></code> | <code>monocdk.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 
 ---
 
 ##### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.property.node"></a>
 
 ```typescript
-public readonly node: ConstructNode;
+public readonly node: Node;
 ```
 
-- *Type:* monocdk.ConstructNode
+- *Type:* constructs.Node
 
-The construct tree node associated with this construct.
+The tree node.
 
 ---
 
@@ -308,7 +312,7 @@ The construct tree node associated with this construct.
 public readonly handler: IFunction;
 ```
 
-- *Type:* monocdk.aws_lambda.IFunction
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -329,15 +333,15 @@ new DashboardWithBitmapCopy(scope: Construct, id: string, props: DashboardProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.Initializer.parameter.scope">scope</a></code> | <code>monocdk.Construct</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.Initializer.parameter.props">props</a></code> | <code>monocdk.aws_cloudwatch.DashboardProps</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_cloudwatch.DashboardProps</code> | *No description.* |
 
 ---
 
 ##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.Initializer.parameter.scope"></a>
 
-- *Type:* monocdk.Construct
+- *Type:* constructs.Construct
 
 ---
 
@@ -349,7 +353,7 @@ new DashboardWithBitmapCopy(scope: Construct, id: string, props: DashboardProps)
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.Initializer.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.DashboardProps
+- *Type:* aws-cdk-lib.aws_cloudwatch.DashboardProps
 
 ---
 
@@ -359,7 +363,7 @@ new DashboardWithBitmapCopy(scope: Construct, id: string, props: DashboardProps)
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets">addWidgets</a></code> | (experimental) Add a widget to the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
 
 ---
 
@@ -384,12 +388,12 @@ being managed by CloudFormation, either because you've removed it from the
 CDK application or because you've made a change that requires the resource
 to be replaced.
 
-The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy.parameter.policy"></a>
 
-- *Type:* monocdk.RemovalPolicy
+- *Type:* aws-cdk-lib.RemovalPolicy
 
 ---
 
@@ -399,7 +403,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 public addWidgets(widgets: IWidget): void
 ```
 
-(experimental) Add a widget to the dashboard.
+Add a widget to the dashboard.
 
 Widgets given in multiple calls to add() will be laid out stacked on
 top of each other.
@@ -409,7 +413,7 @@ to each other.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets.parameter.widgets"></a>
 
-- *Type:* monocdk.aws_cloudwatch.IWidget
+- *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
 
 ---
 
@@ -417,12 +421,12 @@ to each other.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct">isConstruct</a></code> | Return whether the given object is a Construct. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct"></a>
 
 ```typescript
 import { DashboardWithBitmapCopy } from 'cdk-monitoring-constructs'
@@ -430,11 +434,13 @@ import { DashboardWithBitmapCopy } from 'cdk-monitoring-constructs'
 DashboardWithBitmapCopy.isConstruct(x: any)
 ```
 
-Return whether the given object is a Construct.
+Checks if `x` is a construct.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct.parameter.x"></a>
 
 - *Type:* any
+
+Any object.
 
 ---
 
@@ -450,7 +456,7 @@ Check whether the given construct is a Resource.
 
 ###### `construct`<sup>Required</sup> <a name="construct" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isResource.parameter.construct"></a>
 
-- *Type:* monocdk.IConstruct
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -458,21 +464,21 @@ Check whether the given construct is a Resource.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.node">node</a></code> | <code>monocdk.ConstructNode</code> | The construct tree node associated with this construct. |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.env">env</a></code> | <code>monocdk.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.stack">stack</a></code> | <code>monocdk.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 
 ---
 
 ##### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.property.node"></a>
 
 ```typescript
-public readonly node: ConstructNode;
+public readonly node: Node;
 ```
 
-- *Type:* monocdk.ConstructNode
+- *Type:* constructs.Node
 
-The construct tree node associated with this construct.
+The tree node.
 
 ---
 
@@ -482,7 +488,7 @@ The construct tree node associated with this construct.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* monocdk.ResourceEnvironment
+- *Type:* aws-cdk-lib.ResourceEnvironment
 
 The environment this resource belongs to.
 
@@ -501,7 +507,7 @@ that might be different than the stack they were imported into.
 public readonly stack: Stack;
 ```
 
-- *Type:* monocdk.Stack
+- *Type:* aws-cdk-lib.Stack
 
 The stack in which this resource is defined.
 
@@ -522,7 +528,7 @@ new DefaultDashboardFactory(scope: Construct, id: string, props: MonitoringDashb
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.Initializer.parameter.scope">scope</a></code> | <code>monocdk.Construct</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps">MonitoringDashboardsProps</a></code> | *No description.* |
 
@@ -530,7 +536,7 @@ new DefaultDashboardFactory(scope: Construct, id: string, props: MonitoringDashb
 
 ##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.DefaultDashboardFactory.Initializer.parameter.scope"></a>
 
-- *Type:* monocdk.Construct
+- *Type:* constructs.Construct
 
 ---
 
@@ -600,11 +606,11 @@ public createdSummaryDashboard(): Dashboard
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct">isConstruct</a></code> | Return whether the given object is a Construct. |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct"></a>
 
 ```typescript
 import { DefaultDashboardFactory } from 'cdk-monitoring-constructs'
@@ -612,11 +618,13 @@ import { DefaultDashboardFactory } from 'cdk-monitoring-constructs'
 DefaultDashboardFactory.isConstruct(x: any)
 ```
 
-Return whether the given object is a Construct.
+Checks if `x` is a construct.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct.parameter.x"></a>
 
 - *Type:* any
+
+Any object.
 
 ---
 
@@ -624,22 +632,22 @@ Return whether the given object is a Construct.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.node">node</a></code> | <code>monocdk.ConstructNode</code> | The construct tree node associated with this construct. |
-| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.alarmDashboard">alarmDashboard</a></code> | <code>monocdk.aws_cloudwatch.Dashboard</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.dashboard">dashboard</a></code> | <code>monocdk.aws_cloudwatch.Dashboard</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.summaryDashboard">summaryDashboard</a></code> | <code>monocdk.aws_cloudwatch.Dashboard</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.alarmDashboard">alarmDashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.dashboard">dashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.summaryDashboard">summaryDashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
 
 ---
 
 ##### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.DefaultDashboardFactory.property.node"></a>
 
 ```typescript
-public readonly node: ConstructNode;
+public readonly node: Node;
 ```
 
-- *Type:* monocdk.ConstructNode
+- *Type:* constructs.Node
 
-The construct tree node associated with this construct.
+The tree node.
 
 ---
 
@@ -649,7 +657,7 @@ The construct tree node associated with this construct.
 public readonly alarmDashboard: Dashboard;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Dashboard
+- *Type:* aws-cdk-lib.aws_cloudwatch.Dashboard
 
 ---
 
@@ -659,7 +667,7 @@ public readonly alarmDashboard: Dashboard;
 public readonly dashboard: Dashboard;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Dashboard
+- *Type:* aws-cdk-lib.aws_cloudwatch.Dashboard
 
 ---
 
@@ -669,7 +677,7 @@ public readonly dashboard: Dashboard;
 public readonly summaryDashboard: Dashboard;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Dashboard
+- *Type:* aws-cdk-lib.aws_cloudwatch.Dashboard
 
 ---
 
@@ -688,7 +696,7 @@ new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.scope">scope</a></code> | <code>monocdk.Construct</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps">MonitoringFacadeProps</a></code> | *No description.* |
 
@@ -696,7 +704,7 @@ new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
 
 ##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.scope"></a>
 
-- *Type:* monocdk.Construct
+- *Type:* constructs.Construct
 
 ---
 
@@ -930,7 +938,7 @@ public addWidget(widget: IWidget, addToSummary?: boolean, addToAlarm?: boolean):
 
 ###### `widget`<sup>Required</sup> <a name="widget" id="cdk-monitoring-constructs.MonitoringFacade.addWidget.parameter.widget"></a>
 
-- *Type:* monocdk.aws_cloudwatch.IWidget
+- *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
 
 ---
 
@@ -1472,7 +1480,7 @@ Monitor all the resources in the given scope.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.MonitoringFacade.monitorScope.parameter.scope"></a>
 
-- *Type:* monocdk.Construct
+- *Type:* constructs.Construct
 
 ---
 
@@ -1630,11 +1638,11 @@ public monitorWebApplicationFirewallAclV2(props: WafV2MonitoringProps): Monitori
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.isConstruct">isConstruct</a></code> | Return whether the given object is a Construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct"></a>
 
 ```typescript
 import { MonitoringFacade } from 'cdk-monitoring-constructs'
@@ -1642,11 +1650,13 @@ import { MonitoringFacade } from 'cdk-monitoring-constructs'
 MonitoringFacade.isConstruct(x: any)
 ```
 
-Return whether the given object is a Construct.
+Checks if `x` is a construct.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct.parameter.x"></a>
 
 - *Type:* any
+
+Any object.
 
 ---
 
@@ -1654,19 +1664,19 @@ Return whether the given object is a Construct.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.property.node">node</a></code> | <code>monocdk.ConstructNode</code> | The construct tree node associated with this construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 
 ---
 
 ##### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.MonitoringFacade.property.node"></a>
 
 ```typescript
-public readonly node: ConstructNode;
+public readonly node: Node;
 ```
 
-- *Type:* monocdk.ConstructNode
+- *Type:* constructs.Node
 
-The construct tree node associated with this construct.
+The tree node.
 
 ---
 
@@ -1685,8 +1695,8 @@ new MonitoringScope(scope: Construct, id: string)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringScope.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringScope.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringScope.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The scope in which to define this construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringScope.Initializer.parameter.id">id</a></code> | <code>string</code> | The scoped construct ID. |
 
 ---
 
@@ -1694,11 +1704,19 @@ new MonitoringScope(scope: Construct, id: string)
 
 - *Type:* constructs.Construct
 
+The scope in which to define this construct.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-monitoring-constructs.MonitoringScope.Initializer.parameter.id"></a>
 
 - *Type:* string
+
+The scoped construct ID.
+
+Must be unique amongst siblings. If
+the ID includes a path separator (`/`), then it will be replaced by double
+dash `--`.
 
 ---
 
@@ -1768,11 +1786,11 @@ Creates a new widget factory.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringScope.isConstruct">isConstruct</a></code> | Return whether the given object is a Construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringScope.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringScope.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringScope.isConstruct"></a>
 
 ```typescript
 import { MonitoringScope } from 'cdk-monitoring-constructs'
@@ -1780,11 +1798,13 @@ import { MonitoringScope } from 'cdk-monitoring-constructs'
 MonitoringScope.isConstruct(x: any)
 ```
 
-Return whether the given object is a Construct.
+Checks if `x` is a construct.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.MonitoringScope.isConstruct.parameter.x"></a>
 
 - *Type:* any
+
+Any object.
 
 ---
 
@@ -1792,19 +1812,19 @@ Return whether the given object is a Construct.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringScope.property.node">node</a></code> | <code>monocdk.ConstructNode</code> | The construct tree node associated with this construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringScope.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 
 ---
 
 ##### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.MonitoringScope.property.node"></a>
 
 ```typescript
-public readonly node: ConstructNode;
+public readonly node: Node;
 ```
 
-- *Type:* monocdk.ConstructNode
+- *Type:* constructs.Node
 
-The construct tree node associated with this construct.
+The tree node.
 
 ---
 
@@ -1836,7 +1856,7 @@ public addSecret(secret: ISecret): void
 
 ###### `secret`<sup>Required</sup> <a name="secret" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.addSecret.parameter.secret"></a>
 
-- *Type:* monocdk.aws_secretsmanager.ISecret
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
 
 ---
 
@@ -1844,12 +1864,12 @@ public addSecret(secret: ISecret): void
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct">isConstruct</a></code> | Return whether the given object is a Construct. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.getInstance">getInstance</a></code> | *No description.* |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct"></a>
 
 ```typescript
 import { SecretsManagerMetricsPublisher } from 'cdk-monitoring-constructs'
@@ -1857,11 +1877,13 @@ import { SecretsManagerMetricsPublisher } from 'cdk-monitoring-constructs'
 SecretsManagerMetricsPublisher.isConstruct(x: any)
 ```
 
-Return whether the given object is a Construct.
+Checks if `x` is a construct.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct.parameter.x"></a>
 
 - *Type:* any
+
+Any object.
 
 ---
 
@@ -1883,19 +1905,19 @@ SecretsManagerMetricsPublisher.getInstance(scope: MonitoringScope)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.property.node">node</a></code> | <code>monocdk.ConstructNode</code> | The construct tree node associated with this construct. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 
 ---
 
 ##### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.property.node"></a>
 
 ```typescript
-public readonly node: ConstructNode;
+public readonly node: Node;
 ```
 
-- *Type:* monocdk.ConstructNode
+- *Type:* constructs.Node
 
-The construct tree node associated with this construct.
+The tree node.
 
 ---
 
@@ -1920,9 +1942,9 @@ const addAlarmProps: AddAlarmProps = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | Alarm description is included in the ticket and therefore should describe what happened, with as much context as possible. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.alarmNameSuffix">alarmNameSuffix</a></code> | <code>string</code> | Suffix added to base alarm name. |
-| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Threshold to alarm on. |
-| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default action strategy. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
@@ -1937,7 +1959,7 @@ const addAlarmProps: AddAlarmProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 
 ---
@@ -1974,7 +1996,7 @@ Alarm names need to be unique.
 public readonly comparisonOperator: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 
 Comparison operator used to compare actual value against the threshold.
 
@@ -1998,7 +2020,7 @@ Threshold to alarm on.
 public readonly treatMissingData: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 
 Behaviour in case the metric data is missing.
 
@@ -2200,7 +2222,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -2477,7 +2499,7 @@ const alarmActionStrategyProps: AlarmActionStrategyProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmActionStrategyProps.property.customTags">customTags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmActionStrategyProps.property.dedupeString">dedupeString</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmActionStrategyProps.property.disambiguator">disambiguator</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmActionStrategyProps.property.alarm">alarm</a></code> | <code>monocdk.aws_cloudwatch.AlarmBase</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmActionStrategyProps.property.alarm">alarm</a></code> | <code>aws-cdk-lib.aws_cloudwatch.AlarmBase</code> | *No description.* |
 
 ---
 
@@ -2537,7 +2559,7 @@ public readonly disambiguator: string;
 public readonly alarm: AlarmBase;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.AlarmBase
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmBase
 
 ---
 
@@ -2560,12 +2582,12 @@ const alarmAnnotationStrategyProps: AlarmAnnotationStrategyProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.customTags">customTags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.dedupeString">dedupeString</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.disambiguator">disambiguator</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.alarm">alarm</a></code> | <code>monocdk.aws_cloudwatch.Alarm</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.comparisonOperator">comparisonOperator</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.alarm">alarm</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Alarm</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.metric">metric</a></code> | <code>monocdk.aws_cloudwatch.Metric \| monocdk.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.threshold">threshold</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -2626,7 +2648,7 @@ public readonly disambiguator: string;
 public readonly alarm: Alarm;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Alarm
+- *Type:* aws-cdk-lib.aws_cloudwatch.Alarm
 
 ---
 
@@ -2636,7 +2658,7 @@ public readonly alarm: Alarm;
 public readonly comparisonOperator: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 
 ---
 
@@ -2676,7 +2698,7 @@ public readonly fillAlarmRange: boolean;
 public readonly metric: Metric | MathExpression;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -2928,7 +2950,7 @@ const alarmMatrixWidgetProps: AlarmMatrixWidgetProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidgetProps.property.alarms">alarms</a></code> | <code>monocdk.aws_cloudwatch.IAlarm[]</code> | list of alarms to show. |
+| <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidgetProps.property.alarms">alarms</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarm[]</code> | list of alarms to show. |
 | <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidgetProps.property.height">height</a></code> | <code>number</code> | desired height. |
 | <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidgetProps.property.title">title</a></code> | <code>string</code> | widget title. |
 
@@ -2940,7 +2962,7 @@ const alarmMatrixWidgetProps: AlarmMatrixWidgetProps = { ... }
 public readonly alarms: IAlarm[];
 ```
 
-- *Type:* monocdk.aws_cloudwatch.IAlarm[]
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarm[]
 
 list of alarms to show.
 
@@ -3262,15 +3284,15 @@ const alarmWithAnnotation: AlarmWithAnnotation = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.customTags">customTags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.dedupeString">dedupeString</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.disambiguator">disambiguator</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarm">alarm</a></code> | <code>monocdk.aws_cloudwatch.Alarm</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarm">alarm</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Alarm</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmLabel">alarmLabel</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmName">alarmName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmNameSuffix">alarmNameSuffix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmRuleWhenAlarming">alarmRuleWhenAlarming</a></code> | <code>monocdk.aws_cloudwatch.IAlarmRule</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmRuleWhenInsufficientData">alarmRuleWhenInsufficientData</a></code> | <code>monocdk.aws_cloudwatch.IAlarmRule</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmRuleWhenOk">alarmRuleWhenOk</a></code> | <code>monocdk.aws_cloudwatch.IAlarmRule</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.annotation">annotation</a></code> | <code>monocdk.aws_cloudwatch.HorizontalAnnotation</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmRuleWhenAlarming">alarmRuleWhenAlarming</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmRule</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmRuleWhenInsufficientData">alarmRuleWhenInsufficientData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmRule</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmRuleWhenOk">alarmRuleWhenOk</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmRule</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.annotation">annotation</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation</code> | *No description.* |
 
 ---
 
@@ -3330,7 +3352,7 @@ public readonly disambiguator: string;
 public readonly alarm: Alarm;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Alarm
+- *Type:* aws-cdk-lib.aws_cloudwatch.Alarm
 
 ---
 
@@ -3380,7 +3402,7 @@ public readonly alarmNameSuffix: string;
 public readonly alarmRuleWhenAlarming: IAlarmRule;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.IAlarmRule
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmRule
 
 ---
 
@@ -3390,7 +3412,7 @@ public readonly alarmRuleWhenAlarming: IAlarmRule;
 public readonly alarmRuleWhenInsufficientData: IAlarmRule;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.IAlarmRule
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmRule
 
 ---
 
@@ -3400,7 +3422,7 @@ public readonly alarmRuleWhenInsufficientData: IAlarmRule;
 public readonly alarmRuleWhenOk: IAlarmRule;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.IAlarmRule
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmRule
 
 ---
 
@@ -3410,7 +3432,7 @@ public readonly alarmRuleWhenOk: IAlarmRule;
 public readonly annotation: HorizontalAnnotation;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.HorizontalAnnotation
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation
 
 ---
 
@@ -3432,7 +3454,7 @@ const anomalyDetectionThreshold: AnomalyDetectionThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -3441,9 +3463,9 @@ const anomalyDetectionThreshold: AnomalyDetectionThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmWhenAboveTheBand">alarmWhenAboveTheBand</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmWhenBelowTheBand">alarmWhenBelowTheBand</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.standardDeviationForAlarm">standardDeviationForAlarm</a></code> | <code>number</code> | *No description.* |
@@ -3510,7 +3532,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -3633,7 +3655,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -3659,7 +3681,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -3720,7 +3742,7 @@ const apiGatewayMetricFactoryProps: ApiGatewayMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.api">api</a></code> | <code>monocdk.aws_apigateway.RestApiBase</code> | API to monitor (cannot use IRestApi, since it does not provide API name). |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.RestApiBase</code> | API to monitor (cannot use IRestApi, since it does not provide API name). |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
@@ -3735,7 +3757,7 @@ const apiGatewayMetricFactoryProps: ApiGatewayMetricFactoryProps = { ... }
 public readonly api: RestApiBase;
 ```
 
-- *Type:* monocdk.aws_apigateway.RestApiBase
+- *Type:* aws-cdk-lib.aws_apigateway.RestApiBase
 
 API to monitor (cannot use IRestApi, since it does not provide API name).
 
@@ -4174,7 +4196,7 @@ const apiGatewayMonitoringProps: ApiGatewayMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.api">api</a></code> | <code>monocdk.aws_apigateway.RestApiBase</code> | API to monitor (cannot use IRestApi, since it does not provide API name). |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.RestApiBase</code> | API to monitor (cannot use IRestApi, since it does not provide API name). |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
@@ -4217,7 +4239,7 @@ const apiGatewayMonitoringProps: ApiGatewayMonitoringProps = { ... }
 public readonly api: RestApiBase;
 ```
 
-- *Type:* monocdk.aws_apigateway.RestApiBase
+- *Type:* aws-cdk-lib.aws_apigateway.RestApiBase
 
 API to monitor (cannot use IRestApi, since it does not provide API name).
 
@@ -4611,7 +4633,7 @@ const apiGatewayV2HttpApiMetricFactoryProps: ApiGatewayV2HttpApiMetricFactoryPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.api">api</a></code> | <code>monocdk.aws_apigatewayv2.IHttpApi</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.api">api</a></code> | <code>@aws-cdk/aws-apigatewayv2-alpha.IHttpApi</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
@@ -4626,7 +4648,7 @@ const apiGatewayV2HttpApiMetricFactoryProps: ApiGatewayV2HttpApiMetricFactoryPro
 public readonly api: IHttpApi;
 ```
 
-- *Type:* monocdk.aws_apigatewayv2.IHttpApi
+- *Type:* @aws-cdk/aws-apigatewayv2-alpha.IHttpApi
 
 ---
 
@@ -4701,7 +4723,7 @@ const apiGatewayV2HttpApiMonitoringProps: ApiGatewayV2HttpApiMonitoringProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.api">api</a></code> | <code>monocdk.aws_apigatewayv2.IHttpApi</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.api">api</a></code> | <code>@aws-cdk/aws-apigatewayv2-alpha.IHttpApi</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
@@ -4758,7 +4780,7 @@ const apiGatewayV2HttpApiMonitoringProps: ApiGatewayV2HttpApiMonitoringProps = {
 public readonly api: IHttpApi;
 ```
 
-- *Type:* monocdk.aws_apigatewayv2.IHttpApi
+- *Type:* @aws-cdk/aws-apigatewayv2-alpha.IHttpApi
 
 ---
 
@@ -5808,8 +5830,8 @@ const applicationLoadBalancerMetricFactoryProps: ApplicationLoadBalancerMetricFa
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
 
 ---
 
@@ -5819,7 +5841,7 @@ const applicationLoadBalancerMetricFactoryProps: ApplicationLoadBalancerMetricFa
 public readonly applicationLoadBalancer: ApplicationLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
 
 ---
 
@@ -5829,7 +5851,7 @@ public readonly applicationLoadBalancer: ApplicationLoadBalancer;
 public readonly applicationTargetGroup: ApplicationTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
 
 ---
 
@@ -5847,7 +5869,7 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code>monocdk.aws_appsync.GraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.GraphqlApi</code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
@@ -5859,7 +5881,7 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 public readonly api: GraphqlApi;
 ```
 
-- *Type:* monocdk.aws_appsync.GraphqlApi
+- *Type:* @aws-cdk/aws-appsync-alpha.GraphqlApi
 
 the GraphQL API to monitor.
 
@@ -6142,7 +6164,7 @@ const appSyncMonitoringProps: AppSyncMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>monocdk.aws_appsync.GraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.GraphqlApi</code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
@@ -6342,7 +6364,7 @@ public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
 public readonly api: GraphqlApi;
 ```
 
-- *Type:* monocdk.aws_appsync.GraphqlApi
+- *Type:* @aws-cdk/aws-appsync-alpha.GraphqlApi
 
 the GraphQL API to monitor.
 
@@ -6388,7 +6410,7 @@ const autoScalingGroupMetricFactoryProps: AutoScalingGroupMetricFactoryProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>monocdk.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
 
 ---
 
@@ -6398,7 +6420,7 @@ const autoScalingGroupMetricFactoryProps: AutoScalingGroupMetricFactoryProps = {
 public readonly autoScalingGroup: IAutoScalingGroup;
 ```
 
-- *Type:* monocdk.aws_autoscaling.IAutoScalingGroup
+- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
 
 ---
 
@@ -6538,7 +6560,7 @@ const autoScalingGroupMonitoringProps: AutoScalingGroupMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>monocdk.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -6555,7 +6577,7 @@ const autoScalingGroupMonitoringProps: AutoScalingGroupMonitoringProps = { ... }
 public readonly autoScalingGroup: IAutoScalingGroup;
 ```
 
-- *Type:* monocdk.aws_autoscaling.IAutoScalingGroup
+- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
 
 ---
 
@@ -6675,7 +6697,7 @@ const availabilityThreshold: AvailabilityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -6684,9 +6706,9 @@ const availabilityThreshold: AvailabilityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.minAvailabilityPercent">minAvailabilityPercent</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -6750,7 +6772,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -6873,7 +6895,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -6899,7 +6921,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -7303,7 +7325,7 @@ const baseServiceMetricFactoryProps: BaseServiceMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.service">service</a></code> | <code>monocdk.aws_ecs.BaseService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.service">service</a></code> | <code>aws-cdk-lib.aws_ecs.BaseService</code> | *No description.* |
 
 ---
 
@@ -7313,7 +7335,7 @@ const baseServiceMetricFactoryProps: BaseServiceMetricFactoryProps = { ... }
 public readonly service: BaseService;
 ```
 
-- *Type:* monocdk.aws_ecs.BaseService
+- *Type:* aws-cdk-lib.aws_ecs.BaseService
 
 ---
 
@@ -7658,7 +7680,7 @@ const certificateManagerMetricFactoryProps: CertificateManagerMetricFactoryProps
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CertificateManagerMetricFactoryProps.property.certificate">certificate</a></code> | <code>monocdk.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMetricFactoryProps.property.certificate">certificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
 
 ---
 
@@ -7668,7 +7690,7 @@ const certificateManagerMetricFactoryProps: CertificateManagerMetricFactoryProps
 public readonly certificate: ICertificate;
 ```
 
-- *Type:* monocdk.aws_certificatemanager.ICertificate
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
 
 ---
 
@@ -7827,7 +7849,7 @@ const certificateManagerMonitoringProps: CertificateManagerMonitoringProps = { .
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.addDaysToExpiryAlarm">addDaysToExpiryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysToExpiryThreshold">DaysToExpiryThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.certificate">certificate</a></code> | <code>monocdk.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.certificate">certificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
 
 ---
 
@@ -7945,7 +7967,7 @@ public readonly addDaysToExpiryAlarm: {[ key: string ]: DaysToExpiryThreshold};
 public readonly certificate: ICertificate;
 ```
 
-- *Type:* monocdk.aws_certificatemanager.ICertificate
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
 
 ---
 
@@ -7963,7 +7985,7 @@ const cloudFrontDistributionMetricFactoryProps: CloudFrontDistributionMetricFact
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.distribution">distribution</a></code> | <code>monocdk.aws_cloudfront.IDistribution</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.IDistribution</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 
 ---
@@ -7974,7 +7996,7 @@ const cloudFrontDistributionMetricFactoryProps: CloudFrontDistributionMetricFact
 public readonly distribution: IDistribution;
 ```
 
-- *Type:* monocdk.aws_cloudfront.IDistribution
+- *Type:* aws-cdk-lib.aws_cloudfront.IDistribution
 
 ---
 
@@ -8125,7 +8147,7 @@ const cloudFrontDistributionMonitoringProps: CloudFrontDistributionMonitoringPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.distribution">distribution</a></code> | <code>monocdk.aws_cloudfront.IDistribution</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.IDistribution</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -8147,7 +8169,7 @@ const cloudFrontDistributionMonitoringProps: CloudFrontDistributionMonitoringPro
 public readonly distribution: IDistribution;
 ```
 
-- *Type:* monocdk.aws_cloudfront.IDistribution
+- *Type:* aws-cdk-lib.aws_cloudfront.IDistribution
 
 ---
 
@@ -8314,7 +8336,7 @@ const codeBuildProjectMetricFactoryProps: CodeBuildProjectMetricFactoryProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps.property.project">project</a></code> | <code>monocdk.aws_codebuild.IProject</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps.property.project">project</a></code> | <code>aws-cdk-lib.aws_codebuild.IProject</code> | *No description.* |
 
 ---
 
@@ -8324,7 +8346,7 @@ const codeBuildProjectMetricFactoryProps: CodeBuildProjectMetricFactoryProps = {
 public readonly project: IProject;
 ```
 
-- *Type:* monocdk.aws_codebuild.IProject
+- *Type:* aws-cdk-lib.aws_codebuild.IProject
 
 ---
 
@@ -8521,7 +8543,7 @@ const codeBuildProjectMonitoringProps: CodeBuildProjectMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.project">project</a></code> | <code>monocdk.aws_codebuild.IProject</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.project">project</a></code> | <code>aws-cdk-lib.aws_codebuild.IProject</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -8543,7 +8565,7 @@ const codeBuildProjectMonitoringProps: CodeBuildProjectMonitoringProps = { ... }
 public readonly project: IProject;
 ```
 
-- *Type:* monocdk.aws_codebuild.IProject
+- *Type:* aws-cdk-lib.aws_codebuild.IProject
 
 ---
 
@@ -8713,7 +8735,7 @@ const consumedCapacityThreshold: ConsumedCapacityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -8722,9 +8744,9 @@ const consumedCapacityThreshold: ConsumedCapacityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.maxConsumedCapacityUnits">maxConsumedCapacityUnits</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -8788,7 +8810,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -8911,7 +8933,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -8937,7 +8959,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -8974,7 +8996,7 @@ const customAlarmThreshold: CustomAlarmThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -8983,9 +9005,9 @@ const customAlarmThreshold: CustomAlarmThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 
 ---
 
@@ -9048,7 +9070,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -9171,7 +9193,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -9197,7 +9219,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -9230,13 +9252,13 @@ const customEc2ServiceMonitoringProps: CustomEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>monocdk.aws_ecs.Ec2Service</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer \| monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup \| monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
 
 ---
 
@@ -9400,7 +9422,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly ec2Service: Ec2Service;
 ```
 
-- *Type:* monocdk.aws_ecs.Ec2Service
+- *Type:* aws-cdk-lib.aws_ecs.Ec2Service
 
 ---
 
@@ -9450,7 +9472,7 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 public readonly loadBalancer: ApplicationLoadBalancer | NetworkLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer | monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer | aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
 
 ---
 
@@ -9460,7 +9482,7 @@ public readonly loadBalancer: ApplicationLoadBalancer | NetworkLoadBalancer;
 public readonly targetGroup: ApplicationTargetGroup | NetworkTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup | monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup | aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
 
 ---
 
@@ -9490,13 +9512,13 @@ const customFargateServiceMonitoringProps: CustomFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>monocdk.aws_ecs.FargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer \| monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup \| monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
 
 ---
 
@@ -9660,7 +9682,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly fargateService: FargateService;
 ```
 
-- *Type:* monocdk.aws_ecs.FargateService
+- *Type:* aws-cdk-lib.aws_ecs.FargateService
 
 ---
 
@@ -9710,7 +9732,7 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 public readonly loadBalancer: ApplicationLoadBalancer | NetworkLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer | monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer | aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
 
 ---
 
@@ -9720,7 +9742,7 @@ public readonly loadBalancer: ApplicationLoadBalancer | NetworkLoadBalancer;
 public readonly targetGroup: ApplicationTargetGroup | NetworkTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup | monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup | aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
 
 ---
 
@@ -9740,13 +9762,13 @@ const customMetricGroup: CustomMetricGroup = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.metrics">metrics</a></code> | <code>monocdk.aws_cloudwatch.Metric \| monocdk.aws_cloudwatch.MathExpression \| <a href="#cdk-monitoring-constructs.CustomMetricWithAlarm">CustomMetricWithAlarm</a> \| <a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection">CustomMetricWithAnomalyDetection</a> \| <a href="#cdk-monitoring-constructs.CustomMetricSearch">CustomMetricSearch</a>[]</code> | list of metrics in the group (can be defined in different ways, see the type documentation). |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression \| <a href="#cdk-monitoring-constructs.CustomMetricWithAlarm">CustomMetricWithAlarm</a> \| <a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection">CustomMetricWithAnomalyDetection</a> \| <a href="#cdk-monitoring-constructs.CustomMetricSearch">CustomMetricSearch</a>[]</code> | list of metrics in the group (can be defined in different ways, see the type documentation). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.title">title</a></code> | <code>string</code> | title of the whole group. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetAxis">graphWidgetAxis</a></code> | <code>monocdk.aws_cloudwatch.YAxisProps</code> | optional axis. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis">graphWidgetRightAxis</a></code> | <code>monocdk.aws_cloudwatch.YAxisProps</code> | optional right axis default: undefined. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetAxis">graphWidgetAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional axis. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis">graphWidgetRightAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional right axis default: undefined. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetType">graphWidgetType</a></code> | <code><a href="#cdk-monitoring-constructs.GraphWidgetType">GraphWidgetType</a></code> | type of the widget. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalAnnotations">horizontalAnnotations</a></code> | <code>monocdk.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together). |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalRightAnnotations">horizontalRightAnnotations</a></code> | <code>monocdk.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together). |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalAnnotations">horizontalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together). |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalRightAnnotations">horizontalRightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.important">important</a></code> | <code>boolean</code> | Flag indicating, whether this is an important metric group that should be included in the summary as well. |
 
 ---
@@ -9757,7 +9779,7 @@ const customMetricGroup: CustomMetricGroup = { ... }
 public readonly metrics: Metric | MathExpression | CustomMetricWithAlarm | CustomMetricWithAnomalyDetection | CustomMetricSearch[];
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression | <a href="#cdk-monitoring-constructs.CustomMetricWithAlarm">CustomMetricWithAlarm</a> | <a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection">CustomMetricWithAnomalyDetection</a> | <a href="#cdk-monitoring-constructs.CustomMetricSearch">CustomMetricSearch</a>[]
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression | <a href="#cdk-monitoring-constructs.CustomMetricWithAlarm">CustomMetricWithAlarm</a> | <a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection">CustomMetricWithAnomalyDetection</a> | <a href="#cdk-monitoring-constructs.CustomMetricSearch">CustomMetricSearch</a>[]
 
 list of metrics in the group (can be defined in different ways, see the type documentation).
 
@@ -9781,7 +9803,7 @@ title of the whole group.
 public readonly graphWidgetAxis: YAxisProps;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.YAxisProps
+- *Type:* aws-cdk-lib.aws_cloudwatch.YAxisProps
 - *Default:* undefined
 
 optional axis.
@@ -9794,7 +9816,7 @@ optional axis.
 public readonly graphWidgetRightAxis: YAxisProps;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.YAxisProps
+- *Type:* aws-cdk-lib.aws_cloudwatch.YAxisProps
 
 optional right axis default: undefined.
 
@@ -9819,7 +9841,7 @@ type of the widget.
 public readonly horizontalAnnotations: HorizontalAnnotation[];
 ```
 
-- *Type:* monocdk.aws_cloudwatch.HorizontalAnnotation[]
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together).
 
@@ -9831,7 +9853,7 @@ optional custom horizontal annotations which will be displayed over the metrics 
 public readonly horizontalRightAnnotations: HorizontalAnnotation[];
 ```
 
-- *Type:* monocdk.aws_cloudwatch.HorizontalAnnotation[]
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together).
 
@@ -9864,9 +9886,9 @@ const customMetricGroupWithAnnotations: CustomMetricGroupWithAnnotations = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.annotations">annotations</a></code> | <code>monocdk.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.annotations">annotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.metricGroup">metricGroup</a></code> | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup">CustomMetricGroup</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.rightAnnotations">rightAnnotations</a></code> | <code>monocdk.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.rightAnnotations">rightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.titleAddons">titleAddons</a></code> | <code>string[]</code> | *No description.* |
 
 ---
@@ -9877,7 +9899,7 @@ const customMetricGroupWithAnnotations: CustomMetricGroupWithAnnotations = { ...
 public readonly annotations: HorizontalAnnotation[];
 ```
 
-- *Type:* monocdk.aws_cloudwatch.HorizontalAnnotation[]
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -9897,7 +9919,7 @@ public readonly metricGroup: CustomMetricGroup;
 public readonly rightAnnotations: HorizontalAnnotation[];
 ```
 
-- *Type:* monocdk.aws_cloudwatch.HorizontalAnnotation[]
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -9927,23 +9949,23 @@ const customMetricSearch: CustomMetricSearch = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.dimensions">dimensions</a></code> | <code>{[ key: string ]: any}</code> | search dimensions (can be empty). |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.dimensionsMap">dimensionsMap</a></code> | <code>{[ key: string ]: string}</code> | search dimensions (can be empty). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.searchQuery">searchQuery</a></code> | <code>string</code> | search query (can be empty). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.statistic">statistic</a></code> | <code><a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a></code> | metric statistic. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.label">label</a></code> | <code>string</code> | custom label for the metrics. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.namespace">namespace</a></code> | <code>string</code> | metric namespace. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.period">period</a></code> | <code>monocdk.Duration</code> | metric period. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | metric period. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.position">position</a></code> | <code><a href="#cdk-monitoring-constructs.AxisPosition">AxisPosition</a></code> | axis (right or left) on which to graph metric default: AxisPosition.LEFT. |
 
 ---
 
-##### `dimensions`<sup>Required</sup> <a name="dimensions" id="cdk-monitoring-constructs.CustomMetricSearch.property.dimensions"></a>
+##### `dimensionsMap`<sup>Required</sup> <a name="dimensionsMap" id="cdk-monitoring-constructs.CustomMetricSearch.property.dimensionsMap"></a>
 
 ```typescript
-public readonly dimensions: {[ key: string ]: any};
+public readonly dimensionsMap: {[ key: string ]: string};
 ```
 
-- *Type:* {[ key: string ]: any}
+- *Type:* {[ key: string ]: string}
 
 search dimensions (can be empty).
 
@@ -10005,7 +10027,7 @@ metric namespace.
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* global default
 
 metric period.
@@ -10042,7 +10064,7 @@ const customMetricWithAlarm: CustomMetricWithAlarm = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricWithAlarm.property.addAlarm">addAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.CustomThreshold">CustomThreshold</a>}</code> | alarm definitions. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricWithAlarm.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | alarm friendly name. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricWithAlarm.property.metric">metric</a></code> | <code>monocdk.aws_cloudwatch.Metric \| monocdk.aws_cloudwatch.MathExpression</code> | metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricWithAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricWithAlarm.property.position">position</a></code> | <code><a href="#cdk-monitoring-constructs.AxisPosition">AxisPosition</a></code> | axis (right or left) on which to graph metric default: AxisPosition.LEFT. |
 
 ---
@@ -10077,7 +10099,7 @@ alarm friendly name.
 public readonly metric: Metric | MathExpression;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 metric to alarm on.
 
@@ -10113,9 +10135,9 @@ const customMetricWithAnomalyDetection: CustomMetricWithAnomalyDetection = { ...
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | alarm friendly name. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection.property.anomalyDetectionStandardDeviationToRender">anomalyDetectionStandardDeviationToRender</a></code> | <code>number</code> | standard deviation for the anomaly detection to be rendered on the graph widget. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection.property.metric">metric</a></code> | <code>monocdk.aws_cloudwatch.Metric \| monocdk.aws_cloudwatch.MathExpression</code> | metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection.property.addAlarmOnAnomaly">addAlarmOnAnomaly</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold">AnomalyDetectionThreshold</a>}</code> | adds alarm on a detected anomaly. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection.property.period">period</a></code> | <code>monocdk.Duration</code> | anomaly detection period. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | anomaly detection period. |
 
 ---
 
@@ -10149,7 +10171,7 @@ standard deviation for the anomaly detection to be rendered on the graph widget.
 public readonly metric: Metric | MathExpression;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 metric to alarm on.
 
@@ -10173,7 +10195,7 @@ adds alarm on a detected anomaly.
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* metric period (if defined) or global default
 
 anomaly detection period.
@@ -10353,7 +10375,7 @@ const customThreshold: CustomThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -10362,10 +10384,10 @@ const customThreshold: CustomThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
-| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.comparisonOperator">comparisonOperator</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.threshold">threshold</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.additionalDescription">additionalDescription</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.dedupeString">dedupeString</a></code> | <code>string</code> | *No description.* |
@@ -10431,7 +10453,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -10554,7 +10576,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -10580,7 +10602,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -10593,7 +10615,7 @@ Behaviour in case the metric data is missing.
 public readonly comparisonOperator: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 
 ---
 
@@ -10643,7 +10665,7 @@ const customWidgetProps: CustomWidgetProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.CustomWidgetProps.property.handler">handler</a></code> | <code>monocdk.aws_lambda.IFunction</code> | Lambda providing the widget contents. |
+| <code><a href="#cdk-monitoring-constructs.CustomWidgetProps.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | Lambda providing the widget contents. |
 | <code><a href="#cdk-monitoring-constructs.CustomWidgetProps.property.handlerParams">handlerParams</a></code> | <code>any</code> | Arguments to pass to the Lambda. |
 | <code><a href="#cdk-monitoring-constructs.CustomWidgetProps.property.height">height</a></code> | <code>number</code> | Height of the widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomWidgetProps.property.title">title</a></code> | <code>string</code> | Title for the graph. |
@@ -10660,7 +10682,7 @@ const customWidgetProps: CustomWidgetProps = { ... }
 public readonly handler: IFunction;
 ```
 
-- *Type:* monocdk.aws_lambda.IFunction
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 Lambda providing the widget contents.
 
@@ -10783,7 +10805,7 @@ const daysSinceUpdateThreshold: DaysSinceUpdateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -10792,9 +10814,9 @@ const daysSinceUpdateThreshold: DaysSinceUpdateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.maxDaysSinceUpdate">maxDaysSinceUpdate</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -10858,7 +10880,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -10981,7 +11003,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -11007,7 +11029,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -11042,7 +11064,7 @@ const daysToExpiryThreshold: DaysToExpiryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -11051,9 +11073,9 @@ const daysToExpiryThreshold: DaysToExpiryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.minDaysToExpiry">minDaysToExpiry</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -11117,7 +11139,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -11240,7 +11262,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -11266,7 +11288,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -11301,7 +11323,7 @@ const durationThreshold: DurationThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -11310,10 +11332,10 @@ const durationThreshold: DurationThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
-| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.maxDuration">maxDuration</a></code> | <code>monocdk.Duration</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.maxDuration">maxDuration</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
 
 ---
 
@@ -11376,7 +11398,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -11499,7 +11521,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -11525,7 +11547,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -11538,7 +11560,7 @@ Behaviour in case the metric data is missing.
 public readonly maxDuration: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 
 ---
 
@@ -11557,7 +11579,7 @@ const dynamoTableGlobalSecondaryIndexMetricFactoryProps: DynamoTableGlobalSecond
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.globalSecondaryIndexName">globalSecondaryIndexName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.table">table</a></code> | <code>monocdk.aws_dynamodb.ITable</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | *No description.* |
 
 ---
 
@@ -11577,7 +11599,7 @@ public readonly globalSecondaryIndexName: string;
 public readonly table: ITable;
 ```
 
-- *Type:* monocdk.aws_dynamodb.ITable
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
 ---
 
@@ -11596,7 +11618,7 @@ const dynamoTableGlobalSecondaryIndexMonitoringProps: DynamoTableGlobalSecondary
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.globalSecondaryIndexName">globalSecondaryIndexName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.table">table</a></code> | <code>monocdk.aws_dynamodb.ITable</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -11623,7 +11645,7 @@ public readonly globalSecondaryIndexName: string;
 public readonly table: ITable;
 ```
 
-- *Type:* monocdk.aws_dynamodb.ITable
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
 ---
 
@@ -11739,7 +11761,7 @@ const dynamoTableMetricFactoryProps: DynamoTableMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.table">table</a></code> | <code>monocdk.aws_dynamodb.ITable</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | *No description.* |
 
 ---
 
@@ -11749,7 +11771,7 @@ const dynamoTableMetricFactoryProps: DynamoTableMetricFactoryProps = { ... }
 public readonly table: ITable;
 ```
 
-- *Type:* monocdk.aws_dynamodb.ITable
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
 ---
 
@@ -12043,7 +12065,7 @@ const dynamoTableMonitoringProps: DynamoTableMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.table">table</a></code> | <code>monocdk.aws_dynamodb.ITable</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -12074,7 +12096,7 @@ const dynamoTableMonitoringProps: DynamoTableMonitoringProps = { ... }
 public readonly table: ITable;
 ```
 
-- *Type:* monocdk.aws_dynamodb.ITable
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
 ---
 
@@ -12332,8 +12354,8 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -12346,7 +12368,7 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>monocdk.aws_ecs.Ec2Service</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -12360,7 +12382,7 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 public readonly applicationLoadBalancer: ApplicationLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
 
 ---
 
@@ -12370,7 +12392,7 @@ public readonly applicationLoadBalancer: ApplicationLoadBalancer;
 public readonly applicationTargetGroup: ApplicationTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
 
 ---
 
@@ -12534,7 +12556,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly ec2Service: Ec2Service;
 ```
 
-- *Type:* monocdk.aws_ecs.Ec2Service
+- *Type:* aws-cdk-lib.aws_ecs.Ec2Service
 
 ---
 
@@ -12599,7 +12621,7 @@ const eC2MonitoringOptions: EC2MonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup">autoScalingGroup</a></code> | <code>monocdk.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
 
 ---
 
@@ -12707,7 +12729,7 @@ Calls provided function to process all alarms created.
 public readonly autoScalingGroup: IAutoScalingGroup;
 ```
 
-- *Type:* monocdk.aws_autoscaling.IAutoScalingGroup
+- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
 
 ---
 
@@ -12732,7 +12754,7 @@ const eC2MonitoringProps: EC2MonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>monocdk.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
 
 ---
 
@@ -12840,7 +12862,7 @@ Calls provided function to process all alarms created.
 public readonly autoScalingGroup: IAutoScalingGroup;
 ```
 
-- *Type:* monocdk.aws_autoscaling.IAutoScalingGroup
+- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
 
 ---
 
@@ -12860,8 +12882,8 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -12874,7 +12896,7 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>monocdk.aws_ecs.Ec2Service</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -12888,7 +12910,7 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 public readonly networkLoadBalancer: NetworkLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
 
 ---
 
@@ -12898,7 +12920,7 @@ public readonly networkLoadBalancer: NetworkLoadBalancer;
 public readonly networkTargetGroup: NetworkTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
 
 ---
 
@@ -13062,7 +13084,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly ec2Service: Ec2Service;
 ```
 
-- *Type:* monocdk.aws_ecs.Ec2Service
+- *Type:* aws-cdk-lib.aws_ecs.Ec2Service
 
 ---
 
@@ -13134,7 +13156,7 @@ const ec2ServiceMonitoringProps: Ec2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>monocdk.aws_ecs_patterns.NetworkLoadBalancedEc2Service \| monocdk.aws_ecs_patterns.ApplicationLoadBalancedEc2Service</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service \| aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedEc2Service</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -13302,7 +13324,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly ec2Service: NetworkLoadBalancedEc2Service | ApplicationLoadBalancedEc2Service;
 ```
 
-- *Type:* monocdk.aws_ecs_patterns.NetworkLoadBalancedEc2Service | monocdk.aws_ecs_patterns.ApplicationLoadBalancedEc2Service
+- *Type:* aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service | aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedEc2Service
 
 ---
 
@@ -13809,7 +13831,7 @@ const errorCountThreshold: ErrorCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -13818,9 +13840,9 @@ const errorCountThreshold: ErrorCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.maxErrorCount">maxErrorCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -13884,7 +13906,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -14007,7 +14029,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -14033,7 +14055,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -14068,7 +14090,7 @@ const errorRateThreshold: ErrorRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -14077,9 +14099,9 @@ const errorRateThreshold: ErrorRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.maxErrorRate">maxErrorRate</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -14143,7 +14165,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -14266,7 +14288,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -14292,7 +14314,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -14325,8 +14347,8 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -14339,7 +14361,7 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>monocdk.aws_ecs.FargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -14353,7 +14375,7 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 public readonly applicationLoadBalancer: ApplicationLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
 
 ---
 
@@ -14363,7 +14385,7 @@ public readonly applicationLoadBalancer: ApplicationLoadBalancer;
 public readonly applicationTargetGroup: ApplicationTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
 
 ---
 
@@ -14527,7 +14549,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly fargateService: FargateService;
 ```
 
-- *Type:* monocdk.aws_ecs.FargateService
+- *Type:* aws-cdk-lib.aws_ecs.FargateService
 
 ---
 
@@ -14587,8 +14609,8 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -14601,7 +14623,7 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>monocdk.aws_ecs.FargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -14615,7 +14637,7 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 public readonly networkLoadBalancer: NetworkLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
 
 ---
 
@@ -14625,7 +14647,7 @@ public readonly networkLoadBalancer: NetworkLoadBalancer;
 public readonly networkTargetGroup: NetworkTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
 
 ---
 
@@ -14789,7 +14811,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly fargateService: FargateService;
 ```
 
-- *Type:* monocdk.aws_ecs.FargateService
+- *Type:* aws-cdk-lib.aws_ecs.FargateService
 
 ---
 
@@ -14861,7 +14883,7 @@ const fargateServiceMonitoringProps: FargateServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>monocdk.aws_ecs_patterns.NetworkLoadBalancedFargateService \| monocdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService \| aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -15029,7 +15051,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly fargateService: NetworkLoadBalancedFargateService | ApplicationLoadBalancedFargateService;
 ```
 
-- *Type:* monocdk.aws_ecs_patterns.NetworkLoadBalancedFargateService | monocdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService
+- *Type:* aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService | aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService
 
 ---
 
@@ -15091,7 +15113,7 @@ const fullRestartCountThreshold: FullRestartCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -15100,9 +15122,9 @@ const fullRestartCountThreshold: FullRestartCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.maxFullRestartCount">maxFullRestartCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -15166,7 +15188,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -15289,7 +15311,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -15315,7 +15337,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -15605,7 +15627,7 @@ const healthyTaskCountThreshold: HealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -15614,9 +15636,9 @@ const healthyTaskCountThreshold: HealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minHealthyTasks">minHealthyTasks</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -15680,7 +15702,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -15803,7 +15825,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -15829,7 +15851,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -15864,7 +15886,7 @@ const healthyTaskPercentThreshold: HealthyTaskPercentThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -15873,9 +15895,9 @@ const healthyTaskPercentThreshold: HealthyTaskPercentThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minHealthyTaskPercent">minHealthyTaskPercent</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -15939,7 +15961,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -16062,7 +16084,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -16088,7 +16110,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -16123,7 +16145,7 @@ const highMessagesPublishedThreshold: HighMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -16132,9 +16154,9 @@ const highMessagesPublishedThreshold: HighMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.maxMessagesPublishedCount">maxMessagesPublishedCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -16198,7 +16220,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -16321,7 +16343,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -16347,7 +16369,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -16382,7 +16404,7 @@ const highTpsThreshold: HighTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -16391,9 +16413,9 @@ const highTpsThreshold: HighTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.maxTps">maxTps</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -16457,7 +16479,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -16580,7 +16602,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -16606,7 +16628,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -17596,7 +17618,7 @@ const lambdaFunctionMetricFactoryProps: LambdaFunctionMetricFactoryProps = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.lambdaFunction">lambdaFunction</a></code> | <code>monocdk.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.lambdaInsightsEnabled">lambdaInsightsEnabled</a></code> | <code>boolean</code> | Generate dashboard charts for Lambda Insights metrics. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
@@ -17609,7 +17631,7 @@ const lambdaFunctionMetricFactoryProps: LambdaFunctionMetricFactoryProps = { ...
 public readonly lambdaFunction: IFunction;
 ```
 
-- *Type:* monocdk.aws_lambda.IFunction
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -17996,7 +18018,7 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.lambdaFunction">lambdaFunction</a></code> | <code>monocdk.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.lambdaInsightsEnabled">lambdaInsightsEnabled</a></code> | <code>boolean</code> | Generate dashboard charts for Lambda Insights metrics. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
@@ -18035,7 +18057,7 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 public readonly lambdaFunction: IFunction;
 ```
 
-- *Type:* monocdk.aws_lambda.IFunction
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -18383,7 +18405,7 @@ const latencyThreshold: LatencyThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -18392,10 +18414,10 @@ const latencyThreshold: LatencyThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
-| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.maxLatency">maxLatency</a></code> | <code>monocdk.Duration</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.maxLatency">maxLatency</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
 
 ---
 
@@ -18458,7 +18480,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -18581,7 +18603,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -18607,7 +18629,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -18620,7 +18642,7 @@ Behaviour in case the metric data is missing.
 public readonly maxLatency: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 
 ---
 
@@ -18642,7 +18664,7 @@ const logLevelCountThreshold: LogLevelCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -18651,9 +18673,9 @@ const logLevelCountThreshold: LogLevelCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.maxLogCount">maxLogCount</a></code> | <code>number</code> | Threshold for the number of logs to alarm on. |
 
 ---
@@ -18717,7 +18739,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -18840,7 +18862,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -18866,7 +18888,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -19079,7 +19101,7 @@ const lowMessagesPublishedThreshold: LowMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -19088,9 +19110,9 @@ const lowMessagesPublishedThreshold: LowMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMessagesPublishedCount">minMessagesPublishedCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -19154,7 +19176,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -19277,7 +19299,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -19303,7 +19325,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -19338,7 +19360,7 @@ const lowTpsThreshold: LowTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -19347,9 +19369,9 @@ const lowTpsThreshold: LowTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.minTps">minTps</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -19413,7 +19435,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -19536,7 +19558,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -19562,7 +19584,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -19597,7 +19619,7 @@ const maxAgeThreshold: MaxAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -19606,9 +19628,9 @@ const maxAgeThreshold: MaxAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.maxAgeInMillis">maxAgeInMillis</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -19672,7 +19694,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -19795,7 +19817,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -19821,7 +19843,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -19856,7 +19878,7 @@ const maxDowntimeThreshold: MaxDowntimeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -19865,9 +19887,9 @@ const maxDowntimeThreshold: MaxDowntimeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.maxDowntimeInMillis">maxDowntimeInMillis</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -19931,7 +19953,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -20054,7 +20076,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -20080,7 +20102,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -20115,7 +20137,7 @@ const maxIncomingMessagesCountThreshold: MaxIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -20124,9 +20146,9 @@ const maxIncomingMessagesCountThreshold: MaxIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.maxIncomingMessagesCount">maxIncomingMessagesCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -20190,7 +20212,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -20313,7 +20335,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -20339,7 +20361,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -20374,7 +20396,7 @@ const maxItemsCountThreshold: MaxItemsCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -20383,9 +20405,9 @@ const maxItemsCountThreshold: MaxItemsCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.maxItemsCount">maxItemsCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -20449,7 +20471,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -20572,7 +20594,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -20598,7 +20620,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -20633,7 +20655,7 @@ const maxIteratorAgeThreshold: MaxIteratorAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -20642,9 +20664,9 @@ const maxIteratorAgeThreshold: MaxIteratorAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.maxAgeInMillis">maxAgeInMillis</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -20708,7 +20730,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -20831,7 +20853,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -20857,7 +20879,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -20892,7 +20914,7 @@ const maxMessageAgeThreshold: MaxMessageAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -20901,9 +20923,9 @@ const maxMessageAgeThreshold: MaxMessageAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.maxAgeInSeconds">maxAgeInSeconds</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -20967,7 +20989,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -21090,7 +21112,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -21116,7 +21138,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -21151,7 +21173,7 @@ const maxMessageCountThreshold: MaxMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -21160,9 +21182,9 @@ const maxMessageCountThreshold: MaxMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.maxMessageCount">maxMessageCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -21226,7 +21248,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -21349,7 +21371,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -21375,7 +21397,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -21410,7 +21432,7 @@ const maxTimeToDrainThreshold: MaxTimeToDrainThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -21419,10 +21441,10 @@ const maxTimeToDrainThreshold: MaxTimeToDrainThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
-| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.maxTimeToDrain">maxTimeToDrain</a></code> | <code>monocdk.Duration</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.maxTimeToDrain">maxTimeToDrain</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
 
 ---
 
@@ -21485,7 +21507,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -21608,7 +21630,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -21634,7 +21656,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -21647,7 +21669,7 @@ Behaviour in case the metric data is missing.
 public readonly maxTimeToDrain: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 
 ---
 
@@ -21669,7 +21691,7 @@ const maxUsedSwapMemoryThreshold: MaxUsedSwapMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -21678,9 +21700,9 @@ const maxUsedSwapMemoryThreshold: MaxUsedSwapMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.maxUsedSwapMemoryInBytes">maxUsedSwapMemoryInBytes</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -21744,7 +21766,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -21867,7 +21889,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -21893,7 +21915,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -21927,7 +21949,7 @@ const metricFactoryDefaults: MetricFactoryDefaults = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.namespace">namespace</a></code> | <code>string</code> | Each metric exists in a namespace. |
-| <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.period">period</a></code> | <code>monocdk.Duration</code> | Metric period. |
+| <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Metric period. |
 
 ---
 
@@ -21951,7 +21973,7 @@ AWS Services have their own namespace, but here you can specify your custom one.
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* DefaultMetricPeriod
 
 Metric period.
@@ -22008,7 +22030,7 @@ const minFreeableMemoryThreshold: MinFreeableMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -22017,9 +22039,9 @@ const minFreeableMemoryThreshold: MinFreeableMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minFreeableMemoryInBytes">minFreeableMemoryInBytes</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -22083,7 +22105,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -22206,7 +22228,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -22232,7 +22254,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -22267,7 +22289,7 @@ const minIncomingMessagesCountThreshold: MinIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -22276,9 +22298,9 @@ const minIncomingMessagesCountThreshold: MinIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minIncomingMessagesCount">minIncomingMessagesCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -22342,7 +22364,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -22465,7 +22487,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -22491,7 +22513,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -22526,7 +22548,7 @@ const minMessageCountThreshold: MinMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -22535,9 +22557,9 @@ const minMessageCountThreshold: MinMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.minMessageCount">minMessageCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -22601,7 +22623,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -22724,7 +22746,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -22750,7 +22772,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -22785,7 +22807,7 @@ const minProcessedBytesThreshold: MinProcessedBytesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -22794,9 +22816,9 @@ const minProcessedBytesThreshold: MinProcessedBytesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minProcessedBytes">minProcessedBytes</a></code> | <code>number</code> | Threshold for the least number of bytes processed. |
 
 ---
@@ -22860,7 +22882,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -22983,7 +23005,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -23009,7 +23031,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -23046,7 +23068,7 @@ const minRunningTaskCountThreshold: MinRunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -23055,9 +23077,9 @@ const minRunningTaskCountThreshold: MinRunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minRunningTasks">minRunningTasks</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -23121,7 +23143,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -23244,7 +23266,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -23270,7 +23292,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -23713,10 +23735,10 @@ const monitoringDashboardsProps: MonitoringDashboardsProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createSummaryDashboard">createSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating whether the summary dashboard should be created. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.dashboardNamePrefix">dashboardNamePrefix</a></code> | <code>string</code> | Prefix added to each dashboard name. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.renderingPreference">renderingPreference</a></code> | <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a></code> | Dashboard rendering preference. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.detailDashboardPeriodOverride">detailDashboardPeriodOverride</a></code> | <code>monocdk.aws_cloudwatch.PeriodOverride</code> | Period override for the detail dashboard (and other auxiliary dashboards). |
-| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.detailDashboardRange">detailDashboardRange</a></code> | <code>monocdk.Duration</code> | Range of the detail dashboard (and other auxiliary dashboards). |
-| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardPeriodOverride">summaryDashboardPeriodOverride</a></code> | <code>monocdk.aws_cloudwatch.PeriodOverride</code> | Period override for the summary dashboard. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardRange">summaryDashboardRange</a></code> | <code>monocdk.Duration</code> | Range of the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.detailDashboardPeriodOverride">detailDashboardPeriodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the detail dashboard (and other auxiliary dashboards). |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.detailDashboardRange">detailDashboardRange</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the detail dashboard (and other auxiliary dashboards). |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardPeriodOverride">summaryDashboardPeriodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardRange">summaryDashboardRange</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the summary dashboard. |
 
 ---
 
@@ -23794,7 +23816,7 @@ Dashboard rendering preference.
 public readonly detailDashboardPeriodOverride: PeriodOverride;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.PeriodOverride
+- *Type:* aws-cdk-lib.aws_cloudwatch.PeriodOverride
 - *Default:* automatic (period dependent)
 
 Period override for the detail dashboard (and other auxiliary dashboards).
@@ -23807,7 +23829,7 @@ Period override for the detail dashboard (and other auxiliary dashboards).
 public readonly detailDashboardRange: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* 8 hours
 
 Range of the detail dashboard (and other auxiliary dashboards).
@@ -23822,7 +23844,7 @@ Range of the detail dashboard (and other auxiliary dashboards).
 public readonly summaryDashboardPeriodOverride: PeriodOverride;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.PeriodOverride
+- *Type:* aws-cdk-lib.aws_cloudwatch.PeriodOverride
 - *Default:* automatic (period dependent)
 
 Period override for the summary dashboard.
@@ -23835,7 +23857,7 @@ Period override for the summary dashboard.
 public readonly summaryDashboardRange: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* 14 days
 
 Range of the summary dashboard.
@@ -23960,7 +23982,7 @@ const nameResolutionInput: NameResolutionInput = { ... }
 | <code><a href="#cdk-monitoring-constructs.NameResolutionInput.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.NameResolutionInput.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
 | <code><a href="#cdk-monitoring-constructs.NameResolutionInput.property.fallbackConstructName">fallbackConstructName</a></code> | <code>string</code> | Fallback name before we fallback to extracting name from the construct itself. |
-| <code><a href="#cdk-monitoring-constructs.NameResolutionInput.property.namedConstruct">namedConstruct</a></code> | <code>monocdk.IConstruct</code> | Construct that this naming strategy is naming. |
+| <code><a href="#cdk-monitoring-constructs.NameResolutionInput.property.namedConstruct">namedConstruct</a></code> | <code>constructs.IConstruct</code> | Construct that this naming strategy is naming. |
 
 ---
 
@@ -24032,7 +24054,7 @@ This might be some construct reference, such is cluster ID, stream name, and so 
 public readonly namedConstruct: IConstruct;
 ```
 
-- *Type:* monocdk.IConstruct
+- *Type:* constructs.IConstruct
 
 Construct that this naming strategy is naming.
 
@@ -24056,8 +24078,8 @@ const networkLoadBalancerMetricFactoryProps: NetworkLoadBalancerMetricFactoryPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
 
 ---
 
@@ -24067,7 +24089,7 @@ const networkLoadBalancerMetricFactoryProps: NetworkLoadBalancerMetricFactoryPro
 public readonly networkLoadBalancer: NetworkLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
 
 ---
 
@@ -24077,7 +24099,7 @@ public readonly networkLoadBalancer: NetworkLoadBalancer;
 public readonly networkTargetGroup: NetworkTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
 
 ---
 
@@ -24095,8 +24117,8 @@ const networkLoadBalancerMonitoringProps: NetworkLoadBalancerMonitoringProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -24117,7 +24139,7 @@ const networkLoadBalancerMonitoringProps: NetworkLoadBalancerMonitoringProps = {
 public readonly networkLoadBalancer: NetworkLoadBalancer;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
 
 ---
 
@@ -24127,7 +24149,7 @@ public readonly networkLoadBalancer: NetworkLoadBalancer;
 public readonly networkTargetGroup: NetworkTargetGroup;
 ```
 
-- *Type:* monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
 
 ---
 
@@ -24287,7 +24309,7 @@ const notificationsFailedThreshold: NotificationsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -24296,9 +24318,9 @@ const notificationsFailedThreshold: NotificationsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.maxNotificationsFailedCount">maxNotificationsFailedCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -24362,7 +24384,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -24485,7 +24507,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -24511,7 +24533,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -24546,7 +24568,7 @@ const openSearchClusterAutomatedSnapshotFailureThreshold: OpenSearchClusterAutom
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -24555,9 +24577,9 @@ const openSearchClusterAutomatedSnapshotFailureThreshold: OpenSearchClusterAutom
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.maxFailures">maxFailures</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -24621,7 +24643,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -24744,7 +24766,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -24770,7 +24792,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -24805,7 +24827,7 @@ const openSearchClusterIndexWritesBlockedThreshold: OpenSearchClusterIndexWrites
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -24814,9 +24836,9 @@ const openSearchClusterIndexWritesBlockedThreshold: OpenSearchClusterIndexWrites
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.maxBlockedWrites">maxBlockedWrites</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -24880,7 +24902,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -25003,7 +25025,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -25029,7 +25051,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -25060,7 +25082,7 @@ const openSearchClusterMetricFactoryProps: OpenSearchClusterMetricFactoryProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.domain">domain</a></code> | <code>monocdk.aws_elasticsearch.IDomain \| monocdk.aws_elasticsearch.CfnDomain \| monocdk.aws_opensearchservice.IDomain \| monocdk.aws_opensearchservice.CfnDomain</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_elasticsearch.IDomain \| aws-cdk-lib.aws_elasticsearch.CfnDomain \| aws-cdk-lib.aws_opensearchservice.IDomain \| aws-cdk-lib.aws_opensearchservice.CfnDomain</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 
 ---
@@ -25071,7 +25093,7 @@ const openSearchClusterMetricFactoryProps: OpenSearchClusterMetricFactoryProps =
 public readonly domain: IDomain | CfnDomain | IDomain | CfnDomain;
 ```
 
-- *Type:* monocdk.aws_elasticsearch.IDomain | monocdk.aws_elasticsearch.CfnDomain | monocdk.aws_opensearchservice.IDomain | monocdk.aws_opensearchservice.CfnDomain
+- *Type:* aws-cdk-lib.aws_elasticsearch.IDomain | aws-cdk-lib.aws_elasticsearch.CfnDomain | aws-cdk-lib.aws_opensearchservice.IDomain | aws-cdk-lib.aws_opensearchservice.CfnDomain
 
 ---
 
@@ -25409,7 +25431,7 @@ const openSearchClusterMonitoringProps: OpenSearchClusterMonitoringProps = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.domain">domain</a></code> | <code>monocdk.aws_elasticsearch.IDomain \| monocdk.aws_elasticsearch.CfnDomain \| monocdk.aws_opensearchservice.IDomain \| monocdk.aws_opensearchservice.CfnDomain</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_elasticsearch.IDomain \| aws-cdk-lib.aws_elasticsearch.CfnDomain \| aws-cdk-lib.aws_opensearchservice.IDomain \| aws-cdk-lib.aws_opensearchservice.CfnDomain</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -25444,7 +25466,7 @@ const openSearchClusterMonitoringProps: OpenSearchClusterMonitoringProps = { ...
 public readonly domain: IDomain | CfnDomain | IDomain | CfnDomain;
 ```
 
-- *Type:* monocdk.aws_elasticsearch.IDomain | monocdk.aws_elasticsearch.CfnDomain | monocdk.aws_opensearchservice.IDomain | monocdk.aws_opensearchservice.CfnDomain
+- *Type:* aws-cdk-lib.aws_elasticsearch.IDomain | aws-cdk-lib.aws_elasticsearch.CfnDomain | aws-cdk-lib.aws_opensearchservice.IDomain | aws-cdk-lib.aws_opensearchservice.CfnDomain
 
 ---
 
@@ -25745,7 +25767,7 @@ const openSearchClusterNodesThreshold: OpenSearchClusterNodesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -25754,9 +25776,9 @@ const openSearchClusterNodesThreshold: OpenSearchClusterNodesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minNodes">minNodes</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -25820,7 +25842,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -25943,7 +25965,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -25969,7 +25991,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -26004,7 +26026,7 @@ const openSearchClusterStatusCustomization: OpenSearchClusterStatusCustomization
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -26013,9 +26035,9 @@ const openSearchClusterStatusCustomization: OpenSearchClusterStatusCustomization
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.status">status</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatus">OpenSearchClusterStatus</a> \| <a href="#cdk-monitoring-constructs.ElasticsearchClusterStatus">ElasticsearchClusterStatus</a></code> | *No description.* |
 
 ---
@@ -26079,7 +26101,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -26202,7 +26224,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -26228,7 +26250,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -26263,7 +26285,7 @@ const openSearchKmsKeyErrorThreshold: OpenSearchKmsKeyErrorThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -26272,9 +26294,9 @@ const openSearchKmsKeyErrorThreshold: OpenSearchKmsKeyErrorThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.maxErrors">maxErrors</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -26338,7 +26360,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -26461,7 +26483,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -26487,7 +26509,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -26522,7 +26544,7 @@ const openSearchKmsKeyInaccessibleThreshold: OpenSearchKmsKeyInaccessibleThresho
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -26531,9 +26553,9 @@ const openSearchKmsKeyInaccessibleThreshold: OpenSearchKmsKeyInaccessibleThresho
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.maxAccessAttempts">maxAccessAttempts</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -26597,7 +26619,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -26720,7 +26742,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -26746,7 +26768,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -26784,7 +26806,7 @@ const queueProcessingEc2ServiceMonitoringProps: QueueProcessingEc2ServiceMonitor
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>monocdk.aws_ecs_patterns.QueueProcessingEc2Service</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.QueueProcessingEc2Service</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.addDeadLetterQueueAlarms">addDeadLetterQueueAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseDlqAlarms">BaseDlqAlarms</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.addQueueAlarms">addQueueAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseSqsQueueAlarms">BaseSqsQueueAlarms</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.addServiceAlarms">addServiceAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms">BaseFargateServiceAlarms</a></code> | *No description.* |
@@ -26895,7 +26917,7 @@ Calls provided function to process all alarms created.
 public readonly ec2Service: QueueProcessingEc2Service;
 ```
 
-- *Type:* monocdk.aws_ecs_patterns.QueueProcessingEc2Service
+- *Type:* aws-cdk-lib.aws_ecs_patterns.QueueProcessingEc2Service
 
 ---
 
@@ -26950,7 +26972,7 @@ const queueProcessingFargateServiceMonitoringProps: QueueProcessingFargateServic
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>monocdk.aws_ecs_patterns.QueueProcessingFargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.QueueProcessingFargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.addDeadLetterQueueAlarms">addDeadLetterQueueAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseDlqAlarms">BaseDlqAlarms</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.addQueueAlarms">addQueueAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseSqsQueueAlarms">BaseSqsQueueAlarms</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.addServiceAlarms">addServiceAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms">BaseFargateServiceAlarms</a></code> | *No description.* |
@@ -27061,7 +27083,7 @@ Calls provided function to process all alarms created.
 public readonly fargateService: QueueProcessingFargateService;
 ```
 
-- *Type:* monocdk.aws_ecs_patterns.QueueProcessingFargateService
+- *Type:* aws-cdk-lib.aws_ecs_patterns.QueueProcessingFargateService
 
 ---
 
@@ -27440,7 +27462,7 @@ const recordsFailedThreshold: RecordsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -27449,9 +27471,9 @@ const recordsFailedThreshold: RecordsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.maxRecordsFailedThreshold">maxRecordsFailedThreshold</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -27515,7 +27537,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -27638,7 +27660,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -27664,7 +27686,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -27699,7 +27721,7 @@ const recordsThrottledThreshold: RecordsThrottledThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -27708,9 +27730,9 @@ const recordsThrottledThreshold: RecordsThrottledThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.maxRecordsThrottledThreshold">maxRecordsThrottledThreshold</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -27774,7 +27796,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -27897,7 +27919,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -27923,7 +27945,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -28285,7 +28307,7 @@ const runningTaskCountThreshold: RunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -28294,9 +28316,9 @@ const runningTaskCountThreshold: RunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.maxRunningTasks">maxRunningTasks</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -28360,7 +28382,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -28483,7 +28505,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -28509,7 +28531,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -28544,7 +28566,7 @@ const runningTaskRateThreshold: RunningTaskRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -28553,9 +28575,9 @@ const runningTaskRateThreshold: RunningTaskRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.maxRunningTaskRate">maxRunningTaskRate</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -28619,7 +28641,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -28742,7 +28764,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -28768,7 +28790,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -28799,7 +28821,7 @@ const s3BucketMetricFactoryProps: S3BucketMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.bucket">bucket</a></code> | <code>monocdk.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.storageType">storageType</a></code> | <code><a href="#cdk-monitoring-constructs.StorageType">StorageType</a></code> | *No description.* |
 
 ---
@@ -28810,7 +28832,7 @@ const s3BucketMetricFactoryProps: S3BucketMetricFactoryProps = { ... }
 public readonly bucket: IBucket;
 ```
 
-- *Type:* monocdk.aws_s3.IBucket
+- *Type:* aws-cdk-lib.aws_s3.IBucket
 
 ---
 
@@ -28960,7 +28982,7 @@ const s3BucketMonitoringProps: S3BucketMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.bucket">bucket</a></code> | <code>monocdk.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.storageType">storageType</a></code> | <code><a href="#cdk-monitoring-constructs.StorageType">StorageType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -28978,7 +29000,7 @@ const s3BucketMonitoringProps: S3BucketMonitoringProps = { ... }
 public readonly bucket: IBucket;
 ```
 
-- *Type:* monocdk.aws_s3.IBucket
+- *Type:* aws-cdk-lib.aws_s3.IBucket
 
 ---
 
@@ -29104,7 +29126,7 @@ const secretsManagerSecretMetricFactoryProps: SecretsManagerSecretMetricFactoryP
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMetricFactoryProps.property.secret">secret</a></code> | <code>monocdk.aws_secretsmanager.ISecret</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMetricFactoryProps.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | *No description.* |
 
 ---
 
@@ -29114,7 +29136,7 @@ const secretsManagerSecretMetricFactoryProps: SecretsManagerSecretMetricFactoryP
 public readonly secret: ISecret;
 ```
 
-- *Type:* monocdk.aws_secretsmanager.ISecret
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
 
 ---
 
@@ -29290,7 +29312,7 @@ const secretsManagerSecretMonitoringProps: SecretsManagerSecretMonitoringProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.secret">secret</a></code> | <code>monocdk.aws_secretsmanager.ISecret</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -29310,7 +29332,7 @@ const secretsManagerSecretMonitoringProps: SecretsManagerSecretMonitoringProps =
 public readonly secret: ISecret;
 ```
 
-- *Type:* monocdk.aws_secretsmanager.ISecret
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
 
 ---
 
@@ -29471,7 +29493,7 @@ const simpleEc2ServiceMonitoringProps: SimpleEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>monocdk.aws_ecs.Ec2Service</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
 
 ---
 
@@ -29635,7 +29657,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly ec2Service: Ec2Service;
 ```
 
-- *Type:* monocdk.aws_ecs.Ec2Service
+- *Type:* aws-cdk-lib.aws_ecs.Ec2Service
 
 ---
 
@@ -29667,7 +29689,7 @@ const simpleFargateServiceMonitoringProps: SimpleFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>monocdk.aws_ecs.FargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
 
 ---
 
@@ -29831,7 +29853,7 @@ minimum number of tasks, as specified in your auto scaling config.
 public readonly fargateService: FargateService;
 ```
 
-- *Type:* monocdk.aws_ecs.FargateService
+- *Type:* aws-cdk-lib.aws_ecs.FargateService
 
 ---
 
@@ -29849,9 +29871,9 @@ const snsAlarmActionStrategyProps: SnsAlarmActionStrategyProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SnsAlarmActionStrategyProps.property.onAlarmTopic">onAlarmTopic</a></code> | <code>monocdk.aws_sns.ITopic</code> | Target topic used when the alarm is triggered. |
-| <code><a href="#cdk-monitoring-constructs.SnsAlarmActionStrategyProps.property.onInsufficientDataTopic">onInsufficientDataTopic</a></code> | <code>monocdk.aws_sns.ITopic</code> | Optional target topic for when the alarm goes into the INSUFFICIENT_DATA state. |
-| <code><a href="#cdk-monitoring-constructs.SnsAlarmActionStrategyProps.property.onOkTopic">onOkTopic</a></code> | <code>monocdk.aws_sns.ITopic</code> | Optional target topic for when the alarm goes into the OK state. |
+| <code><a href="#cdk-monitoring-constructs.SnsAlarmActionStrategyProps.property.onAlarmTopic">onAlarmTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | Target topic used when the alarm is triggered. |
+| <code><a href="#cdk-monitoring-constructs.SnsAlarmActionStrategyProps.property.onInsufficientDataTopic">onInsufficientDataTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | Optional target topic for when the alarm goes into the INSUFFICIENT_DATA state. |
+| <code><a href="#cdk-monitoring-constructs.SnsAlarmActionStrategyProps.property.onOkTopic">onOkTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | Optional target topic for when the alarm goes into the OK state. |
 
 ---
 
@@ -29861,7 +29883,7 @@ const snsAlarmActionStrategyProps: SnsAlarmActionStrategyProps = { ... }
 public readonly onAlarmTopic: ITopic;
 ```
 
-- *Type:* monocdk.aws_sns.ITopic
+- *Type:* aws-cdk-lib.aws_sns.ITopic
 
 Target topic used when the alarm is triggered.
 
@@ -29873,7 +29895,7 @@ Target topic used when the alarm is triggered.
 public readonly onInsufficientDataTopic: ITopic;
 ```
 
-- *Type:* monocdk.aws_sns.ITopic
+- *Type:* aws-cdk-lib.aws_sns.ITopic
 - *Default:* no notification sent
 
 Optional target topic for when the alarm goes into the INSUFFICIENT_DATA state.
@@ -29886,7 +29908,7 @@ Optional target topic for when the alarm goes into the INSUFFICIENT_DATA state.
 public readonly onOkTopic: ITopic;
 ```
 
-- *Type:* monocdk.aws_sns.ITopic
+- *Type:* aws-cdk-lib.aws_sns.ITopic
 - *Default:* no notification sent
 
 Optional target topic for when the alarm goes into the OK state.
@@ -29907,7 +29929,7 @@ const snsTopicMetricFactoryProps: SnsTopicMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SnsTopicMetricFactoryProps.property.topic">topic</a></code> | <code>monocdk.aws_sns.ITopic</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMetricFactoryProps.property.topic">topic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | *No description.* |
 
 ---
 
@@ -29917,7 +29939,7 @@ const snsTopicMetricFactoryProps: SnsTopicMetricFactoryProps = { ... }
 public readonly topic: ITopic;
 ```
 
-- *Type:* monocdk.aws_sns.ITopic
+- *Type:* aws-cdk-lib.aws_sns.ITopic
 
 ---
 
@@ -30090,7 +30112,7 @@ const snsTopicMonitoringProps: SnsTopicMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.topic">topic</a></code> | <code>monocdk.aws_sns.ITopic</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.topic">topic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -30110,7 +30132,7 @@ const snsTopicMonitoringProps: SnsTopicMonitoringProps = { ... }
 public readonly topic: ITopic;
 ```
 
-- *Type:* monocdk.aws_sns.ITopic
+- *Type:* aws-cdk-lib.aws_sns.ITopic
 
 ---
 
@@ -30256,7 +30278,7 @@ const sqsQueueMetricFactoryProps: SqsQueueMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMetricFactoryProps.property.queue">queue</a></code> | <code>monocdk.aws_sqs.IQueue</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMetricFactoryProps.property.queue">queue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
 
 ---
 
@@ -30266,7 +30288,7 @@ const sqsQueueMetricFactoryProps: SqsQueueMetricFactoryProps = { ... }
 public readonly queue: IQueue;
 ```
 
-- *Type:* monocdk.aws_sqs.IQueue
+- *Type:* aws-cdk-lib.aws_sqs.IQueue
 
 ---
 
@@ -30472,7 +30494,7 @@ const sqsQueueMonitoringProps: SqsQueueMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.queue">queue</a></code> | <code>monocdk.aws_sqs.IQueue</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.queue">queue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxSizeAlarm">addQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
@@ -30495,7 +30517,7 @@ const sqsQueueMonitoringProps: SqsQueueMonitoringProps = { ... }
 public readonly queue: IQueue;
 ```
 
-- *Type:* monocdk.aws_sqs.IQueue
+- *Type:* aws-cdk-lib.aws_sqs.IQueue
 
 ---
 
@@ -30671,7 +30693,7 @@ const sqsQueueMonitoringWithDlqProps: SqsQueueMonitoringWithDlqProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.queue">queue</a></code> | <code>monocdk.aws_sqs.IQueue</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.queue">queue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxSizeAlarm">addQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
@@ -30688,7 +30710,7 @@ const sqsQueueMonitoringWithDlqProps: SqsQueueMonitoringWithDlqProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxIncomingMessagesAlarm">addDeadLetterQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxMessageAgeAlarm">addDeadLetterQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxSizeAlarm">addDeadLetterQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.deadLetterQueue">deadLetterQueue</a></code> | <code>monocdk.aws_sqs.IQueue</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.deadLetterQueue">deadLetterQueue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueToSummaryDashboard">addDeadLetterQueueToSummaryDashboard</a></code> | <code>boolean</code> | Indicates whether the DLQ monitoring should be added to summary dashboard. |
 
 ---
@@ -30699,7 +30721,7 @@ const sqsQueueMonitoringWithDlqProps: SqsQueueMonitoringWithDlqProps = { ... }
 public readonly queue: IQueue;
 ```
 
-- *Type:* monocdk.aws_sqs.IQueue
+- *Type:* aws-cdk-lib.aws_sqs.IQueue
 
 ---
 
@@ -30897,7 +30919,7 @@ public readonly addDeadLetterQueueMaxSizeAlarm: {[ key: string ]: MaxMessageCoun
 public readonly deadLetterQueue: IQueue;
 ```
 
-- *Type:* monocdk.aws_sqs.IQueue
+- *Type:* aws-cdk-lib.aws_sqs.IQueue
 
 ---
 
@@ -30928,7 +30950,7 @@ const stepFunctionActivityMetricFactoryProps: StepFunctionActivityMetricFactoryP
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.activity">activity</a></code> | <code>monocdk.aws_stepfunctions.IActivity</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.activity">activity</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IActivity</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 
 ---
@@ -30939,7 +30961,7 @@ const stepFunctionActivityMetricFactoryProps: StepFunctionActivityMetricFactoryP
 public readonly activity: IActivity;
 ```
 
-- *Type:* monocdk.aws_stepfunctions.IActivity
+- *Type:* aws-cdk-lib.aws_stepfunctions.IActivity
 
 ---
 
@@ -30968,7 +30990,7 @@ const stepFunctionActivityMonitoringProps: StepFunctionActivityMonitoringProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.activity">activity</a></code> | <code>monocdk.aws_stepfunctions.IActivity</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.activity">activity</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IActivity</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -30992,7 +31014,7 @@ const stepFunctionActivityMonitoringProps: StepFunctionActivityMonitoringProps =
 public readonly activity: IActivity;
 ```
 
-- *Type:* monocdk.aws_stepfunctions.IActivity
+- *Type:* aws-cdk-lib.aws_stepfunctions.IActivity
 
 ---
 
@@ -31179,7 +31201,7 @@ const stepFunctionLambdaIntegrationMetricFactoryProps: StepFunctionLambdaIntegra
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.lambdaFunction">lambdaFunction</a></code> | <code>monocdk.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 
 ---
@@ -31190,7 +31212,7 @@ const stepFunctionLambdaIntegrationMetricFactoryProps: StepFunctionLambdaIntegra
 public readonly lambdaFunction: IFunction;
 ```
 
-- *Type:* monocdk.aws_lambda.IFunction
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -31219,7 +31241,7 @@ const stepFunctionLambdaIntegrationMonitoringProps: StepFunctionLambdaIntegratio
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.lambdaFunction">lambdaFunction</a></code> | <code>monocdk.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -31243,7 +31265,7 @@ const stepFunctionLambdaIntegrationMonitoringProps: StepFunctionLambdaIntegratio
 public readonly lambdaFunction: IFunction;
 ```
 
-- *Type:* monocdk.aws_lambda.IFunction
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -31430,7 +31452,7 @@ const stepFunctionMetricFactoryProps: StepFunctionMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.stateMachine">stateMachine</a></code> | <code>monocdk.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 
 ---
@@ -31441,7 +31463,7 @@ const stepFunctionMetricFactoryProps: StepFunctionMetricFactoryProps = { ... }
 public readonly stateMachine: IStateMachine;
 ```
 
-- *Type:* monocdk.aws_stepfunctions.IStateMachine
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
 
 ---
 
@@ -31693,7 +31715,7 @@ const stepFunctionMonitoringProps: StepFunctionMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.stateMachine">stateMachine</a></code> | <code>monocdk.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -31720,7 +31742,7 @@ const stepFunctionMonitoringProps: StepFunctionMonitoringProps = { ... }
 public readonly stateMachine: IStateMachine;
 ```
 
-- *Type:* monocdk.aws_stepfunctions.IStateMachine
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
 
 ---
 
@@ -32190,7 +32212,7 @@ const syntheticsCanaryMetricFactoryProps: SyntheticsCanaryMetricFactoryProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.canary">canary</a></code> | <code>monocdk.aws_synthetics.Canary</code> | CloudWatch Canary to monitor. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.canary">canary</a></code> | <code>@aws-cdk/aws-synthetics-alpha.Canary</code> | CloudWatch Canary to monitor. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | Method used to calculate relative rates. |
 
 ---
@@ -32201,7 +32223,7 @@ const syntheticsCanaryMetricFactoryProps: SyntheticsCanaryMetricFactoryProps = {
 public readonly canary: Canary;
 ```
 
-- *Type:* monocdk.aws_synthetics.Canary
+- *Type:* @aws-cdk/aws-synthetics-alpha.Canary
 
 CloudWatch Canary to monitor.
 
@@ -32411,7 +32433,7 @@ const syntheticsCanaryMonitoringProps: SyntheticsCanaryMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.canary">canary</a></code> | <code>monocdk.aws_synthetics.Canary</code> | CloudWatch Canary to monitor. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.canary">canary</a></code> | <code>@aws-cdk/aws-synthetics-alpha.Canary</code> | CloudWatch Canary to monitor. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | Method used to calculate relative rates. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -32434,7 +32456,7 @@ const syntheticsCanaryMonitoringProps: SyntheticsCanaryMonitoringProps = { ... }
 public readonly canary: Canary;
 ```
 
-- *Type:* monocdk.aws_synthetics.Canary
+- *Type:* @aws-cdk/aws-synthetics-alpha.Canary
 
 CloudWatch Canary to monitor.
 
@@ -32619,7 +32641,7 @@ const throttledEventsThreshold: ThrottledEventsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -32628,9 +32650,9 @@ const throttledEventsThreshold: ThrottledEventsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.maxThrottledEventsThreshold">maxThrottledEventsThreshold</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -32694,7 +32716,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -32817,7 +32839,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -32843,7 +32865,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -32878,7 +32900,7 @@ const unhealthyTaskCountThreshold: UnhealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -32887,9 +32909,9 @@ const unhealthyTaskCountThreshold: UnhealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.maxUnhealthyTasks">maxUnhealthyTasks</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -32953,7 +32975,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -33076,7 +33098,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -33102,7 +33124,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -33137,7 +33159,7 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -33146,9 +33168,9 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.maxUsageCount">maxUsageCount</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -33212,7 +33234,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -33335,7 +33357,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -33361,7 +33383,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -33396,7 +33418,7 @@ const usageThreshold: UsageThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
-| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>monocdk.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
@@ -33405,9 +33427,9 @@ const usageThreshold: UsageThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
-| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.period">period</a></code> | <code>monocdk.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
-| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>monocdk.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.maxUsagePercent">maxUsagePercent</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -33471,7 +33493,7 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 public readonly comparisonOperatorOverride: ComparisonOperator;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.ComparisonOperator
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
 - *Default:* alarm-specific default
 
 Comparison operator used to compare actual value against the threshold.
@@ -33594,7 +33616,7 @@ Indicates whether the alarming range of values should be highlighted in the widg
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* the default specified in MetricFactory
 
 Period override for the metric to alarm on.
@@ -33620,7 +33642,7 @@ An optional link included in the generated ticket description body.
 public readonly treatMissingDataOverride: TreatMissingData;
 ```
 
-- *Type:* monocdk.aws_cloudwatch.TreatMissingData
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
 - *Default:* alarm-specific default
 
 Behaviour in case the metric data is missing.
@@ -33718,7 +33740,7 @@ const wafV2MetricFactoryProps: WafV2MetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.acl">acl</a></code> | <code>monocdk.aws_wafv2.CfnWebACL</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -33729,7 +33751,7 @@ const wafV2MetricFactoryProps: WafV2MetricFactoryProps = { ... }
 public readonly acl: CfnWebACL;
 ```
 
-- *Type:* monocdk.aws_wafv2.CfnWebACL
+- *Type:* aws-cdk-lib.aws_wafv2.CfnWebACL
 
 ---
 
@@ -33879,7 +33901,7 @@ const wafV2MonitoringProps: WafV2MonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.acl">acl</a></code> | <code>monocdk.aws_wafv2.CfnWebACL</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.region">region</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -33897,7 +33919,7 @@ const wafV2MonitoringProps: WafV2MonitoringProps = { ... }
 public readonly acl: CfnWebACL;
 ```
 
-- *Type:* monocdk.aws_wafv2.CfnWebACL
+- *Type:* aws-cdk-lib.aws_wafv2.CfnWebACL
 
 ---
 
@@ -34029,9 +34051,11 @@ const xaxrMathExpressionProps: XaxrMathExpressionProps = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.color">color</a></code> | <code>string</code> | Color for this metric when added to a Graph in a Dashboard. |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.label">label</a></code> | <code>string</code> | Label for this metric when added to a Graph in a Dashboard. |
-| <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.period">period</a></code> | <code>monocdk.Duration</code> | The period over which the expression's statistics are applied. |
+| <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the expression's statistics are applied. |
+| <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.searchAccount">searchAccount</a></code> | <code>string</code> | Account to evaluate search expressions within. |
+| <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.searchRegion">searchRegion</a></code> | <code>string</code> | Region to evaluate search expressions within. |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.expression">expression</a></code> | <code>string</code> | The expression defining the metric. |
-| <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.usingMetrics">usingMetrics</a></code> | <code>{[ key: string ]: monocdk.aws_cloudwatch.IMetric}</code> | The metrics used in the expression, in a map. |
+| <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.usingMetrics">usingMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.IMetric}</code> | The metrics used in the expression, in a map. |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.account">account</a></code> | <code>string</code> | (experimental) Account which this metric comes from. |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.region">region</a></code> | <code>string</code> | (experimental) Region which this metric comes from. |
 
@@ -34069,13 +34093,45 @@ Label for this metric when added to a Graph in a Dashboard.
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 - *Default:* Duration.minutes(5)
 
 The period over which the expression's statistics are applied.
 
 This period overrides all periods in the metrics used in this
 math expression.
+
+---
+
+##### `searchAccount`<sup>Optional</sup> <a name="searchAccount" id="cdk-monitoring-constructs.XaxrMathExpressionProps.property.searchAccount"></a>
+
+```typescript
+public readonly searchAccount: string;
+```
+
+- *Type:* string
+- *Default:* Deployment account.
+
+Account to evaluate search expressions within.
+
+Specifying a searchAccount has no effect to the account used
+for metrics within the expression (passed via usingMetrics).
+
+---
+
+##### `searchRegion`<sup>Optional</sup> <a name="searchRegion" id="cdk-monitoring-constructs.XaxrMathExpressionProps.property.searchRegion"></a>
+
+```typescript
+public readonly searchRegion: string;
+```
+
+- *Type:* string
+- *Default:* Deployment region.
+
+Region to evaluate search expressions within.
+
+Specifying a searchRegion has no effect to the region used
+for metrics within the expression (passed via usingMetrics).
 
 ---
 
@@ -34089,15 +34145,19 @@ public readonly expression: string;
 
 The expression defining the metric.
 
+When an expression contains a SEARCH function, it cannot be used
+within an Alarm.
+
 ---
 
-##### `usingMetrics`<sup>Required</sup> <a name="usingMetrics" id="cdk-monitoring-constructs.XaxrMathExpressionProps.property.usingMetrics"></a>
+##### `usingMetrics`<sup>Optional</sup> <a name="usingMetrics" id="cdk-monitoring-constructs.XaxrMathExpressionProps.property.usingMetrics"></a>
 
 ```typescript
 public readonly usingMetrics: {[ key: string ]: IMetric};
 ```
 
-- *Type:* {[ key: string ]: monocdk.aws_cloudwatch.IMetric}
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.IMetric}
+- *Default:* Empty map.
 
 The metrics used in the expression, in a map.
 
@@ -34174,7 +34234,7 @@ public addDaysSinceUpdateAlarm(metric: Metric | MathExpression, props: DaysSince
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.AgeAlarmFactory.addDaysSinceUpdateAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -34198,7 +34258,7 @@ public addDaysToExpiryAlarm(metric: Metric | MathExpression, props: DaysToExpiry
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.AgeAlarmFactory.addDaysToExpiryAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -34222,7 +34282,7 @@ public addIteratorMaxAgeAlarm(metric: Metric | MathExpression, props: MaxAgeThre
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.AgeAlarmFactory.addIteratorMaxAgeAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -34253,14 +34313,14 @@ new AlarmFactory(alarmScope: Construct, props: AlarmFactoryProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AlarmFactory.Initializer.parameter.alarmScope">alarmScope</a></code> | <code>monocdk.Construct</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmFactory.Initializer.parameter.alarmScope">alarmScope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactoryProps">AlarmFactoryProps</a></code> | *No description.* |
 
 ---
 
 ##### `alarmScope`<sup>Required</sup> <a name="alarmScope" id="cdk-monitoring-constructs.AlarmFactory.Initializer.parameter.alarmScope"></a>
 
-- *Type:* monocdk.Construct
+- *Type:* constructs.Construct
 
 ---
 
@@ -34287,7 +34347,7 @@ public addAlarm(metric: Metric | MathExpression, props: AddAlarmProps): AlarmWit
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.AlarmFactory.addAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -34570,7 +34630,7 @@ new AlarmSummaryMatrixWidget(props: AlarmSummaryMatrixWidgetProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.position">position</a></code> | Place the widget at a given position. |
-| <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.toJson">toJson</a></code> | (experimental) Return the widget JSON for use in the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.toJson">toJson</a></code> | Return the widget JSON for use in the dashboard. |
 
 ---
 
@@ -34600,7 +34660,7 @@ Place the widget at a given position.
 public toJson(): any[]
 ```
 
-(experimental) Return the widget JSON for use in the dashboard.
+Return the widget JSON for use in the dashboard.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -34675,7 +34735,7 @@ public addAlarmWhenOutOfBand(metric: Metric | MathExpression, alarmNameSuffix: s
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.AnomalyDetectingAlarmFactory.addAlarmWhenOutOfBand.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -34718,13 +34778,13 @@ new AnomalyDetectionMathExpression(props: MathExpressionProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.Initializer.parameter.props">props</a></code> | <code>monocdk.aws_cloudwatch.MathExpressionProps</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpressionProps</code> | *No description.* |
 
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.Initializer.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MathExpressionProps
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpressionProps
 
 ---
 
@@ -34732,12 +34792,10 @@ new AnomalyDetectionMathExpression(props: MathExpressionProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.createAlarm">createAlarm</a></code> | (experimental) Make a new Alarm for this metric. |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.toAlarmConfig">toAlarmConfig</a></code> | Turn this metric object into an alarm configuration. |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.toGraphConfig">toGraphConfig</a></code> | Turn this metric object into a graph configuration. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.createAlarm">createAlarm</a></code> | Make a new Alarm for this metric. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.toMetricConfig">toMetricConfig</a></code> | Inspect the details of the metric object. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.toString">toString</a></code> | Returns a string representation of an object. |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.with">with</a></code> | (experimental) Return a copy of Metric with properties changed. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.with">with</a></code> | Return a copy of Metric with properties changed. |
 
 ---
 
@@ -34747,14 +34805,14 @@ new AnomalyDetectionMathExpression(props: MathExpressionProps)
 public createAlarm(scope: Construct, id: string, props: CreateAlarmOptions): Alarm
 ```
 
-(experimental) Make a new Alarm for this metric.
+Make a new Alarm for this metric.
 
 Combines both properties that may adjust the metric (aggregation) as well
 as alarm properties.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.createAlarm.parameter.scope"></a>
 
-- *Type:* monocdk.Construct
+- *Type:* constructs.Construct
 
 ---
 
@@ -34766,25 +34824,9 @@ as alarm properties.
 
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.createAlarm.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.CreateAlarmOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.CreateAlarmOptions
 
 ---
-
-##### ~~`toAlarmConfig`~~ <a name="toAlarmConfig" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.toAlarmConfig"></a>
-
-```typescript
-public toAlarmConfig(): MetricAlarmConfig
-```
-
-Turn this metric object into an alarm configuration.
-
-##### ~~`toGraphConfig`~~ <a name="toGraphConfig" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.toGraphConfig"></a>
-
-```typescript
-public toGraphConfig(): MetricGraphConfig
-```
-
-Turn this metric object into a graph configuration.
 
 ##### `toMetricConfig` <a name="toMetricConfig" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.toMetricConfig"></a>
 
@@ -34808,13 +34850,13 @@ Returns a string representation of an object.
 public with(props: MathExpressionOptions): MathExpression
 ```
 
-(experimental) Return a copy of Metric with properties changed.
+Return a copy of Metric with properties changed.
 
 All properties except namespace and metricName can be changed.
 
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.with.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MathExpressionOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpressionOptions
 
 ---
 
@@ -34824,10 +34866,12 @@ All properties except namespace and metricName can be changed.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.expression">expression</a></code> | <code>string</code> | The expression defining the metric. |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.period">period</a></code> | <code>monocdk.Duration</code> | Aggregation period of this metric. |
-| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.usingMetrics">usingMetrics</a></code> | <code>{[ key: string ]: monocdk.aws_cloudwatch.IMetric}</code> | The metrics used in the expression as KeyValuePair <id, metric>. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Aggregation period of this metric. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.usingMetrics">usingMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.IMetric}</code> | The metrics used in the expression as KeyValuePair <id, metric>. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.color">color</a></code> | <code>string</code> | The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.label">label</a></code> | <code>string</code> | Label for this metric when added to a Graph. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.searchAccount">searchAccount</a></code> | <code>string</code> | Account to evaluate search expressions within. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.searchRegion">searchRegion</a></code> | <code>string</code> | Region to evaluate search expressions within. |
 
 ---
 
@@ -34849,7 +34893,7 @@ The expression defining the metric.
 public readonly period: Duration;
 ```
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 
 Aggregation period of this metric.
 
@@ -34861,7 +34905,7 @@ Aggregation period of this metric.
 public readonly usingMetrics: {[ key: string ]: IMetric};
 ```
 
-- *Type:* {[ key: string ]: monocdk.aws_cloudwatch.IMetric}
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.IMetric}
 
 The metrics used in the expression as KeyValuePair <id, metric>.
 
@@ -34888,6 +34932,30 @@ public readonly label: string;
 - *Type:* string
 
 Label for this metric when added to a Graph.
+
+---
+
+##### `searchAccount`<sup>Optional</sup> <a name="searchAccount" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.searchAccount"></a>
+
+```typescript
+public readonly searchAccount: string;
+```
+
+- *Type:* string
+
+Account to evaluate search expressions within.
+
+---
+
+##### `searchRegion`<sup>Optional</sup> <a name="searchRegion" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.searchRegion"></a>
+
+```typescript
+public readonly searchRegion: string;
+```
+
+- *Type:* string
+
+Region to evaluate search expressions within.
 
 ---
 
@@ -37158,7 +37226,7 @@ public addCustomAlarm(metric: Metric | MathExpression, alarmNameSuffix: string, 
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.CustomAlarmFactory.addCustomAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -37350,7 +37418,7 @@ new CustomWidget(props: CustomWidgetProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CustomWidget.position">position</a></code> | Place the widget at a given position. |
-| <code><a href="#cdk-monitoring-constructs.CustomWidget.toJson">toJson</a></code> | (experimental) Return the widget JSON for use in the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CustomWidget.toJson">toJson</a></code> | Return the widget JSON for use in the dashboard. |
 
 ---
 
@@ -37380,7 +37448,7 @@ Place the widget at a given position.
 public toJson(): any[]
 ```
 
-(experimental) Return the widget JSON for use in the dashboard.
+Return the widget JSON for use in the dashboard.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -37611,7 +37679,7 @@ public addConsumedCapacityAlarm(metric: Metric | MathExpression, capacityType: C
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.DynamoAlarmFactory.addConsumedCapacityAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -37641,7 +37709,7 @@ public addThrottledEventsAlarm(metric: Metric | MathExpression, capacityType: Ca
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.DynamoAlarmFactory.addThrottledEventsAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -37947,7 +38015,7 @@ public metricAverageSuccessfulRequestLatencyInMillis(operation: Operation): Metr
 
 ###### `operation`<sup>Required</sup> <a name="operation" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricAverageSuccessfulRequestLatencyInMillis.parameter.operation"></a>
 
-- *Type:* monocdk.aws_dynamodb.Operation
+- *Type:* aws-cdk-lib.aws_dynamodb.Operation
 
 ---
 
@@ -38165,7 +38233,7 @@ new EC2MetricFactory(metricFactory: MetricFactory, autoScalingGroup?: IAutoScali
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.autoScalingGroup">autoScalingGroup</a></code> | <code>monocdk.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
 
 ---
 
@@ -38177,7 +38245,7 @@ new EC2MetricFactory(metricFactory: MetricFactory, autoScalingGroup?: IAutoScali
 
 ##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.autoScalingGroup"></a>
 
-- *Type:* monocdk.aws_autoscaling.IAutoScalingGroup
+- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
 
 ---
 
@@ -38571,7 +38639,7 @@ public addMaxEvictedItemsCountAlarm(metric: Metric | MathExpression, props: MaxI
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxEvictedItemsCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -38595,7 +38663,7 @@ public addMaxItemsCountAlarm(metric: Metric | MathExpression, props: MaxItemsCou
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxItemsCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -38619,7 +38687,7 @@ public addMaxUsedSwapMemoryAlarm(metric: Metric | MathExpression, props: MaxUsed
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxUsedSwapMemoryAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -38643,7 +38711,7 @@ public addMinFreeableMemoryAlarm(metric: Metric | MathExpression, props: MinFree
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinFreeableMemoryAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -38943,7 +39011,7 @@ public addErrorCountAlarm(metric: Metric | MathExpression, errorType: ErrorType,
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ErrorAlarmFactory.addErrorCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -38973,7 +39041,7 @@ public addErrorRateAlarm(metric: Metric | MathExpression, errorType: ErrorType, 
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ErrorAlarmFactory.addErrorRateAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -39700,7 +39768,7 @@ public addIteratorMaxAgeAlarm(metric: Metric | MathExpression, props: MaxIterato
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisAlarmFactory.addIteratorMaxAgeAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -39724,7 +39792,7 @@ public addPutRecordsFailedAlarm(metric: Metric | MathExpression, props: RecordsF
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisAlarmFactory.addPutRecordsFailedAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -39748,7 +39816,7 @@ public addPutRecordsThrottledAlarm(metric: Metric | MathExpression, props: Recor
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisAlarmFactory.addPutRecordsThrottledAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -39806,7 +39874,7 @@ public addDowntimeAlarm(metric: Metric | MathExpression, props: MaxDowntimeThres
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addDowntimeAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -39830,7 +39898,7 @@ public addFullRestartAlarm(metric: Metric | MathExpression, props: FullRestartCo
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addFullRestartAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -40637,7 +40705,7 @@ new LambdaFunctionEnhancedMetricFactory(metricFactory: MetricFactory, lambdaFunc
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.lambdaFunction">lambdaFunction</a></code> | <code>monocdk.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 
 ---
 
@@ -40649,7 +40717,7 @@ new LambdaFunctionEnhancedMetricFactory(metricFactory: MetricFactory, lambdaFunc
 
 ##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.lambdaFunction"></a>
 
-- *Type:* monocdk.aws_lambda.IFunction
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -41014,7 +41082,7 @@ public addDurationAlarm(metric: Metric | MathExpression, latencyType: LatencyTyp
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addDurationAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -41044,7 +41112,7 @@ public addIntegrationLatencyAlarm(metric: Metric | MathExpression, latencyType: 
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addIntegrationLatencyAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -41074,7 +41142,7 @@ public addJvmGarbageCollectionDurationAlarm(metric: Metric | MathExpression, lat
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addJvmGarbageCollectionDurationAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -41104,7 +41172,7 @@ public addLatencyAlarm(metric: Metric | MathExpression, latencyType: LatencyType
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addLatencyAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -41167,7 +41235,7 @@ public addLogCountAlarm(metric: Metric | MathExpression, logLevel: LogLevel, pro
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LogLevelAlarmFactory.addLogCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -41378,7 +41446,7 @@ Might modify namespace and metric period.
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.MetricFactory.adaptMetric.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 metric to be adapted.
 
@@ -41396,7 +41464,7 @@ Might modify namespace. Preserves metric period.
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.MetricFactory.adaptMetricPreservingPeriod.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 metric to be adapted.
 
@@ -41405,7 +41473,7 @@ metric to be adapted.
 ##### `addAdditionalDimensions` <a name="addAdditionalDimensions" id="cdk-monitoring-constructs.MetricFactory.addAdditionalDimensions"></a>
 
 ```typescript
-public addAdditionalDimensions(target: {[ key: string ]: any}, additionalDimensions: {[ key: string ]: any}): void
+public addAdditionalDimensions(target: {[ key: string ]: string}, additionalDimensions: {[ key: string ]: string}): void
 ```
 
 Merges the given additional dimensions to the given target dimension hash.
@@ -41414,7 +41482,7 @@ All existing dimensions with the same key are replaced.
 
 ###### `target`<sup>Required</sup> <a name="target" id="cdk-monitoring-constructs.MetricFactory.addAdditionalDimensions.parameter.target"></a>
 
-- *Type:* {[ key: string ]: any}
+- *Type:* {[ key: string ]: string}
 
 target dimension hash to update.
 
@@ -41422,7 +41490,7 @@ target dimension hash to update.
 
 ###### `additionalDimensions`<sup>Required</sup> <a name="additionalDimensions" id="cdk-monitoring-constructs.MetricFactory.addAdditionalDimensions.parameter.additionalDimensions"></a>
 
-- *Type:* {[ key: string ]: any}
+- *Type:* {[ key: string ]: string}
 
 additional dimensions.
 
@@ -41431,7 +41499,7 @@ additional dimensions.
 ##### `createMetric` <a name="createMetric" id="cdk-monitoring-constructs.MetricFactory.createMetric"></a>
 
 ```typescript
-public createMetric(metricName: string, statistic: MetricStatistic, label?: string, dimensions?: {[ key: string ]: any}, color?: string, namespace?: string, period?: Duration): Metric | MathExpression
+public createMetric(metricName: string, statistic: MetricStatistic, label?: string, dimensionsMap?: {[ key: string ]: string}, color?: string, namespace?: string, period?: Duration): Metric | MathExpression
 ```
 
 Factory method that creates a metric.
@@ -41464,9 +41532,9 @@ if undefined, metric name is used by CloudWatch
 
 ---
 
-###### `dimensions`<sup>Optional</sup> <a name="dimensions" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.dimensions"></a>
+###### `dimensionsMap`<sup>Optional</sup> <a name="dimensionsMap" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.dimensionsMap"></a>
 
-- *Type:* {[ key: string ]: any}
+- *Type:* {[ key: string ]: string}
 
 additional dimensions to be added.
 
@@ -41494,7 +41562,7 @@ if undefined, uses the global default
 
 ###### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.period"></a>
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 
 specify a custom period;
 
@@ -41518,7 +41586,7 @@ Usually, the anomaly detection is paired with an alarm.
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.MetricFactory.createMetricAnomalyDetection.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.IMetric
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
 
 metric to detect anomaly detection of.
 
@@ -41562,7 +41630,7 @@ uses `m1` if undefined
 
 ###### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MetricFactory.createMetricAnomalyDetection.parameter.period"></a>
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 
 specify a custom period;
 
@@ -41590,7 +41658,7 @@ CloudWatch metric math expression (https://docs.aws.amazon.com/AmazonCloudWatch/
 
 ###### `usingMetrics`<sup>Required</sup> <a name="usingMetrics" id="cdk-monitoring-constructs.MetricFactory.createMetricMath.parameter.usingMetrics"></a>
 
-- *Type:* {[ key: string ]: monocdk.aws_cloudwatch.IMetric}
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.IMetric}
 
 map of metrics, where keys are expression IDs (used in the expression) and values are metrics.
 
@@ -41616,7 +41684,7 @@ if undefined, uses a CloudWatch provided color (preferred)
 
 ###### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MetricFactory.createMetricMath.parameter.period"></a>
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 
 specify a custom period;
 
@@ -41627,7 +41695,7 @@ if undefined, uses the global default
 ##### `createMetricSearch` <a name="createMetricSearch" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch"></a>
 
 ```typescript
-public createMetricSearch(query: string, dimensions: {[ key: string ]: any}, statistic: MetricStatistic, namespace?: string, label?: string, period?: Duration): IMetric
+public createMetricSearch(query: string, dimensionsMap: {[ key: string ]: string}, statistic: MetricStatistic, namespace?: string, label?: string, period?: Duration): IMetric
 ```
 
 Factory method that creates a metric search query.
@@ -41642,9 +41710,9 @@ metric search query (the same as the search query prompt in CloudWatch AWS Conso
 
 ---
 
-###### `dimensions`<sup>Required</sup> <a name="dimensions" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch.parameter.dimensions"></a>
+###### `dimensionsMap`<sup>Required</sup> <a name="dimensionsMap" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch.parameter.dimensionsMap"></a>
 
-- *Type:* {[ key: string ]: any}
+- *Type:* {[ key: string ]: string}
 
 dimensions, further narrowing the search results;
 
@@ -41682,7 +41750,7 @@ default is " " as it cannot be empty string
 
 ###### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch.parameter.period"></a>
 
-- *Type:* monocdk.Duration
+- *Type:* aws-cdk-lib.Duration
 
 specify a custom period;
 
@@ -41702,7 +41770,7 @@ Does nothing if the divisor is one. Preserves the metric period.
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.MetricFactory.divideMetric.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 metric to multiply.
 
@@ -41764,7 +41832,7 @@ Does nothing if the multiplier is one. Preserves the metric period.
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.MetricFactory.multiplyMetric.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 metric to multiply.
 
@@ -41827,7 +41895,7 @@ For example, it allows you to compute rate per second (TPS), per minute, or just
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.MetricFactory.toRate.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 metric to calculate the rate from.
 
@@ -42011,7 +42079,7 @@ Returns widgets to be placed on the main dashboard.
 
 ### MonitoringAspect <a name="MonitoringAspect" id="cdk-monitoring-constructs.MonitoringAspect"></a>
 
-- *Implements:* monocdk.IAspect
+- *Implements:* aws-cdk-lib.IAspect
 
 A CDK aspect that adds support for monitoring all resources within scope.
 
@@ -42046,7 +42114,7 @@ new MonitoringAspect(monitoringFacade: MonitoringFacade, props?: MonitoringAspec
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspect.visit">visit</a></code> | (experimental) All aspects can visit an IConstruct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
 
 ---
 
@@ -42056,11 +42124,11 @@ new MonitoringAspect(monitoringFacade: MonitoringFacade, props?: MonitoringAspec
 public visit(node: IConstruct): void
 ```
 
-(experimental) All aspects can visit an IConstruct.
+All aspects can visit an IConstruct.
 
 ###### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.MonitoringAspect.visit.parameter.node"></a>
 
-- *Type:* monocdk.IConstruct
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -42555,13 +42623,13 @@ new OpenSearchBackportedMetrics(domain: IDomain | CfnDomain | IDomain | CfnDomai
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.Initializer.parameter.domain">domain</a></code> | <code>monocdk.aws_elasticsearch.IDomain \| monocdk.aws_elasticsearch.CfnDomain \| monocdk.aws_opensearchservice.IDomain \| monocdk.aws_opensearchservice.CfnDomain</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.Initializer.parameter.domain">domain</a></code> | <code>aws-cdk-lib.aws_elasticsearch.IDomain \| aws-cdk-lib.aws_elasticsearch.CfnDomain \| aws-cdk-lib.aws_opensearchservice.IDomain \| aws-cdk-lib.aws_opensearchservice.CfnDomain</code> | *No description.* |
 
 ---
 
 ##### `domain`<sup>Required</sup> <a name="domain" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.Initializer.parameter.domain"></a>
 
-- *Type:* monocdk.aws_elasticsearch.IDomain | monocdk.aws_elasticsearch.CfnDomain | monocdk.aws_opensearchservice.IDomain | monocdk.aws_opensearchservice.CfnDomain
+- *Type:* aws-cdk-lib.aws_elasticsearch.IDomain | aws-cdk-lib.aws_elasticsearch.CfnDomain | aws-cdk-lib.aws_opensearchservice.IDomain | aws-cdk-lib.aws_opensearchservice.CfnDomain
 
 ---
 
@@ -42604,7 +42672,7 @@ Return the given named metric for this Domain.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metric.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42618,7 +42686,7 @@ Metric for automated snapshot failures.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricAutomatedSnapshotFailure.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42632,7 +42700,7 @@ Metric for the cluster blocking index writes.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterIndexWriteBlocked.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42646,7 +42714,7 @@ Metric for the time the cluster status is red.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterStatusRed.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42660,7 +42728,7 @@ Metric for the time the cluster status is yellow.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterStatusYellow.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42674,7 +42742,7 @@ Metric for CPU utilization.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricCPUUtilization.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42688,7 +42756,7 @@ Metric for the storage space of nodes in the cluster.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricFreeStorageSpace.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42702,7 +42770,7 @@ Metric for indexing latency.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricIndexingLatency.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42716,7 +42784,7 @@ Metric for JVM memory pressure.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricJVMMemoryPressure.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42730,7 +42798,7 @@ Metric for KMS key errors.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricKMSKeyError.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42744,7 +42812,7 @@ Metric for KMS key being inaccessible.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricKMSKeyInaccessible.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42758,7 +42826,7 @@ Metric for master CPU utilization.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricMasterCPUUtilization.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42772,7 +42840,7 @@ Metric for master JVM memory pressure.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricMasterJVMMemoryPressure.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42786,7 +42854,7 @@ Metric for the number of nodes.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricNodes.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42800,7 +42868,7 @@ Metric for number of searchable documents.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricSearchableDocuments.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42814,7 +42882,7 @@ Metric for search latency.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricSearchLatency.parameter.props"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MetricOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
@@ -42864,7 +42932,7 @@ public addAutomatedSnapshotFailureAlarm(metric: Metric | MathExpression, props: 
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.OpenSearchClusterAlarmFactory.addAutomatedSnapshotFailureAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -42888,7 +42956,7 @@ public addClusterIndexWritesBlockedAlarm(metric: Metric | MathExpression, props:
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.OpenSearchClusterAlarmFactory.addClusterIndexWritesBlockedAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -42912,7 +42980,7 @@ public addClusterNodeCountAlarm(metric: Metric | MathExpression, props: OpenSear
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.OpenSearchClusterAlarmFactory.addClusterNodeCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -42936,7 +43004,7 @@ public addClusterStatusAlarm(metric: Metric | MathExpression, props: OpenSearchC
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.OpenSearchClusterAlarmFactory.addClusterStatusAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -42960,7 +43028,7 @@ public addKmsKeyErrorAlarm(metric: Metric | MathExpression, props: OpenSearchKms
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.OpenSearchClusterAlarmFactory.addKmsKeyErrorAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -42984,7 +43052,7 @@ public addKmsKeyInaccessibleAlarm(metric: Metric | MathExpression, props: OpenSe
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.OpenSearchClusterAlarmFactory.addKmsKeyInaccessibleAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -43349,7 +43417,7 @@ public addMaxQueueIncomingMessagesCountAlarm(metric: Metric | MathExpression, pr
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.QueueAlarmFactory.addMaxQueueIncomingMessagesCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -43373,7 +43441,7 @@ public addMaxQueueMessageAgeAlarm(metric: Metric | MathExpression, props: MaxMes
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.QueueAlarmFactory.addMaxQueueMessageAgeAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -43397,7 +43465,7 @@ public addMaxQueueMessageCountAlarm(metric: Metric | MathExpression, props: MaxM
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.QueueAlarmFactory.addMaxQueueMessageCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -43421,7 +43489,7 @@ public addMaxQueueTimeToDrainMessagesAlarm(metric: Metric | MathExpression, prop
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.QueueAlarmFactory.addMaxQueueTimeToDrainMessagesAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -43445,7 +43513,7 @@ public addMinQueueIncomingMessagesCountAlarm(metric: Metric | MathExpression, pr
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.QueueAlarmFactory.addMinQueueIncomingMessagesCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -43469,7 +43537,7 @@ public addMinQueueMessageCountAlarm(metric: Metric | MathExpression, props: MinM
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.QueueAlarmFactory.addMinQueueMessageCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -44382,7 +44450,7 @@ new SingleWidgetDashboardSegment(widget: IWidget, addToSummary?: boolean, addToA
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget">widget</a></code> | <code>monocdk.aws_cloudwatch.IWidget</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget">widget</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IWidget</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.addToSummary">addToSummary</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.addToAlarm">addToAlarm</a></code> | <code>boolean</code> | *No description.* |
 
@@ -44390,7 +44458,7 @@ new SingleWidgetDashboardSegment(widget: IWidget, addToSummary?: boolean, addToA
 
 ##### `widget`<sup>Required</sup> <a name="widget" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget"></a>
 
-- *Type:* monocdk.aws_cloudwatch.IWidget
+- *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
 
 ---
 
@@ -46392,7 +46460,7 @@ public addAvailabilityAlarm(metric: Metric | MathExpression, props: Availability
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TaskHealthAlarmFactory.addAvailabilityAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46416,7 +46484,7 @@ public addHealthyTaskCountAlarm(metric: Metric | MathExpression, props: HealthyT
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TaskHealthAlarmFactory.addHealthyTaskCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46440,7 +46508,7 @@ public addHealthyTaskPercentAlarm(metric: Metric | MathExpression, props: Health
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TaskHealthAlarmFactory.addHealthyTaskPercentAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46464,7 +46532,7 @@ public addMinRunningTaskCountAlarm(metric: Metric | MathExpression, props: MinRu
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TaskHealthAlarmFactory.addMinRunningTaskCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46488,7 +46556,7 @@ public addRunningTaskCountAlarm(metric: Metric | MathExpression, props: RunningT
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TaskHealthAlarmFactory.addRunningTaskCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46512,7 +46580,7 @@ public addRunningTaskRateAlarm(metric: Metric | MathExpression, props: RunningTa
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TaskHealthAlarmFactory.addRunningTaskRateAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46536,7 +46604,7 @@ public addUnhealthyTaskCountAlarm(metric: Metric | MathExpression, props: Unheal
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TaskHealthAlarmFactory.addUnhealthyTaskCountAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46593,7 +46661,7 @@ public addMinProcessedBytesAlarm(metric: Metric | MathExpression, props: MinProc
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ThroughputAlarmFactory.addMinProcessedBytesAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46652,7 +46720,7 @@ public addMaxMessagesPublishedAlarm(metric: Metric | MathExpression, props: High
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TopicAlarmFactory.addMaxMessagesPublishedAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46676,7 +46744,7 @@ public addMessageNotificationsFailedAlarm(metric: Metric | MathExpression, props
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TopicAlarmFactory.addMessageNotificationsFailedAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46700,7 +46768,7 @@ public addMinMessagesPublishedAlarm(metric: Metric | MathExpression, props: LowM
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TopicAlarmFactory.addMinMessagesPublishedAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46758,7 +46826,7 @@ public addMaxTpsAlarm(metric: Metric | MathExpression, props: HighTpsThreshold, 
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TpsAlarmFactory.addMaxTpsAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46782,7 +46850,7 @@ public addMinTpsAlarm(metric: Metric | MathExpression, props: LowTpsThreshold, d
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.TpsAlarmFactory.addMinTpsAlarm.parameter.metric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46847,7 +46915,7 @@ public addMaxCpuUsagePercentAlarm(percentMetric: Metric | MathExpression, props:
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46871,7 +46939,7 @@ public addMaxDiskUsagePercentAlarm(percentMetric: Metric | MathExpression, props
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxDiskUsagePercentAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46895,7 +46963,7 @@ public addMaxFileDescriptorPercentAlarm(percentMetric: Metric | MathExpression, 
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxFileDescriptorPercentAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46919,7 +46987,7 @@ public addMaxHeapMemoryAfterGCUsagePercentAlarm(percentMetric: Metric | MathExpr
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxHeapMemoryAfterGCUsagePercentAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46943,7 +47011,7 @@ public addMaxMasterCpuUsagePercentAlarm(percentMetric: Metric | MathExpression, 
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxMasterCpuUsagePercentAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46967,7 +47035,7 @@ public addMaxMasterMemoryUsagePercentAlarm(percentMetric: Metric | MathExpressio
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxMasterMemoryUsagePercentAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -46991,7 +47059,7 @@ public addMaxMemoryUsagePercentAlarm(percentMetric: Metric | MathExpression, pro
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxMemoryUsagePercentAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -47015,7 +47083,7 @@ public addMaxThreadCountUsageAlarm(percentMetric: Metric | MathExpression, props
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxThreadCountUsageAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -47039,7 +47107,7 @@ public addMemoryUsagePercentAlarm(percentMetric: Metric | MathExpression, props:
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMemoryUsagePercentAlarm.parameter.percentMetric"></a>
 
-- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -47263,7 +47331,7 @@ Returns widgets to be placed on the main dashboard.
 
 ### XaxrMathExpression <a name="XaxrMathExpression" id="cdk-monitoring-constructs.XaxrMathExpression"></a>
 
-- *Implements:* monocdk.aws_cloudwatch.IMetric
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IMetric
 
 Custom wrapper class for MathExpression that supports account and region specification.
 
@@ -47293,28 +47361,10 @@ new XaxrMathExpression(props: XaxrMathExpressionProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.XaxrMathExpression.toAlarmConfig">toAlarmConfig</a></code> | (deprecated) Turn this metric object into an alarm configuration. |
-| <code><a href="#cdk-monitoring-constructs.XaxrMathExpression.toGraphConfig">toGraphConfig</a></code> | (deprecated) Turn this metric object into a graph configuration. |
-| <code><a href="#cdk-monitoring-constructs.XaxrMathExpression.toMetricConfig">toMetricConfig</a></code> | (experimental) Inspect the details of the metric object. |
+| <code><a href="#cdk-monitoring-constructs.XaxrMathExpression.toMetricConfig">toMetricConfig</a></code> | Inspect the details of the metric object. |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpression.with">with</a></code> | *No description.* |
 
 ---
-
-##### `toAlarmConfig` <a name="toAlarmConfig" id="cdk-monitoring-constructs.XaxrMathExpression.toAlarmConfig"></a>
-
-```typescript
-public toAlarmConfig(): MetricAlarmConfig
-```
-
-(deprecated) Turn this metric object into an alarm configuration.
-
-##### `toGraphConfig` <a name="toGraphConfig" id="cdk-monitoring-constructs.XaxrMathExpression.toGraphConfig"></a>
-
-```typescript
-public toGraphConfig(): MetricGraphConfig
-```
-
-(deprecated) Turn this metric object into a graph configuration.
 
 ##### `toMetricConfig` <a name="toMetricConfig" id="cdk-monitoring-constructs.XaxrMathExpression.toMetricConfig"></a>
 
@@ -47322,7 +47372,7 @@ public toGraphConfig(): MetricGraphConfig
 public toMetricConfig(): MetricConfig
 ```
 
-(experimental) Inspect the details of the metric object.
+Inspect the details of the metric object.
 
 ##### `with` <a name="with" id="cdk-monitoring-constructs.XaxrMathExpression.with"></a>
 
@@ -47332,7 +47382,7 @@ public with(options: MathExpressionOptions): IMetric
 
 ###### `options`<sup>Required</sup> <a name="options" id="cdk-monitoring-constructs.XaxrMathExpression.with.parameter.options"></a>
 
-- *Type:* monocdk.aws_cloudwatch.MathExpressionOptions
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpressionOptions
 
 ---
 

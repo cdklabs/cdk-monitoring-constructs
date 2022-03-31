@@ -1,4 +1,4 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -13,14 +13,14 @@ export interface KinesisDataStreamMetricFactoryProps {
  */
 export class KinesisDataStreamMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: KinesisDataStreamMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensions = {
+    this.dimensionsMap = {
       StreamName: props.streamName,
     };
   }
@@ -30,7 +30,7 @@ export class KinesisDataStreamMetricFactory {
       "GetRecords.Bytes",
       MetricStatistic.SUM,
       "GetRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -41,7 +41,7 @@ export class KinesisDataStreamMetricFactory {
       "GetRecords.IteratorAgeMilliseconds",
       MetricStatistic.MAX,
       "Iterator Age",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -52,7 +52,7 @@ export class KinesisDataStreamMetricFactory {
       "GetRecords.Latency",
       MetricStatistic.AVERAGE,
       "GetRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -63,7 +63,7 @@ export class KinesisDataStreamMetricFactory {
       "GetRecords.Records",
       MetricStatistic.SUM,
       "GetRecords.Records",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -74,7 +74,7 @@ export class KinesisDataStreamMetricFactory {
       "GetRecords.Success",
       MetricStatistic.SUM,
       "GetRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -85,7 +85,7 @@ export class KinesisDataStreamMetricFactory {
       "IncomingBytes",
       MetricStatistic.SUM,
       "Incoming Bytes",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -96,7 +96,7 @@ export class KinesisDataStreamMetricFactory {
       "IncomingRecords",
       MetricStatistic.SUM,
       "Incoming Records",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -107,7 +107,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecord.Bytes",
       MetricStatistic.SUM,
       "PutRecord",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -118,7 +118,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecord.Latency",
       MetricStatistic.AVERAGE,
       "PutRecord",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -129,7 +129,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecord.Success",
       MetricStatistic.SUM,
       "PutRecord",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -140,7 +140,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecords.Bytes",
       MetricStatistic.SUM,
       "PutRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -151,7 +151,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecords.Latency",
       MetricStatistic.AVERAGE,
       "PutRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -162,7 +162,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecords.Success",
       MetricStatistic.SUM,
       "PutRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -173,7 +173,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecords.SuccessfulRecords",
       MetricStatistic.SUM,
       "PutRecords.SuccessfulRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -184,7 +184,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecords.TotalRecords",
       MetricStatistic.SUM,
       "PutRecords.TotalRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -195,7 +195,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecords.FailedRecords",
       MetricStatistic.SUM,
       "PutRecords.FailedRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -206,7 +206,7 @@ export class KinesisDataStreamMetricFactory {
       "PutRecords.ThrottledRecords",
       MetricStatistic.SUM,
       "PutRecords.ThrottledRecords",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -217,7 +217,7 @@ export class KinesisDataStreamMetricFactory {
       "ReadProvisionedThroughputExceeded",
       MetricStatistic.AVERAGE,
       "Read",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );
@@ -228,7 +228,7 @@ export class KinesisDataStreamMetricFactory {
       "WriteProvisionedThroughputExceeded",
       MetricStatistic.AVERAGE,
       "Write",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       DataStreamNamespace
     );

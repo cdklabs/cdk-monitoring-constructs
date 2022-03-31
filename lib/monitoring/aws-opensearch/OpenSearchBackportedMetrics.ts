@@ -1,12 +1,12 @@
-import { Duration } from "monocdk";
+import { Duration } from "aws-cdk-lib";
 import {
-  DimensionHash,
+  DimensionsMap,
   Metric,
   MetricOptions,
   Statistic,
-} from "monocdk/aws-cloudwatch";
-import * as elasticsearch from "monocdk/aws-elasticsearch";
-import * as opensearch from "monocdk/aws-opensearchservice";
+} from "aws-cdk-lib/aws-cloudwatch";
+import * as elasticsearch from "aws-cdk-lib/aws-elasticsearch";
+import * as opensearch from "aws-cdk-lib/aws-opensearchservice";
 
 const ElasticsearchNamespace = "AWS/ES";
 
@@ -25,12 +25,12 @@ export type Domain =
  * @see https://github.com/aws/aws-cdk/releases/tag/v1.73.0
  */
 export class OpenSearchBackportedMetrics {
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(domain: Domain) {
-    this.dimensions = {
+    this.dimensionsMap = {
       ClientId: domain.stack.account,
-      DomainName: domain.domainName,
+      DomainName: domain.domainName!,
     };
   }
 
@@ -41,7 +41,7 @@ export class OpenSearchBackportedMetrics {
     return new Metric({
       namespace: ElasticsearchNamespace,
       metricName,
-      dimensions: this.dimensions,
+      dimensionsMap: this.dimensionsMap,
       ...props,
     });
   }

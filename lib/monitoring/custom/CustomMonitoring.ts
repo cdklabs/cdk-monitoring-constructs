@@ -1,6 +1,6 @@
-import { Duration } from "monocdk";
+import { Duration } from "aws-cdk-lib";
 import {
-  DimensionHash,
+  DimensionsMap,
   GraphWidget,
   GraphWidgetProps,
   HorizontalAnnotation,
@@ -9,7 +9,7 @@ import {
   Row,
   TextWidget,
   YAxisProps,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   AnomalyDetectingAlarmFactory,
@@ -110,7 +110,7 @@ export interface CustomMetricSearch {
   /**
    * search dimensions (can be empty)
    */
-  readonly dimensions: DimensionHash;
+  readonly dimensionsMap: DimensionsMap;
   /**
    * metric statistic
    */
@@ -407,7 +407,7 @@ export class CustomMonitoring extends Monitoring {
         // metric search
         return metricFactory.createMetricSearch(
           metric.searchQuery,
-          metric.dimensions,
+          metric.dimensionsMap,
           metric.statistic,
           metric.namespace,
           metric.label,

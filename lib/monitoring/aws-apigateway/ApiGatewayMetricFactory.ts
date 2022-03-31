@@ -1,5 +1,5 @@
-import { RestApiBase } from "monocdk/aws-apigateway";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { RestApiBase } from "aws-cdk-lib/aws-apigateway";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   getLatencyTypeLabel,
@@ -43,7 +43,7 @@ export class ApiGatewayMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
@@ -53,7 +53,7 @@ export class ApiGatewayMetricFactory {
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
-    this.dimensions = {
+    this.dimensionsMap = {
       ApiName: props.api.restApiName,
       Stage: props.apiStage ?? "prod",
       ...(props.apiMethod && { Method: props.apiMethod }),
@@ -77,7 +77,7 @@ export class ApiGatewayMetricFactory {
       "Count",
       MetricStatistic.SUM,
       "Count",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );
@@ -88,7 +88,7 @@ export class ApiGatewayMetricFactory {
       "4XXError",
       MetricStatistic.SUM,
       "4XX Error",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );
@@ -109,7 +109,7 @@ export class ApiGatewayMetricFactory {
       "5XXError",
       MetricStatistic.SUM,
       "5XX Fault",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );
@@ -152,7 +152,7 @@ export class ApiGatewayMetricFactory {
       "Latency",
       getLatencyTypeStatistic(latencyType),
       label,
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       ApiGatewayNamespace
     );

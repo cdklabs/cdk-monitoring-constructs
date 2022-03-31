@@ -1,4 +1,4 @@
-import { BaseService } from "monocdk/aws-ecs";
+import { BaseService } from "aws-cdk-lib/aws-ecs";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 

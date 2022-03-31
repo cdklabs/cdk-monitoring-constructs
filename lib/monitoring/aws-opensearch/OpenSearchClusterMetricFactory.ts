@@ -1,4 +1,4 @@
-import { Statistic } from "monocdk/aws-cloudwatch";
+import { Statistic } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   MetricFactory,

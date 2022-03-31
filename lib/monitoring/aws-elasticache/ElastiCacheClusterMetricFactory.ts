@@ -1,4 +1,4 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -22,16 +22,16 @@ export interface ElastiCacheClusterMetricFactoryProps {
  */
 export class ElastiCacheClusterMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: ElastiCacheClusterMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensions = {};
+    this.dimensionsMap = {};
     if (props.clusterId) {
-      this.dimensions.CacheClusterId = props.clusterId;
+      this.dimensionsMap.CacheClusterId = props.clusterId;
     }
   }
 
@@ -40,7 +40,7 @@ export class ElastiCacheClusterMetricFactory {
       "CurrItems",
       MetricStatistic.MAX,
       "Count",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -51,7 +51,7 @@ export class ElastiCacheClusterMetricFactory {
       "Evictions",
       MetricStatistic.SUM,
       "Evictions",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -62,7 +62,7 @@ export class ElastiCacheClusterMetricFactory {
       "FreeableMemory",
       MetricStatistic.AVERAGE,
       "Freeable",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -73,7 +73,7 @@ export class ElastiCacheClusterMetricFactory {
       "UnusedMemory",
       MetricStatistic.AVERAGE,
       "Unused",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -84,7 +84,7 @@ export class ElastiCacheClusterMetricFactory {
       "BytesUsedForCacheItems",
       MetricStatistic.AVERAGE,
       "Items",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -95,7 +95,7 @@ export class ElastiCacheClusterMetricFactory {
       "SwapUsage",
       MetricStatistic.AVERAGE,
       "Swap",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -106,7 +106,7 @@ export class ElastiCacheClusterMetricFactory {
       "CPUUtilization",
       MetricStatistic.MAX,
       "Cluster CPU Utilization",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -117,7 +117,7 @@ export class ElastiCacheClusterMetricFactory {
       "CurrConnections",
       MetricStatistic.AVERAGE,
       "Current",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -128,7 +128,7 @@ export class ElastiCacheClusterMetricFactory {
       "NetworkBytesIn",
       MetricStatistic.SUM,
       "Bytes In",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -139,7 +139,7 @@ export class ElastiCacheClusterMetricFactory {
       "NetworkBytesOut",
       MetricStatistic.SUM,
       "Bytes Out",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );

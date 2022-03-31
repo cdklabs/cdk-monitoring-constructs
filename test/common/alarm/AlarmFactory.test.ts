@@ -1,11 +1,12 @@
-import { Construct, Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 import {
   ComparisonOperator,
   Metric,
   Shading,
   TreatMissingData,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 import {
   AddAlarmProps,
@@ -47,7 +48,7 @@ const factory = new AlarmFactory(construct, {
 const metric = new Metric({
   metricName: "DummyMetric1",
   namespace: "DummyCustomNamespace",
-  dimensions: { CustomDimension: "CustomDimensionValue" },
+  dimensionsMap: { CustomDimension: "CustomDimensionValue" },
 });
 
 const props: AddAlarmProps = {

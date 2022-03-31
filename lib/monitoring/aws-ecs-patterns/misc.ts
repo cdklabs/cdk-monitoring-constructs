@@ -1,8 +1,8 @@
 import {
   QueueProcessingEc2Service,
   QueueProcessingFargateService,
-} from "monocdk/aws-ecs-patterns";
-import { IQueue } from "monocdk/aws-sqs";
+} from "aws-cdk-lib/aws-ecs-patterns";
+import { IQueue } from "aws-cdk-lib/aws-sqs";
 
 import { BaseMonitoringProps, MonitoringScope } from "../../common";
 import {

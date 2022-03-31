@@ -1,5 +1,5 @@
-import { ICertificate } from "monocdk/aws-certificatemanager";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { ICertificate } from "aws-cdk-lib/aws-certificatemanager";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   MetricFactory,
@@ -15,14 +15,14 @@ export interface CertificateManagerMetricFactoryProps {
 
 export class CertificateManagerMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: CertificateManagerMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensions = {
+    this.dimensionsMap = {
       CertificateArn: props.certificate.certificateArn,
     };
   }
@@ -32,7 +32,7 @@ export class CertificateManagerMetricFactory {
       "DaysToExpiry",
       MetricStatistic.MIN,
       "Days to expiry",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );

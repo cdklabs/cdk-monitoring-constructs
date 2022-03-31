@@ -1,7 +1,7 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import * as elasticsearch from "monocdk/aws-elasticsearch";
-import * as opensearch from "monocdk/aws-opensearchservice";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import * as elasticsearch from "aws-cdk-lib/aws-elasticsearch";
+import * as opensearch from "aws-cdk-lib/aws-opensearchservice";
 
 import {
   AlarmWithAnnotation,

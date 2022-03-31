@@ -1,5 +1,5 @@
-import { ConcreteWidget } from "monocdk/aws-cloudwatch";
-import { IFunction } from "monocdk/aws-lambda";
+import { ConcreteWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
 
 /**
  * Properties of a custom widget.

@@ -1,6 +1,6 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { HttpApi } from "monocdk/aws-apigatewayv2";
+import { HttpApi } from "@aws-cdk/aws-apigatewayv2-alpha";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 
 import {
   AlarmWithAnnotation,

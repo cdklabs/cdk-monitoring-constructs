@@ -1,10 +1,10 @@
-import { Duration } from "monocdk";
+import { Duration } from "aws-cdk-lib";
 import {
-  DimensionHash,
+  DimensionsMap,
   IMetric,
   MathExpression,
   Metric,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import { AnomalyDetectionMathExpression } from "./AnomalyDetectionMathExpression";
 import { MetricStatistic } from "./MetricStatistic";
@@ -52,7 +52,7 @@ export class MetricFactory {
    * @param metricName metric name
    * @param statistic aggregation statistic to use
    * @param label metric label; if undefined, metric name is used by CloudWatch
-   * @param dimensions additional dimensions to be added
+   * @param dimensionsMap additional dimensions to be added
    * @param color metric color; if undefined, uses a CloudWatch provided color (preferred)
    * @param namespace specify a custom namespace; if undefined, uses the global default
    * @param period specify a custom period; if undefined, uses the global default
@@ -61,7 +61,7 @@ export class MetricFactory {
     metricName: string,
     statistic: MetricStatistic,
     label?: string,
-    dimensions?: DimensionHash,
+    dimensionsMap?: DimensionsMap,
     color?: string,
     namespace?: string,
     period?: Duration
@@ -71,8 +71,8 @@ export class MetricFactory {
       metricName,
       label,
       color,
-      dimensions: dimensions
-        ? this.removeUndefinedEntries(dimensions)
+      dimensionsMap: dimensionsMap
+        ? this.removeUndefinedEntries(dimensionsMap)
         : undefined,
       namespace: this.getNamespaceWithFallback(namespace),
       period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
@@ -108,7 +108,7 @@ export class MetricFactory {
    * Factory method that creates a metric search query. The metric properties will already be updated to comply with the global defaults.
    *
    * @param query metric search query (the same as the search query prompt in CloudWatch AWS Console), it might also be empty
-   * @param dimensions dimensions, further narrowing the search results; values might be undefined if you want to represent "any value"
+   * @param dimensionsMap dimensions, further narrowing the search results; values might be undefined if you want to represent "any value"
    * @param statistic aggregation statistic to use
    * @param namespace specify a custom namespace; if undefined, uses the global default
    * @param label specify custom label for search metrics; default is " " as it cannot be empty string
@@ -116,7 +116,7 @@ export class MetricFactory {
    */
   createMetricSearch(
     query: string,
-    dimensions: DimensionHash,
+    dimensionsMap: DimensionsMap,
     statistic: MetricStatistic,
     namespace?: string,
     label?: string,
@@ -127,12 +127,12 @@ export class MetricFactory {
     const searchNamespace = this.getNamespaceWithFallback(namespace);
     const namespacePlusDimensionKeys = [
       searchNamespace,
-      ...Object.keys(dimensions),
+      ...Object.keys(dimensionsMap),
     ].join(",");
     const metricSchema = `{${namespacePlusDimensionKeys}}`;
 
     const dimensionKeysAndValues = Object.entries(
-      this.removeUndefinedEntries(dimensions)
+      this.removeUndefinedEntries(dimensionsMap)
     )
       .map(([key, value]) => `${key}="${value}"`)
       .join(" ");
@@ -403,8 +403,8 @@ export class MetricFactory {
    * @param additionalDimensions additional dimensions
    */
   addAdditionalDimensions(
-    target: DimensionHash,
-    additionalDimensions: DimensionHash
+    target: DimensionsMap,
+    additionalDimensions: DimensionsMap
   ) {
     // Add additional dimensions in the search query
     Object.keys(additionalDimensions).forEach((key) => {
@@ -414,12 +414,12 @@ export class MetricFactory {
 
   /**
    * Removes all entries from the given dimension hash that contain an undefined value.
-   * @param dimensions dimension hash to update
+   * @param dimensionsMap dimensions map to update
    */
-  private removeUndefinedEntries(dimensions: DimensionHash) {
-    const copy: DimensionHash = {};
+  private removeUndefinedEntries(dimensionsMap: DimensionsMap) {
+    const copy: DimensionsMap = {};
 
-    Object.entries(dimensions)
+    Object.entries(dimensionsMap)
       .filter(([_, value]) => value !== undefined)
       .forEach(([key, value]) => (copy[key] = value));
 

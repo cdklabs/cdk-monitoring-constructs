@@ -1,7 +1,5 @@
-import { FeatureFlags } from "monocdk";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
-import { ISecret } from "monocdk/aws-secretsmanager";
-import * as cxapi from "monocdk/cx-api";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
+import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -14,7 +12,7 @@ export class SecretsManagerSecretMetricFactory {
   static readonly MetricNameDaysSinceLastChange = "DaysSinceLastChange";
   static readonly MetricNameDaysSinceLastRotation = "DaysSinceLastRotation";
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
   protected readonly secret: ISecret;
 
   constructor(
@@ -23,23 +21,9 @@ export class SecretsManagerSecretMetricFactory {
   ) {
     this.metricFactory = metricFactory;
     this.secret = props.secret;
-    this.dimensions = {
+    this.dimensionsMap = {
       SecretName: props.secret.secretName,
     };
-
-    this.ensureParseOwnedSecretName();
-  }
-
-  private ensureParseOwnedSecretName() {
-    if (
-      !FeatureFlags.of(this.secret.stack).isEnabled(
-        cxapi.SECRETS_MANAGER_PARSE_OWNED_SECRET_NAME
-      )
-    ) {
-      throw new Error(
-        `feature flag "${cxapi.SECRETS_MANAGER_PARSE_OWNED_SECRET_NAME}" is required`
-      );
-    }
   }
 
   metricDaysSinceLastChange() {
@@ -47,7 +31,7 @@ export class SecretsManagerSecretMetricFactory {
       SecretsManagerSecretMetricFactory.MetricNameDaysSinceLastChange,
       MetricStatistic.MAX,
       "Days",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       SecretsManagerSecretMetricFactory.Namespace
     );
@@ -58,7 +42,7 @@ export class SecretsManagerSecretMetricFactory {
       SecretsManagerSecretMetricFactory.MetricNameDaysSinceLastRotation,
       MetricStatistic.MAX,
       "Days",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       SecretsManagerSecretMetricFactory.Namespace
     );

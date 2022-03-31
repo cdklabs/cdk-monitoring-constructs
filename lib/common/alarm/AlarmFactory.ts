@@ -1,4 +1,4 @@
-import { Construct, Duration } from "monocdk";
+import { Duration } from "aws-cdk-lib";
 import {
   Alarm,
   AlarmRule,
@@ -8,7 +8,8 @@ import {
   HorizontalAnnotation,
   IAlarmRule,
   TreatMissingData,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 import { MetricFactoryDefaults, MetricWithAlarmSupport } from "../metric";
 import { removeBracketsWithDynamicLabels } from "../strings";

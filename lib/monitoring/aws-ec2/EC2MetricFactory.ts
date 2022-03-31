@@ -1,5 +1,5 @@
-import { IAutoScalingGroup } from "monocdk/aws-autoscaling";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { IAutoScalingGroup } from "aws-cdk-lib/aws-autoscaling";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -86,16 +86,16 @@ export class EC2MetricFactory {
     metricName: string,
     statistic: MetricStatistic
   ) {
-    const dimensions: DimensionHash = {};
+    const dimensionsMap: DimensionsMap = {};
     if (this.autoScalingGroup) {
-      dimensions.AutoScalingGroupName =
+      dimensionsMap.AutoScalingGroupName =
         this.autoScalingGroup.autoScalingGroupName;
     }
     return this.metricFactory.createMetric(
       metricName,
       statistic,
       undefined,
-      dimensions,
+      dimensionsMap,
       undefined,
       EC2Namespace
     );
@@ -107,7 +107,7 @@ export class EC2MetricFactory {
   ) {
     return this.metricFactory.createMetricSearch(
       `MetricName="${metricName}"`,
-      { InstanceId: undefined },
+      { InstanceId: undefined as unknown as string },
       statistic,
       EC2Namespace
     );

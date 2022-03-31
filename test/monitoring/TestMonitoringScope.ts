@@ -1,5 +1,5 @@
-import { Construct } from "monocdk";
-import { AlarmWidget, IWidget } from "monocdk/aws-cloudwatch";
+import { AlarmWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 import {
   AlarmFactory,

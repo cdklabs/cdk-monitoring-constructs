@@ -1,12 +1,13 @@
 import * as path from "path";
 
-import { Construct, Duration, Names } from "monocdk";
-import { Rule, RuleTargetInput, Schedule } from "monocdk/aws-events";
-import { LambdaFunction } from "monocdk/aws-events-targets";
-import { Effect, PolicyStatement } from "monocdk/aws-iam";
-import { Code, Function, IFunction, Runtime } from "monocdk/aws-lambda";
-import { RetentionDays } from "monocdk/aws-logs";
-import { ISecret } from "monocdk/aws-secretsmanager";
+import { Duration, Names } from "aws-cdk-lib";
+import { Rule, RuleTargetInput, Schedule } from "aws-cdk-lib/aws-events";
+import { LambdaFunction } from "aws-cdk-lib/aws-events-targets";
+import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import { Code, Function, IFunction, Runtime } from "aws-cdk-lib/aws-lambda";
+import { RetentionDays } from "aws-cdk-lib/aws-logs";
+import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
+import { Construct } from "constructs";
 
 import { MonitoringScope } from "../../common";
 import { SecretsManagerSecretMetricFactory } from "./SecretsManagerSecretMetricFactory";
@@ -14,6 +15,7 @@ import { SecretsManagerSecretMetricFactory } from "./SecretsManagerSecretMetricF
 export class SecretsManagerMetricsPublisher extends Construct {
   private static instances: Record<string, SecretsManagerMetricsPublisher> = {};
   private readonly lambda: IFunction;
+
   private constructor(scope: MonitoringScope) {
     super(scope, "SecretsManagerMetricsPublisher");
 

@@ -1,9 +1,10 @@
-import { Construct, Duration } from "monocdk";
+import { Duration } from "aws-cdk-lib";
 import {
   Dashboard,
   DashboardProps,
   PeriodOverride,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 import { BitmapDashboard } from "./BitmapDashboard";
 import { DashboardWithBitmapCopy } from "./DashboardWithBitmapCopy";

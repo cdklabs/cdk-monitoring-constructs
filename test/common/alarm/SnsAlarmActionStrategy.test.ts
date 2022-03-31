@@ -1,7 +1,7 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Alarm, Metric } from "monocdk/aws-cloudwatch";
-import { Topic } from "monocdk/aws-sns";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Alarm, Metric } from "aws-cdk-lib/aws-cloudwatch";
+import { Topic } from "aws-cdk-lib/aws-sns";
 
 import { SnsAlarmActionStrategy } from "../../../lib";
 

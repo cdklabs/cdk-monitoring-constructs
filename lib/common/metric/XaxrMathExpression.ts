@@ -3,10 +3,8 @@ import {
   MathExpression,
   MathExpressionOptions,
   MathExpressionProps,
-  MetricAlarmConfig,
   MetricConfig,
-  MetricGraphConfig,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 /**
  * Custom wrapper class for MathExpressionProps that supports account and region customization.
@@ -41,14 +39,6 @@ export class XaxrMathExpression implements IMetric {
   constructor(props: XaxrMathExpressionProps) {
     this.props = props;
     this.mathExpression = new MathExpression(props);
-  }
-
-  toAlarmConfig(): MetricAlarmConfig {
-    throw new Error("Method not implemented.");
-  }
-
-  toGraphConfig(): MetricGraphConfig {
-    throw new Error("Method not implemented.");
   }
 
   with(options: MathExpressionOptions): IMetric {

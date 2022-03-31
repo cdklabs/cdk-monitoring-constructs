@@ -1,4 +1,4 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -6,11 +6,11 @@ const GlueNamespace = "Glue";
 
 export class GlueJobMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(metricFactory: MetricFactory, jobName: string) {
     this.metricFactory = metricFactory;
-    this.dimensions = {
+    this.dimensionsMap = {
       Type: "gauge",
       JobRunId: "ALL",
       JobName: jobName,
@@ -22,7 +22,7 @@ export class GlueJobMetricFactory {
       "glue.ALL.s3.filesystem.read_bytes",
       MetricStatistic.SUM,
       "Read (S3)",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -33,7 +33,7 @@ export class GlueJobMetricFactory {
       "glue.ALL.s3.filesystem.write_bytes",
       MetricStatistic.SUM,
       "Write (S3)",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -44,7 +44,7 @@ export class GlueJobMetricFactory {
       "glue.ALL.system.cpuSystemLoad",
       MetricStatistic.AVERAGE,
       "CPU Usage (executor average)",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -55,7 +55,7 @@ export class GlueJobMetricFactory {
       "glue.ALL.jvm.heap.usage",
       MetricStatistic.AVERAGE,
       "JVM Heap usage (executor average)",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -66,7 +66,7 @@ export class GlueJobMetricFactory {
       "glue.driver.ExecutorAllocationManager.executors.numberAllExecutors",
       MetricStatistic.AVERAGE,
       "Active Executors",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -77,7 +77,7 @@ export class GlueJobMetricFactory {
       "glue.driver.aggregate.numCompletedStages",
       MetricStatistic.SUM,
       "Completed Stages",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -88,7 +88,7 @@ export class GlueJobMetricFactory {
       "glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors",
       MetricStatistic.MAX,
       "Maximum Needed Executors",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       GlueNamespace
     );

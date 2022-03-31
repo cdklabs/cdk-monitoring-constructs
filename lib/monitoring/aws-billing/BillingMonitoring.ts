@@ -1,11 +1,11 @@
-import { Stack } from "monocdk";
+import { Stack } from "aws-cdk-lib";
 import {
   GraphWidget,
   GraphWidgetView,
   IMetric,
   IWidget,
   SingleValueWidget,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   BaseMonitoringProps,

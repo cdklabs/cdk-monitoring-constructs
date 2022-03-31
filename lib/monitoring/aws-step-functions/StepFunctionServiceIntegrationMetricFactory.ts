@@ -1,4 +1,4 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   MetricFactory,
@@ -19,7 +19,7 @@ export interface StepFunctionServiceIntegrationMetricFactoryProps {
 export class StepFunctionServiceIntegrationMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly rateComputationMethod: RateComputationMethod;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
@@ -27,7 +27,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
   ) {
     this.metricFactory = metricFactory;
     this.rateComputationMethod = RateComputationMethod.AVERAGE;
-    this.dimensions = {
+    this.dimensionsMap = {
       ServiceIntegrationResourceArn: props.serviceIntegrationResourceArn,
     };
   }
@@ -37,7 +37,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationRunTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -48,7 +48,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationRunTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -59,7 +59,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationRunTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -70,7 +70,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationScheduleTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -81,7 +81,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationScheduleTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -92,7 +92,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationScheduleTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -103,7 +103,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -114,7 +114,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -125,7 +125,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -136,7 +136,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationsFailed",
       MetricStatistic.SUM,
       "Failed",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -157,7 +157,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationsScheduled",
       MetricStatistic.SUM,
       "Scheduled",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -168,7 +168,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationsStarted",
       MetricStatistic.SUM,
       "Started",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -179,7 +179,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationsSucceeded",
       MetricStatistic.SUM,
       "Succeeded",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -190,7 +190,7 @@ export class StepFunctionServiceIntegrationMetricFactory {
       "ServiceIntegrationsTimedOut",
       MetricStatistic.SUM,
       "Timeout",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );

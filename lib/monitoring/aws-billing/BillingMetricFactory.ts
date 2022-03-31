@@ -1,5 +1,5 @@
-import { Duration } from "monocdk";
-import { IMetric, Metric } from "monocdk/aws-cloudwatch";
+import { Duration } from "aws-cdk-lib";
+import { IMetric, Metric } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricStatistic, XaxrMathExpression } from "../../common";
 
@@ -39,7 +39,7 @@ export class BillingMetricFactory {
     return new Metric({
       namespace: BillingNamespace,
       metricName: BillingMetric,
-      dimensions: { Currency: BillingCurrency },
+      dimensionsMap: { Currency: BillingCurrency },
       period: BillingPeriod,
       label: `Estimated Charges`,
       region: BillingRegion,

@@ -1,4 +1,4 @@
-import { IResolveContext, Lazy } from "monocdk";
+import { IResolveContext, Lazy } from "aws-cdk-lib";
 
 import { ElastiCacheClusterType } from "../../monitoring";
 

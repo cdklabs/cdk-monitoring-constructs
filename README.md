@@ -26,11 +26,15 @@ In your `package.json`:
 ```json
 {
   "dependencies": {
-    "cdk-monitoring-constructs": "~0.0.37",
+    "cdk-monitoring-constructs": "^1.0.0",
 
     // peer dependencies
-    "constructs": "^3.3.69",
-    "monocdk": "^1.123.0",
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.18.0-alpha.0",
+    "@aws-cdk/aws-appsync-alpha": "^2.18.0-alpha.0",
+    "@aws-cdk/aws-redshift-alpha": "^2.18.0-alpha.0",
+    "@aws-cdk/aws-synthetics-alpha": "^2.18.0-alpha.0",
+    "aws-cdk-lib": "^2.18.0",
+    "constructs": "^10.0.5"
 
     // (your other dependencies)
   }
@@ -86,7 +90,7 @@ You can also browse the documentation at https://constructs.dev/packages/cdk-mon
 | AWS RDS (`.monitorRdsCluster()`) | Query duration, connections, latency, disk/CPU usage | Disk and CPU usage | |
 | AWS Redshift (`.monitorRedshiftCluster()`) | Query duration, connections, latency, disk/CPU usage | Disk and CPU usage | |
 | AWS S3 Bucket (`.monitorS3Bucket()`) | Bucket size and number of objects | | |
-| AWS SecretsManager (`.monitorSecretsManagerSecret()`) | Days since last rotation | Days since last rotation | Requires the `@aws-cdk/aws-secretsmanager:parseOwnedSecretName` [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html) |
+| AWS SecretsManager (`.monitorSecretsManagerSecret()`) | Days since last rotation | Days since last rotation | |
 | AWS SNS Topic (`.monitorSnsTopic()`) | Message count, size, failed notifications | Failed notifications | |
 | AWS SQS Queue (`.monitorSqsQueue()`, `.monitorSqsQueueWithDlq()`) | Message count, age, size | Message count, age, DLQ incoming messages | |
 | AWS Step Functions (`.monitorStepFunction()`, `.monitorStepFunctionActivity()`, `monitorStepFunctionLambdaIntegration()`, `.monitorStepFunctionServiceIntegration()`) | Execution count and breakdown per state | Duration, failed, failed rate, aborted, throttled, timed out executions | |

@@ -3,7 +3,7 @@ import {
   ApplicationTargetGroup,
   NetworkLoadBalancer,
   NetworkTargetGroup,
-} from "monocdk/aws-elasticloadbalancingv2";
+} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import { MetricFactory, MetricWithAlarmSupport } from "../../common";
 import { ApplicationLoadBalancerMetricFactory } from "./ApplicationLoadBalancerMetricFactory";

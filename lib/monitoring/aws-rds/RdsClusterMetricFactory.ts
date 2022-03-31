@@ -1,4 +1,4 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -10,14 +10,14 @@ export interface RdsClusterMetricFactoryProps {
 
 export class RdsClusterMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: RdsClusterMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensions = {
+    this.dimensionsMap = {
       DBClusterIdentifier: props.clusterIdentifier,
     };
   }
@@ -81,7 +81,7 @@ export class RdsClusterMetricFactory {
       metricName,
       statistic,
       label,
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       RdsNamespace
     );

@@ -1,4 +1,4 @@
-import { Lazy, Stack } from "monocdk";
+import { Lazy, Stack } from "aws-cdk-lib";
 
 import { AwsConsoleUrlFactory, ElastiCacheClusterType } from "../../../lib";
 

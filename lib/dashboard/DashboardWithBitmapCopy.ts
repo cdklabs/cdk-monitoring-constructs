@@ -1,5 +1,5 @@
-import { Construct } from "monocdk";
-import { Dashboard, DashboardProps, IWidget } from "monocdk/aws-cloudwatch";
+import { Dashboard, DashboardProps, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 import { BitmapDashboard } from "./BitmapDashboard";
 

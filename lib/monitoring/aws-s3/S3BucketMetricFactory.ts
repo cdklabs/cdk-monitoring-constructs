@@ -1,4 +1,4 @@
-import { IBucket } from "monocdk/aws-s3";
+import { IBucket } from "aws-cdk-lib/aws-s3";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 

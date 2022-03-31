@@ -1,4 +1,4 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -13,14 +13,14 @@ export interface KinesisFirehoseMetricFactoryProps {
  */
 export class KinesisFirehoseMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: KinesisFirehoseMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensions = {
+    this.dimensionsMap = {
       DeliveryStreamName: props.deliveryStreamName,
     };
   }
@@ -30,7 +30,7 @@ export class KinesisFirehoseMetricFactory {
       "SucceedConversion.Records",
       MetricStatistic.SUM,
       "Succeed",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
@@ -41,7 +41,7 @@ export class KinesisFirehoseMetricFactory {
       "FailedConversion.Records",
       MetricStatistic.SUM,
       "Failed",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
@@ -52,7 +52,7 @@ export class KinesisFirehoseMetricFactory {
       "IncomingBytes",
       MetricStatistic.SUM,
       "Incoming (bytes)",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
@@ -63,7 +63,7 @@ export class KinesisFirehoseMetricFactory {
       "IncomingRecords",
       MetricStatistic.SUM,
       "Incoming",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
@@ -74,7 +74,7 @@ export class KinesisFirehoseMetricFactory {
       "ThrottledRecords",
       MetricStatistic.SUM,
       "Throttled",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
@@ -85,7 +85,7 @@ export class KinesisFirehoseMetricFactory {
       "PutRecord.Latency",
       MetricStatistic.P90,
       "PutRecord P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
@@ -96,7 +96,7 @@ export class KinesisFirehoseMetricFactory {
       "PutRecordBatch.Latency",
       MetricStatistic.P90,
       "PutRecordBatch P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );

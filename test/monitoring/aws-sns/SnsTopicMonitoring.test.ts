@@ -1,6 +1,6 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Topic } from "monocdk/aws-sns";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Topic } from "aws-cdk-lib/aws-sns";
 
 import { AlarmWithAnnotation, SnsTopicMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

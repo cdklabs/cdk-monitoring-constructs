@@ -3,7 +3,7 @@ import {
   HorizontalAnnotation,
   IMetric,
   IWidget,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   AlarmFactory,

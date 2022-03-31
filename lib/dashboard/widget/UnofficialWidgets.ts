@@ -1,4 +1,4 @@
-import { ConcreteWidget, MetricWidgetProps } from "monocdk/aws-cloudwatch";
+import { ConcreteWidget, MetricWidgetProps } from "aws-cdk-lib/aws-cloudwatch";
 
 import { FullWidth } from "../../common/widget";
 

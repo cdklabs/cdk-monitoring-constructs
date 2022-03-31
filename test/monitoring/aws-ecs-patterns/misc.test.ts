@@ -1,12 +1,12 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { InstanceType } from "monocdk/aws-ec2";
-import { Repository } from "monocdk/aws-ecr";
-import { Cluster, EcrImage, FargateTaskDefinition } from "monocdk/aws-ecs";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { InstanceType } from "aws-cdk-lib/aws-ec2";
+import { Repository } from "aws-cdk-lib/aws-ecr";
+import { Cluster, EcrImage, FargateTaskDefinition } from "aws-cdk-lib/aws-ecs";
 import {
   QueueProcessingEc2Service,
   QueueProcessingFargateService,
-} from "monocdk/aws-ecs-patterns";
+} from "aws-cdk-lib/aws-ecs-patterns";
 
 import {
   getQueueProcessingEc2ServiceMonitoring,

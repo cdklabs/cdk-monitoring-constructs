@@ -1,6 +1,6 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Activity } from "monocdk/aws-stepfunctions";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Activity } from "aws-cdk-lib/aws-stepfunctions";
 
 import {
   AlarmWithAnnotation,

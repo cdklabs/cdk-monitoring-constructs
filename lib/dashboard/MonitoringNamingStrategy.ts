@@ -1,4 +1,5 @@
-import { IConstruct, Lazy, Token } from "monocdk";
+import { Lazy, Token } from "aws-cdk-lib";
+import { IConstruct } from "constructs";
 
 export interface NameResolutionInput extends UserProvidedNames {
   /**

@@ -3,7 +3,7 @@ import {
   ComparisonOperator,
   HorizontalAnnotation,
   Shading,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import { MetricWithAlarmSupport } from "../metric";
 import { AlarmMetadata } from "./AlarmFactory";

@@ -1,4 +1,5 @@
-import { Aspects, CfnResource, IConstruct, Stack } from "monocdk";
+import { Aspects, CfnResource, Stack } from "aws-cdk-lib";
+import { IConstruct } from "constructs";
 
 /**
  * Overwrite potentially unstable properties for unit testing purposes.

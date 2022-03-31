@@ -1,6 +1,6 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Function, InlineCode, Runtime } from "monocdk/aws-lambda";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Function, InlineCode, Runtime } from "aws-cdk-lib/aws-lambda";
 
 import {
   AlarmWithAnnotation,

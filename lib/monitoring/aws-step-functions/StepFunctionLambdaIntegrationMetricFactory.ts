@@ -1,5 +1,5 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
-import { IFunction } from "monocdk/aws-lambda";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
 
 import {
   MetricFactory,
@@ -20,7 +20,7 @@ export interface StepFunctionLambdaIntegrationMetricFactoryProps {
 export class StepFunctionLambdaIntegrationMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly rateComputationMethod: RateComputationMethod;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
@@ -28,7 +28,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
   ) {
     this.metricFactory = metricFactory;
     this.rateComputationMethod = RateComputationMethod.AVERAGE;
-    this.dimensions = {
+    this.dimensionsMap = {
       LambdaFunctionArn: props.lambdaFunction.functionArn,
     };
   }
@@ -38,7 +38,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionRunTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -49,7 +49,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionRunTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -60,7 +60,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionRunTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -71,7 +71,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionScheduleTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -82,7 +82,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionScheduleTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -93,7 +93,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionScheduleTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -104,7 +104,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionTime",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -115,7 +115,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionTime",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -126,7 +126,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionTime",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -137,7 +137,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionsFailed",
       MetricStatistic.SUM,
       "Failed",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -158,7 +158,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionsScheduled",
       MetricStatistic.SUM,
       "Scheduled",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -169,7 +169,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionsStarted",
       MetricStatistic.SUM,
       "Started",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -180,7 +180,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionsSucceeded",
       MetricStatistic.SUM,
       "Succeeded",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -191,7 +191,7 @@ export class StepFunctionLambdaIntegrationMetricFactory {
       "LambdaFunctionsTimedOut",
       MetricStatistic.SUM,
       "Timeout",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );

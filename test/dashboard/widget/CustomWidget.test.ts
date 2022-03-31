@@ -1,5 +1,5 @@
-import { Stack } from "monocdk";
-import { Code, Function, Runtime } from "monocdk/aws-lambda";
+import { Stack } from "aws-cdk-lib";
+import { Code, Function, Runtime } from "aws-cdk-lib/aws-lambda";
 
 import { CustomWidget } from "../../../lib/dashboard/widget/CustomWidget";
 

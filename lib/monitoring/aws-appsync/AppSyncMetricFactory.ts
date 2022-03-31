@@ -1,5 +1,5 @@
-import { GraphqlApi } from "monocdk/aws-appsync";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { GraphqlApi } from "@aws-cdk/aws-appsync-alpha";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   MetricFactory,
@@ -30,14 +30,14 @@ export class AppSyncMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
 
   constructor(metricFactory: MetricFactory, props: AppSyncMetricFactoryProps) {
     this.metricFactory = metricFactory;
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
-    this.dimensions = {
+    this.dimensionsMap = {
       GraphQLAPIId: props.api.apiId,
     };
   }
@@ -58,7 +58,7 @@ export class AppSyncMetricFactory {
       "Latency",
       MetricStatistic.N,
       "Requests",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -69,7 +69,7 @@ export class AppSyncMetricFactory {
       "Latency",
       MetricStatistic.P50,
       "P50",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -80,7 +80,7 @@ export class AppSyncMetricFactory {
       "Latency",
       MetricStatistic.P90,
       "P90",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -91,7 +91,7 @@ export class AppSyncMetricFactory {
       "Latency",
       MetricStatistic.P99,
       "P99",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -102,7 +102,7 @@ export class AppSyncMetricFactory {
       "4XXError",
       MetricStatistic.SUM,
       "4XX Error",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );
@@ -123,7 +123,7 @@ export class AppSyncMetricFactory {
       "5XXError",
       MetricStatistic.SUM,
       "5XX Fault",
-      this.dimensions,
+      this.dimensionsMap,
       undefined,
       Namespace
     );

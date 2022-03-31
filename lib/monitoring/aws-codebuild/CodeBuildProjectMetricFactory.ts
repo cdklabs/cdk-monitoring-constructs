@@ -1,5 +1,5 @@
-import { DimensionHash } from "monocdk/aws-cloudwatch";
-import { IProject } from "monocdk/aws-codebuild";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
+import { IProject } from "aws-cdk-lib/aws-codebuild";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -9,7 +9,7 @@ export interface CodeBuildProjectMetricFactoryProps {
 
 export class CodeBuildProjectMetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly dimensions: DimensionHash;
+  protected readonly dimensionsMap: DimensionsMap;
   protected readonly project: IProject;
 
   constructor(
@@ -18,7 +18,7 @@ export class CodeBuildProjectMetricFactory {
   ) {
     this.metricFactory = metricFactory;
     this.project = props.project;
-    this.dimensions = {
+    this.dimensionsMap = {
       ProjectName: props.project.projectName,
     };
   }

@@ -1,6 +1,6 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Bucket } from "monocdk/aws-s3";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Bucket } from "aws-cdk-lib/aws-s3";
 
 import { S3BucketMonitoring, StorageType } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

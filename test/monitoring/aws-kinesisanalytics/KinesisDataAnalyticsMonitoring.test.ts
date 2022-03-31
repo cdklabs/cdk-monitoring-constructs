@@ -1,5 +1,5 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 
 import { KinesisDataAnalyticsMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

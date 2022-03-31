@@ -1,12 +1,12 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { ComparisonOperator } from "monocdk/aws-cloudwatch";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { ComparisonOperator } from "aws-cdk-lib/aws-cloudwatch";
 import {
   Function,
   InlineCode,
   LayerVersion,
   Runtime,
-} from "monocdk/aws-lambda";
+} from "aws-cdk-lib/aws-lambda";
 
 import { AlarmWithAnnotation, LambdaFunctionMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

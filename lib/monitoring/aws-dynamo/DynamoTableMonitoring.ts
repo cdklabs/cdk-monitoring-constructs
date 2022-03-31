@@ -5,8 +5,8 @@ import {
   IMetric,
   IWidget,
   LegendPosition,
-} from "monocdk/aws-cloudwatch";
-import { CfnTable, ITable, Operation } from "monocdk/aws-dynamodb";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { CfnTable, ITable, Operation } from "aws-cdk-lib/aws-dynamodb";
 
 import {
   AlarmFactory,

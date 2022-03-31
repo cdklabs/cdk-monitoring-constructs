@@ -1,6 +1,12 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Canary, Code, Runtime, Schedule, Test } from "monocdk/aws-synthetics";
+import {
+  Canary,
+  Code,
+  Runtime,
+  Schedule,
+  Test,
+} from "@aws-cdk/aws-synthetics-alpha";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 
 import { AlarmWithAnnotation } from "../../../lib";
 import { SyntheticsCanaryMonitoring } from "../../../lib/monitoring/aws-synthetics";

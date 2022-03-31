@@ -1,4 +1,4 @@
-import { GraphWidget, IWidget } from "monocdk/aws-cloudwatch";
+import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 import {
   BaseMonitoringProps,
   CountAxisFromZero,

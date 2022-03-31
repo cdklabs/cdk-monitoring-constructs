@@ -1,7 +1,7 @@
 import {
   ApplicationLoadBalancer,
   ApplicationTargetGroup,
-} from "monocdk/aws-elasticloadbalancingv2";
+} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import {
   HealthyMetricColor,

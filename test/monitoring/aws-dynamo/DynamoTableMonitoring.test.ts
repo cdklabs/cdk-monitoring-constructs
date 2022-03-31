@@ -1,6 +1,6 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { AttributeType, Table } from "monocdk/aws-dynamodb";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { AttributeType, Table } from "aws-cdk-lib/aws-dynamodb";
 
 import { AlarmWithAnnotation, DynamoTableMonitoring } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";

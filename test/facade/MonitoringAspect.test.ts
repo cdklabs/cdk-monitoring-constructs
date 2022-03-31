@@ -1,32 +1,32 @@
-import { App, Duration, SecretValue, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import * as apigw from "monocdk/aws-apigateway";
-import * as apigwv2 from "monocdk/aws-apigatewayv2";
-import * as appsync from "monocdk/aws-appsync";
-import * as autoscaling from "monocdk/aws-autoscaling";
-import * as acm from "monocdk/aws-certificatemanager";
-import * as cloudfront from "monocdk/aws-cloudfront";
-import * as cloudfrontOrigins from "monocdk/aws-cloudfront-origins";
-import * as codebuild from "monocdk/aws-codebuild";
-import * as dynamodb from "monocdk/aws-dynamodb";
-import * as ec2 from "monocdk/aws-ec2";
-import * as elasticache from "monocdk/aws-elasticache";
-import * as elasticsearch from "monocdk/aws-elasticsearch";
-import * as glue from "monocdk/aws-glue";
-import * as kinesis from "monocdk/aws-kinesis";
-import * as kinesisanalytics from "monocdk/aws-kinesisanalytics";
-import * as kinesisfirehose from "monocdk/aws-kinesisfirehose";
-import * as lambda from "monocdk/aws-lambda";
-import * as opensearch from "monocdk/aws-opensearchservice";
-import * as rds from "monocdk/aws-rds";
-import * as redshift from "monocdk/aws-redshift";
-import * as s3 from "monocdk/aws-s3";
-import * as secretsmanager from "monocdk/aws-secretsmanager";
-import * as sns from "monocdk/aws-sns";
-import * as sqs from "monocdk/aws-sqs";
-import * as stepfunctions from "monocdk/aws-stepfunctions";
-import * as synthetics from "monocdk/aws-synthetics";
-import { CfnWebACL } from "monocdk/aws-wafv2";
+import * as apigwv2 from "@aws-cdk/aws-apigatewayv2-alpha";
+import * as appsync from "@aws-cdk/aws-appsync-alpha";
+import * as redshift from "@aws-cdk/aws-redshift-alpha";
+import * as synthetics from "@aws-cdk/aws-synthetics-alpha";
+import { App, Duration, SecretValue, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import * as apigw from "aws-cdk-lib/aws-apigateway";
+import * as autoscaling from "aws-cdk-lib/aws-autoscaling";
+import * as acm from "aws-cdk-lib/aws-certificatemanager";
+import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
+import * as cloudfrontOrigins from "aws-cdk-lib/aws-cloudfront-origins";
+import * as codebuild from "aws-cdk-lib/aws-codebuild";
+import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
+import * as ec2 from "aws-cdk-lib/aws-ec2";
+import * as elasticache from "aws-cdk-lib/aws-elasticache";
+import * as elasticsearch from "aws-cdk-lib/aws-elasticsearch";
+import * as glue from "aws-cdk-lib/aws-glue";
+import * as kinesis from "aws-cdk-lib/aws-kinesis";
+import * as kinesisanalytics from "aws-cdk-lib/aws-kinesisanalytics";
+import * as kinesisfirehose from "aws-cdk-lib/aws-kinesisfirehose";
+import * as lambda from "aws-cdk-lib/aws-lambda";
+import * as opensearch from "aws-cdk-lib/aws-opensearchservice";
+import * as rds from "aws-cdk-lib/aws-rds";
+import * as s3 from "aws-cdk-lib/aws-s3";
+import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager";
+import * as sns from "aws-cdk-lib/aws-sns";
+import * as sqs from "aws-cdk-lib/aws-sqs";
+import * as stepfunctions from "aws-cdk-lib/aws-stepfunctions";
+import * as wafv2 from "aws-cdk-lib/aws-wafv2";
 
 import {
   DefaultDashboardFactory,
@@ -396,11 +396,7 @@ describe("MonitoringAspect", () => {
 
   test("RDS", () => {
     // GIVEN
-    const app = new App({
-      context: {
-        "@aws-cdk/aws-secretsmanager:parseOwnedSecretName": true,
-      },
-    });
+    const app = new App();
     const stack = new Stack(app);
     const facade = createDummyMonitoringFacade(stack);
 
@@ -458,11 +454,7 @@ describe("MonitoringAspect", () => {
 
   test("SecretsManager", () => {
     // GIVEN
-    const app = new App({
-      context: {
-        "@aws-cdk/aws-secretsmanager:parseOwnedSecretName": true,
-      },
-    });
+    const app = new App();
     const stack = new Stack(app);
     const facade = createDummyMonitoringFacade(stack);
 
@@ -547,7 +539,7 @@ describe("MonitoringAspect", () => {
     const stack = new Stack();
     const facade = createDummyMonitoringFacade(stack);
 
-    new CfnWebACL(stack, "DummyAcl", {
+    new wafv2.CfnWebACL(stack, "DummyAcl", {
       defaultAction: { allow: {} },
       scope: "REGIONAL",
       visibilityConfig: {

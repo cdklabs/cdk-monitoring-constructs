@@ -1,8 +1,8 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
-import { Distribution } from "monocdk/aws-cloudfront";
-import { S3Origin } from "monocdk/aws-cloudfront-origins";
-import { Bucket } from "monocdk/aws-s3";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { Distribution } from "aws-cdk-lib/aws-cloudfront";
+import { S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { Bucket } from "aws-cdk-lib/aws-s3";
 
 import {
   AlarmWithAnnotation,

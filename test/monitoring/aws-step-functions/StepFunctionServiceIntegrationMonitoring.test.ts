@@ -1,5 +1,5 @@
-import { Duration, Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 
 import {
   AlarmWithAnnotation,

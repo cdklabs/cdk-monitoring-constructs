@@ -1,4 +1,3 @@
-import { Construct } from "monocdk";
 import {
   Column,
   Dashboard,
@@ -6,7 +5,8 @@ import {
   GraphWidget,
   IWidget,
   Row,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 import { BitmapWidgetRenderingSupport } from "./widget";
 

@@ -1,5 +1,5 @@
-import { IAutoScalingGroup } from "monocdk/aws-autoscaling";
-import { GraphWidget, IMetric, IWidget } from "monocdk/aws-cloudwatch";
+import { IAutoScalingGroup } from "aws-cdk-lib/aws-autoscaling";
+import { GraphWidget, IMetric, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   BaseMonitoringProps,

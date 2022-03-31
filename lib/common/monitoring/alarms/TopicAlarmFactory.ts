@@ -1,4 +1,7 @@
-import { ComparisonOperator, TreatMissingData } from "monocdk/aws-cloudwatch";
+import {
+  ComparisonOperator,
+  TreatMissingData,
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import { AlarmFactory, CustomAlarmThreshold } from "../../alarm";
 import { MetricWithAlarmSupport } from "../../metric";

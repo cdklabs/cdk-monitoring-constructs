@@ -1,11 +1,11 @@
-import { Stack } from "monocdk";
-import { Template } from "monocdk/assertions";
+import { Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 import {
   ComparisonOperator,
   MathExpression,
   Metric,
   Shading,
-} from "monocdk/aws-cloudwatch";
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   AxisPosition,
@@ -16,7 +16,7 @@ import {
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 const namespace = "DummyCustomNamespace";
-const dimensions = { CustomDimension: "CustomDimensionValue" };
+const dimensionsMap = { CustomDimension: "CustomDimensionValue" };
 
 test("snapshot test", () => {
   const stack = new Stack();
@@ -36,14 +36,14 @@ test("snapshot test", () => {
         important: true,
         metrics: [
           // regular metric
-          new Metric({ metricName: "DummyMetric1", namespace, dimensions }),
+          new Metric({ metricName: "DummyMetric1", namespace, dimensionsMap }),
           // metric with alarm
-          new Metric({ metricName: "DummyMetric2", namespace, dimensions }),
+          new Metric({ metricName: "DummyMetric2", namespace, dimensionsMap }),
           {
             metric: new Metric({
               metricName: "DummyMetric3",
               namespace,
-              dimensions,
+              dimensionsMap,
             }),
             alarmFriendlyName: "AlarmForDummyMetric3",
             addAlarm: {
@@ -61,7 +61,7 @@ test("snapshot test", () => {
           {
             searchQuery: "DummyMetric4-",
             namespace,
-            dimensions,
+            dimensionsMap,
             statistic: MetricStatistic.SUM,
           },
         ],
@@ -70,14 +70,14 @@ test("snapshot test", () => {
         title: "DummyGroup2",
         metrics: [
           // regular metric
-          new Metric({ metricName: "DummyMetric10", namespace, dimensions }),
+          new Metric({ metricName: "DummyMetric10", namespace, dimensionsMap }),
           // metric with alarm
-          new Metric({ metricName: "DummyMetric11", namespace, dimensions }),
+          new Metric({ metricName: "DummyMetric11", namespace, dimensionsMap }),
           {
             metric: new Metric({
               metricName: "DummyMetric12",
               namespace,
-              dimensions,
+              dimensionsMap,
             }),
             alarmFriendlyName: "AlarmForDummyMetric12",
             addAlarm: {
@@ -101,13 +101,13 @@ test("snapshot test", () => {
         title: "DummyGroup3",
         metrics: [
           // regular metric
-          new Metric({ metricName: "DummyMetric20", namespace, dimensions }),
+          new Metric({ metricName: "DummyMetric20", namespace, dimensionsMap }),
           {
             alarmFriendlyName: "AlarmForDummyMetric21",
             metric: new Metric({
               metricName: "DummyMetric21",
               namespace,
-              dimensions,
+              dimensionsMap,
             }),
             addAlarm: {},
             position: AxisPosition.LEFT,
@@ -118,7 +118,7 @@ test("snapshot test", () => {
             metric: new Metric({
               metricName: "DummyMetric22",
               namespace,
-              dimensions,
+              dimensionsMap,
             }),
             alarmFriendlyName: "AlarmForDummyMetric22",
             addAlarm: {
@@ -175,7 +175,11 @@ test("anomaly detection", () => {
         metrics: [
           {
             metric: metricFactory.createMetricAnomalyDetection(
-              new Metric({ metricName: "DummyMetric1", namespace, dimensions }),
+              new Metric({
+                metricName: "DummyMetric1",
+                namespace,
+                dimensionsMap,
+              }),
               2,
               "AnomalyLabel",
               "blue",
@@ -268,7 +272,7 @@ test("enhanced anomaly detection with more complex metric", () => {
             metric: new Metric({
               metricName: "DNSQueries",
               namespace: "AWS/Route53",
-              dimensions: {
+              dimensionsMap: {
                 HostedZoneId: "ID",
               },
             }),
@@ -350,7 +354,7 @@ test("throws error if attempting to add alarm on a search query", () => {
               {
                 searchQuery: "DummyMetric4-",
                 namespace,
-                dimensions,
+                dimensionsMap,
                 statistic: MetricStatistic.SUM,
                 alarmFriendlyName: "AlarmForDummyMetric3",
                 addAlarm: {
@@ -390,7 +394,7 @@ test("throws error if attempting to add both a regular alarm and an anomoly dete
                 metric: new Metric({
                   metricName: "DNSQueries",
                   namespace: "AWS/Route53",
-                  dimensions: {
+                  dimensionsMap: {
                     HostedZoneId: "ID",
                   },
                 }),

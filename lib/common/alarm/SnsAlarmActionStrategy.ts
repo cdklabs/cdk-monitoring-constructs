@@ -1,5 +1,5 @@
-import { SnsAction } from "monocdk/aws-cloudwatch-actions";
-import { ITopic } from "monocdk/aws-sns";
+import { SnsAction } from "aws-cdk-lib/aws-cloudwatch-actions";
+import { ITopic } from "aws-cdk-lib/aws-sns";
 
 import {
   AlarmActionStrategyProps,
