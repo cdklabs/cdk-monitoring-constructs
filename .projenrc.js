@@ -10,6 +10,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: "CDK Monitoring Constructs Team",
   authorAddress: "monitoring-cdk-constructs@amazon.com",
   defaultReleaseBranch: "main",
+  majorVersion: 1,
+  releaseBranches: {
+    monocdk: {
+      majorVersion: 0,
+    },
+  },
   stability: "experimental",
 
   cdkVersion: CDK_VERSION,
