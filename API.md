@@ -955,7 +955,7 @@ public createCompositeAlarmUsingDisambiguator(alarmDisambiguator: string, props?
 Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm.
 
 This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-NOTE: This composite alarm is not added among other alarms, so it is not returned by getCreatedAlarms() calls.
+NOTE: This composite alarm is not added among other alarms, so it is not returned by createdAlarms() calls.
 
 ###### `alarmDisambiguator`<sup>Required</sup> <a name="alarmDisambiguator" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator.parameter.alarmDisambiguator"></a>
 
@@ -982,7 +982,7 @@ public createCompositeAlarmUsingTag(customTag: string, props?: AddCompositeAlarm
 Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm.
 
 This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-NOTE: This composite alarm is not added among other alarms, so it is not returned by getCreatedAlarms() calls.
+NOTE: This composite alarm is not added among other alarms, so it is not returned by createdAlarms() calls.
 
 ###### `customTag`<sup>Required</sup> <a name="customTag" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag.parameter.customTag"></a>
 
