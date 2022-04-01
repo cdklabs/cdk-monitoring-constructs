@@ -47,6 +47,7 @@ export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP70Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP95Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP9999Alarm?: Record<string, LatencyThreshold>;
@@ -54,6 +55,7 @@ export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyTM50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM70Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM90Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM95Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM99Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM9999Alarm?: Record<string, LatencyThreshold>;
@@ -159,6 +161,7 @@ export class ApiGatewayMonitoring extends Monitoring {
       [LatencyType.P50]: props.addLatencyP50Alarm,
       [LatencyType.P70]: props.addLatencyP70Alarm,
       [LatencyType.P90]: props.addLatencyP90Alarm,
+      [LatencyType.P95]: props.addLatencyP95Alarm,
       [LatencyType.P99]: props.addLatencyP99Alarm,
       [LatencyType.P999]: props.addLatencyP999Alarm,
       [LatencyType.P9999]: props.addLatencyP9999Alarm,
@@ -166,6 +169,7 @@ export class ApiGatewayMonitoring extends Monitoring {
       [LatencyType.TM50]: props.addLatencyTM50Alarm,
       [LatencyType.TM70]: props.addLatencyTM70Alarm,
       [LatencyType.TM90]: props.addLatencyTM90Alarm,
+      [LatencyType.TM95]: props.addLatencyTM95Alarm,
       [LatencyType.TM99]: props.addLatencyTM99Alarm,
       [LatencyType.TM999]: props.addLatencyTM999Alarm,
       [LatencyType.TM9999]: props.addLatencyTM9999Alarm,
