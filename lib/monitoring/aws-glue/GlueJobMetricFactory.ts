@@ -1,6 +1,10 @@
 import { DimensionHash } from "monocdk/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  MetricFactory,
+  MetricStatistic,
+  RateComputationMethod,
+} from "../../common";
 
 const GlueNamespace = "Glue";
 
@@ -80,6 +84,59 @@ export class GlueJobMetricFactory {
       this.dimensions,
       undefined,
       GlueNamespace
+    );
+  }
+
+  metricCompletedTasksSum() {
+    return this.metricFactory.createMetric(
+      "glue.driver.aggregate.numCompletedTasks",
+      MetricStatistic.SUM,
+      "Completed Tasks",
+      this.dimensions,
+      undefined,
+      GlueNamespace
+    );
+  }
+
+  metricFailedTasksSum() {
+    return this.metricFactory.createMetric(
+      "glue.driver.aggregate.numFailedTasks",
+      MetricStatistic.SUM,
+      "Failed Tasks",
+      this.dimensions,
+      undefined,
+      GlueNamespace
+    );
+  }
+
+  metricFailedTasksRate() {
+    return this.metricFactory.toRate(
+      this.metricFailedTasksSum(),
+      RateComputationMethod.AVERAGE,
+      true,
+      "killed",
+      false
+    );
+  }
+
+  metricKilledTasksSum() {
+    return this.metricFactory.createMetric(
+      "glue.driver.aggregate.numKilledTasks",
+      MetricStatistic.SUM,
+      "Killed Tasks",
+      this.dimensions,
+      undefined,
+      GlueNamespace
+    );
+  }
+
+  metricKilledTasksRate() {
+    return this.metricFactory.toRate(
+      this.metricKilledTasksSum(),
+      RateComputationMethod.AVERAGE,
+      true,
+      "killed",
+      false
     );
   }
 

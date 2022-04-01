@@ -1,3 +1,354 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot test 1`] = `Object {}`;
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiFaultCountWarning6270BEC0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiFaultRateWarning63CFB7F0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiKilledCountWarningCA57B7AE",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiKilledRateWarningA1341942",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Glue Job **DummyGlueJob**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Job Execution\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Data Movement\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.ALL.s3.filesystem.read_bytes\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Read (S3)\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.ALL.s3.filesystem.write_bytes\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Write (S3)\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Killed\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Killed > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Failed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Killed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed Tasks (avg) > 4 for 3 datapoints within 15 minutes\\",\\"value\\":4,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Killed Tasks (avg) > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyApiFaultCountWarning6270BEC0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "Test-DummyApi-Fault-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "JobName",
+                    "Value": "DummyGlueJob",
+                  },
+                  Object {
+                    "Name": "JobRunId",
+                    "Value": "ALL",
+                  },
+                  Object {
+                    "Name": "Type",
+                    "Value": "gauge",
+                  },
+                ],
+                "MetricName": "glue.driver.aggregate.numFailedTasks",
+                "Namespace": "Glue",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 3,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiFaultRateWarning63CFB7F0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault rate is too high.",
+        "AlarmName": "Test-DummyApi-Fault-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed Tasks (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "JobName",
+                    "Value": "DummyGlueJob",
+                  },
+                  Object {
+                    "Name": "JobRunId",
+                    "Value": "ALL",
+                  },
+                  Object {
+                    "Name": "Type",
+                    "Value": "gauge",
+                  },
+                ],
+                "MetricName": "glue.driver.aggregate.numFailedTasks",
+                "Namespace": "Glue",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 4,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiKilledCountWarningCA57B7AE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Killed count is too high.",
+        "AlarmName": "Test-DummyApi-Killed-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Killed",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "JobName",
+                    "Value": "DummyGlueJob",
+                  },
+                  Object {
+                    "Name": "JobRunId",
+                    "Value": "ALL",
+                  },
+                  Object {
+                    "Name": "Type",
+                    "Value": "gauge",
+                  },
+                ],
+                "MetricName": "glue.driver.aggregate.numKilledTasks",
+                "Namespace": "Glue",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 3,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiKilledRateWarningA1341942": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Killed rate is too high.",
+        "AlarmName": "Test-DummyApi-Killed-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Killed Tasks (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "JobName",
+                    "Value": "DummyGlueJob",
+                  },
+                  Object {
+                    "Name": "JobRunId",
+                    "Value": "ALL",
+                  },
+                  Object {
+                    "Name": "Type",
+                    "Value": "gauge",
+                  },
+                ],
+                "MetricName": "glue.driver.aggregate.numKilledTasks",
+                "Namespace": "Glue",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Glue Job **DummyGlueJob**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Job Execution\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Glue Job **DummyGlueJob**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Job Execution\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Data Movement\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.ALL.s3.filesystem.read_bytes\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Read (S3)\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.ALL.s3.filesystem.write_bytes\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Write (S3)\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Killed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Failed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Killed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Glue Job **DummyGlueJob**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Job Execution\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+}
+`;
