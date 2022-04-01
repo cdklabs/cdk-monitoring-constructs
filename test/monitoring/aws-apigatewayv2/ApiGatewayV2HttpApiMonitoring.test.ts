@@ -59,6 +59,12 @@ test("snapshot test: all alarms", () => {
         datapointsToAlarm: 190,
       },
     },
+    addLatencyP95Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(195),
+        datapointsToAlarm: 195,
+      },
+    },
     addLatencyP99Alarm: {
       Warning: {
         maxLatency: Duration.millis(199),
@@ -99,6 +105,12 @@ test("snapshot test: all alarms", () => {
       Warning: {
         maxLatency: Duration.millis(290),
         datapointsToAlarm: 290,
+      },
+    },
+    addLatencyTM95Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(295),
+        datapointsToAlarm: 295,
       },
     },
     addLatencyTM99Alarm: {
@@ -143,6 +155,12 @@ test("snapshot test: all alarms", () => {
         datapointsToAlarm: 190,
       },
     },
+    addIntegrationLatencyP95Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(195),
+        datapointsToAlarm: 195,
+      },
+    },
     addIntegrationLatencyP99Alarm: {
       Warning: {
         maxLatency: Duration.millis(199),
@@ -183,6 +201,12 @@ test("snapshot test: all alarms", () => {
       Warning: {
         maxLatency: Duration.millis(290),
         datapointsToAlarm: 290,
+      },
+    },
+    addIntegrationLatencyTM95Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(295),
+        datapointsToAlarm: 295,
       },
     },
     addIntegrationLatencyTM99Alarm: {
@@ -246,6 +270,6 @@ test("snapshot test: all alarms", () => {
     },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(34);
+  expect(numAlarmsCreated).toStrictEqual(38);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

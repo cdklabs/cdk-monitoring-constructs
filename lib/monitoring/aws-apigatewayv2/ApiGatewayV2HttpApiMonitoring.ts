@@ -54,6 +54,7 @@ export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP70Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP95Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP9999Alarm?: Record<string, LatencyThreshold>;
@@ -61,6 +62,7 @@ export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyTM50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM70Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM90Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM95Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM99Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM9999Alarm?: Record<string, LatencyThreshold>;
@@ -69,6 +71,7 @@ export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly addIntegrationLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyP70Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyP90Alarm?: Record<string, LatencyThreshold>;
+  readonly addIntegrationLatencyP95Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyP99Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyP999Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyP9999Alarm?: Record<string, LatencyThreshold>;
@@ -76,6 +79,7 @@ export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly addIntegrationLatencyTM50Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM70Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM90Alarm?: Record<string, LatencyThreshold>;
+  readonly addIntegrationLatencyTM95Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM99Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM999Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM9999Alarm?: Record<string, LatencyThreshold>;
@@ -180,6 +184,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       [LatencyType.P50]: props.addLatencyP50Alarm,
       [LatencyType.P70]: props.addLatencyP70Alarm,
       [LatencyType.P90]: props.addLatencyP90Alarm,
+      [LatencyType.P95]: props.addLatencyP95Alarm,
       [LatencyType.P99]: props.addLatencyP99Alarm,
       [LatencyType.P999]: props.addLatencyP999Alarm,
       [LatencyType.P9999]: props.addLatencyP9999Alarm,
@@ -187,6 +192,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       [LatencyType.TM50]: props.addLatencyTM50Alarm,
       [LatencyType.TM70]: props.addLatencyTM70Alarm,
       [LatencyType.TM90]: props.addLatencyTM90Alarm,
+      [LatencyType.TM95]: props.addLatencyTM95Alarm,
       [LatencyType.TM99]: props.addLatencyTM99Alarm,
       [LatencyType.TM999]: props.addLatencyTM999Alarm,
       [LatencyType.TM9999]: props.addLatencyTM9999Alarm,
@@ -197,6 +203,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       [LatencyType.P50]: props.addIntegrationLatencyP50Alarm,
       [LatencyType.P70]: props.addIntegrationLatencyP70Alarm,
       [LatencyType.P90]: props.addIntegrationLatencyP90Alarm,
+      [LatencyType.P95]: props.addIntegrationLatencyP95Alarm,
       [LatencyType.P99]: props.addIntegrationLatencyP99Alarm,
       [LatencyType.P999]: props.addIntegrationLatencyP999Alarm,
       [LatencyType.P9999]: props.addIntegrationLatencyP9999Alarm,
@@ -204,6 +211,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       [LatencyType.TM50]: props.addIntegrationLatencyTM50Alarm,
       [LatencyType.TM70]: props.addIntegrationLatencyTM70Alarm,
       [LatencyType.TM90]: props.addIntegrationLatencyTM90Alarm,
+      [LatencyType.TM95]: props.addIntegrationLatencyTM95Alarm,
       [LatencyType.TM99]: props.addIntegrationLatencyTM99Alarm,
       [LatencyType.TM999]: props.addIntegrationLatencyTM999Alarm,
       [LatencyType.TM9999]: props.addIntegrationLatencyTM9999Alarm,
