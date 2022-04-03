@@ -1,4 +1,8 @@
-import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import {
+  GraphWidget,
+  HorizontalAnnotation,
+  IWidget,
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   BaseMonitoringProps,
@@ -6,9 +10,11 @@ import {
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
   HalfWidth,
+  KinesisAlarmFactory,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
+  RecordsThrottledThreshold,
   ThirdWidth,
   TimeAxisMillisFromZero,
 } from "../../common";
@@ -21,7 +27,9 @@ import {
   KinesisFirehoseMetricFactoryProps,
 } from "./KinesisFirehoseMetricFactory";
 
-export interface KinesisFirehoseMonitoringOptions extends BaseMonitoringProps {}
+export interface KinesisFirehoseMonitoringOptions extends BaseMonitoringProps {
+  readonly addRecordsThrottledAlarm?: Record<string, RecordsThrottledThreshold>;
+}
 
 export interface KinesisFirehoseMonitoringProps
   extends KinesisFirehoseMetricFactoryProps,
@@ -30,6 +38,9 @@ export interface KinesisFirehoseMonitoringProps
 export class KinesisFirehoseMonitoring extends Monitoring {
   protected readonly title: string;
   protected readonly streamUrl?: string;
+
+  protected readonly kinesisAlarmFactory: KinesisAlarmFactory;
+  protected readonly recordCountAnnotations: HorizontalAnnotation[];
 
   protected readonly incomingBytesMetric: MetricWithAlarmSupport;
   protected readonly incomingRecordsMetric: MetricWithAlarmSupport;
@@ -55,6 +66,12 @@ export class KinesisFirehoseMonitoring extends Monitoring {
       scope.createMetricFactory(),
       props
     );
+    const alarmFactory = this.createAlarmFactory(
+      namingStrategy.resolveAlarmFriendlyName()
+    );
+    this.kinesisAlarmFactory = new KinesisAlarmFactory(alarmFactory);
+    this.recordCountAnnotations = [];
+
     this.incomingBytesMetric = metricFactory.metricIncomingBytes();
     this.incomingRecordsMetric = metricFactory.metricIncomingRecordCount();
     this.throttledRecordsMetric = metricFactory.metricThrottledRecordCount();
@@ -64,6 +81,19 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     this.putRecordLatency = metricFactory.metricPutRecordLatencyP90InMillis();
     this.putRecordBatchLatency =
       metricFactory.metricPutRecordBatchLatencyP90InMillis();
+
+    for (const disambiguator in props.addRecordsThrottledAlarm) {
+      const alarmProps = props.addRecordsThrottledAlarm[disambiguator];
+      const createdAlarm = this.kinesisAlarmFactory.addPutRecordsThrottledAlarm(
+        this.throttledRecordsMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.recordCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
   summaryWidgets(): IWidget[] {
@@ -98,6 +128,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
       title: "Records",
       left: [this.incomingRecordsMetric, this.throttledRecordsMetric],
       leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.recordCountAnnotations,
     });
   }
 
