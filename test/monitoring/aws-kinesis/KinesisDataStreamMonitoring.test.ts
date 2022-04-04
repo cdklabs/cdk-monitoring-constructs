@@ -2,6 +2,7 @@ import { Stack } from "monocdk";
 import { Template } from "monocdk/assertions";
 
 import { KinesisDataStreamMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test for stream: no alarms", () => {
@@ -9,10 +10,11 @@ test("snapshot test for stream: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new KinesisDataStreamMonitoring(scope, {
+  const monitoring = new KinesisDataStreamMonitoring(scope, {
     streamName: "my-kinesis-data-stream",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -23,7 +25,7 @@ test("snapshot test for stream: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new KinesisDataStreamMonitoring(scope, {
+  const monitoring = new KinesisDataStreamMonitoring(scope, {
     streamName: "my-kinesis-data-stream",
     addIteratorMaxAgeAlarm: {
       Warning: {
@@ -40,6 +42,16 @@ test("snapshot test for stream: all alarms", () => {
         maxRecordsFailedThreshold: 5,
       },
     },
+    addReadProvisionedThroughputExceededAlarm: {
+      Critical: {
+        maxRecordsThrottledThreshold: 0,
+      },
+    },
+    addWriteProvisionedThroughputExceededAlarm: {
+      Critical: {
+        maxRecordsThrottledThreshold: 0,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms) {
         numAlarmsCreated = alarms.length;
@@ -47,6 +59,7 @@ test("snapshot test for stream: all alarms", () => {
     },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(3);
+  expect(numAlarmsCreated).toStrictEqual(5);
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

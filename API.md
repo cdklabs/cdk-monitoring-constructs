@@ -17222,6 +17222,9 @@ const kinesisDataStreamMonitoringOptions: KinesisDataStreamMonitoringOptions = {
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addIteratorMaxAgeAlarm">addIteratorMaxAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold">MaxIteratorAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addPutRecordsFailedAlarm">addPutRecordsFailedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsFailedThreshold">RecordsFailedThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addPutRecordsThrottledAlarm">addPutRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addReadProvisionedThroughputExceededAlarm">addReadProvisionedThroughputExceededAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addThrottledRecordsAlarm">addThrottledRecordsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addWriteProvisionedThroughputExceededAlarm">addWriteProvisionedThroughputExceededAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -17353,6 +17356,36 @@ public readonly addPutRecordsThrottledAlarm: {[ key: string ]: RecordsThrottledT
 
 ---
 
+##### `addReadProvisionedThroughputExceededAlarm`<sup>Optional</sup> <a name="addReadProvisionedThroughputExceededAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addReadProvisionedThroughputExceededAlarm"></a>
+
+```typescript
+public readonly addReadProvisionedThroughputExceededAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
+
+---
+
+##### `addThrottledRecordsAlarm`<sup>Optional</sup> <a name="addThrottledRecordsAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addThrottledRecordsAlarm"></a>
+
+```typescript
+public readonly addThrottledRecordsAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
+
+---
+
+##### `addWriteProvisionedThroughputExceededAlarm`<sup>Optional</sup> <a name="addWriteProvisionedThroughputExceededAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addWriteProvisionedThroughputExceededAlarm"></a>
+
+```typescript
+public readonly addWriteProvisionedThroughputExceededAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
+
+---
+
 ### KinesisDataStreamMonitoringProps <a name="KinesisDataStreamMonitoringProps" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.Initializer"></a>
@@ -17378,6 +17411,9 @@ const kinesisDataStreamMonitoringProps: KinesisDataStreamMonitoringProps = { ...
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addIteratorMaxAgeAlarm">addIteratorMaxAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold">MaxIteratorAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addPutRecordsFailedAlarm">addPutRecordsFailedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsFailedThreshold">RecordsFailedThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addPutRecordsThrottledAlarm">addPutRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addReadProvisionedThroughputExceededAlarm">addReadProvisionedThroughputExceededAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addThrottledRecordsAlarm">addThrottledRecordsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addWriteProvisionedThroughputExceededAlarm">addWriteProvisionedThroughputExceededAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -17519,6 +17555,36 @@ public readonly addPutRecordsThrottledAlarm: {[ key: string ]: RecordsThrottledT
 
 ---
 
+##### `addReadProvisionedThroughputExceededAlarm`<sup>Optional</sup> <a name="addReadProvisionedThroughputExceededAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addReadProvisionedThroughputExceededAlarm"></a>
+
+```typescript
+public readonly addReadProvisionedThroughputExceededAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
+
+---
+
+##### `addThrottledRecordsAlarm`<sup>Optional</sup> <a name="addThrottledRecordsAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addThrottledRecordsAlarm"></a>
+
+```typescript
+public readonly addThrottledRecordsAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
+
+---
+
+##### `addWriteProvisionedThroughputExceededAlarm`<sup>Optional</sup> <a name="addWriteProvisionedThroughputExceededAlarm" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addWriteProvisionedThroughputExceededAlarm"></a>
+
+```typescript
+public readonly addWriteProvisionedThroughputExceededAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
+
+---
+
 ### KinesisFirehoseMetricFactoryProps <a name="KinesisFirehoseMetricFactoryProps" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps.Initializer"></a>
@@ -17568,6 +17634,7 @@ const kinesisFirehoseMonitoringOptions: KinesisFirehoseMonitoringOptions = { ...
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addRecordsThrottledAlarm">addRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -17669,6 +17736,16 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addRecordsThrottledAlarm`<sup>Optional</sup> <a name="addRecordsThrottledAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addRecordsThrottledAlarm"></a>
+
+```typescript
+public readonly addRecordsThrottledAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
+
+---
+
 ### KinesisFirehoseMonitoringProps <a name="KinesisFirehoseMonitoringProps" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.Initializer"></a>
@@ -17691,6 +17768,7 @@ const kinesisFirehoseMonitoringProps: KinesisFirehoseMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addRecordsThrottledAlarm">addRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -17799,6 +17877,16 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addRecordsThrottledAlarm`<sup>Optional</sup> <a name="addRecordsThrottledAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addRecordsThrottledAlarm"></a>
+
+```typescript
+public readonly addRecordsThrottledAlarm: {[ key: string ]: RecordsThrottledThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
 
 ---
 
@@ -39942,6 +40030,8 @@ new KinesisAlarmFactory(alarmFactory: AlarmFactory)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addIteratorMaxAgeAlarm">addIteratorMaxAgeAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedReadThroughputExceededAlarm">addProvisionedReadThroughputExceededAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedWriteThroughputExceededAlarm">addProvisionedWriteThroughputExceededAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addPutRecordsFailedAlarm">addPutRecordsFailedAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addPutRecordsThrottledAlarm">addPutRecordsThrottledAlarm</a></code> | *No description.* |
 
@@ -39966,6 +40056,54 @@ public addIteratorMaxAgeAlarm(metric: Metric | MathExpression, props: MaxIterato
 ---
 
 ###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.KinesisAlarmFactory.addIteratorMaxAgeAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addProvisionedReadThroughputExceededAlarm` <a name="addProvisionedReadThroughputExceededAlarm" id="cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedReadThroughputExceededAlarm"></a>
+
+```typescript
+public addProvisionedReadThroughputExceededAlarm(metric: Metric | MathExpression, props: RecordsThrottledThreshold, disambiguator: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedReadThroughputExceededAlarm.parameter.metric"></a>
+
+- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedReadThroughputExceededAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Required</sup> <a name="disambiguator" id="cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedReadThroughputExceededAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addProvisionedWriteThroughputExceededAlarm` <a name="addProvisionedWriteThroughputExceededAlarm" id="cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedWriteThroughputExceededAlarm"></a>
+
+```typescript
+public addProvisionedWriteThroughputExceededAlarm(metric: Metric | MathExpression, props: RecordsThrottledThreshold, disambiguator: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedWriteThroughputExceededAlarm.parameter.metric"></a>
+
+- *Type:* monocdk.aws_cloudwatch.Metric | monocdk.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedWriteThroughputExceededAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Required</sup> <a name="disambiguator" id="cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedWriteThroughputExceededAlarm.parameter.disambiguator"></a>
 
 - *Type:* string
 
@@ -40693,15 +40831,28 @@ new KinesisFirehoseMetricFactory(metricFactory: MetricFactory, props: KinesisFir
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricBytesPerSecondLimit">metricBytesPerSecondLimit</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricFailedConversionCount">metricFailedConversionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingBytes">metricIncomingBytes</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingBytesToLimitRate">metricIncomingBytesToLimitRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingPutRequests">metricIncomingPutRequests</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingPutRequestsToLimitRate">metricIncomingPutRequestsToLimitRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingRecordCount">metricIncomingRecordCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingRecordsToLimitRate">metricIncomingRecordsToLimitRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRecordBatchLatencyP90InMillis">metricPutRecordBatchLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRecordLatencyP90InMillis">metricPutRecordLatencyP90InMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRequestsPerSecondLimit">metricPutRequestsPerSecondLimit</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricRecordsPerSecondLimit">metricRecordsPerSecondLimit</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricSuccessfulConversionCount">metricSuccessfulConversionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricThrottledRecordCount">metricThrottledRecordCount</a></code> | *No description.* |
 
 ---
+
+##### `metricBytesPerSecondLimit` <a name="metricBytesPerSecondLimit" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricBytesPerSecondLimit"></a>
+
+```typescript
+public metricBytesPerSecondLimit(): Metric | MathExpression
+```
 
 ##### `metricFailedConversionCount` <a name="metricFailedConversionCount" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricFailedConversionCount"></a>
 
@@ -40715,10 +40866,34 @@ public metricFailedConversionCount(): Metric | MathExpression
 public metricIncomingBytes(): Metric | MathExpression
 ```
 
+##### `metricIncomingBytesToLimitRate` <a name="metricIncomingBytesToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingBytesToLimitRate"></a>
+
+```typescript
+public metricIncomingBytesToLimitRate(): Metric | MathExpression
+```
+
+##### `metricIncomingPutRequests` <a name="metricIncomingPutRequests" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingPutRequests"></a>
+
+```typescript
+public metricIncomingPutRequests(): Metric | MathExpression
+```
+
+##### `metricIncomingPutRequestsToLimitRate` <a name="metricIncomingPutRequestsToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingPutRequestsToLimitRate"></a>
+
+```typescript
+public metricIncomingPutRequestsToLimitRate(): Metric | MathExpression
+```
+
 ##### `metricIncomingRecordCount` <a name="metricIncomingRecordCount" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingRecordCount"></a>
 
 ```typescript
 public metricIncomingRecordCount(): Metric | MathExpression
+```
+
+##### `metricIncomingRecordsToLimitRate` <a name="metricIncomingRecordsToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingRecordsToLimitRate"></a>
+
+```typescript
+public metricIncomingRecordsToLimitRate(): Metric | MathExpression
 ```
 
 ##### `metricPutRecordBatchLatencyP90InMillis` <a name="metricPutRecordBatchLatencyP90InMillis" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRecordBatchLatencyP90InMillis"></a>
@@ -40731,6 +40906,18 @@ public metricPutRecordBatchLatencyP90InMillis(): Metric | MathExpression
 
 ```typescript
 public metricPutRecordLatencyP90InMillis(): Metric | MathExpression
+```
+
+##### `metricPutRequestsPerSecondLimit` <a name="metricPutRequestsPerSecondLimit" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRequestsPerSecondLimit"></a>
+
+```typescript
+public metricPutRequestsPerSecondLimit(): Metric | MathExpression
+```
+
+##### `metricRecordsPerSecondLimit` <a name="metricRecordsPerSecondLimit" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricRecordsPerSecondLimit"></a>
+
+```typescript
+public metricRecordsPerSecondLimit(): Metric | MathExpression
 ```
 
 ##### `metricSuccessfulConversionCount` <a name="metricSuccessfulConversionCount" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricSuccessfulConversionCount"></a>

@@ -40,6 +40,15 @@ export interface KinesisDataStreamMonitoringOptions
     RecordsThrottledThreshold
   >;
   readonly addPutRecordsFailedAlarm?: Record<string, RecordsFailedThreshold>;
+  readonly addThrottledRecordsAlarm?: Record<string, RecordsThrottledThreshold>;
+  readonly addReadProvisionedThroughputExceededAlarm?: Record<
+    string,
+    RecordsThrottledThreshold
+  >;
+  readonly addWriteProvisionedThroughputExceededAlarm?: Record<
+    string,
+    RecordsThrottledThreshold
+  >;
 }
 
 export interface KinesisDataStreamMonitoringProps
@@ -52,6 +61,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
 
   protected readonly kinesisAlarmFactory: KinesisAlarmFactory;
   protected readonly ageAnnotations: HorizontalAnnotation[];
+  protected readonly provisionedCapacityAnnotations: HorizontalAnnotation[];
   protected readonly recordCountAnnotations: HorizontalAnnotation[];
 
   protected readonly metricGetRecordSumBytes: MetricWithAlarmSupport;
@@ -90,6 +100,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
       namingStrategy.resolveAlarmFriendlyName()
     );
     this.kinesisAlarmFactory = new KinesisAlarmFactory(alarmFactory);
+    this.provisionedCapacityAnnotations = [];
     this.ageAnnotations = [];
     this.recordCountAnnotations = [];
 
@@ -162,6 +173,30 @@ export class KinesisDataStreamMonitoring extends Monitoring {
       this.recordCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
+    for (const disambiguator in props.addReadProvisionedThroughputExceededAlarm) {
+      const alarmProps =
+        props.addReadProvisionedThroughputExceededAlarm[disambiguator];
+      const createdAlarm =
+        this.kinesisAlarmFactory.addProvisionedReadThroughputExceededAlarm(
+          this.readProvisionedThroughputExceededMetric,
+          alarmProps,
+          disambiguator
+        );
+      this.provisionedCapacityAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addWriteProvisionedThroughputExceededAlarm) {
+      const alarmProps =
+        props.addWriteProvisionedThroughputExceededAlarm[disambiguator];
+      const createdAlarm =
+        this.kinesisAlarmFactory.addProvisionedWriteThroughputExceededAlarm(
+          this.writeProvisionedThroughputExceededMetric,
+          alarmProps,
+          disambiguator
+        );
+      this.provisionedCapacityAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
 
     props.useCreatedAlarms?.consume(this.createdAlarms());
   }
@@ -173,7 +208,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
         this.createIncomingDataWidget(QuarterWidth, DefaultSummaryWidgetHeight),
         this.createIteratorAgeWidget(QuarterWidth, DefaultSummaryWidgetHeight),
         this.createLatencyWidget(QuarterWidth, DefaultSummaryWidgetHeight),
-        this.createThrottleWidget(QuarterWidth, DefaultSummaryWidgetHeight)
+        this.createCapacityWidget(QuarterWidth, DefaultSummaryWidgetHeight)
       ),
     ];
   }
@@ -185,7 +220,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
         this.createIncomingDataWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createIteratorAgeWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
-        this.createThrottleWidget(QuarterWidth, DefaultGraphWidgetHeight)
+        this.createCapacityWidget(QuarterWidth, DefaultGraphWidgetHeight)
       ),
       this.createFirstAdditionalRow(),
       this.createSecondAdditionalRow(),
@@ -248,16 +283,17 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     });
   }
 
-  protected createThrottleWidget(width: number, height: number) {
+  protected createCapacityWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
-      title: "Throttles",
+      title: "Provisioned Capacity Exceeded",
       left: [
         this.readProvisionedThroughputExceededMetric,
         this.writeProvisionedThroughputExceededMetric,
       ],
       leftYAxis: TimeAxisMillisFromZero,
+      leftAnnotations: this.provisionedCapacityAnnotations,
     });
   }
 
