@@ -40899,15 +40899,28 @@ new KinesisFirehoseMetricFactory(metricFactory: MetricFactory, props: KinesisFir
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricBytesPerSecondLimit">metricBytesPerSecondLimit</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricFailedConversionCount">metricFailedConversionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingBytes">metricIncomingBytes</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingBytesToLimitRate">metricIncomingBytesToLimitRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingPutRequests">metricIncomingPutRequests</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingPutRequestsToLimitRate">metricIncomingPutRequestsToLimitRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingRecordCount">metricIncomingRecordCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingRecordsToLimitRate">metricIncomingRecordsToLimitRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRecordBatchLatencyP90InMillis">metricPutRecordBatchLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRecordLatencyP90InMillis">metricPutRecordLatencyP90InMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRequestsPerSecondLimit">metricPutRequestsPerSecondLimit</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricRecordsPerSecondLimit">metricRecordsPerSecondLimit</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricSuccessfulConversionCount">metricSuccessfulConversionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricThrottledRecordCount">metricThrottledRecordCount</a></code> | *No description.* |
 
 ---
+
+##### `metricBytesPerSecondLimit` <a name="metricBytesPerSecondLimit" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricBytesPerSecondLimit"></a>
+
+```typescript
+public metricBytesPerSecondLimit(): Metric | MathExpression
+```
 
 ##### `metricFailedConversionCount` <a name="metricFailedConversionCount" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricFailedConversionCount"></a>
 
@@ -40921,10 +40934,34 @@ public metricFailedConversionCount(): Metric | MathExpression
 public metricIncomingBytes(): Metric | MathExpression
 ```
 
+##### `metricIncomingBytesToLimitRate` <a name="metricIncomingBytesToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingBytesToLimitRate"></a>
+
+```typescript
+public metricIncomingBytesToLimitRate(): Metric | MathExpression
+```
+
+##### `metricIncomingPutRequests` <a name="metricIncomingPutRequests" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingPutRequests"></a>
+
+```typescript
+public metricIncomingPutRequests(): Metric | MathExpression
+```
+
+##### `metricIncomingPutRequestsToLimitRate` <a name="metricIncomingPutRequestsToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingPutRequestsToLimitRate"></a>
+
+```typescript
+public metricIncomingPutRequestsToLimitRate(): Metric | MathExpression
+```
+
 ##### `metricIncomingRecordCount` <a name="metricIncomingRecordCount" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingRecordCount"></a>
 
 ```typescript
 public metricIncomingRecordCount(): Metric | MathExpression
+```
+
+##### `metricIncomingRecordsToLimitRate` <a name="metricIncomingRecordsToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricIncomingRecordsToLimitRate"></a>
+
+```typescript
+public metricIncomingRecordsToLimitRate(): Metric | MathExpression
 ```
 
 ##### `metricPutRecordBatchLatencyP90InMillis` <a name="metricPutRecordBatchLatencyP90InMillis" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRecordBatchLatencyP90InMillis"></a>
@@ -40937,6 +40974,18 @@ public metricPutRecordBatchLatencyP90InMillis(): Metric | MathExpression
 
 ```typescript
 public metricPutRecordLatencyP90InMillis(): Metric | MathExpression
+```
+
+##### `metricPutRequestsPerSecondLimit` <a name="metricPutRequestsPerSecondLimit" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricPutRequestsPerSecondLimit"></a>
+
+```typescript
+public metricPutRequestsPerSecondLimit(): Metric | MathExpression
+```
+
+##### `metricRecordsPerSecondLimit` <a name="metricRecordsPerSecondLimit" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricRecordsPerSecondLimit"></a>
+
+```typescript
+public metricRecordsPerSecondLimit(): Metric | MathExpression
 ```
 
 ##### `metricSuccessfulConversionCount` <a name="metricSuccessfulConversionCount" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory.metricSuccessfulConversionCount"></a>

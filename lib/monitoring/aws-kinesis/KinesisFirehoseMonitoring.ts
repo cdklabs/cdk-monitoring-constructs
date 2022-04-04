@@ -14,8 +14,9 @@ import {
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
+  QuarterWidth,
+  RateAxisFromZero,
   RecordsThrottledThreshold,
-  ThirdWidth,
   TimeAxisMillisFromZero,
 } from "../../common";
 import {
@@ -49,6 +50,9 @@ export class KinesisFirehoseMonitoring extends Monitoring {
   protected readonly failedConversionMetric: MetricWithAlarmSupport;
   protected readonly putRecordLatency: MetricWithAlarmSupport;
   protected readonly putRecordBatchLatency: MetricWithAlarmSupport;
+  protected readonly incomingBytesToLimitRate: MetricWithAlarmSupport;
+  protected readonly incomingRecordsToLimitRate: MetricWithAlarmSupport;
+  protected readonly incomingPutRequestsToLimitRate: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: KinesisFirehoseMonitoringProps) {
     super(scope);
@@ -81,6 +85,12 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     this.putRecordLatency = metricFactory.metricPutRecordLatencyP90InMillis();
     this.putRecordBatchLatency =
       metricFactory.metricPutRecordBatchLatencyP90InMillis();
+    this.incomingBytesToLimitRate =
+      metricFactory.metricIncomingBytesToLimitRate();
+    this.incomingRecordsToLimitRate =
+      metricFactory.metricIncomingRecordsToLimitRate();
+    this.incomingPutRequestsToLimitRate =
+      metricFactory.metricIncomingPutRequestsToLimitRate();
 
     for (const disambiguator in props.addRecordsThrottledAlarm) {
       const alarmProps = props.addRecordsThrottledAlarm[disambiguator];
@@ -107,9 +117,10 @@ export class KinesisFirehoseMonitoring extends Monitoring {
   widgets(): IWidget[] {
     return [
       this.createTitleWidget(),
-      this.createIncomingRecordWidget(ThirdWidth, DefaultGraphWidgetHeight),
-      this.createLatencyWidget(ThirdWidth, DefaultGraphWidgetHeight),
-      this.createConversionWidget(ThirdWidth, DefaultGraphWidgetHeight),
+      this.createIncomingRecordWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createConversionWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createLimitWidget(QuarterWidth, DefaultGraphWidgetHeight),
     ];
   }
 
@@ -149,6 +160,21 @@ export class KinesisFirehoseMonitoring extends Monitoring {
       title: "Conversions",
       left: [this.successfulConversionMetric, this.failedConversionMetric],
       leftYAxis: CountAxisFromZero,
+    });
+  }
+
+  protected createLimitWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Limits (rate)",
+      left: [
+        this.incomingBytesToLimitRate.with({ label: "Bytes" }),
+        this.incomingRecordsToLimitRate.with({ label: "Records" }),
+        this.incomingPutRequestsToLimitRate.with({ label: "PutRequests" }),
+      ],
+      leftYAxis: RateAxisFromZero,
+      leftAnnotations: [{ value: 1, label: "100% usage" }],
     });
   }
 }
