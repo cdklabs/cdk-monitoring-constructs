@@ -3228,7 +3228,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"GetRecords.Latency\\",\\"StreamName\\",{\\"label\\":\\"GetRecords\\"}],[\\"AWS/Kinesis\\",\\"PutRecord.Latency\\",\\"StreamName\\",{\\"label\\":\\"PutRecord\\"}],[\\"AWS/Kinesis\\",\\"PutRecords.Latency\\",\\"StreamName\\",{\\"label\\":\\"PutRecords\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"GetRecords.Latency\\",\\"StreamName\\",{\\"label\\":\\"GetRecords\\"}],[\\"AWS/Kinesis\\",\\"PutRecord.Latency\\",\\"StreamName\\",{\\"label\\":\\"PutRecord\\"}],[\\"AWS/Kinesis\\",\\"PutRecords.Latency\\",\\"StreamName\\",{\\"label\\":\\"PutRecords\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Provisioned Capacity Exceeded\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3278,7 +3278,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"GetRecords.Latency\\",\\"StreamName\\",{\\"label\\":\\"GetRecords\\"}],[\\"AWS/Kinesis\\",\\"PutRecord.Latency\\",\\"StreamName\\",{\\"label\\":\\"PutRecord\\"}],[\\"AWS/Kinesis\\",\\"PutRecords.Latency\\",\\"StreamName\\",{\\"label\\":\\"PutRecords\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"GetRecords.Latency\\",\\"StreamName\\",{\\"label\\":\\"GetRecords\\"}],[\\"AWS/Kinesis\\",\\"PutRecord.Latency\\",\\"StreamName\\",{\\"label\\":\\"PutRecord\\"}],[\\"AWS/Kinesis\\",\\"PutRecords.Latency\\",\\"StreamName\\",{\\"label\\":\\"PutRecords\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Provisioned Capacity Exceeded\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3337,19 +3337,23 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "#/details/undefined/monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Records\\",\\"region\\":\\"",
+              "#/details/undefined/monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Records\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"PutRecord.Latency\\",{\\"label\\":\\"PutRecord P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Firehose\\",\\"PutRecordBatch.Latency\\",{\\"label\\":\\"PutRecordBatch P90\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"PutRecord.Latency\\",{\\"label\\":\\"PutRecord P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Firehose\\",\\"PutRecordBatch.Latency\\",{\\"label\\":\\"PutRecordBatch P90\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"SucceedConversion.Records\\",{\\"label\\":\\"Succeed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"FailedConversion.Records\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"SucceedConversion.Records\\",{\\"label\\":\\"Succeed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"FailedConversion.Records\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Limits (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

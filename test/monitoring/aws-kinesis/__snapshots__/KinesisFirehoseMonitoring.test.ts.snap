@@ -1,3 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot test 1`] = `Object {}`;
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Resources": Object {
+    "ScopeTestmyfirehosedeliverystreamPutRecordsThrottledCritical95611854": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of throttled PutRecords exceeded threshold of 5",
+        "AlarmName": "Test-my-firehose-delivery-stream-PutRecordsThrottled-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Throttled",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DeliveryStreamName",
+                    "Value": "my-firehose-delivery-stream",
+                  },
+                ],
+                "MetricName": "ThrottledRecords",
+                "Namespace": "AWS/Firehose",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `Object {}`;
