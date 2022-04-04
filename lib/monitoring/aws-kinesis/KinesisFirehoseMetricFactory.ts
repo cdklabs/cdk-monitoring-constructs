@@ -58,6 +58,17 @@ export class KinesisFirehoseMetricFactory {
     );
   }
 
+  metricIncomingPutRequests() {
+    return this.metricFactory.createMetric(
+      "IncomingPutRequests",
+      MetricStatistic.SUM,
+      "Incoming (PutRequest)",
+      this.dimensionsMap,
+      undefined,
+      FirehoseNamespace
+    );
+  }
+
   metricIncomingRecordCount() {
     return this.metricFactory.createMetric(
       "IncomingRecords",
@@ -97,6 +108,72 @@ export class KinesisFirehoseMetricFactory {
       MetricStatistic.P90,
       "PutRecordBatch P90",
       this.dimensionsMap,
+      undefined,
+      FirehoseNamespace
+    );
+  }
+
+  metricIncomingBytesToLimitRate() {
+    return this.metricFactory.createMetricMath(
+      "(bytes_in / PERIOD(bytes_in)) / bytes_max",
+      {
+        bytes_in: this.metricIncomingBytes(),
+        bytes_max: this.metricBytesPerSecondLimit(),
+      },
+      "Incoming Bytes / Limit"
+    );
+  }
+
+  metricIncomingRecordsToLimitRate() {
+    return this.metricFactory.createMetricMath(
+      "(records_in / PERIOD(records_in)) / records_max",
+      {
+        records_in: this.metricIncomingRecordCount(),
+        records_max: this.metricRecordsPerSecondLimit(),
+      },
+      "Incoming Records / Limit"
+    );
+  }
+
+  metricIncomingPutRequestsToLimitRate() {
+    return this.metricFactory.createMetricMath(
+      "(requests_in / PERIOD(requests_in)) / requests_max",
+      {
+        requests_in: this.metricIncomingPutRequests(),
+        requests_max: this.metricPutRequestsPerSecondLimit(),
+      },
+      "Incoming PutRequests / Limit"
+    );
+  }
+
+  metricBytesPerSecondLimit() {
+    return this.metricFactory.createMetric(
+      "BytesPerSecondLimit",
+      MetricStatistic.AVERAGE,
+      "Incoming Bytes/s Limit",
+      undefined,
+      undefined,
+      FirehoseNamespace
+    );
+  }
+
+  metricRecordsPerSecondLimit() {
+    return this.metricFactory.createMetric(
+      "RecordsPerSecondLimit",
+      MetricStatistic.AVERAGE,
+      "Records/s Limit",
+      undefined,
+      undefined,
+      FirehoseNamespace
+    );
+  }
+
+  metricPutRequestsPerSecondLimit() {
+    return this.metricFactory.createMetric(
+      "PutRequestsPerSecondLimit",
+      MetricStatistic.AVERAGE,
+      "PutRequests/s Limit",
+      undefined,
       undefined,
       FirehoseNamespace
     );

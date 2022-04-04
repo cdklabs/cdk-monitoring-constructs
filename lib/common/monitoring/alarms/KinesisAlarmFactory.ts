@@ -82,11 +82,51 @@ export class KinesisAlarmFactory {
         ComparisonOperator.GREATER_THAN_THRESHOLD,
       ...props,
       disambiguator,
-      threshold: threshold,
+      threshold,
       alarmNameSuffix: "PutRecordsFailed",
       alarmDescription: `Number of failed PutRecords exceeded threshold of ${threshold}`,
       // we will dedupe any kind of message count issue to the same ticket
       alarmDedupeStringSuffix: "PutRecordsFailed",
+    });
+  }
+
+  addProvisionedReadThroughputExceededAlarm(
+    metric: MetricWithAlarmSupport,
+    props: RecordsThrottledThreshold,
+    disambiguator: string
+  ) {
+    const threshold = props.maxRecordsThrottledThreshold;
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold,
+      alarmNameSuffix: "ReadThroughputExceeded",
+      alarmDescription: `Number of records resulting in read throughput capacity throttling reached the threshold of ${threshold}.`,
+    });
+  }
+
+  addProvisionedWriteThroughputExceededAlarm(
+    metric: MetricWithAlarmSupport,
+    props: RecordsThrottledThreshold,
+    disambiguator: string
+  ) {
+    const threshold = props.maxRecordsThrottledThreshold;
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold,
+      alarmNameSuffix: "WriteThroughputExceeded",
+      alarmDescription: `Number of records resulting in write throughput capacity throttling reached the threshold of ${threshold}.`,
     });
   }
 }

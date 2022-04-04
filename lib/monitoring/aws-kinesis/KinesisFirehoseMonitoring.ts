@@ -1,4 +1,8 @@
-import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import {
+  GraphWidget,
+  HorizontalAnnotation,
+  IWidget,
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   BaseMonitoringProps,
@@ -6,10 +10,13 @@ import {
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
   HalfWidth,
+  KinesisAlarmFactory,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
-  ThirdWidth,
+  QuarterWidth,
+  RateAxisFromZero,
+  RecordsThrottledThreshold,
   TimeAxisMillisFromZero,
 } from "../../common";
 import {
@@ -21,7 +28,9 @@ import {
   KinesisFirehoseMetricFactoryProps,
 } from "./KinesisFirehoseMetricFactory";
 
-export interface KinesisFirehoseMonitoringOptions extends BaseMonitoringProps {}
+export interface KinesisFirehoseMonitoringOptions extends BaseMonitoringProps {
+  readonly addRecordsThrottledAlarm?: Record<string, RecordsThrottledThreshold>;
+}
 
 export interface KinesisFirehoseMonitoringProps
   extends KinesisFirehoseMetricFactoryProps,
@@ -31,6 +40,9 @@ export class KinesisFirehoseMonitoring extends Monitoring {
   protected readonly title: string;
   protected readonly streamUrl?: string;
 
+  protected readonly kinesisAlarmFactory: KinesisAlarmFactory;
+  protected readonly recordCountAnnotations: HorizontalAnnotation[];
+
   protected readonly incomingBytesMetric: MetricWithAlarmSupport;
   protected readonly incomingRecordsMetric: MetricWithAlarmSupport;
   protected readonly throttledRecordsMetric: MetricWithAlarmSupport;
@@ -38,6 +50,9 @@ export class KinesisFirehoseMonitoring extends Monitoring {
   protected readonly failedConversionMetric: MetricWithAlarmSupport;
   protected readonly putRecordLatency: MetricWithAlarmSupport;
   protected readonly putRecordBatchLatency: MetricWithAlarmSupport;
+  protected readonly incomingBytesToLimitRate: MetricWithAlarmSupport;
+  protected readonly incomingRecordsToLimitRate: MetricWithAlarmSupport;
+  protected readonly incomingPutRequestsToLimitRate: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: KinesisFirehoseMonitoringProps) {
     super(scope);
@@ -55,6 +70,12 @@ export class KinesisFirehoseMonitoring extends Monitoring {
       scope.createMetricFactory(),
       props
     );
+    const alarmFactory = this.createAlarmFactory(
+      namingStrategy.resolveAlarmFriendlyName()
+    );
+    this.kinesisAlarmFactory = new KinesisAlarmFactory(alarmFactory);
+    this.recordCountAnnotations = [];
+
     this.incomingBytesMetric = metricFactory.metricIncomingBytes();
     this.incomingRecordsMetric = metricFactory.metricIncomingRecordCount();
     this.throttledRecordsMetric = metricFactory.metricThrottledRecordCount();
@@ -64,6 +85,25 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     this.putRecordLatency = metricFactory.metricPutRecordLatencyP90InMillis();
     this.putRecordBatchLatency =
       metricFactory.metricPutRecordBatchLatencyP90InMillis();
+    this.incomingBytesToLimitRate =
+      metricFactory.metricIncomingBytesToLimitRate();
+    this.incomingRecordsToLimitRate =
+      metricFactory.metricIncomingRecordsToLimitRate();
+    this.incomingPutRequestsToLimitRate =
+      metricFactory.metricIncomingPutRequestsToLimitRate();
+
+    for (const disambiguator in props.addRecordsThrottledAlarm) {
+      const alarmProps = props.addRecordsThrottledAlarm[disambiguator];
+      const createdAlarm = this.kinesisAlarmFactory.addPutRecordsThrottledAlarm(
+        this.throttledRecordsMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.recordCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
   summaryWidgets(): IWidget[] {
@@ -77,9 +117,10 @@ export class KinesisFirehoseMonitoring extends Monitoring {
   widgets(): IWidget[] {
     return [
       this.createTitleWidget(),
-      this.createIncomingRecordWidget(ThirdWidth, DefaultGraphWidgetHeight),
-      this.createLatencyWidget(ThirdWidth, DefaultGraphWidgetHeight),
-      this.createConversionWidget(ThirdWidth, DefaultGraphWidgetHeight),
+      this.createIncomingRecordWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createConversionWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createLimitWidget(QuarterWidth, DefaultGraphWidgetHeight),
     ];
   }
 
@@ -98,6 +139,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
       title: "Records",
       left: [this.incomingRecordsMetric, this.throttledRecordsMetric],
       leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.recordCountAnnotations,
     });
   }
 
@@ -118,6 +160,21 @@ export class KinesisFirehoseMonitoring extends Monitoring {
       title: "Conversions",
       left: [this.successfulConversionMetric, this.failedConversionMetric],
       leftYAxis: CountAxisFromZero,
+    });
+  }
+
+  protected createLimitWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Limits (rate)",
+      left: [
+        this.incomingBytesToLimitRate.with({ label: "Bytes" }),
+        this.incomingRecordsToLimitRate.with({ label: "Records" }),
+        this.incomingPutRequestsToLimitRate.with({ label: "PutRequests" }),
+      ],
+      leftYAxis: RateAxisFromZero,
+      leftAnnotations: [{ value: 1, label: "100% usage" }],
     });
   }
 }
