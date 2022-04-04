@@ -24037,7 +24037,7 @@ public readonly detailDashboardPeriodOverride: PeriodOverride;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.PeriodOverride
-- *Default:* automatic (period dependent)
+- *Default:* respect individual graphs (PeriodOverride.INHERIT)
 
 Period override for the detail dashboard (and other auxiliary dashboards).
 
@@ -24065,7 +24065,7 @@ public readonly summaryDashboardPeriodOverride: PeriodOverride;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.PeriodOverride
-- *Default:* automatic (period dependent)
+- *Default:* respect individual graphs (PeriodOverride.INHERIT)
 
 Period override for the summary dashboard.
 
