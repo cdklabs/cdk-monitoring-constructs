@@ -41,7 +41,7 @@ export interface MonitoringDashboardsProps {
   readonly detailDashboardRange?: Duration;
   /**
    * Period override for the detail dashboard (and other auxiliary dashboards).
-   * @default automatic (period dependent)
+   * @default respect individual graphs (PeriodOverride.INHERIT)
    */
   readonly detailDashboardPeriodOverride?: PeriodOverride;
   /**
@@ -51,7 +51,7 @@ export interface MonitoringDashboardsProps {
   readonly summaryDashboardRange?: Duration;
   /**
    * Period override for the summary dashboard.
-   * @default automatic (period dependent)
+   * @default respect individual graphs (PeriodOverride.INHERIT)
    */
   readonly summaryDashboardPeriodOverride?: PeriodOverride;
   /**
@@ -101,7 +101,8 @@ export class DefaultDashboardFactory
         {
           dashboardName: props.dashboardNamePrefix,
           start: detailStart,
-          periodOverride: props.detailDashboardPeriodOverride,
+          periodOverride:
+            props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
         }
       );
     }
@@ -113,7 +114,8 @@ export class DefaultDashboardFactory
         {
           dashboardName: `${props.dashboardNamePrefix}-Summary`,
           start: summaryStart,
-          periodOverride: props.summaryDashboardPeriodOverride,
+          periodOverride:
+            props.summaryDashboardPeriodOverride ?? PeriodOverride.INHERIT,
         }
       );
     }
@@ -125,7 +127,8 @@ export class DefaultDashboardFactory
         {
           dashboardName: `${props.dashboardNamePrefix}-Alarms`,
           start: detailStart,
-          periodOverride: props.detailDashboardPeriodOverride,
+          periodOverride:
+            props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
         }
       );
     }

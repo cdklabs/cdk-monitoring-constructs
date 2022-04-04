@@ -24015,7 +24015,7 @@ public readonly detailDashboardPeriodOverride: PeriodOverride;
 ```
 
 - *Type:* monocdk.aws_cloudwatch.PeriodOverride
-- *Default:* automatic (period dependent)
+- *Default:* respect individual graphs (PeriodOverride.INHERIT)
 
 Period override for the detail dashboard (and other auxiliary dashboards).
 
@@ -24043,7 +24043,7 @@ public readonly summaryDashboardPeriodOverride: PeriodOverride;
 ```
 
 - *Type:* monocdk.aws_cloudwatch.PeriodOverride
-- *Default:* automatic (period dependent)
+- *Default:* respect individual graphs (PeriodOverride.INHERIT)
 
 Period override for the summary dashboard.
 

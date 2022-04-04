@@ -5,7 +5,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -16,7 +16,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Certificate **Default/DummyCertificate**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Expiration\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Certificate **Default/DummyCertificate**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Expiration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -34,7 +34,7 @@ Object {
     },
     "DashboardFactorySummaryDashboard5F4BC8C5": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-P14D\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Summary",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -89,7 +89,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -100,7 +100,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -130,7 +130,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -253,7 +253,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -264,7 +264,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
               Object {
                 "Ref": "DummyHttpApi8EEBCC85",
               },
@@ -342,7 +342,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
               Object {
                 "Ref": "DummyHttpApi8EEBCC85",
               },
@@ -428,7 +428,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -439,7 +439,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AppSync GraphQL API **Default/DummyGraphqlApi**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AppSync GraphQL API **Default/DummyGraphqlApi**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -525,7 +525,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AppSync GraphQL API **Default/DummyGraphqlApi**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AppSync GraphQL API **Default/DummyGraphqlApi**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -758,7 +758,7 @@ Object {
     },
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -769,7 +769,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Auto Scaling Group **ASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Group Size\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Auto Scaling Group **ASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Group Size\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -823,7 +823,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Auto Scaling Group **ASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Group Size\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Auto Scaling Group **ASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Group Size\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1243,21 +1243,21 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "DashboardFactoryDashboard3E20AD6E": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AWS Account Billing **Billing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":18,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"bar\\",\\"title\\":\\"Most Expensive Services (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"region\\":\\"us-east-1\\",\\"expression\\":\\"SORT(search, MAX, DESC, 10)\\",\\"period\\":86400}],[{\\"label\\":\\" \\",\\"region\\":\\"us-east-1\\",\\"expression\\":\\"SEARCH('{AWS/Billing,Currency,ServiceName} MetricName=\\\\\\"EstimatedCharges\\\\\\"', 'Maximum', 86400)\\",\\"period\\":86400,\\"visible\\":false,\\"id\\":\\"search\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"USD\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"singleValue\\",\\"title\\":\\"Total Cost (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[\\"AWS/Billing\\",\\"EstimatedCharges\\",\\"Currency\\",\\"USD\\",{\\"label\\":\\"Estimated Charges\\",\\"region\\":\\"us-east-1\\",\\"period\\":86400,\\"stat\\":\\"Maximum\\"}]],\\"setPeriodToTimeRange\\":false,\\"singleValueFullPrecision\\":false}}]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AWS Account Billing **Billing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":18,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"bar\\",\\"title\\":\\"Most Expensive Services (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"region\\":\\"us-east-1\\",\\"expression\\":\\"SORT(search, MAX, DESC, 10)\\",\\"period\\":86400}],[{\\"label\\":\\" \\",\\"region\\":\\"us-east-1\\",\\"expression\\":\\"SEARCH('{AWS/Billing,Currency,ServiceName} MetricName=\\\\\\"EstimatedCharges\\\\\\"', 'Maximum', 86400)\\",\\"period\\":86400,\\"visible\\":false,\\"id\\":\\"search\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"USD\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"singleValue\\",\\"title\\":\\"Total Cost (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[\\"AWS/Billing\\",\\"EstimatedCharges\\",\\"Currency\\",\\"USD\\",{\\"label\\":\\"Estimated Charges\\",\\"region\\":\\"us-east-1\\",\\"period\\":86400,\\"stat\\":\\"Maximum\\"}]],\\"setPeriodToTimeRange\\":false,\\"singleValueFullPrecision\\":false}}]}",
         "DashboardName": "DummyDashboard",
       },
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "DashboardFactorySummaryDashboard5F4BC8C5": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AWS Account Billing **Billing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"singleValue\\",\\"title\\":\\"Total Cost (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[\\"AWS/Billing\\",\\"EstimatedCharges\\",\\"Currency\\",\\"USD\\",{\\"label\\":\\"Estimated Charges\\",\\"region\\":\\"us-east-1\\",\\"period\\":86400,\\"stat\\":\\"Maximum\\"}]],\\"setPeriodToTimeRange\\":false,\\"singleValueFullPrecision\\":false}}]}",
+        "DashboardBody": "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AWS Account Billing **Billing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"singleValue\\",\\"title\\":\\"Total Cost (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[\\"AWS/Billing\\",\\"EstimatedCharges\\",\\"Currency\\",\\"USD\\",{\\"label\\":\\"Estimated Charges\\",\\"region\\":\\"us-east-1\\",\\"period\\":86400,\\"stat\\":\\"Maximum\\"}]],\\"setPeriodToTimeRange\\":false,\\"singleValueFullPrecision\\":false}}]}",
         "DashboardName": "DummyDashboard-Summary",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -1403,7 +1403,7 @@ Object {
     },
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -1414,7 +1414,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Synthetics Canary **Canary**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Synthetics Canary **Canary**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1484,7 +1484,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Synthetics Canary **Canary**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Synthetics Canary **Canary**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1593,7 +1593,7 @@ Object {
     },
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -1604,7 +1604,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[Bucket](https://s3.console.aws.amazon.com/s3/buckets/",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[Bucket](https://s3.console.aws.amazon.com/s3/buckets/",
               Object {
                 "Ref": "Bucket83908E77",
               },
@@ -1686,7 +1686,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[Bucket](https://s3.console.aws.amazon.com/s3/buckets/",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[Bucket](https://s3.console.aws.amazon.com/s3/buckets/",
               Object {
                 "Ref": "Bucket83908E77",
               },
@@ -1799,7 +1799,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -1810,7 +1810,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### CodeBuild Project **[DummyProject](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### CodeBuild Project **[DummyProject](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1876,7 +1876,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### CodeBuild Project **[DummyProject](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### CodeBuild Project **[DummyProject](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2096,7 +2096,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -2107,7 +2107,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[DummyTable](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[DummyTable](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2217,7 +2217,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[DummyTable](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[DummyTable](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2299,7 +2299,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -2310,7 +2310,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2340,7 +2340,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2860,7 +2860,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -2871,7 +2871,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Memcached-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Memcached-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2917,7 +2917,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Memcached-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Memcached-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2966,7 +2966,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -2977,7 +2977,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Glue Job **DummyJob**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Job Execution\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Glue Job **DummyJob**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Job Execution\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3011,7 +3011,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Glue Job **DummyJob**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Job Execution\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Glue Job **DummyJob**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Job Execution\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3048,7 +3048,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -3059,7 +3059,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Analytics **[Default/DummyAnalyticsApplication](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Analytics **[Default/DummyAnalyticsApplication](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3113,7 +3113,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Analytics **[Default/DummyAnalyticsApplication](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Analytics **[Default/DummyAnalyticsApplication](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3197,7 +3197,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -3208,7 +3208,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Stream **[Default/DummyStream/Resource](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Stream **[Default/DummyStream/Resource](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3258,7 +3258,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Stream **[Default/DummyStream/Resource](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Stream **[Default/DummyStream/Resource](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3318,7 +3318,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -3329,7 +3329,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Firehose Delivery Stream **[Default/DummyDeliveryStream](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Firehose Delivery Stream **[Default/DummyDeliveryStream](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3363,7 +3363,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Firehose Delivery Stream **[Default/DummyDeliveryStream](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Firehose Delivery Stream **[Default/DummyDeliveryStream](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3399,7 +3399,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -3410,7 +3410,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[DummyFunction](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[DummyFunction](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3508,7 +3508,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[DummyFunction](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[DummyFunction](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3619,7 +3619,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -3630,7 +3630,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyOSDomain](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyOSDomain](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4228,7 +4228,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyOSDomain](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyOSDomain](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4754,7 +4754,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -4765,7 +4765,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[Default/DummyDBCluster](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[Default/DummyDBCluster](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4897,7 +4897,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[Default/DummyDBCluster](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[Default/DummyDBCluster](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5864,7 +5864,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -5875,7 +5875,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[Default/DummyCluster](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[Default/DummyCluster](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5957,7 +5957,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[Default/DummyCluster](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[Default/DummyCluster](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6465,7 +6465,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -6476,7 +6476,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[DummyBucket](https://s3.console.aws.amazon.com/s3/buckets/",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[DummyBucket](https://s3.console.aws.amazon.com/s3/buckets/",
               Object {
                 "Ref": "DummyBucket7EFB6D9F",
               },
@@ -6514,7 +6514,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[DummyBucket](https://s3.console.aws.amazon.com/s3/buckets/",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[DummyBucket](https://s3.console.aws.amazon.com/s3/buckets/",
               Object {
                 "Ref": "DummyBucket7EFB6D9F",
               },
@@ -6560,7 +6560,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -6571,7 +6571,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SNS Topic **[DummyTopic](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SNS Topic **[DummyTopic](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6637,7 +6637,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SNS Topic **[DummyTopic](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SNS Topic **[DummyTopic](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6698,7 +6698,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -6709,7 +6709,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6818,7 +6818,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6924,7 +6924,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -6935,7 +6935,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Secret **DummySecret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Secret **DummySecret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7007,7 +7007,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Secret **DummySecret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Secret **DummySecret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7088,7 +7088,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -7099,7 +7099,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7177,7 +7177,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7293,7 +7293,7 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[]}",
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -7304,7 +7304,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Web Application Firewall **DummyAcl**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Allowed Requests\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Web Application Firewall **DummyAcl**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Allowed Requests\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7330,7 +7330,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Web Application Firewall **DummyAcl**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Allowed Requests\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Web Application Firewall **DummyAcl**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Allowed Requests\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
