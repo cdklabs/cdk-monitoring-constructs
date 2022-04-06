@@ -78,7 +78,9 @@
     "constructs": "^10.0.5"
   },
   "keywords": [
-    "cdk"
+    "cdk",
+    "cloudwatch",
+    "monitoring"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
