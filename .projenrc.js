@@ -9,6 +9,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: "https://github.com/cdklabs/cdk-monitoring-constructs",
   author: "CDK Monitoring Constructs Team",
   authorAddress: "monitoring-cdk-constructs@amazon.com",
+  keywords: ["cloudwatch", "monitoring"],
+
   defaultReleaseBranch: "main",
   majorVersion: 1,
   releaseBranches: {

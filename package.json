@@ -70,7 +70,9 @@
     "monocdk": "^1.123.0"
   },
   "keywords": [
-    "cdk"
+    "cdk",
+    "cloudwatch",
+    "monitoring"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
