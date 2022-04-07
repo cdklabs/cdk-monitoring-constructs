@@ -10,6 +10,7 @@ import { Template } from "aws-cdk-lib/assertions";
 
 import { AlarmWithAnnotation } from "../../../lib";
 import { SyntheticsCanaryMonitoring } from "../../../lib/monitoring/aws-synthetics";
+import { lintStack } from "../../utils/LintUtil";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
@@ -29,6 +30,7 @@ test("snapshot test: no alarms", () => {
   const monitoring = new SyntheticsCanaryMonitoring(scope, { canary });
 
   addMonitoringDashboardsToStack(stack, monitoring);
+  lintStack(stack);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -83,5 +85,6 @@ test("snapshot test: all alarms", () => {
 
   expect(numAlarmsCreated).toStrictEqual(5);
   addMonitoringDashboardsToStack(stack, monitoring);
+  lintStack(stack);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

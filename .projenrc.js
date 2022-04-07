@@ -21,6 +21,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   cdkVersion: CDK_VERSION,
 
+  // additional linters
+  devDeps: ["cdk-nag"],
+
   srcdir: "lib",
   testdir: "test",
 

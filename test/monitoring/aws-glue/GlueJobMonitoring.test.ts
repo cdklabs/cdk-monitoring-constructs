@@ -2,6 +2,7 @@ import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 
 import { AlarmWithAnnotation, GlueJobMonitoring } from "../../../lib";
+import { lintStack } from "../../utils/LintUtil";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
@@ -15,6 +16,7 @@ test("snapshot test: no alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
+  lintStack(stack);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -57,5 +59,6 @@ test("snapshot test: all alarms", () => {
 
   expect(numAlarmsCreated).toStrictEqual(4);
   addMonitoringDashboardsToStack(stack, monitoring);
+  lintStack(stack);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

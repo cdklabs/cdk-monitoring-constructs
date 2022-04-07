@@ -2,6 +2,7 @@ import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 
 import { KinesisDataStreamMonitoring } from "../../../lib";
+import { lintStack } from "../../utils/LintUtil";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
@@ -15,6 +16,7 @@ test("snapshot test for stream: no alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
+  lintStack(stack);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -61,5 +63,6 @@ test("snapshot test for stream: all alarms", () => {
 
   expect(numAlarmsCreated).toStrictEqual(5);
   addMonitoringDashboardsToStack(stack, monitoring);
+  lintStack(stack);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
