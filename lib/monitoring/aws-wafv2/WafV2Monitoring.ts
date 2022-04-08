@@ -72,10 +72,10 @@ export class WafV2Monitoring extends Monitoring {
     return [
       this.createTitleWidget(),
       this.createAllowedRequestsWidget(ThirdWidth, DefaultGraphWidgetHeight),
-      this.createBlockedRequestsWidget(ThirdWidth, DefaultSummaryWidgetHeight),
+      this.createBlockedRequestsWidget(ThirdWidth, DefaultGraphWidgetHeight),
       this.createBlockedRequestsRateWidget(
         ThirdWidth,
-        DefaultSummaryWidgetHeight
+        DefaultGraphWidgetHeight
       ),
     ];
   }
