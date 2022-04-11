@@ -7123,7 +7123,7 @@ const baseDlqAlarms: BaseDlqAlarms = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BaseDlqAlarms.property.addDeadLetterQueueMaxIncomingMessagesAlarm">addDeadLetterQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseDlqAlarms.property.addDeadLetterQueueMaxIncomingMessagesAlarm">addDeadLetterQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | Alarm on the number of messages added to a queue. |
 | <code><a href="#cdk-monitoring-constructs.BaseDlqAlarms.property.addDeadLetterQueueMaxMessageAgeAlarm">addDeadLetterQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BaseDlqAlarms.property.addDeadLetterQueueMaxSizeAlarm">addDeadLetterQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
 
@@ -7136,6 +7136,13 @@ public readonly addDeadLetterQueueMaxIncomingMessagesAlarm: {[ key: string ]: Ma
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}
+
+Alarm on the number of messages added to a queue.
+
+Note that this corresponds with the NumberOfMessagesSent metric, which does not capture messages sent to the DLQ
+as a result of a failed processing attempt.
+
+> [https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html#sqs-dlq-number-of-messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html#sqs-dlq-number-of-messages)
 
 ---
 
@@ -31015,7 +31022,7 @@ const sqsQueueMonitoringWithDlqProps: SqsQueueMonitoringWithDlqProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxIncomingMessagesAlarm">addDeadLetterQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxIncomingMessagesAlarm">addDeadLetterQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | Alarm on the number of messages added to a queue. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxMessageAgeAlarm">addDeadLetterQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxSizeAlarm">addDeadLetterQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.deadLetterQueue">deadLetterQueue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
@@ -31198,6 +31205,13 @@ public readonly addDeadLetterQueueMaxIncomingMessagesAlarm: {[ key: string ]: Ma
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}
+
+Alarm on the number of messages added to a queue.
+
+Note that this corresponds with the NumberOfMessagesSent metric, which does not capture messages sent to the DLQ
+as a result of a failed processing attempt.
+
+> [https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html#sqs-dlq-number-of-messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html#sqs-dlq-number-of-messages)
 
 ---
 

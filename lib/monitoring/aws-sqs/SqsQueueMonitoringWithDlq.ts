@@ -33,10 +33,20 @@ export interface BaseDlqAlarms {
     string,
     MaxMessageCountThreshold
   >;
+
   readonly addDeadLetterQueueMaxMessageAgeAlarm?: Record<
     string,
     MaxMessageAgeThreshold
   >;
+
+  /**
+   * Alarm on the number of messages added to a queue.
+   *
+   * Note that this corresponds with the NumberOfMessagesSent metric, which does not capture messages sent to the DLQ
+   * as a result of a failed processing attempt.
+   *
+   * @see https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html#sqs-dlq-number-of-messages
+   */
   readonly addDeadLetterQueueMaxIncomingMessagesAlarm?: Record<
     string,
     MaxIncomingMessagesCountThreshold
@@ -47,6 +57,7 @@ export interface SqsQueueMonitoringWithDlqProps
   extends SqsQueueMonitoringProps,
     BaseDlqAlarms {
   readonly deadLetterQueue: IQueue;
+
   /**
    * Indicates whether the DLQ monitoring should be added to summary dashboard.
    *
