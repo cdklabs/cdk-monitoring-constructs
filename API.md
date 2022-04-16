@@ -8126,6 +8126,7 @@ const cloudFrontDistributionMetricFactoryProps: CloudFrontDistributionMetricFact
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.IDistribution</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 
 ---
 
@@ -8147,6 +8148,17 @@ public readonly fillTpsWithZeroes: boolean;
 
 - *Type:* boolean
 - *Default:* true
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
 
 ---
 
@@ -8288,6 +8300,7 @@ const cloudFrontDistributionMonitoringProps: CloudFrontDistributionMonitoringPro
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.IDistribution</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -8320,6 +8333,17 @@ public readonly fillTpsWithZeroes: boolean;
 
 - *Type:* boolean
 - *Default:* true
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
 
 ---
 
@@ -15493,6 +15517,46 @@ public readonly maxFullRestartCount: number;
 
 ---
 
+### GlueJobMetricFactoryProps <a name="GlueJobMetricFactoryProps" id="cdk-monitoring-constructs.GlueJobMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.GlueJobMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { GlueJobMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const glueJobMetricFactoryProps: GlueJobMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `jobName`<sup>Required</sup> <a name="jobName" id="cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.jobName"></a>
+
+```typescript
+public readonly jobName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
+
+---
+
 ### GlueJobMonitoringOptions <a name="GlueJobMonitoringOptions" id="cdk-monitoring-constructs.GlueJobMonitoringOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.Initializer"></a>
@@ -15507,6 +15571,8 @@ const glueJobMonitoringOptions: GlueJobMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -15518,6 +15584,27 @@ const glueJobMonitoringOptions: GlueJobMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addFailedTaskRateAlarm">addFailedTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskCountAlarm">addKilledTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskRateAlarm">addKilledTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `jobName`<sup>Required</sup> <a name="jobName" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.jobName"></a>
+
+```typescript
+public readonly jobName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
 
 ---
 
@@ -15673,6 +15760,8 @@ const glueJobMonitoringProps: GlueJobMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -15684,7 +15773,27 @@ const glueJobMonitoringProps: GlueJobMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addFailedTaskRateAlarm">addFailedTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskCountAlarm">addKilledTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskRateAlarm">addKilledTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `jobName`<sup>Required</sup> <a name="jobName" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.jobName"></a>
+
+```typescript
+public readonly jobName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
 
 ---
 
@@ -15823,16 +15932,6 @@ public readonly addKilledTaskRateAlarm: {[ key: string ]: ErrorRateThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
-
----
-
-##### `jobName`<sup>Required</sup> <a name="jobName" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.jobName"></a>
-
-```typescript
-public readonly jobName: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -25399,6 +25498,7 @@ const openSearchClusterMetricFactoryProps: OpenSearchClusterMetricFactoryProps =
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_elasticsearch.IDomain \| aws-cdk-lib.aws_elasticsearch.CfnDomain \| aws-cdk-lib.aws_opensearchservice.IDomain \| aws-cdk-lib.aws_opensearchservice.CfnDomain</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 
 ---
 
@@ -25420,6 +25520,17 @@ public readonly fillTpsWithZeroes: boolean;
 
 - *Type:* boolean
 - *Default:* true
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
 
 ---
 
@@ -25748,6 +25859,7 @@ const openSearchClusterMonitoringProps: OpenSearchClusterMonitoringProps = { ...
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_elasticsearch.IDomain \| aws-cdk-lib.aws_elasticsearch.CfnDomain \| aws-cdk-lib.aws_opensearchservice.IDomain \| aws-cdk-lib.aws_opensearchservice.CfnDomain</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -25793,6 +25905,17 @@ public readonly fillTpsWithZeroes: boolean;
 
 - *Type:* boolean
 - *Default:* true
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* average
 
 ---
 
@@ -35320,6 +35443,7 @@ new ApiGatewayMetricFactory(metricFactory: MetricFactory, props: ApiGatewayMetri
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactory.metric5XXFaultCount">metric5XXFaultCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactory.metric5XXFaultRate">metric5XXFaultRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactory.metricInvocationCount">metricInvocationCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactory.metricInvocationRate">metricInvocationRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactory.metricLatencyInMillis">metricLatencyInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactory.metricLatencyP50InMillis">metricLatencyP50InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactory.metricLatencyP90InMillis">metricLatencyP90InMillis</a></code> | *No description.* |
@@ -35358,6 +35482,12 @@ public metric5XXFaultRate(): Metric | MathExpression
 public metricInvocationCount(): Metric | MathExpression
 ```
 
+##### `metricInvocationRate` <a name="metricInvocationRate" id="cdk-monitoring-constructs.ApiGatewayMetricFactory.metricInvocationRate"></a>
+
+```typescript
+public metricInvocationRate(): Metric | MathExpression
+```
+
 ##### `metricLatencyInMillis` <a name="metricLatencyInMillis" id="cdk-monitoring-constructs.ApiGatewayMetricFactory.metricLatencyInMillis"></a>
 
 ```typescript
@@ -35388,7 +35518,7 @@ public metricLatencyP90InMillis(): Metric | MathExpression
 public metricLatencyP99InMillis(): Metric | MathExpression
 ```
 
-##### `metricTps` <a name="metricTps" id="cdk-monitoring-constructs.ApiGatewayMetricFactory.metricTps"></a>
+##### ~~`metricTps`~~ <a name="metricTps" id="cdk-monitoring-constructs.ApiGatewayMetricFactory.metricTps"></a>
 
 ```typescript
 public metricTps(): Metric | MathExpression
@@ -35570,6 +35700,7 @@ new ApiGatewayV2HttpApiMetricFactory(metricFactory: MetricFactory, props: ApiGat
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricIntegrationLatencyP90InMillis">metricIntegrationLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricIntegrationLatencyP99InMillis">metricIntegrationLatencyP99InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricInvocationCount">metricInvocationCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricInvocationRate">metricInvocationRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricLatencyInMillis">metricLatencyInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricLatencyP50InMillis">metricLatencyP50InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricLatencyP90InMillis">metricLatencyP90InMillis</a></code> | *No description.* |
@@ -35638,6 +35769,12 @@ public metricIntegrationLatencyP99InMillis(): Metric | MathExpression
 public metricInvocationCount(): Metric | MathExpression
 ```
 
+##### `metricInvocationRate` <a name="metricInvocationRate" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricInvocationRate"></a>
+
+```typescript
+public metricInvocationRate(): Metric | MathExpression
+```
+
 ##### `metricLatencyInMillis` <a name="metricLatencyInMillis" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricLatencyInMillis"></a>
 
 ```typescript
@@ -35668,7 +35805,7 @@ public metricLatencyP90InMillis(): Metric | MathExpression
 public metricLatencyP99InMillis(): Metric | MathExpression
 ```
 
-##### `metricTps` <a name="metricTps" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricTps"></a>
+##### ~~`metricTps`~~ <a name="metricTps" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricTps"></a>
 
 ```typescript
 public metricTps(): Metric | MathExpression
@@ -35934,6 +36071,7 @@ new AppSyncMetricFactory(metricFactory: MetricFactory, props: AppSyncMetricFacto
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactory.metricLatencyP90InMillis">metricLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactory.metricLatencyP99InMillis">metricLatencyP99InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactory.metricRequestCount">metricRequestCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactory.metricRequestRate">metricRequestRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactory.metricTps">metricTps</a></code> | *No description.* |
 
 ---
@@ -35986,7 +36124,13 @@ public metricLatencyP99InMillis(): Metric | MathExpression
 public metricRequestCount(): Metric | MathExpression
 ```
 
-##### `metricTps` <a name="metricTps" id="cdk-monitoring-constructs.AppSyncMetricFactory.metricTps"></a>
+##### `metricRequestRate` <a name="metricRequestRate" id="cdk-monitoring-constructs.AppSyncMetricFactory.metricRequestRate"></a>
+
+```typescript
+public metricRequestRate(): Metric | MathExpression
+```
+
+##### ~~`metricTps`~~ <a name="metricTps" id="cdk-monitoring-constructs.AppSyncMetricFactory.metricTps"></a>
 
 ```typescript
 public metricTps(): Metric | MathExpression
@@ -37102,6 +37246,7 @@ new CloudFrontDistributionMetricFactory(metricFactory: MetricFactory, props: Clo
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metric5xxErrorRateAverage">metric5xxErrorRateAverage</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricCacheHitRateAverageInPercent">metricCacheHitRateAverageInPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestCount">metricRequestCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestRate">metricRequestRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestTps">metricRequestTps</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricTotalBytesDownloaded">metricTotalBytesDownloaded</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricTotalBytesUploaded">metricTotalBytesUploaded</a></code> | *No description.* |
@@ -37133,7 +37278,13 @@ public metricCacheHitRateAverageInPercent(): Metric | MathExpression
 public metricRequestCount(): Metric | MathExpression
 ```
 
-##### `metricRequestTps` <a name="metricRequestTps" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestTps"></a>
+##### `metricRequestRate` <a name="metricRequestRate" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestRate"></a>
+
+```typescript
+public metricRequestRate(): Metric | MathExpression
+```
+
+##### ~~`metricRequestTps`~~ <a name="metricRequestTps" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestTps"></a>
 
 ```typescript
 public metricRequestTps(): Metric | MathExpression
@@ -39643,13 +39794,13 @@ Creates annotation based on the metric and alarm properties.
 ```typescript
 import { GlueJobMetricFactory } from 'cdk-monitoring-constructs'
 
-new GlueJobMetricFactory(metricFactory: MetricFactory, jobName: string)
+new GlueJobMetricFactory(metricFactory: MetricFactory, props: GlueJobMetricFactoryProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.Initializer.parameter.jobName">jobName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactoryProps">GlueJobMetricFactoryProps</a></code> | *No description.* |
 
 ---
 
@@ -39659,9 +39810,9 @@ new GlueJobMetricFactory(metricFactory: MetricFactory, jobName: string)
 
 ---
 
-##### `jobName`<sup>Required</sup> <a name="jobName" id="cdk-monitoring-constructs.GlueJobMetricFactory.Initializer.parameter.jobName"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.GlueJobMetricFactory.Initializer.parameter.props"></a>
 
-- *Type:* string
+- *Type:* <a href="#cdk-monitoring-constructs.GlueJobMetricFactoryProps">GlueJobMetricFactoryProps</a>
 
 ---
 
@@ -41273,6 +41424,7 @@ new LambdaFunctionMetricFactory(metricFactory: MetricFactory, props: LambdaFunct
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricFaultCount">metricFaultCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricFaultRate">metricFaultRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricInvocationCount">metricInvocationCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricInvocationRate">metricInvocationRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP50InMillis">metricLatencyP50InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP90InMillis">metricLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP99InMillis">metricLatencyP99InMillis</a></code> | *No description.* |
@@ -41307,6 +41459,12 @@ public metricFaultRate(): Metric | MathExpression
 
 ```typescript
 public metricInvocationCount(): Metric | MathExpression
+```
+
+##### `metricInvocationRate` <a name="metricInvocationRate" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricInvocationRate"></a>
+
+```typescript
+public metricInvocationRate(): Metric | MathExpression
 ```
 
 ##### `metricLatencyP50InMillis` <a name="metricLatencyP50InMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP50InMillis"></a>
@@ -41357,7 +41515,7 @@ public metricThrottlesCount(): Metric | MathExpression
 public metricThrottlesRate(): Metric | MathExpression
 ```
 
-##### `metricTps` <a name="metricTps" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricTps"></a>
+##### ~~`metricTps`~~ <a name="metricTps" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricTps"></a>
 
 ```typescript
 public metricTps(): Metric | MathExpression
@@ -43575,9 +43733,11 @@ new OpenSearchClusterMetricFactory(metricFactory: MetricFactory, props: OpenSear
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricMasterCpuUsage">metricMasterCpuUsage</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricMasterJvmMemoryPressure">metricMasterJvmMemoryPressure</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricNodes">metricNodes</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchCount">metricSearchCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchLatencyP50InMillis">metricSearchLatencyP50InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchLatencyP90InMillis">metricSearchLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchLatencyP99InMillis">metricSearchLatencyP99InMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchRate">metricSearchRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricTps">metricTps</a></code> | *No description.* |
 
 ---
@@ -43672,6 +43832,12 @@ public metricMasterJvmMemoryPressure(): Metric | MathExpression
 public metricNodes(): Metric | MathExpression
 ```
 
+##### `metricSearchCount` <a name="metricSearchCount" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchCount"></a>
+
+```typescript
+public metricSearchCount(): Metric
+```
+
 ##### `metricSearchLatencyP50InMillis` <a name="metricSearchLatencyP50InMillis" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchLatencyP50InMillis"></a>
 
 ```typescript
@@ -43690,7 +43856,13 @@ public metricSearchLatencyP90InMillis(): Metric | MathExpression
 public metricSearchLatencyP99InMillis(): Metric | MathExpression
 ```
 
-##### `metricTps` <a name="metricTps" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricTps"></a>
+##### `metricSearchRate` <a name="metricSearchRate" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchRate"></a>
+
+```typescript
+public metricSearchRate(): Metric | MathExpression
+```
+
+##### ~~`metricTps`~~ <a name="metricTps" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricTps"></a>
 
 ```typescript
 public metricTps(): Metric | MathExpression

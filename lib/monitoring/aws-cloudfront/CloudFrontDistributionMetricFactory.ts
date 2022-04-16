@@ -17,6 +17,10 @@ export interface CloudFrontDistributionMetricFactoryProps {
    * @default true
    */
   readonly fillTpsWithZeroes?: boolean;
+  /**
+   * @default average
+   */
+  readonly rateComputationMethod?: RateComputationMethod;
 }
 
 /**
@@ -26,6 +30,7 @@ export interface CloudFrontDistributionMetricFactoryProps {
 export class CloudFrontDistributionMetricFactory {
   private readonly metricFactory: MetricFactory;
   private readonly fillTpsWithZeroes: boolean;
+  private readonly rateComputationMethod: RateComputationMethod;
   private readonly dimensionsMap: DimensionsMap;
 
   constructor(
@@ -34,6 +39,8 @@ export class CloudFrontDistributionMetricFactory {
   ) {
     this.metricFactory = metricFactory;
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
+    this.rateComputationMethod =
+      props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
     this.dimensionsMap = {
       DistributionId: props.distribution.distributionId,
       Region: CloudFrontGlobalRegion,
@@ -53,8 +60,20 @@ export class CloudFrontDistributionMetricFactory {
       .with({ region: CloudFrontDefaultMetricRegion });
   }
 
+  metricRequestRate() {
+    return this.metricFactory.toRate(
+      this.metricRequestCount(),
+      this.rateComputationMethod,
+      false,
+      "requests",
+      this.fillTpsWithZeroes
+    );
+  }
+
+  /**
+   * @deprecated use metricRequestRate
+   */
   metricRequestTps() {
-    // TODO: rename to metricInvocationRate and use rateComputationMethod
     return this.metricFactory.toRate(
       this.metricRequestCount(),
       RateComputationMethod.PER_SECOND,

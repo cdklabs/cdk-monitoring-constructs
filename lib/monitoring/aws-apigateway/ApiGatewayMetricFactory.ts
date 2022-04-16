@@ -61,11 +61,23 @@ export class ApiGatewayMetricFactory {
     };
   }
 
+  /**
+   * @deprecated use metricInvocationRate
+   */
   metricTps() {
-    // TODO: rename to metricInvocationRate and use rateComputationMethod
     return this.metricFactory.toRate(
       this.metricInvocationCount(),
       RateComputationMethod.PER_SECOND,
+      false,
+      "requests",
+      this.fillTpsWithZeroes
+    );
+  }
+
+  metricInvocationRate() {
+    return this.metricFactory.toRate(
+      this.metricInvocationCount(),
+      this.rateComputationMethod,
       false,
       "requests",
       this.fillTpsWithZeroes

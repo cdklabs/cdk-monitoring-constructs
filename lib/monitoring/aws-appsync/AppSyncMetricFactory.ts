@@ -42,11 +42,23 @@ export class AppSyncMetricFactory {
     };
   }
 
+  /**
+   * @deprecated use metricRequestRate
+   */
   metricTps() {
-    // TODO: rename to metricInvocationRate and use rateComputationMethod
     return this.metricFactory.toRate(
       this.metricRequestCount(),
       RateComputationMethod.PER_SECOND,
+      true,
+      "requests",
+      this.fillTpsWithZeroes
+    );
+  }
+
+  metricRequestRate() {
+    return this.metricFactory.toRate(
+      this.metricRequestCount(),
+      this.rateComputationMethod,
       true,
       "requests",
       this.fillTpsWithZeroes
