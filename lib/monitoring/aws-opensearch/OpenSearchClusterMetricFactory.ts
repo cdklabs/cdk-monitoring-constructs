@@ -56,7 +56,7 @@ export class OpenSearchClusterMetricFactory {
   }
 
   /**
-   * @deprecated use metricInvocationRate
+   * @deprecated use metricSearchRate
    */
   metricTps() {
     return this.metricFactory.toRate(
