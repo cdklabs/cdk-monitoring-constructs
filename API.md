@@ -48183,37 +48183,37 @@ Returns all widgets.
 These should go to the detailed service dashboard.
 
 
-### IECMetricFactoryStrategy <a name="IECMetricFactoryStrategy" id="cdk-monitoring-constructs.IECMetricFactoryStrategy"></a>
+### IEC2MetricFactoryStrategy <a name="IEC2MetricFactoryStrategy" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.IECMetricFactoryStrategy">IECMetricFactoryStrategy</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.IEC2MetricFactoryStrategy">IEC2MetricFactoryStrategy</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.IECMetricFactoryStrategy.createMetrics">createMetrics</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics">createMetrics</a></code> | *No description.* |
 
 ---
 
-##### `createMetrics` <a name="createMetrics" id="cdk-monitoring-constructs.IECMetricFactoryStrategy.createMetrics"></a>
+##### `createMetrics` <a name="createMetrics" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics"></a>
 
 ```typescript
 public createMetrics(metricFactory: MetricFactory, metricName: string, statistic: MetricStatistic): IMetric[]
 ```
 
-###### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.IECMetricFactoryStrategy.createMetrics.parameter.metricFactory"></a>
+###### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.metricFactory"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
 
 ---
 
-###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-monitoring-constructs.IECMetricFactoryStrategy.createMetrics.parameter.metricName"></a>
+###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.metricName"></a>
 
 - *Type:* string
 
 ---
 
-###### `statistic`<sup>Required</sup> <a name="statistic" id="cdk-monitoring-constructs.IECMetricFactoryStrategy.createMetrics.parameter.statistic"></a>
+###### `statistic`<sup>Required</sup> <a name="statistic" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.statistic"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a>
 
