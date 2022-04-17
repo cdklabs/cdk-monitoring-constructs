@@ -5,7 +5,7 @@ import { MetricFactory, MetricStatistic } from "../../common";
 
 const EC2Namespace = "AWS/EC2";
 
-export interface IECMetricFactoryStrategy {
+export interface IEC2MetricFactoryStrategy {
   createMetrics(
     metricFactory: MetricFactory,
     metricName: string,
@@ -16,7 +16,7 @@ export interface IECMetricFactoryStrategy {
 /**
  * Creates a single metric for the whole ASG.
  */
-class AutoScalingGroupStrategy implements IECMetricFactoryStrategy {
+class AutoScalingGroupStrategy implements IEC2MetricFactoryStrategy {
   protected autoScalingGroup: IAutoScalingGroup;
 
   constructor(autoScalingGroup: IAutoScalingGroup) {
@@ -44,7 +44,7 @@ class AutoScalingGroupStrategy implements IECMetricFactoryStrategy {
 /**
  * Creates multiple metrics (one for each instance) with an optional ASG filter.
  */
-class SelectedInstancesStrategy implements IECMetricFactoryStrategy {
+class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
   protected instanceIds: string[];
   protected autoScalingGroup?: IAutoScalingGroup;
 
@@ -74,7 +74,7 @@ class SelectedInstancesStrategy implements IECMetricFactoryStrategy {
 /**
  * Creates a single metric search expression for all instances.
  */
-class AllInstancesStrategy implements IECMetricFactoryStrategy {
+class AllInstancesStrategy implements IEC2MetricFactoryStrategy {
   createMetrics(
     metricFactory: MetricFactory,
     metricName: string,
@@ -107,7 +107,7 @@ function resolveDimensions(
 
 function resolveStrategy(
   props: EC2MetricFactoryProps
-): IECMetricFactoryStrategy {
+): IEC2MetricFactoryStrategy {
   if (props.instanceIds) {
     // instance filter + optional ASG
     return new SelectedInstancesStrategy(
@@ -138,7 +138,7 @@ export interface EC2MetricFactoryProps {
 
 export class EC2MetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly strategy: IECMetricFactoryStrategy;
+  protected readonly strategy: IEC2MetricFactoryStrategy;
 
   constructor(metricFactory: MetricFactory, props: EC2MetricFactoryProps) {
     this.metricFactory = metricFactory;
