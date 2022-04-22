@@ -12763,6 +12763,51 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 
 ---
 
+### EC2MetricFactoryProps <a name="EC2MetricFactoryProps" id="cdk-monitoring-constructs.EC2MetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EC2MetricFactoryProps.Initializer"></a>
+
+```typescript
+import { EC2MetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const eC2MetricFactoryProps: EC2MetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
+
+---
+
+##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.EC2MetricFactoryProps.property.autoScalingGroup"></a>
+
+```typescript
+public readonly autoScalingGroup: IAutoScalingGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
+- *Default:* no Auto-Scaling Group filter
+
+Auto-Scaling Group to monitor.
+
+---
+
+##### `instanceIds`<sup>Optional</sup> <a name="instanceIds" id="cdk-monitoring-constructs.EC2MetricFactoryProps.property.instanceIds"></a>
+
+```typescript
+public readonly instanceIds: string[];
+```
+
+- *Type:* string[]
+- *Default:* no instance filter
+
+Selected IDs of EC2 instances to monitor.
+
+---
+
 ### EC2MonitoringOptions <a name="EC2MonitoringOptions" id="cdk-monitoring-constructs.EC2MonitoringOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EC2MonitoringOptions.Initializer"></a>
@@ -12777,6 +12822,8 @@ const eC2MonitoringOptions: EC2MonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -12784,7 +12831,32 @@ const eC2MonitoringOptions: EC2MonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+
+---
+
+##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup"></a>
+
+```typescript
+public readonly autoScalingGroup: IAutoScalingGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
+- *Default:* no Auto-Scaling Group filter
+
+Auto-Scaling Group to monitor.
+
+---
+
+##### `instanceIds`<sup>Optional</sup> <a name="instanceIds" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.instanceIds"></a>
+
+```typescript
+public readonly instanceIds: string[];
+```
+
+- *Type:* string[]
+- *Default:* no instance filter
+
+Selected IDs of EC2 instances to monitor.
 
 ---
 
@@ -12886,16 +12958,6 @@ Calls provided function to process all alarms created.
 
 ---
 
-##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup"></a>
-
-```typescript
-public readonly autoScalingGroup: IAutoScalingGroup;
-```
-
-- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
-
----
-
 ### EC2MonitoringProps <a name="EC2MonitoringProps" id="cdk-monitoring-constructs.EC2MonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EC2MonitoringProps.Initializer"></a>
@@ -12910,6 +12972,8 @@ const eC2MonitoringProps: EC2MonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -12917,7 +12981,32 @@ const eC2MonitoringProps: EC2MonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+
+---
+
+##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.EC2MonitoringProps.property.autoScalingGroup"></a>
+
+```typescript
+public readonly autoScalingGroup: IAutoScalingGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
+- *Default:* no Auto-Scaling Group filter
+
+Auto-Scaling Group to monitor.
+
+---
+
+##### `instanceIds`<sup>Optional</sup> <a name="instanceIds" id="cdk-monitoring-constructs.EC2MonitoringProps.property.instanceIds"></a>
+
+```typescript
+public readonly instanceIds: string[];
+```
+
+- *Type:* string[]
+- *Default:* no instance filter
+
+Selected IDs of EC2 instances to monitor.
 
 ---
 
@@ -13016,16 +13105,6 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
-
----
-
-##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.EC2MonitoringProps.property.autoScalingGroup"></a>
-
-```typescript
-public readonly autoScalingGroup: IAutoScalingGroup;
-```
-
-- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
 
 ---
 
@@ -38700,13 +38779,13 @@ Returns widgets to be placed on the main dashboard.
 ```typescript
 import { EC2MetricFactory } from 'cdk-monitoring-constructs'
 
-new EC2MetricFactory(metricFactory: MetricFactory, autoScalingGroup?: IAutoScalingGroup)
+new EC2MetricFactory(metricFactory: MetricFactory, props: EC2MetricFactoryProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps">EC2MetricFactoryProps</a></code> | *No description.* |
 
 ---
 
@@ -38716,9 +38795,9 @@ new EC2MetricFactory(metricFactory: MetricFactory, autoScalingGroup?: IAutoScali
 
 ---
 
-##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.autoScalingGroup"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.EC2MetricFactory.Initializer.parameter.props"></a>
 
-- *Type:* aws-cdk-lib.aws_autoscaling.IAutoScalingGroup
+- *Type:* <a href="#cdk-monitoring-constructs.EC2MetricFactoryProps">EC2MetricFactoryProps</a>
 
 ---
 
@@ -38739,7 +38818,7 @@ new EC2MetricFactory(metricFactory: MetricFactory, autoScalingGroup?: IAutoScali
 ##### `metricAverageCpuUtilisationPercent` <a name="metricAverageCpuUtilisationPercent" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageCpuUtilisationPercent"></a>
 
 ```typescript
-public metricAverageCpuUtilisationPercent(): IMetric
+public metricAverageCpuUtilisationPercent(): IMetric[]
 ```
 
 The percentage of allocated EC2 compute units that are currently in use on the instance.
@@ -38751,7 +38830,7 @@ CloudWatch when the instance is not allocated a full processor core.
 ##### `metricAverageDiskReadBytes` <a name="metricAverageDiskReadBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskReadBytes"></a>
 
 ```typescript
-public metricAverageDiskReadBytes(): IMetric
+public metricAverageDiskReadBytes(): IMetric[]
 ```
 
 Bytes read from all instance store volumes available to the instance.
@@ -38762,7 +38841,7 @@ This can be used to determine the speed of the application.
 ##### `metricAverageDiskReadOps` <a name="metricAverageDiskReadOps" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskReadOps"></a>
 
 ```typescript
-public metricAverageDiskReadOps(): IMetric
+public metricAverageDiskReadOps(): IMetric[]
 ```
 
 Completed read operations from all instance store volumes available to the instance in a specified period of time.
@@ -38770,7 +38849,7 @@ Completed read operations from all instance store volumes available to the insta
 ##### `metricAverageDiskWriteBytes` <a name="metricAverageDiskWriteBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskWriteBytes"></a>
 
 ```typescript
-public metricAverageDiskWriteBytes(): IMetric
+public metricAverageDiskWriteBytes(): IMetric[]
 ```
 
 Bytes written to all instance store volumes available to the instance.
@@ -38781,7 +38860,7 @@ This can be used to determine the speed of the application.
 ##### `metricAverageDiskWriteOps` <a name="metricAverageDiskWriteOps" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskWriteOps"></a>
 
 ```typescript
-public metricAverageDiskWriteOps(): IMetric
+public metricAverageDiskWriteOps(): IMetric[]
 ```
 
 Completed write operations to all instance store volumes available to the instance in a specified period of time.
@@ -38789,7 +38868,7 @@ Completed write operations to all instance store volumes available to the instan
 ##### `metricAverageNetworkInRateBytes` <a name="metricAverageNetworkInRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageNetworkInRateBytes"></a>
 
 ```typescript
-public metricAverageNetworkInRateBytes(): IMetric
+public metricAverageNetworkInRateBytes(): IMetric[]
 ```
 
 The number of bytes received on all network interfaces by the instance.
@@ -38799,7 +38878,7 @@ This metric identifies the volume of incoming network traffic to a single instan
 ##### `metricAverageNetworkOutRateBytes` <a name="metricAverageNetworkOutRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageNetworkOutRateBytes"></a>
 
 ```typescript
-public metricAverageNetworkOutRateBytes(): IMetric
+public metricAverageNetworkOutRateBytes(): IMetric[]
 ```
 
 The number of bytes sent out on all network interfaces by the instance.
@@ -48274,6 +48353,43 @@ public widgets(): IWidget[]
 Returns all widgets.
 
 These should go to the detailed service dashboard.
+
+
+### IEC2MetricFactoryStrategy <a name="IEC2MetricFactoryStrategy" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy"></a>
+
+- *Implemented By:* <a href="#cdk-monitoring-constructs.IEC2MetricFactoryStrategy">IEC2MetricFactoryStrategy</a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics">createMetrics</a></code> | *No description.* |
+
+---
+
+##### `createMetrics` <a name="createMetrics" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics"></a>
+
+```typescript
+public createMetrics(metricFactory: MetricFactory, metricName: string, statistic: MetricStatistic): IMetric[]
+```
+
+###### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `statistic`<sup>Required</sup> <a name="statistic" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.statistic"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a>
+
+---
 
 
 ### ILoadBalancerMetricFactory <a name="ILoadBalancerMetricFactory" id="cdk-monitoring-constructs.ILoadBalancerMetricFactory"></a>
