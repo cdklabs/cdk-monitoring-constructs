@@ -1,4 +1,3 @@
-import { IAutoScalingGroup } from "aws-cdk-lib/aws-autoscaling";
 import { GraphWidget, IMetric, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
@@ -17,11 +16,11 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import { EC2MetricFactory } from "./EC2MetricFactory";
+import { EC2MetricFactory, EC2MetricFactoryProps } from "./EC2MetricFactory";
 
-export interface EC2MonitoringOptions extends BaseMonitoringProps {
-  readonly autoScalingGroup?: IAutoScalingGroup;
-}
+export interface EC2MonitoringOptions
+  extends EC2MetricFactoryProps,
+    BaseMonitoringProps {}
 
 export interface EC2MonitoringProps extends EC2MonitoringOptions {}
 
@@ -29,13 +28,13 @@ export class EC2Monitoring extends Monitoring {
   protected readonly family: string;
   protected readonly title: string;
 
-  protected readonly cpuUtilisationMetric: IMetric;
-  protected readonly diskReadBytesMetric: IMetric;
-  protected readonly diskWriteBytesMetric: IMetric;
-  protected readonly diskReadOpsMetric: IMetric;
-  protected readonly diskWriteOpsMetric: IMetric;
-  protected readonly networkInMetric: IMetric;
-  protected readonly networkOutMetric: IMetric;
+  protected readonly cpuUtilisationMetrics: IMetric[];
+  protected readonly diskReadBytesMetrics: IMetric[];
+  protected readonly diskWriteBytesMetrics: IMetric[];
+  protected readonly diskReadOpsMetrics: IMetric[];
+  protected readonly diskWriteOpsMetrics: IMetric[];
+  protected readonly networkInMetrics: IMetric[];
+  protected readonly networkOutMetrics: IMetric[];
 
   constructor(scope: MonitoringScope, props: EC2MonitoringProps) {
     super(scope, props);
@@ -52,16 +51,16 @@ export class EC2Monitoring extends Monitoring {
 
     const metricFactory = new EC2MetricFactory(
       scope.createMetricFactory(),
-      props.autoScalingGroup
+      props
     );
-    this.cpuUtilisationMetric =
+    this.cpuUtilisationMetrics =
       metricFactory.metricAverageCpuUtilisationPercent();
-    this.diskReadBytesMetric = metricFactory.metricAverageDiskReadBytes();
-    this.diskWriteBytesMetric = metricFactory.metricAverageDiskWriteBytes();
-    this.diskReadOpsMetric = metricFactory.metricAverageDiskReadOps();
-    this.diskWriteOpsMetric = metricFactory.metricAverageDiskWriteOps();
-    this.networkInMetric = metricFactory.metricAverageNetworkInRateBytes();
-    this.networkOutMetric = metricFactory.metricAverageNetworkOutRateBytes();
+    this.diskReadBytesMetrics = metricFactory.metricAverageDiskReadBytes();
+    this.diskWriteBytesMetrics = metricFactory.metricAverageDiskWriteBytes();
+    this.diskReadOpsMetrics = metricFactory.metricAverageDiskReadOps();
+    this.diskWriteOpsMetrics = metricFactory.metricAverageDiskWriteOps();
+    this.networkInMetrics = metricFactory.metricAverageNetworkInRateBytes();
+    this.networkOutMetrics = metricFactory.metricAverageNetworkOutRateBytes();
   }
 
   summaryWidgets(): IWidget[] {
@@ -104,7 +103,7 @@ export class EC2Monitoring extends Monitoring {
       width,
       height,
       title: "CPU Utilization",
-      left: [this.cpuUtilisationMetric],
+      left: [...this.cpuUtilisationMetrics],
       leftYAxis: PercentageAxisFromZeroToHundred,
     });
   }
@@ -114,7 +113,7 @@ export class EC2Monitoring extends Monitoring {
       width,
       height,
       title: "Disk - Bytes",
-      left: [this.diskReadBytesMetric, this.diskWriteBytesMetric],
+      left: [...this.diskReadBytesMetrics, ...this.diskWriteBytesMetrics],
       leftYAxis: SizeAxisBytesFromZero,
     });
   }
@@ -124,7 +123,7 @@ export class EC2Monitoring extends Monitoring {
       width,
       height,
       title: "Disk - OPS",
-      left: [this.diskReadOpsMetric, this.diskWriteOpsMetric],
+      left: [...this.diskReadOpsMetrics, ...this.diskWriteOpsMetrics],
       leftYAxis: CountAxisFromZero,
     });
   }
@@ -134,7 +133,7 @@ export class EC2Monitoring extends Monitoring {
       width,
       height,
       title: "Network",
-      left: [this.networkInMetric, this.networkOutMetric],
+      left: [...this.networkInMetrics, ...this.networkOutMetrics],
       leftYAxis: SizeAxisBytesFromZero,
     });
   }

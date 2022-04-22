@@ -9,6 +9,68 @@ Object {
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 Auto Scaling Group **DummyASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 Auto Scaling Group **DummyASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
   "Rules": Object {
     "CheckBootstrapVersion": Object {
       "Assertions": Array [
@@ -46,6 +108,270 @@ Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"CPUUtilization\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"DiskReadOps\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"DiskWriteOps\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"DiskReadBytes\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"DiskWriteBytes\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"CPUUtilization\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"DiskReadOps\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"DiskWriteOps\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/EC2,InstanceId}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: instance filter + ASG, no alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 Auto Scaling Group **DummyASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"CPUUtilization (instance1)\\"}],[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"CPUUtilization (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskReadOps (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskReadOps (instance2)\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskWriteOps (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskWriteOps (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskReadBytes (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskReadBytes (instance2)\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskWriteBytes (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskWriteBytes (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 Auto Scaling Group **DummyASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"CPUUtilization (instance1)\\"}],[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"CPUUtilization (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskReadOps (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskReadOps (instance2)\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskWriteOps (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskWriteOps (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: instance filter, no alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"CPUUtilization (instance1)\\"}],[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"CPUUtilization (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskReadOps (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskReadOps (instance2)\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskWriteOps (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskWriteOps (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskReadBytes (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskReadBytes (instance2)\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskWriteBytes (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskWriteBytes (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"CPUUtilization (instance1)\\"}],[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"CPUUtilization (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskReadOps (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskReadOps (instance2)\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"DiskWriteOps (instance1)\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"DiskWriteOps (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
