@@ -16,12 +16,17 @@ export interface OpenSearchClusterMetricFactoryProps {
    * @default true
    */
   readonly fillTpsWithZeroes?: boolean;
+  /**
+   * @default average
+   */
+  readonly rateComputationMethod?: RateComputationMethod;
 }
 
 export class OpenSearchClusterMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly domainMetrics: OpenSearchBackportedMetrics;
   protected readonly fillTpsWithZeroes: boolean;
+  protected readonly rateComputationMethod: RateComputationMethod;
 
   constructor(
     metricFactory: MetricFactory,
@@ -30,15 +35,32 @@ export class OpenSearchClusterMetricFactory {
     this.metricFactory = metricFactory;
     this.domainMetrics = new OpenSearchBackportedMetrics(props.domain);
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
+    this.rateComputationMethod =
+      props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
   }
 
-  metricTps() {
-    // TODO: rename to metricInvocationRate and use rateComputationMethod
-    const requests = this.domainMetrics.metric("SearchRate", {
+  metricSearchCount() {
+    return this.domainMetrics.metric("SearchRate", {
       statistic: Statistic.SUM,
     });
+  }
+
+  metricSearchRate() {
     return this.metricFactory.toRate(
-      requests,
+      this.metricSearchCount(),
+      this.rateComputationMethod,
+      false,
+      "requests",
+      this.fillTpsWithZeroes
+    );
+  }
+
+  /**
+   * @deprecated use metricSearchRate
+   */
+  metricTps() {
+    return this.metricFactory.toRate(
+      this.metricSearchCount(),
       RateComputationMethod.PER_SECOND,
       false,
       "requests",
