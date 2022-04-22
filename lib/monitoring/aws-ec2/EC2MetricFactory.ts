@@ -1,20 +1,148 @@
 import { IAutoScalingGroup } from "monocdk/aws-autoscaling";
-import { DimensionHash } from "monocdk/aws-cloudwatch";
+import { DimensionHash, IMetric } from "monocdk/aws-cloudwatch";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
 const EC2Namespace = "AWS/EC2";
 
+export interface IEC2MetricFactoryStrategy {
+  createMetrics(
+    metricFactory: MetricFactory,
+    metricName: string,
+    statistic: MetricStatistic
+  ): IMetric[];
+}
+
+/**
+ * Creates a single metric for the whole ASG.
+ */
+class AutoScalingGroupStrategy implements IEC2MetricFactoryStrategy {
+  protected autoScalingGroup: IAutoScalingGroup;
+
+  constructor(autoScalingGroup: IAutoScalingGroup) {
+    this.autoScalingGroup = autoScalingGroup;
+  }
+
+  createMetrics(
+    metricFactory: MetricFactory,
+    metricName: string,
+    statistic: MetricStatistic
+  ) {
+    return [
+      metricFactory.createMetric(
+        metricName,
+        statistic,
+        undefined,
+        resolveDimensions(this.autoScalingGroup, undefined),
+        undefined,
+        EC2Namespace
+      ),
+    ];
+  }
+}
+
+/**
+ * Creates multiple metrics (one for each instance) with an optional ASG filter.
+ */
+class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
+  protected instanceIds: string[];
+  protected autoScalingGroup?: IAutoScalingGroup;
+
+  constructor(instanceIds: string[], autoScalingGroup?: IAutoScalingGroup) {
+    this.instanceIds = instanceIds;
+    this.autoScalingGroup = autoScalingGroup;
+  }
+
+  createMetrics(
+    metricFactory: MetricFactory,
+    metricName: string,
+    statistic: MetricStatistic
+  ) {
+    return this.instanceIds.map((instanceId) => {
+      return metricFactory.createMetric(
+        metricName,
+        statistic,
+        `${metricName} (${instanceId})`,
+        resolveDimensions(this.autoScalingGroup, instanceId),
+        undefined,
+        EC2Namespace
+      );
+    });
+  }
+}
+
+/**
+ * Creates a single metric search expression for all instances.
+ */
+class AllInstancesStrategy implements IEC2MetricFactoryStrategy {
+  createMetrics(
+    metricFactory: MetricFactory,
+    metricName: string,
+    statistic: MetricStatistic
+  ) {
+    return [
+      metricFactory.createMetricSearch(
+        `MetricName="${metricName}"`,
+        { InstanceId: undefined as unknown as string },
+        statistic,
+        EC2Namespace
+      ),
+    ];
+  }
+}
+
+function resolveDimensions(
+  autoScalingGroup?: IAutoScalingGroup,
+  instanceId?: string
+): DimensionHash {
+  const dimensions: DimensionHash = {};
+  if (autoScalingGroup) {
+    dimensions.AutoScalingGroupName = autoScalingGroup.autoScalingGroupName;
+  }
+  if (instanceId) {
+    dimensions.InstanceId = instanceId;
+  }
+  return dimensions;
+}
+
+function resolveStrategy(
+  props: EC2MetricFactoryProps
+): IEC2MetricFactoryStrategy {
+  if (props.instanceIds) {
+    // instance filter + optional ASG
+    return new SelectedInstancesStrategy(
+      props.instanceIds,
+      props.autoScalingGroup
+    );
+  } else if (props.autoScalingGroup) {
+    // ASG only
+    return new AutoScalingGroupStrategy(props.autoScalingGroup);
+  } else {
+    // all instances
+    return new AllInstancesStrategy();
+  }
+}
+
+export interface EC2MetricFactoryProps {
+  /**
+   * Auto-Scaling Group to monitor.
+   * @default no Auto-Scaling Group filter
+   */
+  readonly autoScalingGroup?: IAutoScalingGroup;
+  /**
+   * Selected IDs of EC2 instances to monitor.
+   * @default no instance filter
+   */
+  readonly instanceIds?: string[];
+}
+
 export class EC2MetricFactory {
   protected readonly metricFactory: MetricFactory;
-  protected readonly autoScalingGroup?: IAutoScalingGroup;
+  protected readonly strategy: IEC2MetricFactoryStrategy;
 
-  constructor(
-    metricFactory: MetricFactory,
-    autoScalingGroup?: IAutoScalingGroup
-  ) {
+  constructor(metricFactory: MetricFactory, props: EC2MetricFactoryProps) {
     this.metricFactory = metricFactory;
-    this.autoScalingGroup = autoScalingGroup;
+    this.strategy = resolveStrategy(props);
   }
 
   /**
@@ -24,7 +152,7 @@ export class EC2MetricFactory {
    * CloudWatch when the instance is not allocated a full processor core.
    */
   metricAverageCpuUtilisationPercent() {
-    return this.createMetric("CPUUtilization", MetricStatistic.AVERAGE);
+    return this.createMetrics("CPUUtilization", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -33,7 +161,7 @@ export class EC2MetricFactory {
    * This can be used to determine the speed of the application.
    */
   metricAverageDiskReadBytes() {
-    return this.createMetric("DiskReadBytes", MetricStatistic.AVERAGE);
+    return this.createMetrics("DiskReadBytes", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -42,21 +170,21 @@ export class EC2MetricFactory {
    * This can be used to determine the speed of the application.
    */
   metricAverageDiskWriteBytes() {
-    return this.createMetric("DiskWriteBytes", MetricStatistic.AVERAGE);
+    return this.createMetrics("DiskWriteBytes", MetricStatistic.AVERAGE);
   }
 
   /**
    * Completed read operations from all instance store volumes available to the instance in a specified period of time.
    */
   metricAverageDiskReadOps() {
-    return this.createMetric("DiskReadOps", MetricStatistic.AVERAGE);
+    return this.createMetrics("DiskReadOps", MetricStatistic.AVERAGE);
   }
 
   /**
    * Completed write operations to all instance store volumes available to the instance in a specified period of time.
    */
   metricAverageDiskWriteOps() {
-    return this.createMetric("DiskWriteOps", MetricStatistic.AVERAGE);
+    return this.createMetrics("DiskWriteOps", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -64,7 +192,7 @@ export class EC2MetricFactory {
    * This metric identifies the volume of incoming network traffic to a single instance.
    */
   metricAverageNetworkInRateBytes() {
-    return this.createMetric("NetworkIn", MetricStatistic.AVERAGE);
+    return this.createMetrics("NetworkIn", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -72,44 +200,14 @@ export class EC2MetricFactory {
    * This metric identifies the volume of outgoing network traffic from a single instance.
    */
   metricAverageNetworkOutRateBytes() {
-    return this.createMetric("NetworkOut", MetricStatistic.AVERAGE);
+    return this.createMetrics("NetworkOut", MetricStatistic.AVERAGE);
   }
 
-  private createMetric(metricName: string, statistic: MetricStatistic) {
-    if (this.autoScalingGroup) {
-      return this.metricForAutoScalingGroup(metricName, statistic);
-    }
-    return this.metricForAllInstances(metricName, statistic);
-  }
-
-  private metricForAutoScalingGroup(
-    metricName: string,
-    statistic: MetricStatistic
-  ) {
-    const dimensions: DimensionHash = {};
-    if (this.autoScalingGroup) {
-      dimensions.AutoScalingGroupName =
-        this.autoScalingGroup.autoScalingGroupName;
-    }
-    return this.metricFactory.createMetric(
+  private createMetrics(metricName: string, statistic: MetricStatistic) {
+    return this.strategy.createMetrics(
+      this.metricFactory,
       metricName,
-      statistic,
-      undefined,
-      dimensions,
-      undefined,
-      EC2Namespace
-    );
-  }
-
-  private metricForAllInstances(
-    metricName: string,
-    statistic: MetricStatistic
-  ) {
-    return this.metricFactory.createMetricSearch(
-      `MetricName="${metricName}"`,
-      { InstanceId: undefined },
-      statistic,
-      EC2Namespace
+      statistic
     );
   }
 }
