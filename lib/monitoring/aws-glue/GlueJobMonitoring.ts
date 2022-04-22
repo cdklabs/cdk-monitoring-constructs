@@ -28,18 +28,21 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import { GlueJobMetricFactory } from "./GlueJobMetricFactory";
+import {
+  GlueJobMetricFactory,
+  GlueJobMetricFactoryProps,
+} from "./GlueJobMetricFactory";
 
-export interface GlueJobMonitoringOptions extends BaseMonitoringProps {
+export interface GlueJobMonitoringOptions
+  extends GlueJobMetricFactoryProps,
+    BaseMonitoringProps {
   readonly addFailedTaskCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFailedTaskRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly addKilledTaskCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addKilledTaskRateAlarm?: Record<string, ErrorRateThreshold>;
 }
 
-export interface GlueJobMonitoringProps extends GlueJobMonitoringOptions {
-  readonly jobName: string;
-}
+export interface GlueJobMonitoringProps extends GlueJobMonitoringOptions {}
 
 export class GlueJobMonitoring extends Monitoring {
   protected readonly title: string;
@@ -74,7 +77,7 @@ export class GlueJobMonitoring extends Monitoring {
 
     const metricFactory = new GlueJobMetricFactory(
       scope.createMetricFactory(),
-      props.jobName
+      props
     );
 
     this.alarmFactory = this.createAlarmFactory(

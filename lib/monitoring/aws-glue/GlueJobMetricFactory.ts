@@ -8,16 +8,27 @@ import {
 
 const GlueNamespace = "Glue";
 
+export interface GlueJobMetricFactoryProps {
+  readonly jobName: string;
+  /**
+   * @default average
+   */
+  readonly rateComputationMethod?: RateComputationMethod;
+}
+
 export class GlueJobMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly dimensions: DimensionHash;
+  protected readonly rateComputationMethod: RateComputationMethod;
 
-  constructor(metricFactory: MetricFactory, jobName: string) {
+  constructor(metricFactory: MetricFactory, props: GlueJobMetricFactoryProps) {
     this.metricFactory = metricFactory;
+    this.rateComputationMethod =
+      props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
     this.dimensions = {
       Type: "gauge",
       JobRunId: "ALL",
-      JobName: jobName,
+      JobName: props.jobName,
     };
   }
 
@@ -112,7 +123,7 @@ export class GlueJobMetricFactory {
   metricFailedTasksRate() {
     return this.metricFactory.toRate(
       this.metricFailedTasksSum(),
-      RateComputationMethod.AVERAGE,
+      this.rateComputationMethod,
       true,
       "killed",
       false
@@ -133,7 +144,7 @@ export class GlueJobMetricFactory {
   metricKilledTasksRate() {
     return this.metricFactory.toRate(
       this.metricKilledTasksSum(),
-      RateComputationMethod.AVERAGE,
+      this.rateComputationMethod,
       true,
       "killed",
       false
