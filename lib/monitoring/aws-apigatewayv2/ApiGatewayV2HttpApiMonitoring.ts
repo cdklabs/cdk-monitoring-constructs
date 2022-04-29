@@ -369,7 +369,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       height,
       title: "TPS",
       left: [this.tpsMetric],
-      leftYAxis: CountAxisFromZero,
+      leftYAxis: RateAxisFromZero,
       leftAnnotations: this.tpsAnnotations,
     });
   }

@@ -334,7 +334,7 @@ export class MetricFactory {
           labelPrefix === "Invocations" ||
           labelPrefix === "Transactions"
         ) {
-          // currently kept as "TPS" to reduce number of snapshot changes
+          // currently, kept as "TPS" to reduce number of snapshot changes
           perSecondLabel = `TPS${labelAppendix}`;
         }
         return this.createMetricMath(
