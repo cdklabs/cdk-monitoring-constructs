@@ -26,6 +26,7 @@ import {
   OpenSearchKmsKeyInaccessibleThreshold,
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
+  RateAxisFromZero,
   ThirdWidth,
   TimeAxisMillisFromZero,
   UsageAlarmFactory,
@@ -402,7 +403,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         height: DefaultSummaryWidgetHeight,
         title: "TPS",
         left: [this.tpsMetric],
-        leftYAxis: CountAxisFromZero,
+        leftYAxis: RateAxisFromZero,
       }),
       // Indexing latency
       new GraphWidget({
@@ -467,7 +468,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
           height: DefaultGraphWidgetHeight,
           title: "TPS",
           left: [this.tpsMetric],
-          leftYAxis: CountAxisFromZero,
+          leftYAxis: RateAxisFromZero,
         }),
         // Indexing latency
         new GraphWidget({
