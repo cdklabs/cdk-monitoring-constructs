@@ -43333,6 +43333,7 @@ new OpenSearchBackportedMetrics(domain: IDomain | CfnDomain | IDomain | CfnDomai
 | <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.metric">metric</a></code> | Return the given named metric for this Domain. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricAutomatedSnapshotFailure">metricAutomatedSnapshotFailure</a></code> | Metric for automated snapshot failures. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterIndexWriteBlocked">metricClusterIndexWriteBlocked</a></code> | Metric for the cluster blocking index writes. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterIndexWritesBlocked">metricClusterIndexWritesBlocked</a></code> | Metric for the cluster blocking index writes. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterStatusRed">metricClusterStatusRed</a></code> | Metric for the time the cluster status is red. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterStatusYellow">metricClusterStatusYellow</a></code> | Metric for the time the cluster status is yellow. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricCPUUtilization">metricCPUUtilization</a></code> | Metric for CPU utilization. |
@@ -43383,7 +43384,7 @@ Metric for automated snapshot failures.
 
 ---
 
-##### `metricClusterIndexWriteBlocked` <a name="metricClusterIndexWriteBlocked" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterIndexWriteBlocked"></a>
+##### ~~`metricClusterIndexWriteBlocked`~~ <a name="metricClusterIndexWriteBlocked" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterIndexWriteBlocked"></a>
 
 ```typescript
 public metricClusterIndexWriteBlocked(props?: MetricOptions): Metric
@@ -43392,6 +43393,20 @@ public metricClusterIndexWriteBlocked(props?: MetricOptions): Metric
 Metric for the cluster blocking index writes.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterIndexWriteBlocked.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricClusterIndexWritesBlocked` <a name="metricClusterIndexWritesBlocked" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterIndexWritesBlocked"></a>
+
+```typescript
+public metricClusterIndexWritesBlocked(props?: MetricOptions): Metric
+```
+
+Metric for the cluster blocking index writes.
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchBackportedMetrics.metricClusterIndexWritesBlocked.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
@@ -43799,6 +43814,7 @@ new OpenSearchClusterMetricFactory(metricFactory: MetricFactory, props: OpenSear
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricAutomatedSnapshotFailure">metricAutomatedSnapshotFailure</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricClusterIndexWriteBlocked">metricClusterIndexWriteBlocked</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricClusterIndexWritesBlocked">metricClusterIndexWritesBlocked</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricClusterStatusRed">metricClusterStatusRed</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricClusterStatusYellow">metricClusterStatusYellow</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricCpuUsage">metricCpuUsage</a></code> | *No description.* |
@@ -43827,10 +43843,16 @@ new OpenSearchClusterMetricFactory(metricFactory: MetricFactory, props: OpenSear
 public metricAutomatedSnapshotFailure(): Metric | MathExpression
 ```
 
-##### `metricClusterIndexWriteBlocked` <a name="metricClusterIndexWriteBlocked" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricClusterIndexWriteBlocked"></a>
+##### ~~`metricClusterIndexWriteBlocked`~~ <a name="metricClusterIndexWriteBlocked" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricClusterIndexWriteBlocked"></a>
 
 ```typescript
 public metricClusterIndexWriteBlocked(): Metric | MathExpression
+```
+
+##### `metricClusterIndexWritesBlocked` <a name="metricClusterIndexWritesBlocked" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricClusterIndexWritesBlocked"></a>
+
+```typescript
+public metricClusterIndexWritesBlocked(): Metric | MathExpression
 ```
 
 ##### `metricClusterStatusRed` <a name="metricClusterStatusRed" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricClusterStatusRed"></a>
