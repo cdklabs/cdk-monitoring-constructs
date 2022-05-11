@@ -183,7 +183,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
     this.masterJvmMemoryPressureMetric =
       metricFactory.metricMasterJvmMemoryPressure();
     this.indexWriteBlockedMetric =
-      metricFactory.metricClusterIndexWriteBlocked();
+      metricFactory.metricClusterIndexWritesBlocked();
     this.nodesMetric = metricFactory.metricNodes();
     this.automatedSnapshotFailureMetric =
       metricFactory.metricAutomatedSnapshotFailure();
