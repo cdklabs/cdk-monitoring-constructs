@@ -3786,7 +3786,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ES\\",\\"ClusterIndexWriteBlocked\\",\\"ClientId\\",\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ES\\",\\"ClusterIndexWritesBlocked\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
@@ -3910,7 +3910,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ES\\",\\"ClusterIndexWriteBlocked\\",\\"ClientId\\",\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ES\\",\\"ClusterIndexWritesBlocked\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
@@ -4078,7 +4078,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ES\\",\\"ClusterIndexWriteBlocked\\",\\"ClientId\\",\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ES\\",\\"ClusterIndexWritesBlocked\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
@@ -4202,7 +4202,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ES\\",\\"ClusterIndexWriteBlocked\\",\\"ClientId\\",\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ES\\",\\"ClusterIndexWritesBlocked\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
