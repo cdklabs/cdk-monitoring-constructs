@@ -87,12 +87,23 @@ export class OpenSearchBackportedMetrics {
    *
    * @default maximum over 1 minute
    */
-  metricClusterIndexWriteBlocked(props?: MetricOptions): Metric {
-    return this.metric("ClusterIndexWriteBlocked", {
+  metricClusterIndexWritesBlocked(props?: MetricOptions): Metric {
+    return this.metric("ClusterIndexWritesBlocked", {
       statistic: Statistic.MAXIMUM,
       period: Duration.minutes(1),
       ...props,
     });
+  }
+
+  /**
+   * Metric for the cluster blocking index writes.
+   *
+   * @default maximum over 1 minute
+   *
+   * @deprecated use metricClusterIndexWritesBlocked instead.
+   */
+  metricClusterIndexWriteBlocked(props?: MetricOptions): Metric {
+    return this.metricClusterIndexWritesBlocked(props);
   }
 
   /**

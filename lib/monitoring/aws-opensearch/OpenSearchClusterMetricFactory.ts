@@ -184,12 +184,19 @@ export class OpenSearchClusterMetricFactory {
     );
   }
 
-  metricClusterIndexWriteBlocked() {
+  metricClusterIndexWritesBlocked() {
     return this.metricFactory.adaptMetric(
-      this.domainMetrics.metricClusterIndexWriteBlocked({
+      this.domainMetrics.metricClusterIndexWritesBlocked({
         label: "Index Writes Blocked",
       })
     );
+  }
+
+  /**
+   * @deprecated use metricClusterIndexWritesBlocked instead
+   */
+  metricClusterIndexWriteBlocked() {
+    return this.metricClusterIndexWritesBlocked();
   }
 
   metricNodes() {
