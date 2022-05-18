@@ -6,6 +6,7 @@ import {
   AlarmWithAnnotation,
   ApiGatewayV2HttpApiMonitoring,
 } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -17,12 +18,13 @@ test("snapshot test: no alarms", () => {
     apiName: "testHttpApi",
   });
 
-  new ApiGatewayV2HttpApiMonitoring(scope, {
+  const monitoring = new ApiGatewayV2HttpApiMonitoring(scope, {
     api: testHttpApi,
     humanReadableName: "Dummy API Gateway for testing",
     alarmFriendlyName: "DummyApi",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -37,7 +39,7 @@ test("snapshot test: all alarms", () => {
     apiName: "testHttpApi",
   });
 
-  new ApiGatewayV2HttpApiMonitoring(scope, {
+  const monitoring = new ApiGatewayV2HttpApiMonitoring(scope, {
     api: testHttpApi,
     humanReadableName: "Dummy API Gateway for testing",
     alarmFriendlyName: "DummyApi",
@@ -270,6 +272,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(38);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

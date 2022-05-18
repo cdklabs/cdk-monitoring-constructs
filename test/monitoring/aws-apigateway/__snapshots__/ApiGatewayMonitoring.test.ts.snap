@@ -31,6 +31,261 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyP50Warning7EEB3E57",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyP70Warning56ABF038",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyP90Warning48639A66",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyP95Warning450538DF",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyP99Warning254DA12C",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyP999Warning8CF0377D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyP9999Warning89E47C72",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyP100WarningB48A5E64",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyTM50Warning092E86BF",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyTM70Warning8E657453",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyTM90Warning0FDD3108",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyTM95WarningFFD46CB8",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyTM99WarningFF55C464",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyTM999WarningD73972C6",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyTM9999Warning4181DE97",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiLatencyAverageWarning27D59767",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiFaultCountWarning6270BEC0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiErrorCountWarning11BE36AF",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiErrorRateWarningD181D1C6",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiFaultRateWarning63CFB7F0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":20,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiMinTPSWarning4E8DB4D0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":20,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiMaxTPSWarning62732F2B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "DummyApi80F1E171": Object {
       "Properties": Object {
         "Name": "DummyApi",
@@ -124,6 +379,35 @@ Object {
         "StageName": "prod",
       },
       "Type": "AWS::ApiGateway::Stage",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **Dummy API Gateway for testing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Count/s < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Count/s > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Average\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM50 (avg: \${AVG})\\",\\"stat\\":\\"tm50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM70 (avg: \${AVG})\\",\\"stat\\":\\"tm70\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM90 (avg: \${AVG})\\",\\"stat\\":\\"tm90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM95 (avg: \${AVG})\\",\\"stat\\":\\"tm95\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM99 (avg: \${AVG})\\",\\"stat\\":\\"tm99\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM99.9 (avg: \${AVG})\\",\\"stat\\":\\"tm99.9\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM99.99 (avg: \${AVG})\\",\\"stat\\":\\"tm99.99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"5XX Fault > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"4XX Error > 0.02 for 22 datapoints within 110 minutes\\",\\"value\\":0.02,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4XX Error (avg) > 0.01 for 11 datapoints within 55 minutes\\",\\"value\\":0.01,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"5XX Fault (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestDummyApiErrorCountWarning11BE36AF": Object {
       "Properties": Object {
@@ -971,6 +1255,31 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **Dummy API Gateway for testing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Count/s < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Count/s > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Average\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM50 (avg: \${AVG})\\",\\"stat\\":\\"tm50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM70 (avg: \${AVG})\\",\\"stat\\":\\"tm70\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM90 (avg: \${AVG})\\",\\"stat\\":\\"tm90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM95 (avg: \${AVG})\\",\\"stat\\":\\"tm95\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM99 (avg: \${AVG})\\",\\"stat\\":\\"tm99\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM99.9 (avg: \${AVG})\\",\\"stat\\":\\"tm99.9\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"TM99.99 (avg: \${AVG})\\",\\"stat\\":\\"tm99.99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4XX Error (avg) > 0.01 for 11 datapoints within 55 minutes\\",\\"value\\":0.01,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"5XX Fault (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
   },
 }
 `;
@@ -1006,6 +1315,12 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "DummyApi80F1E171": Object {
       "Properties": Object {
         "Name": "DummyApi",
@@ -1099,6 +1414,60 @@ Object {
         "StageName": "prod",
       },
       "Type": "AWS::ApiGateway::Stage",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **Dummy API Gateway for testing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **Dummy API Gateway for testing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
 }

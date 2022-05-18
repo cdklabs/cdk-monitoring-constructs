@@ -3,6 +3,7 @@ import { Template } from "monocdk/assertions";
 import { AttributeType, Table } from "monocdk/aws-dynamodb";
 
 import { AlarmWithAnnotation, DynamoTableMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -18,18 +19,11 @@ test("snapshot test: no alarms", () => {
     },
   });
 
-  new DynamoTableMonitoring(scope, {
+  const monitoring = new DynamoTableMonitoring(scope, {
     table,
   });
 
-  // alternative: use reference
-
-  new DynamoTableMonitoring(scope, {
-    table: Table.fromTableAttributes(stack, "DummyTableRef", {
-      tableName: "DummyTableRef",
-    }),
-  });
-
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -48,7 +42,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new DynamoTableMonitoring(scope, {
+  const monitoring = new DynamoTableMonitoring(scope, {
     table,
     addConsumedWriteCapacityAlarm: {
       Warning: {
@@ -130,6 +124,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(14);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

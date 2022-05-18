@@ -3,6 +3,74 @@
 exports[`snapshot test: all alarms 1`] = `
 Object {
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestTheProjectDurationP99WarningFE155920",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestTheProjectDurationP90Warning8DBB8532",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestTheProjectDurationP50Warning3EA02799",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestTheProjectFailureCountWarning0D41B9F5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestTheProjectFailureRateWarningD89D16B4",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "ProjectC78D97AD": Object {
       "Properties": Object {
         "Artifacts": Object {
@@ -163,6 +231,63 @@ Object {
       },
       "Type": "AWS::IAM::Policy",
     },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### CodeBuild Project **[TheProject](https://eu-west-1.console.aws.amazon.com/codebuild/home?region=eu-west-1#/projects/",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Builds\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CodeBuild\\",\\"Builds\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"stat\\":\\"Sum\\"}],[\\"AWS/CodeBuild\\",\\"SucceededBuilds\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"stat\\":\\"Sum\\"}],[\\"AWS/CodeBuild\\",\\"FailedBuilds\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"FailedBuilds > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CodeBuild\\",\\"Duration\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/CodeBuild\\",\\"Duration\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/CodeBuild\\",\\"Duration\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P99 > 600000 for 3 datapoints within 15 minutes\\",\\"value\\":600000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Failed Builds (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CodeBuild\\",\\"FailedBuilds\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\"]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"FailedBuilds > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "ScopeTestTheProjectDurationP50Warning3EA02799": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -320,6 +445,63 @@ Object {
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### CodeBuild Project **[TheProject](https://eu-west-1.console.aws.amazon.com/codebuild/home?region=eu-west-1#/projects/",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Builds\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CodeBuild\\",\\"Builds\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"stat\\":\\"Sum\\"}],[\\"AWS/CodeBuild\\",\\"SucceededBuilds\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"stat\\":\\"Sum\\"}],[\\"AWS/CodeBuild\\",\\"FailedBuilds\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"FailedBuilds > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CodeBuild\\",\\"Duration\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/CodeBuild\\",\\"Duration\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/CodeBuild\\",\\"Duration\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P99 > 600000 for 3 datapoints within 15 minutes\\",\\"value\\":600000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Failed Builds (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CodeBuild\\",\\"FailedBuilds\\",\\"ProjectName\\",\\"",
+              Object {
+                "Ref": "ProjectC78D97AD",
+              },
+              "\\"]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"FailedBuilds > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
 }
