@@ -3,6 +3,7 @@ import { Template } from "aws-cdk-lib/assertions";
 import { Certificate } from "aws-cdk-lib/aws-certificatemanager";
 
 import { CertificateManagerMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -14,11 +15,12 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new CertificateManagerMonitoring(scope, {
+  const monitoring = new CertificateManagerMonitoring(scope, {
     alarmFriendlyName: "Certificates",
     certificate,
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -33,7 +35,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new CertificateManagerMonitoring(scope, {
+  const monitoring = new CertificateManagerMonitoring(scope, {
     alarmFriendlyName: "Certificates",
     certificate,
     addDaysToExpiryAlarm: {
@@ -48,6 +50,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(1);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

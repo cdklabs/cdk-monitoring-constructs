@@ -137,6 +137,98 @@ Object {
       },
       "Type": "AWS::AutoScaling::LaunchConfiguration",
     },
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Auto Scaling Group **ASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Group Size\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/AutoScaling\\",\\"GroupMinSize\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Min\\"}],[\\"AWS/AutoScaling\\",\\"GroupMaxSize\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Max\\"}],[\\"AWS/AutoScaling\\",\\"GroupDesiredCapacity\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Desired\\"}],[\\"AWS/AutoScaling\\",\\"GroupTotalInstances\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Total\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Instance States\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"stacked\\":true,\\"metrics\\":[[\\"AWS/AutoScaling\\",\\"GroupInServiceInstances\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"InService\\"}],[\\"AWS/AutoScaling\\",\\"GroupPendingInstances\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Pending\\"}],[\\"AWS/AutoScaling\\",\\"GroupStandbyInstances\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Standby\\"}],[\\"AWS/AutoScaling\\",\\"GroupTerminatingInstances\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Terminating\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Auto Scaling Group **ASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Group Size\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/AutoScaling\\",\\"GroupMinSize\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Min\\"}],[\\"AWS/AutoScaling\\",\\"GroupMaxSize\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Max\\"}],[\\"AWS/AutoScaling\\",\\"GroupDesiredCapacity\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Desired\\"}],[\\"AWS/AutoScaling\\",\\"GroupTotalInstances\\",\\"AutoScalingGroupName\\",\\"",
+              Object {
+                "Ref": "ASG46ED3070",
+              },
+              "\\",{\\"label\\":\\"Total\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Vpc8378EB38": Object {
       "Properties": Object {
         "CidrBlock": "10.0.0.0/16",
