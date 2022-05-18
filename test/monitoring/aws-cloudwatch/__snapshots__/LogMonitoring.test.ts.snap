@@ -9,6 +9,37 @@ Object {
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Log Group **[DummyLogGroup](https://eu-west-1.console.aws.amazon.com/cloudwatch/home?region=eu-west-1#logsV2:log-groups/log-group/DummyLogGroup)**\\"}},{\\"type\\":\\"log\\",\\"width\\":24,\\"height\\":10,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"table\\",\\"title\\":\\"DummyTitle\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"query\\":\\"SOURCE 'DummyLogGroup' | fields @timestamp, @logStream, @message\\\\n| filter @message like /DummyPattern/\\\\n| sort @timestamp desc\\\\n| limit 10\\"}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
   "Rules": Object {
     "CheckBootstrapVersion": Object {
       "Assertions": Array [
@@ -46,6 +77,37 @@ Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Log Group **[DummyLogGroup](https://eu-west-1.console.aws.amazon.com/cloudwatch/home?region=eu-west-1#logsV2:log-groups/log-group/DummyLogGroup)**\\"}},{\\"type\\":\\"log\\",\\"width\\":24,\\"height\\":500,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"table\\",\\"title\\":\\"Find DummyPattern (limit = 500)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"query\\":\\"SOURCE 'DummyLogGroup' | fields @timestamp, @logStream, @message\\\\n| filter @message like /DummyPattern/\\\\n| sort @timestamp desc\\\\n| limit 500\\"}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {

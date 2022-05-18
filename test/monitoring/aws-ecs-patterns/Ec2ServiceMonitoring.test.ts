@@ -9,6 +9,7 @@ import {
 } from "aws-cdk-lib/aws-ecs-patterns";
 
 import { AlarmWithAnnotation, Ec2ServiceMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: EC2 + NLB, no alarms", () => {
@@ -33,13 +34,14 @@ test("snapshot test: EC2 + NLB, no alarms", () => {
     },
   });
 
-  new Ec2ServiceMonitoring(scope, {
+  const monitoring = new Ec2ServiceMonitoring(scope, {
     ec2Service: ec2Service.service,
     loadBalancer: ec2Service.loadBalancer,
     targetGroup: ec2Service.targetGroup,
     alarmFriendlyName: "DummyEc2Service",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -67,7 +69,7 @@ test("snapshot test: EC2 + NLB, all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new Ec2ServiceMonitoring(scope, {
+  const monitoring = new Ec2ServiceMonitoring(scope, {
     ec2Service: ec2Service.service,
     loadBalancer: ec2Service.loadBalancer,
     targetGroup: ec2Service.targetGroup,
@@ -114,6 +116,7 @@ test("snapshot test: EC2 + NLB, all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(7);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -140,13 +143,14 @@ test("snapshot test: EC2 + ALB, no alarms", () => {
     },
   });
 
-  new Ec2ServiceMonitoring(scope, {
+  const monitoring = new Ec2ServiceMonitoring(scope, {
     ec2Service: ec2Service.service,
     loadBalancer: ec2Service.loadBalancer,
     targetGroup: ec2Service.targetGroup,
     alarmFriendlyName: "DummyEc2Service",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -174,7 +178,7 @@ test("snapshot test: EC2 + ALB, all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new Ec2ServiceMonitoring(scope, {
+  const monitoring = new Ec2ServiceMonitoring(scope, {
     ec2Service: ec2Service.service,
     loadBalancer: ec2Service.loadBalancer,
     targetGroup: ec2Service.targetGroup,
@@ -221,6 +225,7 @@ test("snapshot test: EC2 + ALB, all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(7);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

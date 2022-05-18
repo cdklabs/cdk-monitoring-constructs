@@ -10,6 +10,134 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table Global Secondary Index **[non-existing-index](https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Read Capacity\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Consumed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Provisioned\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Capacity\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Consumed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Provisioned\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"OnlineIndexConsumedWriteCapacity\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Consumed by index\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Read\\",\\"expression\\":\\"FILL(readThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"ReadThrottleEvents\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}],[{\\"label\\":\\"Index\\",\\"expression\\":\\"FILL(indexThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"OnlineIndexThrottleEvents\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"indexThrottles\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table Global Secondary Index **[non-existing-index](https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Read Capacity\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Consumed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Provisioned\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Capacity\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Consumed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Provisioned\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"OnlineIndexConsumedWriteCapacity\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Consumed by index\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Read\\",\\"expression\\":\\"FILL(readThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"ReadThrottleEvents\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}],[{\\"label\\":\\"Index\\",\\"expression\\":\\"FILL(indexThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"OnlineIndexThrottleEvents\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"indexThrottles\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "TableCD117FA1": Object {
       "DeletionPolicy": "Retain",
       "Properties": Object {
