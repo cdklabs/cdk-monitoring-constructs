@@ -37,7 +37,6 @@ import {
   ThirdWidth,
   TimeAxisMillisFromZero,
   TpsAlarmFactory,
-  TwoThirdsWidth,
   UsageAlarmFactory,
   UsageThreshold,
   UsageType,
@@ -129,6 +128,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
   protected readonly tpsAnnotations: HorizontalAnnotation[];
   protected readonly cpuTotalTimeAnnotations: HorizontalAnnotation[];
   protected readonly memoryUsageAnnotations: HorizontalAnnotation[];
+  protected readonly maxIteratorAgeAnnotations: HorizontalAnnotation[];
 
   protected readonly tpsMetric: MetricWithAlarmSupport;
   protected readonly p50LatencyMetric: MetricWithAlarmSupport;
@@ -186,6 +186,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     this.tpsAnnotations = [];
     this.cpuTotalTimeAnnotations = [];
     this.memoryUsageAnnotations = [];
+    this.maxIteratorAgeAnnotations = [];
 
     this.metricFactory = new LambdaFunctionMetricFactory(
       scope.createMetricFactory(),
@@ -456,6 +457,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         alarmProps,
         disambiguator
       );
+      this.maxIteratorAgeAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
 
@@ -481,7 +483,8 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.createRateWidget(QuarterWidth, DefaultGraphWidgetHeight)
       ),
       new Row(
-        this.createInvocationWidget(TwoThirdsWidth, DefaultGraphWidgetHeight),
+        this.createInvocationWidget(ThirdWidth, DefaultGraphWidgetHeight),
+        this.createIteratorAgeWidget(ThirdWidth, DefaultGraphWidgetHeight),
         this.createErrorCountWidget(ThirdWidth, DefaultGraphWidgetHeight)
       ),
     ];
@@ -591,6 +594,17 @@ export class LambdaFunctionMonitoring extends Monitoring {
       ],
       leftYAxis: CountAxisFromZero,
       leftAnnotations: this.invocationCountAnnotations,
+    });
+  }
+
+  protected createIteratorAgeWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Iterator",
+      left: [this.maxIteratorAgeMetric],
+      leftYAxis: TimeAxisMillisFromZero,
+      leftAnnotations: this.maxIteratorAgeAnnotations,
     });
   }
 
