@@ -14,6 +14,7 @@ import {
 import { NetworkLoadBalancer } from "monocdk/aws-elasticloadbalancingv2";
 
 import { AlarmWithAnnotation, FargateServiceMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: fargate, NLB, no alarms", () => {
@@ -40,13 +41,14 @@ test("snapshot test: fargate, NLB, no alarms", () => {
     .addListener("Listener", { port: 80 })
     .addTargets("Target", { port: 80, targets: [fargateService] });
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService,
     loadBalancer: networkLoadBalancer,
     targetGroup: networkTargetGroup,
     alarmFriendlyName: "DummyFargateService",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -76,7 +78,7 @@ test("snapshot test: fargate, NLB, all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService,
     loadBalancer: networkLoadBalancer,
     targetGroup: networkTargetGroup,
@@ -118,6 +120,7 @@ test("snapshot test: fargate, NLB, all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(6);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -143,13 +146,14 @@ test("snapshot test: fargate with NLB, no alarms", () => {
     }
   );
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService: fargateService.service,
     loadBalancer: fargateService.loadBalancer,
     targetGroup: fargateService.targetGroup,
     alarmFriendlyName: "DummyFargateService",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -176,7 +180,7 @@ test("snapshot test: fargate with NLB, all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService: fargateService.service,
     loadBalancer: fargateService.loadBalancer,
     targetGroup: fargateService.targetGroup,
@@ -223,6 +227,7 @@ test("snapshot test: fargate with NLB, all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(7);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -248,13 +253,14 @@ test("snapshot test: fargate with ALB, no alarms", () => {
     }
   );
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService: fargateService.service,
     loadBalancer: fargateService.loadBalancer,
     targetGroup: fargateService.targetGroup,
     alarmFriendlyName: "DummyFargateService",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -281,7 +287,7 @@ test("snapshot test: fargate with ALB, all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService: fargateService.service,
     loadBalancer: fargateService.loadBalancer,
     targetGroup: fargateService.targetGroup,
@@ -328,6 +334,7 @@ test("snapshot test: fargate with ALB, all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(7);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -353,11 +360,12 @@ test("snapshot test: fargate, no alarms", () => {
     taskDefinition,
   });
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService,
     alarmFriendlyName: "DummyFargateService",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -384,7 +392,7 @@ test("snapshot test: fargate, all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService,
     alarmFriendlyName: "DummyFargateService",
     addRunningTaskCountAlarm: {
@@ -409,6 +417,7 @@ test("snapshot test: fargate, all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(3);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

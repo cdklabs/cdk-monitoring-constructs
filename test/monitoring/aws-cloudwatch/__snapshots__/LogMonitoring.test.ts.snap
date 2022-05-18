@@ -1,5 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot test 1`] = `Object {}`;
+exports[`snapshot test 1`] = `
+Object {
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Log Group **[DummyLogGroup](https://eu-west-1.console.aws.amazon.com/cloudwatch/home?region=eu-west-1#logsV2:log-groups/log-group/DummyLogGroup)**\\"}},{\\"type\\":\\"log\\",\\"width\\":24,\\"height\\":10,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"table\\",\\"title\\":\\"DummyTitle\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"query\\":\\"SOURCE 'DummyLogGroup' | fields @timestamp, @logStream, @message\\\\n| filter @message like /DummyPattern/\\\\n| sort @timestamp desc\\\\n| limit 10\\"}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+}
+`;
 
-exports[`snapshot test: custom limit 1`] = `Object {}`;
+exports[`snapshot test: custom limit 1`] = `
+Object {
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Log Group **[DummyLogGroup](https://eu-west-1.console.aws.amazon.com/cloudwatch/home?region=eu-west-1#logsV2:log-groups/log-group/DummyLogGroup)**\\"}},{\\"type\\":\\"log\\",\\"width\\":24,\\"height\\":500,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"table\\",\\"title\\":\\"Find DummyPattern (limit = 500)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"query\\":\\"SOURCE 'DummyLogGroup' | fields @timestamp, @logStream, @message\\\\n| filter @message like /DummyPattern/\\\\n| sort @timestamp desc\\\\n| limit 500\\"}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+}
+`;

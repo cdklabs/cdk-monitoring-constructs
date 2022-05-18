@@ -3,6 +3,7 @@ import { Template } from "monocdk/assertions";
 import { BuildSpec, Project } from "monocdk/aws-codebuild";
 
 import { AlarmWithAnnotation, CodeBuildProjectMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: all alarms", () => {
@@ -24,7 +25,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new CodeBuildProjectMonitoring(scope, {
+  const monitoring = new CodeBuildProjectMonitoring(scope, {
     project,
     addDurationP99Alarm: {
       Warning: {
@@ -58,6 +59,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(5);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

@@ -3,6 +3,30 @@
 exports[`snapshot test: all alarms 1`] = `
 Object {
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestCertificatesDaysToExpiryWarning5B528B29",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Certificate1987B5EDC": Object {
       "Properties": Object {
         "DomainName": "www.monitoring.cdk",
@@ -15,6 +39,27 @@ Object {
         "ValidationMethod": "EMAIL",
       },
       "Type": "AWS::CertificateManager::Certificate",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Certificate **Certificates**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Expiration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CertificateManager\\",\\"DaysToExpiry\\",\\"CertificateArn\\",\\"",
+              Object {
+                "Ref": "Certificate1987B5EDC",
+              },
+              "\\",{\\"label\\":\\"Days to expiry\\",\\"stat\\":\\"Minimum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Days to expiry < 14 for 3 datapoints within 15 minutes\\",\\"value\\":14,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestCertificatesDaysToExpiryWarning5B528B29": Object {
       "Properties": Object {
@@ -52,6 +97,12 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
   },
 }
 `;
@@ -59,6 +110,12 @@ Object {
 exports[`snapshot test: no alarms 1`] = `
 Object {
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Certificate1987B5EDC": Object {
       "Properties": Object {
         "DomainName": "www.monitoring.cdk",
@@ -71,6 +128,33 @@ Object {
         "ValidationMethod": "EMAIL",
       },
       "Type": "AWS::CertificateManager::Certificate",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Certificate **Certificates**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Expiration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/CertificateManager\\",\\"DaysToExpiry\\",\\"CertificateArn\\",\\"",
+              Object {
+                "Ref": "Certificate1987B5EDC",
+              },
+              "\\",{\\"label\\":\\"Days to expiry\\",\\"stat\\":\\"Minimum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
 }

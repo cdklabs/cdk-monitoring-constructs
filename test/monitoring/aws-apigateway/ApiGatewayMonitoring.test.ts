@@ -3,6 +3,7 @@ import { Template } from "monocdk/assertions";
 import { RestApi } from "monocdk/aws-apigateway";
 
 import { AlarmWithAnnotation, ApiGatewayMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -12,12 +13,13 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new ApiGatewayMonitoring(scope, {
+  const monitoring = new ApiGatewayMonitoring(scope, {
     api,
     humanReadableName: "Dummy API Gateway for testing",
     alarmFriendlyName: "DummyApi",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -30,7 +32,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new ApiGatewayMonitoring(scope, {
+  const monitoring = new ApiGatewayMonitoring(scope, {
     api,
     humanReadableName: "Dummy API Gateway for testing",
     alarmFriendlyName: "DummyApi",
@@ -167,6 +169,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(22);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

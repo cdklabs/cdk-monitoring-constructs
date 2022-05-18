@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot test 1`] = `Object {}`;
+exports[`snapshot test 1`] = `
+Object {
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AWS Account Billing **Billing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":18,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"bar\\",\\"title\\":\\"Most Expensive Services (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"region\\":\\"us-east-1\\",\\"expression\\":\\"SORT(search, MAX, DESC, 10)\\",\\"period\\":86400}],[{\\"label\\":\\" \\",\\"region\\":\\"us-east-1\\",\\"expression\\":\\"SEARCH('{AWS/Billing,Currency,ServiceName} MetricName=\\\\\\"EstimatedCharges\\\\\\"', 'Maximum', 86400)\\",\\"period\\":86400,\\"visible\\":false,\\"id\\":\\"search\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"USD\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"singleValue\\",\\"title\\":\\"Total Cost (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[\\"AWS/Billing\\",\\"EstimatedCharges\\",\\"Currency\\",\\"USD\\",{\\"label\\":\\"Estimated Charges\\",\\"region\\":\\"us-east-1\\",\\"period\\":86400,\\"stat\\":\\"Maximum\\"}]],\\"setPeriodToTimeRange\\":false,\\"singleValueFullPrecision\\":false}}]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### AWS Account Billing **Billing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"singleValue\\",\\"title\\":\\"Total Cost (USD)\\",\\"region\\":\\"us-east-1\\",\\"metrics\\":[[\\"AWS/Billing\\",\\"EstimatedCharges\\",\\"Currency\\",\\"USD\\",{\\"label\\":\\"Estimated Charges\\",\\"region\\":\\"us-east-1\\",\\"period\\":86400,\\"stat\\":\\"Maximum\\"}]],\\"setPeriodToTimeRange\\":false,\\"singleValueFullPrecision\\":false}}]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+}
+`;
