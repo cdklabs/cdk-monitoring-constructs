@@ -10,6 +10,7 @@ import {
 } from "aws-cdk-lib/aws-ec2";
 
 import { AutoScalingGroupMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test", () => {
@@ -29,9 +30,10 @@ test("snapshot test", () => {
     desiredCapacity: 5,
   });
 
-  new AutoScalingGroupMonitoring(scope, {
+  const monitoring = new AutoScalingGroupMonitoring(scope, {
     autoScalingGroup,
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
