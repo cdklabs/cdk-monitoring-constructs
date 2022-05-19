@@ -110,7 +110,7 @@ import {
 import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
 
 export interface MonitoringFacadeProps {
-  readonly metricFactoryDefaults: MetricFactoryDefaults;
+  readonly metricFactoryDefaults?: MetricFactoryDefaults;
   readonly alarmFactoryDefaults: AlarmFactoryDefaults;
   readonly dashboardFactory?: IDashboardFactory;
 }
@@ -127,7 +127,7 @@ export class MonitoringFacade extends MonitoringScope {
   constructor(scope: Construct, id: string, props: MonitoringFacadeProps) {
     super(scope, id);
 
-    this.metricFactoryDefaults = props.metricFactoryDefaults;
+    this.metricFactoryDefaults = props.metricFactoryDefaults ?? {};
     this.alarmFactoryDefaults = props.alarmFactoryDefaults;
     this.dashboardFactory = props.dashboardFactory;
     this.createdSegments = [];
