@@ -24223,45 +24223,15 @@ const monitoringDashboardsProps: MonitoringDashboardsProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createAlarmDashboard">createAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating whether the alarm dashboard should be created. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createSummaryDashboard">createSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating whether the summary dashboard should be created. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.dashboardNamePrefix">dashboardNamePrefix</a></code> | <code>string</code> | Prefix added to each dashboard name. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createAlarmDashboard">createAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating whether the alarm dashboard should be created. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createDashboard">createDashboard</a></code> | <code>boolean</code> | Flag indicating whether the default dashboard should be created. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createSummaryDashboard">createSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating whether the summary dashboard should be created. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.detailDashboardPeriodOverride">detailDashboardPeriodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the detail dashboard (and other auxiliary dashboards). |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.detailDashboardRange">detailDashboardRange</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the detail dashboard (and other auxiliary dashboards). |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.renderingPreference">renderingPreference</a></code> | <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a></code> | Dashboard rendering preference. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardPeriodOverride">summaryDashboardPeriodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardRange">summaryDashboardRange</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the summary dashboard. |
-
----
-
-##### `createAlarmDashboard`<sup>Required</sup> <a name="createAlarmDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createAlarmDashboard"></a>
-
-```typescript
-public readonly createAlarmDashboard: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Flag indicating whether the alarm dashboard should be created.
-
-This is independent on other create dashboard flags.
-
----
-
-##### `createSummaryDashboard`<sup>Required</sup> <a name="createSummaryDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createSummaryDashboard"></a>
-
-```typescript
-public readonly createSummaryDashboard: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Flag indicating whether the summary dashboard should be created.
-
-This is independent on other create dashboard flags.
 
 ---
 
@@ -24279,6 +24249,21 @@ This allows to have all dashboards sorted close to each other and also separate 
 
 ---
 
+##### `createAlarmDashboard`<sup>Optional</sup> <a name="createAlarmDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createAlarmDashboard"></a>
+
+```typescript
+public readonly createAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Flag indicating whether the alarm dashboard should be created.
+
+This is independent on other create dashboard flags.
+
+---
+
 ##### `createDashboard`<sup>Optional</sup> <a name="createDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createDashboard"></a>
 
 ```typescript
@@ -24289,6 +24274,21 @@ public readonly createDashboard: boolean;
 - *Default:* true
 
 Flag indicating whether the default dashboard should be created.
+
+This is independent on other create dashboard flags.
+
+---
+
+##### `createSummaryDashboard`<sup>Optional</sup> <a name="createSummaryDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createSummaryDashboard"></a>
+
+```typescript
+public readonly createSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Flag indicating whether the summary dashboard should be created.
 
 This is independent on other create dashboard flags.
 
