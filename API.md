@@ -691,7 +691,7 @@ Main entry point to create your monitoring.
 ```typescript
 import { MonitoringFacade } from 'cdk-monitoring-constructs'
 
-new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
+new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -714,7 +714,7 @@ new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringFacadeProps">MonitoringFacadeProps</a>
 
@@ -24375,19 +24375,22 @@ const monitoringFacadeProps: MonitoringFacadeProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults">alarmFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults">AlarmFactoryDefaults</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.dashboardFactory">dashboardFactory</a></code> | <code><a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.metricFactoryDefaults">metricFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults">MetricFactoryDefaults</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults">alarmFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults">AlarmFactoryDefaults</a></code> | Defaults for alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.dashboardFactory">dashboardFactory</a></code> | <code><a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a></code> | Defaults for dashboard factory. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.metricFactoryDefaults">metricFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults">MetricFactoryDefaults</a></code> | Defaults for metric factory. |
 
 ---
 
-##### `alarmFactoryDefaults`<sup>Required</sup> <a name="alarmFactoryDefaults" id="cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults"></a>
+##### `alarmFactoryDefaults`<sup>Optional</sup> <a name="alarmFactoryDefaults" id="cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults"></a>
 
 ```typescript
 public readonly alarmFactoryDefaults: AlarmFactoryDefaults;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.AlarmFactoryDefaults">AlarmFactoryDefaults</a>
+- *Default:* actions enabled, facade logical ID used as default alarm name prefix
+
+Defaults for alarm factory.
 
 ---
 
@@ -24398,6 +24401,9 @@ public readonly dashboardFactory: IDashboardFactory;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>
+- *Default:* default dashboard factory with default dashboard only; facade logical ID used as default name
+
+Defaults for dashboard factory.
 
 ---
 
@@ -24408,6 +24414,9 @@ public readonly metricFactoryDefaults: MetricFactoryDefaults;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.MetricFactoryDefaults">MetricFactoryDefaults</a>
+- *Default:* empty (no preferences)
+
+Defaults for metric factory.
 
 ---
 
