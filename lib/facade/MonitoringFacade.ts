@@ -123,7 +123,7 @@ export interface MonitoringFacadeProps {
   readonly alarmFactoryDefaults?: AlarmFactoryDefaults;
   /**
    * Defaults for dashboard factory.
-   * @default default dashboard factory with default dashboard only; facade logical ID used as default name
+   * @default `DefaultDashboardFactory` ; facade logical ID used as default name
    */
   readonly dashboardFactory?: IDashboardFactory;
 }
