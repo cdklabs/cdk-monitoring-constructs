@@ -123,7 +123,7 @@ export interface MonitoringFacadeProps {
   readonly alarmFactoryDefaults?: AlarmFactoryDefaults;
   /**
    * Defaults for dashboard factory.
-   * @default `DefaultDashboardFactory` ; facade logical ID used as default name
+   * @default `DefaultDashboardFactory`; facade logical ID used as default name
    */
   readonly dashboardFactory?: IDashboardFactory;
 }
@@ -153,11 +153,13 @@ export class MonitoringFacade extends MonitoringScope {
     this.createdSegments = [];
   }
 
-  private static getDefaultMetricFactoryDefaults() {
+  private static getDefaultMetricFactoryDefaults(): MetricFactoryDefaults {
     return {};
   }
 
-  private static getDefaultAlarmFactoryDefaults(defaultName: string) {
+  private static getDefaultAlarmFactoryDefaults(
+    defaultName: string
+  ): AlarmFactoryDefaults {
     return {
       alarmNamePrefix: defaultName,
       actionsEnabled: true,
@@ -167,7 +169,7 @@ export class MonitoringFacade extends MonitoringScope {
   private static getDefaultDashboardFactory(
     scope: Construct,
     defaultName: string
-  ) {
+  ): IDashboardFactory {
     return new DefaultDashboardFactory(scope, "Dashboards", {
       dashboardNamePrefix: defaultName,
     });
