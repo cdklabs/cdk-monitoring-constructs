@@ -24401,7 +24401,7 @@ public readonly dashboardFactory: IDashboardFactory;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>
-- *Default:* `DefaultDashboardFactory` ; facade logical ID used as default name
+- *Default:* `DefaultDashboardFactory`; facade logical ID used as default name
 
 Defaults for dashboard factory.
 
