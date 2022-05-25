@@ -96,6 +96,11 @@
       "type": "build"
     },
     {
+      "name": "@types/prettier",
+      "version": "2.6.0",
+      "type": "devenv"
+    },
+    {
       "name": "constructs",
       "version": "3.3.69",
       "type": "devenv"
