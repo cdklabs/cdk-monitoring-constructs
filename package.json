@@ -46,7 +46,7 @@
     "@aws-cdk/aws-synthetics-alpha": "2.18.0-alpha.0",
     "@types/jest": "^27.5.0",
     "@types/node": "^12",
-    "@types/prettier": "<=2.6.0",
+    "@types/prettier": "2.6.0",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk-lib": "2.18.0",

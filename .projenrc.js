@@ -93,7 +93,7 @@ _By submitting this pull request, I confirm that my contribution is made under t
   );
 });
 // https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/60310
-project.deps.addDependency("@types/prettier@<=2.6.0", DependencyType.DEVENV);
+project.deps.addDependency("@types/prettier@2.6.0", DependencyType.DEVENV);
 
 // Add some other eslint rules followed across this project
 project.eslint.addRules({
