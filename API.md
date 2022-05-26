@@ -691,7 +691,7 @@ Main entry point to create your monitoring.
 ```typescript
 import { MonitoringFacade } from 'cdk-monitoring-constructs'
 
-new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
+new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -714,7 +714,7 @@ new MonitoringFacade(scope: Construct, id: string, props: MonitoringFacadeProps)
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringFacadeProps">MonitoringFacadeProps</a>
 
@@ -24223,57 +24223,15 @@ const monitoringDashboardsProps: MonitoringDashboardsProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.dashboardNamePrefix">dashboardNamePrefix</a></code> | <code>string</code> | Prefix added to each dashboard name. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createAlarmDashboard">createAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating whether the alarm dashboard should be created. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createDashboard">createDashboard</a></code> | <code>boolean</code> | Flag indicating whether the default dashboard should be created. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.createSummaryDashboard">createSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating whether the summary dashboard should be created. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.dashboardNamePrefix">dashboardNamePrefix</a></code> | <code>string</code> | Prefix added to each dashboard name. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.renderingPreference">renderingPreference</a></code> | <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a></code> | Dashboard rendering preference. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.detailDashboardPeriodOverride">detailDashboardPeriodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the detail dashboard (and other auxiliary dashboards). |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.detailDashboardRange">detailDashboardRange</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the detail dashboard (and other auxiliary dashboards). |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.renderingPreference">renderingPreference</a></code> | <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a></code> | Dashboard rendering preference. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardPeriodOverride">summaryDashboardPeriodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardRange">summaryDashboardRange</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the summary dashboard. |
-
----
-
-##### `createAlarmDashboard`<sup>Required</sup> <a name="createAlarmDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createAlarmDashboard"></a>
-
-```typescript
-public readonly createAlarmDashboard: boolean;
-```
-
-- *Type:* boolean
-
-Flag indicating whether the alarm dashboard should be created.
-
-This is independent on other create dashboard flags.
-
----
-
-##### `createDashboard`<sup>Required</sup> <a name="createDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createDashboard"></a>
-
-```typescript
-public readonly createDashboard: boolean;
-```
-
-- *Type:* boolean
-
-Flag indicating whether the default dashboard should be created.
-
-This is independent on other create dashboard flags.
-
----
-
-##### `createSummaryDashboard`<sup>Required</sup> <a name="createSummaryDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createSummaryDashboard"></a>
-
-```typescript
-public readonly createSummaryDashboard: boolean;
-```
-
-- *Type:* boolean
-
-Flag indicating whether the summary dashboard should be created.
-
-This is independent on other create dashboard flags.
 
 ---
 
@@ -24291,15 +24249,48 @@ This allows to have all dashboards sorted close to each other and also separate 
 
 ---
 
-##### `renderingPreference`<sup>Required</sup> <a name="renderingPreference" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.renderingPreference"></a>
+##### `createAlarmDashboard`<sup>Optional</sup> <a name="createAlarmDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createAlarmDashboard"></a>
 
 ```typescript
-public readonly renderingPreference: DashboardRenderingPreference;
+public readonly createAlarmDashboard: boolean;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a>
+- *Type:* boolean
+- *Default:* false
 
-Dashboard rendering preference.
+Flag indicating whether the alarm dashboard should be created.
+
+This is independent on other create dashboard flags.
+
+---
+
+##### `createDashboard`<sup>Optional</sup> <a name="createDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createDashboard"></a>
+
+```typescript
+public readonly createDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating whether the default dashboard should be created.
+
+This is independent on other create dashboard flags.
+
+---
+
+##### `createSummaryDashboard`<sup>Optional</sup> <a name="createSummaryDashboard" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.createSummaryDashboard"></a>
+
+```typescript
+public readonly createSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Flag indicating whether the summary dashboard should be created.
+
+This is independent on other create dashboard flags.
 
 ---
 
@@ -24328,6 +24319,19 @@ public readonly detailDashboardRange: Duration;
 Range of the detail dashboard (and other auxiliary dashboards).
 
 > [DefaultDetailDashboardRange](DefaultDetailDashboardRange)
+
+---
+
+##### `renderingPreference`<sup>Optional</sup> <a name="renderingPreference" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.renderingPreference"></a>
+
+```typescript
+public readonly renderingPreference: DashboardRenderingPreference;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a>
+- *Default:* DashboardRenderingPreference.INTERACTIVE_ONLY
+
+Dashboard rendering preference.
 
 ---
 
@@ -24371,29 +24375,22 @@ const monitoringFacadeProps: MonitoringFacadeProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults">alarmFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults">AlarmFactoryDefaults</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.metricFactoryDefaults">metricFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults">MetricFactoryDefaults</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.dashboardFactory">dashboardFactory</a></code> | <code><a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults">alarmFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults">AlarmFactoryDefaults</a></code> | Defaults for alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.dashboardFactory">dashboardFactory</a></code> | <code><a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a></code> | Defaults for dashboard factory. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.metricFactoryDefaults">metricFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults">MetricFactoryDefaults</a></code> | Defaults for metric factory. |
 
 ---
 
-##### `alarmFactoryDefaults`<sup>Required</sup> <a name="alarmFactoryDefaults" id="cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults"></a>
+##### `alarmFactoryDefaults`<sup>Optional</sup> <a name="alarmFactoryDefaults" id="cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults"></a>
 
 ```typescript
 public readonly alarmFactoryDefaults: AlarmFactoryDefaults;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.AlarmFactoryDefaults">AlarmFactoryDefaults</a>
+- *Default:* actions enabled, facade logical ID used as default alarm name prefix
 
----
-
-##### `metricFactoryDefaults`<sup>Required</sup> <a name="metricFactoryDefaults" id="cdk-monitoring-constructs.MonitoringFacadeProps.property.metricFactoryDefaults"></a>
-
-```typescript
-public readonly metricFactoryDefaults: MetricFactoryDefaults;
-```
-
-- *Type:* <a href="#cdk-monitoring-constructs.MetricFactoryDefaults">MetricFactoryDefaults</a>
+Defaults for alarm factory.
 
 ---
 
@@ -24404,6 +24401,22 @@ public readonly dashboardFactory: IDashboardFactory;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>
+- *Default:* `DefaultDashboardFactory`; facade logical ID used as default name
+
+Defaults for dashboard factory.
+
+---
+
+##### `metricFactoryDefaults`<sup>Optional</sup> <a name="metricFactoryDefaults" id="cdk-monitoring-constructs.MonitoringFacadeProps.property.metricFactoryDefaults"></a>
+
+```typescript
+public readonly metricFactoryDefaults: MetricFactoryDefaults;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactoryDefaults">MetricFactoryDefaults</a>
+- *Default:* empty (no preferences)
+
+Defaults for metric factory.
 
 ---
 
