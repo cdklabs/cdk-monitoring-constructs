@@ -146,6 +146,11 @@
       "type": "devenv"
     },
     {
+      "name": "@types/prettier",
+      "version": "2.6.0",
+      "type": "devenv"
+    },
+    {
       "name": "@aws-cdk/aws-apigatewayv2-alpha",
       "version": "^2.18.0-alpha.0",
       "type": "peer"
