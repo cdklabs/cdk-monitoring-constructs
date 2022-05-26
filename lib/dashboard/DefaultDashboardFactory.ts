@@ -57,22 +57,30 @@ export interface MonitoringDashboardsProps {
   /**
    * Flag indicating whether the default dashboard should be created.
    * This is independent on other create dashboard flags.
+   *
+   * @default true
    */
-  readonly createDashboard: boolean;
+  readonly createDashboard?: boolean;
   /**
    * Flag indicating whether the summary dashboard should be created.
    * This is independent on other create dashboard flags.
+   *
+   * @default false
    */
-  readonly createSummaryDashboard: boolean;
+  readonly createSummaryDashboard?: boolean;
   /**
    * Flag indicating whether the alarm dashboard should be created.
    * This is independent on other create dashboard flags.
+   *
+   * @default false
    */
-  readonly createAlarmDashboard: boolean;
+  readonly createAlarmDashboard?: boolean;
   /**
    * Dashboard rendering preference.
+   *
+   * @default DashboardRenderingPreference.INTERACTIVE_ONLY
    */
-  readonly renderingPreference: DashboardRenderingPreference;
+  readonly renderingPreference?: DashboardRenderingPreference;
 }
 
 export class DefaultDashboardFactory
@@ -87,29 +95,28 @@ export class DefaultDashboardFactory
   constructor(scope: Construct, id: string, props: MonitoringDashboardsProps) {
     super(scope, id);
 
+    const renderingPreference =
+      props.renderingPreference ??
+      DashboardRenderingPreference.INTERACTIVE_ONLY;
     const detailStart: string =
       "-" + (props.detailDashboardRange ?? Duration.hours(8)).toIsoString();
     const summaryStart: string =
       "-" + (props.summaryDashboardRange ?? Duration.days(14)).toIsoString();
     let anyDashboardCreated = false;
 
-    if (props.createDashboard) {
+    if (props.createDashboard ?? true) {
       anyDashboardCreated = true;
-      this.dashboard = this.createDashboard(
-        props.renderingPreference,
-        "Dashboard",
-        {
-          dashboardName: props.dashboardNamePrefix,
-          start: detailStart,
-          periodOverride:
-            props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
-        }
-      );
+      this.dashboard = this.createDashboard(renderingPreference, "Dashboard", {
+        dashboardName: props.dashboardNamePrefix,
+        start: detailStart,
+        periodOverride:
+          props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
+      });
     }
-    if (props.createSummaryDashboard) {
+    if (props.createSummaryDashboard ?? false) {
       anyDashboardCreated = true;
       this.summaryDashboard = this.createDashboard(
-        props.renderingPreference,
+        renderingPreference,
         "SummaryDashboard",
         {
           dashboardName: `${props.dashboardNamePrefix}-Summary`,
@@ -119,10 +126,10 @@ export class DefaultDashboardFactory
         }
       );
     }
-    if (props.createAlarmDashboard) {
+    if (props.createAlarmDashboard ?? false) {
       anyDashboardCreated = true;
       this.alarmDashboard = this.createDashboard(
-        props.renderingPreference,
+        renderingPreference,
         "AlarmDashboard",
         {
           dashboardName: `${props.dashboardNamePrefix}-Alarms`,

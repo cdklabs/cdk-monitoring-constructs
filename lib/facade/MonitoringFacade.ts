@@ -13,6 +13,7 @@ import {
   MonitoringScope,
 } from "../common";
 import {
+  DefaultDashboardFactory,
   DefaultWidgetFactory,
   HeaderLevel,
   HeaderWidget,
@@ -45,9 +46,9 @@ import {
   DynamoTableGlobalSecondaryIndexMonitoringProps,
   DynamoTableMonitoring,
   DynamoTableMonitoringProps,
+  Ec2ApplicationLoadBalancerMonitoringProps,
   EC2Monitoring,
   EC2MonitoringProps,
-  Ec2ApplicationLoadBalancerMonitoringProps,
   Ec2NetworkLoadBalancerMonitoringProps,
   Ec2ServiceMonitoring,
   Ec2ServiceMonitoringProps,
@@ -57,6 +58,8 @@ import {
   FargateNetworkLoadBalancerMonitoringProps,
   FargateServiceMonitoring,
   FargateServiceMonitoringProps,
+  getQueueProcessingEc2ServiceMonitoring,
+  getQueueProcessingFargateServiceMonitoring,
   GlueJobMonitoring,
   GlueJobMonitoringProps,
   KinesisDataAnalyticsMonitoring,
@@ -99,18 +102,28 @@ import {
   StepFunctionMonitoringProps,
   StepFunctionServiceIntegrationMonitoring,
   StepFunctionServiceIntegrationMonitoringProps,
-  getQueueProcessingEc2ServiceMonitoring,
-  getQueueProcessingFargateServiceMonitoring,
-  SyntheticsCanaryMonitoringProps,
   SyntheticsCanaryMonitoring,
-  WafV2MonitoringProps,
+  SyntheticsCanaryMonitoringProps,
   WafV2Monitoring,
+  WafV2MonitoringProps,
 } from "../monitoring";
 import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
 
 export interface MonitoringFacadeProps {
-  readonly metricFactoryDefaults: MetricFactoryDefaults;
-  readonly alarmFactoryDefaults: AlarmFactoryDefaults;
+  /**
+   * Defaults for metric factory.
+   * @default empty (no preferences)
+   */
+  readonly metricFactoryDefaults?: MetricFactoryDefaults;
+  /**
+   * Defaults for alarm factory.
+   * @default actions enabled, facade logical ID used as default alarm name prefix
+   */
+  readonly alarmFactoryDefaults?: AlarmFactoryDefaults;
+  /**
+   * Defaults for dashboard factory.
+   * @default `DefaultDashboardFactory`; facade logical ID used as default name
+   */
   readonly dashboardFactory?: IDashboardFactory;
 }
 
@@ -123,13 +136,42 @@ export class MonitoringFacade extends MonitoringScope {
   protected readonly dashboardFactory?: IDashboardFactory;
   protected readonly createdSegments: IDashboardSegment[];
 
-  constructor(scope: Construct, id: string, props: MonitoringFacadeProps) {
+  constructor(scope: Construct, id: string, props?: MonitoringFacadeProps) {
     super(scope, id);
 
-    this.metricFactoryDefaults = props.metricFactoryDefaults;
-    this.alarmFactoryDefaults = props.alarmFactoryDefaults;
-    this.dashboardFactory = props.dashboardFactory;
+    this.metricFactoryDefaults =
+      props?.metricFactoryDefaults ??
+      MonitoringFacade.getDefaultMetricFactoryDefaults();
+    this.alarmFactoryDefaults =
+      props?.alarmFactoryDefaults ??
+      MonitoringFacade.getDefaultAlarmFactoryDefaults(id);
+    this.dashboardFactory =
+      props?.dashboardFactory ??
+      MonitoringFacade.getDefaultDashboardFactory(this, id);
+
     this.createdSegments = [];
+  }
+
+  private static getDefaultMetricFactoryDefaults(): MetricFactoryDefaults {
+    return {};
+  }
+
+  private static getDefaultAlarmFactoryDefaults(
+    defaultName: string
+  ): AlarmFactoryDefaults {
+    return {
+      alarmNamePrefix: defaultName,
+      actionsEnabled: true,
+    };
+  }
+
+  private static getDefaultDashboardFactory(
+    scope: Construct,
+    defaultName: string
+  ): IDashboardFactory {
+    return new DefaultDashboardFactory(scope, "Dashboards", {
+      dashboardNamePrefix: defaultName,
+    });
   }
 
   // FACTORIES
