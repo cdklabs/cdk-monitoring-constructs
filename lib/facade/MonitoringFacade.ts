@@ -115,11 +115,13 @@ export interface MonitoringFacadeProps {
    * @default empty (no preferences)
    */
   readonly metricFactoryDefaults?: MetricFactoryDefaults;
+
   /**
    * Defaults for alarm factory.
    * @default actions enabled, facade logical ID used as default alarm name prefix
    */
   readonly alarmFactoryDefaults?: AlarmFactoryDefaults;
+
   /**
    * Defaults for dashboard factory.
    * @default `DefaultDashboardFactory`; facade logical ID used as default name
@@ -169,7 +171,7 @@ export class MonitoringFacade extends MonitoringScope {
     scope: Construct,
     defaultName: string
   ): IDashboardFactory {
-    return new DefaultDashboardFactory(scope, "Dashboards", {
+    return new DefaultDashboardFactory(scope, `${defaultName}-Dashboards`, {
       dashboardNamePrefix: defaultName,
     });
   }
