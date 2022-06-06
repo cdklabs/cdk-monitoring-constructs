@@ -3,8 +3,7 @@
 name: upgrade-monocdk
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: 0 0 * * 1
+  schedule: []
 jobs:
   upgrade:
     name: Upgrade
