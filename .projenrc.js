@@ -54,9 +54,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   autoApproveUpgrades: true,
   depsUpgradeOptions: {
     workflowOptions: {
-      schedule: javascript.UpgradeDependenciesSchedule.expressions([
-        "0 0 * * 1",
-      ]),
+      schedule: javascript.UpgradeDependenciesSchedule.NEVER,
     },
   },
 
