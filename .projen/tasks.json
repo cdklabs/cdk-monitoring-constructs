@@ -246,31 +246,6 @@
         }
       ]
     },
-    "release:monocdk": {
-      "name": "release:monocdk",
-      "description": "Prepare a release from \"monocdk\" branch",
-      "env": {
-        "RELEASE": "true",
-        "MAJOR": "0"
-      },
-      "steps": [
-        {
-          "exec": "rm -fr dist"
-        },
-        {
-          "spawn": "bump"
-        },
-        {
-          "spawn": "build"
-        },
-        {
-          "spawn": "unbump"
-        },
-        {
-          "exec": "git diff --ignore-space-at-eol --exit-code"
-        }
-      ]
-    },
     "test": {
       "name": "test",
       "description": "Run tests",
