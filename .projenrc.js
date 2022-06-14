@@ -12,11 +12,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   defaultReleaseBranch: "main",
   majorVersion: 1,
-  releaseBranches: {
-    monocdk: {
-      majorVersion: 0,
-    },
-  },
   stability: "experimental",
 
   cdkVersion: CDK_VERSION,
