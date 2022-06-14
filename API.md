@@ -43053,6 +43053,23 @@ public addAlarmActions(props: AlarmActionStrategyProps): void
 ---
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy.property.actions">actions</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>[]</code> | *No description.* |
+
+---
+
+##### `actions`<sup>Required</sup> <a name="actions" id="cdk-monitoring-constructs.MultipleAlarmActionStrategy.property.actions"></a>
+
+```typescript
+public readonly actions: IAlarmActionStrategy[];
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>[]
+
+---
 
 
 ### NetworkLoadBalancerMetricFactory <a name="NetworkLoadBalancerMetricFactory" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory"></a>
