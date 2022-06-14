@@ -11,7 +11,7 @@ export function multipleActions(...actions: IAlarmActionStrategy[]) {
  * Alarm action strategy that combines multiple actions in the same order as they were given.
  */
 export class MultipleAlarmActionStrategy implements IAlarmActionStrategy {
-  protected readonly actions: IAlarmActionStrategy[];
+  readonly actions: IAlarmActionStrategy[];
 
   constructor(actions: IAlarmActionStrategy[]) {
     this.actions = actions;
