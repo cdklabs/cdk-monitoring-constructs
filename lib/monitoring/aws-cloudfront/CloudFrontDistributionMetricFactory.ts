@@ -13,14 +13,26 @@ const CloudFrontDefaultMetricRegion = "us-east-1";
 
 export interface CloudFrontDistributionMetricFactoryProps {
   readonly distribution: IDistribution;
+
   /**
    * @default true
    */
   readonly fillTpsWithZeroes?: boolean;
+
   /**
    * @default average
    */
   readonly rateComputationMethod?: RateComputationMethod;
+
+  /**
+   * Generate dashboard charts for additional CloudFront distribution metrics.
+   *
+   * To enable additional metrics on your CloudFront distribution, see
+   * https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional
+   *
+   * @default true
+   */
+  readonly additionalMetricsEnabled?: boolean;
 }
 
 /**
@@ -109,6 +121,11 @@ export class CloudFrontDistributionMetricFactory {
       .with({ region: CloudFrontDefaultMetricRegion });
   }
 
+  /**
+   * Cache hit rate metric. This is an additional metric that needs to be explicitly enabled for an additional cost.
+   *
+   * @see https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional
+   */
   metricCacheHitRateAverageInPercent() {
     return this.metricFactory
       .createMetric(

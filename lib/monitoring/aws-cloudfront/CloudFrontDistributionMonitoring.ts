@@ -22,6 +22,7 @@ import {
   QuarterWidth,
   RateAxisFromZero,
   SizeAxisBytesFromZero,
+  ThirdWidth,
   TpsAlarmFactory,
 } from "../../common";
 import {
@@ -60,9 +61,11 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
   protected readonly tpsMetric: MetricWithAlarmSupport;
   protected readonly downloadedBytesMetric: MetricWithAlarmSupport;
   protected readonly uploadedBytesMetric: MetricWithAlarmSupport;
-  protected readonly cacheHitRate: MetricWithAlarmSupport;
   protected readonly error4xxRate: MetricWithAlarmSupport;
   protected readonly error5xxRate: MetricWithAlarmSupport;
+
+  protected readonly additionalMetricsEnabled: boolean;
+  protected readonly cacheHitRate: MetricWithAlarmSupport | undefined;
 
   constructor(
     scope: MonitoringScope,
@@ -99,9 +102,13 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
     this.tpsMetric = metricFactory.metricRequestTps();
     this.downloadedBytesMetric = metricFactory.metricTotalBytesDownloaded();
     this.uploadedBytesMetric = metricFactory.metricTotalBytesUploaded();
-    this.cacheHitRate = metricFactory.metricCacheHitRateAverageInPercent();
     this.error4xxRate = metricFactory.metric4xxErrorRateAverage();
     this.error5xxRate = metricFactory.metric5xxErrorRateAverage();
+
+    this.additionalMetricsEnabled = props.additionalMetricsEnabled ?? true;
+    if (this.additionalMetricsEnabled) {
+      this.cacheHitRate = metricFactory.metricCacheHitRateAverageInPercent();
+    }
 
     for (const disambiguator in props.addLowTpsAlarm) {
       const alarmProps = props.addLowTpsAlarm[disambiguator];
@@ -160,13 +167,22 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
   }
 
   widgets(): IWidget[] {
-    return [
-      this.createTitleWidget(),
-      this.createTpsWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createCacheWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createTrafficWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createErrorRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
-    ];
+    if (this.additionalMetricsEnabled) {
+      return [
+        this.createTitleWidget(),
+        this.createTpsWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createCacheWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createTrafficWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createErrorRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      ];
+    } else {
+      return [
+        this.createTitleWidget(),
+        this.createTpsWidget(ThirdWidth, DefaultGraphWidgetHeight),
+        this.createTrafficWidget(ThirdWidth, DefaultGraphWidgetHeight),
+        this.createErrorRateWidget(ThirdWidth, DefaultGraphWidgetHeight),
+      ];
+    }
   }
 
   protected createTitleWidget() {
@@ -193,7 +209,8 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
       width,
       height,
       title: "Hit Rate",
-      left: [this.cacheHitRate],
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      left: [this.cacheHitRate!],
       leftYAxis: PercentageAxisFromZeroToHundred,
     });
   }
