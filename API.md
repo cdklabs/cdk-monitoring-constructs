@@ -8125,6 +8125,7 @@ const cloudFrontDistributionMetricFactoryProps: CloudFrontDistributionMetricFact
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.IDistribution</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.additionalMetricsEnabled">additionalMetricsEnabled</a></code> | <code>boolean</code> | Generate dashboard charts for additional CloudFront distribution metrics. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 
@@ -8137,6 +8138,22 @@ public readonly distribution: IDistribution;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudfront.IDistribution
+
+---
+
+##### `additionalMetricsEnabled`<sup>Optional</sup> <a name="additionalMetricsEnabled" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.additionalMetricsEnabled"></a>
+
+```typescript
+public readonly additionalMetricsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Generate dashboard charts for additional CloudFront distribution metrics.
+
+To enable additional metrics on your CloudFront distribution, see
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional
 
 ---
 
@@ -8299,6 +8316,7 @@ const cloudFrontDistributionMonitoringProps: CloudFrontDistributionMonitoringPro
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.IDistribution</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.additionalMetricsEnabled">additionalMetricsEnabled</a></code> | <code>boolean</code> | Generate dashboard charts for additional CloudFront distribution metrics. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -8322,6 +8340,22 @@ public readonly distribution: IDistribution;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudfront.IDistribution
+
+---
+
+##### `additionalMetricsEnabled`<sup>Optional</sup> <a name="additionalMetricsEnabled" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.additionalMetricsEnabled"></a>
+
+```typescript
+public readonly additionalMetricsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Generate dashboard charts for additional CloudFront distribution metrics.
+
+To enable additional metrics on your CloudFront distribution, see
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional
 
 ---
 
@@ -37336,7 +37370,7 @@ new CloudFrontDistributionMetricFactory(metricFactory: MetricFactory, props: Clo
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metric4xxErrorRateAverage">metric4xxErrorRateAverage</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metric5xxErrorRateAverage">metric5xxErrorRateAverage</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricCacheHitRateAverageInPercent">metricCacheHitRateAverageInPercent</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricCacheHitRateAverageInPercent">metricCacheHitRateAverageInPercent</a></code> | Cache hit rate metric. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestCount">metricRequestCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestRate">metricRequestRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestTps">metricRequestTps</a></code> | *No description.* |
@@ -37363,6 +37397,12 @@ public metric5xxErrorRateAverage(): Metric | MathExpression
 ```typescript
 public metricCacheHitRateAverageInPercent(): Metric | MathExpression
 ```
+
+Cache hit rate metric.
+
+This is an additional metric that needs to be explicitly enabled for an additional cost.
+
+> [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional)
 
 ##### `metricRequestCount` <a name="metricRequestCount" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestCount"></a>
 
