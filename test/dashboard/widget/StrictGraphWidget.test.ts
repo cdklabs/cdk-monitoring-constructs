@@ -22,7 +22,7 @@ test("single axis - single metric: snapshot test", () => {
     leftAxis: DummyAxis1,
   });
 
-  expect(widget.toJson()).toMatchSnapshot();
+  expect(removeRegionToken(widget.toJson())).toMatchSnapshot();
 });
 
 test("single axis - two metrics: snapshot test", () => {
@@ -35,7 +35,7 @@ test("single axis - two metrics: snapshot test", () => {
     leftAxis: DummyAxis1,
   });
 
-  expect(widget.toJson()).toMatchSnapshot();
+  expect(removeRegionToken(widget.toJson())).toMatchSnapshot();
 });
 
 test("double axis - two metrics: snapshot test", () => {
@@ -51,7 +51,7 @@ test("double axis - two metrics: snapshot test", () => {
     rightAnnotations: [DummyAnnotation2],
   });
 
-  expect(widget.toJson()).toMatchSnapshot();
+  expect(removeRegionToken(widget.toJson())).toMatchSnapshot();
 });
 
 describe("failure test cases", () => {
@@ -95,3 +95,9 @@ describe("failure test cases", () => {
     ).toThrowError();
   });
 });
+
+function removeRegionToken(json: any[]): any[] {
+  // removing region from the result to avoid TOKEN instability
+  (json[0] as any).properties.region = undefined;
+  return json;
+}
