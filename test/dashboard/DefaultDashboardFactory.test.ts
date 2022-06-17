@@ -13,6 +13,17 @@ test("default dashboards created", () => {
 
   new DefaultDashboardFactory(stack, "Dashboards", {
     dashboardNamePrefix: "DummyDashboard",
+    renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
+  });
+
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("all dashboards created", () => {
+  const stack = new Stack();
+
+  new DefaultDashboardFactory(stack, "Dashboards", {
+    dashboardNamePrefix: "DummyDashboard",
     createDashboard: true,
     createSummaryDashboard: true,
     createAlarmDashboard: true,
@@ -40,4 +51,18 @@ test("no dashboards created", () => {
   });
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("throws error if an empty dashboardNamePrefix is passed but dashboard are to be created", () => {
+  const stack = new Stack();
+
+  expect(() => {
+    new DefaultDashboardFactory(stack, "Dashboards", {
+      dashboardNamePrefix: "",
+      createDashboard: true,
+      renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
+    });
+  }).toThrow(
+    "A non-empty dashboardNamePrefix is required if dashboards are being created"
+  );
 });
