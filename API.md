@@ -11502,6 +11502,122 @@ public readonly minDaysToExpiry: number;
 
 ---
 
+### DoubleAxisGraphWidgetProps <a name="DoubleAxisGraphWidgetProps" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.Initializer"></a>
+
+```typescript
+import { DoubleAxisGraphWidgetProps } from 'cdk-monitoring-constructs'
+
+const doubleAxisGraphWidgetProps: DoubleAxisGraphWidgetProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.height">height</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.leftAxis">leftAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.leftMetrics">leftMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.rightAxis">rightAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.rightMetrics">rightMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.width">width</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.leftAnnotations">leftAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.rightAnnotations">rightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.height"></a>
+
+```typescript
+public readonly height: number;
+```
+
+- *Type:* number
+
+---
+
+##### `leftAxis`<sup>Required</sup> <a name="leftAxis" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.leftAxis"></a>
+
+```typescript
+public readonly leftAxis: YAxisProps;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.YAxisProps
+
+---
+
+##### `leftMetrics`<sup>Required</sup> <a name="leftMetrics" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.leftMetrics"></a>
+
+```typescript
+public readonly leftMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `rightAxis`<sup>Required</sup> <a name="rightAxis" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.rightAxis"></a>
+
+```typescript
+public readonly rightAxis: YAxisProps;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.YAxisProps
+
+---
+
+##### `rightMetrics`<sup>Required</sup> <a name="rightMetrics" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.rightMetrics"></a>
+
+```typescript
+public readonly rightMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.width"></a>
+
+```typescript
+public readonly width: number;
+```
+
+- *Type:* number
+
+---
+
+##### `leftAnnotations`<sup>Optional</sup> <a name="leftAnnotations" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.leftAnnotations"></a>
+
+```typescript
+public readonly leftAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `rightAnnotations`<sup>Optional</sup> <a name="rightAnnotations" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.rightAnnotations"></a>
+
+```typescript
+public readonly rightAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `title`<sup>Optional</sup> <a name="title" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
 ### DurationThreshold <a name="DurationThreshold" id="cdk-monitoring-constructs.DurationThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.DurationThreshold.Initializer"></a>
@@ -30421,6 +30537,89 @@ public readonly fargateService: FargateService;
 
 ---
 
+### SingleAxisGraphWidgetProps <a name="SingleAxisGraphWidgetProps" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps.Initializer"></a>
+
+```typescript
+import { SingleAxisGraphWidgetProps } from 'cdk-monitoring-constructs'
+
+const singleAxisGraphWidgetProps: SingleAxisGraphWidgetProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.height">height</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.leftAxis">leftAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.leftMetrics">leftMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.width">width</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.leftAnnotations">leftAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.height"></a>
+
+```typescript
+public readonly height: number;
+```
+
+- *Type:* number
+
+---
+
+##### `leftAxis`<sup>Required</sup> <a name="leftAxis" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.leftAxis"></a>
+
+```typescript
+public readonly leftAxis: YAxisProps;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.YAxisProps
+
+---
+
+##### `leftMetrics`<sup>Required</sup> <a name="leftMetrics" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.leftMetrics"></a>
+
+```typescript
+public readonly leftMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.width"></a>
+
+```typescript
+public readonly width: number;
+```
+
+- *Type:* number
+
+---
+
+##### `leftAnnotations`<sup>Optional</sup> <a name="leftAnnotations" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.leftAnnotations"></a>
+
+```typescript
+public readonly leftAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `title`<sup>Optional</sup> <a name="title" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
 ### SnsAlarmActionStrategyProps <a name="SnsAlarmActionStrategyProps" id="cdk-monitoring-constructs.SnsAlarmActionStrategyProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SnsAlarmActionStrategyProps.Initializer"></a>
@@ -38245,6 +38444,139 @@ Process the dedupe string which was specified by the user as an override.
 
 
 
+### DoubleAxisGraphWidget <a name="DoubleAxisGraphWidget" id="cdk-monitoring-constructs.DoubleAxisGraphWidget"></a>
+
+Line graph widget with both left and right axes.
+
+The purpose of this custom class is to make the properties more strict.
+It will avoid graphs with undefined axes and dimensions.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.Initializer"></a>
+
+```typescript
+import { DoubleAxisGraphWidget } from 'cdk-monitoring-constructs'
+
+new DoubleAxisGraphWidget(props: DoubleAxisGraphWidgetProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps">DoubleAxisGraphWidgetProps</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps">DoubleAxisGraphWidgetProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.position">position</a></code> | Place the widget at a given position. |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.toJson">toJson</a></code> | Return the widget JSON for use in the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.addLeftMetric">addLeftMetric</a></code> | Add another metric to the left Y axis of the GraphWidget. |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.addRightMetric">addRightMetric</a></code> | Add another metric to the right Y axis of the GraphWidget. |
+
+---
+
+##### `position` <a name="position" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.position"></a>
+
+```typescript
+public position(x: number, y: number): void
+```
+
+Place the widget at a given position.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.position.parameter.x"></a>
+
+- *Type:* number
+
+---
+
+###### `y`<sup>Required</sup> <a name="y" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.position.parameter.y"></a>
+
+- *Type:* number
+
+---
+
+##### `toJson` <a name="toJson" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.toJson"></a>
+
+```typescript
+public toJson(): any[]
+```
+
+Return the widget JSON for use in the dashboard.
+
+##### `addLeftMetric` <a name="addLeftMetric" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.addLeftMetric"></a>
+
+```typescript
+public addLeftMetric(metric: IMetric): void
+```
+
+Add another metric to the left Y axis of the GraphWidget.
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.addLeftMetric.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+the metric to add.
+
+---
+
+##### `addRightMetric` <a name="addRightMetric" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.addRightMetric"></a>
+
+```typescript
+public addRightMetric(metric: IMetric): void
+```
+
+Add another metric to the right Y axis of the GraphWidget.
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.addRightMetric.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+the metric to add.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+
+---
+
+##### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.property.height"></a>
+
+```typescript
+public readonly height: number;
+```
+
+- *Type:* number
+
+The amount of vertical grid units the widget will take up.
+
+---
+
+##### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.property.width"></a>
+
+```typescript
+public readonly width: number;
+```
+
+- *Type:* number
+
+The amount of horizontal grid units the widget will take up.
+
+---
+
+
 ### DynamoAlarmFactory <a name="DynamoAlarmFactory" id="cdk-monitoring-constructs.DynamoAlarmFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DynamoAlarmFactory.Initializer"></a>
@@ -45233,6 +45565,140 @@ public widgets(): IWidget[]
 Returns widgets to be placed on the main dashboard.
 
 
+
+
+### SingleAxisGraphWidget <a name="SingleAxisGraphWidget" id="cdk-monitoring-constructs.SingleAxisGraphWidget"></a>
+
+Line graph widget with one axis only (left).
+
+If there is just one metric, it will hide the legend to save space.
+The purpose of this custom class is to make the properties more strict.
+It will avoid graphs with undefined axis and dimensions.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SingleAxisGraphWidget.Initializer"></a>
+
+```typescript
+import { SingleAxisGraphWidget } from 'cdk-monitoring-constructs'
+
+new SingleAxisGraphWidget(props: SingleAxisGraphWidgetProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps">SingleAxisGraphWidgetProps</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SingleAxisGraphWidget.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps">SingleAxisGraphWidgetProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.position">position</a></code> | Place the widget at a given position. |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.toJson">toJson</a></code> | Return the widget JSON for use in the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.addLeftMetric">addLeftMetric</a></code> | Add another metric to the left Y axis of the GraphWidget. |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.addRightMetric">addRightMetric</a></code> | Add another metric to the right Y axis of the GraphWidget. |
+
+---
+
+##### `position` <a name="position" id="cdk-monitoring-constructs.SingleAxisGraphWidget.position"></a>
+
+```typescript
+public position(x: number, y: number): void
+```
+
+Place the widget at a given position.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.SingleAxisGraphWidget.position.parameter.x"></a>
+
+- *Type:* number
+
+---
+
+###### `y`<sup>Required</sup> <a name="y" id="cdk-monitoring-constructs.SingleAxisGraphWidget.position.parameter.y"></a>
+
+- *Type:* number
+
+---
+
+##### `toJson` <a name="toJson" id="cdk-monitoring-constructs.SingleAxisGraphWidget.toJson"></a>
+
+```typescript
+public toJson(): any[]
+```
+
+Return the widget JSON for use in the dashboard.
+
+##### `addLeftMetric` <a name="addLeftMetric" id="cdk-monitoring-constructs.SingleAxisGraphWidget.addLeftMetric"></a>
+
+```typescript
+public addLeftMetric(metric: IMetric): void
+```
+
+Add another metric to the left Y axis of the GraphWidget.
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.SingleAxisGraphWidget.addLeftMetric.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+the metric to add.
+
+---
+
+##### `addRightMetric` <a name="addRightMetric" id="cdk-monitoring-constructs.SingleAxisGraphWidget.addRightMetric"></a>
+
+```typescript
+public addRightMetric(metric: IMetric): void
+```
+
+Add another metric to the right Y axis of the GraphWidget.
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.SingleAxisGraphWidget.addRightMetric.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+the metric to add.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+
+---
+
+##### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SingleAxisGraphWidget.property.height"></a>
+
+```typescript
+public readonly height: number;
+```
+
+- *Type:* number
+
+The amount of vertical grid units the widget will take up.
+
+---
+
+##### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SingleAxisGraphWidget.property.width"></a>
+
+```typescript
+public readonly width: number;
+```
+
+- *Type:* number
+
+The amount of horizontal grid units the widget will take up.
+
+---
 
 
 ### SingleWidgetDashboardSegment <a name="SingleWidgetDashboardSegment" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment"></a>

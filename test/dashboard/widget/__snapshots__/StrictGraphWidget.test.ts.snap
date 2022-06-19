@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`double axis - two metrics: snapshot test 1`] = `
+Array [
+  Object {
+    "height": 4,
+    "properties": Object {
+      "annotations": Object {
+        "horizontal": Array [
+          Object {
+            "value": 42,
+            "yAxis": "left",
+          },
+          Object {
+            "value": 66,
+            "yAxis": "right",
+          },
+        ],
+      },
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "Dummy",
+            "Metric1",
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": undefined,
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "double axis - two metrics",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "max": 1,
+          "min": 0,
+        },
+        "right": Object {
+          "max": 200,
+          "min": 100,
+        },
+      },
+    },
+    "type": "metric",
+    "width": 4,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`single axis - single metric: snapshot test 1`] = `
+Array [
+  Object {
+    "height": 4,
+    "properties": Object {
+      "annotations": Object {
+        "horizontal": Array [
+          Object {
+            "value": 42,
+            "yAxis": "left",
+          },
+        ],
+      },
+      "legend": Object {
+        "position": "hidden",
+      },
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "Dummy",
+            "Metric1",
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": undefined,
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "single axis - single metric",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "max": 1,
+          "min": 0,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 4,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`single axis - two metrics: snapshot test 1`] = `
+Array [
+  Object {
+    "height": 4,
+    "properties": Object {
+      "annotations": Object {
+        "horizontal": Array [
+          Object {
+            "value": 42,
+            "yAxis": "left",
+          },
+        ],
+      },
+      "legend": undefined,
+      "liveData": undefined,
+      "metrics": Array [
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "Dummy",
+            "Metric1",
+          ],
+        },
+        DropEmptyObjectAtTheEndOfAnArray {
+          "creationStack": Array [
+            "stack traces disabled",
+          ],
+          "value": Array [
+            "Dummy",
+            "Metric2",
+          ],
+        },
+      ],
+      "period": undefined,
+      "region": undefined,
+      "setPeriodToTimeRange": undefined,
+      "stacked": undefined,
+      "stat": undefined,
+      "title": "single axis - two metrics",
+      "view": "timeSeries",
+      "yAxis": Object {
+        "left": Object {
+          "max": 1,
+          "min": 0,
+        },
+        "right": undefined,
+      },
+    },
+    "type": "metric",
+    "width": 4,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
