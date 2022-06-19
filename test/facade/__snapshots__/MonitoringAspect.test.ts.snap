@@ -3468,7 +3468,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"CPU\\",\\"expression\\":\\"cpu * 100\\"}],[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU Usage (executor average)\\",\\"visible\\":false,\\"id\\":\\"cpu\\"}],[{\\"label\\":\\"Heap\\",\\"expression\\":\\"heap * 100\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"JVM Heap usage (executor average)\\",\\"visible\\":false,\\"id\\":\\"heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3498,7 +3498,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"CPU\\",\\"expression\\":\\"cpu * 100\\"}],[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU Usage (executor average)\\",\\"visible\\":false,\\"id\\":\\"cpu\\"}],[{\\"label\\":\\"Heap\\",\\"expression\\":\\"heap * 100\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"JVM Heap usage (executor average)\\",\\"visible\\":false,\\"id\\":\\"heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

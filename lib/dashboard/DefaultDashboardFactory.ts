@@ -96,6 +96,18 @@ export class DefaultDashboardFactory
   constructor(scope: Construct, id: string, props: MonitoringDashboardsProps) {
     super(scope, id);
 
+    const createDashboard = props.createDashboard ?? true;
+    const createSummaryDashboard = props.createSummaryDashboard ?? false;
+    const createAlarmDashboard = props.createAlarmDashboard ?? false;
+    const shouldCreateDashboards =
+      createDashboard || createAlarmDashboard || createSummaryDashboard;
+
+    if (shouldCreateDashboards && !props.dashboardNamePrefix) {
+      throw Error(
+        "A non-empty dashboardNamePrefix is required if dashboards are being created"
+      );
+    }
+
     const renderingPreference =
       props.renderingPreference ??
       DashboardRenderingPreference.INTERACTIVE_ONLY;
@@ -105,7 +117,7 @@ export class DefaultDashboardFactory
       "-" + (props.summaryDashboardRange ?? Duration.days(14)).toIsoString();
     let anyDashboardCreated = false;
 
-    if (props.createDashboard ?? true) {
+    if (createDashboard) {
       anyDashboardCreated = true;
       this.dashboard = this.createDashboard(renderingPreference, "Dashboard", {
         dashboardName: props.dashboardNamePrefix,
@@ -114,7 +126,7 @@ export class DefaultDashboardFactory
           props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
       });
     }
-    if (props.createSummaryDashboard ?? false) {
+    if (createSummaryDashboard) {
       anyDashboardCreated = true;
       this.summaryDashboard = this.createDashboard(
         renderingPreference,
@@ -127,7 +139,7 @@ export class DefaultDashboardFactory
         }
       );
     }
-    if (props.createAlarmDashboard ?? false) {
+    if (createAlarmDashboard) {
       anyDashboardCreated = true;
       this.alarmDashboard = this.createDashboard(
         renderingPreference,
