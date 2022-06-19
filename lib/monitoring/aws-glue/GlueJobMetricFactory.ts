@@ -55,25 +55,29 @@ export class GlueJobMetricFactory {
   }
 
   metricAverageExecutorCpuUsagePercentage() {
-    return this.metricFactory.createMetric(
+    const label = "CPU Usage (executor average)";
+    const metric = this.metricFactory.createMetric(
       "glue.ALL.system.cpuSystemLoad",
       MetricStatistic.AVERAGE,
-      "CPU Usage (executor average)",
+      label,
       this.dimensionsMap,
       undefined,
       GlueNamespace
     );
+    return this.metricFactory.multiplyMetric(metric, 100, label, "cpu");
   }
 
   metricAverageExecutorMemoryUsagePercentage() {
-    return this.metricFactory.createMetric(
+    const label = "JVM Heap usage (executor average)";
+    const metric = this.metricFactory.createMetric(
       "glue.ALL.jvm.heap.usage",
       MetricStatistic.AVERAGE,
-      "JVM Heap usage (executor average)",
+      label,
       this.dimensionsMap,
       undefined,
       GlueNamespace
     );
+    return this.metricFactory.multiplyMetric(metric, 100, label, "heap");
   }
 
   metricActiveExecutorsAverage() {
