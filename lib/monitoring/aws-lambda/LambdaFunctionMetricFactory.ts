@@ -139,19 +139,20 @@ export class LambdaFunctionMetricFactory {
   }
 
   metricConcurrentExecutions() {
-    return this.lambdaFunction.metric("ConcurrentExecutions", {
-      statistic: MetricStatistic.MAX,
-      label: "Concurrent",
-    });
+    return this.metricFactory.adaptMetric(
+      this.lambdaFunction.metric("ConcurrentExecutions", {
+        statistic: MetricStatistic.MAX,
+        label: "Concurrent",
+      })
+    );
   }
 
   metricProvisionedConcurrencySpilloverInvocations() {
-    return this.lambdaFunction.metric(
-      "ProvisionedConcurrencySpilloverInvocations",
-      {
+    return this.metricFactory.adaptMetric(
+      this.lambdaFunction.metric("ProvisionedConcurrencySpilloverInvocations", {
         statistic: MetricStatistic.SUM,
         label: "Provisioned Concurrency Spillovers",
-      }
+      })
     );
   }
 
@@ -166,9 +167,11 @@ export class LambdaFunctionMetricFactory {
   }
 
   metricMaxIteratorAgeInMillis() {
-    return this.lambdaFunction.metric("IteratorAge", {
-      statistic: MetricStatistic.MAX,
-      label: "Iterator Age",
-    });
+    return this.metricFactory.adaptMetric(
+      this.lambdaFunction.metric("IteratorAge", {
+        statistic: MetricStatistic.MAX,
+        label: "Iterator Age",
+      })
+    );
   }
 }

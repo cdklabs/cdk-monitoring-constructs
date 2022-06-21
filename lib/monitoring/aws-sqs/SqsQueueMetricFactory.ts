@@ -33,10 +33,12 @@ export class SqsQueueMetricFactory {
   }
 
   metricDeletedMessageCount() {
-    return this.queue.metricNumberOfMessagesDeleted({
-      statistic: MetricStatistic.SUM,
-      label: "Deleted",
-    });
+    return this.metricFactory.adaptMetric(
+      this.queue.metricNumberOfMessagesDeleted({
+        statistic: MetricStatistic.SUM,
+        label: "Deleted",
+      })
+    );
   }
 
   metricApproximateAgeOfOldestMessageInSeconds() {
