@@ -91,7 +91,7 @@ export class DefaultDashboardFactory
   readonly dashboard?: Dashboard;
   readonly summaryDashboard?: Dashboard;
   readonly alarmDashboard?: Dashboard;
-  protected readonly anyDashboardCreated: boolean;
+  readonly anyDashboardCreated: boolean;
 
   constructor(scope: Construct, id: string, props: MonitoringDashboardsProps) {
     super(scope, id);

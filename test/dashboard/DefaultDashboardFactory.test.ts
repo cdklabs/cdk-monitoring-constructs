@@ -11,18 +11,19 @@ import {
 test("default dashboards created", () => {
   const stack = new Stack();
 
-  new DefaultDashboardFactory(stack, "Dashboards", {
+  const factory = new DefaultDashboardFactory(stack, "Dashboards", {
     dashboardNamePrefix: "DummyDashboard",
     renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
   });
 
+  expect(factory.anyDashboardCreated).toEqual(true);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("all dashboards created", () => {
   const stack = new Stack();
 
-  new DefaultDashboardFactory(stack, "Dashboards", {
+  const factory = new DefaultDashboardFactory(stack, "Dashboards", {
     dashboardNamePrefix: "DummyDashboard",
     createDashboard: true,
     createSummaryDashboard: true,
@@ -30,13 +31,14 @@ test("all dashboards created", () => {
     renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
   });
 
+  expect(factory.anyDashboardCreated).toEqual(true);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
 test("no dashboards created", () => {
   const stack = new Stack();
 
-  const dashboards = new DefaultDashboardFactory(stack, "Dashboards", {
+  const factory = new DefaultDashboardFactory(stack, "Dashboards", {
     dashboardNamePrefix: "DummyDashboard",
     createDashboard: false,
     createSummaryDashboard: false,
@@ -44,12 +46,13 @@ test("no dashboards created", () => {
     renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
   });
 
-  dashboards.addSegment({
+  factory.addSegment({
     segment: new SingleWidgetDashboardSegment(
       new TextWidget({ markdown: "Hello world!" })
     ),
   });
 
+  expect(factory.anyDashboardCreated).toEqual(false);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 

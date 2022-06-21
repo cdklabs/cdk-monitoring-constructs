@@ -633,6 +633,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.anyDashboardCreated">anyDashboardCreated</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.alarmDashboard">alarmDashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.dashboard">dashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.summaryDashboard">summaryDashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
@@ -648,6 +649,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `anyDashboardCreated`<sup>Required</sup> <a name="anyDashboardCreated" id="cdk-monitoring-constructs.DefaultDashboardFactory.property.anyDashboardCreated"></a>
+
+```typescript
+public readonly anyDashboardCreated: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
