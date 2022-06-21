@@ -342,3 +342,22 @@ test("getCloudFrontDistributionUrl", () => {
     )
   ).toEqual(expected);
 });
+
+test("getDocumentDbClusterUrl", () => {
+  const stack = new Stack();
+  const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });
+
+  const expected =
+    "https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/DummyDocDbClusterId";
+
+  expect(
+    stack.resolve(factory.getDocumentDbClusterUrl("DummyDocDbClusterId"))
+  ).toEqual(expected);
+  expect(
+    stack.resolve(
+      factory.getDocumentDbClusterUrl(
+        Lazy.string({ produce: () => "DummyDocDbClusterId" })
+      )
+    )
+  ).toEqual(expected);
+});
