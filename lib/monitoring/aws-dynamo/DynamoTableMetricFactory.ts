@@ -106,14 +106,16 @@ export class DynamoTableMetricFactory {
   }
 
   metricAverageSuccessfulRequestLatencyInMillis(operation: Operation) {
-    return this.table.metric("SuccessfulRequestLatency", {
-      statistic: MetricStatistic.AVERAGE,
-      label: operation,
-      dimensionsMap: {
-        TableName: this.table.tableName,
-        Operation: operation,
-      },
-    });
+    return this.metricFactory.adaptMetric(
+      this.table.metric("SuccessfulRequestLatency", {
+        statistic: MetricStatistic.AVERAGE,
+        label: operation,
+        dimensionsMap: {
+          TableName: this.table.tableName,
+          Operation: operation,
+        },
+      })
+    );
   }
 
   metricThrottledReadRequestCount() {

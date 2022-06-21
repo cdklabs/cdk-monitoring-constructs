@@ -38958,7 +38958,7 @@ new DynamoTableMetricFactory(metricFactory: MetricFactory, props: DynamoTableMet
 ##### `metricAverageSuccessfulRequestLatencyInMillis` <a name="metricAverageSuccessfulRequestLatencyInMillis" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricAverageSuccessfulRequestLatencyInMillis"></a>
 
 ```typescript
-public metricAverageSuccessfulRequestLatencyInMillis(operation: Operation): Metric
+public metricAverageSuccessfulRequestLatencyInMillis(operation: Operation): Metric | MathExpression
 ```
 
 ###### `operation`<sup>Required</sup> <a name="operation" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricAverageSuccessfulRequestLatencyInMillis.parameter.operation"></a>
