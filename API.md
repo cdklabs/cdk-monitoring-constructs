@@ -46111,7 +46111,7 @@ public metricConsumptionRate(): Metric | MathExpression
 ##### `metricDeletedMessageCount` <a name="metricDeletedMessageCount" id="cdk-monitoring-constructs.SqsQueueMetricFactory.metricDeletedMessageCount"></a>
 
 ```typescript
-public metricDeletedMessageCount(): Metric
+public metricDeletedMessageCount(): Metric | MathExpression
 ```
 
 ##### `metricIncomingMessageCount` <a name="metricIncomingMessageCount" id="cdk-monitoring-constructs.SqsQueueMetricFactory.metricIncomingMessageCount"></a>
