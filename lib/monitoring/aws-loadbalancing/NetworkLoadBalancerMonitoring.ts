@@ -148,7 +148,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
   summaryWidgets(): IWidget[] {
     return [
       this.createTitleWidget(),
-      this.createTaskHealthWidget(HalfWidth, DefaultSummaryWidgetHeight),
+      this.createTcpFlowsWidget(HalfWidth, DefaultSummaryWidgetHeight),
       this.createTaskHealthWidget(HalfWidth, DefaultSummaryWidgetHeight),
     ];
   }
