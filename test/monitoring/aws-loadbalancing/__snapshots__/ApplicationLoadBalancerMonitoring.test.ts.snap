@@ -113,6 +113,96 @@ Object {
       },
       "Type": "AWS::EC2::SecurityGroupEgress",
     },
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceHealthyTasksWarningFC7624FC",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceUnhealthyTasksWarningE896F88E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceHealthyTaskPercentWarningAC596FDA",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceProcessedBytesMinWarningD48DD08A",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "ClusterEB0386A7": Object {
       "Type": "AWS::ECS::Cluster",
     },
@@ -508,6 +598,187 @@ Object {
       },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Fargate Service **Service**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"ECS/ContainerInsights\\",\\"RunningTaskCount\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Running Tasks\\"}],[\\"AWS/ApplicationELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/ApplicationELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestDummyFargateServiceCPUUsageWarning2A347919": Object {
       "Properties": Object {
@@ -1122,6 +1393,162 @@ Object {
       },
       "Type": "AWS::EC2::SecurityGroupIngress",
     },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Fargate Service **Service**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"ECS/ContainerInsights\\",\\"RunningTaskCount\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Running Tasks\\"}],[\\"AWS/ApplicationELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/ApplicationELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "TaskDef54694570": Object {
       "Properties": Object {
         "ContainerDefinitions": Array [
@@ -1419,6 +1846,12 @@ Object {
         "ToPort": 8080,
       },
       "Type": "AWS::EC2::SecurityGroupEgress",
+    },
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ClusterEB0386A7": Object {
       "Type": "AWS::ECS::Cluster",
@@ -1816,6 +2249,187 @@ Object {
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Fargate Service **Service**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"ECS/ContainerInsights\\",\\"RunningTaskCount\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Running Tasks\\"}],[\\"AWS/ApplicationELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/ApplicationELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "ServiceD69D759B": Object {
       "DependsOn": Array [
         "ALBListener3B99FF85",
@@ -1904,6 +2518,162 @@ Object {
         "ToPort": 8080,
       },
       "Type": "AWS::EC2::SecurityGroupIngress",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Fargate Service **Service**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"ECS/ContainerInsights\\",\\"RunningTaskCount\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Running Tasks\\"}],[\\"AWS/ApplicationELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/ApplicationELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "TaskDef54694570": Object {
       "Properties": Object {
@@ -2206,6 +2976,96 @@ Object {
         "ToPort": 65535,
       },
       "Type": "AWS::EC2::SecurityGroupEgress",
+    },
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceHealthyTasksWarningF468F197",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceUnhealthyTasksWarningC4CAE32B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceHealthyTaskPercentWarning68582E14",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceProcessedBytesMinWarningB4C58C66",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ClusterEB0386A7": Object {
       "Type": "AWS::ECS::Cluster",
@@ -3197,6 +4057,187 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Ec2 Service **Service**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"ECS/ContainerInsights\\",\\"RunningTaskCount\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Running Tasks\\"}],[\\"AWS/ApplicationELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/ApplicationELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E": Object {
       "Properties": Object {
@@ -3754,6 +4795,162 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       },
       "Type": "AWS::ECS::Service",
     },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Ec2 Service **Service**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"ECS/ContainerInsights\\",\\"RunningTaskCount\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Running Tasks\\"}],[\\"AWS/ApplicationELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/ApplicationELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "TaskDef54694570": Object {
       "Properties": Object {
         "ContainerDefinitions": Array [
@@ -4055,6 +5252,12 @@ Object {
         "ToPort": 65535,
       },
       "Type": "AWS::EC2::SecurityGroupEgress",
+    },
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ClusterEB0386A7": Object {
       "Type": "AWS::ECS::Cluster",
@@ -5047,6 +6250,187 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Ec2 Service **Service**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBAEE750D2",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"ECS/ContainerInsights\\",\\"RunningTaskCount\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Running Tasks\\"}],[\\"AWS/ApplicationELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/ApplicationELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "ServiceD69D759B": Object {
       "DependsOn": Array [
         "ALBListener3B99FF85",
@@ -5078,6 +6462,162 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
         },
       },
       "Type": "AWS::ECS::Service",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Ec2 Service **Service**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"ECS/ContainerInsights\\",\\"RunningTaskCount\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Running Tasks\\"}],[\\"AWS/ApplicationELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/ApplicationELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "TaskDef54694570": Object {
       "Properties": Object {

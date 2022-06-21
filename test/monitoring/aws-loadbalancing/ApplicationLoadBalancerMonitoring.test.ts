@@ -17,6 +17,7 @@ import {
   Ec2ServiceMonitoring,
   FargateServiceMonitoring,
 } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 // FARGATE SERVICE
@@ -46,13 +47,14 @@ test("snapshot alb test: no alarms", () => {
     .addListener("Listener", { port: 80 })
     .addTargets("Target", { port: 80, targets: [fargateService] });
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService,
     loadBalancer: applicationLoadBalancer,
     targetGroup: applicationTargetGroup,
     alarmFriendlyName: "DummyFargateService",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -82,7 +84,7 @@ test("snapshot alb test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new FargateServiceMonitoring(scope, {
+  const monitoring = new FargateServiceMonitoring(scope, {
     fargateService,
     loadBalancer: applicationLoadBalancer,
     targetGroup: applicationTargetGroup,
@@ -129,6 +131,7 @@ test("snapshot alb test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(7);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -164,13 +167,14 @@ test("snapshot ec2 alb test: no alarms", () => {
     .addListener("Listener", { port: 80 })
     .addTargets("Target", { port: 80, targets: [ec2Service] });
 
-  new Ec2ServiceMonitoring(scope, {
+  const monitoring = new Ec2ServiceMonitoring(scope, {
     ec2Service,
     loadBalancer: applicationLoadBalancer,
     targetGroup: applicationTargetGroup,
     alarmFriendlyName: "DummyEc2Service",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -203,7 +207,7 @@ test("snapshot ec2 alb test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new Ec2ServiceMonitoring(scope, {
+  const monitoring = new Ec2ServiceMonitoring(scope, {
     ec2Service,
     loadBalancer: applicationLoadBalancer,
     targetGroup: applicationTargetGroup,
@@ -250,6 +254,7 @@ test("snapshot ec2 alb test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(7);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

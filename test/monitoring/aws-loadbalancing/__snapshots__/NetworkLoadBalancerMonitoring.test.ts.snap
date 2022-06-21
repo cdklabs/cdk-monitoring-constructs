@@ -10,6 +10,63 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyNetworkLoadBalancerHealthyTasksWarning4E5A0F2D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyNetworkLoadBalancerUnhealthyTasksWarningC5CE52E5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyNetworkLoadBalancerHealthyTaskPercentWarning54405290",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyNetworkLoadBalancerProcessedBytesMinWarning153EE6ED",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "NLB55158F82": Object {
       "Properties": Object {
         "LoadBalancerAttributes": Array [
@@ -58,6 +115,146 @@ Object {
         },
       },
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Network Load Balancer **Default/NLB-Default/NLB/Listener/TargetGroup**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLBListenerTargetGroupA6463B24",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/NetworkELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLBListenerTargetGroupA6463B24",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestDummyNetworkLoadBalancerHealthyTaskPercentWarning54405290": Object {
       "Properties": Object {
@@ -447,6 +644,146 @@ Object {
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Network Load Balancer **Default/NLB-Default/NLB/Listener/TargetGroup**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLBListenerTargetGroupA6463B24",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/NetworkELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLBListenerTargetGroupA6463B24",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "Vpc8378EB38": Object {
       "Properties": Object {
@@ -872,6 +1209,12 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "NLB55158F82": Object {
       "Properties": Object {
         "LoadBalancerAttributes": Array [
@@ -920,6 +1263,286 @@ Object {
         },
       },
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Network Load Balancer **Default/NLB-Default/NLB/Listener/TargetGroup**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLBListenerTargetGroupA6463B24",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/NetworkELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLBListenerTargetGroupA6463B24",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Network Load Balancer **Default/NLB-Default/NLB/Listener/TargetGroup**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLBListenerTargetGroupA6463B24",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/NetworkELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "NLBListener96C8170F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLBListenerTargetGroupA6463B24",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "Vpc8378EB38": Object {
       "Properties": Object {
