@@ -40,7 +40,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Document DB **[my-docdb-cluster](https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/my-docdb-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DocumentDB **[my-docdb-cluster](https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/my-docdb-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -103,7 +103,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Document DB **[my-docdb-cluster](https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/my-docdb-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DocumentDB **[my-docdb-cluster](https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/my-docdb-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -175,7 +175,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Document DB **[my-docdb-cluster](https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/my-docdb-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DocumentDB **[my-docdb-cluster](https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/my-docdb-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -204,7 +204,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Document DB **[my-docdb-cluster](https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/my-docdb-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DocumentDB **[my-docdb-cluster](https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/my-docdb-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
