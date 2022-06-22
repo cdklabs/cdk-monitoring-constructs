@@ -117,7 +117,7 @@ export class DocumentDbMonitoring extends Monitoring {
 
   protected createTitleWidget() {
     return new MonitoringHeaderWidget({
-      family: "Document DB",
+      family: "DocumentDB",
       title: this.title,
       goToLinkUrl: this.url,
     });
