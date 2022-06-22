@@ -8,6 +8,7 @@ import * as autoscaling from "aws-cdk-lib/aws-autoscaling";
 import * as acm from "aws-cdk-lib/aws-certificatemanager";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import * as codebuild from "aws-cdk-lib/aws-codebuild";
+import * as docdb from "aws-cdk-lib/aws-docdb";
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
 import * as elasticsearch from "aws-cdk-lib/aws-elasticsearch";
 import * as glue from "aws-cdk-lib/aws-glue";
@@ -51,6 +52,7 @@ export class MonitoringAspect implements IAspect {
     this.monitorAutoScalingGroup(node);
     this.monitorCloudFront(node);
     this.monitorCodeBuild(node);
+    this.monitorDocumentDb(node);
     this.monitorDynamoDb(node);
     this.monitorGlue(node);
     this.monitorKinesisAnalytics(node);
@@ -171,6 +173,17 @@ export class MonitoringAspect implements IAspect {
     }
   }
 
+  private monitorDocumentDb(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(this.props.documentDb);
+    if (isEnabled && node instanceof docdb.DatabaseCluster) {
+      this.monitoringFacade.monitorDocumentDbCluster({
+        cluster: node,
+        alarmFriendlyName: node.node.path,
+        ...props,
+      });
+    }
+  }
+
   private monitorDynamoDb(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(this.props.dynamoDB);
     if (isEnabled && node instanceof dynamodb.Table) {
@@ -285,7 +298,7 @@ export class MonitoringAspect implements IAspect {
     const [isEnabled, props] = this.getMonitoringDetails(this.props.rds);
     if (isEnabled && node instanceof rds.DatabaseCluster) {
       this.monitoringFacade.monitorRdsCluster({
-        clusterIdentifier: node.clusterIdentifier,
+        cluster: node,
         alarmFriendlyName: node.node.path,
         ...props,
       });

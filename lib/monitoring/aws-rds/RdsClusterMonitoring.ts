@@ -57,20 +57,6 @@ export class RdsClusterMonitoring extends Monitoring {
   constructor(scope: MonitoringScope, props: RdsClusterMonitoringProps) {
     super(scope, props);
 
-    const namingStrategy = new MonitoringNamingStrategy({
-      ...props,
-      fallbackConstructName: props.clusterIdentifier,
-    });
-    this.title = namingStrategy.resolveHumanReadableName();
-    this.url = scope
-      .createAwsConsoleUrlFactory()
-      .getRdsClusterUrl(props.clusterIdentifier);
-    const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
-    );
-    this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
-    this.usageAnnotations = [];
-
     const metricFactory = new RdsClusterMetricFactory(
       scope.createMetricFactory(),
       props
@@ -83,6 +69,21 @@ export class RdsClusterMonitoring extends Monitoring {
     this.updateLatencyMetric = metricFactory.metricUpdateLatencyP90InMillis();
     this.deleteLatencyMetric = metricFactory.metricDeleteLatencyP90InMillis();
     this.commitLatencyMetric = metricFactory.metricCommitLatencyP90InMillis();
+
+    const namingStrategy = new MonitoringNamingStrategy({
+      ...props,
+      fallbackConstructName: metricFactory.clusterIdentifier,
+      namedConstruct: props.cluster,
+    });
+    this.title = namingStrategy.resolveHumanReadableName();
+    this.url = scope
+      .createAwsConsoleUrlFactory()
+      .getRdsClusterUrl(metricFactory.clusterIdentifier);
+    const alarmFactory = this.createAlarmFactory(
+      namingStrategy.resolveAlarmFriendlyName()
+    );
+    this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
+    this.usageAnnotations = [];
 
     for (const disambiguator in props.addDiskSpaceUsageAlarm) {
       const alarmProps = props.addDiskSpaceUsageAlarm[disambiguator];

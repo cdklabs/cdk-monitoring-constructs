@@ -11540,17 +11540,32 @@ const documentDbMetricFactoryProps: DocumentDbMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_docdb.DatabaseCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
 
 ---
 
-##### `clusterIdentifier`<sup>Required</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.clusterIdentifier"></a>
+##### `cluster`<sup>Optional</sup> <a name="cluster" id="cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: DatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_docdb.DatabaseCluster
+
+database cluster (either this or `clusterIdentifier` need to be specified).
+
+---
+
+##### `clusterIdentifier`<sup>Optional</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.clusterIdentifier"></a>
 
 ```typescript
 public readonly clusterIdentifier: string;
 ```
 
 - *Type:* string
+
+database cluster identifier (either this or `cluster` need to be specified).
 
 ---
 
@@ -11701,7 +11716,8 @@ const documentDbMonitoringProps: DocumentDbMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_docdb.DatabaseCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -11713,13 +11729,27 @@ const documentDbMonitoringProps: DocumentDbMonitoringProps = { ... }
 
 ---
 
-##### `clusterIdentifier`<sup>Required</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.DocumentDbMonitoringProps.property.clusterIdentifier"></a>
+##### `cluster`<sup>Optional</sup> <a name="cluster" id="cdk-monitoring-constructs.DocumentDbMonitoringProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: DatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_docdb.DatabaseCluster
+
+database cluster (either this or `clusterIdentifier` need to be specified).
+
+---
+
+##### `clusterIdentifier`<sup>Optional</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.DocumentDbMonitoringProps.property.clusterIdentifier"></a>
 
 ```typescript
 public readonly clusterIdentifier: string;
 ```
 
 - *Type:* string
+
+database cluster identifier (either this or `cluster` need to be specified).
 
 ---
 
@@ -24303,6 +24333,7 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.billing">billing</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.cloudFront">cloudFront</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.codeBuild">codeBuild</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.documentDb">documentDb</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.dynamoDB">dynamoDB</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.ec2">ec2</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.elasticCache">elasticCache</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
@@ -24398,6 +24429,16 @@ public readonly cloudFront: MonitoringAspectType;
 
 ```typescript
 public readonly codeBuild: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `documentDb`<sup>Optional</sup> <a name="documentDb" id="cdk-monitoring-constructs.MonitoringAspectProps.property.documentDb"></a>
+
+```typescript
+public readonly documentDb: MonitoringAspectType;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
@@ -28140,17 +28181,32 @@ const rdsClusterMetricFactoryProps: RdsClusterMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.DatabaseCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
 
 ---
 
-##### `clusterIdentifier`<sup>Required</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.clusterIdentifier"></a>
+##### `cluster`<sup>Optional</sup> <a name="cluster" id="cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: DatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseCluster
+
+database cluster (either this or `clusterIdentifier` need to be specified).
+
+---
+
+##### `clusterIdentifier`<sup>Optional</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.clusterIdentifier"></a>
 
 ```typescript
 public readonly clusterIdentifier: string;
 ```
 
 - *Type:* string
+
+database cluster identifier (either this or `cluster` need to be specified).
 
 ---
 
@@ -28312,7 +28368,8 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.DatabaseCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -28325,13 +28382,27 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 
 ---
 
-##### `clusterIdentifier`<sup>Required</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.clusterIdentifier"></a>
+##### `cluster`<sup>Optional</sup> <a name="cluster" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: DatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseCluster
+
+database cluster (either this or `clusterIdentifier` need to be specified).
+
+---
+
+##### `clusterIdentifier`<sup>Optional</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.clusterIdentifier"></a>
 
 ```typescript
 public readonly clusterIdentifier: string;
 ```
 
 - *Type:* string
+
+database cluster identifier (either this or `cluster` need to be specified).
 
 ---
 
@@ -38813,6 +38884,23 @@ public metricWriteLatencyInMillis(latencyType: LatencyType): Metric | MathExpres
 ---
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMetricFactory.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `clusterIdentifier`<sup>Required</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.DocumentDbMetricFactory.property.clusterIdentifier"></a>
+
+```typescript
+public readonly clusterIdentifier: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### DocumentDbMonitoring <a name="DocumentDbMonitoring" id="cdk-monitoring-constructs.DocumentDbMonitoring"></a>
@@ -45367,6 +45455,23 @@ public metricUsedStorageInBytes(): Metric | MathExpression
 ```
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `clusterIdentifier`<sup>Required</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.RdsClusterMetricFactory.property.clusterIdentifier"></a>
+
+```typescript
+public readonly clusterIdentifier: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### RdsClusterMonitoring <a name="RdsClusterMonitoring" id="cdk-monitoring-constructs.RdsClusterMonitoring"></a>

@@ -7,6 +7,7 @@ import {
   CertificateManagerMonitoringOptions,
   CloudFrontDistributionMonitoringOptions,
   CodeBuildProjectMonitoringOptions,
+  DocumentDbMonitoringOptions,
   DynamoTableMonitoringOptions,
   EC2MonitoringOptions,
   ElastiCacheClusterMonitoringOptions,
@@ -50,6 +51,7 @@ export interface MonitoringAspectProps {
   readonly billing?: MonitoringAspectType<BillingMonitoringOptions>;
   readonly cloudFront?: MonitoringAspectType<CloudFrontDistributionMonitoringOptions>;
   readonly codeBuild?: MonitoringAspectType<CodeBuildProjectMonitoringOptions>;
+  readonly documentDb?: MonitoringAspectType<DocumentDbMonitoringOptions>;
   readonly dynamoDB?: MonitoringAspectType<DynamoTableMonitoringOptions>;
   readonly ec2?: MonitoringAspectType<EC2MonitoringOptions>;
   readonly elasticCache?: MonitoringAspectType<ElastiCacheClusterMonitoringOptions>;

@@ -54,26 +54,10 @@ export class DocumentDbMonitoring extends Monitoring {
   constructor(scope: MonitoringScope, props: DocumentDbMonitoringProps) {
     super(scope, props);
 
-    const namingStrategy = new MonitoringNamingStrategy({
-      ...props,
-      fallbackConstructName: props.clusterIdentifier,
-    });
-    this.title = namingStrategy.resolveHumanReadableName();
-    this.url = scope
-      .createAwsConsoleUrlFactory()
-      .getDocumentDbClusterUrl(props.clusterIdentifier);
-    const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
-    );
-
-    this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
-    this.usageAnnotations = [];
-
     const metricFactory = new DocumentDbMetricFactory(
       scope.createMetricFactory(),
       props
     );
-
     this.cpuUsageMetric = metricFactory.metricAverageCpuUsageInPercent();
     this.readLatencyMetric = metricFactory.metricReadLatencyInMillis(
       LatencyType.P90
@@ -86,6 +70,22 @@ export class DocumentDbMonitoring extends Monitoring {
     this.transactionsMetric = metricFactory.metricMaxTransactionOpenCount();
     this.throttledMetric =
       metricFactory.metricOperationsThrottledDueLowMemoryCount();
+
+    const namingStrategy = new MonitoringNamingStrategy({
+      ...props,
+      fallbackConstructName: metricFactory.clusterIdentifier,
+      namedConstruct: props.cluster,
+    });
+    this.title = namingStrategy.resolveHumanReadableName();
+    this.url = scope
+      .createAwsConsoleUrlFactory()
+      .getDocumentDbClusterUrl(metricFactory.clusterIdentifier);
+    const alarmFactory = this.createAlarmFactory(
+      namingStrategy.resolveAlarmFriendlyName()
+    );
+
+    this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
+    this.usageAnnotations = [];
 
     for (const disambiguator in props.addCpuUsageAlarm) {
       const alarmProps = props.addCpuUsageAlarm[disambiguator];
