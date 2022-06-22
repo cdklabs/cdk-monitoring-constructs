@@ -8,6 +8,7 @@ import {
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
+  LatencyType,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
@@ -74,8 +75,12 @@ export class DocumentDbMonitoring extends Monitoring {
     );
 
     this.cpuUsageMetric = metricFactory.metricAverageCpuUsageInPercent();
-    this.readLatencyMetric = metricFactory.metricAverageCpuUsageInPercent();
-    this.writeLatencyMetric = metricFactory.metricAverageCpuUsageInPercent();
+    this.readLatencyMetric = metricFactory.metricReadLatencyInMillis(
+      LatencyType.P90
+    );
+    this.writeLatencyMetric = metricFactory.metricWriteLatencyInMillis(
+      LatencyType.P90
+    );
     this.connectionsMetric = metricFactory.metricMaxConnectionCount();
     this.cursorsMetric = metricFactory.metricMaxCursorCount();
     this.transactionsMetric = metricFactory.metricMaxTransactionOpenCount();

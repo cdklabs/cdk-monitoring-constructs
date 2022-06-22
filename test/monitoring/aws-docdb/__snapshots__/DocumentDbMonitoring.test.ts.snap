@@ -56,7 +56,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"CPU Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"ReadLatency\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"Read P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/DocDB\\",\\"WriteLatency\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"Write P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -115,7 +115,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"CPU Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"ReadLatency\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"Read P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/DocDB\\",\\"WriteLatency\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"Write P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -191,7 +191,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"CPU Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"ReadLatency\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"Read P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/DocDB\\",\\"WriteLatency\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"Write P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -216,7 +216,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"CPU Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"ReadLatency\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"Read P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/DocDB\\",\\"WriteLatency\\",\\"DBClusterIdentifier\\",\\"my-docdb-cluster\\",{\\"label\\":\\"Write P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
