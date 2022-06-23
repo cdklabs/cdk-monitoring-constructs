@@ -77,7 +77,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Data Movement\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Data Movement\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -89,11 +89,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Killed\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Killed > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Killed\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Killed > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Failed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Killed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed Tasks (avg) > 4 for 3 datapoints within 15 minutes\\",\\"value\\":4,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Killed Tasks (avg) > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Failed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Killed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed Tasks (avg) > 4 for 3 datapoints within 15 minutes\\",\\"value\\":4,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Killed Tasks (avg) > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -125,7 +125,7 @@ Object {
                   },
                   Object {
                     "Name": "Type",
-                    "Value": "gauge",
+                    "Value": "count",
                   },
                 ],
                 "MetricName": "glue.driver.aggregate.numFailedTasks",
@@ -167,7 +167,7 @@ Object {
                   },
                   Object {
                     "Name": "Type",
-                    "Value": "gauge",
+                    "Value": "count",
                   },
                 ],
                 "MetricName": "glue.driver.aggregate.numFailedTasks",
@@ -209,7 +209,7 @@ Object {
                   },
                   Object {
                     "Name": "Type",
-                    "Value": "gauge",
+                    "Value": "count",
                   },
                 ],
                 "MetricName": "glue.driver.aggregate.numKilledTasks",
@@ -251,7 +251,7 @@ Object {
                   },
                   Object {
                     "Name": "Type",
-                    "Value": "gauge",
+                    "Value": "count",
                   },
                 ],
                 "MetricName": "glue.driver.aggregate.numKilledTasks",
@@ -278,7 +278,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory Usage\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -346,7 +346,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Data Movement\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Data Movement\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -358,11 +358,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Killed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Killed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Failed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Killed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Failed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Killed Tasks (avg) (min: \${MIN}, max: \${MAX})\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -379,7 +379,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory Usage\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberAllExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Active Executors\\"}],[\\"Glue\\",\\"glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"Maximum Needed Executors\\",\\"stat\\":\\"Maximum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numCompletedStages\\",\\"JobName\\",\\"DummyGlueJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Completed Stages\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Memory Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
