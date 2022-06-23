@@ -1,5 +1,5 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
-import { DatabaseCluster } from "aws-cdk-lib/aws-rds";
+import { IDatabaseCluster } from "aws-cdk-lib/aws-rds";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -8,12 +8,13 @@ const RdsNamespace = "AWS/RDS";
 export interface RdsClusterMetricFactoryProps {
   /**
    * database cluster identifier (either this or `cluster` need to be specified)
+   * @deprecated please use `cluster` instead
    */
   readonly clusterIdentifier?: string;
   /**
    * database cluster (either this or `clusterIdentifier` need to be specified)
    */
-  readonly cluster?: DatabaseCluster;
+  readonly cluster?: IDatabaseCluster;
 }
 
 export class RdsClusterMetricFactory {
@@ -37,13 +38,15 @@ export class RdsClusterMetricFactory {
     if (props.clusterIdentifier !== undefined && props.cluster === undefined) {
       return props.clusterIdentifier;
     } else if (
-      props.cluster !== undefined &&
-      props.clusterIdentifier === undefined
+      props.clusterIdentifier === undefined &&
+      props.cluster !== undefined
     ) {
       return props.cluster.clusterIdentifier;
+    } else if (props.cluster !== undefined && props.cluster !== undefined) {
+      throw Error("Only one of `clusterIdentifier` and `cluster` is supported");
     } else {
-      throw new Error(
-        "Specify either 'clusterIdentifier' or 'cluster', but not both."
+      throw Error(
+        "At least one of `clusterIdentifier` or `cluster` is required"
       );
     }
   }

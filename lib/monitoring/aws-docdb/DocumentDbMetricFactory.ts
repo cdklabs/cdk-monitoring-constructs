@@ -1,5 +1,5 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
-import { DatabaseCluster } from "aws-cdk-lib/aws-docdb";
+import { IDatabaseCluster } from "aws-cdk-lib/aws-docdb";
 
 import {
   getLatencyTypeLabel,
@@ -13,13 +13,9 @@ const DocumentDbNamespace = "AWS/DocDB";
 
 export interface DocumentDbMetricFactoryProps {
   /**
-   * database cluster identifier (either this or `cluster` need to be specified)
+   * database cluster
    */
-  readonly clusterIdentifier?: string;
-  /**
-   * database cluster (either this or `clusterIdentifier` need to be specified)
-   */
-  readonly cluster?: DatabaseCluster;
+  readonly cluster: IDatabaseCluster;
 }
 
 export class DocumentDbMetricFactory {
@@ -32,26 +28,8 @@ export class DocumentDbMetricFactory {
     props: DocumentDbMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.clusterIdentifier =
-      DocumentDbMetricFactory.resolveDbClusterIdentifier(props);
+    this.clusterIdentifier = props.cluster.clusterIdentifier;
     this.dimensionsMap = { DBClusterIdentifier: this.clusterIdentifier };
-  }
-
-  private static resolveDbClusterIdentifier(
-    props: DocumentDbMetricFactoryProps
-  ): string {
-    if (props.clusterIdentifier !== undefined && props.cluster === undefined) {
-      return props.clusterIdentifier;
-    } else if (
-      props.cluster !== undefined &&
-      props.clusterIdentifier === undefined
-    ) {
-      return props.cluster.clusterIdentifier;
-    } else {
-      throw new Error(
-        "Specify either 'clusterIdentifier' or 'cluster', but not both."
-      );
-    }
   }
 
   metricAverageCpuUsageInPercent() {
