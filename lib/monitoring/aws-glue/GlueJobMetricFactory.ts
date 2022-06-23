@@ -20,6 +20,7 @@ export class GlueJobMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
+  protected readonly typeCountDimensionsMap: DimensionsMap;
 
   constructor(metricFactory: MetricFactory, props: GlueJobMetricFactoryProps) {
     this.metricFactory = metricFactory;
@@ -29,6 +30,10 @@ export class GlueJobMetricFactory {
       Type: "gauge",
       JobRunId: "ALL",
       JobName: props.jobName,
+    };
+    this.typeCountDimensionsMap = {
+      ...this.dimensionsMap,
+      Type: "count",
     };
   }
 
@@ -96,7 +101,7 @@ export class GlueJobMetricFactory {
       "glue.driver.aggregate.numCompletedStages",
       MetricStatistic.SUM,
       "Completed Stages",
-      this.dimensionsMap,
+      this.typeCountDimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -107,7 +112,7 @@ export class GlueJobMetricFactory {
       "glue.driver.aggregate.numCompletedTasks",
       MetricStatistic.SUM,
       "Completed Tasks",
-      this.dimensionsMap,
+      this.typeCountDimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -118,7 +123,7 @@ export class GlueJobMetricFactory {
       "glue.driver.aggregate.numFailedTasks",
       MetricStatistic.SUM,
       "Failed Tasks",
-      this.dimensionsMap,
+      this.typeCountDimensionsMap,
       undefined,
       GlueNamespace
     );
@@ -139,7 +144,7 @@ export class GlueJobMetricFactory {
       "glue.driver.aggregate.numKilledTasks",
       MetricStatistic.SUM,
       "Killed Tasks",
-      this.dimensionsMap,
+      this.typeCountDimensionsMap,
       undefined,
       GlueNamespace
     );
