@@ -39586,7 +39586,7 @@ new DynamoTableMetricFactory(metricFactory: MetricFactory, props: DynamoTableMet
 ##### `metricAverageSuccessfulRequestLatencyInMillis` <a name="metricAverageSuccessfulRequestLatencyInMillis" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricAverageSuccessfulRequestLatencyInMillis"></a>
 
 ```typescript
-public metricAverageSuccessfulRequestLatencyInMillis(operation: Operation): Metric
+public metricAverageSuccessfulRequestLatencyInMillis(operation: Operation): Metric | MathExpression
 ```
 
 ###### `operation`<sup>Required</sup> <a name="operation" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricAverageSuccessfulRequestLatencyInMillis.parameter.operation"></a>
@@ -42543,7 +42543,7 @@ new LambdaFunctionMetricFactory(metricFactory: MetricFactory, props: LambdaFunct
 ##### `metricConcurrentExecutions` <a name="metricConcurrentExecutions" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricConcurrentExecutions"></a>
 
 ```typescript
-public metricConcurrentExecutions(): Metric
+public metricConcurrentExecutions(): Metric | MathExpression
 ```
 
 ##### `metricFaultCount` <a name="metricFaultCount" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricFaultCount"></a>
@@ -42591,13 +42591,13 @@ public metricLatencyP99InMillis(): Metric | MathExpression
 ##### `metricMaxIteratorAgeInMillis` <a name="metricMaxIteratorAgeInMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricMaxIteratorAgeInMillis"></a>
 
 ```typescript
-public metricMaxIteratorAgeInMillis(): Metric
+public metricMaxIteratorAgeInMillis(): Metric | MathExpression
 ```
 
 ##### `metricProvisionedConcurrencySpilloverInvocations` <a name="metricProvisionedConcurrencySpilloverInvocations" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricProvisionedConcurrencySpilloverInvocations"></a>
 
 ```typescript
-public metricProvisionedConcurrencySpilloverInvocations(): Metric
+public metricProvisionedConcurrencySpilloverInvocations(): Metric | MathExpression
 ```
 
 ##### `metricProvisionedConcurrencySpilloverRate` <a name="metricProvisionedConcurrencySpilloverRate" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricProvisionedConcurrencySpilloverRate"></a>
@@ -46756,7 +46756,7 @@ public metricConsumptionRate(): Metric | MathExpression
 ##### `metricDeletedMessageCount` <a name="metricDeletedMessageCount" id="cdk-monitoring-constructs.SqsQueueMetricFactory.metricDeletedMessageCount"></a>
 
 ```typescript
-public metricDeletedMessageCount(): Metric
+public metricDeletedMessageCount(): Metric | MathExpression
 ```
 
 ##### `metricIncomingMessageCount` <a name="metricIncomingMessageCount" id="cdk-monitoring-constructs.SqsQueueMetricFactory.metricIncomingMessageCount"></a>

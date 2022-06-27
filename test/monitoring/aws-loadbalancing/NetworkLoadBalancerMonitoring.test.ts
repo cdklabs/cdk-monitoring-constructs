@@ -7,6 +7,7 @@ import {
   AlarmWithAnnotation,
   NetworkLoadBalancerMonitoring,
 } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot nlb test: no alarms", () => {
@@ -22,12 +23,13 @@ test("snapshot nlb test: no alarms", () => {
     .addListener("Listener", { port: 80 })
     .addTargets("Target", { port: 80 });
 
-  new NetworkLoadBalancerMonitoring(scope, {
+  const monitoring = new NetworkLoadBalancerMonitoring(scope, {
     networkLoadBalancer,
     networkTargetGroup,
     alarmFriendlyName: "DummyNetworkLoadBalancer",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -46,7 +48,7 @@ test("snapshot nlb test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new NetworkLoadBalancerMonitoring(scope, {
+  const monitoring = new NetworkLoadBalancerMonitoring(scope, {
     networkLoadBalancer,
     networkTargetGroup,
     alarmFriendlyName: "DummyNetworkLoadBalancer",
@@ -77,6 +79,7 @@ test("snapshot nlb test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(4);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

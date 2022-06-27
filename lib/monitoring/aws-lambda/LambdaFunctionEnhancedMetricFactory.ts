@@ -73,9 +73,11 @@ export class LambdaFunctionEnhancedMetricFactory {
   }
 
   private enhancedMetricFunctionDuration() {
-    return this.lambdaFunction.metricDuration({
-      statistic: MetricStatistic.SUM,
-    });
+    return this.metricFactory.adaptMetric(
+      this.lambdaFunction.metricDuration({
+        statistic: MetricStatistic.SUM,
+      })
+    );
   }
 
   private enhancedMetric(
