@@ -74,6 +74,7 @@ You can also browse the documentation at https://constructs.dev/packages/cdk-mon
 | AWS CloudFront (`.monitorCloudFrontDistribution()`) | TPS, traffic, latency, errors | Error rate, low/high TPS | |
 | AWS CloudWatch Synthetics Canary (`.monitorSyntheticsCanary()`) | Latency, error count/rate | Error count/rate, latency | |
 | AWS CodeBuild (`.monitorCodeBuildProject()`) | Build counts (total, successful, failed), failed rate, duration | Failed build count/rate, duration | |
+| AWS DocumentDB (`.monitorDocumentDbCluster()`) | CPU, throttling, read/write latency, transactions, cursors | CPU | |
 | AWS DynamoDB (`.monitorDynamoTable()`) | Read and write capacity provisioned / used | Consumed capacity, throttling, latency, errors | |
 | AWS DynamoDB Global Secondary Index (`.monitorDynamoTableGlobalSecondaryIndex()`) | Read and write capacity, indexing progress, throttled events | | |
 | AWS EC2 (`.monitorEC2Instances()`) | CPU, disk operations, network | | |

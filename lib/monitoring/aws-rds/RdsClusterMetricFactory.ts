@@ -1,14 +1,24 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
+import { IDatabaseCluster } from "aws-cdk-lib/aws-rds";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
 const RdsNamespace = "AWS/RDS";
 
 export interface RdsClusterMetricFactoryProps {
-  readonly clusterIdentifier: string;
+  /**
+   * database cluster identifier (either this or `cluster` need to be specified)
+   * @deprecated please use `cluster` instead
+   */
+  readonly clusterIdentifier?: string;
+  /**
+   * database cluster (either this or `clusterIdentifier` need to be specified)
+   */
+  readonly cluster?: IDatabaseCluster;
 }
 
 export class RdsClusterMetricFactory {
+  readonly clusterIdentifier: string;
   protected readonly metricFactory: MetricFactory;
   protected readonly dimensionsMap: DimensionsMap;
 
@@ -17,9 +27,28 @@ export class RdsClusterMetricFactory {
     props: RdsClusterMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
-    this.dimensionsMap = {
-      DBClusterIdentifier: props.clusterIdentifier,
-    };
+    this.clusterIdentifier =
+      RdsClusterMetricFactory.resolveDbClusterIdentifier(props);
+    this.dimensionsMap = { DBClusterIdentifier: this.clusterIdentifier };
+  }
+
+  private static resolveDbClusterIdentifier(
+    props: RdsClusterMetricFactoryProps
+  ): string {
+    if (props.clusterIdentifier !== undefined && props.cluster === undefined) {
+      return props.clusterIdentifier;
+    } else if (
+      props.clusterIdentifier === undefined &&
+      props.cluster !== undefined
+    ) {
+      return props.cluster.clusterIdentifier;
+    } else if (props.cluster !== undefined && props.cluster !== undefined) {
+      throw Error("Only one of `clusterIdentifier` and `cluster` is supported");
+    } else {
+      throw Error(
+        "At least one of `clusterIdentifier` or `cluster` is required"
+      );
+    }
   }
 
   metricTotalConnectionCount() {

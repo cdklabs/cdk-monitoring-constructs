@@ -3,13 +3,12 @@ import {
   HorizontalAnnotation,
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
-
 import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
-  HalfWidth,
+  LatencyType,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
@@ -25,50 +24,52 @@ import {
   MonitoringNamingStrategy,
 } from "../../dashboard";
 import {
-  RdsClusterMetricFactory,
-  RdsClusterMetricFactoryProps,
-} from "./RdsClusterMetricFactory";
+  DocumentDbMetricFactory,
+  DocumentDbMetricFactoryProps,
+} from "./DocumentDbMetricFactory";
 
-export interface RdsClusterMonitoringOptions extends BaseMonitoringProps {
-  readonly addDiskSpaceUsageAlarm?: Record<string, UsageThreshold>;
+export interface DocumentDbMonitoringOptions extends BaseMonitoringProps {
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
 }
 
-export interface RdsClusterMonitoringProps
-  extends RdsClusterMetricFactoryProps,
-    RdsClusterMonitoringOptions {}
+export interface DocumentDbMonitoringProps
+  extends DocumentDbMetricFactoryProps,
+    DocumentDbMonitoringOptions {}
 
-export class RdsClusterMonitoring extends Monitoring {
+export class DocumentDbMonitoring extends Monitoring {
   protected readonly title: string;
   protected readonly url?: string;
 
   protected readonly usageAlarmFactory: UsageAlarmFactory;
   protected readonly usageAnnotations: HorizontalAnnotation[];
 
-  protected readonly connectionsMetric: MetricWithAlarmSupport;
-  protected readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
   protected readonly cpuUsageMetric: MetricWithAlarmSupport;
-  protected readonly selectLatencyMetric: MetricWithAlarmSupport;
-  protected readonly insertLatencyMetric: MetricWithAlarmSupport;
-  protected readonly updateLatencyMetric: MetricWithAlarmSupport;
-  protected readonly deleteLatencyMetric: MetricWithAlarmSupport;
-  protected readonly commitLatencyMetric: MetricWithAlarmSupport;
+  protected readonly readLatencyMetric: MetricWithAlarmSupport;
+  protected readonly writeLatencyMetric: MetricWithAlarmSupport;
+  protected readonly connectionsMetric: MetricWithAlarmSupport;
+  protected readonly cursorsMetric: MetricWithAlarmSupport;
+  protected readonly transactionsMetric: MetricWithAlarmSupport;
+  protected readonly throttledMetric: MetricWithAlarmSupport;
 
-  constructor(scope: MonitoringScope, props: RdsClusterMonitoringProps) {
+  constructor(scope: MonitoringScope, props: DocumentDbMonitoringProps) {
     super(scope, props);
 
-    const metricFactory = new RdsClusterMetricFactory(
+    const metricFactory = new DocumentDbMetricFactory(
       scope.createMetricFactory(),
       props
     );
-    this.connectionsMetric = metricFactory.metricTotalConnectionCount();
-    this.diskSpaceUsageMetric = metricFactory.metricDiskSpaceUsageInPercent();
     this.cpuUsageMetric = metricFactory.metricAverageCpuUsageInPercent();
-    this.selectLatencyMetric = metricFactory.metricSelectLatencyP90InMillis();
-    this.insertLatencyMetric = metricFactory.metricInsertLatencyP90InMillis();
-    this.updateLatencyMetric = metricFactory.metricUpdateLatencyP90InMillis();
-    this.deleteLatencyMetric = metricFactory.metricDeleteLatencyP90InMillis();
-    this.commitLatencyMetric = metricFactory.metricCommitLatencyP90InMillis();
+    this.readLatencyMetric = metricFactory.metricReadLatencyInMillis(
+      LatencyType.P90
+    );
+    this.writeLatencyMetric = metricFactory.metricWriteLatencyInMillis(
+      LatencyType.P90
+    );
+    this.connectionsMetric = metricFactory.metricMaxConnectionCount();
+    this.cursorsMetric = metricFactory.metricMaxCursorCount();
+    this.transactionsMetric = metricFactory.metricMaxTransactionOpenCount();
+    this.throttledMetric =
+      metricFactory.metricOperationsThrottledDueLowMemoryCount();
 
     const namingStrategy = new MonitoringNamingStrategy({
       ...props,
@@ -78,23 +79,13 @@ export class RdsClusterMonitoring extends Monitoring {
     this.title = namingStrategy.resolveHumanReadableName();
     this.url = scope
       .createAwsConsoleUrlFactory()
-      .getRdsClusterUrl(metricFactory.clusterIdentifier);
+      .getDocumentDbClusterUrl(metricFactory.clusterIdentifier);
     const alarmFactory = this.createAlarmFactory(
       namingStrategy.resolveAlarmFriendlyName()
     );
+
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
     this.usageAnnotations = [];
-
-    for (const disambiguator in props.addDiskSpaceUsageAlarm) {
-      const alarmProps = props.addDiskSpaceUsageAlarm[disambiguator];
-      const createdAlarm = this.usageAlarmFactory.addMaxDiskUsagePercentAlarm(
-        this.diskSpaceUsageMetric,
-        alarmProps,
-        disambiguator
-      );
-      this.usageAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
-    }
 
     for (const disambiguator in props.addCpuUsageAlarm) {
       const alarmProps = props.addCpuUsageAlarm[disambiguator];
@@ -113,7 +104,7 @@ export class RdsClusterMonitoring extends Monitoring {
   summaryWidgets(): IWidget[] {
     return [
       this.createTitleWidget(),
-      this.createCpuAndDiskUsageWidget(ThirdWidth, DefaultSummaryWidgetHeight),
+      this.createResourceUsageWidget(ThirdWidth, DefaultSummaryWidgetHeight),
       this.createConnectionsWidget(ThirdWidth, DefaultSummaryWidgetHeight),
       this.createLatencyWidget(ThirdWidth, DefaultSummaryWidgetHeight),
     ];
@@ -122,26 +113,27 @@ export class RdsClusterMonitoring extends Monitoring {
   widgets(): IWidget[] {
     return [
       this.createTitleWidget(),
-      this.createCpuAndDiskUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createResourceUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
       this.createConnectionsWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createLatencyWidget(HalfWidth, DefaultGraphWidgetHeight),
+      this.createTransactionsWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
     ];
   }
 
   protected createTitleWidget() {
     return new MonitoringHeaderWidget({
-      family: "RDS Cluster",
+      family: "DocumentDB",
       title: this.title,
       goToLinkUrl: this.url,
     });
   }
 
-  protected createCpuAndDiskUsageWidget(width: number, height: number) {
+  protected createResourceUsageWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
-      title: "CPU/Disk Usage",
-      left: [this.cpuUsageMetric, this.diskSpaceUsageMetric],
+      title: "CPU Usage",
+      left: [this.cpuUsageMetric],
       leftYAxis: PercentageAxisFromZeroToHundred,
       leftAnnotations: this.usageAnnotations,
     });
@@ -157,18 +149,22 @@ export class RdsClusterMonitoring extends Monitoring {
     });
   }
 
+  protected createTransactionsWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Transactions",
+      left: [this.transactionsMetric, this.cursorsMetric],
+      leftYAxis: CountAxisFromZero,
+    });
+  }
+
   protected createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
-      title: "Query Duration",
-      left: [
-        this.selectLatencyMetric,
-        this.insertLatencyMetric,
-        this.updateLatencyMetric,
-        this.deleteLatencyMetric,
-        this.commitLatencyMetric,
-      ],
+      title: "Latency",
+      left: [this.readLatencyMetric, this.writeLatencyMetric],
       leftYAxis: TimeAxisMillisFromZero,
     });
   }

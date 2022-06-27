@@ -43,6 +43,8 @@ import {
   CodeBuildProjectMonitoringProps,
   CustomMonitoring,
   CustomMonitoringProps,
+  DocumentDbMonitoring,
+  DocumentDbMonitoringProps,
   DynamoTableGlobalSecondaryIndexMonitoring,
   DynamoTableGlobalSecondaryIndexMonitoringProps,
   DynamoTableMonitoring,
@@ -386,6 +388,12 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorCodeBuildProject(props: CodeBuildProjectMonitoringProps) {
     const segment = new CodeBuildProjectMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorDocumentDbCluster(props: DocumentDbMonitoringProps) {
+    const segment = new DocumentDbMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

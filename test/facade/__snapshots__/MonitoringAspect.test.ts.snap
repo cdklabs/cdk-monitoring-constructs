@@ -2463,6 +2463,1040 @@ Object {
 }
 `;
 
+exports[`MonitoringAspect DocumentDB 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "DashboardFactoryAlarmDashboard6286FAD3": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
+        "DashboardName": "DummyDashboard-Alarms",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardFactoryDashboard3E20AD6E": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DocumentDB **[DummyCluster](https://",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ".console.aws.amazon.com/docdb/home?region=",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "#cluster-details/",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"CPU Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"DatabaseConnectionsMax\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Transactions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"TransactionsOpenMax\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"Transactions\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/DocDB\\",\\"DatabaseCursorsMax\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"Cursors\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"ReadLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"Read P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/DocDB\\",\\"WriteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"Write P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"markdown\\":\\"### Secret **Secret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"SecretsManager\\",\\"DaysSinceLastChange\\",\\"SecretName\\",\\"",
+              Object {
+                "Fn::Join": Array [
+                  "-",
+                  Array [
+                    Object {
+                      "Fn::Select": Array [
+                        0,
+                        Object {
+                          "Fn::Split": Array [
+                            "-",
+                            Object {
+                              "Fn::Select": Array [
+                                6,
+                                Object {
+                                  "Fn::Split": Array [
+                                    ":",
+                                    Object {
+                                      "Ref": "DummyClusterSecret3E1F055F",
+                                    },
+                                  ],
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    Object {
+                      "Fn::Select": Array [
+                        1,
+                        Object {
+                          "Fn::Split": Array [
+                            "-",
+                            Object {
+                              "Fn::Select": Array [
+                                6,
+                                Object {
+                                  "Fn::Split": Array [
+                                    ":",
+                                    Object {
+                                      "Ref": "DummyClusterSecret3E1F055F",
+                                    },
+                                  ],
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                ],
+              },
+              "\\",{\\"label\\":\\"Days\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "DummyDashboard",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardFactorySummaryDashboard5F4BC8C5": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DocumentDB **[DummyCluster](https://",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ".console.aws.amazon.com/docdb/home?region=",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "#cluster-details/",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"CPU Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"DatabaseConnectionsMax\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/DocDB\\",\\"ReadLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"Read P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/DocDB\\",\\"WriteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyClusterBF18C710",
+              },
+              "\\",{\\"label\\":\\"Write P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### Secret **Secret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"SecretsManager\\",\\"DaysSinceLastChange\\",\\"SecretName\\",\\"",
+              Object {
+                "Fn::Join": Array [
+                  "-",
+                  Array [
+                    Object {
+                      "Fn::Select": Array [
+                        0,
+                        Object {
+                          "Fn::Split": Array [
+                            "-",
+                            Object {
+                              "Fn::Select": Array [
+                                6,
+                                Object {
+                                  "Fn::Split": Array [
+                                    ":",
+                                    Object {
+                                      "Ref": "DummyClusterSecret3E1F055F",
+                                    },
+                                  ],
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    Object {
+                      "Fn::Select": Array [
+                        1,
+                        Object {
+                          "Fn::Split": Array [
+                            "-",
+                            Object {
+                              "Fn::Select": Array [
+                                6,
+                                Object {
+                                  "Fn::Split": Array [
+                                    ":",
+                                    Object {
+                                      "Ref": "DummyClusterSecret3E1F055F",
+                                    },
+                                  ],
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                ],
+              },
+              "\\",{\\"label\\":\\"Days\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "DummyDashboard-Summary",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DummyClusterBF18C710": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "DBSubnetGroupName": Object {
+          "Ref": "DummyClusterSubnets9E6FBDF8",
+        },
+        "MasterUserPassword": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{{resolve:secretsmanager:",
+              Object {
+                "Ref": "DummyClusterSecret3E1F055F",
+              },
+              ":SecretString:password::}}",
+            ],
+          ],
+        },
+        "MasterUsername": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{{resolve:secretsmanager:",
+              Object {
+                "Ref": "DummyClusterSecret3E1F055F",
+              },
+              ":SecretString:username::}}",
+            ],
+          ],
+        },
+        "StorageEncrypted": true,
+        "VpcSecurityGroupIds": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "DummyClusterSecurityGroupD2F71D64",
+              "GroupId",
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::DocDB::DBCluster",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "DummyClusterInstance120C59FC5": Object {
+      "DeletionPolicy": "Retain",
+      "DependsOn": Array [
+        "DummyVpcPrivateSubnet1DefaultRouteE47453F6",
+        "DummyVpcPrivateSubnet2DefaultRoute4E564518",
+      ],
+      "Properties": Object {
+        "DBClusterIdentifier": Object {
+          "Ref": "DummyClusterBF18C710",
+        },
+        "DBInstanceClass": "db.r6g.large",
+      },
+      "Type": "AWS::DocDB::DBInstance",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "DummyClusterSecret3E1F055F": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "Description": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "Generated by the CDK for stack: ",
+              Object {
+                "Ref": "AWS::StackName",
+              },
+            ],
+          ],
+        },
+        "GenerateSecretString": Object {
+          "ExcludeCharacters": "\\"@/",
+          "GenerateStringKey": "password",
+          "PasswordLength": 41,
+          "SecretStringTemplate": "{\\"username\\":\\"master\\"}",
+        },
+      },
+      "Type": "AWS::SecretsManager::Secret",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "DummyClusterSecretAttachment14A21D31": Object {
+      "Properties": Object {
+        "SecretId": Object {
+          "Ref": "DummyClusterSecret3E1F055F",
+        },
+        "TargetId": Object {
+          "Ref": "DummyClusterBF18C710",
+        },
+        "TargetType": "AWS::DocDB::DBCluster",
+      },
+      "Type": "AWS::SecretsManager::SecretTargetAttachment",
+    },
+    "DummyClusterSecurityGroupD2F71D64": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "GroupDescription": "DocumentDB security group",
+        "SecurityGroupEgress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::SecurityGroup",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "DummyClusterSubnets9E6FBDF8": Object {
+      "Properties": Object {
+        "DBSubnetGroupDescription": "Subnets for DummyCluster database",
+        "SubnetIds": Array [
+          Object {
+            "Ref": "DummyVpcPrivateSubnet1SubnetAF2DFEB1",
+          },
+          Object {
+            "Ref": "DummyVpcPrivateSubnet2Subnet718780F7",
+          },
+        ],
+      },
+      "Type": "AWS::DocDB::DBSubnetGroup",
+    },
+    "DummyVpcB6C30D0C": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "DummyVpcIGW6BB373C0": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "DummyVpcPrivateSubnet1DefaultRouteE47453F6": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "DummyVpcPublicSubnet1NATGateway61554370",
+        },
+        "RouteTableId": Object {
+          "Ref": "DummyVpcPrivateSubnet1RouteTableD58FDCEA",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "DummyVpcPrivateSubnet1RouteTableAssociation88B5105F": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "DummyVpcPrivateSubnet1RouteTableD58FDCEA",
+        },
+        "SubnetId": Object {
+          "Ref": "DummyVpcPrivateSubnet1SubnetAF2DFEB1",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "DummyVpcPrivateSubnet1RouteTableD58FDCEA": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "DummyVpcPrivateSubnet1SubnetAF2DFEB1": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.128.0/18",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "DummyVpcPrivateSubnet2DefaultRoute4E564518": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "DummyVpcPublicSubnet2NATGateway867E77CE",
+        },
+        "RouteTableId": Object {
+          "Ref": "DummyVpcPrivateSubnet2RouteTable1FB64BA1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "DummyVpcPrivateSubnet2RouteTable1FB64BA1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "DummyVpcPrivateSubnet2RouteTableAssociationC3594446": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "DummyVpcPrivateSubnet2RouteTable1FB64BA1",
+        },
+        "SubnetId": Object {
+          "Ref": "DummyVpcPrivateSubnet2Subnet718780F7",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "DummyVpcPrivateSubnet2Subnet718780F7": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.192.0/18",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "DummyVpcPublicSubnet1DefaultRoute166DC84B": Object {
+      "DependsOn": Array [
+        "DummyVpcVPCGW1C2C3DF0",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "DummyVpcIGW6BB373C0",
+        },
+        "RouteTableId": Object {
+          "Ref": "DummyVpcPublicSubnet1RouteTable112DCFCF",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "DummyVpcPublicSubnet1EIPEF91269A": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "DummyVpcPublicSubnet1NATGateway61554370": Object {
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "DummyVpcPublicSubnet1EIPEF91269A",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "DummyVpcPublicSubnet1Subnet1073B36B",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "DummyVpcPublicSubnet1RouteTable112DCFCF": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "DummyVpcPublicSubnet1RouteTableAssociation8BCD2CE1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "DummyVpcPublicSubnet1RouteTable112DCFCF",
+        },
+        "SubnetId": Object {
+          "Ref": "DummyVpcPublicSubnet1Subnet1073B36B",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "DummyVpcPublicSubnet1Subnet1073B36B": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.0.0/18",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "DummyVpcPublicSubnet2DefaultRoute1C29EE76": Object {
+      "DependsOn": Array [
+        "DummyVpcVPCGW1C2C3DF0",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "DummyVpcIGW6BB373C0",
+        },
+        "RouteTableId": Object {
+          "Ref": "DummyVpcPublicSubnet2RouteTableCC0ACEA3",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "DummyVpcPublicSubnet2EIP0CF5EE71": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "DummyVpcPublicSubnet2NATGateway867E77CE": Object {
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "DummyVpcPublicSubnet2EIP0CF5EE71",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "DummyVpcPublicSubnet2SubnetD8B68431",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "DummyVpcPublicSubnet2RouteTableAssociationDCE3DC57": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "DummyVpcPublicSubnet2RouteTableCC0ACEA3",
+        },
+        "SubnetId": Object {
+          "Ref": "DummyVpcPublicSubnet2SubnetD8B68431",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "DummyVpcPublicSubnet2RouteTableCC0ACEA3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "DummyVpcPublicSubnet2SubnetD8B68431": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.64.0/18",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyVpc/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "DummyVpcVPCGW1C2C3DF0": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "DummyVpcIGW6BB373C0",
+        },
+        "VpcId": Object {
+          "Ref": "DummyVpcB6C30D0C",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": Object {
+      "DependsOn": Array [
+        "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+        "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "558dc75fbdc793c8e2f64f85d2d7ed2cb820c727ec7e9b08666ad1af0103992e.zip",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "logs:PutRetentionPolicy",
+                "logs:DeleteRetentionPolicy",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+        "Roles": Array [
+          Object {
+            "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B": Object {
+      "DependsOn": Array [
+        "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRoleDefaultPolicy7DBCFAF5",
+        "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRole7F0151FB",
+      ],
+      "Properties": Object {
+        "Architectures": Array [
+          "arm64",
+        ],
+        "Code": Object {
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "370b9814d54928ec69d6005dd678b0f594a594948aa3322141bf10679ac71ee3.zip",
+        },
+        "Description": "Custom metrics publisher for SecretsManager Secrets (MonitoringCDKConstructs)",
+        "Handler": "index.handler",
+        "MemorySize": 128,
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRole7F0151FB",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+        "Timeout": 60,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "MonitoringFacadeSecretsManagerMetricsPublisherLambdaLogRetention5A555562": Object {
+      "Properties": Object {
+        "LogGroupName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "/aws/lambda/",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRole7F0151FB": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRoleDefaultPolicy7DBCFAF5": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "secretsmanager:DescribeSecret",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            Object {
+              "Action": "cloudwatch:PutMetricData",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "cloudwatch:namespace": "SecretsManager",
+                },
+              },
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRoleDefaultPolicy7DBCFAF5",
+        "Roles": Array [
+          Object {
+            "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRole7F0151FB",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyClusterSecret9272710A666FA362": Object {
+      "Properties": Object {
+        "ScheduleExpression": "cron(0 * * * ? *)",
+        "State": "ENABLED",
+        "Targets": Array [
+          Object {
+            "Arn": Object {
+              "Fn::GetAtt": Array [
+                "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+                "Arn",
+              ],
+            },
+            "Id": "Target0",
+            "Input": Object {
+              "Fn::Join": Array [
+                "",
+                Array [
+                  "{\\"secretId\\":\\"",
+                  Object {
+                    "Ref": "DummyClusterSecret3E1F055F",
+                  },
+                  "\\"}",
+                ],
+              ],
+            },
+          },
+        ],
+      },
+      "Type": "AWS::Events::Rule",
+    },
+    "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyClusterSecret9272710AAllowEventRuleMonitoringFacadeSecretsManagerMetricsPublisherLambda629BCAEFC741BF73": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+            "Arn",
+          ],
+        },
+        "Principal": "events.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyClusterSecret9272710A666FA362",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`MonitoringAspect DynamoDB 1`] = `
 Object {
   "Parameters": Object {
@@ -5437,7 +6471,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[Default/DummyDBCluster](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[DummyDBCluster](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5569,7 +6603,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[Default/DummyDBCluster](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[DummyDBCluster](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5843,247 +6877,6 @@ Object {
         ],
       },
       "Type": "AWS::RDS::DBSubnetGroup",
-    },
-    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": Object {
-      "DependsOn": Array [
-        "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
-        "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
-      ],
-      "Properties": Object {
-        "Code": Object {
-          "S3Bucket": Object {
-            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
-          },
-          "S3Key": "558dc75fbdc793c8e2f64f85d2d7ed2cb820c727ec7e9b08666ad1af0103992e.zip",
-        },
-        "Handler": "index.handler",
-        "Role": Object {
-          "Fn::GetAtt": Array [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs14.x",
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                "arn:",
-                Object {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
-                "logs:PutRetentionPolicy",
-                "logs:DeleteRetentionPolicy",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
-        "Roles": Array [
-          Object {
-            "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B": Object {
-      "DependsOn": Array [
-        "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRoleDefaultPolicy7DBCFAF5",
-        "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRole7F0151FB",
-      ],
-      "Properties": Object {
-        "Architectures": Array [
-          "arm64",
-        ],
-        "Code": Object {
-          "S3Bucket": Object {
-            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
-          },
-          "S3Key": "370b9814d54928ec69d6005dd678b0f594a594948aa3322141bf10679ac71ee3.zip",
-        },
-        "Description": "Custom metrics publisher for SecretsManager Secrets (MonitoringCDKConstructs)",
-        "Handler": "index.handler",
-        "MemorySize": 128,
-        "Role": Object {
-          "Fn::GetAtt": Array [
-            "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRole7F0151FB",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs14.x",
-        "Timeout": 60,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "MonitoringFacadeSecretsManagerMetricsPublisherLambdaLogRetention5A555562": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
-            "",
-            Array [
-              "/aws/lambda/",
-              Object {
-                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
-              },
-            ],
-          ],
-        },
-        "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::LogRetention",
-    },
-    "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRole7F0151FB": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                "arn:",
-                Object {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRoleDefaultPolicy7DBCFAF5": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "secretsmanager:DescribeSecret",
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            Object {
-              "Action": "cloudwatch:PutMetricData",
-              "Condition": Object {
-                "StringEquals": Object {
-                  "cloudwatch:namespace": "SecretsManager",
-                },
-              },
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRoleDefaultPolicy7DBCFAF5",
-        "Roles": Array [
-          Object {
-            "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambdaServiceRole7F0151FB",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyDBClusterSecretD1842629AllowEventRuleMonitoringFacadeSecretsManagerMetricsPublisherLambda629BCAEF0F3129A8": Object {
-      "Properties": Object {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
-            "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
-            "Arn",
-          ],
-        },
-        "Principal": "events.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::GetAtt": Array [
-            "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyDBClusterSecretD1842629B7399DC7",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "MonitoringFacadeSecretsManagerMetricsPublisherRuleForDummyDBClusterSecretD1842629B7399DC7": Object {
-      "Properties": Object {
-        "ScheduleExpression": "cron(0 * * * ? *)",
-        "State": "ENABLED",
-        "Targets": Array [
-          Object {
-            "Arn": Object {
-              "Fn::GetAtt": Array [
-                "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
-                "Arn",
-              ],
-            },
-            "Id": "Target0",
-            "Input": Object {
-              "Fn::Join": Array [
-                "",
-                Array [
-                  "{\\"secretId\\":\\"",
-                  Object {
-                    "Ref": "DummyDBClusterSecret2F6224EE",
-                  },
-                  "\\"}",
-                ],
-              ],
-            },
-          },
-        ],
-      },
-      "Type": "AWS::Events::Rule",
     },
     "Vpc8378EB38": Object {
       "Properties": Object {

@@ -6,6 +6,7 @@ export * from "./aws-billing";
 export * from "./aws-cloudfront";
 export * from "./aws-cloudwatch";
 export * from "./aws-codebuild";
+export * from "./aws-docdb";
 export * from "./aws-dynamo";
 export * from "./aws-ec2";
 export * from "./aws-ecs-patterns";

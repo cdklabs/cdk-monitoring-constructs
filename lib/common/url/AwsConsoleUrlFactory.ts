@@ -143,6 +143,12 @@ export class AwsConsoleUrlFactory {
     }
   }
 
+  getDocumentDbClusterUrl(clusterId: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/docdb/home?region=${region}#cluster-details/${clusterId}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
   /**
    * Resolves a destination URL within a resolution context.
    * @param context The resolution context.
