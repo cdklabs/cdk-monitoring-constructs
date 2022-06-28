@@ -10,9 +10,11 @@ import {
 import {
   AxisPosition,
   CustomMonitoring,
+  GraphWidgetType,
   MetricFactory,
   MetricStatistic,
 } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 const namespace = "DummyCustomNamespace";
@@ -24,7 +26,7 @@ test("snapshot test", () => {
 
   let numAlarmsCreated = 0;
 
-  new CustomMonitoring(scope, {
+  const monitoring = new CustomMonitoring(scope, {
     alarmFriendlyName: "DummyAlarmName",
     humanReadableName: "DummyName",
     description:
@@ -68,6 +70,7 @@ test("snapshot test", () => {
       },
       {
         title: "DummyGroup2",
+        graphWidgetType: GraphWidgetType.BAR,
         metrics: [
           // regular metric
           new Metric({ metricName: "DummyMetric10", namespace, dimensionsMap }),
@@ -99,6 +102,7 @@ test("snapshot test", () => {
       },
       {
         title: "DummyGroup3",
+        graphWidgetType: GraphWidgetType.PIE,
         metrics: [
           // regular metric
           new Metric({ metricName: "DummyMetric20", namespace, dimensionsMap }),
@@ -145,6 +149,14 @@ test("snapshot test", () => {
           { label: "DummyAnnotation3", value: 20, fill: Shading.BELOW },
         ],
       },
+      {
+        title: "DummyGroup4",
+        graphWidgetType: GraphWidgetType.SINGLE_VALUE,
+        metrics: [
+          new Metric({ metricName: "DummyMetric40", namespace, dimensionsMap }),
+          new Metric({ metricName: "DummyMetric41", namespace, dimensionsMap }),
+        ],
+      },
     ],
     useCreatedAlarms: {
       consume(alarms) {
@@ -154,6 +166,8 @@ test("snapshot test", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(6);
+
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 

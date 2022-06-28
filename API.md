@@ -49930,6 +49930,7 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 | <code><a href="#cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA">STACKED_AREA</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GraphWidgetType.PIE">PIE</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GraphWidgetType.BAR">BAR</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GraphWidgetType.SINGLE_VALUE">SINGLE_VALUE</a></code> | *No description.* |
 
 ---
 
@@ -49949,6 +49950,11 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 ##### `BAR` <a name="BAR" id="cdk-monitoring-constructs.GraphWidgetType.BAR"></a>
+
+---
+
+
+##### `SINGLE_VALUE` <a name="SINGLE_VALUE" id="cdk-monitoring-constructs.GraphWidgetType.SINGLE_VALUE"></a>
 
 ---
 
