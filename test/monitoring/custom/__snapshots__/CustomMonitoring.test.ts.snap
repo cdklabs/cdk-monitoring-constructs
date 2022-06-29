@@ -401,6 +401,114 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric3WarningA3421ECE",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric3Critical2B202C0B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric12WarningA3D33CD3",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric12Critical71A1C38A",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric22Warning4F0C643F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric22CriticalB723921F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DummyName\\"}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":2,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"markdown\\":\\"This is a very long description.\\\\nSecond line of this very long description.\\\\nThird line of this very long description.\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":3,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DummyGroup1\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyCustomNamespace\\",\\"DummyMetric1\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric2\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric3\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{DummyCustomNamespace,CustomDimension} CustomDimension=\\\\\\"CustomDimensionValue\\\\\\" DummyMetric4-', 'Sum', 300)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DummyMetric3 < 90 for 3 datapoints within 15 minutes\\",\\"value\\":90,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"DummyMetric3 < 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":3,\\"properties\\":{\\"view\\":\\"bar\\",\\"title\\":\\"DummyGroup2\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyCustomNamespace\\",\\"DummyMetric10\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric11\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric12\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DummyAnnotation1\\",\\"value\\":30,\\"fill\\":\\"above\\",\\"yAxis\\":\\"left\\"},{\\"label\\":\\"DummyAnnotation2\\",\\"value\\":20,\\"fill\\":\\"below\\",\\"yAxis\\":\\"left\\"},{\\"label\\":\\"DummyMetric12 > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"DummyMetric12 > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":3,\\"properties\\":{\\"view\\":\\"pie\\",\\"title\\":\\"DummyGroup3\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyCustomNamespace\\",\\"DummyMetric20\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric21\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric22\\",\\"CustomDimension\\",\\"CustomDimensionValue\\",{\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DummyAnnotation1\\",\\"value\\":30,\\"fill\\":\\"above\\",\\"yAxis\\":\\"left\\"},{\\"label\\":\\"DummyAnnotation2\\",\\"value\\":20,\\"fill\\":\\"below\\",\\"yAxis\\":\\"left\\"},{\\"label\\":\\"DummyAnnotation3\\",\\"value\\":20,\\"fill\\":\\"below\\",\\"yAxis\\":\\"right\\"},{\\"label\\":\\"DummyMetric22 > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"DummyMetric22 > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"right\\":{\\"label\\":\\"CustomValue\\"}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":18,\\"y\\":3,\\"properties\\":{\\"view\\":\\"singleValue\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyCustomNamespace\\",\\"DummyMetric40\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric41\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"]]}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "ScopeTestDummyAlarmNameAlarmForDummyMetric12Critical71A1C38A": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -538,6 +646,23 @@ Object {
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DummyName\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DummyGroup1\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyCustomNamespace\\",\\"DummyMetric1\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric2\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[\\"DummyCustomNamespace\\",\\"DummyMetric3\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{DummyCustomNamespace,CustomDimension} CustomDimension=\\\\\\"CustomDimensionValue\\\\\\" DummyMetric4-', 'Sum', 300)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DummyMetric3 < 90 for 3 datapoints within 15 minutes\\",\\"value\\":90,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"DummyMetric3 < 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {

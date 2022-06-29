@@ -328,7 +328,7 @@ export class CustomMonitoring extends Monitoring {
     annotatedGroups: CustomMetricGroupWithAnnotations[],
     summary: boolean
   ) {
-    const widgets: GraphWidget[] = [];
+    const widgets: IWidget[] = [];
     const metricGroupWidgetWidth = recommendedWidgetWidth(
       annotatedGroups.length
     );
