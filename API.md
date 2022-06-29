@@ -1983,6 +1983,9 @@ const addAlarmProps: AddAlarmProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 
@@ -2237,6 +2240,45 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -2613,6 +2655,9 @@ const alarmAnnotationStrategyProps: AlarmAnnotationStrategyProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.threshold">threshold</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | *No description.* |
 
 ---
 
@@ -2733,6 +2778,36 @@ public readonly threshold: number;
 ```
 
 - *Type:* number
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
 
 ---
 

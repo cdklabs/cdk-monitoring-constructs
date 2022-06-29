@@ -16,6 +16,9 @@ export interface AlarmAnnotationStrategyProps extends AlarmMetadata {
   readonly datapointsToAlarm: number;
   readonly evaluationPeriods: number;
   readonly fillAlarmRange: boolean;
+  readonly overrideAnnotationColor?: string;
+  readonly overrideAnnotationLabel?: string;
+  readonly overrideAnnotationVisibility?: boolean;
 }
 
 /**
@@ -36,9 +39,21 @@ export abstract class FillingAlarmAnnotationStrategy
   implements IAlarmAnnotationStrategy
 {
   createAnnotation(props: AlarmAnnotationStrategyProps): HorizontalAnnotation {
-    const annotation = this.createAnnotationToFill(props);
+    let annotation = this.createAnnotationToFill(props);
     if (props.fillAlarmRange) {
-      return { ...annotation, fill: this.getAlarmingRangeShade(props) };
+      annotation = { ...annotation, fill: this.getAlarmingRangeShade(props) };
+    }
+    if (props.overrideAnnotationColor) {
+      annotation = { ...annotation, color: props.overrideAnnotationColor };
+    }
+    if (props.overrideAnnotationLabel) {
+      annotation = { ...annotation, label: props.overrideAnnotationLabel };
+    }
+    if (props.overrideAnnotationVisibility) {
+      annotation = {
+        ...annotation,
+        visible: props.overrideAnnotationVisibility,
+      };
     }
     return annotation;
   }
