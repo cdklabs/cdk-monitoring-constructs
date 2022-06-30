@@ -12407,7 +12407,8 @@ const dynamoTableMetricFactoryProps: DynamoTableMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | table to monitor. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.billingMode">billingMode</a></code> | <code>aws-cdk-lib.aws_dynamodb.BillingMode</code> | table billing mode. |
 
 ---
 
@@ -12418,6 +12419,21 @@ public readonly table: ITable;
 ```
 
 - *Type:* aws-cdk-lib.aws_dynamodb.ITable
+
+table to monitor.
+
+---
+
+##### `billingMode`<sup>Optional</sup> <a name="billingMode" id="cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.billingMode"></a>
+
+```typescript
+public readonly billingMode: BillingMode;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.BillingMode
+- *Default:* best effort auto-detection or PROVISIONED as a fallback
+
+table billing mode.
 
 ---
 
@@ -12711,7 +12727,8 @@ const dynamoTableMonitoringProps: DynamoTableMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | table to monitor. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.billingMode">billingMode</a></code> | <code>aws-cdk-lib.aws_dynamodb.BillingMode</code> | table billing mode. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -12743,6 +12760,21 @@ public readonly table: ITable;
 ```
 
 - *Type:* aws-cdk-lib.aws_dynamodb.ITable
+
+table to monitor.
+
+---
+
+##### `billingMode`<sup>Optional</sup> <a name="billingMode" id="cdk-monitoring-constructs.DynamoTableMonitoringProps.property.billingMode"></a>
+
+```typescript
+public readonly billingMode: BillingMode;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.BillingMode
+- *Default:* best effort auto-detection or PROVISIONED as a fallback
+
+table billing mode.
 
 ---
 

@@ -1344,3 +1344,1310 @@ Object {
   },
 }
 `;
+
+exports[`snapshot test: pay-per-request, all alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableReadConsumedCapacityWarning52236D61",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableWriteConsumedCapacityWarningDF6AC1B0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableReadThrottledEventsWarningD71B0A14",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableWriteThrottledEventsWarning50D70CB9",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableSystemErrorCountWarning7E931197",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageGetRecordsWarning82DF1F20",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageQueryWarning49AF55CE",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageScanWarning609C9E1C",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAveragePutItemWarningB14582BC",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageGetItemWarningE365AEB3",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageUpdateItemWarning6A127C47",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageDeleteItemWarning13699989",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageBatchGetItemWarning93533EB0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageBatchWriteItemWarning44120D91",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[DummyTable](https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Read Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_rcu_sum/PERIOD(consumed_rcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 35 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_wcu_sum/PERIOD(consumed_wcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 30 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":9,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (Average)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/DynamoDB,TableName,Operation} TableName=\\\\\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\\\\\" MetricName=\\\\\\"SuccessfulRequestLatency\\\\\\"', 'Average', 300)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"GetRecords > 500 for 3 datapoints within 15 minutes\\",\\"value\\":500,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Query > 501 for 3 datapoints within 15 minutes\\",\\"value\\":501,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Scan > 502 for 3 datapoints within 15 minutes\\",\\"value\\":502,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"PutItem > 503 for 3 datapoints within 15 minutes\\",\\"value\\":503,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"GetItem > 504 for 3 datapoints within 15 minutes\\",\\"value\\":504,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"UpdateItem > 505 for 3 datapoints within 15 minutes\\",\\"value\\":505,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"DeleteItem > 506 for 3 datapoints within 15 minutes\\",\\"value\\":506,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"BatchGetItem > 507 for 3 datapoints within 15 minutes\\",\\"value\\":507,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"BatchWriteItem > 508 for 3 datapoints within 15 minutes\\",\\"value\\":508,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":6,\\"x\\":15,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Read\\",\\"expression\\":\\"FILL(readThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"ReadThrottleEvents\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"System Errors\\",\\"expression\\":\\"systemErrorGetItem+systemErrorBatchGetItem+systemErrorScan+systemErrorQuery+systemErrorGetRecords+systemErrorPutItem+systemErrorDeleteItem+systemErrorUpdateItem+systemErrorBatchWriteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorScan\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorQuery\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetRecords\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorPutItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorDeleteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorUpdateItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchWriteItem\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"System Errors > 5 for 3 datapoints within 40 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyTableLatencyAverageBatchGetItemWarning93533EB0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-BatchGetItem-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "BatchGetItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "BatchGetItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 507,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableLatencyAverageBatchWriteItemWarning44120D91": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-BatchWriteItem-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "BatchWriteItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "BatchWriteItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 508,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableLatencyAverageDeleteItemWarning13699989": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-DeleteItem-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "DeleteItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "DeleteItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 506,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableLatencyAverageGetItemWarningE365AEB3": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-GetItem-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "GetItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "GetItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 504,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableLatencyAverageGetRecordsWarning82DF1F20": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-GetRecords-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "GetRecords",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "GetRecords",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 500,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableLatencyAveragePutItemWarningB14582BC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-PutItem-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "PutItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "PutItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 503,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableLatencyAverageQueryWarning49AF55CE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-Query-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Query",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "Query",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 501,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableLatencyAverageScanWarning609C9E1C": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-Scan-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Scan",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "Scan",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 502,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableLatencyAverageUpdateItemWarning6A127C47": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-DummyTable-Latency-Average-UpdateItem-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "UpdateItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "UpdateItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 505,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableReadConsumedCapacityWarning52236D61": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Read consumed capacity is too high.",
+        "AlarmName": "Test-DummyTable-Read-Consumed-Capacity-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 7,
+        "Metrics": Array [
+          Object {
+            "Expression": "consumed_rcu_sum/PERIOD(consumed_rcu_sum)",
+            "Id": "expr_1",
+            "Label": "Consumed",
+          },
+          Object {
+            "Id": "consumed_rcu_sum",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "ConsumedReadCapacityUnits",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableReadThrottledEventsWarningD71B0A14": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Read throttled events above threshold.",
+        "AlarmName": "Test-DummyTable-Read-Throttled-Events-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(readThrottles,0)",
+            "Id": "expr_1",
+            "Label": "Read",
+          },
+          Object {
+            "Id": "readThrottles",
+            "Label": "Read",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "ReadThrottleEvents",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableSystemErrorCountWarning7E931197": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "SystemError count is too high.",
+        "AlarmName": "Test-DummyTable-SystemError-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 8,
+        "Metrics": Array [
+          Object {
+            "Expression": "systemErrorGetItem+systemErrorBatchGetItem+systemErrorScan+systemErrorQuery+systemErrorGetRecords+systemErrorPutItem+systemErrorDeleteItem+systemErrorUpdateItem+systemErrorBatchWriteItem",
+            "Id": "expr_1",
+            "Label": "System Errors",
+          },
+          Object {
+            "Id": "systemErrorGetItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "GetItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "systemErrorBatchGetItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "BatchGetItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "systemErrorScan",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "Scan",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "systemErrorQuery",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "Query",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "systemErrorGetRecords",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "GetRecords",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "systemErrorPutItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "PutItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "systemErrorDeleteItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "DeleteItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "systemErrorUpdateItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "UpdateItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "systemErrorBatchWriteItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "BatchWriteItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "SystemErrors",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableWriteConsumedCapacityWarningDF6AC1B0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Write consumed capacity is too high.",
+        "AlarmName": "Test-DummyTable-Write-Consumed-Capacity-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 6,
+        "Metrics": Array [
+          Object {
+            "Expression": "consumed_wcu_sum/PERIOD(consumed_wcu_sum)",
+            "Id": "expr_1",
+            "Label": "Consumed",
+          },
+          Object {
+            "Id": "consumed_wcu_sum",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "ConsumedWriteCapacityUnits",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableWriteThrottledEventsWarning50D70CB9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Write throttled events above threshold.",
+        "AlarmName": "Test-DummyTable-Write-Throttled-Events-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(writeThrottles,0)",
+            "Id": "expr_1",
+            "Label": "Write",
+          },
+          Object {
+            "Id": "writeThrottles",
+            "Label": "Write",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "WriteThrottleEvents",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[DummyTable](https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Read Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_rcu_sum/PERIOD(consumed_rcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 35 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_wcu_sum/PERIOD(consumed_wcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 30 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "TableCD117FA1": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "AttributeDefinitions": Array [
+          Object {
+            "AttributeName": "id",
+            "AttributeType": "S",
+          },
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "KeySchema": Array [
+          Object {
+            "AttributeName": "id",
+            "KeyType": "HASH",
+          },
+        ],
+        "TableName": "DummyTable",
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: pay-per-request, no alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[DummyTable](https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Read Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_rcu_sum/PERIOD(consumed_rcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_wcu_sum/PERIOD(consumed_wcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":9,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (Average)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/DynamoDB,TableName,Operation} TableName=\\\\\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\\\\\" MetricName=\\\\\\"SuccessfulRequestLatency\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":6,\\"x\\":15,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Read\\",\\"expression\\":\\"FILL(readThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"ReadThrottleEvents\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"label\\":\\"Write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"System Errors\\",\\"expression\\":\\"systemErrorGetItem+systemErrorBatchGetItem+systemErrorScan+systemErrorQuery+systemErrorGetRecords+systemErrorPutItem+systemErrorDeleteItem+systemErrorUpdateItem+systemErrorBatchWriteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorScan\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorQuery\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetRecords\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorPutItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorDeleteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorUpdateItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchWriteItem\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[DummyTable](https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Read Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_rcu_sum/PERIOD(consumed_rcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_wcu_sum/PERIOD(consumed_wcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              Object {
+                "Ref": "TableCD117FA1",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "TableCD117FA1": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "AttributeDefinitions": Array [
+          Object {
+            "AttributeName": "id",
+            "AttributeType": "S",
+          },
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "KeySchema": Array [
+          Object {
+            "AttributeName": "id",
+            "KeyType": "HASH",
+          },
+        ],
+        "TableName": "DummyTable",
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

@@ -1,5 +1,5 @@
 import { IMetric } from "aws-cdk-lib/aws-cloudwatch";
-import { ITable, Operation } from "aws-cdk-lib/aws-dynamodb";
+import { BillingMode, ITable, Operation } from "aws-cdk-lib/aws-dynamodb";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -13,7 +13,16 @@ const WriteThrottleEventsLabel = "Write";
 const SystemErrorsLabel = "System Errors";
 
 export interface DynamoTableMetricFactoryProps {
+  /**
+   * table to monitor
+   */
   readonly table: ITable;
+  /**
+   * table billing mode
+   *
+   * @default best effort auto-detection or PROVISIONED as a fallback
+   */
+  readonly billingMode?: BillingMode;
 }
 
 export class DynamoTableMetricFactory {
