@@ -179,13 +179,89 @@ All the widgets will have the same size, which is chosen based on the number of 
 Custom metric monitoring can be created for simple metrics, simple metrics with anomaly detection and search metrics.
 The first two also support alarming.
 
-### Custom monitoring
+Below we are listing a couple of examples. Let us assume that there are three existing metric variables: `m1`, `m2`, `m3`.
+They can either be created by hand (`new Metric({...})`) or (preferably) by using `metricFactory` (that can be obtained from facade).
+The advantage of using the shared `metricFactory` is that you do not need to worry about period, etc. 
+
+```ts
+// create metrics manually
+const m1 = new Metric(/* ... */);
+```
+
+```ts
+const metricFactory = monitoringFacade.createMetricFactory();
+
+// create metrics using metric factory
+const m1 = metricFactory.createMetric(/* ... */);
+```
+
+#### Example: metric with anomaly detection
+
+In this case, only one metric is supported. 
+Multiple metrics cannot be rendered with anomaly detection in a single widget due to a CloudWatch limitation.
+
+```ts
+monitorCustom({
+    title: "Metric with anomaly detection",
+    metrics: [
+        {
+            metric: m1,
+            anomalyDetectionStandardDeviationToRender: 3
+        }
+    ]
+})
+```
+
+Adding an alarm:
+
+```ts
+monitorCustom({
+    title: "Metric with anomaly detection and alarm",
+    metrics: [
+        {
+            metric: m1,
+            alarmFriendlyName: "MetricWithAnomalyDetectionAlarm",
+            anomalyDetectionStandardDeviationToRender: 3,
+            addAlarmOnAnomaly: {
+                Warning: {
+                    standardDeviationForAlarm: 4,
+                    alarmWhenAboveTheBand: true,
+                    alarmWhenBelowTheBand: true
+                }
+            }
+        }
+    ]
+})
+```
+
+#### Example: search metrics
+
+```ts
+monitorCustom({
+    title: "Metric search",
+    metrics: [
+        {
+            searchQuery: "My.Prefix.",
+            dimensionsMap: {
+                FirstDimension: "FirstDimensionValue",
+                // allow any value for the given dimension
+                // (pardon the weird typing due to JSII)
+                SecondDimension: undefined as unknown as string
+            }
+        }
+    ]
+})
+```
+
+Search metric does not support setting an alarm, that is a CloudWatch limitation.
+
+### Custom monitoring segment
 
 If you want even more flexibility, you can create your own Dashboard Segment.
 
 This is a general procedure on how to do it:
 
-1. Extend the `Monitoring` ckass
+1. Extend the `Monitoring` class
 1. Override the `widgets()` method (and/or similar ones)
 1. Leverage the metric factor and alarm factory, provided by the base class (you can create additional factories, if you will)
 1. Add all alarms to `.addAlarm()` so they are visible to the user and being placed on the alarm summary dashboard
