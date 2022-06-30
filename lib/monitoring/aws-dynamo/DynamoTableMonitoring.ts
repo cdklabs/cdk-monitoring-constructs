@@ -6,7 +6,12 @@ import {
   IWidget,
   LegendPosition,
 } from "aws-cdk-lib/aws-cloudwatch";
-import { CfnTable, ITable, Operation } from "aws-cdk-lib/aws-dynamodb";
+import {
+  BillingMode,
+  CfnTable,
+  ITable,
+  Operation,
+} from "aws-cdk-lib/aws-dynamodb";
 
 import {
   AlarmFactory,
@@ -106,6 +111,7 @@ export interface DynamoTableMonitoringProps
 export class DynamoTableMonitoring extends Monitoring {
   protected readonly title: string;
   protected readonly tableUrl?: string;
+  protected readonly tableBillingMode: BillingMode;
 
   protected readonly alarmFactory: AlarmFactory;
   protected readonly errorAlarmFactory: ErrorAlarmFactory;
@@ -147,6 +153,9 @@ export class DynamoTableMonitoring extends Monitoring {
     this.tableUrl = scope
       .createAwsConsoleUrlFactory()
       .getDynamoTableUrl(props.table.tableName);
+
+    this.tableBillingMode =
+      props.billingMode ?? this.resolveTableBillingMode(props.table);
 
     this.alarmFactory = this.createAlarmFactory(
       namingStrategy.resolveAlarmFriendlyName()
@@ -415,6 +424,17 @@ export class DynamoTableMonitoring extends Monitoring {
   }
 
   protected createReadCapacityWidget(width: number, height: number) {
+    if (this.tableBillingMode === BillingMode.PAY_PER_REQUEST) {
+      // simplified view for on-demand table
+      return new GraphWidget({
+        width,
+        height,
+        title: "Read Usage",
+        left: [this.consumedReadUnitsMetric],
+        leftYAxis: CountAxisFromZero,
+        leftAnnotations: this.dynamoReadCapacityAnnotations,
+      });
+    }
     return new GraphWidget({
       width,
       height,
@@ -429,6 +449,17 @@ export class DynamoTableMonitoring extends Monitoring {
   }
 
   protected createWriteCapacityWidget(width: number, height: number) {
+    if (this.tableBillingMode === BillingMode.PAY_PER_REQUEST) {
+      // simplified view for on-demand table
+      return new GraphWidget({
+        width,
+        height,
+        title: "Write Usage",
+        left: [this.consumedWriteUnitsMetric],
+        leftYAxis: CountAxisFromZero,
+        leftAnnotations: this.dynamoWriteCapacityAnnotations,
+      });
+    }
     return new GraphWidget({
       width,
       height,
@@ -453,5 +484,15 @@ export class DynamoTableMonitoring extends Monitoring {
   private resolveTableName(dynamoTable: ITable): string | undefined {
     // try to take the name (if specified) instead of token
     return (dynamoTable.node.defaultChild as CfnTable)?.tableName;
+  }
+
+  private resolveTableBillingMode(dynamoTable: ITable): BillingMode {
+    const billingMode = (dynamoTable.node.defaultChild as CfnTable)
+      ?.billingMode;
+    if (billingMode) {
+      return billingMode as BillingMode;
+    }
+    // fallback to default (for backwards compatibility)
+    return BillingMode.PROVISIONED;
   }
 }
