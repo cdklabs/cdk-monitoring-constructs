@@ -179,33 +179,20 @@ All the widgets will have the same size, which is chosen based on the number of 
 Custom metric monitoring can be created for simple metrics, simple metrics with anomaly detection and search metrics.
 The first two also support alarming.
 
-#### Example: simple metrics
+Below we are listing a couple of examples. Let us assume that there are three existing metric variables: `m1`, `m2`, `m3`.
+They can either be created by hand (`new Metric({...})`) or (preferably) by using `metricFactory` (that can be obtained from facade).
+The advantage of using the shared `metricFactory` is that you do not need to worry about period, etc. 
 
 ```ts
-monitorCustom({
-    title: "Three simple metrics",
-    metrics: [m1, m2, m3]
-})
+// create metrics manually
+const m1 = new Metric(/* ... */);
 ```
 
-Adding an alarm:
-
 ```ts
-monitorCustom({
-    title: "One simple metric with alarm",
-    metrics: [
-        {
-            metric: m1,
-            alarmFriendlyName: "MetricWithAlarm",
-            addAlarm: {
-                Warning: {
-                    threshold: 1,
-                    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD
-                }
-            }
-        }
-    ]
-})
+const metricFactory = monitoringFacade.createMetricFactory();
+
+// create metrics using metric factory
+const m1 = metricFactory.createMetric(/* ... */);
 ```
 
 #### Example: metric with anomaly detection
@@ -255,10 +242,11 @@ monitorCustom({
     metrics: [
         {
             searchQuery: "My.Prefix.",
-            dimensions: {
+            dimensionsMap: {
                 FirstDimension: "FirstDimensionValue",
                 // allow any value for the given dimension
-                SecondDimension: undefined
+                // (pardon the weird typing due to JSII)
+                SecondDimension: undefined as unknown as string
             }
         }
     ]
