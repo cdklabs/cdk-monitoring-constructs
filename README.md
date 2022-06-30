@@ -211,7 +211,7 @@ monitorCustom({
 #### Example: metric with anomaly detection
 
 In this case, only one metric is supported. 
-There cannot be multiple metrics rendered with anomaly detection in a single widget (CloudWatch limitation).
+Multiple metrics cannot be rendered with anomaly detection in a single widget due to a CloudWatch limitation.
 
 ```ts
 monitorCustom({
