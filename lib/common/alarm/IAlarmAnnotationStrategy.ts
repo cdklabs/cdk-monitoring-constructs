@@ -39,23 +39,21 @@ export abstract class FillingAlarmAnnotationStrategy
   implements IAlarmAnnotationStrategy
 {
   createAnnotation(props: AlarmAnnotationStrategyProps): HorizontalAnnotation {
-    let annotation = this.createAnnotationToFill(props);
-    if (props.fillAlarmRange) {
-      annotation = { ...annotation, fill: this.getAlarmingRangeShade(props) };
-    }
-    if (props.overrideAnnotationColor) {
-      annotation = { ...annotation, color: props.overrideAnnotationColor };
-    }
-    if (props.overrideAnnotationLabel) {
-      annotation = { ...annotation, label: props.overrideAnnotationLabel };
-    }
-    if (props.overrideAnnotationVisibility) {
-      annotation = {
-        ...annotation,
+    return {
+      ...this.createAnnotationToFill(props),
+      ...(props.fillAlarmRange && {
+        fill: this.getAlarmingRangeShade(props),
+      }),
+      ...(props.overrideAnnotationColor && {
+        color: props.overrideAnnotationColor,
+      }),
+      ...(props.overrideAnnotationLabel && {
+        label: props.overrideAnnotationLabel,
+      }),
+      ...(props.overrideAnnotationVisibility && {
         visible: props.overrideAnnotationVisibility,
-      };
-    }
-    return annotation;
+      }),
+    };
   }
 
   protected abstract createAnnotationToFill(
