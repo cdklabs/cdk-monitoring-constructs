@@ -198,6 +198,27 @@ export interface AddAlarmProps {
    * @default false
    */
   readonly fillAlarmRange?: boolean;
+
+  /**
+   * If specified, it modifies the final alarm annotation color.
+   *
+   * @default no override (default color)
+   */
+  readonly overrideAnnotationColor?: string;
+
+  /**
+   * If specified, it modifies the final alarm annotation label.
+   *
+   * @default no override (default label)
+   */
+  readonly overrideAnnotationLabel?: string;
+
+  /**
+   * If specified, it modifies the final alarm annotation visibility.
+   *
+   * @default no override (default visibility)
+   */
+  readonly overrideAnnotationVisibility?: boolean;
 }
 
 /**
@@ -507,6 +528,9 @@ export class AlarmFactory {
       datapointsToAlarm,
       dedupeString,
       fillAlarmRange: props.fillAlarmRange ?? false,
+      overrideAnnotationColor: props.overrideAnnotationColor,
+      overrideAnnotationLabel: props.overrideAnnotationLabel,
+      overrideAnnotationVisibility: props.overrideAnnotationVisibility,
       comparisonOperator: props.comparisonOperator,
       threshold: props.threshold,
       disambiguator: props.disambiguator,

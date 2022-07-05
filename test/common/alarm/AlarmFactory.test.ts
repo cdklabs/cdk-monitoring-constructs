@@ -229,6 +229,29 @@ test("addAlarm: fill is propagated to alarm annotation", () => {
   expect(alarmBelow.annotation.fill).toStrictEqual(Shading.BELOW);
 });
 
+test("addAlarm: annotation overrides are applied", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults,
+    localAlarmNamePrefix: "prefix",
+  });
+  const alarm = factory.addAlarm(metric, {
+    ...props,
+    alarmNameSuffix: "none",
+    comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
+    overrideAnnotationLabel: "NewLabel",
+    overrideAnnotationVisibility: false,
+    overrideAnnotationColor: "NewColor",
+  });
+  expect(alarm.annotation).toStrictEqual({
+    color: "NewColor",
+    label: "NewLabel",
+    value: 10,
+    visible: false,
+  });
+});
+
 test("addCompositeAlarm: snapshot for operator", () => {
   const stack = new Stack();
   const factory = new AlarmFactory(stack, {
