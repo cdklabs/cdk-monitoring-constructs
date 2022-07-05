@@ -6,4 +6,5 @@ export * from "./IAlarmAnnotationStrategy";
 export * from "./IAlarmDedupeStringProcessor";
 export * from "./MultipleAlarmActionStrategy";
 export * from "./NoopAlarmActionStrategy";
+export * from "./OpsItemAlarmActionStrategy";
 export * from "./SnsAlarmActionStrategy";

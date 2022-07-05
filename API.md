@@ -45176,6 +45176,94 @@ Returns widgets to be placed on the main dashboard.
 
 
 
+### OpsItemAlarmActionStrategy <a name="OpsItemAlarmActionStrategy" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+
+Alarm action strategy that creates an AWS OpsCenter OpsItem.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy.Initializer"></a>
+
+```typescript
+import { OpsItemAlarmActionStrategy } from 'cdk-monitoring-constructs'
+
+new OpsItemAlarmActionStrategy(severity: OpsItemSeverity, category?: OpsItemCategory)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpsItemAlarmActionStrategy.Initializer.parameter.severity">severity</a></code> | <code>aws-cdk-lib.aws_cloudwatch_actions.OpsItemSeverity</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpsItemAlarmActionStrategy.Initializer.parameter.category">category</a></code> | <code>aws-cdk-lib.aws_cloudwatch_actions.OpsItemCategory</code> | *No description.* |
+
+---
+
+##### `severity`<sup>Required</sup> <a name="severity" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy.Initializer.parameter.severity"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch_actions.OpsItemSeverity
+
+---
+
+##### `category`<sup>Optional</sup> <a name="category" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy.Initializer.parameter.category"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch_actions.OpsItemCategory
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpsItemAlarmActionStrategy.addAlarmActions">addAlarmActions</a></code> | *No description.* |
+
+---
+
+##### `addAlarmActions` <a name="addAlarmActions" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy.addAlarmActions"></a>
+
+```typescript
+public addAlarmActions(props: AlarmActionStrategyProps): void
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy.addAlarmActions.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmActionStrategyProps">AlarmActionStrategyProps</a>
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpsItemAlarmActionStrategy.property.severity">severity</a></code> | <code>aws-cdk-lib.aws_cloudwatch_actions.OpsItemSeverity</code> | OPS Item Severity. |
+| <code><a href="#cdk-monitoring-constructs.OpsItemAlarmActionStrategy.property.category">category</a></code> | <code>aws-cdk-lib.aws_cloudwatch_actions.OpsItemCategory</code> | OPS Item Category. |
+
+---
+
+##### `severity`<sup>Required</sup> <a name="severity" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy.property.severity"></a>
+
+```typescript
+public readonly severity: OpsItemSeverity;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch_actions.OpsItemSeverity
+
+OPS Item Severity.
+
+---
+
+##### `category`<sup>Optional</sup> <a name="category" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy.property.category"></a>
+
+```typescript
+public readonly category: OpsItemCategory;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch_actions.OpsItemCategory
+
+OPS Item Category.
+
+---
+
+
 ### QueueAlarmFactory <a name="QueueAlarmFactory" id="cdk-monitoring-constructs.QueueAlarmFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.QueueAlarmFactory.Initializer"></a>
@@ -49346,7 +49434,7 @@ public with(options: MathExpressionOptions): IMetric
 
 ### IAlarmActionStrategy <a name="IAlarmActionStrategy" id="cdk-monitoring-constructs.IAlarmActionStrategy"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy">MultipleAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.NoopAlarmActionStrategy">NoopAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.SnsAlarmActionStrategy">SnsAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy">MultipleAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.NoopAlarmActionStrategy">NoopAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.OpsItemAlarmActionStrategy">OpsItemAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.SnsAlarmActionStrategy">SnsAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
 
 An object that appends actions to alarms.
 
