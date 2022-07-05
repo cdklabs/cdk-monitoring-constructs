@@ -44,13 +44,13 @@ export abstract class FillingAlarmAnnotationStrategy
       ...(props.fillAlarmRange && {
         fill: this.getAlarmingRangeShade(props),
       }),
-      ...(props.overrideAnnotationColor && {
+      ...(props.overrideAnnotationColor !== undefined && {
         color: props.overrideAnnotationColor,
       }),
-      ...(props.overrideAnnotationLabel && {
+      ...(props.overrideAnnotationLabel !== undefined && {
         label: props.overrideAnnotationLabel,
       }),
-      ...(props.overrideAnnotationVisibility && {
+      ...(props.overrideAnnotationVisibility !== undefined && {
         visible: props.overrideAnnotationVisibility,
       }),
     };
