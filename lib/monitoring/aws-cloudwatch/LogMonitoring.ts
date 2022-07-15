@@ -16,18 +16,23 @@ export interface LogMonitoringProps extends BaseMonitoringProps {
    * name of the log group to analyze for the given pattern
    */
   readonly logGroupName: string;
+
   /**
-   * pattern to show, e.g. ERROR
+   * pattern to show, e.g. "ERROR"
    */
   readonly pattern: string;
+
   /**
    * widget title
-   * @default auto-generated title based on the pattern and limit
+   *
+   * @default - auto-generated title based on the pattern and limit
    */
   readonly title?: string;
+
   /**
    * number of log messages to search for
-   * @default 10
+   *
+   * @default - 10
    */
   readonly limit?: number;
 }

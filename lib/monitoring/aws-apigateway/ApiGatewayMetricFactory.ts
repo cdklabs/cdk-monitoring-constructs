@@ -18,7 +18,7 @@ export interface ApiGatewayMetricFactoryProps {
    */
   readonly api: RestApiBase;
   /**
-   * @default prod
+   * @default - prod
    */
   readonly apiStage?: string;
   /**
@@ -30,11 +30,11 @@ export interface ApiGatewayMetricFactoryProps {
    */
   readonly apiResource?: string;
   /**
-   * @default true
+   * @default - true
    */
   readonly fillTpsWithZeroes?: boolean;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

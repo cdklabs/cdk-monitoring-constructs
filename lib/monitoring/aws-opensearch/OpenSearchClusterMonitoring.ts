@@ -49,6 +49,7 @@ export interface OpenSearchClusterMonitoringOptions
   readonly addSearchLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addSearchLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addSearchLatencyP99Alarm?: Record<string, LatencyThreshold>;
+
   readonly addClusterStatusAlarm?: Record<
     string,
     OpenSearchClusterStatusCustomization
@@ -58,6 +59,7 @@ export interface OpenSearchClusterMonitoringOptions
   readonly addMasterCpuSpaceUsageAlarm?: Record<string, UsageThreshold>;
   readonly addJvmMemoryPressureAlarm?: Record<string, UsageThreshold>;
   readonly addMasterJvmMemoryPressureAlarm?: Record<string, UsageThreshold>;
+
   readonly addClusterIndexWritesBlockedAlarm?: Record<
     string,
     OpenSearchClusterIndexWritesBlockedThreshold
@@ -70,6 +72,7 @@ export interface OpenSearchClusterMonitoringOptions
     string,
     OpenSearchClusterAutomatedSnapshotFailureThreshold
   >;
+
   readonly addKmsKeyErrorAlarm?: Record<string, OpenSearchKmsKeyErrorThreshold>;
   readonly addKmsKeyInaccessibleAlarm?: Record<
     string,

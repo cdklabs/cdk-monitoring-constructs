@@ -126,12 +126,12 @@ function resolveStrategy(
 export interface EC2MetricFactoryProps {
   /**
    * Auto-Scaling Group to monitor.
-   * @default no Auto-Scaling Group filter
+   * @default - no Auto-Scaling Group filter
    */
   readonly autoScalingGroup?: IAutoScalingGroup;
   /**
    * Selected IDs of EC2 instances to monitor.
-   * @default no instance filter
+   * @default - no instance filter
    */
   readonly instanceIds?: string[];
 }

@@ -15,12 +15,12 @@ export interface CloudFrontDistributionMetricFactoryProps {
   readonly distribution: IDistribution;
 
   /**
-   * @default true
+   * @default - true
    */
   readonly fillTpsWithZeroes?: boolean;
 
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 
@@ -30,7 +30,7 @@ export interface CloudFrontDistributionMetricFactoryProps {
    * To enable additional metrics on your CloudFront distribution, see
    * https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional
    *
-   * @default true
+   * @default - true
    */
   readonly additionalMetricsEnabled?: boolean;
 }

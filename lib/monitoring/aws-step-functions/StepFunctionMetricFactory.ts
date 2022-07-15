@@ -12,7 +12,7 @@ const Namespace = "AWS/States";
 export interface StepFunctionMetricFactoryProps {
   readonly stateMachine: IStateMachine;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

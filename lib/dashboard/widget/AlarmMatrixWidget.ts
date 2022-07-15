@@ -9,12 +9,12 @@ const MaxHeight = 8;
 export interface AlarmMatrixWidgetProps {
   /**
    * widget title
-   * @default no title
+   * @default - no title
    */
   readonly title?: string;
   /**
    * desired height
-   * @default auto calculated based on alarm number (3 to 8)
+   * @default - auto calculated based on alarm number (3 to 8)
    */
   readonly height?: number;
   /**

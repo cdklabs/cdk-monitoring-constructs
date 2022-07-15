@@ -40,10 +40,11 @@ export interface CloudFrontDistributionMonitoringOptions
 export interface CloudFrontDistributionMonitoringProps
   extends CloudFrontDistributionMetricFactoryProps,
     CloudFrontDistributionMonitoringOptions {
-  readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
-  readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
   readonly addError4xxRate?: Record<string, ErrorRateThreshold>;
   readonly addFault5xxRate?: Record<string, ErrorRateThreshold>;
+
+  readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
+  readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
 }
 
 export class CloudFrontDistributionMonitoring extends Monitoring {

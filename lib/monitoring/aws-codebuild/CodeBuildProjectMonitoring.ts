@@ -36,6 +36,7 @@ export interface CodeBuildProjectMonitoringOptions extends BaseMonitoringProps {
   readonly addDurationP99Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP90Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP50Alarm?: Record<string, DurationThreshold>;
+
   readonly addFailedBuildCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFailedBuildRateAlarm?: Record<string, ErrorRateThreshold>;
 }

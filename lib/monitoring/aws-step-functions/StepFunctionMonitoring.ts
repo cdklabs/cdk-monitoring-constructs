@@ -38,6 +38,7 @@ export interface StepFunctionMonitoringOptions extends BaseMonitoringProps {
   readonly addDurationP50Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP90Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP99Alarm?: Record<string, DurationThreshold>;
+
   readonly addFailedExecutionCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFailedExecutionRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly addAbortedExecutionCountAlarm?: Record<string, ErrorCountThreshold>;

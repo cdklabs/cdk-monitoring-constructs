@@ -32,6 +32,7 @@ import {
 export interface KinesisDataAnalyticsMonitoringOptions
   extends BaseMonitoringProps {
   readonly addDowntimeAlarm?: Record<string, MaxDowntimeThreshold>;
+
   readonly addFullRestartCountAlarm?: Record<string, FullRestartCountThreshold>;
 }
 

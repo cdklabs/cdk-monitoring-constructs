@@ -12,7 +12,7 @@ const Namespace = "AWS/States";
 export interface StepFunctionActivityMetricFactoryProps {
   readonly activity: IActivity;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

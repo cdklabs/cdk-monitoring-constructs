@@ -49,7 +49,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for the time the cluster status is red.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricClusterStatusRed(props?: MetricOptions): Metric {
     return this.metric("ClusterStatus.red", {
@@ -61,7 +61,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for the time the cluster status is yellow.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricClusterStatusYellow(props?: MetricOptions): Metric {
     return this.metric("ClusterStatus.yellow", {
@@ -73,7 +73,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for the storage space of nodes in the cluster.
    *
-   * @default minimum over 5 minutes
+   * @default - minimum over 5 minutes
    */
   metricFreeStorageSpace(props?: MetricOptions): Metric {
     return this.metric("FreeStorageSpace", {
@@ -85,7 +85,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for the cluster blocking index writes.
    *
-   * @default maximum over 1 minute
+   * @default - maximum over 1 minute
    */
   metricClusterIndexWritesBlocked(props?: MetricOptions): Metric {
     return this.metric("ClusterIndexWritesBlocked", {
@@ -98,7 +98,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for the cluster blocking index writes.
    *
-   * @default maximum over 1 minute
+   * @default - maximum over 1 minute
    *
    * @deprecated use metricClusterIndexWritesBlocked instead.
    */
@@ -109,7 +109,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for the number of nodes.
    *
-   * @default minimum over 1 hour
+   * @default - minimum over 1 hour
    */
   metricNodes(props?: MetricOptions): Metric {
     return this.metric("Nodes", {
@@ -122,7 +122,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for automated snapshot failures.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricAutomatedSnapshotFailure(props?: MetricOptions): Metric {
     return this.metric("AutomatedSnapshotFailure", {
@@ -134,7 +134,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for CPU utilization.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricCPUUtilization(props?: MetricOptions): Metric {
     return this.metric("CPUUtilization", {
@@ -146,7 +146,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for JVM memory pressure.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricJVMMemoryPressure(props?: MetricOptions): Metric {
     return this.metric("JVMMemoryPressure", {
@@ -158,7 +158,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for master CPU utilization.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricMasterCPUUtilization(props?: MetricOptions): Metric {
     return this.metric("MasterCPUUtilization", {
@@ -170,7 +170,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for master JVM memory pressure.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricMasterJVMMemoryPressure(props?: MetricOptions): Metric {
     return this.metric("MasterJVMMemoryPressure", {
@@ -182,7 +182,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for KMS key errors.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricKMSKeyError(props?: MetricOptions): Metric {
     return this.metric("KMSKeyError", {
@@ -194,7 +194,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for KMS key being inaccessible.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricKMSKeyInaccessible(props?: MetricOptions): Metric {
     return this.metric("KMSKeyInaccessible", {
@@ -206,7 +206,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for number of searchable documents.
    *
-   * @default maximum over 5 minutes
+   * @default - maximum over 5 minutes
    */
   metricSearchableDocuments(props?: MetricOptions): Metric {
     return this.metric("SearchableDocuments", {
@@ -218,7 +218,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for search latency.
    *
-   * @default p99 over 5 minutes
+   * @default - p99 over 5 minutes
    */
   metricSearchLatency(props?: MetricOptions): Metric {
     return this.metric("SearchLatency", { statistic: "p99", ...props });
@@ -227,7 +227,7 @@ export class OpenSearchBackportedMetrics {
   /**
    * Metric for indexing latency.
    *
-   * @default p99 over 5 minutes
+   * @default - p99 over 5 minutes
    */
   metricIndexingLatency(props?: MetricOptions): Metric {
     return this.metric("IndexingLatency", { statistic: "p99", ...props });

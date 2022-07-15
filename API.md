@@ -2224,7 +2224,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* {number} Same as datapointsToAlarm.
+- *Default:* Same as datapointsToAlarm.
 
 Number of periods to consider when checking the number of breaching datapoints.
 
@@ -2937,7 +2937,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* {number} Same as datapointsToAlarm.
+- *Default:* Same as datapointsToAlarm.
 
 Number of periods to consider when checking the number of breaching datapoints.
 
@@ -20012,7 +20012,7 @@ const logMonitoringProps: LogMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.logGroupName">logGroupName</a></code> | <code>string</code> | name of the log group to analyze for the given pattern. |
-| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.pattern">pattern</a></code> | <code>string</code> | pattern to show, e.g. ERROR. |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.pattern">pattern</a></code> | <code>string</code> | pattern to show, e.g. "ERROR". |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.limit">limit</a></code> | <code>number</code> | number of log messages to search for. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.title">title</a></code> | <code>string</code> | widget title. |
 
@@ -20136,7 +20136,7 @@ public readonly pattern: string;
 
 - *Type:* string
 
-pattern to show, e.g. ERROR.
+pattern to show, e.g. "ERROR".
 
 ---
 

@@ -15,7 +15,7 @@ const ApiGatewayNamespace = "AWS/ApiGateway";
 export interface ApiGatewayV2HttpApiMetricFactoryProps {
   readonly api: IHttpApi;
   /**
-   * @default $default
+   * @default - $default
    */
   readonly apiStage?: string;
   /**
@@ -27,11 +27,11 @@ export interface ApiGatewayV2HttpApiMetricFactoryProps {
    */
   readonly apiResource?: string;
   /**
-   * @default true
+   * @default - true
    */
   readonly fillTpsWithZeroes?: boolean;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

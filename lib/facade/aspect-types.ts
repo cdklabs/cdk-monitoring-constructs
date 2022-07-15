@@ -31,7 +31,7 @@ import {
 export interface MonitoringAspectType<T> {
   /**
    * If the monitoring aspect is enabled for this resource.
-   * @default true
+   * @default - true
    */
   readonly enabled?: boolean;
 

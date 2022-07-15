@@ -15,7 +15,7 @@ export interface SyntheticsCanaryMetricFactoryProps {
   readonly canary: Canary;
   /**
    * Method used to calculate relative rates
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

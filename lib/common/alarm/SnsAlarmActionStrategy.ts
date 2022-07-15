@@ -27,14 +27,14 @@ export interface SnsAlarmActionStrategyProps {
   /**
    * Optional target topic for when the alarm goes into the OK state.
    *
-   * @default no notification sent
+   * @default - no notification sent
    */
   readonly onOkTopic?: ITopic;
 
   /**
    * Optional target topic for when the alarm goes into the INSUFFICIENT_DATA state.
    *
-   * @default no notification sent
+   * @default - no notification sent
    */
   readonly onInsufficientDataTopic?: ITopic;
 }

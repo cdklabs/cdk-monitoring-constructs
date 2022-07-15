@@ -115,19 +115,19 @@ import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
 export interface MonitoringFacadeProps {
   /**
    * Defaults for metric factory.
-   * @default empty (no preferences)
+   * @default - empty (no preferences)
    */
   readonly metricFactoryDefaults?: MetricFactoryDefaults;
 
   /**
    * Defaults for alarm factory.
-   * @default actions enabled, facade logical ID used as default alarm name prefix
+   * @default - actions enabled, facade logical ID used as default alarm name prefix
    */
   readonly alarmFactoryDefaults?: AlarmFactoryDefaults;
 
   /**
    * Defaults for dashboard factory.
-   * @default `DefaultDashboardFactory`; facade logical ID used as default name
+   * @default - `DefaultDashboardFactory`; facade logical ID used as default name
    */
   readonly dashboardFactory?: IDashboardFactory;
 }
