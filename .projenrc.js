@@ -108,6 +108,9 @@ project.eslint.addRules({
 project.addPackageIgnore("*.ts");
 project.addPackageIgnore("!*.d.ts");
 
+// TODO: remove this once projen ignores these: https://github.com/projen/projen/issues/1896
+project.gitignore.exclude("*.d.ts.map");
+
 project.release.addJobs({
   notify_slack: {
     name: "Send Slack notification",
