@@ -9,11 +9,11 @@ import {
 export interface LambdaFunctionMetricFactoryProps {
   readonly lambdaFunction: IFunction;
   /**
-   * @default true
+   * @default - true
    */
   readonly fillTpsWithZeroes?: boolean;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
   /**
@@ -22,7 +22,7 @@ export interface LambdaFunctionMetricFactoryProps {
    * To enable Lambda Insights on your Lambda function, see
    * https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-clouddevelopmentkit.html
    *
-   * @default false
+   * @default - false
    */
   readonly lambdaInsightsEnabled?: boolean;
 }

@@ -12,7 +12,7 @@ export enum ElastiCacheClusterType {
 export interface ElastiCacheClusterMetricFactoryProps {
   /**
    * Cluster to monitor
-   * @default monitor all clusters
+   * @default - monitor all clusters
    */
   readonly clusterId?: string;
 }

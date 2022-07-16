@@ -33,11 +33,12 @@ import {
 } from "./SyntheticsCanaryMetricFactory";
 
 export interface SyntheticsCanaryMonitoringOptions extends BaseMonitoringProps {
-  readonly addAverageLatencyAlarm?: Record<string, LatencyThreshold>;
   readonly add4xxErrorCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly add4xxErrorRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly add5xxFaultCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly add5xxFaultRateAlarm?: Record<string, ErrorRateThreshold>;
+
+  readonly addAverageLatencyAlarm?: Record<string, LatencyThreshold>;
 }
 
 export interface SyntheticsCanaryMonitoringProps

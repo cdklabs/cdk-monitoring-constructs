@@ -40,10 +40,12 @@ export interface ElastiCacheClusterMonitoringOptions
    * Cluster type (needed, since each type has their own specific metrics)
    */
   readonly clusterType: ElastiCacheClusterType;
+
   /**
    * Add CPU usage alarm
    */
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
+
   /**
    * Add alarm on total number of items
    */
@@ -55,6 +57,7 @@ export interface ElastiCacheClusterMonitoringOptions
     string,
     MaxItemsCountThreshold
   >;
+
   /**
    * Add alarm on amount of freeable memory
    */

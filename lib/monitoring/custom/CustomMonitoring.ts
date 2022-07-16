@@ -72,7 +72,7 @@ export interface CustomMetricWithAnomalyDetection {
   readonly metric: MetricWithAlarmSupport;
   /**
    * anomaly detection period
-   * @default metric period (if defined) or global default
+   * @default - metric period (if defined) or global default
    */
   readonly period?: Duration;
   /**
@@ -95,7 +95,7 @@ export interface CustomMetricWithAnomalyDetection {
 export interface CustomMetricSearch {
   /**
    * metric namespace
-   * @default none
+   * @default - none
    */
   readonly namespace?: string;
   /**
@@ -104,7 +104,7 @@ export interface CustomMetricSearch {
   readonly searchQuery: string;
   /**
    * custom label for the metrics
-   * @default " "
+   * @default - " "
    */
   readonly label?: string;
   /**
@@ -117,7 +117,7 @@ export interface CustomMetricSearch {
   readonly statistic: MetricStatistic;
   /**
    * metric period
-   * @default global default
+   * @default - global default
    */
   readonly period?: Duration;
   /**
@@ -150,12 +150,12 @@ export interface CustomMetricGroup {
   readonly title: string;
   /**
    * type of the widget
-   * @default line
+   * @default - line
    */
   readonly graphWidgetType?: GraphWidgetType;
   /**
    * optional axis
-   * @default undefined
+   * @default - undefined
    */
   readonly graphWidgetAxis?: YAxisProps;
   /**
@@ -165,7 +165,7 @@ export interface CustomMetricGroup {
   readonly graphWidgetRightAxis?: YAxisProps;
   /**
    * Flag indicating, whether this is an important metric group that should be included in the summary as well.
-   * @default false
+   * @default - false
    */
   readonly important?: boolean;
   /**

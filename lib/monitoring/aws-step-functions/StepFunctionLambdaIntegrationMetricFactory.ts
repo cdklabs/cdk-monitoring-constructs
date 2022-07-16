@@ -12,7 +12,7 @@ const Namespace = "AWS/States";
 export interface StepFunctionLambdaIntegrationMetricFactoryProps {
   readonly lambdaFunction: IFunction;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

@@ -57,6 +57,7 @@ export interface DynamoTableMonitoringOptions extends BaseMonitoringProps {
     string,
     ConsumedCapacityThreshold
   >;
+
   readonly addReadThrottledEventsCountAlarm?: Record<
     string,
     ThrottledEventsThreshold
@@ -65,7 +66,9 @@ export interface DynamoTableMonitoringOptions extends BaseMonitoringProps {
     string,
     ThrottledEventsThreshold
   >;
+
   readonly addSystemErrorCountAlarm?: Record<string, ErrorCountThreshold>;
+
   readonly addAverageSuccessfulGetRecordsLatencyAlarm?: Record<
     string,
     LatencyThreshold

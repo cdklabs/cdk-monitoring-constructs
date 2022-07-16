@@ -74,7 +74,7 @@ export abstract class Monitoring implements IDashboardSegment {
   /**
    * Returns widgets to be placed on the summary dashboard.
    *
-   * @default no widgets.
+   * @default - no widgets.
    */
   summaryWidgets(): IWidget[] {
     return [];

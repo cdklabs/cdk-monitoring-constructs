@@ -38,6 +38,7 @@ export interface StepFunctionActivityMonitoringProps
   readonly addDurationP50Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP90Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP99Alarm?: Record<string, DurationThreshold>;
+
   readonly addFailedActivitiesCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFailedActivitiesRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly addTimedOutActivitiesCountAlarm?: Record<

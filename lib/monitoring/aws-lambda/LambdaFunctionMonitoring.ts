@@ -55,12 +55,16 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
+
   readonly addFaultCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFaultRateAlarm?: Record<string, ErrorRateThreshold>;
+
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
   readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
+
   readonly addThrottlesCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addThrottlesRateAlarm?: Record<string, ErrorRateThreshold>;
+
   readonly addConcurrentExecutionsCountAlarm?: Record<
     string,
     RunningTaskCountThreshold
@@ -74,7 +78,8 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
     RunningTaskRateThreshold
   >;
   readonly addMaxIteratorAgeAlarm?: Record<string, MaxAgeThreshold>;
-  // Enhanced CPU metrics are all time-based and not percent based!
+
+  // Enhanced CPU metrics that are all time-based and not percent based
   readonly addEnhancedMonitoringMaxCpuTotalTimeAlarm?: Record<
     string,
     DurationThreshold
@@ -87,7 +92,8 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
     string,
     DurationThreshold
   >;
-  // Enhanced memory metrics are percent-based
+
+  // Enhanced memory metrics that are percent-based
   readonly addEnhancedMonitoringMaxMemoryUtilizationAlarm?: Record<
     string,
     UsageThreshold

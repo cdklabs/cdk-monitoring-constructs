@@ -28,7 +28,7 @@ In your `package.json`:
   "dependencies": {
     "cdk-monitoring-constructs": "^1.0.0",
 
-    // peer dependencies
+    // peer dependencies of cdk-monitoring-constructs
     "@aws-cdk/aws-apigatewayv2-alpha": "^2.18.0-alpha.0",
     "@aws-cdk/aws-appsync-alpha": "^2.18.0-alpha.0",
     "@aws-cdk/aws-redshift-alpha": "^2.18.0-alpha.0",
@@ -36,7 +36,7 @@ In your `package.json`:
     "aws-cdk-lib": "^2.18.0",
     "constructs": "^10.0.5"
 
-    // (your other dependencies)
+    // ...your other dependencies...
   }
 }
 ```
@@ -66,12 +66,13 @@ You can also browse the documentation at https://constructs.dev/packages/cdk-mon
 
 | Item | Monitoring | Alarms | Notes |
 | ---- | ---------- | ------ | ----- |
-| AWS API Gateway (REST API) (`.monitorApiGateway()`) | TPS, latency, errors | Latency, error count/rate |  To see metrics, you have to enable Advanced Monitoring |
-| AWS API Gateway V2 (HTTP API) (`.monitorApiGatewayV2HttpApi()`) | TPS, latency, errors | Latency, error count/rate | To see route level metrics, you have to enable Advanced Monitoring |
+| AWS API Gateway (REST API) (`.monitorApiGateway()`) | TPS, latency, errors | Latency, error count/rate, low/high TPS | To see metrics, you have to enable Advanced Monitoring |
+| AWS API Gateway V2 (HTTP API) (`.monitorApiGatewayV2HttpApi()`) | TPS, latency, errors | Latency, error count/rate, low/high TPS | To see route level metrics, you have to enable Advanced Monitoring |
 | AWS AppSync (GraphQL API) (`.monitorAppSyncApi()`) | TPS, latency, errors | Latency, error count/rate, low/high TPS | |
 | AWS Billing (`.monitorBilling()`) | AWS account cost | | [Requires enabling](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) the **Receive Billing Alerts** option in AWS Console / Billing Preferences |
 | AWS Certificate Manager (`.monitorCertificate()`) | Certificate expiration | Days until expiration | |
 | AWS CloudFront (`.monitorCloudFrontDistribution()`) | TPS, traffic, latency, errors | Error rate, low/high TPS | |
+| AWS CloudWatch Logs (`.monitorLog()`) | Patterns present in the log group | | |
 | AWS CloudWatch Synthetics Canary (`.monitorSyntheticsCanary()`) | Latency, error count/rate | Error count/rate, latency | |
 | AWS CodeBuild (`.monitorCodeBuildProject()`) | Build counts (total, successful, failed), failed rate, duration | Failed build count/rate, duration | |
 | AWS DocumentDB (`.monitorDocumentDbCluster()`) | CPU, throttling, read/write latency, transactions, cursors | CPU | |
@@ -80,23 +81,22 @@ You can also browse the documentation at https://constructs.dev/packages/cdk-mon
 | AWS EC2 (`.monitorEC2Instances()`) | CPU, disk operations, network | | |
 | AWS EC2 Auto Scaling Groups (`.monitorAutoScalingGroup()`) | Group size, instance status | | |
 | AWS ECS (`.monitorFargateService()`, `.monitorEc2Service()`, `.monitorSimpleFargateService()`, `monitorSimpleEc2Service()`, `.monitorQueueProcessingFargateService()`, `.monitorQueueProcessingEc2Service()`) | System resources and task health | Unhealthy task count, running tasks count, CPU/memory usage, and bytes processed by load balancer (if any) | Use for ecs-patterns load balanced ec2/fargate constructs (NetworkLoadBalancedEc2Service, NetworkLoadBalancedFargateService, ApplicationLoadBalancedEc2Service, ApplicationLoadBalancedFargateService) |
-| AWS ElastiCache (`.monitorElastiCacheCluster()`) | CPU/memory usage, evictions and connections | | |
-| AWS Glue (`.monitorGlueJob()`) | Traffic, job status, memory/CPU usage | | |
-| AWS Kinesis Data Analytics (`.monitorKinesisDataAnalytics`) | Up/Downtime, CPU/memory usage, KPU usage, checkpoint metrics, and garbage collection metrics | Downtime | |
-| AWS Kinesis Data Stream (`.monitorKinesisDataStream()`) | Put/Get/Incoming Record/s and Throttling | Throttling, iterator max age | |
-| AWS Kinesis Firehose (`.monitorKinesisFirehose()`) | Number of records, requests, latency, throttling | | |
+| AWS ElastiCache (`.monitorElastiCacheCluster()`) | CPU/memory usage, evictions and connections | CPU, memory, items count | |
+| AWS Glue (`.monitorGlueJob()`) | Traffic, job status, memory/CPU usage | Failed/killed task count/rate | |
+| AWS Kinesis Data Analytics (`.monitorKinesisDataAnalytics`) | Up/Downtime, CPU/memory usage, KPU usage, checkpoint metrics, and garbage collection metrics | Downtime, full restart count | |
+| AWS Kinesis Data Stream (`.monitorKinesisDataStream()`) | Put/Get/Incoming Record/s and Throttling | Throttling, throughput, iterator max age | |
+| AWS Kinesis Firehose (`.monitorKinesisFirehose()`) | Number of records, requests, latency, throttling | Throttling | |
 | AWS Lambda (`.monitorLambdaFunction()`) | Latency, errors, iterator max age | Latency, errors, throttles, iterator max age | Optional Lambda Insights metrics (opt-in) support |
 | AWS Load Balancing (`.monitorNetworkLoadBalancer()`, `.monitorFargateApplicationLoadBalancer()`, `.monitorFargateNetworkLoadBalancer()`, `.monitorEc2ApplicationLoadBalancer()`, `.monitorEc2NetworkLoadBalancer()`) | System resources and task health | Unhealthy task count, running tasks count, (for Fargate/Ec2 apps) CPU/memory usage | Use for FargateService or Ec2Service backed by a NetworkLoadBalancer or ApplicationLoadBalancer |
-| AWS OpenSearch/Elasticsearch (`.monitorOpenSearchCluster()`, `.monitorElasticsearchCluster()`) | Indexing and search latency, disk/memory/CPU usage | Indexing and search latency, disk/memory/CPU usage, cluster status | |
+| AWS OpenSearch/Elasticsearch (`.monitorOpenSearchCluster()`, `.monitorElasticsearchCluster()`) | Indexing and search latency, disk/memory/CPU usage | Indexing and search latency, disk/memory/CPU usage, cluster status, KMS keys | |
 | AWS RDS (`.monitorRdsCluster()`) | Query duration, connections, latency, disk/CPU usage | Disk and CPU usage | |
 | AWS Redshift (`.monitorRedshiftCluster()`) | Query duration, connections, latency, disk/CPU usage | Disk and CPU usage | |
 | AWS S3 Bucket (`.monitorS3Bucket()`) | Bucket size and number of objects | | |
-| AWS SecretsManager (`.monitorSecretsManagerSecret()`) | Days since last rotation | Days since last rotation | |
-| AWS SNS Topic (`.monitorSnsTopic()`) | Message count, size, failed notifications | Failed notifications | |
+| AWS SecretsManager (`.monitorSecretsManagerSecret()`) | Days since last rotation | Days since last change or rotation | |
+| AWS SNS Topic (`.monitorSnsTopic()`) | Message count, size, failed notifications | Failed notifications, min/max published messages | |
 | AWS SQS Queue (`.monitorSqsQueue()`, `.monitorSqsQueueWithDlq()`) | Message count, age, size | Message count, age, DLQ incoming messages | |
 | AWS Step Functions (`.monitorStepFunction()`, `.monitorStepFunctionActivity()`, `monitorStepFunctionLambdaIntegration()`, `.monitorStepFunctionServiceIntegration()`) | Execution count and breakdown per state | Duration, failed, failed rate, aborted, throttled, timed out executions | |
 | AWS Web Application Firewall (`.monitorWebApplicationFirewallAcl()`) | Allowed/blocked requests | | |
-| CloudWatch Logs (`.monitorLog()`) | Patterns present in the log group | | |
 | Custom metrics (`.monitorCustom()`) | Addition of custom metrics into the dashboard (each group is a widget) | | Supports anomaly detection |
 
 
@@ -118,16 +118,19 @@ export class MonitoringStack extends DeploymentStack {
     super(parent, name, props);
 
     const monitoring = new MonitoringFacade(this, "Monitoring", {
-      // Define all necessary props
+      // Defaults are provided for these, but they can be customized as desired
+      metricFactoryDefaults: { ... },
+      alarmFactoryDefaults: { ... },
+      dashboardFactory: { ... },
     });
 
-    // Setup your monitoring
+    // Monitor your resources
     monitoring
       .addLargeHeader("Storage")
       .monitorDynamoTable({ /* table1 */ })
       .monitorDynamoTable({ /* table2 */ })
       .monitorDynamoTable({ /* table3 */ })
-      // ...and more
+      // etc.
   }
 }
 ```
@@ -181,7 +184,7 @@ The first two also support alarming.
 
 Below we are listing a couple of examples. Let us assume that there are three existing metric variables: `m1`, `m2`, `m3`.
 They can either be created by hand (`new Metric({...})`) or (preferably) by using `metricFactory` (that can be obtained from facade).
-The advantage of using the shared `metricFactory` is that you do not need to worry about period, etc. 
+The advantage of using the shared `metricFactory` is that you do not need to worry about period, etc.
 
 ```ts
 // create metrics manually
@@ -197,18 +200,18 @@ const m1 = metricFactory.createMetric(/* ... */);
 
 #### Example: metric with anomaly detection
 
-In this case, only one metric is supported. 
+In this case, only one metric is supported.
 Multiple metrics cannot be rendered with anomaly detection in a single widget due to a CloudWatch limitation.
 
 ```ts
 monitorCustom({
-    title: "Metric with anomaly detection",
-    metrics: [
-        {
-            metric: m1,
-            anomalyDetectionStandardDeviationToRender: 3
-        }
-    ]
+  title: "Metric with anomaly detection",
+  metrics: [
+    {
+      metric: m1,
+      anomalyDetectionStandardDeviationToRender: 3
+    }
+  ]
 })
 ```
 
@@ -216,21 +219,21 @@ Adding an alarm:
 
 ```ts
 monitorCustom({
-    title: "Metric with anomaly detection and alarm",
-    metrics: [
-        {
-            metric: m1,
-            alarmFriendlyName: "MetricWithAnomalyDetectionAlarm",
-            anomalyDetectionStandardDeviationToRender: 3,
-            addAlarmOnAnomaly: {
-                Warning: {
-                    standardDeviationForAlarm: 4,
-                    alarmWhenAboveTheBand: true,
-                    alarmWhenBelowTheBand: true
-                }
-            }
+  title: "Metric with anomaly detection and alarm",
+  metrics: [
+    {
+      metric: m1,
+      alarmFriendlyName: "MetricWithAnomalyDetectionAlarm",
+      anomalyDetectionStandardDeviationToRender: 3,
+      addAlarmOnAnomaly: {
+        Warning: {
+          standardDeviationForAlarm: 4,
+          alarmWhenAboveTheBand: true,
+          alarmWhenBelowTheBand: true
         }
-    ]
+      }
+    }
+  ]
 })
 ```
 
@@ -238,18 +241,17 @@ monitorCustom({
 
 ```ts
 monitorCustom({
-    title: "Metric search",
-    metrics: [
-        {
-            searchQuery: "My.Prefix.",
-            dimensionsMap: {
-                FirstDimension: "FirstDimensionValue",
-                // allow any value for the given dimension
-                // (pardon the weird typing due to JSII)
-                SecondDimension: undefined as unknown as string
-            }
-        }
-    ]
+  title: "Metric search",
+  metrics: [
+    {
+      searchQuery: "My.Prefix.",
+      dimensionsMap: {
+        FirstDimension: "FirstDimensionValue",
+        // Allow any value for the given dimension (pardon the weird typing to satisfy DimensionsMap)
+        SecondDimension: undefined as unknown as string
+      }
+    }
+  ]
 })
 ```
 
@@ -287,7 +289,12 @@ monitoring.monitorScope(stack, {
       },
     },
   },
+
+  // Some resources that aren't dependent on nodes (e.g. general metrics across instances/account) may be included
+  // by default, but can be explicitly disabled.
   billing: { enabled: false },
+  ec2: { enabled: false },
+  elasticCache: { enabled: false },
 });
 ```
 

@@ -38,13 +38,15 @@ import {
 } from "./AppSyncMetricFactory";
 
 export interface AppSyncMonitoringOptions extends BaseMonitoringProps {
-  readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
-  readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
-  readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
   readonly add4XXErrorCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly add4XXErrorRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly add5XXFaultCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly add5XXFaultRateAlarm?: Record<string, ErrorRateThreshold>;
+
+  readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
+
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
   readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
 }

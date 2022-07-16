@@ -6,19 +6,19 @@ export interface MonitoringDashboardsOverrideProps {
   /**
    * Flag indicating if the widgets should be added to detailed dashboard
    *
-   * @default true
+   * @default - true
    */
   readonly addToDetailDashboard?: boolean;
   /**
    * Flag indicating if the widgets should be added to summary dashboard
    *
-   * @default true
+   * @default - true
    */
   readonly addToSummaryDashboard?: boolean;
   /**
    * Flag indicating if the widgets should be added to alarm dashboard
    *
-   * @default true
+   * @default - true
    */
   readonly addToAlarmDashboard?: boolean;
 }
@@ -31,7 +31,7 @@ export interface IDashboardFactoryProps {
   /**
    * Dashboard placement override props.
    *
-   * @default all default
+   * @default - all default
    */
   overrideProps?: MonitoringDashboardsOverrideProps;
 }

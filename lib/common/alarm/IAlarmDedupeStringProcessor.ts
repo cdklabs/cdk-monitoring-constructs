@@ -4,6 +4,7 @@
 export interface IAlarmDedupeStringProcessor {
   /**
    * Process the dedupe string which was specified by the user as an override.
+   *
    * @param dedupeString
    * @return final dedupe string
    */
@@ -11,6 +12,7 @@ export interface IAlarmDedupeStringProcessor {
 
   /**
    * Process the dedupe string which was auto-generated.
+   *
    * @param dedupeString
    * @return final dedupe string
    */

@@ -38,6 +38,7 @@ export interface StepFunctionServiceIntegrationMonitoringProps
   readonly addDurationP50Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP90Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP99Alarm?: Record<string, DurationThreshold>;
+
   readonly addFailedServiceIntegrationsCountAlarm?: Record<
     string,
     ErrorCountThreshold

@@ -38,7 +38,7 @@ export interface SecretsManagerSecretMonitoringOptions
   >;
 
   /**
-   * @default true, if `addDaysSinceLastRotationAlarm` is set, otherwise `false`.
+   * @default - true, if `addDaysSinceLastRotationAlarm` is set, otherwise `false`.
    */
   readonly showLastRotationWidget?: boolean;
 }

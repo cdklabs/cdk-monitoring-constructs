@@ -63,7 +63,7 @@ export interface AddAlarmProps {
   /**
    * Allows to override the default action strategy.
    *
-   * @default default action will be used
+   * @default - default action will be used
    */
   readonly actionOverride?: IAlarmActionStrategy;
 
@@ -71,7 +71,7 @@ export interface AddAlarmProps {
    * If this is defined, the alarm dedupe string is set to this exact value.
    * Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
    *
-   * @default undefined (no override)
+   * @default - undefined (no override)
    */
   readonly dedupeStringOverride?: string;
 
@@ -84,14 +84,14 @@ export interface AddAlarmProps {
   /**
    * A text included in the generated ticket description body, which fully replaces the generated text.
    *
-   * @default default auto-generated content only
+   * @default - default auto-generated content only
    */
   readonly alarmDescriptionOverride?: string;
 
   /**
    * Disambiguator is a string that differentiates this alarm from other similar ones.
    *
-   * @default undefined (no disambiguator)
+   * @default - undefined (no disambiguator)
    */
   readonly disambiguator?: string;
 
@@ -103,14 +103,14 @@ export interface AddAlarmProps {
   /**
    * An optional link included in the generated ticket description body.
    *
-   * @default no additional link will be added
+   * @default - no additional link will be added
    */
   readonly documentationLink?: string;
 
   /**
    * An optional link included in the generated ticket description body.
    *
-   * @default no additional link will be added
+   * @default - no additional link will be added
    */
   readonly runbookLink?: string;
 
@@ -124,14 +124,14 @@ export interface AddAlarmProps {
    * This allows you to specify the same dedupe string for a family of alarms.
    * Cannot be defined at the same time as alarmDedupeStringOverride.
    *
-   * @default undefined (no suffix)
+   * @default - undefined (no suffix)
    */
   readonly alarmDedupeStringSuffix?: string;
 
   /**
    * Enables the configured CloudWatch alarm ticketing actions.
    *
-   * @default the same as monitoring facade default
+   * @default - the same as monitoring facade default
    */
   readonly actionsEnabled?: boolean;
 
@@ -158,14 +158,14 @@ export interface AddAlarmProps {
   /**
    * Number of periods to consider when checking the number of breaching datapoints.
    *
-   * @default {number} Same as datapointsToAlarm.
+   * @default - Same as datapointsToAlarm.
    */
   readonly evaluationPeriods?: number;
 
   /**
    * Period override for the metric to alarm on.
    *
-   * @default the default specified in MetricFactory
+   * @default - the default specified in MetricFactory
    */
   readonly period?: Duration;
 
@@ -174,49 +174,49 @@ export interface AddAlarmProps {
    * If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
    * If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
    *
-   * @default true
+   * @default - true
    */
   readonly evaluateLowSampleCountPercentile?: boolean;
 
   /**
    * This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
    *
-   * @default no tags
+   * @default - no tags
    */
   readonly customTags?: string[];
 
   /**
    * This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
    *
-   * @default no parameters
+   * @default - no parameters
    */
   readonly customParams?: Record<string, any>;
 
   /**
    * Indicates whether the alarming range of values should be highlighted in the widget.
    *
-   * @default false
+   * @default - false
    */
   readonly fillAlarmRange?: boolean;
 
   /**
    * If specified, it modifies the final alarm annotation color.
    *
-   * @default no override (default color)
+   * @default - no override (default color)
    */
   readonly overrideAnnotationColor?: string;
 
   /**
    * If specified, it modifies the final alarm annotation label.
    *
-   * @default no override (default label)
+   * @default - no override (default label)
    */
   readonly overrideAnnotationLabel?: string;
 
   /**
    * If specified, it modifies the final alarm annotation visibility.
    *
-   * @default no override (default visibility)
+   * @default - no override (default visibility)
    */
   readonly overrideAnnotationVisibility?: boolean;
 }
@@ -228,7 +228,7 @@ export interface AddCompositeAlarmProps {
   /**
    * Allows to override the default action strategy.
    *
-   * @default default action will be used
+   * @default - default action will be used
    */
   readonly actionOverride?: IAlarmActionStrategy;
 
@@ -236,7 +236,7 @@ export interface AddCompositeAlarmProps {
    * If this is defined, the alarm dedupe string is set to this exact value.
    * Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
    *
-   * @default undefined (no override)
+   * @default - undefined (no override)
    */
   readonly dedupeStringOverride?: string;
 
@@ -249,7 +249,7 @@ export interface AddCompositeAlarmProps {
   /**
    * A text included in the generated ticket description body, which fully replaces the generated text.
    *
-   * @default default auto-generated content only
+   * @default - default auto-generated content only
    */
   readonly alarmDescriptionOverride?: string;
 
@@ -261,28 +261,28 @@ export interface AddCompositeAlarmProps {
   /**
    * Alarm description is included in the ticket and therefore should describe what happened, with as much context as possible.
    *
-   * @default no description
+   * @default - no description
    */
   readonly alarmDescription?: string;
 
   /**
    * An optional link included in the generated ticket description body.
    *
-   * @default no additional link will be added
+   * @default - no additional link will be added
    */
   readonly documentationLink?: string;
 
   /**
    * An optional link included in the generated ticket description body.
    *
-   * @default no additional link will be added
+   * @default - no additional link will be added
    */
   readonly runbookLink?: string;
 
   /**
    * Suffix added to base alarm name. Alarm names need to be unique.
    *
-   * @default no suffix
+   * @default - no suffix
    */
   readonly alarmNameSuffix?: string;
 
@@ -291,42 +291,42 @@ export interface AddCompositeAlarmProps {
    * This allows you to specify the same dedupe string for a family of alarms.
    * Cannot be defined at the same time as alarmDedupeStringOverride.
    *
-   * @default undefined (no suffix)
+   * @default - undefined (no suffix)
    */
   readonly alarmDedupeStringSuffix?: string;
 
   /**
    * Enables the configured CloudWatch alarm ticketing actions.
    *
-   * @default the same as monitoring facade default
+   * @default - the same as monitoring facade default
    */
   readonly actionsEnabled?: boolean;
 
   /**
    * This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
    *
-   * @default no tags
+   * @default - no tags
    */
   readonly customTags?: string[];
 
   /**
    * This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
    *
-   * @default no parameters
+   * @default - no parameters
    */
   readonly customParams?: Record<string, any>;
 
   /**
    * Indicates whether the alarming range of values should be highlighted in the widget.
    *
-   * @default false
+   * @default - false
    */
   readonly fillAlarmRange?: boolean;
 
   /**
    * Logical operator used to aggregate the status individual alarms.
    *
-   * @default OR
+   * @default - OR
    */
   readonly compositeOperator?: CompositeAlarmOperator;
 }
@@ -359,35 +359,35 @@ export interface AlarmFactoryDefaults {
   /**
    * Default alarm action used for each alarm, unless it is overridden.
    *
-   * @default no action.
+   * @default - no action.
    */
   readonly action?: IAlarmActionStrategy;
 
   /**
    * Custom strategy to create annotations for alarms.
    *
-   * @default default annotations
+   * @default - default annotations
    */
   readonly annotationStrategy?: IAlarmAnnotationStrategy;
 
   /**
    * Custom strategy to process dedupe strings of the alarms
    *
-   * @default default behaviour (no change)
+   * @default - default behaviour (no change)
    */
   readonly dedupeStringProcessor?: IAlarmDedupeStringProcessor;
 
   /**
    * Number of breaches required to transition into an ALARM state.
    *
-   * @default 3
+   * @default - 3
    */
   readonly datapointsToAlarm?: number;
 
   /**
    * Number of periods to consider when checking the number of breaching datapoints.
    *
-   * @default {number} Same as datapointsToAlarm.
+   * @default - Same as datapointsToAlarm.
    */
   readonly evaluationPeriods?: number;
 
@@ -411,7 +411,7 @@ export interface AlarmFactoryDefaults {
    * If this is defined as false and dedupeStringOverride is undefined, the alarm prefix will be part of the dedupe string.
    * This essentially stops the dedupe of different errors together.
    *
-   * @default undefined (true)
+   * @default - undefined (true)
    */
   readonly useDefaultDedupeForError?: boolean;
 
@@ -419,7 +419,7 @@ export interface AlarmFactoryDefaults {
    * If this is defined as false and dedupeStringOverride is undefined, the alarm prefix will be part of the dedupe string.
    * This essentially stops the dedupe of different latency issues together.
    *
-   * @default undefined (true)
+   * @default - undefined (true)
    */
   readonly useDefaultDedupeForLatency?: boolean;
 }

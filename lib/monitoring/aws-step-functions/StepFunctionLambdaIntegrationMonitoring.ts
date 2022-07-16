@@ -38,6 +38,7 @@ export interface StepFunctionLambdaIntegrationMonitoringProps
   readonly addDurationP50Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP90Alarm?: Record<string, DurationThreshold>;
   readonly addDurationP99Alarm?: Record<string, DurationThreshold>;
+
   readonly addFailedFunctionsCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFailedFunctionsRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly addTimedOutFunctionsCountAlarm?: Record<string, ErrorCountThreshold>;

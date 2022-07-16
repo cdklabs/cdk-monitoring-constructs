@@ -61,7 +61,7 @@ export interface SqsQueueMonitoringWithDlqProps
   /**
    * Indicates whether the DLQ monitoring should be added to summary dashboard.
    *
-   * @default true
+   * @default - true
    */
   readonly addDeadLetterQueueToSummaryDashboard?: boolean;
 }

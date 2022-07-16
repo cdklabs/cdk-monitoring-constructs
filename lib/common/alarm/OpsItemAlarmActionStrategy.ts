@@ -10,6 +10,7 @@ import {
 
 /**
  * Creates an AWS OpsCenter OpsItem with critical severity.
+ *
  * @param category optional category (no category by default)
  */
 export function createCriticalSeverityOpsItem(category?: OpsItemCategory) {
@@ -18,6 +19,7 @@ export function createCriticalSeverityOpsItem(category?: OpsItemCategory) {
 
 /**
  * Creates an AWS OpsCenter OpsItem with high severity.
+ *
  * @param category optional category (no category by default)
  */
 export function createHighSeverityOpsItem(category?: OpsItemCategory) {
@@ -26,6 +28,7 @@ export function createHighSeverityOpsItem(category?: OpsItemCategory) {
 
 /**
  * Creates an AWS OpsCenter OpsItem with medium severity.
+ *
  * @param category optional category (no category by default)
  */
 export function createMediumSeverityOpsItem(category?: OpsItemCategory) {
@@ -34,6 +37,7 @@ export function createMediumSeverityOpsItem(category?: OpsItemCategory) {
 
 /**
  * Creates an AWS OpsCenter OpsItem with low severity.
+ *
  * @param category optional category (no category by default)
  */
 export function createLowSeverityOpsItem(category?: OpsItemCategory) {
@@ -42,6 +46,7 @@ export function createLowSeverityOpsItem(category?: OpsItemCategory) {
 
 /**
  * Creates an AWS OpsCenter OpsItem.
+ *
  * @param severity desired item severity
  * @param category optional category (no category by default)
  */

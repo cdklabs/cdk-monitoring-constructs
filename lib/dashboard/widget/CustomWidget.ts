@@ -12,13 +12,13 @@ export interface CustomWidgetProps {
   /**
    * Width of the widget, in a grid of 24 units wide
    *
-   * @default 6
+   * @default - 6
    */
   readonly width?: number;
   /**
    * Height of the widget
    *
-   * @default 6
+   * @default - 6
    */
   readonly height?: number;
   /**
@@ -40,19 +40,19 @@ export interface CustomWidgetProps {
   /**
    * Whether the widget should be updated (by calling the Lambda again) on refresh.
    *
-   * @default true
+   * @default - true
    */
   readonly updateOnRefresh?: boolean;
   /**
    * Whether the widget should be updated (by calling the Lambda again) on resize.
    *
-   * @default true
+   * @default - true
    */
   readonly updateOnResize?: boolean;
   /**
    * Whether the widget should be updated (by calling the Lambda again) on time range change.
    *
-   * @default true
+   * @default - true
    */
   readonly updateOnTimeRangeChange?: boolean;
 }

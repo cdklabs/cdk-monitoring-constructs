@@ -16,12 +16,12 @@ export interface AppSyncMetricFactoryProps {
   readonly api: GraphqlApi;
   /**
    * whether the TPS should be filled with zeroes
-   * @default true
+   * @default - true
    */
   readonly fillTpsWithZeroes?: boolean;
   /**
    * method to compute TPS
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

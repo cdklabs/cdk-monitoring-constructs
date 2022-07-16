@@ -20,7 +20,7 @@ export interface DynamoTableMetricFactoryProps {
   /**
    * table billing mode
    *
-   * @default best effort auto-detection or PROVISIONED as a fallback
+   * @default - best effort auto-detection or PROVISIONED as a fallback
    */
   readonly billingMode?: BillingMode;
 }

@@ -27,7 +27,7 @@ export interface MetricFactoryDefaults {
 
   /**
    * Metric period. Default value is used if not defined.
-   * @default DefaultMetricPeriod
+   * @default - DefaultMetricPeriod
    */
   readonly period?: Duration;
 }

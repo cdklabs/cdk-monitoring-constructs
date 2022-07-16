@@ -44,6 +44,11 @@ const DefaultLatencyTypesToRender = [
 ];
 
 export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
+  readonly add4XXErrorCountAlarm?: Record<string, ErrorCountThreshold>;
+  readonly add4XXErrorRateAlarm?: Record<string, ErrorRateThreshold>;
+  readonly add5XXFaultCountAlarm?: Record<string, ErrorCountThreshold>;
+  readonly add5XXFaultRateAlarm?: Record<string, ErrorRateThreshold>;
+
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP70Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
@@ -60,10 +65,7 @@ export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyTM999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM9999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyAverageAlarm?: Record<string, LatencyThreshold>;
-  readonly add4XXErrorCountAlarm?: Record<string, ErrorCountThreshold>;
-  readonly add4XXErrorRateAlarm?: Record<string, ErrorRateThreshold>;
-  readonly add5XXFaultCountAlarm?: Record<string, ErrorCountThreshold>;
-  readonly add5XXFaultRateAlarm?: Record<string, ErrorRateThreshold>;
+
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
   readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
 
@@ -72,7 +74,7 @@ export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
    * Note: any latency type with an alarm will be also added automatically.
    * If the list is undefined, default values will be shown.
    * If the list is empty, only the latency types with an alarm will be shown (if any).
-   * @default p50, p90, p99 (@see DefaultLatencyTypesToRender)
+   * @default - p50, p90, p99 (@see DefaultLatencyTypesToRender)
    */
   readonly latencyTypesToRender?: LatencyType[];
 }

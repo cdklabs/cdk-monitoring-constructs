@@ -11,7 +11,7 @@ const Namespace = "AWS/States";
 export interface StepFunctionServiceIntegrationMetricFactoryProps {
   readonly serviceIntegrationResourceArn: string;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

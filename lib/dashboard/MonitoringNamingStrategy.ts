@@ -11,7 +11,7 @@ export interface NameResolutionInput extends UserProvidedNames {
    * Fallback name before we fallback to extracting name from the construct itself.
    * This might be some construct reference, such is cluster ID, stream name, and so on.
    *
-   * @default use namedConstruct to extract the name
+   * @default - use namedConstruct to extract the name
    */
   readonly fallbackConstructName?: string;
 }
@@ -21,14 +21,14 @@ export interface UserProvidedNames {
    * Human-readable name is a freeform string, used as a caption or description.
    * There are no limitations on what it can be.
    *
-   * @default use alarmFriendlyName
+   * @default - use alarmFriendlyName
    */
   readonly humanReadableName?: string;
   /**
    * Plain name, used in naming alarms. This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
    * The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
    *
-   * @default derives name from the construct itself
+   * @default - derives name from the construct itself
    */
   readonly alarmFriendlyName?: string;
 

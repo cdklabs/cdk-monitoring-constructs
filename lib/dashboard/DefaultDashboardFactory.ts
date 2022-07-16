@@ -36,50 +36,50 @@ export interface MonitoringDashboardsProps {
   readonly dashboardNamePrefix: string;
   /**
    * Range of the detail dashboard (and other auxiliary dashboards).
-   * @default 8 hours
+   * @default - 8 hours
    * @see DefaultDetailDashboardRange
    */
   readonly detailDashboardRange?: Duration;
   /**
    * Period override for the detail dashboard (and other auxiliary dashboards).
-   * @default respect individual graphs (PeriodOverride.INHERIT)
+   * @default - respect individual graphs (PeriodOverride.INHERIT)
    */
   readonly detailDashboardPeriodOverride?: PeriodOverride;
   /**
    * Range of the summary dashboard.
-   * @default 14 days
+   * @default - 14 days
    */
   readonly summaryDashboardRange?: Duration;
   /**
    * Period override for the summary dashboard.
-   * @default respect individual graphs (PeriodOverride.INHERIT)
+   * @default - respect individual graphs (PeriodOverride.INHERIT)
    */
   readonly summaryDashboardPeriodOverride?: PeriodOverride;
   /**
    * Flag indicating whether the default dashboard should be created.
    * This is independent on other create dashboard flags.
    *
-   * @default true
+   * @default - true
    */
   readonly createDashboard?: boolean;
   /**
    * Flag indicating whether the summary dashboard should be created.
    * This is independent on other create dashboard flags.
    *
-   * @default false
+   * @default - false
    */
   readonly createSummaryDashboard?: boolean;
   /**
    * Flag indicating whether the alarm dashboard should be created.
    * This is independent on other create dashboard flags.
    *
-   * @default false
+   * @default - false
    */
   readonly createAlarmDashboard?: boolean;
   /**
    * Dashboard rendering preference.
    *
-   * @default DashboardRenderingPreference.INTERACTIVE_ONLY
+   * @default - DashboardRenderingPreference.INTERACTIVE_ONLY
    */
   readonly renderingPreference?: DashboardRenderingPreference;
 }

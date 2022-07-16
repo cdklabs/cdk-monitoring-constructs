@@ -13,11 +13,11 @@ import {
 export interface OpenSearchClusterMetricFactoryProps {
   readonly domain: Domain;
   /**
-   * @default true
+   * @default - true
    */
   readonly fillTpsWithZeroes?: boolean;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }

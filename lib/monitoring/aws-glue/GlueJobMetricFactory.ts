@@ -11,7 +11,7 @@ const GlueNamespace = "Glue";
 export interface GlueJobMetricFactoryProps {
   readonly jobName: string;
   /**
-   * @default average
+   * @default - average
    */
   readonly rateComputationMethod?: RateComputationMethod;
 }
