@@ -1983,6 +1983,7 @@ const addAlarmProps: AddAlarmProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -2240,6 +2241,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AddAlarmProps.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -2655,6 +2676,7 @@ const alarmAnnotationStrategyProps: AlarmAnnotationStrategyProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.threshold">threshold</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | *No description.* |
@@ -2775,6 +2797,16 @@ public readonly metric: Metric | MathExpression;
 
 ```typescript
 public readonly threshold: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AlarmAnnotationStrategyProps.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
 ```
 
 - *Type:* number
@@ -3383,7 +3415,7 @@ const alarmWithAnnotation: AlarmWithAnnotation = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.customTags">customTags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.dedupeString">dedupeString</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.disambiguator">disambiguator</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarm">alarm</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Alarm</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarm">alarm</a></code> | <code>aws-cdk-lib.aws_cloudwatch.AlarmBase</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmLabel">alarmLabel</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmName">alarmName</a></code> | <code>string</code> | *No description.* |
@@ -3448,10 +3480,10 @@ public readonly disambiguator: string;
 ##### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.AlarmWithAnnotation.property.alarm"></a>
 
 ```typescript
-public readonly alarm: Alarm;
+public readonly alarm: AlarmBase;
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.Alarm
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmBase
 
 ---
 

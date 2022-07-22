@@ -1,6 +1,7 @@
 import { Duration, Stack } from "aws-cdk-lib";
-import { Template } from "aws-cdk-lib/assertions";
+import { Capture, Template } from "aws-cdk-lib/assertions";
 import {
+  Alarm,
   ComparisonOperator,
   Metric,
   Shading,
@@ -193,9 +194,9 @@ test("addAlarm: period override is propagated to alarm metric", () => {
     alarmNameSuffix: "TwoHoursPeriod",
     period: Duration.hours(2),
   });
-  const alarm1hConfig = alarm1h.alarm.metric.toMetricConfig();
+  const alarm1hConfig = (alarm1h.alarm as Alarm).metric.toMetricConfig();
   expect(alarm1hConfig.metricStat?.period).toStrictEqual(Duration.hours(1));
-  const alarm2hConfig = alarm2h.alarm.metric.toMetricConfig();
+  const alarm2hConfig = (alarm2h.alarm as Alarm).metric.toMetricConfig();
   expect(alarm2hConfig.metricStat?.period).toStrictEqual(Duration.hours(2));
 });
 
@@ -249,6 +250,63 @@ test("addAlarm: annotation overrides are applied", () => {
     label: "NewLabel",
     value: 10,
     visible: false,
+  });
+});
+
+test("addAlarm: check created alarms when minMetricSamplesToAlarm is used", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults,
+    localAlarmNamePrefix: "prefix",
+  });
+  factory.addAlarm(metric, {
+    ...props,
+    alarmNameSuffix: "none",
+    comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
+    minMetricSamplesToAlarm: 42,
+  });
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    AlarmName: "DummyServiceAlarms-prefix-none",
+    MetricName: "DummyMetric1",
+    Statistic: "Average",
+  });
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    AlarmName: "DummyServiceAlarms-prefix-none-NoSamples",
+    AlarmDescription:
+      "The metric (DummyMetric1) does not have enough samples to alarm. Must have at least 42.",
+    ComparisonOperator: "LessThanThreshold",
+    DatapointsToAlarm: 1,
+    EvaluationPeriods: 1,
+    MetricName: "DummyMetric1",
+    Statistic: "SampleCount",
+    Threshold: 42,
+    TreatMissingData: "breaching",
+  });
+  const alarmRuleCapture = new Capture();
+  template.hasResourceProperties("AWS::CloudWatch::CompositeAlarm", {
+    AlarmName: "DummyServiceAlarms-prefix-none-WithSamples",
+    AlarmRule: alarmRuleCapture,
+  });
+  const expectedPrimaryAlarmArn = {
+    "Fn::GetAtt": ["DummyServiceAlarmsprefixnoneF01556DA", "Arn"],
+  };
+  const expectedSecondaryAlarmArn = {
+    "Fn::GetAtt": ["DummyServiceAlarmsprefixnoneNoSamples414211DB", "Arn"],
+  };
+  expect(alarmRuleCapture.asObject()).toStrictEqual({
+    ["Fn::Join"]: [
+      "",
+      [
+        '(ALARM("',
+        expectedPrimaryAlarmArn,
+        '") AND (NOT (ALARM("',
+        expectedSecondaryAlarmArn,
+        '"))))',
+      ],
+    ],
   });
 });
 

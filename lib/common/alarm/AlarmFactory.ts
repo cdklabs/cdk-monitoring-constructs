@@ -1,6 +1,6 @@
 import { Duration } from "aws-cdk-lib";
 import {
-  Alarm,
+  AlarmBase,
   AlarmRule,
   AlarmState,
   ComparisonOperator,
@@ -11,7 +11,11 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 
-import { MetricFactoryDefaults, MetricWithAlarmSupport } from "../metric";
+import {
+  MetricFactoryDefaults,
+  MetricStatistic,
+  MetricWithAlarmSupport,
+} from "../metric";
 import { removeBracketsWithDynamicLabels } from "../strings";
 import { AlarmNamingStrategy } from "./AlarmNamingStrategy";
 import { IAlarmActionStrategy } from "./IAlarmActionStrategy";
@@ -45,7 +49,7 @@ export interface AlarmMetadata {
  * Representation of an alarm with additional information.
  */
 export interface AlarmWithAnnotation extends AlarmMetadata {
-  readonly alarm: Alarm;
+  readonly alarm: AlarmBase;
   readonly alarmName: string;
   readonly alarmNameSuffix: string;
   readonly alarmLabel: string;
@@ -177,6 +181,18 @@ export interface AddAlarmProps {
    * @default - true
    */
   readonly evaluateLowSampleCountPercentile?: boolean;
+
+  /**
+   * Specifies how many samples (N) of the metric is needed to trigger the alarm.
+   * If this property is specified, an artificial composite alarm is created of the following:
+   * <ul>
+   * <li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+   * <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+   * </ul>
+   * The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+   * @default - default behaviour - no condition on sample count will be added to the alarm
+   */
+  readonly minMetricSamplesToAlarm?: number;
 
   /**
    * This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
@@ -451,6 +467,8 @@ export class AlarmFactory {
     metric: MetricWithAlarmSupport,
     props: AddAlarmProps
   ): AlarmWithAnnotation {
+    // prepare the metric
+
     let adjustedMetric = metric;
     if (props.period) {
       // Adjust metric period for the alarm
@@ -462,6 +480,9 @@ export class AlarmFactory {
         label: removeBracketsWithDynamicLabels(adjustedMetric.label),
       });
     }
+
+    // prepare primary alarm properties
+
     const actionsEnabled = this.determineActionsEnabled(
       props.actionsEnabled,
       props.disambiguator
@@ -496,20 +517,64 @@ export class AlarmFactory {
       );
     }
 
-    const alarm = adjustedMetric.createAlarm(this.alarmScope, alarmName, {
+    // create primary alarm
+
+    const primaryAlarm = adjustedMetric.createAlarm(
+      this.alarmScope,
       alarmName,
-      alarmDescription,
-      threshold: props.threshold,
-      comparisonOperator: props.comparisonOperator,
-      treatMissingData: props.treatMissingData,
-      // default value (undefined) means "evaluate"
-      evaluateLowSampleCountPercentile: evaluateLowSampleCountPercentile
-        ? undefined
-        : "ignore",
-      datapointsToAlarm,
-      evaluationPeriods,
-      actionsEnabled,
-    });
+      {
+        alarmName,
+        alarmDescription,
+        threshold: props.threshold,
+        comparisonOperator: props.comparisonOperator,
+        treatMissingData: props.treatMissingData,
+        // default value (undefined) means "evaluate"
+        evaluateLowSampleCountPercentile: evaluateLowSampleCountPercentile
+          ? undefined
+          : "ignore",
+        datapointsToAlarm,
+        evaluationPeriods,
+        actionsEnabled,
+      }
+    );
+
+    let alarm: AlarmBase = primaryAlarm;
+
+    // create composite alarm for min metric samples (if defined)
+
+    if (props.minMetricSamplesToAlarm) {
+      const metricSampleCount = adjustedMetric.with({
+        statistic: MetricStatistic.N,
+      });
+      const noSamplesAlarm = metricSampleCount.createAlarm(
+        this.alarmScope,
+        `${alarmName}-NoSamples`,
+        {
+          alarmName: `${alarmName}-NoSamples`,
+          alarmDescription: `The metric (${adjustedMetric}) does not have enough samples to alarm. Must have at least ${props.minMetricSamplesToAlarm}.`,
+          threshold: props.minMetricSamplesToAlarm,
+          comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
+          treatMissingData: TreatMissingData.BREACHING,
+          datapointsToAlarm: 1,
+          evaluationPeriods: 1,
+          actionsEnabled,
+        }
+      );
+      alarm = new CompositeAlarm(this.alarmScope, `${alarmName}-WithSamples`, {
+        actionsEnabled,
+        compositeAlarmName: `${alarmName}-WithSamples`,
+        alarmDescription: this.joinDescriptionParts(
+          alarmDescription,
+          `Min number of samples to alarm: ${props.minMetricSamplesToAlarm}`
+        ),
+        alarmRule: AlarmRule.allOf(
+          AlarmRule.fromAlarm(primaryAlarm, AlarmState.ALARM),
+          AlarmRule.not(AlarmRule.fromAlarm(noSamplesAlarm, AlarmState.ALARM))
+        ),
+      });
+    }
+
+    // attach alarm actions
 
     action.addAlarmActions({
       alarm,
@@ -520,13 +585,16 @@ export class AlarmFactory {
       customParams: props.customParams ?? {},
     });
 
+    // create annotation for the primary alarm
+
     const annotation = this.createAnnotation({
-      alarm,
+      alarm: primaryAlarm,
       action,
       metric: adjustedMetric,
       evaluationPeriods,
       datapointsToAlarm,
       dedupeString,
+      minMetricSamplesToAlarm: props.minMetricSamplesToAlarm,
       fillAlarmRange: props.fillAlarmRange ?? false,
       overrideAnnotationColor: props.overrideAnnotationColor,
       overrideAnnotationLabel: props.overrideAnnotationLabel,
@@ -537,6 +605,8 @@ export class AlarmFactory {
       customTags: props.customTags ?? [],
       customParams: props.customParams ?? {},
     });
+
+    // return the final result
 
     return {
       alarm,
@@ -611,7 +681,7 @@ export class AlarmFactory {
       case CompositeAlarmOperator.OR:
         return AlarmRule.anyOf(...alarmRules);
       default:
-        throw new Error("Unsupported composite alarm operator: " + operator);
+        throw new Error(`Unsupported composite alarm operator: ${operator}`);
     }
   }
 
@@ -663,6 +733,10 @@ export class AlarmFactory {
       parts.push(`Documentation: ${documentationLink}`);
     }
 
+    return this.joinDescriptionParts(...parts);
+  }
+
+  protected joinDescriptionParts(...parts: string[]) {
     return parts.join(" \r\n");
   }
 
