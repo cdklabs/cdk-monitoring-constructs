@@ -15,3 +15,4 @@ export * from "./ThroughputAlarmFactory";
 export * from "./TopicAlarmFactory";
 export * from "./TpsAlarmFactory";
 export * from "./UsageAlarmFactory";
+export * from "./SuccessPercentageAlarmFactory";

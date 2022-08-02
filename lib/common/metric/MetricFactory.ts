@@ -372,6 +372,36 @@ export class MetricFactory {
   }
 
   /**
+   * Creates a metric math expression that computes a success percentage from a faults & total metrics.
+   *
+   * @param faults A fault count metric
+   * @param total A total count metric (i.e. faults + successes)
+   * @param label expression label
+   * @param faultsExpressionId An expression ID of the faults metric; uses `faults` if undefined
+   * @param totalExpressionId  An expression ID of the total metric; uses `total` if undefined
+   */
+  toSuccessPercentage(
+    faults: MetricWithAlarmSupport,
+    total: MetricWithAlarmSupport,
+    label: string,
+    faultsExpressionId?: string,
+    totalExpressionId?: string
+  ): MetricWithAlarmSupport {
+    const finalFaultsExpressionId = faultsExpressionId ?? "faults";
+    const finalTotalExpressionId = totalExpressionId ?? "total";
+    const expression = `100 - 100 * ${finalFaultsExpressionId} / MAX([${finalFaultsExpressionId}, ${finalTotalExpressionId}])`;
+
+    return this.createMetricMath(
+      expression,
+      {
+        [finalFaultsExpressionId]: faults,
+        [finalTotalExpressionId]: total,
+      },
+      label
+    );
+  }
+
+  /**
    * Returns the given namespace (if defined) or the global namespace as a fallback.
    * If there is no namespace to fallback to (neither the custom or the default one), it will fail.
    * @param value custom namespace

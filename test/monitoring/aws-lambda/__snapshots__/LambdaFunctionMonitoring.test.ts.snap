@@ -431,6 +431,68 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyLambdaSuccessPercentageWarning900153B6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Success percentage is too low.",
+        "AlarmName": "Test-DummyLambda-Success-Percentage-Warning",
+        "ComparisonOperator": "LessThanOrEqualToThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 - 100 * faults / MAX([faults, total])",
+            "Id": "expr_1",
+            "Label": "Lambda Success Rate",
+          },
+          Object {
+            "Id": "faults",
+            "Label": "Faults",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Errors",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Invocations",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 50,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyLambdaThrottledCountWarning946A5E19": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -1086,6 +1148,68 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyLambdaSuccessPercentageWarning900153B6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Success percentage is too low.",
+        "AlarmName": "Test-DummyLambda-Success-Percentage-Warning",
+        "ComparisonOperator": "LessThanOrEqualToThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 - 100 * faults / MAX([faults, total])",
+            "Id": "expr_1",
+            "Label": "Lambda Success Rate",
+          },
+          Object {
+            "Id": "faults",
+            "Label": "Faults",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Errors",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Invocations",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 50,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyLambdaThrottledCountWarning946A5E19": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -1617,6 +1741,68 @@ Object {
         ],
         "Threshold": 10,
         "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaSuccessPercentageWarning900153B6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Success percentage is too low.",
+        "AlarmName": "Test-DummyLambda-Success-Percentage-Warning",
+        "ComparisonOperator": "LessThanOrEqualToThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 - 100 * faults / MAX([faults, total])",
+            "Id": "expr_1",
+            "Label": "Lambda Success Rate",
+          },
+          Object {
+            "Id": "faults",
+            "Label": "Faults",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Errors",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Invocations",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 50,
+        "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },

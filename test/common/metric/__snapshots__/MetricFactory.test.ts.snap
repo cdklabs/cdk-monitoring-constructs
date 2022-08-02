@@ -732,3 +732,119 @@ MathExpression {
   },
 }
 `;
+
+exports[`snapshot test: toSuccessPercentage 1`] = `
+MathExpression {
+  "color": undefined,
+  "expression": "100 - 100 * faults / MAX([faults, total])",
+  "label": "Lambda Success Percentage",
+  "period": Duration {
+    "amount": 5,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "searchAccount": undefined,
+  "searchRegion": undefined,
+  "usingMetrics": Object {
+    "faults": Metric {
+      "account": undefined,
+      "color": undefined,
+      "dimensions": undefined,
+      "label": "ErrorsLabel",
+      "metricName": "Errors",
+      "namespace": "DummyNamespace",
+      "period": Duration {
+        "amount": 5,
+        "unit": TimeUnit {
+          "inMillis": 60000,
+          "isoLabel": "M",
+          "label": "minutes",
+        },
+      },
+      "region": undefined,
+      "statistic": "Sum",
+      "unit": undefined,
+    },
+    "total": Metric {
+      "account": undefined,
+      "color": undefined,
+      "dimensions": undefined,
+      "label": "InvocationsLabel",
+      "metricName": "Invocations",
+      "namespace": "DummyNamespace",
+      "period": Duration {
+        "amount": 5,
+        "unit": TimeUnit {
+          "inMillis": 60000,
+          "isoLabel": "M",
+          "label": "minutes",
+        },
+      },
+      "region": undefined,
+      "statistic": "Sum",
+      "unit": undefined,
+    },
+  },
+}
+`;
+
+exports[`snapshot test: toSuccessPercentage 2`] = `
+MathExpression {
+  "color": undefined,
+  "expression": "100 - 100 * failedCanaries / MAX([failedCanaries, startedCanaries])",
+  "label": "Canaries Success Percentage",
+  "period": Duration {
+    "amount": 5,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "searchAccount": undefined,
+  "searchRegion": undefined,
+  "usingMetrics": Object {
+    "failedCanaries": Metric {
+      "account": undefined,
+      "color": undefined,
+      "dimensions": undefined,
+      "label": "FailedCanaries",
+      "metricName": "Failed",
+      "namespace": "DummyNamespace",
+      "period": Duration {
+        "amount": 5,
+        "unit": TimeUnit {
+          "inMillis": 60000,
+          "isoLabel": "M",
+          "label": "minutes",
+        },
+      },
+      "region": undefined,
+      "statistic": "Sum",
+      "unit": undefined,
+    },
+    "startedCanaries": Metric {
+      "account": undefined,
+      "color": undefined,
+      "dimensions": undefined,
+      "label": "StartedCanaries",
+      "metricName": "Started",
+      "namespace": "DummyNamespace",
+      "period": Duration {
+        "amount": 5,
+        "unit": TimeUnit {
+          "inMillis": 60000,
+          "isoLabel": "M",
+          "label": "minutes",
+        },
+      },
+      "region": undefined,
+      "statistic": "Sum",
+      "unit": undefined,
+    },
+  },
+}
+`;

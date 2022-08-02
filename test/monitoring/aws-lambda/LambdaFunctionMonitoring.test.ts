@@ -135,9 +135,14 @@ test("snapshot test: all alarms", () => {
         numAlarmsCreated = alarms.length;
       },
     },
+    addSuccessPercentageAlarm: {
+      Warning: {
+        minSuccessPercentage: 50,
+      },
+    },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(12);
+  expect(numAlarmsCreated).toStrictEqual(13);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -275,9 +280,14 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
         numAlarmsCreated = alarms.length;
       },
     },
+    addSuccessPercentageAlarm: {
+      Warning: {
+        minSuccessPercentage: 50,
+      },
+    },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(12);
+  expect(numAlarmsCreated).toStrictEqual(13);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -375,8 +385,13 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
         numAlarmsCreated = alarms.length;
       },
     },
+    addSuccessPercentageAlarm: {
+      Warning: {
+        minSuccessPercentage: 50,
+      },
+    },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(12);
+  expect(numAlarmsCreated).toStrictEqual(13);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

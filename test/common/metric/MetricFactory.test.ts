@@ -306,3 +306,53 @@ test("sanitizeMetricExpressionIdSuffix removes unwanted characters", () => {
     )
   ).toStrictEqual("SomeWeirdCharacters");
 });
+
+test("snapshot test: toSuccessPercentage", () => {
+  const metricFactory = new MetricFactory({
+    globalDefaults: {
+      namespace: "DummyNamespace",
+    },
+  });
+
+  const lambdaErrors = metricFactory.createMetric(
+    "Errors",
+    MetricStatistic.SUM,
+    "ErrorsLabel"
+  );
+
+  const lambdaInvocations = metricFactory.createMetric(
+    "Invocations",
+    MetricStatistic.SUM,
+    "InvocationsLabel"
+  );
+
+  const lambdaSuccessPercentage = metricFactory.toSuccessPercentage(
+    lambdaErrors,
+    lambdaInvocations,
+    "Lambda Success Percentage"
+  );
+
+  expect(lambdaSuccessPercentage).toMatchSnapshot();
+
+  const failed = metricFactory.createMetric(
+    "Failed",
+    MetricStatistic.SUM,
+    "FailedCanaries"
+  );
+
+  const started = metricFactory.createMetric(
+    "Started",
+    MetricStatistic.SUM,
+    "StartedCanaries"
+  );
+
+  const canariesSuccessPercentage = metricFactory.toSuccessPercentage(
+    failed,
+    started,
+    "Canaries Success Percentage",
+    "failedCanaries",
+    "startedCanaries"
+  );
+
+  expect(canariesSuccessPercentage).toMatchSnapshot();
+});

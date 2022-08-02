@@ -18826,6 +18826,7 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addSuccessPercentageAlarm">addSuccessPercentageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.SuccessPercentageThreshold">SuccessPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 
@@ -19099,6 +19100,16 @@ public readonly addProvisionedConcurrencySpilloverInvocationsRateAlarm: {[ key: 
 
 ---
 
+##### `addSuccessPercentageAlarm`<sup>Optional</sup> <a name="addSuccessPercentageAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addSuccessPercentageAlarm"></a>
+
+```typescript
+public readonly addSuccessPercentageAlarm: {[ key: string ]: SuccessPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.SuccessPercentageThreshold">SuccessPercentageThreshold</a>}
+
+---
+
 ##### `addThrottlesCountAlarm`<sup>Optional</sup> <a name="addThrottlesCountAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesCountAlarm"></a>
 
 ```typescript
@@ -19161,6 +19172,7 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addSuccessPercentageAlarm">addSuccessPercentageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.SuccessPercentageThreshold">SuccessPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 
@@ -19479,6 +19491,16 @@ public readonly addProvisionedConcurrencySpilloverInvocationsRateAlarm: {[ key: 
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}
+
+---
+
+##### `addSuccessPercentageAlarm`<sup>Optional</sup> <a name="addSuccessPercentageAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addSuccessPercentageAlarm"></a>
+
+```typescript
+public readonly addSuccessPercentageAlarm: {[ key: string ]: SuccessPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.SuccessPercentageThreshold">SuccessPercentageThreshold</a>}
 
 ---
 
@@ -33485,6 +33507,265 @@ public readonly addTimedOutServiceIntegrationsCountAlarm: {[ key: string ]: Erro
 
 ---
 
+### SuccessPercentageThreshold <a name="SuccessPercentageThreshold" id="cdk-monitoring-constructs.SuccessPercentageThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SuccessPercentageThreshold.Initializer"></a>
+
+```typescript
+import { SuccessPercentageThreshold } from 'cdk-monitoring-constructs'
+
+const successPercentageThreshold: SuccessPercentageThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageThreshold.property.minSuccessPercentage">minSuccessPercentage</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+Dedupe strings are global and not unique per CTI.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `minSuccessPercentage`<sup>Required</sup> <a name="minSuccessPercentage" id="cdk-monitoring-constructs.SuccessPercentageThreshold.property.minSuccessPercentage"></a>
+
+```typescript
+public readonly minSuccessPercentage: number;
+```
+
+- *Type:* number
+
+---
+
 ### SyntheticsCanaryMetricFactoryProps <a name="SyntheticsCanaryMetricFactoryProps" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.Initializer"></a>
@@ -42673,6 +42954,7 @@ new LambdaFunctionMetricFactory(metricFactory: MetricFactory, props: LambdaFunct
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricMaxIteratorAgeInMillis">metricMaxIteratorAgeInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricProvisionedConcurrencySpilloverInvocations">metricProvisionedConcurrencySpilloverInvocations</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricProvisionedConcurrencySpilloverRate">metricProvisionedConcurrencySpilloverRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricSuccessRate">metricSuccessRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricThrottlesCount">metricThrottlesCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricThrottlesRate">metricThrottlesRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricTps">metricTps</a></code> | *No description.* |
@@ -42743,6 +43025,12 @@ public metricProvisionedConcurrencySpilloverInvocations(): Metric | MathExpressi
 
 ```typescript
 public metricProvisionedConcurrencySpilloverRate(): Metric | MathExpression
+```
+
+##### `metricSuccessRate` <a name="metricSuccessRate" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricSuccessRate"></a>
+
+```typescript
+public metricSuccessRate(): Metric | MathExpression
 ```
 
 ##### `metricThrottlesCount` <a name="metricThrottlesCount" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricThrottlesCount"></a>
@@ -43287,6 +43575,7 @@ new MetricFactory(props?: MetricFactoryProps)
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.multiplyMetric">multiplyMetric</a></code> | Creates a metric math expression that multiplies the given metric by given coefficient. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.sanitizeMetricExpressionIdSuffix">sanitizeMetricExpressionIdSuffix</a></code> | Helper method that helps to sanitize the given expression ID and removes all invalid characters. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.toRate">toRate</a></code> | Creates a metric math expression that computes a rate from a regular metric. |
+| <code><a href="#cdk-monitoring-constructs.MetricFactory.toSuccessPercentage">toSuccessPercentage</a></code> | Creates a metric math expression that computes a success percentage from a faults & total metrics. |
 
 ---
 
@@ -43790,6 +44079,58 @@ uses `m1` if undefined
 if TRUE, the final metric will be zero-filled (0 on no data);
 
 false if undefined
+
+---
+
+##### `toSuccessPercentage` <a name="toSuccessPercentage" id="cdk-monitoring-constructs.MetricFactory.toSuccessPercentage"></a>
+
+```typescript
+public toSuccessPercentage(faults: Metric | MathExpression, total: Metric | MathExpression, label: string, faultsExpressionId?: string, totalExpressionId?: string): Metric | MathExpression
+```
+
+Creates a metric math expression that computes a success percentage from a faults & total metrics.
+
+###### `faults`<sup>Required</sup> <a name="faults" id="cdk-monitoring-constructs.MetricFactory.toSuccessPercentage.parameter.faults"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+A fault count metric.
+
+---
+
+###### `total`<sup>Required</sup> <a name="total" id="cdk-monitoring-constructs.MetricFactory.toSuccessPercentage.parameter.total"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+A total count metric (i.e. faults + successes).
+
+---
+
+###### `label`<sup>Required</sup> <a name="label" id="cdk-monitoring-constructs.MetricFactory.toSuccessPercentage.parameter.label"></a>
+
+- *Type:* string
+
+expression label.
+
+---
+
+###### `faultsExpressionId`<sup>Optional</sup> <a name="faultsExpressionId" id="cdk-monitoring-constructs.MetricFactory.toSuccessPercentage.parameter.faultsExpressionId"></a>
+
+- *Type:* string
+
+An expression ID of the faults metric;
+
+uses `faults` if undefined
+
+---
+
+###### `totalExpressionId`<sup>Optional</sup> <a name="totalExpressionId" id="cdk-monitoring-constructs.MetricFactory.toSuccessPercentage.parameter.totalExpressionId"></a>
+
+- *Type:* string
+
+An expression ID of the total metric;
+
+uses `total` if undefined
 
 ---
 
@@ -48344,6 +48685,63 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+
+
+
+### SuccessPercentageAlarmFactory <a name="SuccessPercentageAlarmFactory" id="cdk-monitoring-constructs.SuccessPercentageAlarmFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SuccessPercentageAlarmFactory.Initializer"></a>
+
+```typescript
+import { SuccessPercentageAlarmFactory } from 'cdk-monitoring-constructs'
+
+new SuccessPercentageAlarmFactory(alarmFactory: AlarmFactory)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageAlarmFactory.Initializer.parameter.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.SuccessPercentageAlarmFactory.Initializer.parameter.alarmFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SuccessPercentageAlarmFactory.addSuccessPercentageAlarm">addSuccessPercentageAlarm</a></code> | *No description.* |
+
+---
+
+##### `addSuccessPercentageAlarm` <a name="addSuccessPercentageAlarm" id="cdk-monitoring-constructs.SuccessPercentageAlarmFactory.addSuccessPercentageAlarm"></a>
+
+```typescript
+public addSuccessPercentageAlarm(metric: Metric | MathExpression, props: SuccessPercentageThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.SuccessPercentageAlarmFactory.addSuccessPercentageAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SuccessPercentageAlarmFactory.addSuccessPercentageAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.SuccessPercentageThreshold">SuccessPercentageThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.SuccessPercentageAlarmFactory.addSuccessPercentageAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
 
 
 

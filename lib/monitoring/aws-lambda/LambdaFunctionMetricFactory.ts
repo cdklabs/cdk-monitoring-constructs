@@ -174,4 +174,12 @@ export class LambdaFunctionMetricFactory {
       })
     );
   }
+
+  metricSuccessRate() {
+    return this.metricFactory.toSuccessPercentage(
+      this.metricFaultCount(),
+      this.metricInvocationCount(),
+      "Lambda Success Rate"
+    );
+  }
 }

@@ -40,6 +40,8 @@ import {
   UsageAlarmFactory,
   UsageThreshold,
   UsageType,
+  SuccessPercentageAlarmFactory,
+  SuccessPercentageThreshold,
 } from "../../common";
 import {
   MonitoringHeaderWidget,
@@ -64,6 +66,11 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
 
   readonly addThrottlesCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addThrottlesRateAlarm?: Record<string, ErrorRateThreshold>;
+
+  readonly addSuccessPercentageAlarm?: Record<
+    string,
+    SuccessPercentageThreshold
+  >;
 
   readonly addConcurrentExecutionsCountAlarm?: Record<
     string,
@@ -125,6 +132,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
   protected readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
   protected readonly ageAlarmFactory: AgeAlarmFactory;
   protected readonly usageAlarmFactory: UsageAlarmFactory;
+  protected readonly successPercentageAlarmFactory: SuccessPercentageAlarmFactory;
 
   protected readonly latencyAnnotations: HorizontalAnnotation[];
   protected readonly errorCountAnnotations: HorizontalAnnotation[];
@@ -135,6 +143,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
   protected readonly cpuTotalTimeAnnotations: HorizontalAnnotation[];
   protected readonly memoryUsageAnnotations: HorizontalAnnotation[];
   protected readonly maxIteratorAgeAnnotations: HorizontalAnnotation[];
+  protected readonly successPercentageAnnotations: HorizontalAnnotation[];
 
   protected readonly tpsMetric: MetricWithAlarmSupport;
   protected readonly p50LatencyMetric: MetricWithAlarmSupport;
@@ -149,6 +158,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
   protected readonly provisionedConcurrencySpilloverInvocationsCountMetric: MetricWithAlarmSupport;
   protected readonly provisionedConcurrencySpilloverInvocationsRateMetric: MetricWithAlarmSupport;
   protected readonly maxIteratorAgeMetric: MetricWithAlarmSupport;
+  protected readonly successPercentageMetric: MetricWithAlarmSupport;
 
   protected readonly lambdaInsightsEnabled: boolean;
   protected readonly enhancedMetricFactory?: LambdaFunctionEnhancedMetricFactory;
@@ -183,6 +193,9 @@ export class LambdaFunctionMonitoring extends Monitoring {
     this.taskHealthAlarmFactory = new TaskHealthAlarmFactory(this.alarmFactory);
     this.ageAlarmFactory = new AgeAlarmFactory(this.alarmFactory);
     this.usageAlarmFactory = new UsageAlarmFactory(this.alarmFactory);
+    this.successPercentageAlarmFactory = new SuccessPercentageAlarmFactory(
+      this.alarmFactory
+    );
 
     this.latencyAnnotations = [];
     this.errorCountAnnotations = [];
@@ -193,6 +206,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     this.cpuTotalTimeAnnotations = [];
     this.memoryUsageAnnotations = [];
     this.maxIteratorAgeAnnotations = [];
+    this.successPercentageAnnotations = [];
 
     this.metricFactory = new LambdaFunctionMetricFactory(
       scope.createMetricFactory(),
@@ -215,6 +229,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       this.metricFactory.metricProvisionedConcurrencySpilloverRate();
     this.maxIteratorAgeMetric =
       this.metricFactory.metricMaxIteratorAgeInMillis();
+    this.successPercentageMetric = this.metricFactory.metricSuccessRate();
 
     this.lambdaInsightsEnabled = props.lambdaInsightsEnabled ?? false;
     if (props.lambdaInsightsEnabled) {
@@ -466,6 +481,17 @@ export class LambdaFunctionMonitoring extends Monitoring {
       this.maxIteratorAgeAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
+    for (const disambiguator in props.addSuccessPercentageAlarm) {
+      const alarmProps = props.addSuccessPercentageAlarm[disambiguator];
+      const createdAlarm =
+        this.successPercentageAlarmFactory.addSuccessPercentageAlarm(
+          this.successPercentageMetric,
+          alarmProps,
+          disambiguator
+        );
+      this.successPercentageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
 
     props.useCreatedAlarms?.consume(this.createdAlarms());
   }
@@ -473,9 +499,13 @@ export class LambdaFunctionMonitoring extends Monitoring {
   summaryWidgets(): IWidget[] {
     return [
       this.createTitleWidget(),
-      this.createTpsWidget(ThirdWidth, DefaultSummaryWidgetHeight),
-      this.createLatencyWidget(ThirdWidth, DefaultSummaryWidgetHeight),
-      this.createErrorRateWidget(ThirdWidth, DefaultSummaryWidgetHeight),
+      this.createTpsWidget(QuarterWidth, DefaultSummaryWidgetHeight),
+      this.createLatencyWidget(QuarterWidth, DefaultSummaryWidgetHeight),
+      this.createErrorRateWidget(QuarterWidth, DefaultSummaryWidgetHeight),
+      this.createSuccessPercentageWidget(
+        QuarterWidth,
+        DefaultSummaryWidgetHeight
+      ),
     ];
   }
 
@@ -486,12 +516,16 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.createTpsWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createErrorRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
-        this.createRateWidget(QuarterWidth, DefaultGraphWidgetHeight)
+        this.createSuccessPercentageWidget(
+          QuarterWidth,
+          DefaultGraphWidgetHeight
+        )
       ),
       new Row(
-        this.createInvocationWidget(ThirdWidth, DefaultGraphWidgetHeight),
-        this.createIteratorAgeWidget(ThirdWidth, DefaultGraphWidgetHeight),
-        this.createErrorCountWidget(ThirdWidth, DefaultGraphWidgetHeight)
+        this.createRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createInvocationWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createIteratorAgeWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createErrorCountWidget(QuarterWidth, DefaultGraphWidgetHeight)
       ),
     ];
 
@@ -570,6 +604,17 @@ export class LambdaFunctionMonitoring extends Monitoring {
       left: [this.faultRateMetric],
       leftYAxis: RateAxisFromZero,
       leftAnnotations: this.errorRateAnnotations,
+    });
+  }
+
+  protected createSuccessPercentageWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Success Percentage",
+      left: [this.successPercentageMetric],
+      leftYAxis: RateAxisFromZero,
+      leftAnnotations: this.successPercentageAnnotations,
     });
   }
 
