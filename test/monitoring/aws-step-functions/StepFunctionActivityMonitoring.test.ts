@@ -6,6 +6,7 @@ import {
   AlarmWithAnnotation,
   StepFunctionActivityMonitoring,
 } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -17,11 +18,12 @@ test("snapshot test: no alarms", () => {
     activityName: "DummyActivity",
   });
 
-  new StepFunctionActivityMonitoring(scope, {
+  const monitoring = new StepFunctionActivityMonitoring(scope, {
     alarmFriendlyName: "DummyActivity",
     activity,
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -36,7 +38,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new StepFunctionActivityMonitoring(scope, {
+  const monitoring = new StepFunctionActivityMonitoring(scope, {
     alarmFriendlyName: "DummyActivity",
     activity,
     addDurationP50Alarm: {
@@ -76,6 +78,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(6);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

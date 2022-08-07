@@ -3,6 +3,7 @@ import { Template } from "aws-cdk-lib/assertions";
 import { Queue } from "aws-cdk-lib/aws-sqs";
 
 import { AlarmWithAnnotation, SqsQueueMonitoringWithDlq } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -18,11 +19,12 @@ test("snapshot test: no alarms", () => {
     queueName: "DummyQueue-DLQ",
   });
 
-  new SqsQueueMonitoringWithDlq(scope, {
+  const monitoring = new SqsQueueMonitoringWithDlq(scope, {
     queue,
     deadLetterQueue,
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -41,7 +43,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new SqsQueueMonitoringWithDlq(scope, {
+  const monitoring = new SqsQueueMonitoringWithDlq(scope, {
     queue,
     deadLetterQueue,
     addQueueMaxSizeAlarm: {
@@ -76,6 +78,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(5);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

@@ -2,6 +2,7 @@ import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 
 import { KinesisFirehoseMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -9,10 +10,11 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new KinesisFirehoseMonitoring(scope, {
+  const monitoring = new KinesisFirehoseMonitoring(scope, {
     deliveryStreamName: "my-firehose-delivery-stream",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -23,7 +25,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new KinesisFirehoseMonitoring(scope, {
+  const monitoring = new KinesisFirehoseMonitoring(scope, {
     deliveryStreamName: "my-firehose-delivery-stream",
     addRecordsThrottledAlarm: {
       Critical: {
@@ -37,6 +39,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(1);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

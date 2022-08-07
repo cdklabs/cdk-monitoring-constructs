@@ -3,6 +3,7 @@ import { Template } from "aws-cdk-lib/assertions";
 import { Queue } from "aws-cdk-lib/aws-sqs";
 
 import { AlarmWithAnnotation, SqsQueueMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -14,18 +15,30 @@ test("snapshot test: no alarms", () => {
     queueName: "DummyQueue",
   });
 
-  new SqsQueueMonitoring(scope, {
+  const monitoring = new SqsQueueMonitoring(scope, {
     queue,
   });
 
-  // alternative: use reference
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
 
-  new SqsQueueMonitoring(scope, {
+test("snapshot test: use fromQueueAttributes, no alarms", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  new Queue(stack, "Queue", {
+    queueName: "DummyQueue",
+  });
+
+  const monitoring = new SqsQueueMonitoring(scope, {
     queue: Queue.fromQueueAttributes(stack, "DummyQueueRef", {
       queueArn: "arn:aws:sqs:us-east-2:123456789012:DummyQueueRef",
     }),
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -40,7 +53,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new SqsQueueMonitoring(scope, {
+  const monitoring = new SqsQueueMonitoring(scope, {
     queue,
     addQueueMinSizeAlarm: {
       Warning: {
@@ -79,6 +92,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(6);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

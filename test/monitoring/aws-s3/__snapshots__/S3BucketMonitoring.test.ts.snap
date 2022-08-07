@@ -10,6 +10,78 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[TestBucket](https://s3.console.aws.amazon.com/s3/buckets/",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "?region=eu-west-1&tab=metrics)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bucket Size\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/S3\\",\\"BucketSizeBytes\\",\\"BucketName\\",\\"",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "\\",\\"StorageType\\",\\"StandardStorage\\",{\\"label\\":\\"BucketSizeBytes\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Object Count\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/S3\\",\\"NumberOfObjects\\",\\"BucketName\\",\\"",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "\\",\\"StorageType\\",\\"AllStorageTypes\\",{\\"label\\":\\"NumberOfObjects\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[TestBucket](https://s3.console.aws.amazon.com/s3/buckets/",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "?region=eu-west-1&tab=metrics)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bucket Size\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/S3\\",\\"BucketSizeBytes\\",\\"BucketName\\",\\"",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "\\",\\"StorageType\\",\\"StandardStorage\\",{\\"label\\":\\"BucketSizeBytes\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Object Count\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/S3\\",\\"NumberOfObjects\\",\\"BucketName\\",\\"",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "\\",\\"StorageType\\",\\"AllStorageTypes\\",{\\"label\\":\\"NumberOfObjects\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "TestBucket560B80BC": Object {
       "DeletionPolicy": "Retain",
       "Type": "AWS::S3::Bucket",
@@ -56,6 +128,78 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[TestBucket](https://s3.console.aws.amazon.com/s3/buckets/",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "?region=eu-west-1&tab=metrics)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bucket Size\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/S3\\",\\"BucketSizeBytes\\",\\"BucketName\\",\\"",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "\\",\\"StorageType\\",\\"IntelligentTieringFAStorage\\",{\\"label\\":\\"BucketSizeBytes\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Object Count\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/S3\\",\\"NumberOfObjects\\",\\"BucketName\\",\\"",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "\\",\\"StorageType\\",\\"AllStorageTypes\\",{\\"label\\":\\"NumberOfObjects\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### S3 Bucket **[TestBucket](https://s3.console.aws.amazon.com/s3/buckets/",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "?region=eu-west-1&tab=metrics)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bucket Size\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/S3\\",\\"BucketSizeBytes\\",\\"BucketName\\",\\"",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "\\",\\"StorageType\\",\\"IntelligentTieringFAStorage\\",{\\"label\\":\\"BucketSizeBytes\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Object Count\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/S3\\",\\"NumberOfObjects\\",\\"BucketName\\",\\"",
+              Object {
+                "Ref": "TestBucket560B80BC",
+              },
+              "\\",\\"StorageType\\",\\"AllStorageTypes\\",{\\"label\\":\\"NumberOfObjects\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "TestBucket560B80BC": Object {
       "DeletionPolicy": "Retain",
       "Type": "AWS::S3::Bucket",

@@ -10,6 +10,85 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIntegrationDurationP50Warning6F621EAC",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIntegrationDurationP90Warning9F3D43F5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIntegrationDurationP99Warning87A8E30F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIntegrationFailureCountWarning52AC3BD6",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIntegrationFailureRateWarning31D72EE7",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIntegrationTimedOutCountWarningAD5965F9",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Function76856677": Object {
       "DependsOn": Array [
         "FunctionServiceRole675BB04A",
@@ -60,6 +139,98 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambdaIntegration](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 180000 for 3 datapoints within 15 minutes\\",\\"value\\":180000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionsScheduled\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Scheduled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsStarted\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsSucceeded\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsFailed\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsTimedOut\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Timeout > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionsFailed\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Failed (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed (avg) > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestDummyLambdaIntegrationDurationP50Warning6F621EAC": Object {
       "Properties": Object {
@@ -295,6 +466,87 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambdaIntegration](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 180000 for 3 datapoints within 15 minutes\\",\\"value\\":180000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionsScheduled\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Scheduled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsStarted\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsSucceeded\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsFailed\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsTimedOut\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Timeout > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
   },
   "Rules": Object {
     "CheckBootstrapVersion": Object {
@@ -336,6 +588,12 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Function76856677": Object {
       "DependsOn": Array [
         "FunctionServiceRole675BB04A",
@@ -386,6 +644,179 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambdaIntegration](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionsScheduled\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Scheduled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsStarted\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsSucceeded\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsFailed\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsTimedOut\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionsFailed\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Failed (avg)\\"}]],\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambdaIntegration](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"LambdaFunctionRunTime\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"LambdaFunctionsScheduled\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Scheduled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsStarted\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsSucceeded\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsFailed\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"LambdaFunctionsTimedOut\\",\\"LambdaFunctionArn\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Function76856677",
+                  "Arn",
+                ],
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
