@@ -5,6 +5,7 @@ import {
   AlarmWithAnnotation,
   StepFunctionServiceIntegrationMonitoring,
 } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -12,12 +13,13 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new StepFunctionServiceIntegrationMonitoring(scope, {
+  const monitoring = new StepFunctionServiceIntegrationMonitoring(scope, {
     alarmFriendlyName: "DummyServiceIntegration",
     serviceIntegrationResourceArn:
       "arn:aws:states:eu-west-1:216854468193:batch:submitJob.sync",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -28,7 +30,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new StepFunctionServiceIntegrationMonitoring(scope, {
+  const monitoring = new StepFunctionServiceIntegrationMonitoring(scope, {
     alarmFriendlyName: "DummyServiceIntegration",
     serviceIntegrationResourceArn:
       "arn:aws:states:eu-west-1:216854468193:batch:submitJob.sync",
@@ -69,6 +71,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(6);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

@@ -2,6 +2,7 @@ import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 
 import { KinesisDataAnalyticsMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -9,10 +10,11 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new KinesisDataAnalyticsMonitoring(scope, {
+  const monitoring = new KinesisDataAnalyticsMonitoring(scope, {
     application: "DummyApplication",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -23,7 +25,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new KinesisDataAnalyticsMonitoring(scope, {
+  const monitoring = new KinesisDataAnalyticsMonitoring(scope, {
     application: "DummyApplication",
     addDowntimeAlarm: {
       Warning: {
@@ -42,6 +44,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(2);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

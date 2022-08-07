@@ -4,6 +4,7 @@ import { TreatMissingData } from "aws-cdk-lib/aws-cloudwatch";
 import { Pass, StateMachine } from "aws-cdk-lib/aws-stepfunctions";
 
 import { AlarmWithAnnotation, StepFunctionMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -15,11 +16,12 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new StepFunctionMonitoring(scope, {
+  const monitoring = new StepFunctionMonitoring(scope, {
     alarmFriendlyName: "DummyStateMachine",
     stateMachine,
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -34,7 +36,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new StepFunctionMonitoring(scope, {
+  const monitoring = new StepFunctionMonitoring(scope, {
     alarmFriendlyName: "DummyStateMachine",
     stateMachine,
     addAbortedExecutionCountAlarm: {
@@ -90,6 +92,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(9);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -105,7 +108,7 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
 
   let numAlarmsCreated = 0;
 
-  new StepFunctionMonitoring(scope, {
+  const monitoring = new StepFunctionMonitoring(scope, {
     alarmFriendlyName: "DummyStateMachine",
     stateMachine,
     addAbortedExecutionCountAlarm: {
@@ -161,6 +164,7 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(9);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

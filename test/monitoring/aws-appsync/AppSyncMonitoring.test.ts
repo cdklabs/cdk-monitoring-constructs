@@ -3,6 +3,7 @@ import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 
 import { AlarmWithAnnotation, AppSyncMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -14,12 +15,13 @@ test("snapshot test: no alarms", () => {
     name: "DummyApi",
   });
 
-  new AppSyncMonitoring(scope, {
+  const monitoring = new AppSyncMonitoring(scope, {
     api: dummyApi,
     humanReadableName: "Dummy API for testing",
     alarmFriendlyName: "DummyApi",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -34,7 +36,7 @@ test("snapshot test: all alarms", () => {
     name: "DummyApi",
   });
 
-  new AppSyncMonitoring(scope, {
+  const monitoring = new AppSyncMonitoring(scope, {
     api: dummyApi,
     humanReadableName: "Dummy API for testing",
     alarmFriendlyName: "DummyApi",
@@ -90,6 +92,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(9);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

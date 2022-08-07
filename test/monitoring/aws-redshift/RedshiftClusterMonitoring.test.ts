@@ -2,6 +2,7 @@ import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 
 import { RdsClusterMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -9,11 +10,12 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  new RdsClusterMonitoring(scope, {
+  const monitoring = new RdsClusterMonitoring(scope, {
     alarmFriendlyName: "DummyRedshiftCluster",
     clusterIdentifier: "my-redshift-cluster",
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -24,7 +26,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new RdsClusterMonitoring(scope, {
+  const monitoring = new RdsClusterMonitoring(scope, {
     clusterIdentifier: "my-redshift-cluster",
     addDiskSpaceUsageAlarm: {
       Warning: {
@@ -43,6 +45,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(2);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

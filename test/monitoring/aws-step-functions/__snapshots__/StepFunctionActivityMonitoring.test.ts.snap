@@ -16,6 +16,150 @@ Object {
       },
       "Type": "AWS::StepFunctions::Activity",
     },
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyActivityDurationP50Warning85BF6D46",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyActivityDurationP90Warning76686B60",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyActivityDurationP99Warning94329F6A",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyActivityFailureCountWarningED994CFB",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyActivityFailureRateWarning503C677F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyActivityTimedOutCountWarningE99C9E4F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Activity **DummyActivity**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 180000 for 3 datapoints within 15 minutes\\",\\"value\\":180000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivitiesScheduled\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Scheduled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesStarted\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesSucceeded\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesFailed\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesHeartbeatTimedOut\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"HeartbeatTimedOut\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesTimedOut\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Timeout > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivitiesFailed\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Failed (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed (avg) > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "ScopeTestDummyActivityDurationP50Warning85BF6D46": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -232,6 +376,63 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Activity **DummyActivity**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 180000 for 3 datapoints within 15 minutes\\",\\"value\\":180000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivitiesScheduled\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Scheduled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesStarted\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesSucceeded\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesFailed\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesHeartbeatTimedOut\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"HeartbeatTimedOut\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesTimedOut\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Timeout > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
   },
   "Rules": Object {
     "CheckBootstrapVersion": Object {
@@ -278,6 +479,134 @@ Object {
         "Name": "DummyActivity",
       },
       "Type": "AWS::StepFunctions::Activity",
+    },
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Activity **DummyActivity**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivitiesScheduled\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Scheduled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesStarted\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesSucceeded\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesFailed\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesHeartbeatTimedOut\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"HeartbeatTimedOut\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesTimedOut\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivitiesFailed\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Failed (avg)\\"}]],\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Activity **DummyActivity**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ActivityRunTime\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ActivitiesScheduled\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Scheduled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesStarted\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesSucceeded\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesFailed\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesHeartbeatTimedOut\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"HeartbeatTimedOut\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ActivitiesTimedOut\\",\\"ActivityArn\\",\\"",
+              Object {
+                "Ref": "Activity04690B0A",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {

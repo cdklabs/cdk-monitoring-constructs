@@ -10,6 +10,59 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyfirehosedeliverystreamPutRecordsThrottledCritical95611854",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Firehose Delivery Stream **[my-firehose-delivery-stream](https://eu-west-1.console.aws.amazon.com/firehose/home?region=eu-west-1#/details/my-firehose-delivery-stream/monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Records\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttled > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"PutRecord.Latency\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"PutRecord P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Firehose\\",\\"PutRecordBatch.Latency\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"PutRecordBatch P90\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"SucceedConversion.Records\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Succeed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"FailedConversion.Records\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Limits (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "ScopeTestmyfirehosedeliverystreamPutRecordsThrottledCritical95611854": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -43,6 +96,27 @@ Object {
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Firehose Delivery Stream **[my-firehose-delivery-stream](https://eu-west-1.console.aws.amazon.com/firehose/home?region=eu-west-1#/details/my-firehose-delivery-stream/monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Records\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttled > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"SucceedConversion.Records\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Succeed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"FailedConversion.Records\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
@@ -82,6 +156,64 @@ Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Firehose Delivery Stream **[my-firehose-delivery-stream](https://eu-west-1.console.aws.amazon.com/firehose/home?region=eu-west-1#/details/my-firehose-delivery-stream/monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Records\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"PutRecord.Latency\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"PutRecord P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Firehose\\",\\"PutRecordBatch.Latency\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"PutRecordBatch P90\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"SucceedConversion.Records\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Succeed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"FailedConversion.Records\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Limits (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Firehose Delivery Stream **[my-firehose-delivery-stream](https://eu-west-1.console.aws.amazon.com/firehose/home?region=eu-west-1#/details/my-firehose-delivery-stream/monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Records\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"SucceedConversion.Records\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Succeed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"FailedConversion.Records\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {

@@ -104,6 +104,118 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineDurationP50Warning6D0C59ED",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineDurationP90Warning02138D72",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineDurationP99Warning60BD82B4",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineFailureCountWarningE1694389",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineFailureRateWarningFBFDE9DB",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineAbortedCountWarningAAE60EC9",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineThrottledCountWarning9BCA6279",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineTimedOutCountWarningAA8D33D5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineRunningTasksLowWarningDF8F9A9E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "DummyStateMachine912BDB94": Object {
       "DependsOn": Array [
         "DummyStateMachineRoleC6C4FF37",
@@ -143,6 +255,75 @@ Object {
         },
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://eu-west-1.console.aws.amazon.com/states/home?region=eu-west-1#/statemachines/view/",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 180000 for 3 datapoints within 15 minutes\\",\\"value\\":180000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsStarted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Aborted > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Throttled > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Timeout > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Started < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed (avg) > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestDummyStateMachineAbortedCountWarningAAE60EC9": Object {
       "Properties": Object {
@@ -467,6 +648,67 @@ Object {
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://eu-west-1.console.aws.amazon.com/states/home?region=eu-west-1#/statemachines/view/",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 180000 for 3 datapoints within 15 minutes\\",\\"value\\":180000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsStarted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Aborted > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Throttled > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Timeout > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Started < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
@@ -603,6 +845,118 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineDurationP50Warning6D0C59ED",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineDurationP90Warning02138D72",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineDurationP99Warning60BD82B4",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineFailureCountWarningE1694389",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineFailureRateWarningFBFDE9DB",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineAbortedCountWarningAAE60EC9",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineThrottledCountWarning9BCA6279",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineTimedOutCountWarningAA8D33D5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyStateMachineRunningTasksLowWarningDF8F9A9E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "DummyStateMachine912BDB94": Object {
       "DependsOn": Array [
         "DummyStateMachineRoleC6C4FF37",
@@ -642,6 +996,75 @@ Object {
         },
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://eu-west-1.console.aws.amazon.com/states/home?region=eu-west-1#/statemachines/view/",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 180000 for 3 datapoints within 15 minutes\\",\\"value\\":180000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsStarted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Aborted > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Throttled > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Timeout > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Started < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed (avg) > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestDummyStateMachineAbortedCountWarningAAE60EC9": Object {
       "Properties": Object {
@@ -967,6 +1390,67 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://eu-west-1.console.aws.amazon.com/states/home?region=eu-west-1#/statemachines/view/",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 60000 for 3 datapoints within 15 minutes\\",\\"value\\":60000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 120000 for 3 datapoints within 15 minutes\\",\\"value\\":120000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 180000 for 3 datapoints within 15 minutes\\",\\"value\\":180000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsStarted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Aborted > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Throttled > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Timeout > 2 for 3 datapoints within 15 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Started < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
   },
   "Rules": Object {
     "CheckBootstrapVersion": Object {
@@ -1102,6 +1586,12 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "DummyStateMachine912BDB94": Object {
       "DependsOn": Array [
         "DummyStateMachineRoleC6C4FF37",
@@ -1141,6 +1631,136 @@ Object {
         },
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://eu-west-1.console.aws.amazon.com/states/home?region=eu-west-1#/statemachines/view/",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsStarted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed (avg)\\"}]],\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### State Machine **[DummyStateMachine](https://eu-west-1.console.aws.amazon.com/states/home?region=eu-west-1#/statemachines/view/",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/States\\",\\"ExecutionTime\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Executions\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/States\\",\\"ExecutionsStarted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
+              Object {
+                "Ref": "DummyStateMachine912BDB94",
+              },
+              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
