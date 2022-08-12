@@ -17,7 +17,7 @@ import (
 	constructs              "github.com/aws/constructs-go/constructs/v10/jsii"
 )
 
-//go:embed cdk-monitoring-constructs-1.19.1.tgz
+//go:embed cdk-monitoring-constructs-0.0.0.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -32,5 +32,5 @@ func Initialize() {
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("cdk-monitoring-constructs", "1.19.1", tarball)
+	_jsii_.Load("cdk-monitoring-constructs", "0.0.0", tarball)
 }
