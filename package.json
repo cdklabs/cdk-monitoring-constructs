@@ -147,7 +147,7 @@
         "packageId": "Cdklabs.CdkMonitoringConstructs"
       },
       "go": {
-        "moduleName": "github.com/cdklabs/cdkmonitoringconstructs"
+        "moduleName": "github.com/cdklabs/cdk-monitoring-constructs"
       }
     },
     "tsc": {
