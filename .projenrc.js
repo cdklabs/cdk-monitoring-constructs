@@ -36,6 +36,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     mavenArtifactId: "cdkmonitoringconstructs",
     mavenEndpoint: "https://s01.oss.sonatype.org",
   },
+  // Artifact config: Go
+  publishToGo: {
+    moduleName: "github.com/cdklabs/cdkmonitoringconstructs",
+  },
 
   // Auto approval config
   autoApproveOptions: {
@@ -122,6 +126,7 @@ project.release.addJobs({
       "release_npm",
       "release_nuget",
       "release_pypi",
+      "release_golang",
     ],
     steps: [
       {
