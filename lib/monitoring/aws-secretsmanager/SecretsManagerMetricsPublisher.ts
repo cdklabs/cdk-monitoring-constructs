@@ -20,7 +20,7 @@ import { SecretsManagerSecretMetricFactory } from "./SecretsManagerSecretMetricF
 
 export class SecretsManagerMetricsPublisher extends Construct {
   private static instances: Record<string, SecretsManagerMetricsPublisher> = {};
-  private readonly lambda: IFunction;
+  public readonly lambda: IFunction;
 
   private constructor(scope: MonitoringScope) {
     super(scope, "SecretsManagerMetricsPublisher");

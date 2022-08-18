@@ -1930,6 +1930,7 @@ SecretsManagerMetricsPublisher.getInstance(scope: MonitoringScope)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.property.lambda">lambda</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 
 ---
 
@@ -1942,6 +1943,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `lambda`<sup>Required</sup> <a name="lambda" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.property.lambda"></a>
+
+```typescript
+public readonly lambda: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -30361,6 +30372,7 @@ const secretsManagerSecretMonitoringOptions: SecretsManagerSecretMonitoringOptio
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addDaysSinceLastChangeAlarm">addDaysSinceLastChangeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addDaysSinceLastRotationAlarm">addDaysSinceLastRotationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.showLastRotationWidget">showLastRotationWidget</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.usePublisher">usePublisher</a></code> | <code><a href="#cdk-monitoring-constructs.IPublisherConsumer">IPublisherConsumer</a></code> | Provides access to the underlying metrics publisher Lambda function. |
 
 ---
 
@@ -30493,6 +30505,20 @@ public readonly showLastRotationWidget: boolean;
 
 ---
 
+##### `usePublisher`<sup>Optional</sup> <a name="usePublisher" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.usePublisher"></a>
+
+```typescript
+public readonly usePublisher: IPublisherConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IPublisherConsumer">IPublisherConsumer</a>
+
+Provides access to the underlying metrics publisher Lambda function.
+
+This may be useful if you want to monitor the function itself.
+
+---
+
 ### SecretsManagerSecretMonitoringProps <a name="SecretsManagerSecretMonitoringProps" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps"></a>
 
 Monitoring props for Secrets Manager secrets.
@@ -30520,6 +30546,7 @@ const secretsManagerSecretMonitoringProps: SecretsManagerSecretMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.addDaysSinceLastChangeAlarm">addDaysSinceLastChangeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.addDaysSinceLastRotationAlarm">addDaysSinceLastRotationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.showLastRotationWidget">showLastRotationWidget</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.usePublisher">usePublisher</a></code> | <code><a href="#cdk-monitoring-constructs.IPublisherConsumer">IPublisherConsumer</a></code> | Provides access to the underlying metrics publisher Lambda function. |
 
 ---
 
@@ -30659,6 +30686,20 @@ public readonly showLastRotationWidget: boolean;
 
 - *Type:* boolean
 - *Default:* true, if `addDaysSinceLastRotationAlarm` is set, otherwise `false`.
+
+---
+
+##### `usePublisher`<sup>Optional</sup> <a name="usePublisher" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.usePublisher"></a>
+
+```typescript
+public readonly usePublisher: IPublisherConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IPublisherConsumer">IPublisherConsumer</a>
+
+Provides access to the underlying metrics publisher Lambda function.
+
+This may be useful if you want to monitor the function itself.
 
 ---
 
@@ -49887,6 +49928,31 @@ public metricProcessedBytesMin(): Metric | MathExpression
 ```typescript
 public metricUnhealthyTaskCount(): Metric | MathExpression
 ```
+
+
+### IPublisherConsumer <a name="IPublisherConsumer" id="cdk-monitoring-constructs.IPublisherConsumer"></a>
+
+- *Implemented By:* <a href="#cdk-monitoring-constructs.IPublisherConsumer">IPublisherConsumer</a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.IPublisherConsumer.consume">consume</a></code> | *No description.* |
+
+---
+
+##### `consume` <a name="consume" id="cdk-monitoring-constructs.IPublisherConsumer.consume"></a>
+
+```typescript
+public consume(lambdaFunction: IFunction): void
+```
+
+###### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="cdk-monitoring-constructs.IPublisherConsumer.consume.parameter.lambdaFunction"></a>
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+---
 
 
 ### IWidgetFactory <a name="IWidgetFactory" id="cdk-monitoring-constructs.IWidgetFactory"></a>
