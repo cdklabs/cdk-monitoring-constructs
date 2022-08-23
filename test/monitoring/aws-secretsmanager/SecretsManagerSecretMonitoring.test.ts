@@ -1,5 +1,6 @@
 import { App, Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
 import { Secret } from "aws-cdk-lib/aws-secretsmanager";
 
 import {
@@ -29,6 +30,7 @@ test("snapshot test", () => {
 
   let numAlarmsCreated = 0;
 
+  let lambdaFunction1: IFunction;
   new SecretsManagerSecretMonitoring(scope, {
     secret: secret1,
     addDaysSinceLastChangeAlarm: {
@@ -46,8 +48,14 @@ test("snapshot test", () => {
         numAlarmsCreated += alarms.length;
       },
     },
+    usePublisher: {
+      consume(lambdaFunction: IFunction) {
+        lambdaFunction1 = lambdaFunction;
+      },
+    },
   });
 
+  let lambdaFunction2: IFunction;
   new SecretsManagerSecretMonitoring(scope, {
     secret: secret2,
     addDaysSinceLastRotationAlarm: {
@@ -61,8 +69,14 @@ test("snapshot test", () => {
         numAlarmsCreated += alarms.length;
       },
     },
+    usePublisher: {
+      consume(lambdaFunction: IFunction) {
+        lambdaFunction2 = lambdaFunction;
+      },
+    },
   });
 
+  let lambdaFunction3: IFunction;
   new SecretsManagerSecretMonitoring(scope, {
     secret: secret3,
     addDaysSinceLastChangeAlarm: {
@@ -77,9 +91,18 @@ test("snapshot test", () => {
         numAlarmsCreated += alarms.length;
       },
     },
+    usePublisher: {
+      consume(lambdaFunction: IFunction) {
+        lambdaFunction3 = lambdaFunction;
+      },
+    },
   });
 
   expect(numAlarmsCreated).toStrictEqual(4);
+
+  // All the same instance since multiple publishers shouldn't be created
+  expect(lambdaFunction1!).toBe(lambdaFunction2!);
+  expect(lambdaFunction2!).toBe(lambdaFunction3!);
 
   forceStableAssetKeys(stack);
 

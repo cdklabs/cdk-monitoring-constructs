@@ -3,6 +3,7 @@ import {
   HorizontalAnnotation,
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
 
 import {
   AgeAlarmFactory,
@@ -26,6 +27,10 @@ import {
   SecretsManagerSecretMetricFactoryProps,
 } from "./SecretsManagerSecretMetricFactory";
 
+export interface IPublisherConsumer {
+  consume(lambdaFunction: IFunction): void;
+}
+
 export interface SecretsManagerSecretMonitoringOptions
   extends BaseMonitoringProps {
   readonly addDaysSinceLastChangeAlarm?: Record<
@@ -41,6 +46,12 @@ export interface SecretsManagerSecretMonitoringOptions
    * @default - true, if `addDaysSinceLastRotationAlarm` is set, otherwise `false`.
    */
   readonly showLastRotationWidget?: boolean;
+
+  /**
+   * Provides access to the underlying metrics publisher Lambda function.
+   * This may be useful if you want to monitor the function itself.
+   */
+  readonly usePublisher?: IPublisherConsumer;
 }
 
 /**
@@ -116,6 +127,7 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
     }
 
     props.useCreatedAlarms?.consume(this.createdAlarms());
+    props.usePublisher?.consume(publisher.lambda);
   }
 
   private getDaysSinceLastChangeWidget() {
