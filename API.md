@@ -43557,6 +43557,8 @@ public createMetricSearch(query: string, dimensionsMap: {[ key: string ]: string
 Factory method that creates a metric search query.
 
 The metric properties will already be updated to comply with the global defaults.
+If you want to match "any value" of a specific dimension, please use `undefined` value representation in your consumer language.
+(For example, `undefined as any as string` in TypeScript, due to JSII typing quirks.)
 
 ###### `query`<sup>Required</sup> <a name="query" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch.parameter.query"></a>
 
@@ -43572,7 +43574,7 @@ metric search query (the same as the search query prompt in CloudWatch AWS Conso
 
 dimensions, further narrowing the search results;
 
-values might be undefined if you want to represent "any value"
+use `undefined` if you want to represent "any value" (in TS: `undefined as any as string`)
 
 ---
 
