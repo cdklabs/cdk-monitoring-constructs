@@ -10104,7 +10104,8 @@ const customMetricGroup: CustomMetricGroup = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression \| <a href="#cdk-monitoring-constructs.CustomMetricWithAlarm">CustomMetricWithAlarm</a> \| <a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection">CustomMetricWithAnomalyDetection</a> \| <a href="#cdk-monitoring-constructs.CustomMetricSearch">CustomMetricSearch</a>[]</code> | list of metrics in the group (can be defined in different ways, see the type documentation). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.title">title</a></code> | <code>string</code> | title of the whole group. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetAxis">graphWidgetAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional axis. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis">graphWidgetRightAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional right axis default: undefined. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetLegend">graphWidgetLegend</a></code> | <code>aws-cdk-lib.aws_cloudwatch.LegendPosition</code> | graph widget legend. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis">graphWidgetRightAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional right axis. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetType">graphWidgetType</a></code> | <code><a href="#cdk-monitoring-constructs.GraphWidgetType">GraphWidgetType</a></code> | type of the widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalAnnotations">horizontalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalRightAnnotations">horizontalRightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together). |
@@ -10149,6 +10150,19 @@ optional axis.
 
 ---
 
+##### `graphWidgetLegend`<sup>Optional</sup> <a name="graphWidgetLegend" id="cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetLegend"></a>
+
+```typescript
+public readonly graphWidgetLegend: LegendPosition;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.LegendPosition
+- *Default:* BOTTOM
+
+graph widget legend.
+
+---
+
 ##### `graphWidgetRightAxis`<sup>Optional</sup> <a name="graphWidgetRightAxis" id="cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis"></a>
 
 ```typescript
@@ -10156,8 +10170,9 @@ public readonly graphWidgetRightAxis: YAxisProps;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.YAxisProps
+- *Default:* undefined
 
-optional right axis default: undefined.
+optional right axis.
 
 ---
 
