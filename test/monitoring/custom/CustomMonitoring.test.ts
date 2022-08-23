@@ -2,6 +2,7 @@ import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import {
   ComparisonOperator,
+  LegendPosition,
   MathExpression,
   Metric,
   Shading,
@@ -148,6 +149,7 @@ test("snapshot test", () => {
         horizontalRightAnnotations: [
           { label: "DummyAnnotation3", value: 20, fill: Shading.BELOW },
         ],
+        graphWidgetLegend: LegendPosition.RIGHT,
       },
       {
         title: "DummyGroup4",

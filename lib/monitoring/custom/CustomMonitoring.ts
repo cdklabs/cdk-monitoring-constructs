@@ -6,6 +6,7 @@ import {
   HorizontalAnnotation,
   IMetric,
   IWidget,
+  LegendPosition,
   Row,
   TextWidget,
   YAxisProps,
@@ -15,18 +16,18 @@ import {
   AnomalyDetectingAlarmFactory,
   AnomalyDetectionThreshold,
   BaseMonitoringProps,
+  createGraphWidget,
   CustomAlarmFactory,
   CustomThreshold,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
   FullWidth,
+  getHashForMetricExpressionId,
   GraphWidgetType,
   MetricStatistic,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
-  createGraphWidget,
-  getHashForMetricExpressionId,
   recommendedWidgetWidth,
 } from "../../common";
 import {
@@ -150,22 +151,27 @@ export interface CustomMetricGroup {
   readonly title: string;
   /**
    * type of the widget
-   * @default - line
+   * @default line
    */
   readonly graphWidgetType?: GraphWidgetType;
   /**
    * optional axis
-   * @default - undefined
+   * @default undefined
    */
   readonly graphWidgetAxis?: YAxisProps;
   /**
    * optional right axis
-   * default: undefined
+   * @default undefined
    */
   readonly graphWidgetRightAxis?: YAxisProps;
   /**
+   * graph widget legend
+   * @default BOTTOM
+   */
+  readonly graphWidgetLegend?: LegendPosition;
+  /**
    * Flag indicating, whether this is an important metric group that should be included in the summary as well.
-   * @default - false
+   * @default false
    */
   readonly important?: boolean;
   /**
@@ -368,6 +374,7 @@ export class CustomMonitoring extends Monitoring {
         rightAnnotations: annotatedGroup.rightAnnotations,
         leftYAxis: annotatedGroup.metricGroup.graphWidgetAxis,
         rightYAxis: annotatedGroup.metricGroup.graphWidgetRightAxis,
+        legendPosition: annotatedGroup.metricGroup.graphWidgetLegend,
       };
 
       const widget = useAnomalyDetectionWidget
