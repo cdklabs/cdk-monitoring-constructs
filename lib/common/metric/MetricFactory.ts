@@ -106,9 +106,11 @@ export class MetricFactory {
 
   /**
    * Factory method that creates a metric search query. The metric properties will already be updated to comply with the global defaults.
+   * If you want to match "any value" of a specific dimension, please use `undefined` value representation in your consumer language.
+   * (For example, `undefined as any as string` in TypeScript, due to JSII typing quirks.)
    *
    * @param query metric search query (the same as the search query prompt in CloudWatch AWS Console), it might also be empty
-   * @param dimensionsMap dimensions, further narrowing the search results; values might be undefined if you want to represent "any value"
+   * @param dimensionsMap dimensions, further narrowing the search results; use `undefined` if you want to represent "any value" (in TS: `undefined as any as string`)
    * @param statistic aggregation statistic to use
    * @param namespace specify a custom namespace; if undefined, uses the global default
    * @param label specify custom label for search metrics; default is " " as it cannot be empty string
