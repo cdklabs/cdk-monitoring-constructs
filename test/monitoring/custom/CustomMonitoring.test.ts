@@ -53,6 +53,7 @@ test("snapshot test", () => {
               Warning: {
                 threshold: 90,
                 comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
+                minMetricSamplesToAlarm: 5,
               },
               Critical: {
                 threshold: 50,
