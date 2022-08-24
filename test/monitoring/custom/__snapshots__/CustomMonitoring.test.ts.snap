@@ -414,7 +414,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyAlarmNameAlarmForDummyMetric3WarningA3421ECE",
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric3WarningWithSamplesC0279CF4",
                   "Arn",
                 ],
               },
@@ -646,6 +646,60 @@ Object {
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAlarmNameAlarmForDummyMetric3WarningNoSamplesEBA30C81": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The metric (DummyMetric3) does not have enough samples to alarm. Must have at least 5.",
+        "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric3-Warning-NoSamples",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 1,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "DummyMetric3",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "SampleCount",
+        "Threshold": 5,
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAlarmNameAlarmForDummyMetric3WarningWithSamplesC0279CF4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Threshold of 90 has been breached. 
+Min number of samples to alarm: 5",
+        "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric3-Warning-WithSamples",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric3WarningA3421ECE",
+                  "Arn",
+                ],
+              },
+              "\\") AND (NOT (ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAlarmNameAlarmForDummyMetric3WarningNoSamplesEBA30C81",
+                  "Arn",
+                ],
+              },
+              "\\"))))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
     },
     "Summary68521F81": Object {
       "Properties": Object {

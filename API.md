@@ -3605,6 +3605,7 @@ const anomalyDetectionThreshold: AnomalyDetectionThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -3788,6 +3789,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -6980,6 +7001,7 @@ const availabilityThreshold: AvailabilityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -7160,6 +7182,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AvailabilityThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -9083,6 +9125,7 @@ const consumedCapacityThreshold: ConsumedCapacityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -9266,6 +9309,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.period"></a>
 
 ```typescript
@@ -9344,6 +9407,7 @@ const customAlarmThreshold: CustomAlarmThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -9523,6 +9587,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -10738,6 +10822,7 @@ const customThreshold: CustomThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -10921,6 +11006,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.CustomThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -11168,6 +11273,7 @@ const daysSinceUpdateThreshold: DaysSinceUpdateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -11351,6 +11457,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.period"></a>
 
 ```typescript
@@ -11427,6 +11553,7 @@ const daysToExpiryThreshold: DaysToExpiryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -11607,6 +11734,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -12111,6 +12258,7 @@ const durationThreshold: DurationThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -12291,6 +12439,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DurationThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -14730,6 +14898,7 @@ const errorCountThreshold: ErrorCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -14913,6 +15082,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ErrorCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.ErrorCountThreshold.property.period"></a>
 
 ```typescript
@@ -14989,6 +15178,7 @@ const errorRateThreshold: ErrorRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -15169,6 +15359,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ErrorRateThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -16012,6 +16222,7 @@ const fullRestartCountThreshold: FullRestartCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -16192,6 +16403,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -16689,6 +16920,7 @@ const healthyTaskCountThreshold: HealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -16872,6 +17104,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.period"></a>
 
 ```typescript
@@ -16948,6 +17200,7 @@ const healthyTaskPercentThreshold: HealthyTaskPercentThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -17131,6 +17384,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.period"></a>
 
 ```typescript
@@ -17207,6 +17480,7 @@ const highMessagesPublishedThreshold: HighMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -17390,6 +17664,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.period"></a>
 
 ```typescript
@@ -17466,6 +17760,7 @@ const highTpsThreshold: HighTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -17646,6 +17941,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighTpsThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -19555,6 +19870,7 @@ const latencyThreshold: LatencyThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -19738,6 +20054,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LatencyThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LatencyThreshold.property.period"></a>
 
 ```typescript
@@ -19814,6 +20150,7 @@ const logLevelCountThreshold: LogLevelCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -19994,6 +20331,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -20251,6 +20608,7 @@ const lowMessagesPublishedThreshold: LowMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -20434,6 +20792,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.period"></a>
 
 ```typescript
@@ -20510,6 +20888,7 @@ const lowTpsThreshold: LowTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -20693,6 +21072,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowTpsThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LowTpsThreshold.property.period"></a>
 
 ```typescript
@@ -20769,6 +21168,7 @@ const maxAgeThreshold: MaxAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -20952,6 +21352,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxAgeThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxAgeThreshold.property.period"></a>
 
 ```typescript
@@ -21028,6 +21448,7 @@ const maxDowntimeThreshold: MaxDowntimeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -21211,6 +21632,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.period"></a>
 
 ```typescript
@@ -21287,6 +21728,7 @@ const maxIncomingMessagesCountThreshold: MaxIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -21470,6 +21912,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.period"></a>
 
 ```typescript
@@ -21546,6 +22008,7 @@ const maxItemsCountThreshold: MaxItemsCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -21729,6 +22192,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.period"></a>
 
 ```typescript
@@ -21805,6 +22288,7 @@ const maxIteratorAgeThreshold: MaxIteratorAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -21988,6 +22472,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.period"></a>
 
 ```typescript
@@ -22064,6 +22568,7 @@ const maxMessageAgeThreshold: MaxMessageAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -22247,6 +22752,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.period"></a>
 
 ```typescript
@@ -22323,6 +22848,7 @@ const maxMessageCountThreshold: MaxMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -22506,6 +23032,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.period"></a>
 
 ```typescript
@@ -22582,6 +23128,7 @@ const maxTimeToDrainThreshold: MaxTimeToDrainThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -22765,6 +23312,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.period"></a>
 
 ```typescript
@@ -22841,6 +23408,7 @@ const maxUsedSwapMemoryThreshold: MaxUsedSwapMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -23024,6 +23592,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.period"></a>
 
 ```typescript
@@ -23180,6 +23768,7 @@ const minFreeableMemoryThreshold: MinFreeableMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -23363,6 +23952,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.period"></a>
 
 ```typescript
@@ -23439,6 +24048,7 @@ const minIncomingMessagesCountThreshold: MinIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -23622,6 +24232,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.period"></a>
 
 ```typescript
@@ -23698,6 +24328,7 @@ const minMessageCountThreshold: MinMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -23881,6 +24512,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.period"></a>
 
 ```typescript
@@ -23957,6 +24608,7 @@ const minProcessedBytesThreshold: MinProcessedBytesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -24140,6 +24792,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.period"></a>
 
 ```typescript
@@ -24218,6 +24890,7 @@ const minRunningTaskCountThreshold: MinRunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -24398,6 +25071,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -25483,6 +26176,7 @@ const notificationsFailedThreshold: NotificationsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -25666,6 +26360,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.period"></a>
 
 ```typescript
@@ -25742,6 +26456,7 @@ const openSearchClusterAutomatedSnapshotFailureThreshold: OpenSearchClusterAutom
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -25925,6 +26640,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.period"></a>
 
 ```typescript
@@ -26001,6 +26736,7 @@ const openSearchClusterIndexWritesBlockedThreshold: OpenSearchClusterIndexWrites
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -26181,6 +26917,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -26965,6 +27721,7 @@ const openSearchClusterNodesThreshold: OpenSearchClusterNodesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -27148,6 +27905,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.period"></a>
 
 ```typescript
@@ -27224,6 +28001,7 @@ const openSearchClusterStatusCustomization: OpenSearchClusterStatusCustomization
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -27407,6 +28185,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.period"></a>
 
 ```typescript
@@ -27483,6 +28281,7 @@ const openSearchKmsKeyErrorThreshold: OpenSearchKmsKeyErrorThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -27666,6 +28465,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.period"></a>
 
 ```typescript
@@ -27742,6 +28561,7 @@ const openSearchKmsKeyInaccessibleThreshold: OpenSearchKmsKeyInaccessibleThresho
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -27922,6 +28742,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -28694,6 +29534,7 @@ const recordsFailedThreshold: RecordsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -28877,6 +29718,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.period"></a>
 
 ```typescript
@@ -28953,6 +29814,7 @@ const recordsThrottledThreshold: RecordsThrottledThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -29133,6 +29995,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -29539,6 +30421,7 @@ const runningTaskCountThreshold: RunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -29722,6 +30605,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.period"></a>
 
 ```typescript
@@ -29798,6 +30701,7 @@ const runningTaskRateThreshold: RunningTaskRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -29978,6 +30882,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 
@@ -33993,6 +34917,7 @@ const throttledEventsThreshold: ThrottledEventsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -34176,6 +35101,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.period"></a>
 
 ```typescript
@@ -34252,6 +35197,7 @@ const unhealthyTaskCountThreshold: UnhealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -34435,6 +35381,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.period"></a>
 
 ```typescript
@@ -34511,6 +35477,7 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -34694,6 +35661,26 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UsageCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.UsageCountThreshold.property.period"></a>
 
 ```typescript
@@ -34770,6 +35757,7 @@ const usageThreshold: UsageThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -34950,6 +35938,26 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UsageThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, an artificial composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
 
 ---
 

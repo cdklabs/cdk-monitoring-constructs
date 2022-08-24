@@ -40,6 +40,18 @@ export interface CustomAlarmThreshold {
   readonly alarmDescriptionOverride?: string;
 
   /**
+   * Specifies how many samples (N) of the metric is needed to trigger the alarm.
+   * If this property is specified, an artificial composite alarm is created of the following:
+   * <ul>
+   * <li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+   * <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+   * </ul>
+   * The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
+   * @default - default behaviour - no condition on sample count will be added to the alarm
+   */
+  readonly minMetricSamplesToAlarm?: number;
+
+  /**
    * This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
    *
    * @default - no tags
