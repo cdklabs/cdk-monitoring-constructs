@@ -54,7 +54,7 @@ export class RdsClusterMetricFactory {
   metricTotalConnectionCount() {
     return this.metric(
       "DatabaseConnections",
-      MetricStatistic.SUM,
+      MetricStatistic.AVERAGE,
       "Connections"
     );
   }
