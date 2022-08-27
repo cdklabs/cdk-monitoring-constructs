@@ -18,6 +18,7 @@ import {
   ThirdWidth,
   TimeAxisMillisFromZero,
   UsageAlarmFactory,
+  UsageCountThreshold,
   UsageThreshold,
 } from "../../common";
 import {
@@ -32,6 +33,7 @@ import {
 export interface RdsClusterMonitoringOptions extends BaseMonitoringProps {
   readonly addDiskSpaceUsageAlarm?: Record<string, UsageThreshold>;
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
+  readonly addConnectionUsageAlarm?: Record<string, UsageCountThreshold>;
 }
 
 export interface RdsClusterMonitoringProps
@@ -100,6 +102,17 @@ export class RdsClusterMonitoring extends Monitoring {
       const alarmProps = props.addCpuUsageAlarm[disambiguator];
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUsageMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.usageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addConnectionUsageAlarm) {
+      const alarmProps = props.addConnectionUsageAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addConnectionCountUsageAlarm(
+        this.connectionsMetric,
         alarmProps,
         disambiguator
       );

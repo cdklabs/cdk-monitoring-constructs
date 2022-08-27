@@ -29212,6 +29212,7 @@ const rdsClusterMonitoringOptions: RdsClusterMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addConnectionUsageAlarm">addConnectionUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 
@@ -29315,6 +29316,16 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addConnectionUsageAlarm`<sup>Optional</sup> <a name="addConnectionUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addConnectionUsageAlarm"></a>
+
+```typescript
+public readonly addConnectionUsageAlarm: {[ key: string ]: UsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}
+
+---
+
 ##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCpuUsageAlarm"></a>
 
 ```typescript
@@ -29358,6 +29369,7 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addConnectionUsageAlarm">addConnectionUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 
@@ -29484,6 +29496,16 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addConnectionUsageAlarm`<sup>Optional</sup> <a name="addConnectionUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addConnectionUsageAlarm"></a>
+
+```typescript
+public readonly addConnectionUsageAlarm: {[ key: string ]: UsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}
 
 ---
 
@@ -50109,6 +50131,7 @@ new UsageAlarmFactory(alarmFactory: AlarmFactory)
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addConnectionCountUsageAlarm">addConnectionCountUsageAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm">addMaxCpuUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxDiskUsagePercentAlarm">addMaxDiskUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxFileDescriptorPercentAlarm">addMaxFileDescriptorPercentAlarm</a></code> | *No description.* |
@@ -50118,6 +50141,30 @@ new UsageAlarmFactory(alarmFactory: AlarmFactory)
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxMemoryUsagePercentAlarm">addMaxMemoryUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxThreadCountUsageAlarm">addMaxThreadCountUsageAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMemoryUsagePercentAlarm">addMemoryUsagePercentAlarm</a></code> | *No description.* |
+
+---
+
+##### `addConnectionCountUsageAlarm` <a name="addConnectionCountUsageAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addConnectionCountUsageAlarm"></a>
+
+```typescript
+public addConnectionCountUsageAlarm(percentMetric: Metric | MathExpression, props: UsageCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addConnectionCountUsageAlarm.parameter.percentMetric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.UsageAlarmFactory.addConnectionCountUsageAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addConnectionCountUsageAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
 
 ---
 

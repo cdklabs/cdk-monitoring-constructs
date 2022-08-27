@@ -202,4 +202,23 @@ export class UsageAlarmFactory {
       alarmDescription: "The thread count is too high.",
     });
   }
+
+  addConnectionCountUsageAlarm(
+    percentMetric: MetricWithAlarmSupport,
+    props: UsageCountThreshold,
+    disambiguator?: string
+  ) {
+    return this.alarmFactory.addAlarm(percentMetric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxUsageCount,
+      alarmNameSuffix: "Connection-Count",
+      alarmDescription: "The connection count is too high.",
+    });
+  }
 }

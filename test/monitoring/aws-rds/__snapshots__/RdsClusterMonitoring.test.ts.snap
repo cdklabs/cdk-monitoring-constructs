@@ -38,6 +38,17 @@ Object {
                   "Arn",
                 ],
               },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterConnectionCountWarning93A38948",
+                  "Arn",
+                ],
+              },
               "\\"]},\\"yAxis\\":{}}}]}",
             ],
           ],
@@ -55,7 +66,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -100,6 +111,40 @@ Object {
           },
         ],
         "Threshold": 70,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterConnectionCountWarning93A38948": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The connection count is too high.",
+        "AlarmName": "Test-my-rds-cluster-Connection-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Connections",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DatabaseConnections",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -172,7 +217,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
