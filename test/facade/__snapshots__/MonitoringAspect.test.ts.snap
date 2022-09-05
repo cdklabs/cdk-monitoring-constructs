@@ -6507,7 +6507,7 @@ Object {
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6639,7 +6639,7 @@ Object {
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
