@@ -40,22 +40,22 @@ export interface RedshiftClusterMonitoringProps
     RedshiftClusterMonitoringOptions {}
 
 export class RedshiftClusterMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly url?: string;
+  readonly title: string;
+  readonly url?: string;
 
-  protected readonly usageAlarmFactory: UsageAlarmFactory;
-  protected readonly usageAnnotations: HorizontalAnnotation[];
+  readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly usageAnnotations: HorizontalAnnotation[];
 
-  protected readonly connectionsMetric: MetricWithAlarmSupport;
-  protected readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
-  protected readonly cpuUsageMetric: MetricWithAlarmSupport;
-  protected readonly shortQueryDurationMetric: MetricWithAlarmSupport;
-  protected readonly mediumQueryDurationMetric: MetricWithAlarmSupport;
-  protected readonly longQueryDurationMetric: MetricWithAlarmSupport;
-  protected readonly readLatencyMetric: MetricWithAlarmSupport;
-  protected readonly writeLatencyMetric: MetricWithAlarmSupport;
+  readonly connectionsMetric: MetricWithAlarmSupport;
+  readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
+  readonly cpuUsageMetric: MetricWithAlarmSupport;
+  readonly shortQueryDurationMetric: MetricWithAlarmSupport;
+  readonly mediumQueryDurationMetric: MetricWithAlarmSupport;
+  readonly longQueryDurationMetric: MetricWithAlarmSupport;
+  readonly readLatencyMetric: MetricWithAlarmSupport;
+  readonly writeLatencyMetric: MetricWithAlarmSupport;
 
-  protected readonly maintenanceModeMetric: MetricWithAlarmSupport;
+  readonly maintenanceModeMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: RedshiftClusterMonitoringProps) {
     super(scope, props);
@@ -137,7 +137,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Redshift Cluster",
       title: this.title,
@@ -145,7 +145,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createCpuAndDiskUsageWidget(width: number, height: number) {
+  createCpuAndDiskUsageWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -156,7 +156,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createConnectionsWidget(width: number, height: number) {
+  createConnectionsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -166,7 +166,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createQueryDurationWidget(width: number, height: number) {
+  createQueryDurationWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -180,7 +180,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -190,7 +190,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createMaintenanceWidget(width: number, height: number) {
+  createMaintenanceWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

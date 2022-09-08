@@ -50,17 +50,17 @@ export interface SnsTopicMonitoringProps
     SnsTopicMonitoringOptions {}
 
 export class SnsTopicMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly topicUrl?: string;
+  readonly title: string;
+  readonly topicUrl?: string;
 
-  protected readonly topicAlarmFactory: TopicAlarmFactory;
-  protected readonly failedDeliveryAnnotations: HorizontalAnnotation[];
-  protected readonly incomingMessagesAnnotations: HorizontalAnnotation[];
+  readonly topicAlarmFactory: TopicAlarmFactory;
+  readonly failedDeliveryAnnotations: HorizontalAnnotation[];
+  readonly incomingMessagesAnnotations: HorizontalAnnotation[];
 
-  protected readonly incomingMessagesMetric: MetricWithAlarmSupport;
-  protected readonly outgoingMessagesMetric: MetricWithAlarmSupport;
-  protected readonly messageSizeMetric: MetricWithAlarmSupport;
-  protected readonly messagesFailedMetric: MetricWithAlarmSupport;
+  readonly incomingMessagesMetric: MetricWithAlarmSupport;
+  readonly outgoingMessagesMetric: MetricWithAlarmSupport;
+  readonly messageSizeMetric: MetricWithAlarmSupport;
+  readonly messagesFailedMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: SnsTopicMonitoringProps) {
     super(scope, props);
@@ -150,7 +150,7 @@ export class SnsTopicMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "SNS Topic",
       title: this.title,
@@ -158,7 +158,7 @@ export class SnsTopicMonitoring extends Monitoring {
     });
   }
 
-  protected createMessageCountWidget(width: number, height: number) {
+  createMessageCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -169,7 +169,7 @@ export class SnsTopicMonitoring extends Monitoring {
     });
   }
 
-  protected createMessageSizeWidget(width: number, height: number) {
+  createMessageSizeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -179,7 +179,7 @@ export class SnsTopicMonitoring extends Monitoring {
     });
   }
 
-  protected createMessageFailedWidget(width: number, height: number) {
+  createMessageFailedWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

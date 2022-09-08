@@ -48,25 +48,25 @@ export interface StepFunctionActivityMonitoringProps
 }
 
 export class StepFunctionActivityMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly durationAlarmFactory: LatencyAlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly durationAlarmFactory: LatencyAlarmFactory;
 
-  protected readonly durationAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly durationAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly p50DurationMetric: MetricWithAlarmSupport;
-  protected readonly p90DurationMetric: MetricWithAlarmSupport;
-  protected readonly p99DurationMetric: MetricWithAlarmSupport;
-  protected readonly scheduledActivitiesMetric: MetricWithAlarmSupport;
-  protected readonly startedActivitiesMetric: MetricWithAlarmSupport;
-  protected readonly succeededActivitiesMetric: MetricWithAlarmSupport;
-  protected readonly failedActivitiesMetric: MetricWithAlarmSupport;
-  protected readonly failedActivitiesRateMetric: MetricWithAlarmSupport;
-  protected readonly heartbeatTimedOutActivitiesMetrics: MetricWithAlarmSupport;
-  protected readonly timedOutActivitiesMetrics: MetricWithAlarmSupport;
+  readonly p50DurationMetric: MetricWithAlarmSupport;
+  readonly p90DurationMetric: MetricWithAlarmSupport;
+  readonly p99DurationMetric: MetricWithAlarmSupport;
+  readonly scheduledActivitiesMetric: MetricWithAlarmSupport;
+  readonly startedActivitiesMetric: MetricWithAlarmSupport;
+  readonly succeededActivitiesMetric: MetricWithAlarmSupport;
+  readonly failedActivitiesMetric: MetricWithAlarmSupport;
+  readonly failedActivitiesRateMetric: MetricWithAlarmSupport;
+  readonly heartbeatTimedOutActivitiesMetrics: MetricWithAlarmSupport;
+  readonly timedOutActivitiesMetrics: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,

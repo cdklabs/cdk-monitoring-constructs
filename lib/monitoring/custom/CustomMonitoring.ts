@@ -211,12 +211,12 @@ export interface CustomMetricGroupWithAnnotations {
  * The widgets will be sized automatically to waste as little space as possible.
  */
 export class CustomMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly description?: string;
-  protected readonly descriptionWidgetHeight?: number;
-  protected readonly customAlarmFactory: CustomAlarmFactory;
-  protected readonly anomalyDetectingAlarmFactory: AnomalyDetectingAlarmFactory;
-  protected readonly metricGroups: CustomMetricGroupWithAnnotations[];
+  readonly title: string;
+  readonly description?: string;
+  readonly descriptionWidgetHeight?: number;
+  readonly customAlarmFactory: CustomAlarmFactory;
+  readonly anomalyDetectingAlarmFactory: AnomalyDetectingAlarmFactory;
+  readonly metricGroups: CustomMetricGroupWithAnnotations[];
 
   constructor(scope: MonitoringScope, props: CustomMonitoringProps) {
     super(scope, props);

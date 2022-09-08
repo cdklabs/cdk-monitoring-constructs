@@ -79,24 +79,24 @@ export interface ElastiCacheClusterMonitoringProps
     ElastiCacheClusterMonitoringOptions {}
 
 export class ElastiCacheClusterMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly clusterUrl?: string;
+  readonly title: string;
+  readonly clusterUrl?: string;
 
-  protected readonly connectionsMetric: MetricWithAlarmSupport;
-  protected readonly cpuUsageMetric: MetricWithAlarmSupport;
-  protected readonly freeableMemoryMetric: MetricWithAlarmSupport;
-  protected readonly unusedMemoryMetric: MetricWithAlarmSupport;
-  protected readonly swapMemoryMetric: MetricWithAlarmSupport;
-  protected readonly itemsMemoryMetric: MetricWithAlarmSupport;
-  protected readonly itemsCountMetrics: MetricWithAlarmSupport;
-  protected readonly itemsEvictedMetrics: MetricWithAlarmSupport;
+  readonly connectionsMetric: MetricWithAlarmSupport;
+  readonly cpuUsageMetric: MetricWithAlarmSupport;
+  readonly freeableMemoryMetric: MetricWithAlarmSupport;
+  readonly unusedMemoryMetric: MetricWithAlarmSupport;
+  readonly swapMemoryMetric: MetricWithAlarmSupport;
+  readonly itemsMemoryMetric: MetricWithAlarmSupport;
+  readonly itemsCountMetrics: MetricWithAlarmSupport;
+  readonly itemsEvictedMetrics: MetricWithAlarmSupport;
 
-  protected readonly usageAlarmFactory: UsageAlarmFactory;
-  protected readonly elastiCacheAlarmFactory: ElastiCacheAlarmFactory;
-  protected readonly cpuUsageAnnotations: HorizontalAnnotation[];
-  protected readonly itemsCountAnnotations: HorizontalAnnotation[];
-  protected readonly evictedItemsCountAnnotations: HorizontalAnnotation[];
-  protected readonly memoryUsageAnnotations: HorizontalAnnotation[];
+  readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly elastiCacheAlarmFactory: ElastiCacheAlarmFactory;
+  readonly cpuUsageAnnotations: HorizontalAnnotation[];
+  readonly itemsCountAnnotations: HorizontalAnnotation[];
+  readonly evictedItemsCountAnnotations: HorizontalAnnotation[];
+  readonly memoryUsageAnnotations: HorizontalAnnotation[];
 
   constructor(
     scope: MonitoringScope,
@@ -223,7 +223,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "ElastiCache Cluster",
       title: this.title,
@@ -231,7 +231,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createCpuUsageWidget(width: number, height: number) {
+  createCpuUsageWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -242,7 +242,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createMemoryUsageWidget(width: number, height: number) {
+  createMemoryUsageWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -257,7 +257,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createItemCountWidget(width: number, height: number) {
+  createItemCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -271,7 +271,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createConnectionsWidget(width: number, height: number) {
+  createConnectionsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

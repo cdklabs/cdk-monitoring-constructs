@@ -54,24 +54,24 @@ export interface StepFunctionServiceIntegrationMonitoringProps
 }
 
 export class StepFunctionServiceIntegrationMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly durationAlarmFactory: LatencyAlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly durationAlarmFactory: LatencyAlarmFactory;
 
-  protected readonly durationAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly durationAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly p50DurationMetric: MetricWithAlarmSupport;
-  protected readonly p90DurationMetric: MetricWithAlarmSupport;
-  protected readonly p99DurationMetric: MetricWithAlarmSupport;
-  protected readonly scheduledServiceIntegrationsMetric: MetricWithAlarmSupport;
-  protected readonly startedServiceIntegrationsMetric: MetricWithAlarmSupport;
-  protected readonly succeededServiceIntegrationsMetric: MetricWithAlarmSupport;
-  protected readonly failedServiceIntegrationsMetric: MetricWithAlarmSupport;
-  protected readonly failedServiceIntegrationRateMetric: MetricWithAlarmSupport;
-  protected readonly timedOutServiceIntegrationsMetrics: MetricWithAlarmSupport;
+  readonly p50DurationMetric: MetricWithAlarmSupport;
+  readonly p90DurationMetric: MetricWithAlarmSupport;
+  readonly p99DurationMetric: MetricWithAlarmSupport;
+  readonly scheduledServiceIntegrationsMetric: MetricWithAlarmSupport;
+  readonly startedServiceIntegrationsMetric: MetricWithAlarmSupport;
+  readonly succeededServiceIntegrationsMetric: MetricWithAlarmSupport;
+  readonly failedServiceIntegrationsMetric: MetricWithAlarmSupport;
+  readonly failedServiceIntegrationRateMetric: MetricWithAlarmSupport;
+  readonly timedOutServiceIntegrationsMetrics: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,

@@ -32,10 +32,10 @@ export interface BillingMonitoringOptions extends BaseMonitoringProps {}
 export interface BillingMonitoringProps extends BillingMonitoringOptions {}
 
 export class BillingMonitoring extends Monitoring {
-  private readonly title: string;
+  readonly title: string;
 
-  protected readonly costByServiceMetric: IMetric;
-  protected readonly totalCostMetric: IMetric;
+  readonly costByServiceMetric: IMetric;
+  readonly totalCostMetric: IMetric;
 
   constructor(scope: MonitoringScope, props: BillingMonitoringProps) {
     super(scope);
@@ -70,14 +70,14 @@ export class BillingMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "AWS Account Billing",
       title: this.title,
     });
   }
 
-  protected createChargesByServiceWidget(width: number, height: number) {
+  createChargesByServiceWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -90,7 +90,7 @@ export class BillingMonitoring extends Monitoring {
     });
   }
 
-  protected createTotalChargesWidget(width: number, height: number) {
+  createTotalChargesWidget(width: number, height: number) {
     return new SingleValueWidget({
       width,
       height,

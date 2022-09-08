@@ -37,22 +37,22 @@ export interface KinesisFirehoseMonitoringProps
     KinesisFirehoseMonitoringOptions {}
 
 export class KinesisFirehoseMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly streamUrl?: string;
+  readonly title: string;
+  readonly streamUrl?: string;
 
-  protected readonly kinesisAlarmFactory: KinesisAlarmFactory;
-  protected readonly recordCountAnnotations: HorizontalAnnotation[];
+  readonly kinesisAlarmFactory: KinesisAlarmFactory;
+  readonly recordCountAnnotations: HorizontalAnnotation[];
 
-  protected readonly incomingBytesMetric: MetricWithAlarmSupport;
-  protected readonly incomingRecordsMetric: MetricWithAlarmSupport;
-  protected readonly throttledRecordsMetric: MetricWithAlarmSupport;
-  protected readonly successfulConversionMetric: MetricWithAlarmSupport;
-  protected readonly failedConversionMetric: MetricWithAlarmSupport;
-  protected readonly putRecordLatency: MetricWithAlarmSupport;
-  protected readonly putRecordBatchLatency: MetricWithAlarmSupport;
-  protected readonly incomingBytesToLimitRate: MetricWithAlarmSupport;
-  protected readonly incomingRecordsToLimitRate: MetricWithAlarmSupport;
-  protected readonly incomingPutRequestsToLimitRate: MetricWithAlarmSupport;
+  readonly incomingBytesMetric: MetricWithAlarmSupport;
+  readonly incomingRecordsMetric: MetricWithAlarmSupport;
+  readonly throttledRecordsMetric: MetricWithAlarmSupport;
+  readonly successfulConversionMetric: MetricWithAlarmSupport;
+  readonly failedConversionMetric: MetricWithAlarmSupport;
+  readonly putRecordLatency: MetricWithAlarmSupport;
+  readonly putRecordBatchLatency: MetricWithAlarmSupport;
+  readonly incomingBytesToLimitRate: MetricWithAlarmSupport;
+  readonly incomingRecordsToLimitRate: MetricWithAlarmSupport;
+  readonly incomingPutRequestsToLimitRate: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: KinesisFirehoseMonitoringProps) {
     super(scope);
@@ -124,7 +124,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Firehose Delivery Stream",
       title: this.title,
@@ -132,7 +132,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     });
   }
 
-  protected createIncomingRecordWidget(width: number, height: number) {
+  createIncomingRecordWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -143,7 +143,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -153,7 +153,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     });
   }
 
-  protected createConversionWidget(width: number, height: number) {
+  createConversionWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -163,7 +163,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     });
   }
 
-  protected createLimitWidget(width: number, height: number) {
+  createLimitWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

@@ -45,25 +45,25 @@ export interface GlueJobMonitoringOptions
 export interface GlueJobMonitoringProps extends GlueJobMonitoringOptions {}
 
 export class GlueJobMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly alarmFactory: AlarmFactory;
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly alarmFactory: AlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
 
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly bytesReadFromS3Metric: MetricWithAlarmSupport;
-  protected readonly bytesWrittenToS3Metric: MetricWithAlarmSupport;
-  protected readonly cpuUsageMetric: MetricWithAlarmSupport;
-  protected readonly heapMemoryUsageMetric: MetricWithAlarmSupport;
-  protected readonly activeExecutorsMetric: MetricWithAlarmSupport;
-  protected readonly completedStagesMetric: MetricWithAlarmSupport;
-  protected readonly neededExecutorsMetric: MetricWithAlarmSupport;
-  protected readonly failedTaskCountMetric: MetricWithAlarmSupport;
-  protected readonly failedTaskRateMetric: MetricWithAlarmSupport;
-  protected readonly killedTaskCountMetric: MetricWithAlarmSupport;
-  protected readonly killedTaskRateMetric: MetricWithAlarmSupport;
+  readonly bytesReadFromS3Metric: MetricWithAlarmSupport;
+  readonly bytesWrittenToS3Metric: MetricWithAlarmSupport;
+  readonly cpuUsageMetric: MetricWithAlarmSupport;
+  readonly heapMemoryUsageMetric: MetricWithAlarmSupport;
+  readonly activeExecutorsMetric: MetricWithAlarmSupport;
+  readonly completedStagesMetric: MetricWithAlarmSupport;
+  readonly neededExecutorsMetric: MetricWithAlarmSupport;
+  readonly failedTaskCountMetric: MetricWithAlarmSupport;
+  readonly failedTaskRateMetric: MetricWithAlarmSupport;
+  readonly killedTaskCountMetric: MetricWithAlarmSupport;
+  readonly killedTaskRateMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: GlueJobMonitoringProps) {
     super(scope, props);
@@ -186,14 +186,14 @@ export class GlueJobMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Glue Job",
       title: this.title,
     });
   }
 
-  protected createJobExecutionWidget(width: number, height: number) {
+  createJobExecutionWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -207,7 +207,7 @@ export class GlueJobMonitoring extends Monitoring {
     });
   }
 
-  protected createDataMovementWidget(width: number, height: number) {
+  createDataMovementWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -217,7 +217,7 @@ export class GlueJobMonitoring extends Monitoring {
     });
   }
 
-  protected createUtilizationWidget(width: number, height: number) {
+  createUtilizationWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -227,7 +227,7 @@ export class GlueJobMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorCountWidget(width: number, height: number) {
+  createErrorCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -238,7 +238,7 @@ export class GlueJobMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorRateWidget(width: number, height: number) {
+  createErrorRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
