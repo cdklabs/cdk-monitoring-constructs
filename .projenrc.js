@@ -79,7 +79,6 @@ _By submitting this pull request, I confirm that my contribution is made under t
 // Experimental modules
 [
   "@aws-cdk/aws-apigatewayv2-alpha",
-  "@aws-cdk/aws-appsync-alpha",
   "@aws-cdk/aws-redshift-alpha",
   "@aws-cdk/aws-synthetics-alpha",
 ].forEach((dep) => {
@@ -87,6 +86,12 @@ _By submitting this pull request, I confirm that my contribution is made under t
     `${dep}@^${CDK_VERSION}-alpha.0`,
     DependencyType.PEER
   );
+  project.deps.addDependency(
+    `${dep}@${CDK_VERSION}-alpha.0`,
+    DependencyType.DEVENV
+  );
+});
+["@aws-cdk/aws-appsync-alpha"].forEach((dep) => {
   project.deps.addDependency(
     `${dep}@${CDK_VERSION}-alpha.0`,
     DependencyType.DEVENV

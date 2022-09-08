@@ -1,5 +1,4 @@
 import * as apigwv2 from "@aws-cdk/aws-apigatewayv2-alpha";
-import * as appsync from "@aws-cdk/aws-appsync-alpha";
 import * as redshift from "@aws-cdk/aws-redshift-alpha";
 import * as synthetics from "@aws-cdk/aws-synthetics-alpha";
 import { IAspect } from "aws-cdk-lib";
@@ -26,7 +25,7 @@ import * as stepfunctions from "aws-cdk-lib/aws-stepfunctions";
 import * as wafv2 from "aws-cdk-lib/aws-wafv2";
 import { IConstruct } from "constructs";
 
-import { ElastiCacheClusterType } from "../monitoring";
+import { ElastiCacheClusterType, GraphqlApi } from "../monitoring";
 import { MonitoringAspectProps, MonitoringAspectType } from "./aspect-types";
 import { MonitoringFacade } from "./MonitoringFacade";
 
@@ -122,9 +121,9 @@ export class MonitoringAspect implements IAspect {
 
   private monitorAppSync(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(this.props.appSync);
-    if (isEnabled && node instanceof appsync.GraphqlApi) {
+    if (isEnabled && (node as unknown as GraphqlApi).graphqlUrl) {
       this.monitoringFacade.monitorAppSyncApi({
-        api: node,
+        api: node as unknown as GraphqlApi,
         alarmFriendlyName: node.node.path,
         ...props,
       });

@@ -6164,7 +6164,7 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.GraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code><a href="#cdk-monitoring-constructs.GraphqlApi">GraphqlApi</a></code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
@@ -6176,7 +6176,7 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 public readonly api: GraphqlApi;
 ```
 
-- *Type:* @aws-cdk/aws-appsync-alpha.GraphqlApi
+- *Type:* <a href="#cdk-monitoring-constructs.GraphqlApi">GraphqlApi</a>
 
 the GraphQL API to monitor.
 
@@ -6459,7 +6459,7 @@ const appSyncMonitoringProps: AppSyncMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.GraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code><a href="#cdk-monitoring-constructs.GraphqlApi">GraphqlApi</a></code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
@@ -6659,7 +6659,7 @@ public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
 public readonly api: GraphqlApi;
 ```
 
-- *Type:* @aws-cdk/aws-appsync-alpha.GraphqlApi
+- *Type:* <a href="#cdk-monitoring-constructs.GraphqlApi">GraphqlApi</a>
 
 the GraphQL API to monitor.
 
@@ -16890,6 +16890,51 @@ public readonly addKilledTaskRateAlarm: {[ key: string ]: ErrorRateThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+### GraphqlApi <a name="GraphqlApi" id="cdk-monitoring-constructs.GraphqlApi"></a>
+
+Partial copy of [GraphqlApi] from "@aws-cdk/aws-appsync-alpha".
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.GraphqlApi.Initializer"></a>
+
+```typescript
+import { GraphqlApi } from 'cdk-monitoring-constructs'
+
+const graphqlApi: GraphqlApi = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GraphqlApi.property.apiId">apiId</a></code> | <code>string</code> | an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'. |
+| <code><a href="#cdk-monitoring-constructs.GraphqlApi.property.graphqlUrl">graphqlUrl</a></code> | <code>string</code> | the URL of the endpoint created by AppSync. |
+
+---
+
+##### `apiId`<sup>Required</sup> <a name="apiId" id="cdk-monitoring-constructs.GraphqlApi.property.apiId"></a>
+
+```typescript
+public readonly apiId: string;
+```
+
+- *Type:* string
+
+an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
+
+---
+
+##### `graphqlUrl`<sup>Optional</sup> <a name="graphqlUrl" id="cdk-monitoring-constructs.GraphqlApi.property.graphqlUrl"></a>
+
+```typescript
+public readonly graphqlUrl: string;
+```
+
+- *Type:* string
+
+the URL of the endpoint created by AppSync.
 
 ---
 

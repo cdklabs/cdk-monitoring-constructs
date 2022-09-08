@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot test: all alarms 1`] = `
+exports[`snapshot test: alpha construct with all alarms 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -699,7 +699,7 @@ Object {
 }
 `;
 
-exports[`snapshot test: no alarms 1`] = `
+exports[`snapshot test: basic object with no alarms 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -725,75 +725,19 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS (min: \${MIN}, max: \${MAX}, avg: \${AVG})\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS (min: \${MIN}, max: \${MAX}, avg: \${AVG})\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"4XXError\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/AppSync\\",\\"5XXError\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"4XXError\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/AppSync\\",\\"5XXError\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"4XXError\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/AppSync\\",\\"5XXError\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"4XXError\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/AppSync\\",\\"5XXError\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -810,95 +754,20 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS (min: \${MIN}, max: \${MAX}, avg: \${AVG})\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS (min: \${MIN}, max: \${MAX}, avg: \${AVG})\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"4XXError\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/AppSync\\",\\"5XXError\\",\\"GraphQLAPIId\\",\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "testHttpApiC57B300F",
-                  "ApiId",
-                ],
-              },
-              "\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/AppSync\\",\\"4XXError\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/AppSync\\",\\"5XXError\\",\\"GraphQLAPIId\\",\\"API\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
       },
       "Type": "AWS::CloudWatch::Dashboard",
-    },
-    "testHttpApiC57B300F": Object {
-      "Properties": Object {
-        "AuthenticationType": "API_KEY",
-        "Name": "DummyApi",
-      },
-      "Type": "AWS::AppSync::GraphQLApi",
-    },
-    "testHttpApiDefaultApiKey3EF156CA": Object {
-      "DependsOn": Array [
-        "testHttpApiSchemaDBC6E366",
-      ],
-      "Properties": Object {
-        "ApiId": Object {
-          "Fn::GetAtt": Array [
-            "testHttpApiC57B300F",
-            "ApiId",
-          ],
-        },
-      },
-      "Type": "AWS::AppSync::ApiKey",
-    },
-    "testHttpApiSchemaDBC6E366": Object {
-      "Properties": Object {
-        "ApiId": Object {
-          "Fn::GetAtt": Array [
-            "testHttpApiC57B300F",
-            "ApiId",
-          ],
-        },
-        "Definition": "",
-      },
-      "Type": "AWS::AppSync::GraphQLSchema",
     },
   },
   "Rules": Object {

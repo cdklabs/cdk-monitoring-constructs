@@ -1,4 +1,3 @@
-import { GraphqlApi } from "@aws-cdk/aws-appsync-alpha";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
@@ -8,6 +7,26 @@ import {
 } from "../../common";
 
 const Namespace = "AWS/AppSync";
+
+/**
+ * Partial copy of [GraphqlApi] from "@aws-cdk/aws-appsync-alpha"
+ *
+ * @experimental Subject to change to match the alpha module.
+ */
+export interface GraphqlApi {
+  /**
+   * an unique AWS AppSync GraphQL API identifier
+   * i.e. 'lxz775lwdrgcndgz3nurvac7oa'
+   */
+  readonly apiId: string;
+
+  /**
+   * the URL of the endpoint created by AppSync
+   *
+   * @attribute GraphQlUrl
+   */
+  readonly graphqlUrl?: string;
+}
 
 export interface AppSyncMetricFactoryProps {
   /**

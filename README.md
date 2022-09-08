@@ -30,7 +30,6 @@ In your `package.json`:
 
     // peer dependencies of cdk-monitoring-constructs
     "@aws-cdk/aws-apigatewayv2-alpha": "^2.18.0-alpha.0",
-    "@aws-cdk/aws-appsync-alpha": "^2.18.0-alpha.0",
     "@aws-cdk/aws-redshift-alpha": "^2.18.0-alpha.0",
     "@aws-cdk/aws-synthetics-alpha": "^2.18.0-alpha.0",
     "aws-cdk-lib": "^2.18.0",

@@ -6,17 +6,15 @@ import { AlarmWithAnnotation, AppSyncMonitoring } from "../../../lib";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
-test("snapshot test: no alarms", () => {
+test("snapshot test: basic object with no alarms", () => {
   const stack = new Stack();
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  const dummyApi = new GraphqlApi(stack, "testHttpApi", {
-    name: "DummyApi",
-  });
-
   const monitoring = new AppSyncMonitoring(scope, {
-    api: dummyApi,
+    api: {
+      apiId: "API",
+    },
     humanReadableName: "Dummy API for testing",
     alarmFriendlyName: "DummyApi",
   });
@@ -25,7 +23,7 @@ test("snapshot test: no alarms", () => {
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
-test("snapshot test: all alarms", () => {
+test("snapshot test: alpha construct with all alarms", () => {
   const stack = new Stack();
 
   const scope = new TestMonitoringScope(stack, "Scope");
