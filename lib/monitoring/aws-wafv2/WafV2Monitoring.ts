@@ -31,11 +31,11 @@ export interface WafV2MonitoringProps
  * @see https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html
  */
 export class WafV2Monitoring extends Monitoring {
-  protected readonly humanReadableName: string;
+  readonly humanReadableName: string;
 
-  protected readonly allowedRequestsMetric: MetricWithAlarmSupport;
-  protected readonly blockedRequestsMetric: MetricWithAlarmSupport;
-  protected readonly blockedRequestsRateMetric: MetricWithAlarmSupport;
+  readonly allowedRequestsMetric: MetricWithAlarmSupport;
+  readonly blockedRequestsMetric: MetricWithAlarmSupport;
+  readonly blockedRequestsRateMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: WafV2MonitoringProps) {
     super(scope, props);
@@ -80,14 +80,14 @@ export class WafV2Monitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Web Application Firewall",
       title: this.humanReadableName,
     });
   }
 
-  protected createAllowedRequestsWidget(width: number, height: number) {
+  createAllowedRequestsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -97,7 +97,7 @@ export class WafV2Monitoring extends Monitoring {
     });
   }
 
-  protected createBlockedRequestsWidget(width: number, height: number) {
+  createBlockedRequestsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -107,7 +107,7 @@ export class WafV2Monitoring extends Monitoring {
     });
   }
 
-  protected createBlockedRequestsRateWidget(width: number, height: number) {
+  createBlockedRequestsRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

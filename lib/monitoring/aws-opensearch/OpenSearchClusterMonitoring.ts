@@ -85,42 +85,42 @@ export interface OpenSearchClusterMonitoringProps
     OpenSearchClusterMonitoringOptions {}
 
 export class OpenSearchClusterMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly url?: string;
+  readonly title: string;
+  readonly url?: string;
 
-  protected readonly indexingLatencyAlarmFactory: LatencyAlarmFactory;
-  protected readonly indexingLatencyAnnotations: HorizontalAnnotation[];
-  protected readonly searchLatencyAlarmFactory: LatencyAlarmFactory;
-  protected readonly searchLatencyAnnotations: HorizontalAnnotation[];
-  protected readonly clusterAlarmFactory: OpenSearchClusterAlarmFactory;
-  protected readonly clusterAnnotations: HorizontalAnnotation[];
-  protected readonly nodeAnnotations: HorizontalAnnotation[];
-  protected readonly usageAlarmFactory: UsageAlarmFactory;
-  protected readonly usageAnnotations: HorizontalAnnotation[];
-  protected readonly masterUsageAnnotations: HorizontalAnnotation[];
+  readonly indexingLatencyAlarmFactory: LatencyAlarmFactory;
+  readonly indexingLatencyAnnotations: HorizontalAnnotation[];
+  readonly searchLatencyAlarmFactory: LatencyAlarmFactory;
+  readonly searchLatencyAnnotations: HorizontalAnnotation[];
+  readonly clusterAlarmFactory: OpenSearchClusterAlarmFactory;
+  readonly clusterAnnotations: HorizontalAnnotation[];
+  readonly nodeAnnotations: HorizontalAnnotation[];
+  readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly usageAnnotations: HorizontalAnnotation[];
+  readonly masterUsageAnnotations: HorizontalAnnotation[];
 
-  protected readonly tpsMetric: MetricWithAlarmSupport;
-  protected readonly p50IndexingLatencyMetric: MetricWithAlarmSupport;
-  protected readonly p90IndexingLatencyMetric: MetricWithAlarmSupport;
-  protected readonly p99IndexingLatencyMetric: MetricWithAlarmSupport;
-  protected readonly p50SearchLatencyMetric: MetricWithAlarmSupport;
-  protected readonly p90SearchLatencyMetric: MetricWithAlarmSupport;
-  protected readonly p99SearchLatencyMetric: MetricWithAlarmSupport;
+  readonly tpsMetric: MetricWithAlarmSupport;
+  readonly p50IndexingLatencyMetric: MetricWithAlarmSupport;
+  readonly p90IndexingLatencyMetric: MetricWithAlarmSupport;
+  readonly p99IndexingLatencyMetric: MetricWithAlarmSupport;
+  readonly p50SearchLatencyMetric: MetricWithAlarmSupport;
+  readonly p90SearchLatencyMetric: MetricWithAlarmSupport;
+  readonly p99SearchLatencyMetric: MetricWithAlarmSupport;
 
-  protected readonly clusterStatusRedMetric: MetricWithAlarmSupport;
-  protected readonly clusterStatusYellowMetric: MetricWithAlarmSupport;
+  readonly clusterStatusRedMetric: MetricWithAlarmSupport;
+  readonly clusterStatusYellowMetric: MetricWithAlarmSupport;
 
-  protected readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
-  protected readonly cpuUsageMetric: MetricWithAlarmSupport;
-  protected readonly masterCpuUsageMetric: MetricWithAlarmSupport;
-  protected readonly jvmMemoryPressureMetric: MetricWithAlarmSupport;
-  protected readonly masterJvmMemoryPressureMetric: MetricWithAlarmSupport;
+  readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
+  readonly cpuUsageMetric: MetricWithAlarmSupport;
+  readonly masterCpuUsageMetric: MetricWithAlarmSupport;
+  readonly jvmMemoryPressureMetric: MetricWithAlarmSupport;
+  readonly masterJvmMemoryPressureMetric: MetricWithAlarmSupport;
 
-  protected readonly indexWriteBlockedMetric: MetricWithAlarmSupport;
-  protected readonly nodesMetric: MetricWithAlarmSupport;
-  protected readonly automatedSnapshotFailureMetric: MetricWithAlarmSupport;
-  protected readonly kmsKeyErrorMetric: MetricWithAlarmSupport;
-  protected readonly kmsKeyInaccessibleMetric: MetricWithAlarmSupport;
+  readonly indexWriteBlockedMetric: MetricWithAlarmSupport;
+  readonly nodesMetric: MetricWithAlarmSupport;
+  readonly automatedSnapshotFailureMetric: MetricWithAlarmSupport;
+  readonly kmsKeyErrorMetric: MetricWithAlarmSupport;
+  readonly kmsKeyInaccessibleMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: OpenSearchClusterMonitoringProps) {
     super(scope, props);

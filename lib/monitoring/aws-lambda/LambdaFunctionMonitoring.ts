@@ -113,52 +113,52 @@ export interface LambdaFunctionMonitoringProps
     LambdaFunctionMonitoringOptions {}
 
 export class LambdaFunctionMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly functionUrl?: string;
+  readonly title: string;
+  readonly functionUrl?: string;
 
-  protected readonly namingStrategy: MonitoringNamingStrategy;
-  protected readonly metricFactory: LambdaFunctionMetricFactory;
-  protected readonly alarmFactory: AlarmFactory;
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly latencyAlarmFactory: LatencyAlarmFactory;
-  protected readonly tpsAlarmFactory: TpsAlarmFactory;
-  protected readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
-  protected readonly ageAlarmFactory: AgeAlarmFactory;
-  protected readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly namingStrategy: MonitoringNamingStrategy;
+  readonly metricFactory: LambdaFunctionMetricFactory;
+  readonly alarmFactory: AlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly latencyAlarmFactory: LatencyAlarmFactory;
+  readonly tpsAlarmFactory: TpsAlarmFactory;
+  readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
+  readonly ageAlarmFactory: AgeAlarmFactory;
+  readonly usageAlarmFactory: UsageAlarmFactory;
 
-  protected readonly latencyAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
-  protected readonly invocationCountAnnotations: HorizontalAnnotation[];
-  protected readonly invocationRateAnnotations: HorizontalAnnotation[];
-  protected readonly tpsAnnotations: HorizontalAnnotation[];
-  protected readonly cpuTotalTimeAnnotations: HorizontalAnnotation[];
-  protected readonly memoryUsageAnnotations: HorizontalAnnotation[];
-  protected readonly maxIteratorAgeAnnotations: HorizontalAnnotation[];
+  readonly latencyAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly invocationCountAnnotations: HorizontalAnnotation[];
+  readonly invocationRateAnnotations: HorizontalAnnotation[];
+  readonly tpsAnnotations: HorizontalAnnotation[];
+  readonly cpuTotalTimeAnnotations: HorizontalAnnotation[];
+  readonly memoryUsageAnnotations: HorizontalAnnotation[];
+  readonly maxIteratorAgeAnnotations: HorizontalAnnotation[];
 
-  protected readonly tpsMetric: MetricWithAlarmSupport;
-  protected readonly p50LatencyMetric: MetricWithAlarmSupport;
-  protected readonly p90LatencyMetric: MetricWithAlarmSupport;
-  protected readonly p99LatencyMetric: MetricWithAlarmSupport;
-  protected readonly faultCountMetric: MetricWithAlarmSupport;
-  protected readonly faultRateMetric: MetricWithAlarmSupport;
-  protected readonly invocationCountMetric: MetricWithAlarmSupport;
-  protected readonly throttlesCountMetric: MetricWithAlarmSupport;
-  protected readonly throttlesRateMetric: MetricWithAlarmSupport;
-  protected readonly concurrentExecutionsCountMetric: MetricWithAlarmSupport;
-  protected readonly provisionedConcurrencySpilloverInvocationsCountMetric: MetricWithAlarmSupport;
-  protected readonly provisionedConcurrencySpilloverInvocationsRateMetric: MetricWithAlarmSupport;
-  protected readonly maxIteratorAgeMetric: MetricWithAlarmSupport;
+  readonly tpsMetric: MetricWithAlarmSupport;
+  readonly p50LatencyMetric: MetricWithAlarmSupport;
+  readonly p90LatencyMetric: MetricWithAlarmSupport;
+  readonly p99LatencyMetric: MetricWithAlarmSupport;
+  readonly faultCountMetric: MetricWithAlarmSupport;
+  readonly faultRateMetric: MetricWithAlarmSupport;
+  readonly invocationCountMetric: MetricWithAlarmSupport;
+  readonly throttlesCountMetric: MetricWithAlarmSupport;
+  readonly throttlesRateMetric: MetricWithAlarmSupport;
+  readonly concurrentExecutionsCountMetric: MetricWithAlarmSupport;
+  readonly provisionedConcurrencySpilloverInvocationsCountMetric: MetricWithAlarmSupport;
+  readonly provisionedConcurrencySpilloverInvocationsRateMetric: MetricWithAlarmSupport;
+  readonly maxIteratorAgeMetric: MetricWithAlarmSupport;
 
-  protected readonly lambdaInsightsEnabled: boolean;
-  protected readonly enhancedMetricFactory?: LambdaFunctionEnhancedMetricFactory;
-  protected readonly enhancedMonitoringMaxCpuTotalTimeMetric?: MetricWithAlarmSupport;
-  protected readonly enhancedMonitoringP90CpuTotalTimeMetric?: MetricWithAlarmSupport;
-  protected readonly enhancedMonitoringAvgCpuTotalTimeMetric?: MetricWithAlarmSupport;
-  protected readonly enhancedMonitoringMaxMemoryUtilizationMetric?: MetricWithAlarmSupport;
-  protected readonly enhancedMonitoringP90MemoryUtilizationMetric?: MetricWithAlarmSupport;
-  protected readonly enhancedMonitoringAvgMemoryUtilizationMetric?: MetricWithAlarmSupport;
-  protected readonly enhancedMetricFunctionCostMetric?: MetricWithAlarmSupport;
+  readonly lambdaInsightsEnabled: boolean;
+  readonly enhancedMetricFactory?: LambdaFunctionEnhancedMetricFactory;
+  readonly enhancedMonitoringMaxCpuTotalTimeMetric?: MetricWithAlarmSupport;
+  readonly enhancedMonitoringP90CpuTotalTimeMetric?: MetricWithAlarmSupport;
+  readonly enhancedMonitoringAvgCpuTotalTimeMetric?: MetricWithAlarmSupport;
+  readonly enhancedMonitoringMaxMemoryUtilizationMetric?: MetricWithAlarmSupport;
+  readonly enhancedMonitoringP90MemoryUtilizationMetric?: MetricWithAlarmSupport;
+  readonly enhancedMonitoringAvgMemoryUtilizationMetric?: MetricWithAlarmSupport;
+  readonly enhancedMetricFunctionCostMetric?: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: LambdaFunctionMonitoringProps) {
     super(scope, props);
@@ -517,7 +517,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     return widgets;
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Lambda Function",
       title: this.title,
@@ -525,7 +525,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createTpsWidget(width: number, height: number) {
+  createTpsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -536,7 +536,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -551,7 +551,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorCountWidget(width: number, height: number) {
+  createErrorCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -562,7 +562,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorRateWidget(width: number, height: number) {
+  createErrorRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -573,7 +573,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createRateWidget(width: number, height: number) {
+  createRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -587,7 +587,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createInvocationWidget(width: number, height: number) {
+  createInvocationWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -603,7 +603,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createIteratorAgeWidget(width: number, height: number) {
+  createIteratorAgeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -614,7 +614,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createLambdaInsightsCpuWidget(width: number, height: number) {
+  createLambdaInsightsCpuWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -630,7 +630,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createLambdaInsightsMemoryWidget(width: number, height: number) {
+  createLambdaInsightsMemoryWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -646,10 +646,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     });
   }
 
-  protected createLambdaInsightsFunctionCostWidget(
-    width: number,
-    height: number
-  ) {
+  createLambdaInsightsFunctionCostWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

@@ -56,28 +56,28 @@ export interface AppSyncMonitoringProps
     AppSyncMetricFactoryProps {}
 
 export class AppSyncMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly namingStrategy: MonitoringNamingStrategy;
-  protected readonly metricFactory: AppSyncMetricFactory;
-  protected readonly alarmFactory: AlarmFactory;
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly latencyAlarmFactory: LatencyAlarmFactory;
-  protected readonly tpsAlarmFactory: TpsAlarmFactory;
+  readonly namingStrategy: MonitoringNamingStrategy;
+  readonly metricFactory: AppSyncMetricFactory;
+  readonly alarmFactory: AlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly latencyAlarmFactory: LatencyAlarmFactory;
+  readonly tpsAlarmFactory: TpsAlarmFactory;
 
-  protected readonly tpsAnnotations: HorizontalAnnotation[];
-  protected readonly latencyAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly tpsAnnotations: HorizontalAnnotation[];
+  readonly latencyAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly tpsMetric: MetricWithAlarmSupport;
-  protected readonly p50LatencyMetric: MetricWithAlarmSupport;
-  protected readonly p90LatencyMetric: MetricWithAlarmSupport;
-  protected readonly p99LatencyMetric: MetricWithAlarmSupport;
-  protected readonly fault5xxCountMetric: MetricWithAlarmSupport;
-  protected readonly fault5xxRateMetric: MetricWithAlarmSupport;
-  protected readonly error4xxCountMetric: MetricWithAlarmSupport;
-  protected readonly error4xxRateMetric: MetricWithAlarmSupport;
+  readonly tpsMetric: MetricWithAlarmSupport;
+  readonly p50LatencyMetric: MetricWithAlarmSupport;
+  readonly p90LatencyMetric: MetricWithAlarmSupport;
+  readonly p99LatencyMetric: MetricWithAlarmSupport;
+  readonly fault5xxCountMetric: MetricWithAlarmSupport;
+  readonly fault5xxRateMetric: MetricWithAlarmSupport;
+  readonly error4xxCountMetric: MetricWithAlarmSupport;
+  readonly error4xxRateMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: AppSyncMonitoringProps) {
     super(scope, props);
@@ -237,14 +237,14 @@ export class AppSyncMonitoring extends Monitoring {
     ];
   }
 
-  protected createtTitleWidget() {
+  createtTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "AppSync GraphQL API",
       title: this.title,
     });
   }
 
-  protected createTpsWidget(width: number, height: number) {
+  createTpsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -255,7 +255,7 @@ export class AppSyncMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -270,7 +270,7 @@ export class AppSyncMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorCountWidget(width: number, height: number) {
+  createErrorCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -281,7 +281,7 @@ export class AppSyncMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorRateWidget(width: number, height: number) {
+  createErrorRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

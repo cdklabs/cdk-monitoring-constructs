@@ -51,19 +51,19 @@ export interface SyntheticsCanaryMonitoringProps
  * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html
  */
 export class SyntheticsCanaryMonitoring extends Monitoring {
-  protected readonly humanReadableName: string;
+  readonly humanReadableName: string;
 
-  protected readonly latencyAlarmFactory: LatencyAlarmFactory;
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly latencyAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly latencyAlarmFactory: LatencyAlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly latencyAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly averageLatencyMetric: MetricWithAlarmSupport;
-  protected readonly errorCountMetric: MetricWithAlarmSupport;
-  protected readonly errorRateMetric: MetricWithAlarmSupport;
-  protected readonly faultCountMetric: MetricWithAlarmSupport;
-  protected readonly faultRateMetric: MetricWithAlarmSupport;
+  readonly averageLatencyMetric: MetricWithAlarmSupport;
+  readonly errorCountMetric: MetricWithAlarmSupport;
+  readonly errorRateMetric: MetricWithAlarmSupport;
+  readonly faultCountMetric: MetricWithAlarmSupport;
+  readonly faultRateMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: SyntheticsCanaryMonitoringProps) {
     super(scope, props);
@@ -170,14 +170,14 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Synthetics Canary",
       title: this.humanReadableName,
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -188,7 +188,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorCountWidget(width: number, height: number) {
+  createErrorCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -199,7 +199,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorRateWidget(width: number, height: number) {
+  createErrorRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

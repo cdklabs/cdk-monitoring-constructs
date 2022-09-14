@@ -62,13 +62,13 @@ export interface SecretsManagerSecretMonitoringProps
     SecretsManagerSecretMonitoringOptions {}
 
 export class SecretsManagerSecretMonitoring extends Monitoring {
-  protected readonly title: string;
-  private readonly showLastRotationWidget: boolean;
-  private readonly alarmFactory: AlarmFactory;
-  private readonly daysSinceLastChangeMetric: MetricWithAlarmSupport;
-  private readonly daysSinceLastChangeAnnotations: HorizontalAnnotation[];
-  private readonly daysSinceLastRotationMetric: MetricWithAlarmSupport;
-  private readonly daysSinceLastRotationAnnotations: HorizontalAnnotation[];
+  readonly title: string;
+  readonly showLastRotationWidget: boolean;
+  readonly alarmFactory: AlarmFactory;
+  readonly daysSinceLastChangeMetric: MetricWithAlarmSupport;
+  readonly daysSinceLastChangeAnnotations: HorizontalAnnotation[];
+  readonly daysSinceLastRotationMetric: MetricWithAlarmSupport;
+  readonly daysSinceLastRotationAnnotations: HorizontalAnnotation[];
 
   constructor(
     scope: MonitoringScope,
@@ -130,7 +130,7 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
     props.usePublisher?.consume(publisher.lambda);
   }
 
-  private getDaysSinceLastChangeWidget() {
+  createDaysSinceLastChangeWidget() {
     return new GraphWidget({
       width: HalfWidth,
       height: DefaultGraphWidgetHeight,
@@ -141,7 +141,7 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
     });
   }
 
-  private getDaysSinceLastRotationWidget() {
+  createDaysSinceLastRotationWidget() {
     return new GraphWidget({
       width: HalfWidth,
       height: DefaultGraphWidgetHeight,
@@ -152,7 +152,7 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
     });
   }
 
-  private getTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Secret",
       title: this.title,
@@ -161,12 +161,12 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
 
   widgets(): IWidget[] {
     const widgets = [
-      this.getTitleWidget(),
-      this.getDaysSinceLastChangeWidget(),
+      this.createTitleWidget(),
+      this.createDaysSinceLastChangeWidget(),
     ];
 
     if (this.showLastRotationWidget) {
-      widgets.push(this.getDaysSinceLastRotationWidget());
+      widgets.push(this.createDaysSinceLastRotationWidget());
     }
 
     return widgets;

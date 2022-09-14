@@ -102,33 +102,30 @@ export interface ApiGatewayV2HttpApiMonitoringProps
     ApiGatewayV2MonitoringOptions {}
 
 export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly alarmFactory: AlarmFactory;
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly tpsAlarmFactory: TpsAlarmFactory;
-  protected readonly latencyAlarmFactory: LatencyAlarmFactory;
+  readonly alarmFactory: AlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly tpsAlarmFactory: TpsAlarmFactory;
+  readonly latencyAlarmFactory: LatencyAlarmFactory;
 
-  protected readonly tpsAnnotations: HorizontalAnnotation[];
-  protected readonly latencyAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly tpsAnnotations: HorizontalAnnotation[];
+  readonly latencyAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly tpsMetric: MetricWithAlarmSupport;
+  readonly tpsMetric: MetricWithAlarmSupport;
 
-  protected readonly error4xxCountMetric: MetricWithAlarmSupport;
-  protected readonly error4xxRateMetric: MetricWithAlarmSupport;
+  readonly error4xxCountMetric: MetricWithAlarmSupport;
+  readonly error4xxRateMetric: MetricWithAlarmSupport;
 
-  protected readonly error5xxCountMetric: MetricWithAlarmSupport;
-  protected readonly error5xxRateMetric: MetricWithAlarmSupport;
+  readonly error5xxCountMetric: MetricWithAlarmSupport;
+  readonly error5xxRateMetric: MetricWithAlarmSupport;
 
   // keys are LatencyType, but JSII doesn't like non-string types
-  protected readonly latencyMetrics: Record<string, MetricWithAlarmSupport>;
-  protected readonly integrationLatencyMetrics: Record<
-    string,
-    MetricWithAlarmSupport
-  >;
-  protected readonly latencyTypesToRender: string[];
+  readonly latencyMetrics: Record<string, MetricWithAlarmSupport>;
+  readonly integrationLatencyMetrics: Record<string, MetricWithAlarmSupport>;
+  readonly latencyTypesToRender: string[];
 
   constructor(
     scope: MonitoringScope,
@@ -355,14 +352,14 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "API Gateway V2 HTTP Endpoint",
       title: this.title,
     });
   }
 
-  protected createTpsWidget(width: number, height: number) {
+  createTpsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -373,7 +370,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     const left: IMetric[] = [];
 
     Array.from(new Set(this.latencyTypesToRender))
@@ -393,7 +390,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorCountWidget(width: number, height: number) {
+  createErrorCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -404,7 +401,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorRateWidget(width: number, height: number) {
+  createErrorRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

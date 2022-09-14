@@ -37,19 +37,19 @@ export interface DocumentDbMonitoringProps
     DocumentDbMonitoringOptions {}
 
 export class DocumentDbMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly url?: string;
+  readonly title: string;
+  readonly url?: string;
 
-  protected readonly usageAlarmFactory: UsageAlarmFactory;
-  protected readonly usageAnnotations: HorizontalAnnotation[];
+  readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly usageAnnotations: HorizontalAnnotation[];
 
-  protected readonly cpuUsageMetric: MetricWithAlarmSupport;
-  protected readonly readLatencyMetric: MetricWithAlarmSupport;
-  protected readonly writeLatencyMetric: MetricWithAlarmSupport;
-  protected readonly connectionsMetric: MetricWithAlarmSupport;
-  protected readonly cursorsMetric: MetricWithAlarmSupport;
-  protected readonly transactionsMetric: MetricWithAlarmSupport;
-  protected readonly throttledMetric: MetricWithAlarmSupport;
+  readonly cpuUsageMetric: MetricWithAlarmSupport;
+  readonly readLatencyMetric: MetricWithAlarmSupport;
+  readonly writeLatencyMetric: MetricWithAlarmSupport;
+  readonly connectionsMetric: MetricWithAlarmSupport;
+  readonly cursorsMetric: MetricWithAlarmSupport;
+  readonly transactionsMetric: MetricWithAlarmSupport;
+  readonly throttledMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: DocumentDbMonitoringProps) {
     super(scope, props);
@@ -120,7 +120,7 @@ export class DocumentDbMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "DocumentDB",
       title: this.title,
@@ -128,7 +128,7 @@ export class DocumentDbMonitoring extends Monitoring {
     });
   }
 
-  protected createResourceUsageWidget(width: number, height: number) {
+  createResourceUsageWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -139,7 +139,7 @@ export class DocumentDbMonitoring extends Monitoring {
     });
   }
 
-  protected createConnectionsWidget(width: number, height: number) {
+  createConnectionsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -149,7 +149,7 @@ export class DocumentDbMonitoring extends Monitoring {
     });
   }
 
-  protected createTransactionsWidget(width: number, height: number) {
+  createTransactionsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -159,7 +159,7 @@ export class DocumentDbMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

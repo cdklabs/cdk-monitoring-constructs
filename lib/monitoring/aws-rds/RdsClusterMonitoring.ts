@@ -39,20 +39,20 @@ export interface RdsClusterMonitoringProps
     RdsClusterMonitoringOptions {}
 
 export class RdsClusterMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly url?: string;
+  readonly title: string;
+  readonly url?: string;
 
-  protected readonly usageAlarmFactory: UsageAlarmFactory;
-  protected readonly usageAnnotations: HorizontalAnnotation[];
+  readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly usageAnnotations: HorizontalAnnotation[];
 
-  protected readonly connectionsMetric: MetricWithAlarmSupport;
-  protected readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
-  protected readonly cpuUsageMetric: MetricWithAlarmSupport;
-  protected readonly selectLatencyMetric: MetricWithAlarmSupport;
-  protected readonly insertLatencyMetric: MetricWithAlarmSupport;
-  protected readonly updateLatencyMetric: MetricWithAlarmSupport;
-  protected readonly deleteLatencyMetric: MetricWithAlarmSupport;
-  protected readonly commitLatencyMetric: MetricWithAlarmSupport;
+  readonly connectionsMetric: MetricWithAlarmSupport;
+  readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
+  readonly cpuUsageMetric: MetricWithAlarmSupport;
+  readonly selectLatencyMetric: MetricWithAlarmSupport;
+  readonly insertLatencyMetric: MetricWithAlarmSupport;
+  readonly updateLatencyMetric: MetricWithAlarmSupport;
+  readonly deleteLatencyMetric: MetricWithAlarmSupport;
+  readonly commitLatencyMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: RdsClusterMonitoringProps) {
     super(scope, props);
@@ -128,7 +128,7 @@ export class RdsClusterMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "RDS Cluster",
       title: this.title,
@@ -136,7 +136,7 @@ export class RdsClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createCpuAndDiskUsageWidget(width: number, height: number) {
+  createCpuAndDiskUsageWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -147,7 +147,7 @@ export class RdsClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createConnectionsWidget(width: number, height: number) {
+  createConnectionsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -157,7 +157,7 @@ export class RdsClusterMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

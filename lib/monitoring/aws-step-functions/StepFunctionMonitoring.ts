@@ -61,26 +61,26 @@ export interface StepFunctionMonitoringProps
     StepFunctionMonitoringOptions {}
 
 export class StepFunctionMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly stateMachineUrl?: string;
+  readonly title: string;
+  readonly stateMachineUrl?: string;
 
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly durationAlarmFactory: LatencyAlarmFactory;
-  protected readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
-  protected readonly durationAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly durationAlarmFactory: LatencyAlarmFactory;
+  readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
+  readonly durationAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly p50DurationMetric: MetricWithAlarmSupport;
-  protected readonly p90DurationMetric: MetricWithAlarmSupport;
-  protected readonly p99DurationMetric: MetricWithAlarmSupport;
-  protected readonly startedExecutionsMetric: MetricWithAlarmSupport;
-  protected readonly succeededExecutionsMetric: MetricWithAlarmSupport;
-  protected readonly failedExecutionsMetric: MetricWithAlarmSupport;
-  protected readonly failedExecutionRateMetric: MetricWithAlarmSupport;
-  protected readonly abortedExecutionsMetric: MetricWithAlarmSupport;
-  protected readonly throttledExecutionsMetric: MetricWithAlarmSupport;
-  protected readonly timedOutExecutionsMetrics: MetricWithAlarmSupport;
+  readonly p50DurationMetric: MetricWithAlarmSupport;
+  readonly p90DurationMetric: MetricWithAlarmSupport;
+  readonly p99DurationMetric: MetricWithAlarmSupport;
+  readonly startedExecutionsMetric: MetricWithAlarmSupport;
+  readonly succeededExecutionsMetric: MetricWithAlarmSupport;
+  readonly failedExecutionsMetric: MetricWithAlarmSupport;
+  readonly failedExecutionRateMetric: MetricWithAlarmSupport;
+  readonly abortedExecutionsMetric: MetricWithAlarmSupport;
+  readonly throttledExecutionsMetric: MetricWithAlarmSupport;
+  readonly timedOutExecutionsMetrics: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: StepFunctionMonitoringProps) {
     super(scope, props);

@@ -84,27 +84,27 @@ export interface ApiGatewayMonitoringProps
     ApiGatewayMonitoringOptions {}
 
 export class ApiGatewayMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly alarmFactory: AlarmFactory;
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly tpsAlarmFactory: TpsAlarmFactory;
-  protected readonly latencyAlarmFactory: LatencyAlarmFactory;
+  readonly alarmFactory: AlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly tpsAlarmFactory: TpsAlarmFactory;
+  readonly latencyAlarmFactory: LatencyAlarmFactory;
 
-  protected readonly tpsAnnotations: HorizontalAnnotation[];
-  protected readonly latencyAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly tpsAnnotations: HorizontalAnnotation[];
+  readonly latencyAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly tpsMetric: MetricWithAlarmSupport;
-  protected readonly error4XXCountMetric: MetricWithAlarmSupport;
-  protected readonly error4XXRateMetric: MetricWithAlarmSupport;
-  protected readonly fault5XXCountMetric: MetricWithAlarmSupport;
-  protected readonly fault5XXRateMetric: MetricWithAlarmSupport;
+  readonly tpsMetric: MetricWithAlarmSupport;
+  readonly error4XXCountMetric: MetricWithAlarmSupport;
+  readonly error4XXRateMetric: MetricWithAlarmSupport;
+  readonly fault5XXCountMetric: MetricWithAlarmSupport;
+  readonly fault5XXRateMetric: MetricWithAlarmSupport;
 
   // keys are LatencyType, but JSII doesn't like non-string types
-  protected readonly latencyMetrics: Record<string, MetricWithAlarmSupport>;
-  protected readonly latencyTypesToRender: string[];
+  readonly latencyMetrics: Record<string, MetricWithAlarmSupport>;
+  readonly latencyTypesToRender: string[];
 
   constructor(scope: MonitoringScope, props: ApiGatewayMonitoringProps) {
     super(scope, props);
@@ -288,14 +288,14 @@ export class ApiGatewayMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "API Gateway Endpoint",
       title: this.title,
     });
   }
 
-  protected createTpsWidget(width: number, height: number) {
+  createTpsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -306,7 +306,7 @@ export class ApiGatewayMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     const left = Array.from(new Set(this.latencyTypesToRender))
       .sort()
       .map((type) => this.latencyMetrics[type]);
@@ -321,7 +321,7 @@ export class ApiGatewayMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorCountWidget(width: number, height: number) {
+  createErrorCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -332,7 +332,7 @@ export class ApiGatewayMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorRateWidget(width: number, height: number) {
+  createErrorRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
