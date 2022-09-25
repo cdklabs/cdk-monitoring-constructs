@@ -48,25 +48,25 @@ export interface CloudFrontDistributionMonitoringProps
 }
 
 export class CloudFrontDistributionMonitoring extends Monitoring {
-  private readonly title: string;
-  private readonly distributionUrl?: string;
+  readonly title: string;
+  readonly distributionUrl?: string;
 
-  protected readonly namingStrategy: MonitoringNamingStrategy;
-  protected readonly alarmFactory: AlarmFactory;
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly tpsAlarmFactory: TpsAlarmFactory;
+  readonly namingStrategy: MonitoringNamingStrategy;
+  readonly alarmFactory: AlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly tpsAlarmFactory: TpsAlarmFactory;
 
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
-  protected readonly tpsAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly tpsAnnotations: HorizontalAnnotation[];
 
-  protected readonly tpsMetric: MetricWithAlarmSupport;
-  protected readonly downloadedBytesMetric: MetricWithAlarmSupport;
-  protected readonly uploadedBytesMetric: MetricWithAlarmSupport;
-  protected readonly error4xxRate: MetricWithAlarmSupport;
-  protected readonly error5xxRate: MetricWithAlarmSupport;
+  readonly tpsMetric: MetricWithAlarmSupport;
+  readonly downloadedBytesMetric: MetricWithAlarmSupport;
+  readonly uploadedBytesMetric: MetricWithAlarmSupport;
+  readonly error4xxRate: MetricWithAlarmSupport;
+  readonly error5xxRate: MetricWithAlarmSupport;
 
-  protected readonly additionalMetricsEnabled: boolean;
-  protected readonly cacheHitRate: MetricWithAlarmSupport | undefined;
+  readonly additionalMetricsEnabled: boolean;
+  readonly cacheHitRate: MetricWithAlarmSupport | undefined;
 
   constructor(
     scope: MonitoringScope,
@@ -186,7 +186,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
     }
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "CloudFront Distribution",
       title: this.title,
@@ -194,7 +194,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
     });
   }
 
-  protected createTpsWidget(width: number, height: number) {
+  createTpsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -205,7 +205,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
     });
   }
 
-  protected createCacheWidget(width: number, height: number) {
+  createCacheWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -216,7 +216,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
     });
   }
 
-  protected createTrafficWidget(width: number, height: number) {
+  createTrafficWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -226,7 +226,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorRateWidget(width: number, height: number) {
+  createErrorRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

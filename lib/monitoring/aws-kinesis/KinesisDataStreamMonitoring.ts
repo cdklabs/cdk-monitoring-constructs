@@ -56,33 +56,33 @@ export interface KinesisDataStreamMonitoringProps
     KinesisDataStreamMonitoringOptions {}
 
 export class KinesisDataStreamMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly streamUrl?: string;
+  readonly title: string;
+  readonly streamUrl?: string;
 
-  protected readonly kinesisAlarmFactory: KinesisAlarmFactory;
-  protected readonly ageAnnotations: HorizontalAnnotation[];
-  protected readonly provisionedCapacityAnnotations: HorizontalAnnotation[];
-  protected readonly recordCountAnnotations: HorizontalAnnotation[];
+  readonly kinesisAlarmFactory: KinesisAlarmFactory;
+  readonly ageAnnotations: HorizontalAnnotation[];
+  readonly provisionedCapacityAnnotations: HorizontalAnnotation[];
+  readonly recordCountAnnotations: HorizontalAnnotation[];
 
-  protected readonly metricGetRecordSumBytes: MetricWithAlarmSupport;
-  protected readonly metricGetRecordsIteratorAge: MetricWithAlarmSupport;
-  protected readonly metricGetRecordsLatencyAverage: MetricWithAlarmSupport;
-  protected readonly metricGetRecordsSumCount: MetricWithAlarmSupport;
-  protected readonly metricGetRecordsSuccessCount: MetricWithAlarmSupport;
-  protected readonly incomingDataSumBytesMetric: MetricWithAlarmSupport;
-  protected readonly incomingDataSumCountMetric: MetricWithAlarmSupport;
-  protected readonly putRecordSumBytesMetric: MetricWithAlarmSupport;
-  protected readonly putRecordLatencyAverageMetric: MetricWithAlarmSupport;
-  protected readonly putRecordSuccessCountMetric: MetricWithAlarmSupport;
-  protected readonly putRecordsSumBytesMetric: MetricWithAlarmSupport;
-  protected readonly putRecordsLatencyAverageMetric: MetricWithAlarmSupport;
-  protected readonly putRecordsSuccessCountMetric: MetricWithAlarmSupport;
-  protected readonly putRecordsTotalRecordsCountMetric: MetricWithAlarmSupport;
-  protected readonly putRecordsSuccessfulRecordsCountMetric: MetricWithAlarmSupport;
-  protected readonly putRecordsFailedRecordsCountMetric: MetricWithAlarmSupport;
-  protected readonly putRecordsThrottledRecordsCountMetric: MetricWithAlarmSupport;
-  protected readonly readProvisionedThroughputExceededMetric: MetricWithAlarmSupport;
-  protected readonly writeProvisionedThroughputExceededMetric: MetricWithAlarmSupport;
+  readonly metricGetRecordSumBytes: MetricWithAlarmSupport;
+  readonly metricGetRecordsIteratorAge: MetricWithAlarmSupport;
+  readonly metricGetRecordsLatencyAverage: MetricWithAlarmSupport;
+  readonly metricGetRecordsSumCount: MetricWithAlarmSupport;
+  readonly metricGetRecordsSuccessCount: MetricWithAlarmSupport;
+  readonly incomingDataSumBytesMetric: MetricWithAlarmSupport;
+  readonly incomingDataSumCountMetric: MetricWithAlarmSupport;
+  readonly putRecordSumBytesMetric: MetricWithAlarmSupport;
+  readonly putRecordLatencyAverageMetric: MetricWithAlarmSupport;
+  readonly putRecordSuccessCountMetric: MetricWithAlarmSupport;
+  readonly putRecordsSumBytesMetric: MetricWithAlarmSupport;
+  readonly putRecordsLatencyAverageMetric: MetricWithAlarmSupport;
+  readonly putRecordsSuccessCountMetric: MetricWithAlarmSupport;
+  readonly putRecordsTotalRecordsCountMetric: MetricWithAlarmSupport;
+  readonly putRecordsSuccessfulRecordsCountMetric: MetricWithAlarmSupport;
+  readonly putRecordsFailedRecordsCountMetric: MetricWithAlarmSupport;
+  readonly putRecordsThrottledRecordsCountMetric: MetricWithAlarmSupport;
+  readonly readProvisionedThroughputExceededMetric: MetricWithAlarmSupport;
+  readonly writeProvisionedThroughputExceededMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: KinesisDataStreamMonitoringProps) {
     super(scope, props);
@@ -234,13 +234,13 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     );
   }
 
-  protected createSecondAdditionalRow() {
+  createSecondAdditionalRow() {
     return new Row(
       this.createRecordNumberWidget(FullWidth, DefaultGraphWidgetHeight)
     );
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Kinesis Data Stream",
       title: this.title,
@@ -248,7 +248,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     });
   }
 
-  protected createIncomingDataWidget(width: number, height: number) {
+  createIncomingDataWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -258,7 +258,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     });
   }
 
-  protected createIteratorAgeWidget(width: number, height: number) {
+  createIteratorAgeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -269,7 +269,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     });
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -283,7 +283,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     });
   }
 
-  protected createCapacityWidget(width: number, height: number) {
+  createCapacityWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -297,7 +297,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     });
   }
 
-  protected createRecordSizeWidget(width: number, height: number) {
+  createRecordSizeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -311,7 +311,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     });
   }
 
-  protected createOperationWidget(width: number, height: number) {
+  createOperationWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -325,7 +325,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     });
   }
 
-  protected createRecordNumberWidget(width: number, height: number) {
+  createRecordNumberWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

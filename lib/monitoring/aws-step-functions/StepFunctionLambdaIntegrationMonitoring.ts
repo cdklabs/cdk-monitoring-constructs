@@ -45,25 +45,25 @@ export interface StepFunctionLambdaIntegrationMonitoringProps
 }
 
 export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly functionUrl?: string;
+  readonly title: string;
+  readonly functionUrl?: string;
 
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly durationAlarmFactory: LatencyAlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly durationAlarmFactory: LatencyAlarmFactory;
 
-  protected readonly durationAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly durationAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly p50DurationMetric: MetricWithAlarmSupport;
-  protected readonly p90DurationMetric: MetricWithAlarmSupport;
-  protected readonly p99DurationMetric: MetricWithAlarmSupport;
-  protected readonly scheduledFunctionsMetric: MetricWithAlarmSupport;
-  protected readonly startedFunctionsMetric: MetricWithAlarmSupport;
-  protected readonly succeededFunctionsMetric: MetricWithAlarmSupport;
-  protected readonly failedFunctionsMetric: MetricWithAlarmSupport;
-  protected readonly failedFunctionRateMetric: MetricWithAlarmSupport;
-  protected readonly timedOutFunctionsMetrics: MetricWithAlarmSupport;
+  readonly p50DurationMetric: MetricWithAlarmSupport;
+  readonly p90DurationMetric: MetricWithAlarmSupport;
+  readonly p99DurationMetric: MetricWithAlarmSupport;
+  readonly scheduledFunctionsMetric: MetricWithAlarmSupport;
+  readonly startedFunctionsMetric: MetricWithAlarmSupport;
+  readonly succeededFunctionsMetric: MetricWithAlarmSupport;
+  readonly failedFunctionsMetric: MetricWithAlarmSupport;
+  readonly failedFunctionRateMetric: MetricWithAlarmSupport;
+  readonly timedOutFunctionsMetrics: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,

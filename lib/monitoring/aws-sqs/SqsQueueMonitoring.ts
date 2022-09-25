@@ -63,22 +63,22 @@ export interface SqsQueueMonitoringProps
     SqsQueueMonitoringOptions {}
 
 export class SqsQueueMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly queueUrl?: string;
+  readonly title: string;
+  readonly queueUrl?: string;
 
-  protected readonly queueAlarmFactory: QueueAlarmFactory;
-  protected readonly countAnnotations: HorizontalAnnotation[];
-  protected readonly ageAnnotations: HorizontalAnnotation[];
-  protected readonly timeToDrainAnnotations: HorizontalAnnotation[];
+  readonly queueAlarmFactory: QueueAlarmFactory;
+  readonly countAnnotations: HorizontalAnnotation[];
+  readonly ageAnnotations: HorizontalAnnotation[];
+  readonly timeToDrainAnnotations: HorizontalAnnotation[];
 
-  protected readonly visibleMessagesMetric: MetricWithAlarmSupport;
-  protected readonly incomingMessagesMetric: MetricWithAlarmSupport;
-  protected readonly deletedMessagesMetric: MetricWithAlarmSupport;
-  protected readonly oldestMessageAgeMetric: MetricWithAlarmSupport;
-  protected readonly messageSizeMetric: MetricWithAlarmSupport;
-  protected readonly productionRateMetric: MetricWithAlarmSupport;
-  protected readonly consumptionRateMetric: MetricWithAlarmSupport;
-  protected readonly timeToDrainMetric: MetricWithAlarmSupport;
+  readonly visibleMessagesMetric: MetricWithAlarmSupport;
+  readonly incomingMessagesMetric: MetricWithAlarmSupport;
+  readonly deletedMessagesMetric: MetricWithAlarmSupport;
+  readonly oldestMessageAgeMetric: MetricWithAlarmSupport;
+  readonly messageSizeMetric: MetricWithAlarmSupport;
+  readonly productionRateMetric: MetricWithAlarmSupport;
+  readonly consumptionRateMetric: MetricWithAlarmSupport;
+  readonly timeToDrainMetric: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,
@@ -227,7 +227,7 @@ export class SqsQueueMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "SQS Queue",
       title: this.title,
@@ -235,7 +235,7 @@ export class SqsQueueMonitoring extends Monitoring {
     });
   }
 
-  protected createMessageCountWidget(width: number, height: number) {
+  createMessageCountWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -246,7 +246,7 @@ export class SqsQueueMonitoring extends Monitoring {
     });
   }
 
-  protected createMessageAgeWidget(width: number, height: number) {
+  createMessageAgeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -257,7 +257,7 @@ export class SqsQueueMonitoring extends Monitoring {
     });
   }
 
-  protected createMessageSizeWidget(width: number, height: number) {
+  createMessageSizeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -267,7 +267,7 @@ export class SqsQueueMonitoring extends Monitoring {
     });
   }
 
-  protected createProducerAndConsumerRateWidget(width: number, height: number) {
+  createProducerAndConsumerRateWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -277,7 +277,7 @@ export class SqsQueueMonitoring extends Monitoring {
     });
   }
 
-  protected createTimeToDrainWidget(width: number, height: number) {
+  createTimeToDrainWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

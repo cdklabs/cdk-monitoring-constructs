@@ -25,16 +25,16 @@ export interface EC2MonitoringOptions
 export interface EC2MonitoringProps extends EC2MonitoringOptions {}
 
 export class EC2Monitoring extends Monitoring {
-  protected readonly family: string;
-  protected readonly title: string;
+  readonly family: string;
+  readonly title: string;
 
-  protected readonly cpuUtilisationMetrics: IMetric[];
-  protected readonly diskReadBytesMetrics: IMetric[];
-  protected readonly diskWriteBytesMetrics: IMetric[];
-  protected readonly diskReadOpsMetrics: IMetric[];
-  protected readonly diskWriteOpsMetrics: IMetric[];
-  protected readonly networkInMetrics: IMetric[];
-  protected readonly networkOutMetrics: IMetric[];
+  readonly cpuUtilisationMetrics: IMetric[];
+  readonly diskReadBytesMetrics: IMetric[];
+  readonly diskWriteBytesMetrics: IMetric[];
+  readonly diskReadOpsMetrics: IMetric[];
+  readonly diskWriteOpsMetrics: IMetric[];
+  readonly networkInMetrics: IMetric[];
+  readonly networkOutMetrics: IMetric[];
 
   constructor(scope: MonitoringScope, props: EC2MonitoringProps) {
     super(scope, props);
@@ -91,14 +91,14 @@ export class EC2Monitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: this.family,
       title: this.title,
     });
   }
 
-  protected createCpuWidget(width: number, height: number) {
+  createCpuWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -108,7 +108,7 @@ export class EC2Monitoring extends Monitoring {
     });
   }
 
-  protected createDiskWidget(width: number, height: number) {
+  createDiskWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -118,7 +118,7 @@ export class EC2Monitoring extends Monitoring {
     });
   }
 
-  protected createDiskOpsWidget(width: number, height: number) {
+  createDiskOpsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -128,7 +128,7 @@ export class EC2Monitoring extends Monitoring {
     });
   }
 
-  protected createNetworkWidget(width: number, height: number) {
+  createNetworkWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

@@ -41,11 +41,11 @@ export interface LogMonitoringProps extends BaseMonitoringProps {
  * Monitors a CloudWatch log group for various patterns.
  */
 export class LogMonitoring extends Monitoring {
-  protected readonly pattern: string;
-  protected readonly logGroupName: string;
-  protected readonly logGroupUrl?: string;
-  protected readonly title?: string;
-  protected readonly limit: number;
+  readonly pattern: string;
+  readonly logGroupName: string;
+  readonly logGroupUrl?: string;
+  readonly title?: string;
+  readonly limit: number;
 
   constructor(scope: MonitoringScope, props: LogMonitoringProps) {
     super(scope);

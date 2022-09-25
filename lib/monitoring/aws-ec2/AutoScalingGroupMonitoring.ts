@@ -28,16 +28,16 @@ export interface AutoScalingGroupMonitoringProps
     AutoScalingGroupMonitoringOptions {}
 
 export class AutoScalingGroupMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly groupMinSizeMetric: MetricWithAlarmSupport;
-  protected readonly groupMaxSizeMetric: MetricWithAlarmSupport;
-  protected readonly groupDesiredSizeMetric: MetricWithAlarmSupport;
-  protected readonly instancesInServiceMetric: MetricWithAlarmSupport;
-  protected readonly instancesPendingMetric: MetricWithAlarmSupport;
-  protected readonly instancesStandbyMetric: MetricWithAlarmSupport;
-  protected readonly instancesTerminatingMetric: MetricWithAlarmSupport;
-  protected readonly instancesTotalMetric: MetricWithAlarmSupport;
+  readonly groupMinSizeMetric: MetricWithAlarmSupport;
+  readonly groupMaxSizeMetric: MetricWithAlarmSupport;
+  readonly groupDesiredSizeMetric: MetricWithAlarmSupport;
+  readonly instancesInServiceMetric: MetricWithAlarmSupport;
+  readonly instancesPendingMetric: MetricWithAlarmSupport;
+  readonly instancesStandbyMetric: MetricWithAlarmSupport;
+  readonly instancesTerminatingMetric: MetricWithAlarmSupport;
+  readonly instancesTotalMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: AutoScalingGroupMonitoringProps) {
     super(scope, props);
@@ -81,14 +81,14 @@ export class AutoScalingGroupMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Auto Scaling Group",
       title: this.title,
     });
   }
 
-  protected createGroupSizeWidget(width: number, height: number) {
+  createGroupSizeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -103,7 +103,7 @@ export class AutoScalingGroupMonitoring extends Monitoring {
     });
   }
 
-  protected createGroupStatusWidget(width: number, height: number) {
+  createGroupStatusWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

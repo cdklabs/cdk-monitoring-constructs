@@ -41,23 +41,23 @@ export interface KinesisDataAnalyticsMonitoringProps
     KinesisDataAnalyticsMonitoringOptions {}
 
 export class KinesisDataAnalyticsMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly kinesisDataAnalyticsUrl?: string;
+  readonly title: string;
+  readonly kinesisDataAnalyticsUrl?: string;
 
-  protected readonly kdaAlarmFactory: KinesisDataAnalyticsAlarmFactory;
-  protected readonly downtimeAnnotations: HorizontalAnnotation[];
-  protected readonly fullRestartAnnotations: HorizontalAnnotation[];
+  readonly kdaAlarmFactory: KinesisDataAnalyticsAlarmFactory;
+  readonly downtimeAnnotations: HorizontalAnnotation[];
+  readonly fullRestartAnnotations: HorizontalAnnotation[];
 
-  protected readonly cpuUtilizationPercentMetric: MetricWithAlarmSupport;
-  protected readonly downtimeMsMetric: MetricWithAlarmSupport;
-  protected readonly fullRestartsCountMetric: MetricWithAlarmSupport;
-  protected readonly heapMemoryUtilizationPercentMetric: MetricWithAlarmSupport;
-  protected readonly kpusCountMetric: MetricWithAlarmSupport;
-  protected readonly lastCheckpointDurationMsMetric: MetricWithAlarmSupport;
-  protected readonly lastCheckpointSizeBytesMetric: MetricWithAlarmSupport;
-  protected readonly numberOfFailedCheckpointsCountMetric: MetricWithAlarmSupport;
-  protected readonly oldGenerationGCCountMetric: MetricWithAlarmSupport;
-  protected readonly oldGenerationGCTimeMsMetric: MetricWithAlarmSupport;
+  readonly cpuUtilizationPercentMetric: MetricWithAlarmSupport;
+  readonly downtimeMsMetric: MetricWithAlarmSupport;
+  readonly fullRestartsCountMetric: MetricWithAlarmSupport;
+  readonly heapMemoryUtilizationPercentMetric: MetricWithAlarmSupport;
+  readonly kpusCountMetric: MetricWithAlarmSupport;
+  readonly lastCheckpointDurationMsMetric: MetricWithAlarmSupport;
+  readonly lastCheckpointSizeBytesMetric: MetricWithAlarmSupport;
+  readonly numberOfFailedCheckpointsCountMetric: MetricWithAlarmSupport;
+  readonly oldGenerationGCCountMetric: MetricWithAlarmSupport;
+  readonly oldGenerationGCTimeMsMetric: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,
@@ -144,7 +144,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Kinesis Data Analytics",
       title: this.title,
@@ -152,7 +152,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  protected createKPUWidget(width: number, height: number) {
+  createKPUWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -162,7 +162,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  protected createResourceUtilizationWidget(width: number, height: number) {
+  createResourceUtilizationWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -175,7 +175,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  protected createDownTimeWidget(width: number, height: number) {
+  createDownTimeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -186,7 +186,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  protected createFullRestartsWidget(width: number, height: number) {
+  createFullRestartsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -197,10 +197,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  protected createNumberOfFailedCheckpointsWidget(
-    width: number,
-    height: number
-  ) {
+  createNumberOfFailedCheckpointsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -210,7 +207,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  protected createLastCheckpointDurationWidget(width: number, height: number) {
+  createLastCheckpointDurationWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -220,7 +217,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  protected createLastCheckpointSizeWidget(width: number, height: number) {
+  createLastCheckpointSizeWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -230,7 +227,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  protected createGarbageCollectionWidget(width: number, height: number) {
+  createGarbageCollectionWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

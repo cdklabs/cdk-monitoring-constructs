@@ -49,22 +49,22 @@ export interface CodeBuildProjectMonitoringProps
     CodeBuildProjectMonitoringOptions {}
 
 export class CodeBuildProjectMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly projectUrl?: string;
+  readonly title: string;
+  readonly projectUrl?: string;
 
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly durationAlarmFactory: LatencyAlarmFactory;
-  protected readonly durationAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly errorRateAnnotations: HorizontalAnnotation[];
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly durationAlarmFactory: LatencyAlarmFactory;
+  readonly durationAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly errorRateAnnotations: HorizontalAnnotation[];
 
-  protected readonly buildCountMetric: MetricWithAlarmSupport;
-  protected readonly succeededBuildCountMetric: MetricWithAlarmSupport;
-  protected readonly failedBuildCountMetric: MetricWithAlarmSupport;
-  protected readonly failedBuildRateMetric: MetricWithAlarmSupport;
-  protected readonly durationP99InSecondsMetric: MetricWithAlarmSupport;
-  protected readonly durationP90InSecondsMetric: MetricWithAlarmSupport;
-  protected readonly durationP50InSecondsMetric: MetricWithAlarmSupport;
+  readonly buildCountMetric: MetricWithAlarmSupport;
+  readonly succeededBuildCountMetric: MetricWithAlarmSupport;
+  readonly failedBuildCountMetric: MetricWithAlarmSupport;
+  readonly failedBuildRateMetric: MetricWithAlarmSupport;
+  readonly durationP99InSecondsMetric: MetricWithAlarmSupport;
+  readonly durationP90InSecondsMetric: MetricWithAlarmSupport;
+  readonly durationP50InSecondsMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: CodeBuildProjectMonitoringProps) {
     super(scope);
@@ -187,7 +187,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
     return this.widgets();
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "CodeBuild Project",
       title: this.title,
@@ -195,7 +195,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
     });
   }
 
-  protected createBuildCountsWidget() {
+  createBuildCountsWidget() {
     return new GraphWidget({
       width: ThirdWidth,
       height: DefaultGraphWidgetHeight,
@@ -210,7 +210,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
     });
   }
 
-  protected createDurationWidget() {
+  createDurationWidget() {
     return new GraphWidget({
       width: ThirdWidth,
       height: DefaultGraphWidgetHeight,
@@ -225,7 +225,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
     });
   }
 
-  protected createFailedBuildRateWidget() {
+  createFailedBuildRateWidget() {
     return new GraphWidget({
       width: ThirdWidth,
       height: DefaultGraphWidgetHeight,

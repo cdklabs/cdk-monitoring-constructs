@@ -140,29 +140,29 @@ export interface CustomFargateServiceMonitoringProps
 }
 
 export class FargateServiceMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly metricFactory: MetricFactory;
-  protected readonly baseServiceMetricFactory: BaseServiceMetricFactory;
-  protected readonly loadBalancerMetricFactory?: ILoadBalancerMetricFactory;
+  readonly metricFactory: MetricFactory;
+  readonly baseServiceMetricFactory: BaseServiceMetricFactory;
+  readonly loadBalancerMetricFactory?: ILoadBalancerMetricFactory;
 
-  protected readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
-  protected readonly throughputAlarmFactory: ThroughputAlarmFactory;
-  protected readonly taskHealthAnnotations: HorizontalAnnotation[];
-  protected readonly usageAlarmFactory: UsageAlarmFactory;
-  protected readonly cpuUsageAnnotations: HorizontalAnnotation[];
-  protected readonly memoryUsageAnnotations: HorizontalAnnotation[];
-  protected readonly processedBytesAnnotations: HorizontalAnnotation[];
+  readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
+  readonly throughputAlarmFactory: ThroughputAlarmFactory;
+  readonly taskHealthAnnotations: HorizontalAnnotation[];
+  readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly cpuUsageAnnotations: HorizontalAnnotation[];
+  readonly memoryUsageAnnotations: HorizontalAnnotation[];
+  readonly processedBytesAnnotations: HorizontalAnnotation[];
 
-  protected readonly healthyTaskCountMetric?: MetricWithAlarmSupport;
-  protected readonly unhealthyTaskCountMetric?: MetricWithAlarmSupport;
-  protected readonly healthyTaskPercentMetric?: MetricWithAlarmSupport;
-  protected readonly runningTaskCountMetric: MetricWithAlarmSupport;
-  protected readonly cpuUtilisationMetric: MetricWithAlarmSupport;
-  protected readonly memoryUtilisationMetric: MetricWithAlarmSupport;
-  protected readonly activeTcpFlowCountMetric?: MetricWithAlarmSupport;
-  protected readonly newTcpFlowCountMetric?: MetricWithAlarmSupport;
-  protected readonly processedBytesMetric?: MetricWithAlarmSupport;
+  readonly healthyTaskCountMetric?: MetricWithAlarmSupport;
+  readonly unhealthyTaskCountMetric?: MetricWithAlarmSupport;
+  readonly healthyTaskPercentMetric?: MetricWithAlarmSupport;
+  readonly runningTaskCountMetric: MetricWithAlarmSupport;
+  readonly cpuUtilisationMetric: MetricWithAlarmSupport;
+  readonly memoryUtilisationMetric: MetricWithAlarmSupport;
+  readonly activeTcpFlowCountMetric?: MetricWithAlarmSupport;
+  readonly newTcpFlowCountMetric?: MetricWithAlarmSupport;
+  readonly processedBytesMetric?: MetricWithAlarmSupport;
 
   private hasLoadBalancer: boolean;
 
@@ -361,14 +361,14 @@ export class FargateServiceMonitoring extends Monitoring {
     }
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Fargate Service",
       title: this.title,
     });
   }
 
-  protected createCpuWidget(width: number, height: number) {
+  createCpuWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -379,7 +379,7 @@ export class FargateServiceMonitoring extends Monitoring {
     });
   }
 
-  protected createMemoryWidget(width: number, height: number) {
+  createMemoryWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -390,7 +390,7 @@ export class FargateServiceMonitoring extends Monitoring {
     });
   }
 
-  protected createTaskHealthWidget(width: number, height: number) {
+  createTaskHealthWidget(width: number, height: number) {
     const left = [this.runningTaskCountMetric];
 
     if (this.healthyTaskCountMetric) {
@@ -411,7 +411,7 @@ export class FargateServiceMonitoring extends Monitoring {
     });
   }
 
-  protected createTpcFlowsWidget(width: number, height: number) {
+  createTpcFlowsWidget(width: number, height: number) {
     const left: IMetric[] = [];
     const right: IMetric[] = [];
 

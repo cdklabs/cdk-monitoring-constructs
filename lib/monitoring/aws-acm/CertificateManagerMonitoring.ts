@@ -34,10 +34,10 @@ export interface CertificateManagerMonitoringProps
     CertificateManagerMetricFactoryProps {}
 
 export class CertificateManagerMonitoring extends Monitoring {
-  protected readonly title: string;
+  readonly title: string;
 
-  protected readonly daysToExpiryAnnotations: HorizontalAnnotation[];
-  protected readonly daysToExpiryMetric: MetricWithAlarmSupport;
+  readonly daysToExpiryAnnotations: HorizontalAnnotation[];
+  readonly daysToExpiryMetric: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,
@@ -84,14 +84,14 @@ export class CertificateManagerMonitoring extends Monitoring {
     ];
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Certificate",
       title: this.title,
     });
   }
 
-  protected createDaysToExpiryWidget(width: number, height: number) {
+  createDaysToExpiryWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,

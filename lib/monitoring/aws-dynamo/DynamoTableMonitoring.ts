@@ -112,36 +112,36 @@ export interface DynamoTableMonitoringProps
     DynamoTableMonitoringOptions {}
 
 export class DynamoTableMonitoring extends Monitoring {
-  protected readonly title: string;
-  protected readonly tableUrl?: string;
-  protected readonly tableBillingMode: BillingMode;
+  readonly title: string;
+  readonly tableUrl?: string;
+  readonly tableBillingMode: BillingMode;
 
-  protected readonly alarmFactory: AlarmFactory;
-  protected readonly errorAlarmFactory: ErrorAlarmFactory;
-  protected readonly latencyAlarmFactory: LatencyAlarmFactory;
-  protected readonly dynamoCapacityAlarmFactory: DynamoAlarmFactory;
+  readonly alarmFactory: AlarmFactory;
+  readonly errorAlarmFactory: ErrorAlarmFactory;
+  readonly latencyAlarmFactory: LatencyAlarmFactory;
+  readonly dynamoCapacityAlarmFactory: DynamoAlarmFactory;
 
-  protected readonly latencyAnnotations: HorizontalAnnotation[];
-  protected readonly errorCountAnnotations: HorizontalAnnotation[];
-  protected readonly dynamoReadCapacityAnnotations: HorizontalAnnotation[];
-  protected readonly dynamoWriteCapacityAnnotations: HorizontalAnnotation[];
-  protected readonly throttledEventsAnnotations: HorizontalAnnotation[];
+  readonly latencyAnnotations: HorizontalAnnotation[];
+  readonly errorCountAnnotations: HorizontalAnnotation[];
+  readonly dynamoReadCapacityAnnotations: HorizontalAnnotation[];
+  readonly dynamoWriteCapacityAnnotations: HorizontalAnnotation[];
+  readonly throttledEventsAnnotations: HorizontalAnnotation[];
 
-  protected readonly provisionedReadUnitsMetric: MetricWithAlarmSupport;
-  protected readonly provisionedWriteUnitsMetric: MetricWithAlarmSupport;
-  protected readonly consumedReadUnitsMetric: MetricWithAlarmSupport;
-  protected readonly consumedWriteUnitsMetric: MetricWithAlarmSupport;
-  protected readonly readThrottleCountMetric: MetricWithAlarmSupport;
-  protected readonly writeThrottleCountMetric: MetricWithAlarmSupport;
-  protected readonly systemErrorMetric: MetricWithAlarmSupport;
-  protected readonly latencyAverageSearchMetrics: IMetric;
+  readonly provisionedReadUnitsMetric: MetricWithAlarmSupport;
+  readonly provisionedWriteUnitsMetric: MetricWithAlarmSupport;
+  readonly consumedReadUnitsMetric: MetricWithAlarmSupport;
+  readonly consumedWriteUnitsMetric: MetricWithAlarmSupport;
+  readonly readThrottleCountMetric: MetricWithAlarmSupport;
+  readonly writeThrottleCountMetric: MetricWithAlarmSupport;
+  readonly systemErrorMetric: MetricWithAlarmSupport;
+  readonly latencyAverageSearchMetrics: IMetric;
   // keys are Operation, but JSII doesn't like non-string types
-  protected readonly averagePerOperationLatencyMetrics: Record<
+  readonly averagePerOperationLatencyMetrics: Record<
     string,
     MetricWithAlarmSupport
   >;
-  protected readonly readCapacityUsageMetric: MetricWithAlarmSupport;
-  protected readonly writeCapacityUsageMetric: MetricWithAlarmSupport;
+  readonly readCapacityUsageMetric: MetricWithAlarmSupport;
+  readonly writeCapacityUsageMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: DynamoTableMonitoringProps) {
     super(scope, props);
@@ -392,7 +392,7 @@ export class DynamoTableMonitoring extends Monitoring {
     ];
   }
 
-  protected createLatencyWidget(width: number, height: number) {
+  createLatencyWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -404,7 +404,7 @@ export class DynamoTableMonitoring extends Monitoring {
     });
   }
 
-  protected createThrottlesWidget(width: number, height: number) {
+  createThrottlesWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -415,7 +415,7 @@ export class DynamoTableMonitoring extends Monitoring {
     });
   }
 
-  protected createErrorsWidget(width: number, height: number) {
+  createErrorsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -426,7 +426,7 @@ export class DynamoTableMonitoring extends Monitoring {
     });
   }
 
-  protected createReadCapacityWidget(width: number, height: number) {
+  createReadCapacityWidget(width: number, height: number) {
     if (this.tableBillingMode === BillingMode.PAY_PER_REQUEST) {
       // simplified view for on-demand table
       return new GraphWidget({
@@ -451,7 +451,7 @@ export class DynamoTableMonitoring extends Monitoring {
     });
   }
 
-  protected createWriteCapacityWidget(width: number, height: number) {
+  createWriteCapacityWidget(width: number, height: number) {
     if (this.tableBillingMode === BillingMode.PAY_PER_REQUEST) {
       // simplified view for on-demand table
       return new GraphWidget({
@@ -476,7 +476,7 @@ export class DynamoTableMonitoring extends Monitoring {
     });
   }
 
-  protected createTitleWidget() {
+  createTitleWidget() {
     return new MonitoringHeaderWidget({
       family: "Dynamo Table",
       title: this.title,

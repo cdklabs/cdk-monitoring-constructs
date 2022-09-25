@@ -37474,6 +37474,11 @@ new ApiGatewayMonitoring(scope: MonitoringScope, props: ApiGatewayMonitoringProp
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createTpsWidget">createTpsWidget</a></code> | *No description.* |
 
 ---
 
@@ -37561,7 +37566,267 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorCountWidget"></a>
 
+```typescript
+public createErrorCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createErrorRateWidget` <a name="createErrorRateWidget" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorRateWidget"></a>
+
+```typescript
+public createErrorRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createTpsWidget` <a name="createTpsWidget" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createTpsWidget"></a>
+
+```typescript
+public createTpsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createTpsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createTpsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.error4XXCountMetric">error4XXCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.error4XXRateMetric">error4XXRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.fault5XXCountMetric">fault5XXCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.fault5XXRateMetric">fault5XXRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.latencyMetrics">latencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.tpsAlarmFactory">tpsAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.tpsAnnotations">tpsAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.property.tpsMetric">tpsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `error4XXCountMetric`<sup>Required</sup> <a name="error4XXCountMetric" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.error4XXCountMetric"></a>
+
+```typescript
+public readonly error4XXCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `error4XXRateMetric`<sup>Required</sup> <a name="error4XXRateMetric" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.error4XXRateMetric"></a>
+
+```typescript
+public readonly error4XXRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `fault5XXCountMetric`<sup>Required</sup> <a name="fault5XXCountMetric" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.fault5XXCountMetric"></a>
+
+```typescript
+public readonly fault5XXCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `fault5XXRateMetric`<sup>Required</sup> <a name="fault5XXRateMetric" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.fault5XXRateMetric"></a>
+
+```typescript
+public readonly fault5XXRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `latencyAnnotations`<sup>Required</sup> <a name="latencyAnnotations" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.latencyAnnotations"></a>
+
+```typescript
+public readonly latencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `latencyMetrics`<sup>Required</sup> <a name="latencyMetrics" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.latencyMetrics"></a>
+
+```typescript
+public readonly latencyMetrics: {[ key: string ]: Metric | MathExpression};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
+
+---
+
+##### `latencyTypesToRender`<sup>Required</sup> <a name="latencyTypesToRender" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.latencyTypesToRender"></a>
+
+```typescript
+public readonly latencyTypesToRender: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tpsAlarmFactory`<sup>Required</sup> <a name="tpsAlarmFactory" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.tpsAlarmFactory"></a>
+
+```typescript
+public readonly tpsAlarmFactory: TpsAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a>
+
+---
+
+##### `tpsAnnotations`<sup>Required</sup> <a name="tpsAnnotations" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.tpsAnnotations"></a>
+
+```typescript
+public readonly tpsAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `tpsMetric`<sup>Required</sup> <a name="tpsMetric" id="cdk-monitoring-constructs.ApiGatewayMonitoring.property.tpsMetric"></a>
+
+```typescript
+public readonly tpsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
 
 
 ### ApiGatewayV2HttpApiMetricFactory <a name="ApiGatewayV2HttpApiMetricFactory" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory"></a>
@@ -37761,6 +38026,11 @@ new ApiGatewayV2HttpApiMonitoring(scope: MonitoringScope, props: ApiGatewayV2Htt
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createTpsWidget">createTpsWidget</a></code> | *No description.* |
 
 ---
 
@@ -37848,7 +38118,278 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorCountWidget"></a>
 
+```typescript
+public createErrorCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createErrorRateWidget` <a name="createErrorRateWidget" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorRateWidget"></a>
+
+```typescript
+public createErrorRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createTpsWidget` <a name="createTpsWidget" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createTpsWidget"></a>
+
+```typescript
+public createTpsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createTpsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createTpsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.error4xxCountMetric">error4xxCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.error4xxRateMetric">error4xxRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.error5xxCountMetric">error5xxCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.error5xxRateMetric">error5xxRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.integrationLatencyMetrics">integrationLatencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.latencyMetrics">latencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.tpsAlarmFactory">tpsAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.tpsAnnotations">tpsAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.tpsMetric">tpsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `error4xxCountMetric`<sup>Required</sup> <a name="error4xxCountMetric" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.error4xxCountMetric"></a>
+
+```typescript
+public readonly error4xxCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `error4xxRateMetric`<sup>Required</sup> <a name="error4xxRateMetric" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.error4xxRateMetric"></a>
+
+```typescript
+public readonly error4xxRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `error5xxCountMetric`<sup>Required</sup> <a name="error5xxCountMetric" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.error5xxCountMetric"></a>
+
+```typescript
+public readonly error5xxCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `error5xxRateMetric`<sup>Required</sup> <a name="error5xxRateMetric" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.error5xxRateMetric"></a>
+
+```typescript
+public readonly error5xxRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `integrationLatencyMetrics`<sup>Required</sup> <a name="integrationLatencyMetrics" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.integrationLatencyMetrics"></a>
+
+```typescript
+public readonly integrationLatencyMetrics: {[ key: string ]: Metric | MathExpression};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `latencyAnnotations`<sup>Required</sup> <a name="latencyAnnotations" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.latencyAnnotations"></a>
+
+```typescript
+public readonly latencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `latencyMetrics`<sup>Required</sup> <a name="latencyMetrics" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.latencyMetrics"></a>
+
+```typescript
+public readonly latencyMetrics: {[ key: string ]: Metric | MathExpression};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
+
+---
+
+##### `latencyTypesToRender`<sup>Required</sup> <a name="latencyTypesToRender" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.latencyTypesToRender"></a>
+
+```typescript
+public readonly latencyTypesToRender: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tpsAlarmFactory`<sup>Required</sup> <a name="tpsAlarmFactory" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.tpsAlarmFactory"></a>
+
+```typescript
+public readonly tpsAlarmFactory: TpsAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a>
+
+---
+
+##### `tpsAnnotations`<sup>Required</sup> <a name="tpsAnnotations" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.tpsAnnotations"></a>
+
+```typescript
+public readonly tpsAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `tpsMetric`<sup>Required</sup> <a name="tpsMetric" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.property.tpsMetric"></a>
+
+```typescript
+public readonly tpsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
 
 
 ### ApplicationLoadBalancerMetricFactory <a name="ApplicationLoadBalancerMetricFactory" id="cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactory"></a>
@@ -38086,6 +38627,11 @@ new AppSyncMonitoring(scope: MonitoringScope, props: AppSyncMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createTpsWidget">createTpsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createtTitleWidget">createtTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -38173,7 +38719,300 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.AppSyncMonitoring.createErrorCountWidget"></a>
 
+```typescript
+public createErrorCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AppSyncMonitoring.createErrorCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AppSyncMonitoring.createErrorCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createErrorRateWidget` <a name="createErrorRateWidget" id="cdk-monitoring-constructs.AppSyncMonitoring.createErrorRateWidget"></a>
+
+```typescript
+public createErrorRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AppSyncMonitoring.createErrorRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AppSyncMonitoring.createErrorRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.AppSyncMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AppSyncMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AppSyncMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTpsWidget` <a name="createTpsWidget" id="cdk-monitoring-constructs.AppSyncMonitoring.createTpsWidget"></a>
+
+```typescript
+public createTpsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AppSyncMonitoring.createTpsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AppSyncMonitoring.createTpsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createtTitleWidget` <a name="createtTitleWidget" id="cdk-monitoring-constructs.AppSyncMonitoring.createtTitleWidget"></a>
+
+```typescript
+public createtTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.error4xxCountMetric">error4xxCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.error4xxRateMetric">error4xxRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.fault5xxCountMetric">fault5xxCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.fault5xxRateMetric">fault5xxRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactory">AppSyncMetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.namingStrategy">namingStrategy</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringNamingStrategy">MonitoringNamingStrategy</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.p50LatencyMetric">p50LatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.p90LatencyMetric">p90LatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.p99LatencyMetric">p99LatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.tpsAlarmFactory">tpsAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.tpsAnnotations">tpsAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.property.tpsMetric">tpsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.AppSyncMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `error4xxCountMetric`<sup>Required</sup> <a name="error4xxCountMetric" id="cdk-monitoring-constructs.AppSyncMonitoring.property.error4xxCountMetric"></a>
+
+```typescript
+public readonly error4xxCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `error4xxRateMetric`<sup>Required</sup> <a name="error4xxRateMetric" id="cdk-monitoring-constructs.AppSyncMonitoring.property.error4xxRateMetric"></a>
+
+```typescript
+public readonly error4xxRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.AppSyncMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.AppSyncMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.AppSyncMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `fault5xxCountMetric`<sup>Required</sup> <a name="fault5xxCountMetric" id="cdk-monitoring-constructs.AppSyncMonitoring.property.fault5xxCountMetric"></a>
+
+```typescript
+public readonly fault5xxCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `fault5xxRateMetric`<sup>Required</sup> <a name="fault5xxRateMetric" id="cdk-monitoring-constructs.AppSyncMonitoring.property.fault5xxRateMetric"></a>
+
+```typescript
+public readonly fault5xxRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.AppSyncMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `latencyAnnotations`<sup>Required</sup> <a name="latencyAnnotations" id="cdk-monitoring-constructs.AppSyncMonitoring.property.latencyAnnotations"></a>
+
+```typescript
+public readonly latencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.AppSyncMonitoring.property.metricFactory"></a>
+
+```typescript
+public readonly metricFactory: AppSyncMetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AppSyncMetricFactory">AppSyncMetricFactory</a>
+
+---
+
+##### `namingStrategy`<sup>Required</sup> <a name="namingStrategy" id="cdk-monitoring-constructs.AppSyncMonitoring.property.namingStrategy"></a>
+
+```typescript
+public readonly namingStrategy: MonitoringNamingStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringNamingStrategy">MonitoringNamingStrategy</a>
+
+---
+
+##### `p50LatencyMetric`<sup>Required</sup> <a name="p50LatencyMetric" id="cdk-monitoring-constructs.AppSyncMonitoring.property.p50LatencyMetric"></a>
+
+```typescript
+public readonly p50LatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p90LatencyMetric`<sup>Required</sup> <a name="p90LatencyMetric" id="cdk-monitoring-constructs.AppSyncMonitoring.property.p90LatencyMetric"></a>
+
+```typescript
+public readonly p90LatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p99LatencyMetric`<sup>Required</sup> <a name="p99LatencyMetric" id="cdk-monitoring-constructs.AppSyncMonitoring.property.p99LatencyMetric"></a>
+
+```typescript
+public readonly p99LatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.AppSyncMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tpsAlarmFactory`<sup>Required</sup> <a name="tpsAlarmFactory" id="cdk-monitoring-constructs.AppSyncMonitoring.property.tpsAlarmFactory"></a>
+
+```typescript
+public readonly tpsAlarmFactory: TpsAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a>
+
+---
+
+##### `tpsAnnotations`<sup>Required</sup> <a name="tpsAnnotations" id="cdk-monitoring-constructs.AppSyncMonitoring.property.tpsAnnotations"></a>
+
+```typescript
+public readonly tpsAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `tpsMetric`<sup>Required</sup> <a name="tpsMetric" id="cdk-monitoring-constructs.AppSyncMonitoring.property.tpsMetric"></a>
+
+```typescript
+public readonly tpsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
 
 
 ### AutoScalingGroupMetricFactory <a name="AutoScalingGroupMetricFactory" id="cdk-monitoring-constructs.AutoScalingGroupMetricFactory"></a>
@@ -38339,6 +39178,9 @@ new AutoScalingGroupMonitoring(scope: MonitoringScope, props: AutoScalingGroupMo
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupSizeWidget">createGroupSizeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupStatusWidget">createGroupStatusWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -38426,7 +39268,154 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createGroupSizeWidget` <a name="createGroupSizeWidget" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupSizeWidget"></a>
 
+```typescript
+public createGroupSizeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupSizeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupSizeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createGroupStatusWidget` <a name="createGroupStatusWidget" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupStatusWidget"></a>
+
+```typescript
+public createGroupStatusWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupStatusWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupStatusWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.groupDesiredSizeMetric">groupDesiredSizeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.groupMaxSizeMetric">groupMaxSizeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.groupMinSizeMetric">groupMinSizeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesInServiceMetric">instancesInServiceMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesPendingMetric">instancesPendingMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesStandbyMetric">instancesStandbyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesTerminatingMetric">instancesTerminatingMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesTotalMetric">instancesTotalMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `groupDesiredSizeMetric`<sup>Required</sup> <a name="groupDesiredSizeMetric" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.groupDesiredSizeMetric"></a>
+
+```typescript
+public readonly groupDesiredSizeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `groupMaxSizeMetric`<sup>Required</sup> <a name="groupMaxSizeMetric" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.groupMaxSizeMetric"></a>
+
+```typescript
+public readonly groupMaxSizeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `groupMinSizeMetric`<sup>Required</sup> <a name="groupMinSizeMetric" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.groupMinSizeMetric"></a>
+
+```typescript
+public readonly groupMinSizeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `instancesInServiceMetric`<sup>Required</sup> <a name="instancesInServiceMetric" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesInServiceMetric"></a>
+
+```typescript
+public readonly instancesInServiceMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `instancesPendingMetric`<sup>Required</sup> <a name="instancesPendingMetric" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesPendingMetric"></a>
+
+```typescript
+public readonly instancesPendingMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `instancesStandbyMetric`<sup>Required</sup> <a name="instancesStandbyMetric" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesStandbyMetric"></a>
+
+```typescript
+public readonly instancesStandbyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `instancesTerminatingMetric`<sup>Required</sup> <a name="instancesTerminatingMetric" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesTerminatingMetric"></a>
+
+```typescript
+public readonly instancesTerminatingMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `instancesTotalMetric`<sup>Required</sup> <a name="instancesTotalMetric" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.instancesTotalMetric"></a>
+
+```typescript
+public readonly instancesTotalMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### AwsConsoleUrlFactory <a name="AwsConsoleUrlFactory" id="cdk-monitoring-constructs.AwsConsoleUrlFactory"></a>
@@ -38856,6 +39845,9 @@ new BillingMonitoring(scope: MonitoringScope, props: BillingMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.createChargesByServiceWidget">createChargesByServiceWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.createTotalChargesWidget">createTotalChargesWidget</a></code> | *No description.* |
 
 ---
 
@@ -38943,7 +39935,88 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createChargesByServiceWidget` <a name="createChargesByServiceWidget" id="cdk-monitoring-constructs.BillingMonitoring.createChargesByServiceWidget"></a>
 
+```typescript
+public createChargesByServiceWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.BillingMonitoring.createChargesByServiceWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.BillingMonitoring.createChargesByServiceWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.BillingMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createTotalChargesWidget` <a name="createTotalChargesWidget" id="cdk-monitoring-constructs.BillingMonitoring.createTotalChargesWidget"></a>
+
+```typescript
+public createTotalChargesWidget(width: number, height: number): SingleValueWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.BillingMonitoring.createTotalChargesWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.BillingMonitoring.createTotalChargesWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.costByServiceMetric">costByServiceMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.totalCostMetric">totalCostMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | *No description.* |
+
+---
+
+##### `costByServiceMetric`<sup>Required</sup> <a name="costByServiceMetric" id="cdk-monitoring-constructs.BillingMonitoring.property.costByServiceMetric"></a>
+
+```typescript
+public readonly costByServiceMetric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.BillingMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `totalCostMetric`<sup>Required</sup> <a name="totalCostMetric" id="cdk-monitoring-constructs.BillingMonitoring.property.totalCostMetric"></a>
+
+```typescript
+public readonly totalCostMetric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+---
 
 
 ### CertificateManagerMetricFactory <a name="CertificateManagerMetricFactory" id="cdk-monitoring-constructs.CertificateManagerMetricFactory"></a>
@@ -39033,6 +40106,8 @@ new CertificateManagerMonitoring(scope: MonitoringScope, props: CertificateManag
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.createDaysToExpiryWidget">createDaysToExpiryWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -39120,7 +40195,70 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createDaysToExpiryWidget` <a name="createDaysToExpiryWidget" id="cdk-monitoring-constructs.CertificateManagerMonitoring.createDaysToExpiryWidget"></a>
 
+```typescript
+public createDaysToExpiryWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.CertificateManagerMonitoring.createDaysToExpiryWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.CertificateManagerMonitoring.createDaysToExpiryWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.CertificateManagerMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.property.daysToExpiryAnnotations">daysToExpiryAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.property.daysToExpiryMetric">daysToExpiryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `daysToExpiryAnnotations`<sup>Required</sup> <a name="daysToExpiryAnnotations" id="cdk-monitoring-constructs.CertificateManagerMonitoring.property.daysToExpiryAnnotations"></a>
+
+```typescript
+public readonly daysToExpiryAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `daysToExpiryMetric`<sup>Required</sup> <a name="daysToExpiryMetric" id="cdk-monitoring-constructs.CertificateManagerMonitoring.property.daysToExpiryMetric"></a>
+
+```typescript
+public readonly daysToExpiryMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.CertificateManagerMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### CloudFrontDistributionMetricFactory <a name="CloudFrontDistributionMetricFactory" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory"></a>
@@ -39277,6 +40415,11 @@ new CloudFrontDistributionMonitoring(scope: MonitoringScope, props: CloudFrontDi
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createCacheWidget">createCacheWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTpsWidget">createTpsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTrafficWidget">createTrafficWidget</a></code> | *No description.* |
 
 ---
 
@@ -39364,7 +40507,256 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createCacheWidget` <a name="createCacheWidget" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createCacheWidget"></a>
 
+```typescript
+public createCacheWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createCacheWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createCacheWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createErrorRateWidget` <a name="createErrorRateWidget" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createErrorRateWidget"></a>
+
+```typescript
+public createErrorRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createErrorRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createErrorRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createTpsWidget` <a name="createTpsWidget" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTpsWidget"></a>
+
+```typescript
+public createTpsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTpsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTpsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTrafficWidget` <a name="createTrafficWidget" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTrafficWidget"></a>
+
+```typescript
+public createTrafficWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTrafficWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTrafficWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.additionalMetricsEnabled">additionalMetricsEnabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.downloadedBytesMetric">downloadedBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.error4xxRate">error4xxRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.error5xxRate">error5xxRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.namingStrategy">namingStrategy</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringNamingStrategy">MonitoringNamingStrategy</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.tpsAlarmFactory">tpsAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.tpsAnnotations">tpsAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.tpsMetric">tpsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.uploadedBytesMetric">uploadedBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.cacheHitRate">cacheHitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.distributionUrl">distributionUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `additionalMetricsEnabled`<sup>Required</sup> <a name="additionalMetricsEnabled" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.additionalMetricsEnabled"></a>
+
+```typescript
+public readonly additionalMetricsEnabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `downloadedBytesMetric`<sup>Required</sup> <a name="downloadedBytesMetric" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.downloadedBytesMetric"></a>
+
+```typescript
+public readonly downloadedBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `error4xxRate`<sup>Required</sup> <a name="error4xxRate" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.error4xxRate"></a>
+
+```typescript
+public readonly error4xxRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `error5xxRate`<sup>Required</sup> <a name="error5xxRate" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.error5xxRate"></a>
+
+```typescript
+public readonly error5xxRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `namingStrategy`<sup>Required</sup> <a name="namingStrategy" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.namingStrategy"></a>
+
+```typescript
+public readonly namingStrategy: MonitoringNamingStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringNamingStrategy">MonitoringNamingStrategy</a>
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tpsAlarmFactory`<sup>Required</sup> <a name="tpsAlarmFactory" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.tpsAlarmFactory"></a>
+
+```typescript
+public readonly tpsAlarmFactory: TpsAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a>
+
+---
+
+##### `tpsAnnotations`<sup>Required</sup> <a name="tpsAnnotations" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.tpsAnnotations"></a>
+
+```typescript
+public readonly tpsAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `tpsMetric`<sup>Required</sup> <a name="tpsMetric" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.tpsMetric"></a>
+
+```typescript
+public readonly tpsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `uploadedBytesMetric`<sup>Required</sup> <a name="uploadedBytesMetric" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.uploadedBytesMetric"></a>
+
+```typescript
+public readonly uploadedBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cacheHitRate`<sup>Optional</sup> <a name="cacheHitRate" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.cacheHitRate"></a>
+
+```typescript
+public readonly cacheHitRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `distributionUrl`<sup>Optional</sup> <a name="distributionUrl" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.property.distributionUrl"></a>
+
+```typescript
+public readonly distributionUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### CodeBuildProjectMetricFactory <a name="CodeBuildProjectMetricFactory" id="cdk-monitoring-constructs.CodeBuildProjectMetricFactory"></a>
@@ -39496,6 +40888,10 @@ new CodeBuildProjectMonitoring(scope: MonitoringScope, props: CodeBuildProjectMo
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createBuildCountsWidget">createBuildCountsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createDurationWidget">createDurationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createFailedBuildRateWidget">createFailedBuildRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -39583,7 +40979,191 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createBuildCountsWidget` <a name="createBuildCountsWidget" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.createBuildCountsWidget"></a>
 
+```typescript
+public createBuildCountsWidget(): GraphWidget
+```
+
+##### `createDurationWidget` <a name="createDurationWidget" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.createDurationWidget"></a>
+
+```typescript
+public createDurationWidget(): GraphWidget
+```
+
+##### `createFailedBuildRateWidget` <a name="createFailedBuildRateWidget" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.createFailedBuildRateWidget"></a>
+
+```typescript
+public createFailedBuildRateWidget(): GraphWidget
+```
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.buildCountMetric">buildCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationAlarmFactory">durationAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationAnnotations">durationAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationP50InSecondsMetric">durationP50InSecondsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationP90InSecondsMetric">durationP90InSecondsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationP99InSecondsMetric">durationP99InSecondsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.failedBuildCountMetric">failedBuildCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.failedBuildRateMetric">failedBuildRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.succeededBuildCountMetric">succeededBuildCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.projectUrl">projectUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `buildCountMetric`<sup>Required</sup> <a name="buildCountMetric" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.buildCountMetric"></a>
+
+```typescript
+public readonly buildCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `durationAlarmFactory`<sup>Required</sup> <a name="durationAlarmFactory" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationAlarmFactory"></a>
+
+```typescript
+public readonly durationAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `durationAnnotations`<sup>Required</sup> <a name="durationAnnotations" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationAnnotations"></a>
+
+```typescript
+public readonly durationAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `durationP50InSecondsMetric`<sup>Required</sup> <a name="durationP50InSecondsMetric" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationP50InSecondsMetric"></a>
+
+```typescript
+public readonly durationP50InSecondsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `durationP90InSecondsMetric`<sup>Required</sup> <a name="durationP90InSecondsMetric" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationP90InSecondsMetric"></a>
+
+```typescript
+public readonly durationP90InSecondsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `durationP99InSecondsMetric`<sup>Required</sup> <a name="durationP99InSecondsMetric" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.durationP99InSecondsMetric"></a>
+
+```typescript
+public readonly durationP99InSecondsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `failedBuildCountMetric`<sup>Required</sup> <a name="failedBuildCountMetric" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.failedBuildCountMetric"></a>
+
+```typescript
+public readonly failedBuildCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `failedBuildRateMetric`<sup>Required</sup> <a name="failedBuildRateMetric" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.failedBuildRateMetric"></a>
+
+```typescript
+public readonly failedBuildRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `succeededBuildCountMetric`<sup>Required</sup> <a name="succeededBuildCountMetric" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.succeededBuildCountMetric"></a>
+
+```typescript
+public readonly succeededBuildCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `projectUrl`<sup>Optional</sup> <a name="projectUrl" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.property.projectUrl"></a>
+
+```typescript
+public readonly projectUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### CustomAlarmFactory <a name="CustomAlarmFactory" id="cdk-monitoring-constructs.CustomAlarmFactory"></a>
@@ -39785,6 +41365,78 @@ public widgets(): IWidget[]
 Returns widgets to be placed on the main dashboard.
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.anomalyDetectingAlarmFactory">anomalyDetectingAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AnomalyDetectingAlarmFactory">AnomalyDetectingAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.customAlarmFactory">customAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.CustomAlarmFactory">CustomAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.metricGroups">metricGroups</a></code> | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations">CustomMetricGroupWithAnnotations</a>[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.descriptionWidgetHeight">descriptionWidgetHeight</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `anomalyDetectingAlarmFactory`<sup>Required</sup> <a name="anomalyDetectingAlarmFactory" id="cdk-monitoring-constructs.CustomMonitoring.property.anomalyDetectingAlarmFactory"></a>
+
+```typescript
+public readonly anomalyDetectingAlarmFactory: AnomalyDetectingAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AnomalyDetectingAlarmFactory">AnomalyDetectingAlarmFactory</a>
+
+---
+
+##### `customAlarmFactory`<sup>Required</sup> <a name="customAlarmFactory" id="cdk-monitoring-constructs.CustomMonitoring.property.customAlarmFactory"></a>
+
+```typescript
+public readonly customAlarmFactory: CustomAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.CustomAlarmFactory">CustomAlarmFactory</a>
+
+---
+
+##### `metricGroups`<sup>Required</sup> <a name="metricGroups" id="cdk-monitoring-constructs.CustomMonitoring.property.metricGroups"></a>
+
+```typescript
+public readonly metricGroups: CustomMetricGroupWithAnnotations[];
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations">CustomMetricGroupWithAnnotations</a>[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.CustomMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-monitoring-constructs.CustomMonitoring.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `descriptionWidgetHeight`<sup>Optional</sup> <a name="descriptionWidgetHeight" id="cdk-monitoring-constructs.CustomMonitoring.property.descriptionWidgetHeight"></a>
+
+```typescript
+public readonly descriptionWidgetHeight: number;
+```
+
+- *Type:* number
+
+---
 
 
 ### CustomWidget <a name="CustomWidget" id="cdk-monitoring-constructs.CustomWidget"></a>
@@ -40125,6 +41777,11 @@ new DocumentDbMonitoring(scope: MonitoringScope, props: DocumentDbMonitoringProp
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createResourceUsageWidget">createResourceUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createTransactionsWidget">createTransactionsWidget</a></code> | *No description.* |
 
 ---
 
@@ -40212,7 +41869,212 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.DocumentDbMonitoring.createConnectionsWidget"></a>
 
+```typescript
+public createConnectionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DocumentDbMonitoring.createConnectionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DocumentDbMonitoring.createConnectionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.DocumentDbMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DocumentDbMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DocumentDbMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createResourceUsageWidget` <a name="createResourceUsageWidget" id="cdk-monitoring-constructs.DocumentDbMonitoring.createResourceUsageWidget"></a>
+
+```typescript
+public createResourceUsageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DocumentDbMonitoring.createResourceUsageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DocumentDbMonitoring.createResourceUsageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.DocumentDbMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createTransactionsWidget` <a name="createTransactionsWidget" id="cdk-monitoring-constructs.DocumentDbMonitoring.createTransactionsWidget"></a>
+
+```typescript
+public createTransactionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DocumentDbMonitoring.createTransactionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DocumentDbMonitoring.createTransactionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.cursorsMetric">cursorsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.readLatencyMetric">readLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.throttledMetric">throttledMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.transactionsMetric">transactionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.writeLatencyMetric">writeLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `connectionsMetric`<sup>Required</sup> <a name="connectionsMetric" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.connectionsMetric"></a>
+
+```typescript
+public readonly connectionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuUsageMetric`<sup>Required</sup> <a name="cpuUsageMetric" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.cpuUsageMetric"></a>
+
+```typescript
+public readonly cpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cursorsMetric`<sup>Required</sup> <a name="cursorsMetric" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.cursorsMetric"></a>
+
+```typescript
+public readonly cursorsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `readLatencyMetric`<sup>Required</sup> <a name="readLatencyMetric" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.readLatencyMetric"></a>
+
+```typescript
+public readonly readLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `throttledMetric`<sup>Required</sup> <a name="throttledMetric" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.throttledMetric"></a>
+
+```typescript
+public readonly throttledMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `transactionsMetric`<sup>Required</sup> <a name="transactionsMetric" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.transactionsMetric"></a>
+
+```typescript
+public readonly transactionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `usageAnnotations`<sup>Required</sup> <a name="usageAnnotations" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.usageAnnotations"></a>
+
+```typescript
+public readonly usageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `writeLatencyMetric`<sup>Required</sup> <a name="writeLatencyMetric" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.writeLatencyMetric"></a>
+
+```typescript
+public readonly writeLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `url`<sup>Optional</sup> <a name="url" id="cdk-monitoring-constructs.DocumentDbMonitoring.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### DoNotModifyDedupeString <a name="DoNotModifyDedupeString" id="cdk-monitoring-constructs.DoNotModifyDedupeString"></a>
@@ -40909,6 +42771,12 @@ new DynamoTableMonitoring(scope: MonitoringScope, props: DynamoTableMonitoringPr
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createErrorsWidget">createErrorsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createReadCapacityWidget">createReadCapacityWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createThrottlesWidget">createThrottlesWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createWriteCapacityWidget">createWriteCapacityWidget</a></code> | *No description.* |
 
 ---
 
@@ -40996,7 +42864,362 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createErrorsWidget` <a name="createErrorsWidget" id="cdk-monitoring-constructs.DynamoTableMonitoring.createErrorsWidget"></a>
 
+```typescript
+public createErrorsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DynamoTableMonitoring.createErrorsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DynamoTableMonitoring.createErrorsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.DynamoTableMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DynamoTableMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DynamoTableMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createReadCapacityWidget` <a name="createReadCapacityWidget" id="cdk-monitoring-constructs.DynamoTableMonitoring.createReadCapacityWidget"></a>
+
+```typescript
+public createReadCapacityWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DynamoTableMonitoring.createReadCapacityWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DynamoTableMonitoring.createReadCapacityWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createThrottlesWidget` <a name="createThrottlesWidget" id="cdk-monitoring-constructs.DynamoTableMonitoring.createThrottlesWidget"></a>
+
+```typescript
+public createThrottlesWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DynamoTableMonitoring.createThrottlesWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DynamoTableMonitoring.createThrottlesWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.DynamoTableMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createWriteCapacityWidget` <a name="createWriteCapacityWidget" id="cdk-monitoring-constructs.DynamoTableMonitoring.createWriteCapacityWidget"></a>
+
+```typescript
+public createWriteCapacityWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.DynamoTableMonitoring.createWriteCapacityWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.DynamoTableMonitoring.createWriteCapacityWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.averagePerOperationLatencyMetrics">averagePerOperationLatencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.consumedReadUnitsMetric">consumedReadUnitsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.consumedWriteUnitsMetric">consumedWriteUnitsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.dynamoCapacityAlarmFactory">dynamoCapacityAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.DynamoAlarmFactory">DynamoAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.dynamoReadCapacityAnnotations">dynamoReadCapacityAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.dynamoWriteCapacityAnnotations">dynamoWriteCapacityAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.latencyAverageSearchMetrics">latencyAverageSearchMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.provisionedReadUnitsMetric">provisionedReadUnitsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.provisionedWriteUnitsMetric">provisionedWriteUnitsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.readCapacityUsageMetric">readCapacityUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.readThrottleCountMetric">readThrottleCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.systemErrorMetric">systemErrorMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.tableBillingMode">tableBillingMode</a></code> | <code>aws-cdk-lib.aws_dynamodb.BillingMode</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.throttledEventsAnnotations">throttledEventsAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.writeCapacityUsageMetric">writeCapacityUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.writeThrottleCountMetric">writeThrottleCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.tableUrl">tableUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `averagePerOperationLatencyMetrics`<sup>Required</sup> <a name="averagePerOperationLatencyMetrics" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.averagePerOperationLatencyMetrics"></a>
+
+```typescript
+public readonly averagePerOperationLatencyMetrics: {[ key: string ]: Metric | MathExpression};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
+
+---
+
+##### `consumedReadUnitsMetric`<sup>Required</sup> <a name="consumedReadUnitsMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.consumedReadUnitsMetric"></a>
+
+```typescript
+public readonly consumedReadUnitsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `consumedWriteUnitsMetric`<sup>Required</sup> <a name="consumedWriteUnitsMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.consumedWriteUnitsMetric"></a>
+
+```typescript
+public readonly consumedWriteUnitsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `dynamoCapacityAlarmFactory`<sup>Required</sup> <a name="dynamoCapacityAlarmFactory" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.dynamoCapacityAlarmFactory"></a>
+
+```typescript
+public readonly dynamoCapacityAlarmFactory: DynamoAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.DynamoAlarmFactory">DynamoAlarmFactory</a>
+
+---
+
+##### `dynamoReadCapacityAnnotations`<sup>Required</sup> <a name="dynamoReadCapacityAnnotations" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.dynamoReadCapacityAnnotations"></a>
+
+```typescript
+public readonly dynamoReadCapacityAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `dynamoWriteCapacityAnnotations`<sup>Required</sup> <a name="dynamoWriteCapacityAnnotations" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.dynamoWriteCapacityAnnotations"></a>
+
+```typescript
+public readonly dynamoWriteCapacityAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `latencyAnnotations`<sup>Required</sup> <a name="latencyAnnotations" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.latencyAnnotations"></a>
+
+```typescript
+public readonly latencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `latencyAverageSearchMetrics`<sup>Required</sup> <a name="latencyAverageSearchMetrics" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.latencyAverageSearchMetrics"></a>
+
+```typescript
+public readonly latencyAverageSearchMetrics: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+---
+
+##### `provisionedReadUnitsMetric`<sup>Required</sup> <a name="provisionedReadUnitsMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.provisionedReadUnitsMetric"></a>
+
+```typescript
+public readonly provisionedReadUnitsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `provisionedWriteUnitsMetric`<sup>Required</sup> <a name="provisionedWriteUnitsMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.provisionedWriteUnitsMetric"></a>
+
+```typescript
+public readonly provisionedWriteUnitsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `readCapacityUsageMetric`<sup>Required</sup> <a name="readCapacityUsageMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.readCapacityUsageMetric"></a>
+
+```typescript
+public readonly readCapacityUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `readThrottleCountMetric`<sup>Required</sup> <a name="readThrottleCountMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.readThrottleCountMetric"></a>
+
+```typescript
+public readonly readThrottleCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `systemErrorMetric`<sup>Required</sup> <a name="systemErrorMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.systemErrorMetric"></a>
+
+```typescript
+public readonly systemErrorMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `tableBillingMode`<sup>Required</sup> <a name="tableBillingMode" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.tableBillingMode"></a>
+
+```typescript
+public readonly tableBillingMode: BillingMode;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.BillingMode
+
+---
+
+##### `throttledEventsAnnotations`<sup>Required</sup> <a name="throttledEventsAnnotations" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.throttledEventsAnnotations"></a>
+
+```typescript
+public readonly throttledEventsAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `writeCapacityUsageMetric`<sup>Required</sup> <a name="writeCapacityUsageMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.writeCapacityUsageMetric"></a>
+
+```typescript
+public readonly writeCapacityUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `writeThrottleCountMetric`<sup>Required</sup> <a name="writeThrottleCountMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.writeThrottleCountMetric"></a>
+
+```typescript
+public readonly writeThrottleCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `tableUrl`<sup>Optional</sup> <a name="tableUrl" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.tableUrl"></a>
+
+```typescript
+public readonly tableUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### EC2MetricFactory <a name="EC2MetricFactory" id="cdk-monitoring-constructs.EC2MetricFactory"></a>
@@ -41156,6 +43379,11 @@ new EC2Monitoring(scope: MonitoringScope, props: EC2MonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createCpuWidget">createCpuWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createDiskOpsWidget">createDiskOpsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createDiskWidget">createDiskWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createNetworkWidget">createNetworkWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -41243,7 +43471,190 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createCpuWidget` <a name="createCpuWidget" id="cdk-monitoring-constructs.EC2Monitoring.createCpuWidget"></a>
 
+```typescript
+public createCpuWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EC2Monitoring.createCpuWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EC2Monitoring.createCpuWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createDiskOpsWidget` <a name="createDiskOpsWidget" id="cdk-monitoring-constructs.EC2Monitoring.createDiskOpsWidget"></a>
+
+```typescript
+public createDiskOpsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EC2Monitoring.createDiskOpsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EC2Monitoring.createDiskOpsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createDiskWidget` <a name="createDiskWidget" id="cdk-monitoring-constructs.EC2Monitoring.createDiskWidget"></a>
+
+```typescript
+public createDiskWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EC2Monitoring.createDiskWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EC2Monitoring.createDiskWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createNetworkWidget` <a name="createNetworkWidget" id="cdk-monitoring-constructs.EC2Monitoring.createNetworkWidget"></a>
+
+```typescript
+public createNetworkWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EC2Monitoring.createNetworkWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EC2Monitoring.createNetworkWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.EC2Monitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.cpuUtilisationMetrics">cpuUtilisationMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.diskReadBytesMetrics">diskReadBytesMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.diskReadOpsMetrics">diskReadOpsMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.diskWriteBytesMetrics">diskWriteBytesMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.diskWriteOpsMetrics">diskWriteOpsMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.family">family</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkInMetrics">networkInMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkOutMetrics">networkOutMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `cpuUtilisationMetrics`<sup>Required</sup> <a name="cpuUtilisationMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.cpuUtilisationMetrics"></a>
+
+```typescript
+public readonly cpuUtilisationMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `diskReadBytesMetrics`<sup>Required</sup> <a name="diskReadBytesMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.diskReadBytesMetrics"></a>
+
+```typescript
+public readonly diskReadBytesMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `diskReadOpsMetrics`<sup>Required</sup> <a name="diskReadOpsMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.diskReadOpsMetrics"></a>
+
+```typescript
+public readonly diskReadOpsMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `diskWriteBytesMetrics`<sup>Required</sup> <a name="diskWriteBytesMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.diskWriteBytesMetrics"></a>
+
+```typescript
+public readonly diskWriteBytesMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `diskWriteOpsMetrics`<sup>Required</sup> <a name="diskWriteOpsMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.diskWriteOpsMetrics"></a>
+
+```typescript
+public readonly diskWriteOpsMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-monitoring-constructs.EC2Monitoring.property.family"></a>
+
+```typescript
+public readonly family: string;
+```
+
+- *Type:* string
+
+---
+
+##### `networkInMetrics`<sup>Required</sup> <a name="networkInMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkInMetrics"></a>
+
+```typescript
+public readonly networkInMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `networkOutMetrics`<sup>Required</sup> <a name="networkOutMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkOutMetrics"></a>
+
+```typescript
+public readonly networkOutMetrics: IMetric[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.EC2Monitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### Ec2ServiceMonitoring <a name="Ec2ServiceMonitoring" id="cdk-monitoring-constructs.Ec2ServiceMonitoring"></a>
@@ -41287,6 +43698,11 @@ new Ec2ServiceMonitoring(scope: MonitoringScope, props: CustomEc2ServiceMonitori
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createCpuWidget">createCpuWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createMemoryWidget">createMemoryWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createTaskHealthWidget">createTaskHealthWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createTpcFlowsWidget">createTpcFlowsWidget</a></code> | *No description.* |
 
 ---
 
@@ -41374,7 +43790,311 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createCpuWidget` <a name="createCpuWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createCpuWidget"></a>
 
+```typescript
+public createCpuWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createCpuWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createCpuWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMemoryWidget` <a name="createMemoryWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createMemoryWidget"></a>
+
+```typescript
+public createMemoryWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createMemoryWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createMemoryWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTaskHealthWidget` <a name="createTaskHealthWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTaskHealthWidget"></a>
+
+```typescript
+public createTaskHealthWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTaskHealthWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTaskHealthWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createTpcFlowsWidget` <a name="createTpcFlowsWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTpcFlowsWidget"></a>
+
+```typescript
+public createTpcFlowsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTpcFlowsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTpcFlowsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.baseServiceMetricFactory">baseServiceMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory">BaseServiceMetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.cpuUsageAnnotations">cpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.cpuUtilisationMetric">cpuUtilisationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.memoryUtilisationMetric">memoryUtilisationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.processedBytesAnnotations">processedBytesAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.runningTaskCountMetric">runningTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.taskHealthAlarmFactory">taskHealthAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TaskHealthAlarmFactory">TaskHealthAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.taskHealthAnnotations">taskHealthAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.throughputAlarmFactory">throughputAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ThroughputAlarmFactory">ThroughputAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.activeTcpFlowCountMetric">activeTcpFlowCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.healthyTaskCountMetric">healthyTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.healthyTaskPercentMetric">healthyTaskPercentMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.loadBalancerMetricFactory">loadBalancerMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory">ILoadBalancerMetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.newTcpFlowCountMetric">newTcpFlowCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.processedBytesMetric">processedBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.unhealthyTaskCountMetric">unhealthyTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+
+---
+
+##### `baseServiceMetricFactory`<sup>Required</sup> <a name="baseServiceMetricFactory" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.baseServiceMetricFactory"></a>
+
+```typescript
+public readonly baseServiceMetricFactory: BaseServiceMetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.BaseServiceMetricFactory">BaseServiceMetricFactory</a>
+
+---
+
+##### `cpuUsageAnnotations`<sup>Required</sup> <a name="cpuUsageAnnotations" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.cpuUsageAnnotations"></a>
+
+```typescript
+public readonly cpuUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `cpuUtilisationMetric`<sup>Required</sup> <a name="cpuUtilisationMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.cpuUtilisationMetric"></a>
+
+```typescript
+public readonly cpuUtilisationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `memoryUsageAnnotations`<sup>Required</sup> <a name="memoryUsageAnnotations" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.memoryUsageAnnotations"></a>
+
+```typescript
+public readonly memoryUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `memoryUtilisationMetric`<sup>Required</sup> <a name="memoryUtilisationMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.memoryUtilisationMetric"></a>
+
+```typescript
+public readonly memoryUtilisationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.metricFactory"></a>
+
+```typescript
+public readonly metricFactory: MetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `processedBytesAnnotations`<sup>Required</sup> <a name="processedBytesAnnotations" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.processedBytesAnnotations"></a>
+
+```typescript
+public readonly processedBytesAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `runningTaskCountMetric`<sup>Required</sup> <a name="runningTaskCountMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.runningTaskCountMetric"></a>
+
+```typescript
+public readonly runningTaskCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `taskHealthAlarmFactory`<sup>Required</sup> <a name="taskHealthAlarmFactory" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.taskHealthAlarmFactory"></a>
+
+```typescript
+public readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TaskHealthAlarmFactory">TaskHealthAlarmFactory</a>
+
+---
+
+##### `taskHealthAnnotations`<sup>Required</sup> <a name="taskHealthAnnotations" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.taskHealthAnnotations"></a>
+
+```typescript
+public readonly taskHealthAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `throughputAlarmFactory`<sup>Required</sup> <a name="throughputAlarmFactory" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.throughputAlarmFactory"></a>
+
+```typescript
+public readonly throughputAlarmFactory: ThroughputAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ThroughputAlarmFactory">ThroughputAlarmFactory</a>
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `activeTcpFlowCountMetric`<sup>Optional</sup> <a name="activeTcpFlowCountMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.activeTcpFlowCountMetric"></a>
+
+```typescript
+public readonly activeTcpFlowCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `healthyTaskCountMetric`<sup>Optional</sup> <a name="healthyTaskCountMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.healthyTaskCountMetric"></a>
+
+```typescript
+public readonly healthyTaskCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `healthyTaskPercentMetric`<sup>Optional</sup> <a name="healthyTaskPercentMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.healthyTaskPercentMetric"></a>
+
+```typescript
+public readonly healthyTaskPercentMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `loadBalancerMetricFactory`<sup>Optional</sup> <a name="loadBalancerMetricFactory" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.loadBalancerMetricFactory"></a>
+
+```typescript
+public readonly loadBalancerMetricFactory: ILoadBalancerMetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory">ILoadBalancerMetricFactory</a>
+
+---
+
+##### `newTcpFlowCountMetric`<sup>Optional</sup> <a name="newTcpFlowCountMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.newTcpFlowCountMetric"></a>
+
+```typescript
+public readonly newTcpFlowCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `processedBytesMetric`<sup>Optional</sup> <a name="processedBytesMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.processedBytesMetric"></a>
+
+```typescript
+public readonly processedBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `unhealthyTaskCountMetric`<sup>Optional</sup> <a name="unhealthyTaskCountMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.unhealthyTaskCountMetric"></a>
+
+```typescript
+public readonly unhealthyTaskCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
 
 
 ### ElastiCacheAlarmFactory <a name="ElastiCacheAlarmFactory" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory"></a>
@@ -41661,6 +44381,11 @@ new ElastiCacheClusterMonitoring(scope: MonitoringScope, props: ElastiCacheClust
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createCpuUsageWidget">createCpuUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createItemCountWidget">createItemCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createMemoryUsageWidget">createMemoryUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -41748,7 +44473,267 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createConnectionsWidget"></a>
 
+```typescript
+public createConnectionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createConnectionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createConnectionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createCpuUsageWidget` <a name="createCpuUsageWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createCpuUsageWidget"></a>
+
+```typescript
+public createCpuUsageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createCpuUsageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createCpuUsageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createItemCountWidget` <a name="createItemCountWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createItemCountWidget"></a>
+
+```typescript
+public createItemCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createItemCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createItemCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMemoryUsageWidget` <a name="createMemoryUsageWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createMemoryUsageWidget"></a>
+
+```typescript
+public createMemoryUsageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createMemoryUsageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createMemoryUsageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.cpuUsageAnnotations">cpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.elastiCacheAlarmFactory">elastiCacheAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory">ElastiCacheAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.evictedItemsCountAnnotations">evictedItemsCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.freeableMemoryMetric">freeableMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsCountAnnotations">itemsCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsCountMetrics">itemsCountMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsEvictedMetrics">itemsEvictedMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsMemoryMetric">itemsMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.swapMemoryMetric">swapMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.unusedMemoryMetric">unusedMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.clusterUrl">clusterUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `connectionsMetric`<sup>Required</sup> <a name="connectionsMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.connectionsMetric"></a>
+
+```typescript
+public readonly connectionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuUsageAnnotations`<sup>Required</sup> <a name="cpuUsageAnnotations" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.cpuUsageAnnotations"></a>
+
+```typescript
+public readonly cpuUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `cpuUsageMetric`<sup>Required</sup> <a name="cpuUsageMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.cpuUsageMetric"></a>
+
+```typescript
+public readonly cpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `elastiCacheAlarmFactory`<sup>Required</sup> <a name="elastiCacheAlarmFactory" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.elastiCacheAlarmFactory"></a>
+
+```typescript
+public readonly elastiCacheAlarmFactory: ElastiCacheAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory">ElastiCacheAlarmFactory</a>
+
+---
+
+##### `evictedItemsCountAnnotations`<sup>Required</sup> <a name="evictedItemsCountAnnotations" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.evictedItemsCountAnnotations"></a>
+
+```typescript
+public readonly evictedItemsCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `freeableMemoryMetric`<sup>Required</sup> <a name="freeableMemoryMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.freeableMemoryMetric"></a>
+
+```typescript
+public readonly freeableMemoryMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `itemsCountAnnotations`<sup>Required</sup> <a name="itemsCountAnnotations" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsCountAnnotations"></a>
+
+```typescript
+public readonly itemsCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `itemsCountMetrics`<sup>Required</sup> <a name="itemsCountMetrics" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsCountMetrics"></a>
+
+```typescript
+public readonly itemsCountMetrics: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `itemsEvictedMetrics`<sup>Required</sup> <a name="itemsEvictedMetrics" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsEvictedMetrics"></a>
+
+```typescript
+public readonly itemsEvictedMetrics: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `itemsMemoryMetric`<sup>Required</sup> <a name="itemsMemoryMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsMemoryMetric"></a>
+
+```typescript
+public readonly itemsMemoryMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `memoryUsageAnnotations`<sup>Required</sup> <a name="memoryUsageAnnotations" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.memoryUsageAnnotations"></a>
+
+```typescript
+public readonly memoryUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `swapMemoryMetric`<sup>Required</sup> <a name="swapMemoryMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.swapMemoryMetric"></a>
+
+```typescript
+public readonly swapMemoryMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `unusedMemoryMetric`<sup>Required</sup> <a name="unusedMemoryMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.unusedMemoryMetric"></a>
+
+```typescript
+public readonly unusedMemoryMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `clusterUrl`<sup>Optional</sup> <a name="clusterUrl" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.clusterUrl"></a>
+
+```typescript
+public readonly clusterUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### ErrorAlarmFactory <a name="ErrorAlarmFactory" id="cdk-monitoring-constructs.ErrorAlarmFactory"></a>
@@ -41959,6 +44944,11 @@ new FargateServiceMonitoring(scope: MonitoringScope, props: CustomFargateService
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createCpuWidget">createCpuWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createMemoryWidget">createMemoryWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createTaskHealthWidget">createTaskHealthWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createTpcFlowsWidget">createTpcFlowsWidget</a></code> | *No description.* |
 
 ---
 
@@ -42046,7 +45036,311 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createCpuWidget` <a name="createCpuWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createCpuWidget"></a>
 
+```typescript
+public createCpuWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.FargateServiceMonitoring.createCpuWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.FargateServiceMonitoring.createCpuWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMemoryWidget` <a name="createMemoryWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createMemoryWidget"></a>
+
+```typescript
+public createMemoryWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.FargateServiceMonitoring.createMemoryWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.FargateServiceMonitoring.createMemoryWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTaskHealthWidget` <a name="createTaskHealthWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTaskHealthWidget"></a>
+
+```typescript
+public createTaskHealthWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTaskHealthWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTaskHealthWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createTpcFlowsWidget` <a name="createTpcFlowsWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTpcFlowsWidget"></a>
+
+```typescript
+public createTpcFlowsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTpcFlowsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTpcFlowsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.baseServiceMetricFactory">baseServiceMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory">BaseServiceMetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.cpuUsageAnnotations">cpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.cpuUtilisationMetric">cpuUtilisationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.memoryUtilisationMetric">memoryUtilisationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.processedBytesAnnotations">processedBytesAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.runningTaskCountMetric">runningTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.taskHealthAlarmFactory">taskHealthAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TaskHealthAlarmFactory">TaskHealthAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.taskHealthAnnotations">taskHealthAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.throughputAlarmFactory">throughputAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ThroughputAlarmFactory">ThroughputAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.activeTcpFlowCountMetric">activeTcpFlowCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.healthyTaskCountMetric">healthyTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.healthyTaskPercentMetric">healthyTaskPercentMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.loadBalancerMetricFactory">loadBalancerMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory">ILoadBalancerMetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.newTcpFlowCountMetric">newTcpFlowCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.processedBytesMetric">processedBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.unhealthyTaskCountMetric">unhealthyTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+
+---
+
+##### `baseServiceMetricFactory`<sup>Required</sup> <a name="baseServiceMetricFactory" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.baseServiceMetricFactory"></a>
+
+```typescript
+public readonly baseServiceMetricFactory: BaseServiceMetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.BaseServiceMetricFactory">BaseServiceMetricFactory</a>
+
+---
+
+##### `cpuUsageAnnotations`<sup>Required</sup> <a name="cpuUsageAnnotations" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.cpuUsageAnnotations"></a>
+
+```typescript
+public readonly cpuUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `cpuUtilisationMetric`<sup>Required</sup> <a name="cpuUtilisationMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.cpuUtilisationMetric"></a>
+
+```typescript
+public readonly cpuUtilisationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `memoryUsageAnnotations`<sup>Required</sup> <a name="memoryUsageAnnotations" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.memoryUsageAnnotations"></a>
+
+```typescript
+public readonly memoryUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `memoryUtilisationMetric`<sup>Required</sup> <a name="memoryUtilisationMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.memoryUtilisationMetric"></a>
+
+```typescript
+public readonly memoryUtilisationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.metricFactory"></a>
+
+```typescript
+public readonly metricFactory: MetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `processedBytesAnnotations`<sup>Required</sup> <a name="processedBytesAnnotations" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.processedBytesAnnotations"></a>
+
+```typescript
+public readonly processedBytesAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `runningTaskCountMetric`<sup>Required</sup> <a name="runningTaskCountMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.runningTaskCountMetric"></a>
+
+```typescript
+public readonly runningTaskCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `taskHealthAlarmFactory`<sup>Required</sup> <a name="taskHealthAlarmFactory" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.taskHealthAlarmFactory"></a>
+
+```typescript
+public readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TaskHealthAlarmFactory">TaskHealthAlarmFactory</a>
+
+---
+
+##### `taskHealthAnnotations`<sup>Required</sup> <a name="taskHealthAnnotations" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.taskHealthAnnotations"></a>
+
+```typescript
+public readonly taskHealthAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `throughputAlarmFactory`<sup>Required</sup> <a name="throughputAlarmFactory" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.throughputAlarmFactory"></a>
+
+```typescript
+public readonly throughputAlarmFactory: ThroughputAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ThroughputAlarmFactory">ThroughputAlarmFactory</a>
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `activeTcpFlowCountMetric`<sup>Optional</sup> <a name="activeTcpFlowCountMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.activeTcpFlowCountMetric"></a>
+
+```typescript
+public readonly activeTcpFlowCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `healthyTaskCountMetric`<sup>Optional</sup> <a name="healthyTaskCountMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.healthyTaskCountMetric"></a>
+
+```typescript
+public readonly healthyTaskCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `healthyTaskPercentMetric`<sup>Optional</sup> <a name="healthyTaskPercentMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.healthyTaskPercentMetric"></a>
+
+```typescript
+public readonly healthyTaskPercentMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `loadBalancerMetricFactory`<sup>Optional</sup> <a name="loadBalancerMetricFactory" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.loadBalancerMetricFactory"></a>
+
+```typescript
+public readonly loadBalancerMetricFactory: ILoadBalancerMetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory">ILoadBalancerMetricFactory</a>
+
+---
+
+##### `newTcpFlowCountMetric`<sup>Optional</sup> <a name="newTcpFlowCountMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.newTcpFlowCountMetric"></a>
+
+```typescript
+public readonly newTcpFlowCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `processedBytesMetric`<sup>Optional</sup> <a name="processedBytesMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.processedBytesMetric"></a>
+
+```typescript
+public readonly processedBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `unhealthyTaskCountMetric`<sup>Optional</sup> <a name="unhealthyTaskCountMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.unhealthyTaskCountMetric"></a>
+
+```typescript
+public readonly unhealthyTaskCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
 
 
 ### FillingAlarmAnnotationStrategy <a name="FillingAlarmAnnotationStrategy" id="cdk-monitoring-constructs.FillingAlarmAnnotationStrategy"></a>
@@ -42257,6 +45551,12 @@ new GlueJobMonitoring(scope: MonitoringScope, props: GlueJobMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createDataMovementWidget">createDataMovementWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createJobExecutionWidget">createJobExecutionWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createUtilizationWidget">createUtilizationWidget</a></code> | *No description.* |
 
 ---
 
@@ -42344,7 +45644,285 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createDataMovementWidget` <a name="createDataMovementWidget" id="cdk-monitoring-constructs.GlueJobMonitoring.createDataMovementWidget"></a>
 
+```typescript
+public createDataMovementWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.GlueJobMonitoring.createDataMovementWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.GlueJobMonitoring.createDataMovementWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.GlueJobMonitoring.createErrorCountWidget"></a>
+
+```typescript
+public createErrorCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.GlueJobMonitoring.createErrorCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.GlueJobMonitoring.createErrorCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createErrorRateWidget` <a name="createErrorRateWidget" id="cdk-monitoring-constructs.GlueJobMonitoring.createErrorRateWidget"></a>
+
+```typescript
+public createErrorRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.GlueJobMonitoring.createErrorRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.GlueJobMonitoring.createErrorRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createJobExecutionWidget` <a name="createJobExecutionWidget" id="cdk-monitoring-constructs.GlueJobMonitoring.createJobExecutionWidget"></a>
+
+```typescript
+public createJobExecutionWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.GlueJobMonitoring.createJobExecutionWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.GlueJobMonitoring.createJobExecutionWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.GlueJobMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createUtilizationWidget` <a name="createUtilizationWidget" id="cdk-monitoring-constructs.GlueJobMonitoring.createUtilizationWidget"></a>
+
+```typescript
+public createUtilizationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.GlueJobMonitoring.createUtilizationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.GlueJobMonitoring.createUtilizationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.activeExecutorsMetric">activeExecutorsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.bytesReadFromS3Metric">bytesReadFromS3Metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.bytesWrittenToS3Metric">bytesWrittenToS3Metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.completedStagesMetric">completedStagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.failedTaskCountMetric">failedTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.failedTaskRateMetric">failedTaskRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.heapMemoryUsageMetric">heapMemoryUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.killedTaskCountMetric">killedTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.killedTaskRateMetric">killedTaskRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.neededExecutorsMetric">neededExecutorsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `activeExecutorsMetric`<sup>Required</sup> <a name="activeExecutorsMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.activeExecutorsMetric"></a>
+
+```typescript
+public readonly activeExecutorsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.GlueJobMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `bytesReadFromS3Metric`<sup>Required</sup> <a name="bytesReadFromS3Metric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.bytesReadFromS3Metric"></a>
+
+```typescript
+public readonly bytesReadFromS3Metric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `bytesWrittenToS3Metric`<sup>Required</sup> <a name="bytesWrittenToS3Metric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.bytesWrittenToS3Metric"></a>
+
+```typescript
+public readonly bytesWrittenToS3Metric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `completedStagesMetric`<sup>Required</sup> <a name="completedStagesMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.completedStagesMetric"></a>
+
+```typescript
+public readonly completedStagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuUsageMetric`<sup>Required</sup> <a name="cpuUsageMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.cpuUsageMetric"></a>
+
+```typescript
+public readonly cpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.GlueJobMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.GlueJobMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.GlueJobMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `failedTaskCountMetric`<sup>Required</sup> <a name="failedTaskCountMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.failedTaskCountMetric"></a>
+
+```typescript
+public readonly failedTaskCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `failedTaskRateMetric`<sup>Required</sup> <a name="failedTaskRateMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.failedTaskRateMetric"></a>
+
+```typescript
+public readonly failedTaskRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `heapMemoryUsageMetric`<sup>Required</sup> <a name="heapMemoryUsageMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.heapMemoryUsageMetric"></a>
+
+```typescript
+public readonly heapMemoryUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `killedTaskCountMetric`<sup>Required</sup> <a name="killedTaskCountMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.killedTaskCountMetric"></a>
+
+```typescript
+public readonly killedTaskCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `killedTaskRateMetric`<sup>Required</sup> <a name="killedTaskRateMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.killedTaskRateMetric"></a>
+
+```typescript
+public readonly killedTaskRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `neededExecutorsMetric`<sup>Required</sup> <a name="neededExecutorsMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.neededExecutorsMetric"></a>
+
+```typescript
+public readonly neededExecutorsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.GlueJobMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### HeaderWidget <a name="HeaderWidget" id="cdk-monitoring-constructs.HeaderWidget"></a>
@@ -42940,6 +46518,15 @@ new KinesisDataAnalyticsMonitoring(scope: MonitoringScope, props: KinesisDataAna
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createDownTimeWidget">createDownTimeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createFullRestartsWidget">createFullRestartsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createGarbageCollectionWidget">createGarbageCollectionWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createKPUWidget">createKPUWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointDurationWidget">createLastCheckpointDurationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointSizeWidget">createLastCheckpointSizeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createNumberOfFailedCheckpointsWidget">createNumberOfFailedCheckpointsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createResourceUtilizationWidget">createResourceUtilizationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -43027,7 +46614,328 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createDownTimeWidget` <a name="createDownTimeWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createDownTimeWidget"></a>
 
+```typescript
+public createDownTimeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createDownTimeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createDownTimeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createFullRestartsWidget` <a name="createFullRestartsWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createFullRestartsWidget"></a>
+
+```typescript
+public createFullRestartsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createFullRestartsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createFullRestartsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createGarbageCollectionWidget` <a name="createGarbageCollectionWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createGarbageCollectionWidget"></a>
+
+```typescript
+public createGarbageCollectionWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createGarbageCollectionWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createGarbageCollectionWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createKPUWidget` <a name="createKPUWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createKPUWidget"></a>
+
+```typescript
+public createKPUWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createKPUWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createKPUWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLastCheckpointDurationWidget` <a name="createLastCheckpointDurationWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointDurationWidget"></a>
+
+```typescript
+public createLastCheckpointDurationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointDurationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointDurationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLastCheckpointSizeWidget` <a name="createLastCheckpointSizeWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointSizeWidget"></a>
+
+```typescript
+public createLastCheckpointSizeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointSizeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointSizeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createNumberOfFailedCheckpointsWidget` <a name="createNumberOfFailedCheckpointsWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createNumberOfFailedCheckpointsWidget"></a>
+
+```typescript
+public createNumberOfFailedCheckpointsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createNumberOfFailedCheckpointsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createNumberOfFailedCheckpointsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createResourceUtilizationWidget` <a name="createResourceUtilizationWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createResourceUtilizationWidget"></a>
+
+```typescript
+public createResourceUtilizationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createResourceUtilizationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createResourceUtilizationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.cpuUtilizationPercentMetric">cpuUtilizationPercentMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.downtimeAnnotations">downtimeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.downtimeMsMetric">downtimeMsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartAnnotations">fullRestartAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartsCountMetric">fullRestartsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.heapMemoryUtilizationPercentMetric">heapMemoryUtilizationPercentMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.kdaAlarmFactory">kdaAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory">KinesisDataAnalyticsAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.kpusCountMetric">kpusCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.lastCheckpointDurationMsMetric">lastCheckpointDurationMsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.lastCheckpointSizeBytesMetric">lastCheckpointSizeBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.numberOfFailedCheckpointsCountMetric">numberOfFailedCheckpointsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.oldGenerationGCCountMetric">oldGenerationGCCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.oldGenerationGCTimeMsMetric">oldGenerationGCTimeMsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.kinesisDataAnalyticsUrl">kinesisDataAnalyticsUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `cpuUtilizationPercentMetric`<sup>Required</sup> <a name="cpuUtilizationPercentMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.cpuUtilizationPercentMetric"></a>
+
+```typescript
+public readonly cpuUtilizationPercentMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `downtimeAnnotations`<sup>Required</sup> <a name="downtimeAnnotations" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.downtimeAnnotations"></a>
+
+```typescript
+public readonly downtimeAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `downtimeMsMetric`<sup>Required</sup> <a name="downtimeMsMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.downtimeMsMetric"></a>
+
+```typescript
+public readonly downtimeMsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `fullRestartAnnotations`<sup>Required</sup> <a name="fullRestartAnnotations" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartAnnotations"></a>
+
+```typescript
+public readonly fullRestartAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `fullRestartsCountMetric`<sup>Required</sup> <a name="fullRestartsCountMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartsCountMetric"></a>
+
+```typescript
+public readonly fullRestartsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `heapMemoryUtilizationPercentMetric`<sup>Required</sup> <a name="heapMemoryUtilizationPercentMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.heapMemoryUtilizationPercentMetric"></a>
+
+```typescript
+public readonly heapMemoryUtilizationPercentMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `kdaAlarmFactory`<sup>Required</sup> <a name="kdaAlarmFactory" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.kdaAlarmFactory"></a>
+
+```typescript
+public readonly kdaAlarmFactory: KinesisDataAnalyticsAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory">KinesisDataAnalyticsAlarmFactory</a>
+
+---
+
+##### `kpusCountMetric`<sup>Required</sup> <a name="kpusCountMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.kpusCountMetric"></a>
+
+```typescript
+public readonly kpusCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `lastCheckpointDurationMsMetric`<sup>Required</sup> <a name="lastCheckpointDurationMsMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.lastCheckpointDurationMsMetric"></a>
+
+```typescript
+public readonly lastCheckpointDurationMsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `lastCheckpointSizeBytesMetric`<sup>Required</sup> <a name="lastCheckpointSizeBytesMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.lastCheckpointSizeBytesMetric"></a>
+
+```typescript
+public readonly lastCheckpointSizeBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `numberOfFailedCheckpointsCountMetric`<sup>Required</sup> <a name="numberOfFailedCheckpointsCountMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.numberOfFailedCheckpointsCountMetric"></a>
+
+```typescript
+public readonly numberOfFailedCheckpointsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `oldGenerationGCCountMetric`<sup>Required</sup> <a name="oldGenerationGCCountMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.oldGenerationGCCountMetric"></a>
+
+```typescript
+public readonly oldGenerationGCCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `oldGenerationGCTimeMsMetric`<sup>Required</sup> <a name="oldGenerationGCTimeMsMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.oldGenerationGCTimeMsMetric"></a>
+
+```typescript
+public readonly oldGenerationGCTimeMsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `kinesisDataAnalyticsUrl`<sup>Optional</sup> <a name="kinesisDataAnalyticsUrl" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.kinesisDataAnalyticsUrl"></a>
+
+```typescript
+public readonly kinesisDataAnalyticsUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### KinesisDataStreamMetricFactory <a name="KinesisDataStreamMetricFactory" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactory"></a>
@@ -43245,6 +47153,15 @@ new KinesisDataStreamMonitoring(scope: MonitoringScope, props: KinesisDataStream
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createCapacityWidget">createCapacityWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIncomingDataWidget">createIncomingDataWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIteratorAgeWidget">createIteratorAgeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createOperationWidget">createOperationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createRecordNumberWidget">createRecordNumberWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createRecordSizeWidget">createRecordSizeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createSecondAdditionalRow">createSecondAdditionalRow</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -43332,7 +47249,426 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createCapacityWidget` <a name="createCapacityWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createCapacityWidget"></a>
 
+```typescript
+public createCapacityWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createCapacityWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createCapacityWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createIncomingDataWidget` <a name="createIncomingDataWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIncomingDataWidget"></a>
+
+```typescript
+public createIncomingDataWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIncomingDataWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIncomingDataWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createIteratorAgeWidget` <a name="createIteratorAgeWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIteratorAgeWidget"></a>
+
+```typescript
+public createIteratorAgeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIteratorAgeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIteratorAgeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createOperationWidget` <a name="createOperationWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createOperationWidget"></a>
+
+```typescript
+public createOperationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createOperationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createOperationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createRecordNumberWidget` <a name="createRecordNumberWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createRecordNumberWidget"></a>
+
+```typescript
+public createRecordNumberWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createRecordNumberWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createRecordNumberWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createRecordSizeWidget` <a name="createRecordSizeWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createRecordSizeWidget"></a>
+
+```typescript
+public createRecordSizeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createRecordSizeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createRecordSizeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createSecondAdditionalRow` <a name="createSecondAdditionalRow" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createSecondAdditionalRow"></a>
+
+```typescript
+public createSecondAdditionalRow(): Row
+```
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.ageAnnotations">ageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.incomingDataSumBytesMetric">incomingDataSumBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.incomingDataSumCountMetric">incomingDataSumCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.kinesisAlarmFactory">kinesisAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory">KinesisAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordsIteratorAge">metricGetRecordsIteratorAge</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordsLatencyAverage">metricGetRecordsLatencyAverage</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordsSuccessCount">metricGetRecordsSuccessCount</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordsSumCount">metricGetRecordsSumCount</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordSumBytes">metricGetRecordSumBytes</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.provisionedCapacityAnnotations">provisionedCapacityAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordLatencyAverageMetric">putRecordLatencyAverageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsFailedRecordsCountMetric">putRecordsFailedRecordsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsLatencyAverageMetric">putRecordsLatencyAverageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsSuccessCountMetric">putRecordsSuccessCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsSuccessfulRecordsCountMetric">putRecordsSuccessfulRecordsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsSumBytesMetric">putRecordsSumBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsThrottledRecordsCountMetric">putRecordsThrottledRecordsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsTotalRecordsCountMetric">putRecordsTotalRecordsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordSuccessCountMetric">putRecordSuccessCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordSumBytesMetric">putRecordSumBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.readProvisionedThroughputExceededMetric">readProvisionedThroughputExceededMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.recordCountAnnotations">recordCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.writeProvisionedThroughputExceededMetric">writeProvisionedThroughputExceededMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.streamUrl">streamUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `ageAnnotations`<sup>Required</sup> <a name="ageAnnotations" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.ageAnnotations"></a>
+
+```typescript
+public readonly ageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `incomingDataSumBytesMetric`<sup>Required</sup> <a name="incomingDataSumBytesMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.incomingDataSumBytesMetric"></a>
+
+```typescript
+public readonly incomingDataSumBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingDataSumCountMetric`<sup>Required</sup> <a name="incomingDataSumCountMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.incomingDataSumCountMetric"></a>
+
+```typescript
+public readonly incomingDataSumCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `kinesisAlarmFactory`<sup>Required</sup> <a name="kinesisAlarmFactory" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.kinesisAlarmFactory"></a>
+
+```typescript
+public readonly kinesisAlarmFactory: KinesisAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisAlarmFactory">KinesisAlarmFactory</a>
+
+---
+
+##### `metricGetRecordsIteratorAge`<sup>Required</sup> <a name="metricGetRecordsIteratorAge" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordsIteratorAge"></a>
+
+```typescript
+public readonly metricGetRecordsIteratorAge: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricGetRecordsLatencyAverage`<sup>Required</sup> <a name="metricGetRecordsLatencyAverage" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordsLatencyAverage"></a>
+
+```typescript
+public readonly metricGetRecordsLatencyAverage: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricGetRecordsSuccessCount`<sup>Required</sup> <a name="metricGetRecordsSuccessCount" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordsSuccessCount"></a>
+
+```typescript
+public readonly metricGetRecordsSuccessCount: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricGetRecordsSumCount`<sup>Required</sup> <a name="metricGetRecordsSumCount" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordsSumCount"></a>
+
+```typescript
+public readonly metricGetRecordsSumCount: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricGetRecordSumBytes`<sup>Required</sup> <a name="metricGetRecordSumBytes" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.metricGetRecordSumBytes"></a>
+
+```typescript
+public readonly metricGetRecordSumBytes: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `provisionedCapacityAnnotations`<sup>Required</sup> <a name="provisionedCapacityAnnotations" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.provisionedCapacityAnnotations"></a>
+
+```typescript
+public readonly provisionedCapacityAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `putRecordLatencyAverageMetric`<sup>Required</sup> <a name="putRecordLatencyAverageMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordLatencyAverageMetric"></a>
+
+```typescript
+public readonly putRecordLatencyAverageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordsFailedRecordsCountMetric`<sup>Required</sup> <a name="putRecordsFailedRecordsCountMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsFailedRecordsCountMetric"></a>
+
+```typescript
+public readonly putRecordsFailedRecordsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordsLatencyAverageMetric`<sup>Required</sup> <a name="putRecordsLatencyAverageMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsLatencyAverageMetric"></a>
+
+```typescript
+public readonly putRecordsLatencyAverageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordsSuccessCountMetric`<sup>Required</sup> <a name="putRecordsSuccessCountMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsSuccessCountMetric"></a>
+
+```typescript
+public readonly putRecordsSuccessCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordsSuccessfulRecordsCountMetric`<sup>Required</sup> <a name="putRecordsSuccessfulRecordsCountMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsSuccessfulRecordsCountMetric"></a>
+
+```typescript
+public readonly putRecordsSuccessfulRecordsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordsSumBytesMetric`<sup>Required</sup> <a name="putRecordsSumBytesMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsSumBytesMetric"></a>
+
+```typescript
+public readonly putRecordsSumBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordsThrottledRecordsCountMetric`<sup>Required</sup> <a name="putRecordsThrottledRecordsCountMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsThrottledRecordsCountMetric"></a>
+
+```typescript
+public readonly putRecordsThrottledRecordsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordsTotalRecordsCountMetric`<sup>Required</sup> <a name="putRecordsTotalRecordsCountMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordsTotalRecordsCountMetric"></a>
+
+```typescript
+public readonly putRecordsTotalRecordsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordSuccessCountMetric`<sup>Required</sup> <a name="putRecordSuccessCountMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordSuccessCountMetric"></a>
+
+```typescript
+public readonly putRecordSuccessCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordSumBytesMetric`<sup>Required</sup> <a name="putRecordSumBytesMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.putRecordSumBytesMetric"></a>
+
+```typescript
+public readonly putRecordSumBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `readProvisionedThroughputExceededMetric`<sup>Required</sup> <a name="readProvisionedThroughputExceededMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.readProvisionedThroughputExceededMetric"></a>
+
+```typescript
+public readonly readProvisionedThroughputExceededMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `recordCountAnnotations`<sup>Required</sup> <a name="recordCountAnnotations" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.recordCountAnnotations"></a>
+
+```typescript
+public readonly recordCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `writeProvisionedThroughputExceededMetric`<sup>Required</sup> <a name="writeProvisionedThroughputExceededMetric" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.writeProvisionedThroughputExceededMetric"></a>
+
+```typescript
+public readonly writeProvisionedThroughputExceededMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `streamUrl`<sup>Optional</sup> <a name="streamUrl" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.property.streamUrl"></a>
+
+```typescript
+public readonly streamUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### KinesisFirehoseMetricFactory <a name="KinesisFirehoseMetricFactory" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactory"></a>
@@ -43515,6 +47851,11 @@ new KinesisFirehoseMonitoring(scope: MonitoringScope, props: KinesisFirehoseMoni
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createConversionWidget">createConversionWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createIncomingRecordWidget">createIncomingRecordWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLimitWidget">createLimitWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -43602,7 +47943,245 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createConversionWidget` <a name="createConversionWidget" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createConversionWidget"></a>
 
+```typescript
+public createConversionWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createConversionWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createConversionWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createIncomingRecordWidget` <a name="createIncomingRecordWidget" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createIncomingRecordWidget"></a>
+
+```typescript
+public createIncomingRecordWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createIncomingRecordWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createIncomingRecordWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLimitWidget` <a name="createLimitWidget" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLimitWidget"></a>
+
+```typescript
+public createLimitWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLimitWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLimitWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.failedConversionMetric">failedConversionMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingBytesMetric">incomingBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingBytesToLimitRate">incomingBytesToLimitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingPutRequestsToLimitRate">incomingPutRequestsToLimitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingRecordsMetric">incomingRecordsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingRecordsToLimitRate">incomingRecordsToLimitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.kinesisAlarmFactory">kinesisAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory">KinesisAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.putRecordBatchLatency">putRecordBatchLatency</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.putRecordLatency">putRecordLatency</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.recordCountAnnotations">recordCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.successfulConversionMetric">successfulConversionMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.throttledRecordsMetric">throttledRecordsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.streamUrl">streamUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `failedConversionMetric`<sup>Required</sup> <a name="failedConversionMetric" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.failedConversionMetric"></a>
+
+```typescript
+public readonly failedConversionMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingBytesMetric`<sup>Required</sup> <a name="incomingBytesMetric" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingBytesMetric"></a>
+
+```typescript
+public readonly incomingBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingBytesToLimitRate`<sup>Required</sup> <a name="incomingBytesToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingBytesToLimitRate"></a>
+
+```typescript
+public readonly incomingBytesToLimitRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingPutRequestsToLimitRate`<sup>Required</sup> <a name="incomingPutRequestsToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingPutRequestsToLimitRate"></a>
+
+```typescript
+public readonly incomingPutRequestsToLimitRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingRecordsMetric`<sup>Required</sup> <a name="incomingRecordsMetric" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingRecordsMetric"></a>
+
+```typescript
+public readonly incomingRecordsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingRecordsToLimitRate`<sup>Required</sup> <a name="incomingRecordsToLimitRate" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingRecordsToLimitRate"></a>
+
+```typescript
+public readonly incomingRecordsToLimitRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `kinesisAlarmFactory`<sup>Required</sup> <a name="kinesisAlarmFactory" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.kinesisAlarmFactory"></a>
+
+```typescript
+public readonly kinesisAlarmFactory: KinesisAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisAlarmFactory">KinesisAlarmFactory</a>
+
+---
+
+##### `putRecordBatchLatency`<sup>Required</sup> <a name="putRecordBatchLatency" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.putRecordBatchLatency"></a>
+
+```typescript
+public readonly putRecordBatchLatency: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `putRecordLatency`<sup>Required</sup> <a name="putRecordLatency" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.putRecordLatency"></a>
+
+```typescript
+public readonly putRecordLatency: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `recordCountAnnotations`<sup>Required</sup> <a name="recordCountAnnotations" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.recordCountAnnotations"></a>
+
+```typescript
+public readonly recordCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `successfulConversionMetric`<sup>Required</sup> <a name="successfulConversionMetric" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.successfulConversionMetric"></a>
+
+```typescript
+public readonly successfulConversionMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `throttledRecordsMetric`<sup>Required</sup> <a name="throttledRecordsMetric" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.throttledRecordsMetric"></a>
+
+```typescript
+public readonly throttledRecordsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `streamUrl`<sup>Optional</sup> <a name="streamUrl" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.streamUrl"></a>
+
+```typescript
+public readonly streamUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### LambdaFunctionEnhancedMetricFactory <a name="LambdaFunctionEnhancedMetricFactory" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory"></a>
@@ -43871,6 +48450,17 @@ new LambdaFunctionMonitoring(scope: MonitoringScope, props: LambdaFunctionMonito
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createInvocationWidget">createInvocationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createIteratorAgeWidget">createIteratorAgeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsCpuWidget">createLambdaInsightsCpuWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsFunctionCostWidget">createLambdaInsightsFunctionCostWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsMemoryWidget">createLambdaInsightsMemoryWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createRateWidget">createRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createTpsWidget">createTpsWidget</a></code> | *No description.* |
 
 ---
 
@@ -43958,7 +48548,661 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorCountWidget"></a>
 
+```typescript
+public createErrorCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createErrorRateWidget` <a name="createErrorRateWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorRateWidget"></a>
+
+```typescript
+public createErrorRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createInvocationWidget` <a name="createInvocationWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createInvocationWidget"></a>
+
+```typescript
+public createInvocationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createInvocationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createInvocationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createIteratorAgeWidget` <a name="createIteratorAgeWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createIteratorAgeWidget"></a>
+
+```typescript
+public createIteratorAgeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createIteratorAgeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createIteratorAgeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLambdaInsightsCpuWidget` <a name="createLambdaInsightsCpuWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsCpuWidget"></a>
+
+```typescript
+public createLambdaInsightsCpuWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsCpuWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsCpuWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLambdaInsightsFunctionCostWidget` <a name="createLambdaInsightsFunctionCostWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsFunctionCostWidget"></a>
+
+```typescript
+public createLambdaInsightsFunctionCostWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsFunctionCostWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsFunctionCostWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLambdaInsightsMemoryWidget` <a name="createLambdaInsightsMemoryWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsMemoryWidget"></a>
+
+```typescript
+public createLambdaInsightsMemoryWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsMemoryWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsMemoryWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createRateWidget` <a name="createRateWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createRateWidget"></a>
+
+```typescript
+public createRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+##### `createTpsWidget` <a name="createTpsWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createTpsWidget"></a>
+
+```typescript
+public createTpsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createTpsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createTpsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.ageAlarmFactory">ageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AgeAlarmFactory">AgeAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.concurrentExecutionsCountMetric">concurrentExecutionsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.cpuTotalTimeAnnotations">cpuTotalTimeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.faultCountMetric">faultCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.faultRateMetric">faultRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountAnnotations">invocationCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountMetric">invocationCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationRateAnnotations">invocationRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.lambdaInsightsEnabled">lambdaInsightsEnabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeAnnotations">maxIteratorAgeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeMetric">maxIteratorAgeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory">LambdaFunctionMetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.namingStrategy">namingStrategy</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringNamingStrategy">MonitoringNamingStrategy</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.p50LatencyMetric">p50LatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.p90LatencyMetric">p90LatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.p99LatencyMetric">p99LatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.provisionedConcurrencySpilloverInvocationsCountMetric">provisionedConcurrencySpilloverInvocationsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.provisionedConcurrencySpilloverInvocationsRateMetric">provisionedConcurrencySpilloverInvocationsRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.taskHealthAlarmFactory">taskHealthAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TaskHealthAlarmFactory">TaskHealthAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.throttlesCountMetric">throttlesCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.throttlesRateMetric">throttlesRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.tpsAlarmFactory">tpsAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.tpsAnnotations">tpsAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.tpsMetric">tpsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMetricFactory">enhancedMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory">LambdaFunctionEnhancedMetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMetricFunctionCostMetric">enhancedMetricFunctionCostMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgCpuTotalTimeMetric">enhancedMonitoringAvgCpuTotalTimeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgMemoryUtilizationMetric">enhancedMonitoringAvgMemoryUtilizationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxCpuTotalTimeMetric">enhancedMonitoringMaxCpuTotalTimeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxMemoryUtilizationMetric">enhancedMonitoringMaxMemoryUtilizationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringP90CpuTotalTimeMetric">enhancedMonitoringP90CpuTotalTimeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringP90MemoryUtilizationMetric">enhancedMonitoringP90MemoryUtilizationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.functionUrl">functionUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `ageAlarmFactory`<sup>Required</sup> <a name="ageAlarmFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.ageAlarmFactory"></a>
+
+```typescript
+public readonly ageAlarmFactory: AgeAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AgeAlarmFactory">AgeAlarmFactory</a>
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `concurrentExecutionsCountMetric`<sup>Required</sup> <a name="concurrentExecutionsCountMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.concurrentExecutionsCountMetric"></a>
+
+```typescript
+public readonly concurrentExecutionsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuTotalTimeAnnotations`<sup>Required</sup> <a name="cpuTotalTimeAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.cpuTotalTimeAnnotations"></a>
+
+```typescript
+public readonly cpuTotalTimeAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `faultCountMetric`<sup>Required</sup> <a name="faultCountMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.faultCountMetric"></a>
+
+```typescript
+public readonly faultCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `faultRateMetric`<sup>Required</sup> <a name="faultRateMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.faultRateMetric"></a>
+
+```typescript
+public readonly faultRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `invocationCountAnnotations`<sup>Required</sup> <a name="invocationCountAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountAnnotations"></a>
+
+```typescript
+public readonly invocationCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `invocationCountMetric`<sup>Required</sup> <a name="invocationCountMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountMetric"></a>
+
+```typescript
+public readonly invocationCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `invocationRateAnnotations`<sup>Required</sup> <a name="invocationRateAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationRateAnnotations"></a>
+
+```typescript
+public readonly invocationRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `lambdaInsightsEnabled`<sup>Required</sup> <a name="lambdaInsightsEnabled" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.lambdaInsightsEnabled"></a>
+
+```typescript
+public readonly lambdaInsightsEnabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `latencyAnnotations`<sup>Required</sup> <a name="latencyAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAnnotations"></a>
+
+```typescript
+public readonly latencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `maxIteratorAgeAnnotations`<sup>Required</sup> <a name="maxIteratorAgeAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeAnnotations"></a>
+
+```typescript
+public readonly maxIteratorAgeAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `maxIteratorAgeMetric`<sup>Required</sup> <a name="maxIteratorAgeMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeMetric"></a>
+
+```typescript
+public readonly maxIteratorAgeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `memoryUsageAnnotations`<sup>Required</sup> <a name="memoryUsageAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.memoryUsageAnnotations"></a>
+
+```typescript
+public readonly memoryUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.metricFactory"></a>
+
+```typescript
+public readonly metricFactory: LambdaFunctionMetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory">LambdaFunctionMetricFactory</a>
+
+---
+
+##### `namingStrategy`<sup>Required</sup> <a name="namingStrategy" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.namingStrategy"></a>
+
+```typescript
+public readonly namingStrategy: MonitoringNamingStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringNamingStrategy">MonitoringNamingStrategy</a>
+
+---
+
+##### `p50LatencyMetric`<sup>Required</sup> <a name="p50LatencyMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.p50LatencyMetric"></a>
+
+```typescript
+public readonly p50LatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p90LatencyMetric`<sup>Required</sup> <a name="p90LatencyMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.p90LatencyMetric"></a>
+
+```typescript
+public readonly p90LatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p99LatencyMetric`<sup>Required</sup> <a name="p99LatencyMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.p99LatencyMetric"></a>
+
+```typescript
+public readonly p99LatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `provisionedConcurrencySpilloverInvocationsCountMetric`<sup>Required</sup> <a name="provisionedConcurrencySpilloverInvocationsCountMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.provisionedConcurrencySpilloverInvocationsCountMetric"></a>
+
+```typescript
+public readonly provisionedConcurrencySpilloverInvocationsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `provisionedConcurrencySpilloverInvocationsRateMetric`<sup>Required</sup> <a name="provisionedConcurrencySpilloverInvocationsRateMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.provisionedConcurrencySpilloverInvocationsRateMetric"></a>
+
+```typescript
+public readonly provisionedConcurrencySpilloverInvocationsRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `taskHealthAlarmFactory`<sup>Required</sup> <a name="taskHealthAlarmFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.taskHealthAlarmFactory"></a>
+
+```typescript
+public readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TaskHealthAlarmFactory">TaskHealthAlarmFactory</a>
+
+---
+
+##### `throttlesCountMetric`<sup>Required</sup> <a name="throttlesCountMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.throttlesCountMetric"></a>
+
+```typescript
+public readonly throttlesCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `throttlesRateMetric`<sup>Required</sup> <a name="throttlesRateMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.throttlesRateMetric"></a>
+
+```typescript
+public readonly throttlesRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tpsAlarmFactory`<sup>Required</sup> <a name="tpsAlarmFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.tpsAlarmFactory"></a>
+
+```typescript
+public readonly tpsAlarmFactory: TpsAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TpsAlarmFactory">TpsAlarmFactory</a>
+
+---
+
+##### `tpsAnnotations`<sup>Required</sup> <a name="tpsAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.tpsAnnotations"></a>
+
+```typescript
+public readonly tpsAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `tpsMetric`<sup>Required</sup> <a name="tpsMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.tpsMetric"></a>
+
+```typescript
+public readonly tpsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `enhancedMetricFactory`<sup>Optional</sup> <a name="enhancedMetricFactory" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMetricFactory"></a>
+
+```typescript
+public readonly enhancedMetricFactory: LambdaFunctionEnhancedMetricFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory">LambdaFunctionEnhancedMetricFactory</a>
+
+---
+
+##### `enhancedMetricFunctionCostMetric`<sup>Optional</sup> <a name="enhancedMetricFunctionCostMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMetricFunctionCostMetric"></a>
+
+```typescript
+public readonly enhancedMetricFunctionCostMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `enhancedMonitoringAvgCpuTotalTimeMetric`<sup>Optional</sup> <a name="enhancedMonitoringAvgCpuTotalTimeMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgCpuTotalTimeMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringAvgCpuTotalTimeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `enhancedMonitoringAvgMemoryUtilizationMetric`<sup>Optional</sup> <a name="enhancedMonitoringAvgMemoryUtilizationMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgMemoryUtilizationMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringAvgMemoryUtilizationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `enhancedMonitoringMaxCpuTotalTimeMetric`<sup>Optional</sup> <a name="enhancedMonitoringMaxCpuTotalTimeMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxCpuTotalTimeMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringMaxCpuTotalTimeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `enhancedMonitoringMaxMemoryUtilizationMetric`<sup>Optional</sup> <a name="enhancedMonitoringMaxMemoryUtilizationMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxMemoryUtilizationMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringMaxMemoryUtilizationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `enhancedMonitoringP90CpuTotalTimeMetric`<sup>Optional</sup> <a name="enhancedMonitoringP90CpuTotalTimeMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringP90CpuTotalTimeMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringP90CpuTotalTimeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `enhancedMonitoringP90MemoryUtilizationMetric`<sup>Optional</sup> <a name="enhancedMonitoringP90MemoryUtilizationMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringP90MemoryUtilizationMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringP90MemoryUtilizationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `functionUrl`<sup>Optional</sup> <a name="functionUrl" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.functionUrl"></a>
+
+```typescript
+public readonly functionUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### LatencyAlarmFactory <a name="LatencyAlarmFactory" id="cdk-monitoring-constructs.LatencyAlarmFactory"></a>
@@ -44311,6 +49555,67 @@ public widgets(): IWidget[]
 Returns widgets to be placed on the main dashboard.
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.limit">limit</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.logGroupName">logGroupName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.pattern">pattern</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.logGroupUrl">logGroupUrl</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `limit`<sup>Required</sup> <a name="limit" id="cdk-monitoring-constructs.LogMonitoring.property.limit"></a>
+
+```typescript
+public readonly limit: number;
+```
+
+- *Type:* number
+
+---
+
+##### `logGroupName`<sup>Required</sup> <a name="logGroupName" id="cdk-monitoring-constructs.LogMonitoring.property.logGroupName"></a>
+
+```typescript
+public readonly logGroupName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-monitoring-constructs.LogMonitoring.property.pattern"></a>
+
+```typescript
+public readonly pattern: string;
+```
+
+- *Type:* string
+
+---
+
+##### `logGroupUrl`<sup>Optional</sup> <a name="logGroupUrl" id="cdk-monitoring-constructs.LogMonitoring.property.logGroupUrl"></a>
+
+```typescript
+public readonly logGroupUrl: string;
+```
+
+- *Type:* string
+
+---
+
+##### `title`<sup>Optional</sup> <a name="title" id="cdk-monitoring-constructs.LogMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### MetricFactory <a name="MetricFactory" id="cdk-monitoring-constructs.MetricFactory"></a>
@@ -46347,6 +51652,353 @@ public widgets(): IWidget[]
 Returns widgets to be placed on the main dashboard.
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.automatedSnapshotFailureMetric">automatedSnapshotFailureMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.clusterAlarmFactory">clusterAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAlarmFactory">OpenSearchClusterAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.clusterAnnotations">clusterAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.clusterStatusRedMetric">clusterStatusRedMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.clusterStatusYellowMetric">clusterStatusYellowMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.diskSpaceUsageMetric">diskSpaceUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.indexingLatencyAlarmFactory">indexingLatencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.indexingLatencyAnnotations">indexingLatencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.indexWriteBlockedMetric">indexWriteBlockedMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.jvmMemoryPressureMetric">jvmMemoryPressureMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.kmsKeyErrorMetric">kmsKeyErrorMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.kmsKeyInaccessibleMetric">kmsKeyInaccessibleMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.masterCpuUsageMetric">masterCpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.masterJvmMemoryPressureMetric">masterJvmMemoryPressureMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.masterUsageAnnotations">masterUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.nodeAnnotations">nodeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.nodesMetric">nodesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p50IndexingLatencyMetric">p50IndexingLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p50SearchLatencyMetric">p50SearchLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p90IndexingLatencyMetric">p90IndexingLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p90SearchLatencyMetric">p90SearchLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p99IndexingLatencyMetric">p99IndexingLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p99SearchLatencyMetric">p99SearchLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.searchLatencyAlarmFactory">searchLatencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.searchLatencyAnnotations">searchLatencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.tpsMetric">tpsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `automatedSnapshotFailureMetric`<sup>Required</sup> <a name="automatedSnapshotFailureMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.automatedSnapshotFailureMetric"></a>
+
+```typescript
+public readonly automatedSnapshotFailureMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `clusterAlarmFactory`<sup>Required</sup> <a name="clusterAlarmFactory" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.clusterAlarmFactory"></a>
+
+```typescript
+public readonly clusterAlarmFactory: OpenSearchClusterAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchClusterAlarmFactory">OpenSearchClusterAlarmFactory</a>
+
+---
+
+##### `clusterAnnotations`<sup>Required</sup> <a name="clusterAnnotations" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.clusterAnnotations"></a>
+
+```typescript
+public readonly clusterAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `clusterStatusRedMetric`<sup>Required</sup> <a name="clusterStatusRedMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.clusterStatusRedMetric"></a>
+
+```typescript
+public readonly clusterStatusRedMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `clusterStatusYellowMetric`<sup>Required</sup> <a name="clusterStatusYellowMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.clusterStatusYellowMetric"></a>
+
+```typescript
+public readonly clusterStatusYellowMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuUsageMetric`<sup>Required</sup> <a name="cpuUsageMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.cpuUsageMetric"></a>
+
+```typescript
+public readonly cpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `diskSpaceUsageMetric`<sup>Required</sup> <a name="diskSpaceUsageMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.diskSpaceUsageMetric"></a>
+
+```typescript
+public readonly diskSpaceUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `indexingLatencyAlarmFactory`<sup>Required</sup> <a name="indexingLatencyAlarmFactory" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.indexingLatencyAlarmFactory"></a>
+
+```typescript
+public readonly indexingLatencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `indexingLatencyAnnotations`<sup>Required</sup> <a name="indexingLatencyAnnotations" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.indexingLatencyAnnotations"></a>
+
+```typescript
+public readonly indexingLatencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `indexWriteBlockedMetric`<sup>Required</sup> <a name="indexWriteBlockedMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.indexWriteBlockedMetric"></a>
+
+```typescript
+public readonly indexWriteBlockedMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `jvmMemoryPressureMetric`<sup>Required</sup> <a name="jvmMemoryPressureMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.jvmMemoryPressureMetric"></a>
+
+```typescript
+public readonly jvmMemoryPressureMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `kmsKeyErrorMetric`<sup>Required</sup> <a name="kmsKeyErrorMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.kmsKeyErrorMetric"></a>
+
+```typescript
+public readonly kmsKeyErrorMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `kmsKeyInaccessibleMetric`<sup>Required</sup> <a name="kmsKeyInaccessibleMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.kmsKeyInaccessibleMetric"></a>
+
+```typescript
+public readonly kmsKeyInaccessibleMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `masterCpuUsageMetric`<sup>Required</sup> <a name="masterCpuUsageMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.masterCpuUsageMetric"></a>
+
+```typescript
+public readonly masterCpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `masterJvmMemoryPressureMetric`<sup>Required</sup> <a name="masterJvmMemoryPressureMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.masterJvmMemoryPressureMetric"></a>
+
+```typescript
+public readonly masterJvmMemoryPressureMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `masterUsageAnnotations`<sup>Required</sup> <a name="masterUsageAnnotations" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.masterUsageAnnotations"></a>
+
+```typescript
+public readonly masterUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `nodeAnnotations`<sup>Required</sup> <a name="nodeAnnotations" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.nodeAnnotations"></a>
+
+```typescript
+public readonly nodeAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `nodesMetric`<sup>Required</sup> <a name="nodesMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.nodesMetric"></a>
+
+```typescript
+public readonly nodesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p50IndexingLatencyMetric`<sup>Required</sup> <a name="p50IndexingLatencyMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p50IndexingLatencyMetric"></a>
+
+```typescript
+public readonly p50IndexingLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p50SearchLatencyMetric`<sup>Required</sup> <a name="p50SearchLatencyMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p50SearchLatencyMetric"></a>
+
+```typescript
+public readonly p50SearchLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p90IndexingLatencyMetric`<sup>Required</sup> <a name="p90IndexingLatencyMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p90IndexingLatencyMetric"></a>
+
+```typescript
+public readonly p90IndexingLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p90SearchLatencyMetric`<sup>Required</sup> <a name="p90SearchLatencyMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p90SearchLatencyMetric"></a>
+
+```typescript
+public readonly p90SearchLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p99IndexingLatencyMetric`<sup>Required</sup> <a name="p99IndexingLatencyMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p99IndexingLatencyMetric"></a>
+
+```typescript
+public readonly p99IndexingLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p99SearchLatencyMetric`<sup>Required</sup> <a name="p99SearchLatencyMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.p99SearchLatencyMetric"></a>
+
+```typescript
+public readonly p99SearchLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `searchLatencyAlarmFactory`<sup>Required</sup> <a name="searchLatencyAlarmFactory" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.searchLatencyAlarmFactory"></a>
+
+```typescript
+public readonly searchLatencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `searchLatencyAnnotations`<sup>Required</sup> <a name="searchLatencyAnnotations" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.searchLatencyAnnotations"></a>
+
+```typescript
+public readonly searchLatencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tpsMetric`<sup>Required</sup> <a name="tpsMetric" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.tpsMetric"></a>
+
+```typescript
+public readonly tpsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `usageAnnotations`<sup>Required</sup> <a name="usageAnnotations" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.usageAnnotations"></a>
+
+```typescript
+public readonly usageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `url`<sup>Optional</sup> <a name="url" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### OpsItemAlarmActionStrategy <a name="OpsItemAlarmActionStrategy" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy"></a>
@@ -46786,6 +52438,10 @@ new RdsClusterMonitoring(scope: MonitoringScope, props: RdsClusterMonitoringProp
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createCpuAndDiskUsageWidget">createCpuAndDiskUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -46873,7 +52529,205 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.RdsClusterMonitoring.createConnectionsWidget"></a>
 
+```typescript
+public createConnectionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RdsClusterMonitoring.createConnectionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RdsClusterMonitoring.createConnectionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createCpuAndDiskUsageWidget` <a name="createCpuAndDiskUsageWidget" id="cdk-monitoring-constructs.RdsClusterMonitoring.createCpuAndDiskUsageWidget"></a>
+
+```typescript
+public createCpuAndDiskUsageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RdsClusterMonitoring.createCpuAndDiskUsageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RdsClusterMonitoring.createCpuAndDiskUsageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.RdsClusterMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RdsClusterMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RdsClusterMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.RdsClusterMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.commitLatencyMetric">commitLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.deleteLatencyMetric">deleteLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.diskSpaceUsageMetric">diskSpaceUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.insertLatencyMetric">insertLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.selectLatencyMetric">selectLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.updateLatencyMetric">updateLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `commitLatencyMetric`<sup>Required</sup> <a name="commitLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.commitLatencyMetric"></a>
+
+```typescript
+public readonly commitLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `connectionsMetric`<sup>Required</sup> <a name="connectionsMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionsMetric"></a>
+
+```typescript
+public readonly connectionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuUsageMetric`<sup>Required</sup> <a name="cpuUsageMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.cpuUsageMetric"></a>
+
+```typescript
+public readonly cpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `deleteLatencyMetric`<sup>Required</sup> <a name="deleteLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.deleteLatencyMetric"></a>
+
+```typescript
+public readonly deleteLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `diskSpaceUsageMetric`<sup>Required</sup> <a name="diskSpaceUsageMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.diskSpaceUsageMetric"></a>
+
+```typescript
+public readonly diskSpaceUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `insertLatencyMetric`<sup>Required</sup> <a name="insertLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.insertLatencyMetric"></a>
+
+```typescript
+public readonly insertLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `selectLatencyMetric`<sup>Required</sup> <a name="selectLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.selectLatencyMetric"></a>
+
+```typescript
+public readonly selectLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `updateLatencyMetric`<sup>Required</sup> <a name="updateLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.updateLatencyMetric"></a>
+
+```typescript
+public readonly updateLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `usageAnnotations`<sup>Required</sup> <a name="usageAnnotations" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.usageAnnotations"></a>
+
+```typescript
+public readonly usageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `url`<sup>Optional</sup> <a name="url" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### RedshiftClusterMetricFactory <a name="RedshiftClusterMetricFactory" id="cdk-monitoring-constructs.RedshiftClusterMetricFactory"></a>
@@ -47019,6 +52873,12 @@ new RedshiftClusterMonitoring(scope: MonitoringScope, props: RedshiftClusterMoni
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createCpuAndDiskUsageWidget">createCpuAndDiskUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createMaintenanceWidget">createMaintenanceWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createQueryDurationWidget">createQueryDurationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -47106,7 +52966,252 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createConnectionsWidget"></a>
 
+```typescript
+public createConnectionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createConnectionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createConnectionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createCpuAndDiskUsageWidget` <a name="createCpuAndDiskUsageWidget" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createCpuAndDiskUsageWidget"></a>
+
+```typescript
+public createCpuAndDiskUsageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createCpuAndDiskUsageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createCpuAndDiskUsageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMaintenanceWidget` <a name="createMaintenanceWidget" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createMaintenanceWidget"></a>
+
+```typescript
+public createMaintenanceWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createMaintenanceWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createMaintenanceWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createQueryDurationWidget` <a name="createQueryDurationWidget" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createQueryDurationWidget"></a>
+
+```typescript
+public createQueryDurationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createQueryDurationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createQueryDurationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.diskSpaceUsageMetric">diskSpaceUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.longQueryDurationMetric">longQueryDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.maintenanceModeMetric">maintenanceModeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.mediumQueryDurationMetric">mediumQueryDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.readLatencyMetric">readLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.shortQueryDurationMetric">shortQueryDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.writeLatencyMetric">writeLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `connectionsMetric`<sup>Required</sup> <a name="connectionsMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.connectionsMetric"></a>
+
+```typescript
+public readonly connectionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuUsageMetric`<sup>Required</sup> <a name="cpuUsageMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.cpuUsageMetric"></a>
+
+```typescript
+public readonly cpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `diskSpaceUsageMetric`<sup>Required</sup> <a name="diskSpaceUsageMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.diskSpaceUsageMetric"></a>
+
+```typescript
+public readonly diskSpaceUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `longQueryDurationMetric`<sup>Required</sup> <a name="longQueryDurationMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.longQueryDurationMetric"></a>
+
+```typescript
+public readonly longQueryDurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `maintenanceModeMetric`<sup>Required</sup> <a name="maintenanceModeMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.maintenanceModeMetric"></a>
+
+```typescript
+public readonly maintenanceModeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `mediumQueryDurationMetric`<sup>Required</sup> <a name="mediumQueryDurationMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.mediumQueryDurationMetric"></a>
+
+```typescript
+public readonly mediumQueryDurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `readLatencyMetric`<sup>Required</sup> <a name="readLatencyMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.readLatencyMetric"></a>
+
+```typescript
+public readonly readLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `shortQueryDurationMetric`<sup>Required</sup> <a name="shortQueryDurationMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.shortQueryDurationMetric"></a>
+
+```typescript
+public readonly shortQueryDurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `usageAnnotations`<sup>Required</sup> <a name="usageAnnotations" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.usageAnnotations"></a>
+
+```typescript
+public readonly usageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `writeLatencyMetric`<sup>Required</sup> <a name="writeLatencyMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.writeLatencyMetric"></a>
+
+```typescript
+public readonly writeLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `url`<sup>Optional</sup> <a name="url" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### S3BucketMetricFactory <a name="S3BucketMetricFactory" id="cdk-monitoring-constructs.S3BucketMetricFactory"></a>
@@ -47426,6 +53531,9 @@ new SecretsManagerSecretMonitoring(scope: MonitoringScope, props: SecretsManager
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createDaysSinceLastChangeWidget">createDaysSinceLastChangeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createDaysSinceLastRotationWidget">createDaysSinceLastRotationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -47513,7 +53621,108 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createDaysSinceLastChangeWidget` <a name="createDaysSinceLastChangeWidget" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createDaysSinceLastChangeWidget"></a>
 
+```typescript
+public createDaysSinceLastChangeWidget(): GraphWidget
+```
+
+##### `createDaysSinceLastRotationWidget` <a name="createDaysSinceLastRotationWidget" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createDaysSinceLastRotationWidget"></a>
+
+```typescript
+public createDaysSinceLastRotationWidget(): GraphWidget
+```
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.daysSinceLastChangeAnnotations">daysSinceLastChangeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.daysSinceLastChangeMetric">daysSinceLastChangeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.daysSinceLastRotationAnnotations">daysSinceLastRotationAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.daysSinceLastRotationMetric">daysSinceLastRotationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.showLastRotationWidget">showLastRotationWidget</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `daysSinceLastChangeAnnotations`<sup>Required</sup> <a name="daysSinceLastChangeAnnotations" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.daysSinceLastChangeAnnotations"></a>
+
+```typescript
+public readonly daysSinceLastChangeAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `daysSinceLastChangeMetric`<sup>Required</sup> <a name="daysSinceLastChangeMetric" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.daysSinceLastChangeMetric"></a>
+
+```typescript
+public readonly daysSinceLastChangeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `daysSinceLastRotationAnnotations`<sup>Required</sup> <a name="daysSinceLastRotationAnnotations" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.daysSinceLastRotationAnnotations"></a>
+
+```typescript
+public readonly daysSinceLastRotationAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `daysSinceLastRotationMetric`<sup>Required</sup> <a name="daysSinceLastRotationMetric" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.daysSinceLastRotationMetric"></a>
+
+```typescript
+public readonly daysSinceLastRotationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `showLastRotationWidget`<sup>Required</sup> <a name="showLastRotationWidget" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.showLastRotationWidget"></a>
+
+```typescript
+public readonly showLastRotationWidget: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### SingleAxisGraphWidget <a name="SingleAxisGraphWidget" id="cdk-monitoring-constructs.SingleAxisGraphWidget"></a>
@@ -47888,6 +54097,10 @@ new SnsTopicMonitoring(scope: MonitoringScope, props: SnsTopicMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createMessageCountWidget">createMessageCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createMessageFailedWidget">createMessageFailedWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createMessageSizeWidget">createMessageSizeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -47975,7 +54188,172 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createMessageCountWidget` <a name="createMessageCountWidget" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageCountWidget"></a>
 
+```typescript
+public createMessageCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMessageFailedWidget` <a name="createMessageFailedWidget" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageFailedWidget"></a>
+
+```typescript
+public createMessageFailedWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageFailedWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageFailedWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMessageSizeWidget` <a name="createMessageSizeWidget" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageSizeWidget"></a>
+
+```typescript
+public createMessageSizeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageSizeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageSizeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.SnsTopicMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.failedDeliveryAnnotations">failedDeliveryAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.incomingMessagesAnnotations">incomingMessagesAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.incomingMessagesMetric">incomingMessagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.messagesFailedMetric">messagesFailedMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.messageSizeMetric">messageSizeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.outgoingMessagesMetric">outgoingMessagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.topicAlarmFactory">topicAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TopicAlarmFactory">TopicAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.property.topicUrl">topicUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `failedDeliveryAnnotations`<sup>Required</sup> <a name="failedDeliveryAnnotations" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.failedDeliveryAnnotations"></a>
+
+```typescript
+public readonly failedDeliveryAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `incomingMessagesAnnotations`<sup>Required</sup> <a name="incomingMessagesAnnotations" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.incomingMessagesAnnotations"></a>
+
+```typescript
+public readonly incomingMessagesAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `incomingMessagesMetric`<sup>Required</sup> <a name="incomingMessagesMetric" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.incomingMessagesMetric"></a>
+
+```typescript
+public readonly incomingMessagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `messagesFailedMetric`<sup>Required</sup> <a name="messagesFailedMetric" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.messagesFailedMetric"></a>
+
+```typescript
+public readonly messagesFailedMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `messageSizeMetric`<sup>Required</sup> <a name="messageSizeMetric" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.messageSizeMetric"></a>
+
+```typescript
+public readonly messageSizeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `outgoingMessagesMetric`<sup>Required</sup> <a name="outgoingMessagesMetric" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.outgoingMessagesMetric"></a>
+
+```typescript
+public readonly outgoingMessagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `topicAlarmFactory`<sup>Required</sup> <a name="topicAlarmFactory" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.topicAlarmFactory"></a>
+
+```typescript
+public readonly topicAlarmFactory: TopicAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TopicAlarmFactory">TopicAlarmFactory</a>
+
+---
+
+##### `topicUrl`<sup>Optional</sup> <a name="topicUrl" id="cdk-monitoring-constructs.SnsTopicMonitoring.property.topicUrl"></a>
+
+```typescript
+public readonly topicUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### SqsQueueMetricFactory <a name="SqsQueueMetricFactory" id="cdk-monitoring-constructs.SqsQueueMetricFactory"></a>
@@ -48121,6 +54499,12 @@ new SqsQueueMonitoring(scope: MonitoringScope, props: SqsQueueMonitoringProps, i
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createMessageAgeWidget">createMessageAgeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createMessageCountWidget">createMessageCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createMessageSizeWidget">createMessageSizeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createProducerAndConsumerRateWidget">createProducerAndConsumerRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createTimeToDrainWidget">createTimeToDrainWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -48208,7 +54592,263 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createMessageAgeWidget` <a name="createMessageAgeWidget" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageAgeWidget"></a>
 
+```typescript
+public createMessageAgeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageAgeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageAgeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMessageCountWidget` <a name="createMessageCountWidget" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageCountWidget"></a>
+
+```typescript
+public createMessageCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMessageSizeWidget` <a name="createMessageSizeWidget" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageSizeWidget"></a>
+
+```typescript
+public createMessageSizeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageSizeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageSizeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createProducerAndConsumerRateWidget` <a name="createProducerAndConsumerRateWidget" id="cdk-monitoring-constructs.SqsQueueMonitoring.createProducerAndConsumerRateWidget"></a>
+
+```typescript
+public createProducerAndConsumerRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoring.createProducerAndConsumerRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoring.createProducerAndConsumerRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTimeToDrainWidget` <a name="createTimeToDrainWidget" id="cdk-monitoring-constructs.SqsQueueMonitoring.createTimeToDrainWidget"></a>
+
+```typescript
+public createTimeToDrainWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoring.createTimeToDrainWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoring.createTimeToDrainWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.SqsQueueMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.ageAnnotations">ageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.consumptionRateMetric">consumptionRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.countAnnotations">countAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.deletedMessagesMetric">deletedMessagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.incomingMessagesMetric">incomingMessagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.messageSizeMetric">messageSizeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.oldestMessageAgeMetric">oldestMessageAgeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.productionRateMetric">productionRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.queueAlarmFactory">queueAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.QueueAlarmFactory">QueueAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.timeToDrainAnnotations">timeToDrainAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.timeToDrainMetric">timeToDrainMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.visibleMessagesMetric">visibleMessagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.property.queueUrl">queueUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `ageAnnotations`<sup>Required</sup> <a name="ageAnnotations" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.ageAnnotations"></a>
+
+```typescript
+public readonly ageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `consumptionRateMetric`<sup>Required</sup> <a name="consumptionRateMetric" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.consumptionRateMetric"></a>
+
+```typescript
+public readonly consumptionRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `countAnnotations`<sup>Required</sup> <a name="countAnnotations" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.countAnnotations"></a>
+
+```typescript
+public readonly countAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `deletedMessagesMetric`<sup>Required</sup> <a name="deletedMessagesMetric" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.deletedMessagesMetric"></a>
+
+```typescript
+public readonly deletedMessagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingMessagesMetric`<sup>Required</sup> <a name="incomingMessagesMetric" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.incomingMessagesMetric"></a>
+
+```typescript
+public readonly incomingMessagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `messageSizeMetric`<sup>Required</sup> <a name="messageSizeMetric" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.messageSizeMetric"></a>
+
+```typescript
+public readonly messageSizeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `oldestMessageAgeMetric`<sup>Required</sup> <a name="oldestMessageAgeMetric" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.oldestMessageAgeMetric"></a>
+
+```typescript
+public readonly oldestMessageAgeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `productionRateMetric`<sup>Required</sup> <a name="productionRateMetric" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.productionRateMetric"></a>
+
+```typescript
+public readonly productionRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `queueAlarmFactory`<sup>Required</sup> <a name="queueAlarmFactory" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.queueAlarmFactory"></a>
+
+```typescript
+public readonly queueAlarmFactory: QueueAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.QueueAlarmFactory">QueueAlarmFactory</a>
+
+---
+
+##### `timeToDrainAnnotations`<sup>Required</sup> <a name="timeToDrainAnnotations" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.timeToDrainAnnotations"></a>
+
+```typescript
+public readonly timeToDrainAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `timeToDrainMetric`<sup>Required</sup> <a name="timeToDrainMetric" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.timeToDrainMetric"></a>
+
+```typescript
+public readonly timeToDrainMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `visibleMessagesMetric`<sup>Required</sup> <a name="visibleMessagesMetric" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.visibleMessagesMetric"></a>
+
+```typescript
+public readonly visibleMessagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `queueUrl`<sup>Optional</sup> <a name="queueUrl" id="cdk-monitoring-constructs.SqsQueueMonitoring.property.queueUrl"></a>
+
+```typescript
+public readonly queueUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### SqsQueueMonitoringWithDlq <a name="SqsQueueMonitoringWithDlq" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq"></a>
@@ -48252,6 +54892,12 @@ new SqsQueueMonitoringWithDlq(scope: MonitoringScope, props: SqsQueueMonitoringW
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageAgeWidget">createMessageAgeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageCountWidget">createMessageCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageSizeWidget">createMessageSizeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createProducerAndConsumerRateWidget">createProducerAndConsumerRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createTimeToDrainWidget">createTimeToDrainWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -48339,7 +54985,263 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createMessageAgeWidget` <a name="createMessageAgeWidget" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageAgeWidget"></a>
 
+```typescript
+public createMessageAgeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageAgeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageAgeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMessageCountWidget` <a name="createMessageCountWidget" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageCountWidget"></a>
+
+```typescript
+public createMessageCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createMessageSizeWidget` <a name="createMessageSizeWidget" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageSizeWidget"></a>
+
+```typescript
+public createMessageSizeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageSizeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageSizeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createProducerAndConsumerRateWidget` <a name="createProducerAndConsumerRateWidget" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createProducerAndConsumerRateWidget"></a>
+
+```typescript
+public createProducerAndConsumerRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createProducerAndConsumerRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createProducerAndConsumerRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTimeToDrainWidget` <a name="createTimeToDrainWidget" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createTimeToDrainWidget"></a>
+
+```typescript
+public createTimeToDrainWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createTimeToDrainWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createTimeToDrainWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.ageAnnotations">ageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.consumptionRateMetric">consumptionRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.countAnnotations">countAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.deletedMessagesMetric">deletedMessagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.incomingMessagesMetric">incomingMessagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.messageSizeMetric">messageSizeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.oldestMessageAgeMetric">oldestMessageAgeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.productionRateMetric">productionRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.queueAlarmFactory">queueAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.QueueAlarmFactory">QueueAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.timeToDrainAnnotations">timeToDrainAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.timeToDrainMetric">timeToDrainMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.visibleMessagesMetric">visibleMessagesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.queueUrl">queueUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `ageAnnotations`<sup>Required</sup> <a name="ageAnnotations" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.ageAnnotations"></a>
+
+```typescript
+public readonly ageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `consumptionRateMetric`<sup>Required</sup> <a name="consumptionRateMetric" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.consumptionRateMetric"></a>
+
+```typescript
+public readonly consumptionRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `countAnnotations`<sup>Required</sup> <a name="countAnnotations" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.countAnnotations"></a>
+
+```typescript
+public readonly countAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `deletedMessagesMetric`<sup>Required</sup> <a name="deletedMessagesMetric" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.deletedMessagesMetric"></a>
+
+```typescript
+public readonly deletedMessagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingMessagesMetric`<sup>Required</sup> <a name="incomingMessagesMetric" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.incomingMessagesMetric"></a>
+
+```typescript
+public readonly incomingMessagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `messageSizeMetric`<sup>Required</sup> <a name="messageSizeMetric" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.messageSizeMetric"></a>
+
+```typescript
+public readonly messageSizeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `oldestMessageAgeMetric`<sup>Required</sup> <a name="oldestMessageAgeMetric" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.oldestMessageAgeMetric"></a>
+
+```typescript
+public readonly oldestMessageAgeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `productionRateMetric`<sup>Required</sup> <a name="productionRateMetric" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.productionRateMetric"></a>
+
+```typescript
+public readonly productionRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `queueAlarmFactory`<sup>Required</sup> <a name="queueAlarmFactory" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.queueAlarmFactory"></a>
+
+```typescript
+public readonly queueAlarmFactory: QueueAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.QueueAlarmFactory">QueueAlarmFactory</a>
+
+---
+
+##### `timeToDrainAnnotations`<sup>Required</sup> <a name="timeToDrainAnnotations" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.timeToDrainAnnotations"></a>
+
+```typescript
+public readonly timeToDrainAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `timeToDrainMetric`<sup>Required</sup> <a name="timeToDrainMetric" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.timeToDrainMetric"></a>
+
+```typescript
+public readonly timeToDrainMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `visibleMessagesMetric`<sup>Required</sup> <a name="visibleMessagesMetric" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.visibleMessagesMetric"></a>
+
+```typescript
+public readonly visibleMessagesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `queueUrl`<sup>Optional</sup> <a name="queueUrl" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.property.queueUrl"></a>
+
+```typescript
+public readonly queueUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### StepFunctionActivityMetricFactory <a name="StepFunctionActivityMetricFactory" id="cdk-monitoring-constructs.StepFunctionActivityMetricFactory"></a>
@@ -48622,6 +55524,188 @@ public widgets(): IWidget[]
 Returns widgets to be placed on the main dashboard.
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.durationAlarmFactory">durationAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.durationAnnotations">durationAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.failedActivitiesMetric">failedActivitiesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.failedActivitiesRateMetric">failedActivitiesRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.heartbeatTimedOutActivitiesMetrics">heartbeatTimedOutActivitiesMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.p50DurationMetric">p50DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.p90DurationMetric">p90DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.p99DurationMetric">p99DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.scheduledActivitiesMetric">scheduledActivitiesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.startedActivitiesMetric">startedActivitiesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.succeededActivitiesMetric">succeededActivitiesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.timedOutActivitiesMetrics">timedOutActivitiesMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `durationAlarmFactory`<sup>Required</sup> <a name="durationAlarmFactory" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.durationAlarmFactory"></a>
+
+```typescript
+public readonly durationAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `durationAnnotations`<sup>Required</sup> <a name="durationAnnotations" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.durationAnnotations"></a>
+
+```typescript
+public readonly durationAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `failedActivitiesMetric`<sup>Required</sup> <a name="failedActivitiesMetric" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.failedActivitiesMetric"></a>
+
+```typescript
+public readonly failedActivitiesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `failedActivitiesRateMetric`<sup>Required</sup> <a name="failedActivitiesRateMetric" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.failedActivitiesRateMetric"></a>
+
+```typescript
+public readonly failedActivitiesRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `heartbeatTimedOutActivitiesMetrics`<sup>Required</sup> <a name="heartbeatTimedOutActivitiesMetrics" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.heartbeatTimedOutActivitiesMetrics"></a>
+
+```typescript
+public readonly heartbeatTimedOutActivitiesMetrics: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p50DurationMetric`<sup>Required</sup> <a name="p50DurationMetric" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.p50DurationMetric"></a>
+
+```typescript
+public readonly p50DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p90DurationMetric`<sup>Required</sup> <a name="p90DurationMetric" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.p90DurationMetric"></a>
+
+```typescript
+public readonly p90DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p99DurationMetric`<sup>Required</sup> <a name="p99DurationMetric" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.p99DurationMetric"></a>
+
+```typescript
+public readonly p99DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `scheduledActivitiesMetric`<sup>Required</sup> <a name="scheduledActivitiesMetric" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.scheduledActivitiesMetric"></a>
+
+```typescript
+public readonly scheduledActivitiesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `startedActivitiesMetric`<sup>Required</sup> <a name="startedActivitiesMetric" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.startedActivitiesMetric"></a>
+
+```typescript
+public readonly startedActivitiesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `succeededActivitiesMetric`<sup>Required</sup> <a name="succeededActivitiesMetric" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.succeededActivitiesMetric"></a>
+
+```typescript
+public readonly succeededActivitiesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `timedOutActivitiesMetrics`<sup>Required</sup> <a name="timedOutActivitiesMetrics" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.timedOutActivitiesMetrics"></a>
+
+```typescript
+public readonly timedOutActivitiesMetrics: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### StepFunctionLambdaIntegrationMetricFactory <a name="StepFunctionLambdaIntegrationMetricFactory" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactory"></a>
@@ -48897,6 +55981,188 @@ public widgets(): IWidget[]
 Returns widgets to be placed on the main dashboard.
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.durationAlarmFactory">durationAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.durationAnnotations">durationAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.failedFunctionRateMetric">failedFunctionRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.failedFunctionsMetric">failedFunctionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.p50DurationMetric">p50DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.p90DurationMetric">p90DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.p99DurationMetric">p99DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.scheduledFunctionsMetric">scheduledFunctionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.startedFunctionsMetric">startedFunctionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.succeededFunctionsMetric">succeededFunctionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.timedOutFunctionsMetrics">timedOutFunctionsMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.functionUrl">functionUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `durationAlarmFactory`<sup>Required</sup> <a name="durationAlarmFactory" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.durationAlarmFactory"></a>
+
+```typescript
+public readonly durationAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `durationAnnotations`<sup>Required</sup> <a name="durationAnnotations" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.durationAnnotations"></a>
+
+```typescript
+public readonly durationAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `failedFunctionRateMetric`<sup>Required</sup> <a name="failedFunctionRateMetric" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.failedFunctionRateMetric"></a>
+
+```typescript
+public readonly failedFunctionRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `failedFunctionsMetric`<sup>Required</sup> <a name="failedFunctionsMetric" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.failedFunctionsMetric"></a>
+
+```typescript
+public readonly failedFunctionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p50DurationMetric`<sup>Required</sup> <a name="p50DurationMetric" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.p50DurationMetric"></a>
+
+```typescript
+public readonly p50DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p90DurationMetric`<sup>Required</sup> <a name="p90DurationMetric" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.p90DurationMetric"></a>
+
+```typescript
+public readonly p90DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p99DurationMetric`<sup>Required</sup> <a name="p99DurationMetric" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.p99DurationMetric"></a>
+
+```typescript
+public readonly p99DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `scheduledFunctionsMetric`<sup>Required</sup> <a name="scheduledFunctionsMetric" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.scheduledFunctionsMetric"></a>
+
+```typescript
+public readonly scheduledFunctionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `startedFunctionsMetric`<sup>Required</sup> <a name="startedFunctionsMetric" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.startedFunctionsMetric"></a>
+
+```typescript
+public readonly startedFunctionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `succeededFunctionsMetric`<sup>Required</sup> <a name="succeededFunctionsMetric" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.succeededFunctionsMetric"></a>
+
+```typescript
+public readonly succeededFunctionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `timedOutFunctionsMetrics`<sup>Required</sup> <a name="timedOutFunctionsMetrics" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.timedOutFunctionsMetrics"></a>
+
+```typescript
+public readonly timedOutFunctionsMetrics: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `functionUrl`<sup>Optional</sup> <a name="functionUrl" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.property.functionUrl"></a>
+
+```typescript
+public readonly functionUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### StepFunctionMetricFactory <a name="StepFunctionMetricFactory" id="cdk-monitoring-constructs.StepFunctionMetricFactory"></a>
@@ -49137,6 +56403,210 @@ public widgets(): IWidget[]
 Returns widgets to be placed on the main dashboard.
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.abortedExecutionsMetric">abortedExecutionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.durationAlarmFactory">durationAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.durationAnnotations">durationAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.failedExecutionRateMetric">failedExecutionRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.failedExecutionsMetric">failedExecutionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.p50DurationMetric">p50DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.p90DurationMetric">p90DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.p99DurationMetric">p99DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.startedExecutionsMetric">startedExecutionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.succeededExecutionsMetric">succeededExecutionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.taskHealthAlarmFactory">taskHealthAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.TaskHealthAlarmFactory">TaskHealthAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.throttledExecutionsMetric">throttledExecutionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.timedOutExecutionsMetrics">timedOutExecutionsMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.property.stateMachineUrl">stateMachineUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `abortedExecutionsMetric`<sup>Required</sup> <a name="abortedExecutionsMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.abortedExecutionsMetric"></a>
+
+```typescript
+public readonly abortedExecutionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `durationAlarmFactory`<sup>Required</sup> <a name="durationAlarmFactory" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.durationAlarmFactory"></a>
+
+```typescript
+public readonly durationAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `durationAnnotations`<sup>Required</sup> <a name="durationAnnotations" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.durationAnnotations"></a>
+
+```typescript
+public readonly durationAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `failedExecutionRateMetric`<sup>Required</sup> <a name="failedExecutionRateMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.failedExecutionRateMetric"></a>
+
+```typescript
+public readonly failedExecutionRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `failedExecutionsMetric`<sup>Required</sup> <a name="failedExecutionsMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.failedExecutionsMetric"></a>
+
+```typescript
+public readonly failedExecutionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p50DurationMetric`<sup>Required</sup> <a name="p50DurationMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.p50DurationMetric"></a>
+
+```typescript
+public readonly p50DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p90DurationMetric`<sup>Required</sup> <a name="p90DurationMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.p90DurationMetric"></a>
+
+```typescript
+public readonly p90DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p99DurationMetric`<sup>Required</sup> <a name="p99DurationMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.p99DurationMetric"></a>
+
+```typescript
+public readonly p99DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `startedExecutionsMetric`<sup>Required</sup> <a name="startedExecutionsMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.startedExecutionsMetric"></a>
+
+```typescript
+public readonly startedExecutionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `succeededExecutionsMetric`<sup>Required</sup> <a name="succeededExecutionsMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.succeededExecutionsMetric"></a>
+
+```typescript
+public readonly succeededExecutionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `taskHealthAlarmFactory`<sup>Required</sup> <a name="taskHealthAlarmFactory" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.taskHealthAlarmFactory"></a>
+
+```typescript
+public readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.TaskHealthAlarmFactory">TaskHealthAlarmFactory</a>
+
+---
+
+##### `throttledExecutionsMetric`<sup>Required</sup> <a name="throttledExecutionsMetric" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.throttledExecutionsMetric"></a>
+
+```typescript
+public readonly throttledExecutionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `timedOutExecutionsMetrics`<sup>Required</sup> <a name="timedOutExecutionsMetrics" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.timedOutExecutionsMetrics"></a>
+
+```typescript
+public readonly timedOutExecutionsMetrics: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `stateMachineUrl`<sup>Optional</sup> <a name="stateMachineUrl" id="cdk-monitoring-constructs.StepFunctionMonitoring.property.stateMachineUrl"></a>
+
+```typescript
+public readonly stateMachineUrl: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### StepFunctionServiceIntegrationMetricFactory <a name="StepFunctionServiceIntegrationMetricFactory" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMetricFactory"></a>
@@ -49412,6 +56882,177 @@ public widgets(): IWidget[]
 Returns widgets to be placed on the main dashboard.
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.durationAlarmFactory">durationAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.durationAnnotations">durationAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.failedServiceIntegrationRateMetric">failedServiceIntegrationRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.failedServiceIntegrationsMetric">failedServiceIntegrationsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.p50DurationMetric">p50DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.p90DurationMetric">p90DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.p99DurationMetric">p99DurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.scheduledServiceIntegrationsMetric">scheduledServiceIntegrationsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.startedServiceIntegrationsMetric">startedServiceIntegrationsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.succeededServiceIntegrationsMetric">succeededServiceIntegrationsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.timedOutServiceIntegrationsMetrics">timedOutServiceIntegrationsMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `durationAlarmFactory`<sup>Required</sup> <a name="durationAlarmFactory" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.durationAlarmFactory"></a>
+
+```typescript
+public readonly durationAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `durationAnnotations`<sup>Required</sup> <a name="durationAnnotations" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.durationAnnotations"></a>
+
+```typescript
+public readonly durationAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `failedServiceIntegrationRateMetric`<sup>Required</sup> <a name="failedServiceIntegrationRateMetric" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.failedServiceIntegrationRateMetric"></a>
+
+```typescript
+public readonly failedServiceIntegrationRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `failedServiceIntegrationsMetric`<sup>Required</sup> <a name="failedServiceIntegrationsMetric" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.failedServiceIntegrationsMetric"></a>
+
+```typescript
+public readonly failedServiceIntegrationsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p50DurationMetric`<sup>Required</sup> <a name="p50DurationMetric" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.p50DurationMetric"></a>
+
+```typescript
+public readonly p50DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p90DurationMetric`<sup>Required</sup> <a name="p90DurationMetric" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.p90DurationMetric"></a>
+
+```typescript
+public readonly p90DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `p99DurationMetric`<sup>Required</sup> <a name="p99DurationMetric" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.p99DurationMetric"></a>
+
+```typescript
+public readonly p99DurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `scheduledServiceIntegrationsMetric`<sup>Required</sup> <a name="scheduledServiceIntegrationsMetric" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.scheduledServiceIntegrationsMetric"></a>
+
+```typescript
+public readonly scheduledServiceIntegrationsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `startedServiceIntegrationsMetric`<sup>Required</sup> <a name="startedServiceIntegrationsMetric" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.startedServiceIntegrationsMetric"></a>
+
+```typescript
+public readonly startedServiceIntegrationsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `succeededServiceIntegrationsMetric`<sup>Required</sup> <a name="succeededServiceIntegrationsMetric" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.succeededServiceIntegrationsMetric"></a>
+
+```typescript
+public readonly succeededServiceIntegrationsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `timedOutServiceIntegrationsMetrics`<sup>Required</sup> <a name="timedOutServiceIntegrationsMetrics" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.timedOutServiceIntegrationsMetrics"></a>
+
+```typescript
+public readonly timedOutServiceIntegrationsMetrics: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### SyntheticsCanaryMetricFactory <a name="SyntheticsCanaryMetricFactory" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactory"></a>
@@ -49540,6 +57181,10 @@ new SyntheticsCanaryMonitoring(scope: MonitoringScope, props: SyntheticsCanaryMo
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -49627,7 +57272,194 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorCountWidget"></a>
 
+```typescript
+public createErrorCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createErrorRateWidget` <a name="createErrorRateWidget" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorRateWidget"></a>
+
+```typescript
+public createErrorRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.averageLatencyMetric">averageLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorCountMetric">errorCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorRateMetric">errorRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.faultCountMetric">faultCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.faultRateMetric">faultRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+
+---
+
+##### `averageLatencyMetric`<sup>Required</sup> <a name="averageLatencyMetric" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.averageLatencyMetric"></a>
+
+```typescript
+public readonly averageLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorCountMetric`<sup>Required</sup> <a name="errorCountMetric" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorCountMetric"></a>
+
+```typescript
+public readonly errorCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateMetric`<sup>Required</sup> <a name="errorRateMetric" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.errorRateMetric"></a>
+
+```typescript
+public readonly errorRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `faultCountMetric`<sup>Required</sup> <a name="faultCountMetric" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.faultCountMetric"></a>
+
+```typescript
+public readonly faultCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `faultRateMetric`<sup>Required</sup> <a name="faultRateMetric" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.faultRateMetric"></a>
+
+```typescript
+public readonly faultRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `humanReadableName`<sup>Required</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `latencyAnnotations`<sup>Required</sup> <a name="latencyAnnotations" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.property.latencyAnnotations"></a>
+
+```typescript
+public readonly latencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
 
 
 ### TaskHealthAlarmFactory <a name="TaskHealthAlarmFactory" id="cdk-monitoring-constructs.TaskHealthAlarmFactory"></a>
@@ -50453,6 +58285,10 @@ new WafV2Monitoring(scope: MonitoringScope, props: WafV2MonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createAllowedRequestsWidget">createAllowedRequestsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsRateWidget">createBlockedRequestsRateWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsWidget">createBlockedRequestsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -50540,7 +58376,117 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createAllowedRequestsWidget` <a name="createAllowedRequestsWidget" id="cdk-monitoring-constructs.WafV2Monitoring.createAllowedRequestsWidget"></a>
 
+```typescript
+public createAllowedRequestsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.WafV2Monitoring.createAllowedRequestsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.WafV2Monitoring.createAllowedRequestsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createBlockedRequestsRateWidget` <a name="createBlockedRequestsRateWidget" id="cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsRateWidget"></a>
+
+```typescript
+public createBlockedRequestsRateWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsRateWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsRateWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createBlockedRequestsWidget` <a name="createBlockedRequestsWidget" id="cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsWidget"></a>
+
+```typescript
+public createBlockedRequestsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.WafV2Monitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.allowedRequestsMetric">allowedRequestsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.blockedRequestsMetric">blockedRequestsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.blockedRequestsRateMetric">blockedRequestsRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `allowedRequestsMetric`<sup>Required</sup> <a name="allowedRequestsMetric" id="cdk-monitoring-constructs.WafV2Monitoring.property.allowedRequestsMetric"></a>
+
+```typescript
+public readonly allowedRequestsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `blockedRequestsMetric`<sup>Required</sup> <a name="blockedRequestsMetric" id="cdk-monitoring-constructs.WafV2Monitoring.property.blockedRequestsMetric"></a>
+
+```typescript
+public readonly blockedRequestsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `blockedRequestsRateMetric`<sup>Required</sup> <a name="blockedRequestsRateMetric" id="cdk-monitoring-constructs.WafV2Monitoring.property.blockedRequestsRateMetric"></a>
+
+```typescript
+public readonly blockedRequestsRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `humanReadableName`<sup>Required</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.WafV2Monitoring.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+
+---
 
 
 ### XaxrMathExpression <a name="XaxrMathExpression" id="cdk-monitoring-constructs.XaxrMathExpression"></a>
