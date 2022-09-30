@@ -38,6 +38,39 @@ Object {
                   "Arn",
                 ],
               },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyredshiftclusterDurationP90WarningC09D9BD2",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyredshiftclusterConnectionCountLowWarning1DEF6EDD",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyredshiftclusterConnectionCountHighWarning7C79A1CE",
+                  "Arn",
+                ],
+              },
               "\\"]},\\"yAxis\\":{}}}]}",
             ],
           ],
@@ -51,19 +84,27 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[my-redshift-cluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=my-redshift-cluster;is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[my-redshift-cluster](https://eu-west-1.console.aws.amazon.com/redshiftv2/home?region=eu-west-1#cluster-details?cluster=my-redshift-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"CPUUtilization\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[\\"AWS/Redshift\\",\\"PercentageDiskSpaceUsed\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Disk Usage\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"DatabaseConnections\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Short P90\\",\\"expression\\":\\"sQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"short\\",{\\"label\\":\\"short\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"sQueryLatency90\\"}],[{\\"label\\":\\"Medium P90\\",\\"expression\\":\\"mQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"medium\\",{\\"label\\":\\"medium\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"mQueryLatency90\\"}],[{\\"label\\":\\"Long P90\\",\\"expression\\":\\"lQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"long\\",{\\"label\\":\\"long\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"lQueryLatency90\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Long P90 > 5000 for 3 datapoints within 15 minutes\\",\\"value\\":5000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Read P90\\",\\"expression\\":\\"readLatency * 1000\\"}],[\\"AWS/Redshift\\",\\"ReadLatency\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Read P90\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"readLatency\\"}],[{\\"label\\":\\"Write P90\\",\\"expression\\":\\"writeLatency * 1000\\"}],[\\"AWS/Redshift\\",\\"WriteLatency\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Write P90\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"writeLatency\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Maintenance\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"MaintenanceMode\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Maintenance\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":1,\\"label\\":\\"1 = True\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -86,12 +127,12 @@ Object {
               "Metric": Object {
                 "Dimensions": Array [
                   Object {
-                    "Name": "DBClusterIdentifier",
+                    "Name": "ClusterIdentifier",
                     "Value": "my-redshift-cluster",
                   },
                 ],
                 "MetricName": "CPUUtilization",
-                "Namespace": "AWS/RDS",
+                "Namespace": "AWS/Redshift",
               },
               "Period": 300,
               "Stat": "Average",
@@ -100,6 +141,74 @@ Object {
           },
         ],
         "Threshold": 70,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyredshiftclusterConnectionCountHighWarning7C79A1CE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of database connections is too high.",
+        "AlarmName": "Test-my-redshift-cluster-Connection-Count-High-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Connections",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterIdentifier",
+                    "Value": "my-redshift-cluster",
+                  },
+                ],
+                "MetricName": "DatabaseConnections",
+                "Namespace": "AWS/Redshift",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyredshiftclusterConnectionCountLowWarning1DEF6EDD": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of database connections is too low.",
+        "AlarmName": "Test-my-redshift-cluster-Connection-Count-Low-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Connections",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterIdentifier",
+                    "Value": "my-redshift-cluster",
+                  },
+                ],
+                "MetricName": "DatabaseConnections",
+                "Namespace": "AWS/Redshift",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -114,51 +223,70 @@ Object {
         "EvaluationPeriods": 3,
         "Metrics": Array [
           Object {
-            "Expression": "100 * (used/(used+free))",
-            "Id": "expr_1",
+            "Id": "m1",
             "Label": "Disk Usage",
-          },
-          Object {
-            "Id": "used",
-            "Label": "Used",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
                   Object {
-                    "Name": "DBClusterIdentifier",
+                    "Name": "ClusterIdentifier",
                     "Value": "my-redshift-cluster",
                   },
                 ],
-                "MetricName": "VolumeBytesUsed",
-                "Namespace": "AWS/RDS",
+                "MetricName": "PercentageDiskSpaceUsed",
+                "Namespace": "AWS/Redshift",
               },
               "Period": 300,
-              "Stat": "Maximum",
+              "Stat": "Average",
             },
-            "ReturnData": false,
-          },
-          Object {
-            "Id": "free",
-            "Label": "Free",
-            "MetricStat": Object {
-              "Metric": Object {
-                "Dimensions": Array [
-                  Object {
-                    "Name": "DBClusterIdentifier",
-                    "Value": "my-redshift-cluster",
-                  },
-                ],
-                "MetricName": "FreeLocalStorage",
-                "Namespace": "AWS/RDS",
-              },
-              "Period": 300,
-              "Stat": "Minimum",
-            },
-            "ReturnData": false,
+            "ReturnData": true,
           },
         ],
         "Threshold": 80,
         "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyredshiftclusterDurationP90WarningC09D9BD2": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 duration is too long.",
+        "AlarmName": "Test-my-redshift-cluster-Duration-P90-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "lQueryLatency90 / 1000",
+            "Id": "expr_1",
+            "Label": "Long P90",
+          },
+          Object {
+            "Id": "lQueryLatency90",
+            "Label": "long",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterIdentifier",
+                    "Value": "my-redshift-cluster",
+                  },
+                  Object {
+                    "Name": "latency",
+                    "Value": "long",
+                  },
+                ],
+                "MetricName": "QueryDuration",
+                "Namespace": "AWS/Redshift",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 5000,
+        "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -168,19 +296,19 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[my-redshift-cluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=my-redshift-cluster;is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[my-redshift-cluster](https://eu-west-1.console.aws.amazon.com/redshiftv2/home?region=eu-west-1#cluster-details?cluster=my-redshift-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"CPUUtilization\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[\\"AWS/Redshift\\",\\"PercentageDiskSpaceUsed\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Disk Usage\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"DatabaseConnections\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Short P90\\",\\"expression\\":\\"sQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"short\\",{\\"label\\":\\"short\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"sQueryLatency90\\"}],[{\\"label\\":\\"Medium P90\\",\\"expression\\":\\"mQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"medium\\",{\\"label\\":\\"medium\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"mQueryLatency90\\"}],[{\\"label\\":\\"Long P90\\",\\"expression\\":\\"lQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"long\\",{\\"label\\":\\"long\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"lQueryLatency90\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Long P90 > 5000 for 3 datapoints within 15 minutes\\",\\"value\\":5000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -240,19 +368,27 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[my-redshift-cluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=my-redshift-cluster;is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[my-redshift-cluster](https://eu-west-1.console.aws.amazon.com/redshiftv2/home?region=eu-west-1#cluster-details?cluster=my-redshift-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"CPUUtilization\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[\\"AWS/Redshift\\",\\"PercentageDiskSpaceUsed\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Disk Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"DatabaseConnections\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Short P90\\",\\"expression\\":\\"sQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"short\\",{\\"label\\":\\"short\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"sQueryLatency90\\"}],[{\\"label\\":\\"Medium P90\\",\\"expression\\":\\"mQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"medium\\",{\\"label\\":\\"medium\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"mQueryLatency90\\"}],[{\\"label\\":\\"Long P90\\",\\"expression\\":\\"lQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"long\\",{\\"label\\":\\"long\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"lQueryLatency90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Read P90\\",\\"expression\\":\\"readLatency * 1000\\"}],[\\"AWS/Redshift\\",\\"ReadLatency\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Read P90\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"readLatency\\"}],[{\\"label\\":\\"Write P90\\",\\"expression\\":\\"writeLatency * 1000\\"}],[\\"AWS/Redshift\\",\\"WriteLatency\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Write P90\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"writeLatency\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Maintenance\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"MaintenanceMode\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Maintenance\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":1,\\"label\\":\\"1 = True\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -265,19 +401,19 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[my-redshift-cluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=my-redshift-cluster;is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[my-redshift-cluster](https://eu-west-1.console.aws.amazon.com/redshiftv2/home?region=eu-west-1#cluster-details?cluster=my-redshift-cluster)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"CPUUtilization\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[\\"AWS/Redshift\\",\\"PercentageDiskSpaceUsed\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Disk Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Redshift\\",\\"DatabaseConnections\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-redshift-cluster\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Short P90\\",\\"expression\\":\\"sQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"short\\",{\\"label\\":\\"short\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"sQueryLatency90\\"}],[{\\"label\\":\\"Medium P90\\",\\"expression\\":\\"mQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"medium\\",{\\"label\\":\\"medium\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"mQueryLatency90\\"}],[{\\"label\\":\\"Long P90\\",\\"expression\\":\\"lQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"my-redshift-cluster\\",\\"latency\\",\\"long\\",{\\"label\\":\\"long\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"lQueryLatency90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

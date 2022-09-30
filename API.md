@@ -17453,6 +17453,286 @@ public readonly minHealthyTaskPercent: number;
 
 ---
 
+### HighConnectionCountThreshold <a name="HighConnectionCountThreshold" id="cdk-monitoring-constructs.HighConnectionCountThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.HighConnectionCountThreshold.Initializer"></a>
+
+```typescript
+import { HighConnectionCountThreshold } from 'cdk-monitoring-constructs'
+
+const highConnectionCountThreshold: HighConnectionCountThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.maxConnectionCount">maxConnectionCount</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+Dedupe strings are global and not unique per CTI.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxConnectionCount`<sup>Required</sup> <a name="maxConnectionCount" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.maxConnectionCount"></a>
+
+```typescript
+public readonly maxConnectionCount: number;
+```
+
+- *Type:* number
+
+---
+
 ### HighMessagesPublishedThreshold <a name="HighMessagesPublishedThreshold" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.Initializer"></a>
@@ -20578,6 +20858,286 @@ public readonly title: string;
 - *Default:* auto-generated title based on the pattern and limit
 
 widget title.
+
+---
+
+### LowConnectionCountThreshold <a name="LowConnectionCountThreshold" id="cdk-monitoring-constructs.LowConnectionCountThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LowConnectionCountThreshold.Initializer"></a>
+
+```typescript
+import { LowConnectionCountThreshold } from 'cdk-monitoring-constructs'
+
+const lowConnectionCountThreshold: LowConnectionCountThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.minConnectionCount">minConnectionCount</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+Dedupe strings are global and not unique per CTI.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `minConnectionCount`<sup>Required</sup> <a name="minConnectionCount" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.minConnectionCount"></a>
+
+```typescript
+public readonly minConnectionCount: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -29214,6 +29774,8 @@ const rdsClusterMonitoringOptions: RdsClusterMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -29335,6 +29897,26 @@ public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addMaxConnectionCountAlarm`<sup>Optional</sup> <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMaxConnectionCountAlarm: {[ key: string ]: HighConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}
+
+---
+
+##### `addMinConnectionCountAlarm`<sup>Optional</sup> <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addMinConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
+
+---
+
 ### RdsClusterMonitoringProps <a name="RdsClusterMonitoringProps" id="cdk-monitoring-constructs.RdsClusterMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.Initializer"></a>
@@ -29360,6 +29942,8 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -29504,6 +30088,26 @@ public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addMaxConnectionCountAlarm`<sup>Optional</sup> <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMaxConnectionCountAlarm: {[ key: string ]: HighConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}
+
+---
+
+##### `addMinConnectionCountAlarm`<sup>Optional</sup> <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addMinConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
 
 ---
 
@@ -30118,6 +30722,9 @@ const redshiftClusterMonitoringOptions: RedshiftClusterMonitoringOptions = { ...
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMaxLongQueryDurationAlarm">addMaxLongQueryDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -30239,6 +30846,36 @@ public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addMaxConnectionCountAlarm`<sup>Optional</sup> <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMaxConnectionCountAlarm: {[ key: string ]: HighConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}
+
+---
+
+##### `addMaxLongQueryDurationAlarm`<sup>Optional</sup> <a name="addMaxLongQueryDurationAlarm" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMaxLongQueryDurationAlarm"></a>
+
+```typescript
+public readonly addMaxLongQueryDurationAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addMinConnectionCountAlarm`<sup>Optional</sup> <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMinConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
+
+---
+
 ### RedshiftClusterMonitoringProps <a name="RedshiftClusterMonitoringProps" id="cdk-monitoring-constructs.RedshiftClusterMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RedshiftClusterMonitoringProps.Initializer"></a>
@@ -30263,6 +30900,9 @@ const redshiftClusterMonitoringProps: RedshiftClusterMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMaxLongQueryDurationAlarm">addMaxLongQueryDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -30391,6 +31031,36 @@ public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addMaxConnectionCountAlarm`<sup>Optional</sup> <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMaxConnectionCountAlarm: {[ key: string ]: HighConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}
+
+---
+
+##### `addMaxLongQueryDurationAlarm`<sup>Optional</sup> <a name="addMaxLongQueryDurationAlarm" id="cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMaxLongQueryDurationAlarm"></a>
+
+```typescript
+public readonly addMaxLongQueryDurationAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addMinConnectionCountAlarm`<sup>Optional</sup> <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMinConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
 
 ---
 
@@ -41164,6 +41834,88 @@ public readonly projectUrl: string;
 - *Type:* string
 
 ---
+
+
+### ConnectionAlarmFactory <a name="ConnectionAlarmFactory" id="cdk-monitoring-constructs.ConnectionAlarmFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.ConnectionAlarmFactory.Initializer"></a>
+
+```typescript
+import { ConnectionAlarmFactory } from 'cdk-monitoring-constructs'
+
+new ConnectionAlarmFactory(alarmFactory: AlarmFactory)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ConnectionAlarmFactory.Initializer.parameter.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.ConnectionAlarmFactory.Initializer.parameter.alarmFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ConnectionAlarmFactory.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ConnectionAlarmFactory.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | *No description.* |
+
+---
+
+##### `addMaxConnectionCountAlarm` <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.ConnectionAlarmFactory.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public addMaxConnectionCountAlarm(metric: Metric | MathExpression, props: HighConnectionCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ConnectionAlarmFactory.addMaxConnectionCountAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.ConnectionAlarmFactory.addMaxConnectionCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.ConnectionAlarmFactory.addMaxConnectionCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addMinConnectionCountAlarm` <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.ConnectionAlarmFactory.addMinConnectionCountAlarm"></a>
+
+```typescript
+public addMinConnectionCountAlarm(metric: Metric | MathExpression, props: LowConnectionCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ConnectionAlarmFactory.addMinConnectionCountAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.ConnectionAlarmFactory.addMinConnectionCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.ConnectionAlarmFactory.addMinConnectionCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+
 
 
 ### CustomAlarmFactory <a name="CustomAlarmFactory" id="cdk-monitoring-constructs.CustomAlarmFactory"></a>
@@ -52595,6 +53347,8 @@ public createTitleWidget(): MonitoringHeaderWidget
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.commitLatencyMetric">commitLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionAlarmFactory">connectionAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionAnnotations">connectionAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.deleteLatencyMetric">deleteLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
@@ -52616,6 +53370,26 @@ public readonly commitLatencyMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `connectionAlarmFactory`<sup>Required</sup> <a name="connectionAlarmFactory" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionAlarmFactory"></a>
+
+```typescript
+public readonly connectionAlarmFactory: ConnectionAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a>
+
+---
+
+##### `connectionAnnotations`<sup>Required</sup> <a name="connectionAnnotations" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionAnnotations"></a>
+
+```typescript
+public readonly connectionAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -53067,12 +53841,16 @@ public createTitleWidget(): MonitoringHeaderWidget
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.connectionAlarmFactory">connectionAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.connectionAnnotations">connectionAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.diskSpaceUsageMetric">diskSpaceUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.longQueryDurationMetric">longQueryDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.maintenanceModeMetric">maintenanceModeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.mediumQueryDurationMetric">mediumQueryDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.queryDurationAnnotations">queryDurationAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.readLatencyMetric">readLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.shortQueryDurationMetric">shortQueryDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
@@ -53080,6 +53858,26 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.writeLatencyMetric">writeLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `connectionAlarmFactory`<sup>Required</sup> <a name="connectionAlarmFactory" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.connectionAlarmFactory"></a>
+
+```typescript
+public readonly connectionAlarmFactory: ConnectionAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a>
+
+---
+
+##### `connectionAnnotations`<sup>Required</sup> <a name="connectionAnnotations" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.connectionAnnotations"></a>
+
+```typescript
+public readonly connectionAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -53113,6 +53911,16 @@ public readonly diskSpaceUsageMetric: Metric | MathExpression;
 
 ---
 
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
 ##### `longQueryDurationMetric`<sup>Required</sup> <a name="longQueryDurationMetric" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.longQueryDurationMetric"></a>
 
 ```typescript
@@ -53140,6 +53948,16 @@ public readonly mediumQueryDurationMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `queryDurationAnnotations`<sup>Required</sup> <a name="queryDurationAnnotations" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.property.queryDurationAnnotations"></a>
+
+```typescript
+public readonly queryDurationAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 

@@ -38,6 +38,28 @@ Object {
                   "Arn",
                 ],
               },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterConnectionCountLowWarning67EFAE4C",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterConnectionCountHighWarning007697BF",
+                  "Arn",
+                ],
+              },
               "\\"]},\\"yAxis\\":{}}}]}",
             ],
           ],
@@ -59,7 +81,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -100,6 +122,74 @@ Object {
           },
         ],
         "Threshold": 70,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterConnectionCountHighWarning007697BF": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of database connections is too high.",
+        "AlarmName": "Test-my-rds-cluster-Connection-Count-High-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Connections",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DatabaseConnections",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterConnectionCountLowWarning67EFAE4C": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of database connections is too low.",
+        "AlarmName": "Test-my-rds-cluster-Connection-Count-Low-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Connections",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DatabaseConnections",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -176,7 +266,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

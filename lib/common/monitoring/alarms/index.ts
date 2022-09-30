@@ -1,6 +1,7 @@
 export * from "./AgeAlarmFactory";
 export * from "./AnomalyDetectingAlarmFactory";
 export * from "./CustomAlarmFactory";
+export * from "./ConnectionAlarmFactory";
 export * from "./DynamoAlarmFactory";
 export * from "./ElastiCacheAlarmFactory";
 export * from "./ErrorAlarmFactory";
