@@ -55,7 +55,7 @@ export class ConnectionAlarmFactory {
       disambiguator,
       threshold: props.maxConnectionCount,
       alarmNameSuffix: "Connection-Count-High",
-      alarmDescription: `Number of database connections is too high.`,
+      alarmDescription: `Number of connections is too high.`,
     });
   }
 }
