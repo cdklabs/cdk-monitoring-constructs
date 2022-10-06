@@ -129,7 +129,7 @@ Object {
     "ScopeTestmyrdsclusterConnectionCountHighWarning007697BF": Object {
       "Properties": Object {
         "ActionsEnabled": true,
-        "AlarmDescription": "Number of database connections is too high.",
+        "AlarmDescription": "Number of connections is too high.",
         "AlarmName": "Test-my-rds-cluster-Connection-Count-High-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
@@ -163,7 +163,7 @@ Object {
     "ScopeTestmyrdsclusterConnectionCountLowWarning67EFAE4C": Object {
       "Properties": Object {
         "ActionsEnabled": true,
-        "AlarmDescription": "Number of database connections is too low.",
+        "AlarmDescription": "Number of connections is too low.",
         "AlarmName": "Test-my-rds-cluster-Connection-Count-Low-Warning",
         "ComparisonOperator": "LessThanThreshold",
         "DatapointsToAlarm": 3,
