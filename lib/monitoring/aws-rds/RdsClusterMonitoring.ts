@@ -6,10 +6,13 @@ import {
 
 import {
   BaseMonitoringProps,
+  ConnectionAlarmFactory,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
   HalfWidth,
+  HighConnectionCountThreshold,
+  LowConnectionCountThreshold,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
@@ -32,6 +35,14 @@ import {
 export interface RdsClusterMonitoringOptions extends BaseMonitoringProps {
   readonly addDiskSpaceUsageAlarm?: Record<string, UsageThreshold>;
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
+  readonly addMinConnectionCountAlarm?: Record<
+    string,
+    LowConnectionCountThreshold
+  >;
+  readonly addMaxConnectionCountAlarm?: Record<
+    string,
+    HighConnectionCountThreshold
+  >;
 }
 
 export interface RdsClusterMonitoringProps
@@ -43,7 +54,9 @@ export class RdsClusterMonitoring extends Monitoring {
   readonly url?: string;
 
   readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly connectionAlarmFactory: ConnectionAlarmFactory;
   readonly usageAnnotations: HorizontalAnnotation[];
+  readonly connectionAnnotations: HorizontalAnnotation[];
 
   readonly connectionsMetric: MetricWithAlarmSupport;
   readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
@@ -83,7 +96,10 @@ export class RdsClusterMonitoring extends Monitoring {
       namingStrategy.resolveAlarmFriendlyName()
     );
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
+    this.connectionAlarmFactory = new ConnectionAlarmFactory(alarmFactory);
+
     this.usageAnnotations = [];
+    this.connectionAnnotations = [];
 
     for (const disambiguator in props.addDiskSpaceUsageAlarm) {
       const alarmProps = props.addDiskSpaceUsageAlarm[disambiguator];
@@ -104,6 +120,30 @@ export class RdsClusterMonitoring extends Monitoring {
         disambiguator
       );
       this.usageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addMinConnectionCountAlarm) {
+      const alarmProps = props.addMinConnectionCountAlarm[disambiguator];
+      const createdAlarm =
+        this.connectionAlarmFactory.addMinConnectionCountAlarm(
+          this.connectionsMetric,
+          alarmProps,
+          disambiguator
+        );
+      this.connectionAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addMaxConnectionCountAlarm) {
+      const alarmProps = props.addMaxConnectionCountAlarm[disambiguator];
+      const createdAlarm =
+        this.connectionAlarmFactory.addMaxConnectionCountAlarm(
+          this.connectionsMetric,
+          alarmProps,
+          disambiguator
+        );
+      this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
 
@@ -154,6 +194,7 @@ export class RdsClusterMonitoring extends Monitoring {
       title: "Connections",
       left: [this.connectionsMetric],
       leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.connectionAnnotations,
     });
   }
 

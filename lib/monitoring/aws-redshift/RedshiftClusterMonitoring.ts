@@ -8,9 +8,15 @@ import {
   BaseMonitoringProps,
   BooleanAxisFromZeroToOne,
   CountAxisFromZero,
+  ConnectionAlarmFactory,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
+  DurationThreshold,
   HalfQuarterWidth,
+  HighConnectionCountThreshold,
+  LatencyAlarmFactory,
+  LatencyType,
+  LowConnectionCountThreshold,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
@@ -33,6 +39,15 @@ import {
 export interface RedshiftClusterMonitoringOptions extends BaseMonitoringProps {
   readonly addDiskSpaceUsageAlarm?: Record<string, UsageThreshold>;
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
+  readonly addMaxLongQueryDurationAlarm?: Record<string, DurationThreshold>;
+  readonly addMinConnectionCountAlarm?: Record<
+    string,
+    LowConnectionCountThreshold
+  >;
+  readonly addMaxConnectionCountAlarm?: Record<
+    string,
+    HighConnectionCountThreshold
+  >;
 }
 
 export interface RedshiftClusterMonitoringProps
@@ -44,6 +59,10 @@ export class RedshiftClusterMonitoring extends Monitoring {
   readonly url?: string;
 
   readonly usageAlarmFactory: UsageAlarmFactory;
+  readonly latencyAlarmFactory: LatencyAlarmFactory;
+  readonly connectionAlarmFactory: ConnectionAlarmFactory;
+  readonly queryDurationAnnotations: HorizontalAnnotation[];
+  readonly connectionAnnotations: HorizontalAnnotation[];
   readonly usageAnnotations: HorizontalAnnotation[];
 
   readonly connectionsMetric: MetricWithAlarmSupport;
@@ -72,6 +91,10 @@ export class RedshiftClusterMonitoring extends Monitoring {
       namingStrategy.resolveAlarmFriendlyName()
     );
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
+    this.latencyAlarmFactory = new LatencyAlarmFactory(alarmFactory);
+    this.connectionAlarmFactory = new ConnectionAlarmFactory(alarmFactory);
+    this.queryDurationAnnotations = [];
+    this.connectionAnnotations = [];
     this.usageAnnotations = [];
 
     const metricFactory = new RedshiftClusterMetricFactory(
@@ -111,6 +134,42 @@ export class RedshiftClusterMonitoring extends Monitoring {
         disambiguator
       );
       this.usageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addMaxLongQueryDurationAlarm) {
+      const alarmProps = props.addMaxLongQueryDurationAlarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addDurationAlarm(
+        this.longQueryDurationMetric,
+        LatencyType.P90,
+        alarmProps,
+        disambiguator
+      );
+      this.queryDurationAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addMinConnectionCountAlarm) {
+      const alarmProps = props.addMinConnectionCountAlarm[disambiguator];
+      const createdAlarm =
+        this.connectionAlarmFactory.addMinConnectionCountAlarm(
+          this.connectionsMetric,
+          alarmProps,
+          disambiguator
+        );
+      this.connectionAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addMaxConnectionCountAlarm) {
+      const alarmProps = props.addMaxConnectionCountAlarm[disambiguator];
+      const createdAlarm =
+        this.connectionAlarmFactory.addMaxConnectionCountAlarm(
+          this.connectionsMetric,
+          alarmProps,
+          disambiguator
+        );
+      this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
 
@@ -163,6 +222,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
       title: "Connections",
       left: [this.connectionsMetric],
       leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.connectionAnnotations,
     });
   }
 
@@ -177,6 +237,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
         this.longQueryDurationMetric,
       ],
       leftYAxis: TimeAxisMillisFromZero,
+      leftAnnotations: this.queryDurationAnnotations,
     });
   }
 

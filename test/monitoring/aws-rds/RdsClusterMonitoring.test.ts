@@ -38,6 +38,16 @@ test("snapshot test: all alarms", () => {
         maxUsagePercent: 70,
       },
     },
+    addMinConnectionCountAlarm: {
+      Warning: {
+        minConnectionCount: 1,
+      },
+    },
+    addMaxConnectionCountAlarm: {
+      Warning: {
+        maxConnectionCount: 100,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms) {
         numAlarmsCreated = alarms.length;
@@ -46,6 +56,6 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(2);
+  expect(numAlarmsCreated).toStrictEqual(4);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
