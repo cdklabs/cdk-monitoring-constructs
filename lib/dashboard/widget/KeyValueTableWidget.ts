@@ -6,7 +6,7 @@ export class KeyValueTableWidget extends TextWidget {
   constructor(data: [string, string][]) {
     super({
       width: FullWidth,
-      height: 2,
+      height: 3,
       markdown: KeyValueTableWidget.toMarkdown(data),
     });
   }

@@ -3,7 +3,7 @@
 exports[`snapshot test 1`] = `
 Array [
   Object {
-    "height": 2,
+    "height": 3,
     "properties": Object {
       "markdown": "| name| has
 |---|---
