@@ -36,7 +36,7 @@ export class ConnectionAlarmFactory {
       disambiguator,
       threshold: props.minConnectionCount,
       alarmNameSuffix: "Connection-Count-Low",
-      alarmDescription: `Number of database connections is too low.`,
+      alarmDescription: `Number of connections is too low.`,
     });
   }
 
