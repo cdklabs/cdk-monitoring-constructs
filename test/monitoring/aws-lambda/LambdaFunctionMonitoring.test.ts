@@ -115,6 +115,12 @@ test("snapshot test: all alarms", () => {
         datapointsToAlarm: 20,
       },
     },
+    addMinInvocationsCountAlarm: {
+      Warning: {
+        minCount: 5,
+        datapointsToAlarm: 30,
+      },
+    },
     addConcurrentExecutionsCountAlarm: {
       Warning: {
         maxRunningTasks: 10,
@@ -137,7 +143,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(12);
+  expect(numAlarmsCreated).toStrictEqual(13);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -255,6 +261,12 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
         datapointsToAlarm: 20,
       },
     },
+    addMinInvocationsCountAlarm: {
+      Warning: {
+        minCount: 5,
+        datapointsToAlarm: 30,
+      },
+    },
     addConcurrentExecutionsCountAlarm: {
       Warning: {
         maxRunningTasks: 10,
@@ -277,7 +289,7 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
     },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(12);
+  expect(numAlarmsCreated).toStrictEqual(13);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -355,6 +367,12 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
         datapointsToAlarm: 20,
       },
     },
+    addMinInvocationsCountAlarm: {
+      Warning: {
+        minCount: 5,
+        datapointsToAlarm: 30,
+      },
+    },
     addConcurrentExecutionsCountAlarm: {
       Warning: {
         maxRunningTasks: 10,
@@ -377,6 +395,6 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
     },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(12);
+  expect(numAlarmsCreated).toStrictEqual(13);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

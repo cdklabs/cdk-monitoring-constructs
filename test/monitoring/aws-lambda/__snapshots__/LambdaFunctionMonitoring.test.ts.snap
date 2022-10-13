@@ -503,6 +503,42 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyLambdaUsageCountWarningFB9A10FB": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The count is too low.",
+        "AlarmName": "Test-DummyLambda-Usage-Count-Warning",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 30,
+        "EvaluationPeriods": 30,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Invocations",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
   },
   "Rules": Object {
     "CheckBootstrapVersion": Object {
@@ -1158,6 +1194,42 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyLambdaUsageCountWarningFB9A10FB": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The count is too low.",
+        "AlarmName": "Test-DummyLambda-Usage-Count-Warning",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 30,
+        "EvaluationPeriods": 30,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Invocations",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
   },
   "Rules": Object {
     "CheckBootstrapVersion": Object {
@@ -1689,6 +1761,42 @@ Object {
         ],
         "Threshold": 1,
         "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaUsageCountWarningFB9A10FB": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The count is too low.",
+        "AlarmName": "Test-DummyLambda-Usage-Count-Warning",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 30,
+        "EvaluationPeriods": 30,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Invocations",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
