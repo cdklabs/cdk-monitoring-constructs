@@ -33,6 +33,7 @@ test("snapshot test", () => {
     description:
       "This is a very long description.\nSecond line of this very long description.\nThird line of this very long description.",
     descriptionWidgetHeight: 2,
+    height: 100,
     metricGroups: [
       {
         title: "DummyGroup1",
@@ -436,6 +437,6 @@ test("throws error if attempting to add both a regular alarm and an anomoly dete
         ],
       })
   ).toThrow(
-    "Adding both a regular alarm and an anomoly detection alarm at the same time is not supported"
+    "Adding both a regular alarm and an anomaly detection alarm at the same time is not supported"
   );
 });

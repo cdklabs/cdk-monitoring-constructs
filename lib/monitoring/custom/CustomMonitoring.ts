@@ -191,8 +191,24 @@ export interface CustomMetricGroup {
 }
 
 export interface CustomMonitoringProps extends BaseMonitoringProps {
+  /**
+   * optional description of the whole section, in markdown
+   * @default no description
+   */
   readonly description?: string;
+  /**
+   * optional height of the description widget, so the content fits
+   * @default minimum height (should fit one or two lines of text)
+   */
   readonly descriptionWidgetHeight?: number;
+  /**
+   * height override
+   * @default default height
+   */
+  readonly height?: number;
+  /**
+   * define metric groups and metrics inside them (each metric group represents a widget)
+   */
   readonly metricGroups: CustomMetricGroup[];
 }
 
@@ -201,6 +217,7 @@ export interface CustomMetricGroupWithAnnotations {
   readonly annotations: HorizontalAnnotation[];
   readonly rightAnnotations: HorizontalAnnotation[];
   readonly titleAddons: string[];
+  readonly height?: number;
 }
 
 /**
@@ -214,6 +231,7 @@ export class CustomMonitoring extends Monitoring {
   readonly title: string;
   readonly description?: string;
   readonly descriptionWidgetHeight?: number;
+  readonly height?: number;
   readonly customAlarmFactory: CustomAlarmFactory;
   readonly anomalyDetectingAlarmFactory: AnomalyDetectingAlarmFactory;
   readonly metricGroups: CustomMetricGroupWithAnnotations[];
@@ -226,6 +244,7 @@ export class CustomMonitoring extends Monitoring {
 
     this.description = props.description;
     this.descriptionWidgetHeight = props.descriptionWidgetHeight;
+    this.height = props.height;
 
     const alarmFactory = this.createAlarmFactory(
       namingStrategy.resolveAlarmFriendlyName()
@@ -257,7 +276,7 @@ export class CustomMonitoring extends Monitoring {
       metricGroup.metrics.forEach((metric) => {
         if (this.hasAlarm(metric) && this.hasAnomalyDetection(metric)) {
           throw new Error(
-            "Adding both a regular alarm and an anomoly detection alarm at the same time is not supported"
+            "Adding both a regular alarm and an anomaly detection alarm at the same time is not supported"
           );
         }
 
@@ -338,6 +357,11 @@ export class CustomMonitoring extends Monitoring {
     const metricGroupWidgetWidth = recommendedWidgetWidth(
       annotatedGroups.length
     );
+    const metricGroupWidgetHeightDefault = summary
+      ? DefaultSummaryWidgetHeight
+      : DefaultGraphWidgetHeight;
+    const metricGroupWidgetHeight =
+      this.height ?? metricGroupWidgetHeightDefault;
 
     annotatedGroups.forEach((annotatedGroup) => {
       const metrics = annotatedGroup.metricGroup.metrics;
@@ -367,7 +391,7 @@ export class CustomMonitoring extends Monitoring {
       const graphWidgetProps: GraphWidgetProps = {
         title,
         width: metricGroupWidgetWidth,
-        height: summary ? DefaultSummaryWidgetHeight : DefaultGraphWidgetHeight,
+        height: metricGroupWidgetHeight,
         left,
         right,
         leftAnnotations: annotatedGroup.annotations,
