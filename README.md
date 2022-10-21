@@ -72,7 +72,7 @@ You can browse the documentation at https://constructs.dev/packages/cdk-monitori
 | AWS API Gateway (REST API) (`.monitorApiGateway()`) | TPS, latency, errors | Latency, error count/rate, low/high TPS | To see metrics, you have to enable Advanced Monitoring |
 | AWS API Gateway V2 (HTTP API) (`.monitorApiGatewayV2HttpApi()`) | TPS, latency, errors | Latency, error count/rate, low/high TPS | To see route level metrics, you have to enable Advanced Monitoring |
 | AWS AppSync (GraphQL API) (`.monitorAppSyncApi()`) | TPS, latency, errors | Latency, error count/rate, low/high TPS | |
-| AWS Billing (`.monitorBilling()`) | AWS account cost | | [Requires enabling](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) the **Receive Billing Alerts** option in AWS Console / Billing Preferences |
+| AWS Billing (`.monitorBilling()`) | AWS account cost | Total cost (anomaly) | [Requires enabling](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) the **Receive Billing Alerts** option in AWS Console / Billing Preferences |
 | AWS Certificate Manager (`.monitorCertificate()`) | Certificate expiration | Days until expiration | |
 | AWS CloudFront (`.monitorCloudFrontDistribution()`) | TPS, traffic, latency, errors | Error rate, low/high TPS | |
 | AWS CloudWatch Logs (`.monitorLog()`) | Patterns present in the log group | | |

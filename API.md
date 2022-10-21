@@ -7766,6 +7766,7 @@ const billingMonitoringOptions: BillingMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.addTotalCostAnomalyAlarm">addTotalCostAnomalyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold">AnomalyDetectionThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -7867,6 +7868,16 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addTotalCostAnomalyAlarm`<sup>Optional</sup> <a name="addTotalCostAnomalyAlarm" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.addTotalCostAnomalyAlarm"></a>
+
+```typescript
+public readonly addTotalCostAnomalyAlarm: {[ key: string ]: AnomalyDetectionThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold">AnomalyDetectionThreshold</a>}
+
+---
+
 ### BillingMonitoringProps <a name="BillingMonitoringProps" id="cdk-monitoring-constructs.BillingMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.BillingMonitoringProps.Initializer"></a>
@@ -7888,6 +7899,7 @@ const billingMonitoringProps: BillingMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.addTotalCostAnomalyAlarm">addTotalCostAnomalyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold">AnomalyDetectionThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -7986,6 +7998,16 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addTotalCostAnomalyAlarm`<sup>Optional</sup> <a name="addTotalCostAnomalyAlarm" id="cdk-monitoring-constructs.BillingMonitoringProps.property.addTotalCostAnomalyAlarm"></a>
+
+```typescript
+public readonly addTotalCostAnomalyAlarm: {[ key: string ]: AnomalyDetectionThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold">AnomalyDetectionThreshold</a>}
 
 ---
 
@@ -40770,7 +40792,7 @@ public metricSearchTopCostByServiceInUsd(): IMetric
 ##### `metricTotalCostInUsd` <a name="metricTotalCostInUsd" id="cdk-monitoring-constructs.BillingMetricFactory.metricTotalCostInUsd"></a>
 
 ```typescript
-public metricTotalCostInUsd(): IMetric
+public metricTotalCostInUsd(): Metric | MathExpression
 ```
 
 
@@ -40954,9 +40976,31 @@ public createTotalChargesWidget(width: number, height: number): SingleValueWidge
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.anomalyDetectingAlarmFactory">anomalyDetectingAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AnomalyDetectingAlarmFactory">AnomalyDetectingAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.costByServiceMetric">costByServiceMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.totalCostMetric">totalCostMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.property.totalCostMetric">totalCostMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.BillingMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `anomalyDetectingAlarmFactory`<sup>Required</sup> <a name="anomalyDetectingAlarmFactory" id="cdk-monitoring-constructs.BillingMonitoring.property.anomalyDetectingAlarmFactory"></a>
+
+```typescript
+public readonly anomalyDetectingAlarmFactory: AnomalyDetectingAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AnomalyDetectingAlarmFactory">AnomalyDetectingAlarmFactory</a>
 
 ---
 
@@ -40983,10 +41027,10 @@ public readonly title: string;
 ##### `totalCostMetric`<sup>Required</sup> <a name="totalCostMetric" id="cdk-monitoring-constructs.BillingMonitoring.property.totalCostMetric"></a>
 
 ```typescript
-public readonly totalCostMetric: IMetric;
+public readonly totalCostMetric: Metric | MathExpression;
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
