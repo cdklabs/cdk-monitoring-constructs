@@ -22,6 +22,10 @@ export interface UsageThreshold extends CustomAlarmThreshold {
   readonly maxUsagePercent: number;
 }
 
+export interface MinUsageCountThreshold extends CustomAlarmThreshold {
+  readonly minCount: number;
+}
+
 export interface UsageCountThreshold extends CustomAlarmThreshold {
   readonly maxUsageCount: number;
 }
@@ -31,6 +35,25 @@ export class UsageAlarmFactory {
 
   constructor(alarmFactory: AlarmFactory) {
     this.alarmFactory = alarmFactory;
+  }
+
+  addMinUsageCountAlarm(
+    percentMetric: MetricWithAlarmSupport,
+    props: MinUsageCountThreshold,
+    disambiguator?: string
+  ) {
+    return this.alarmFactory.addAlarm(percentMetric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.LESS_THAN_LOWER_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.minCount,
+      alarmNameSuffix: "Usage-Count",
+      alarmDescription: "The count is too low.",
+    });
   }
 
   addMaxCpuUsagePercentAlarm(

@@ -26,6 +26,7 @@ import {
   MaxAgeThreshold,
   MegabyteMillisecondAxisFromZero,
   MetricWithAlarmSupport,
+  MinUsageCountThreshold,
   Monitoring,
   MonitoringScope,
   PercentageAxisFromZeroToHundred,
@@ -64,6 +65,8 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
 
   readonly addThrottlesCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addThrottlesRateAlarm?: Record<string, ErrorRateThreshold>;
+
+  readonly addMinInvocationsCountAlarm?: Record<string, MinUsageCountThreshold>;
 
   readonly addConcurrentExecutionsCountAlarm?: Record<
     string,
@@ -418,6 +421,16 @@ export class LambdaFunctionMonitoring extends Monitoring {
         disambiguator
       );
       this.invocationRateAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addMinInvocationsCountAlarm) {
+      const alarmProps = props.addMinInvocationsCountAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMinUsageCountAlarm(
+        this.invocationCountMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.invocationCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
     for (const disambiguator in props.addConcurrentExecutionsCountAlarm) {
