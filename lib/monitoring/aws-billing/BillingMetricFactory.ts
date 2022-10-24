@@ -1,7 +1,11 @@
 import { Duration } from "aws-cdk-lib";
 import { IMetric, Metric } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricStatistic, XaxrMathExpression } from "../../common";
+import {
+  MetricStatistic,
+  MetricWithAlarmSupport,
+  XaxrMathExpression,
+} from "../../common";
 
 export const BillingRegion = "us-east-1";
 export const BillingCurrency = "USD";
@@ -33,7 +37,7 @@ export class BillingMetricFactory {
     });
   }
 
-  metricTotalCostInUsd(): IMetric {
+  metricTotalCostInUsd(): MetricWithAlarmSupport {
     // not using metric factory because we customize everything
 
     return new Metric({
