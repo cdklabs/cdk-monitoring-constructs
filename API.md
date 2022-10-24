@@ -10350,6 +10350,7 @@ const customMetricGroupWithAnnotations: CustomMetricGroupWithAnnotations = { ...
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.metricGroup">metricGroup</a></code> | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup">CustomMetricGroup</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.rightAnnotations">rightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.titleAddons">titleAddons</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.height">height</a></code> | <code>number</code> | *No description.* |
 
 ---
 
@@ -10390,6 +10391,16 @@ public readonly titleAddons: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `height`<sup>Optional</sup> <a name="height" id="cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.height"></a>
+
+```typescript
+public readonly height: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -10683,9 +10694,10 @@ const customMonitoringProps: CustomMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.metricGroups">metricGroups</a></code> | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup">CustomMetricGroup</a>[]</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.descriptionWidgetHeight">descriptionWidgetHeight</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.metricGroups">metricGroups</a></code> | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup">CustomMetricGroup</a>[]</code> | define metric groups and metrics inside them (each metric group represents a widget). |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.description">description</a></code> | <code>string</code> | optional description of the whole section, in markdown. |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.descriptionWidgetHeight">descriptionWidgetHeight</a></code> | <code>number</code> | optional height of the description widget, so the content fits. |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.height">height</a></code> | <code>number</code> | height override. |
 
 ---
 
@@ -10795,6 +10807,8 @@ public readonly metricGroups: CustomMetricGroup[];
 
 - *Type:* <a href="#cdk-monitoring-constructs.CustomMetricGroup">CustomMetricGroup</a>[]
 
+define metric groups and metrics inside them (each metric group represents a widget).
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-monitoring-constructs.CustomMonitoringProps.property.description"></a>
@@ -10804,6 +10818,9 @@ public readonly description: string;
 ```
 
 - *Type:* string
+- *Default:* no description
+
+optional description of the whole section, in markdown.
 
 ---
 
@@ -10814,6 +10831,22 @@ public readonly descriptionWidgetHeight: number;
 ```
 
 - *Type:* number
+- *Default:* minimum height (should fit one or two lines of text)
+
+optional height of the description widget, so the content fits.
+
+---
+
+##### `height`<sup>Optional</sup> <a name="height" id="cdk-monitoring-constructs.CustomMonitoringProps.property.height"></a>
+
+```typescript
+public readonly height: number;
+```
+
+- *Type:* number
+- *Default:* default height
+
+height override.
 
 ---
 
@@ -42473,6 +42506,7 @@ Returns widgets to be placed on the main dashboard.
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.description">description</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.descriptionWidgetHeight">descriptionWidgetHeight</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.height">height</a></code> | <code>number</code> | *No description.* |
 
 ---
 
@@ -42530,6 +42564,16 @@ public readonly description: string;
 
 ```typescript
 public readonly descriptionWidgetHeight: number;
+```
+
+- *Type:* number
+
+---
+
+##### `height`<sup>Optional</sup> <a name="height" id="cdk-monitoring-constructs.CustomMonitoring.property.height"></a>
+
+```typescript
+public readonly height: number;
 ```
 
 - *Type:* number

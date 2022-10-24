@@ -115,10 +115,8 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
   readonly errorRateAnnotations: HorizontalAnnotation[];
 
   readonly tpsMetric: MetricWithAlarmSupport;
-
   readonly error4xxCountMetric: MetricWithAlarmSupport;
   readonly error4xxRateMetric: MetricWithAlarmSupport;
-
   readonly error5xxCountMetric: MetricWithAlarmSupport;
   readonly error5xxRateMetric: MetricWithAlarmSupport;
 
@@ -133,13 +131,23 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
   ) {
     super(scope, props);
 
+    // used when humanReadableName is not provided by user
+    const fallbackNameArray = [props.api.apiId];
+    fallbackNameArray.push(props.apiStage ?? "$default");
+    if (props.apiMethod) {
+      fallbackNameArray.push(props.apiMethod);
+    }
+    if (props.apiResource) {
+      fallbackNameArray.push(props.apiResource);
+    }
+
     const namingStrategy = new MonitoringNamingStrategy({
       ...props,
       namedConstruct: props.api,
-      fallbackConstructName: props.api.apiId,
-      humanReadableName: `${props.api.apiId} ${props.apiStage ?? "$default"} ${
-        props.apiMethod ?? ""
-      } ${props.apiResource ?? ""}`,
+      fallbackConstructName: fallbackNameArray
+        .join("-")
+        .replace(/[^a-zA-Z0-9-_]/g, ""),
+      humanReadableName: props.humanReadableName ?? fallbackNameArray.join(" "),
     });
 
     this.title = namingStrategy.resolveHumanReadableName();
