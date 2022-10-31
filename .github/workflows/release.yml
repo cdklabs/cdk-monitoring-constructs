@@ -30,14 +30,14 @@ jobs:
         run: npx projen release
       - name: Check for new commits
         id: git_remote
-        run: echo ::set-output name=latest_commit::"$(git ls-remote origin -h ${{ github.ref }} | cut -f1)"
+        run: echo "latest_commit=$(git ls-remote origin -h ${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
       - name: Backup artifact permissions
         if: ${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
         continue-on-error: true
       - name: Upload artifact
         if: ${{ steps.git_remote.outputs.latest_commit == github.sha }}
-        uses: actions/upload-artifact@v2.1.1
+        uses: actions/upload-artifact@v3
         with:
           name: build-artifact
           path: dist
@@ -156,7 +156,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14.x
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: 3.x
       - name: Download build artifacts
@@ -191,7 +191,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14.x
-      - uses: actions/setup-dotnet@v2
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
       - name: Download build artifacts
