@@ -7,6 +7,7 @@ import {
   Shading,
   TreatMissingData,
 } from "aws-cdk-lib/aws-cloudwatch";
+import { Topic } from "aws-cdk-lib/aws-sns";
 import { Construct } from "constructs";
 
 import {
@@ -15,11 +16,17 @@ import {
   AlarmFactoryDefaults,
   CompositeAlarmOperator,
   MetricFactoryDefaults,
+  multipleActions,
   noopAction,
+  SnsAlarmActionStrategy,
 } from "../../../lib";
 
 const stack = new Stack();
 const construct = new Construct(stack, "SampleConstruct");
+
+const snsAction = new SnsAlarmActionStrategy({
+  onAlarmTopic: new Topic(stack, "Dummy2"),
+});
 const globalMetricDefaults: MetricFactoryDefaults = {
   namespace: "DummyNamespace",
 };
@@ -39,6 +46,9 @@ const globalAlarmDefaultsWithDisambiguator: AlarmFactoryDefaults = {
   datapointsToAlarm: 6,
   // we do not care about alarm actions in this test
   action: noopAction(),
+  disambiguatorAction: {
+    DisambiguatedAction: snsAction,
+  },
 };
 const factory = new AlarmFactory(construct, {
   globalMetricDefaults,
@@ -116,6 +126,7 @@ test("addAlarm: verify actions enabled", () => {
     ...props,
     alarmNameSuffix: "DisabledByDefault",
   });
+
   const template = Template.fromStack(stack);
   template.hasResourceProperties("AWS::CloudWatch::Alarm", {
     ActionsEnabled: true,
@@ -154,6 +165,7 @@ test("addAlarm: description can be overridden", () => {
     alarmNameSuffix: "Suffix6B",
     alarmDescriptionOverride: "New Description",
   });
+
   expect(alarm1.alarmDescription).toEqual("Description");
   expect(alarm2.alarmDescription).toEqual("New Description");
 });
@@ -179,6 +191,7 @@ test("addAlarm: evaluateLowSampleCountPercentile can be overridden", () => {
     evaluateLowSampleCountPercentile: true,
     alarmNameSuffix: "TrueValue",
   });
+
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -194,6 +207,7 @@ test("addAlarm: period override is propagated to alarm metric", () => {
     alarmNameSuffix: "TwoHoursPeriod",
     period: Duration.hours(2),
   });
+
   const alarm1hConfig = (alarm1h.alarm as Alarm).metric.toMetricConfig();
   expect(alarm1hConfig.metricStat?.period).toStrictEqual(Duration.hours(1));
   const alarm2hConfig = (alarm2h.alarm as Alarm).metric.toMetricConfig();
@@ -225,6 +239,7 @@ test("addAlarm: fill is propagated to alarm annotation", () => {
     comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
     fillAlarmRange: true,
   });
+
   expect(alarmNone.annotation.fill).toBeUndefined();
   expect(alarmAbove.annotation.fill).toStrictEqual(Shading.ABOVE);
   expect(alarmBelow.annotation.fill).toStrictEqual(Shading.BELOW);
@@ -245,6 +260,7 @@ test("addAlarm: annotation overrides are applied", () => {
     overrideAnnotationVisibility: false,
     overrideAnnotationColor: "NewColor",
   });
+
   expect(alarm.annotation).toStrictEqual({
     color: "NewColor",
     label: "NewLabel",
@@ -266,8 +282,8 @@ test("addAlarm: check created alarms when minMetricSamplesToAlarm is used", () =
     comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
     minMetricSamplesToAlarm: 42,
   });
-  const template = Template.fromStack(stack);
 
+  const template = Template.fromStack(stack);
   template.hasResourceProperties("AWS::CloudWatch::Alarm", {
     AlarmName: "DummyServiceAlarms-prefix-none",
     MetricName: "DummyMetric1",
@@ -285,6 +301,7 @@ test("addAlarm: check created alarms when minMetricSamplesToAlarm is used", () =
     Threshold: 42,
     TreatMissingData: "breaching",
   });
+
   const alarmRuleCapture = new Capture();
   template.hasResourceProperties("AWS::CloudWatch::CompositeAlarm", {
     AlarmName: "DummyServiceAlarms-prefix-none-WithSamples",
@@ -345,5 +362,50 @@ test("addCompositeAlarm: snapshot for operator", () => {
     alarmNameSuffix: "CompositeOr",
     compositeOperator: CompositeAlarmOperator.OR,
   });
+
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("addAlarm: original actionOverride with a different action gets preserved", () => {
+  const originalActionOverride = new SnsAlarmActionStrategy({
+    onAlarmTopic: new Topic(stack, "Dummy1"),
+  });
+
+  const alarm = factory.addAlarm(metric, {
+    ...props,
+    alarmNameSuffix: "OriginalActionOverridePreserved",
+    actionOverride: originalActionOverride,
+  });
+
+  expect(alarm.action).toStrictEqual(originalActionOverride);
+});
+
+test("addAlarm: original actionOverride with multipleActions gets preserved", () => {
+  const action1 = snsAction;
+  const action2 = noopAction();
+
+  const originalActionOverride = multipleActions(action1, action2);
+
+  const alarm = factory.addAlarm(metric, {
+    ...props,
+    alarmNameSuffix: "OriginalActionOverridePreservedInMultipleActions",
+    actionOverride: originalActionOverride,
+  });
+
+  expect(alarm.action).toStrictEqual(multipleActions(action1, action2));
+});
+
+test("addAlarm: disambigatorAction takes precedence over default action", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: globalAlarmDefaultsWithDisambiguator,
+    localAlarmNamePrefix: "prefix",
+  });
+  const alarm = factory.addAlarm(metric, {
+    ...props,
+    disambiguator: "DisambiguatedAction",
+  });
+
+  expect(alarm.action).toStrictEqual(snsAction);
 });
