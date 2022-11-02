@@ -2874,6 +2874,7 @@ const alarmFactoryDefaults: AlarmFactoryDefaults = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.annotationStrategy">annotationStrategy</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmAnnotationStrategy">IAlarmAnnotationStrategy</a></code> | Custom strategy to create annotations for alarms. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.dedupeStringProcessor">dedupeStringProcessor</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmDedupeStringProcessor">IAlarmDedupeStringProcessor</a></code> | Custom strategy to process dedupe strings of the alarms. |
+| <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.disambiguatorAction">disambiguatorAction</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>}</code> | Optional alarm action for each disambiguator. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -2958,6 +2959,19 @@ public readonly dedupeStringProcessor: IAlarmDedupeStringProcessor;
 - *Default:* default behaviour (no change)
 
 Custom strategy to process dedupe strings of the alarms.
+
+---
+
+##### `disambiguatorAction`<sup>Optional</sup> <a name="disambiguatorAction" id="cdk-monitoring-constructs.AlarmFactoryDefaults.property.disambiguatorAction"></a>
+
+```typescript
+public readonly disambiguatorAction: {[ key: string ]: IAlarmActionStrategy};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>}
+- *Default:* Global alarm action if defined.
+
+Optional alarm action for each disambiguator.
 
 ---
 

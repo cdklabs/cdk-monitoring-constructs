@@ -380,6 +380,16 @@ export interface AlarmFactoryDefaults {
   readonly action?: IAlarmActionStrategy;
 
   /**
+   * Optional alarm action for each disambiguator.
+   *
+   * @default - Global alarm action if defined.
+   */
+  readonly disambiguatorAction?: Record<
+    PredefinedAlarmDisambiguators | string,
+    IAlarmActionStrategy
+  >;
+
+  /**
    * Custom strategy to create annotations for alarms.
    *
    * @default - default annotations
@@ -487,8 +497,10 @@ export class AlarmFactory {
       props.actionsEnabled,
       props.disambiguator
     );
-    const action =
-      props.actionOverride ?? this.globalAlarmDefaults.action ?? noopAction();
+    const action = this.determineAction(
+      props.disambiguator,
+      props.actionOverride
+    );
     const alarmName = this.alarmNamingStrategy.getName(props);
     const alarmNameSuffix = props.alarmNameSuffix;
     const alarmLabel = this.alarmNamingStrategy.getWidgetLabel(props);
@@ -702,6 +714,27 @@ export class AlarmFactory {
       return this.globalAlarmDefaults.actionsEnabled[disambiguator] ?? false;
     }
     return false;
+  }
+
+  protected determineAction(
+    disambiguator?: string,
+    actionOverride?: IAlarmActionStrategy
+  ): IAlarmActionStrategy {
+    // Explicit override
+    if (actionOverride) {
+      return actionOverride;
+    }
+
+    // Default by disambiugator
+    if (
+      disambiguator &&
+      this.globalAlarmDefaults.disambiguatorAction?.[disambiguator]
+    ) {
+      return this.globalAlarmDefaults.disambiguatorAction[disambiguator];
+    }
+
+    // Default global action
+    return this.globalAlarmDefaults.action ?? noopAction();
   }
 
   get shouldUseDefaultDedupeForError() {
