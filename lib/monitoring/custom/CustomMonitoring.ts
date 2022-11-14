@@ -170,10 +170,16 @@ export interface CustomMetricGroup {
    */
   readonly graphWidgetLegend?: LegendPosition;
   /**
+   * @deprecated use addToSummaryDashboard
    * Flag indicating, whether this is an important metric group that should be included in the summary as well.
    * @default false
    */
   readonly important?: boolean;
+  /**
+   * Flag indicating this metric group should be included in the summary as well.
+   * @default false
+   */
+  readonly addToSummaryDashboard?: boolean;
   /**
    * list of metrics in the group (can be defined in different ways, see the type documentation)
    */
@@ -304,7 +310,10 @@ export class CustomMonitoring extends Monitoring {
   private getAllWidgets(summary: boolean): IWidget[] {
     const filteredMetricGroups = summary
       ? this.metricGroups.filter(
-          (group) => group.metricGroup.important ?? false
+          (group) =>
+            group.metricGroup.important ??
+            group.metricGroup.addToSummaryDashboard ??
+            false
         )
       : this.metricGroups;
 

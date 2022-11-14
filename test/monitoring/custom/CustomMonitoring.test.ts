@@ -37,7 +37,7 @@ test("snapshot test", () => {
     metricGroups: [
       {
         title: "DummyGroup1",
-        important: true,
+        addToSummaryDashboard: true,
         metrics: [
           // regular metric
           new Metric({ metricName: "DummyMetric1", namespace, dimensionsMap }),
@@ -403,7 +403,7 @@ test("throws error if attempting to add alarm on a search query", () => {
         metricGroups: [
           {
             title: "DummyGroup1",
-            important: true,
+            addToSummaryDashboard: true,
             metrics: [
               {
                 searchQuery: "DummyMetric4-",
@@ -442,7 +442,7 @@ test("throws error if attempting to add both a regular alarm and an anomoly dete
         metricGroups: [
           {
             title: "DummyGroup1",
-            important: true,
+            addToSummaryDashboard: true,
             metrics: [
               {
                 metric: new Metric({

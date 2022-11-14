@@ -10223,13 +10223,14 @@ const customMetricGroup: CustomMetricGroup = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression \| <a href="#cdk-monitoring-constructs.CustomMetricWithAlarm">CustomMetricWithAlarm</a> \| <a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection">CustomMetricWithAnomalyDetection</a> \| <a href="#cdk-monitoring-constructs.CustomMetricSearch">CustomMetricSearch</a>[]</code> | list of metrics in the group (can be defined in different ways, see the type documentation). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.title">title</a></code> | <code>string</code> | title of the whole group. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating this metric group should be included in the summary as well. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetAxis">graphWidgetAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional axis. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetLegend">graphWidgetLegend</a></code> | <code>aws-cdk-lib.aws_cloudwatch.LegendPosition</code> | graph widget legend. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis">graphWidgetRightAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional right axis. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetType">graphWidgetType</a></code> | <code><a href="#cdk-monitoring-constructs.GraphWidgetType">GraphWidgetType</a></code> | type of the widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalAnnotations">horizontalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalRightAnnotations">horizontalRightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together). |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.important">important</a></code> | <code>boolean</code> | Flag indicating, whether this is an important metric group that should be included in the summary as well. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.important">important</a></code> | <code>boolean</code> | *No description.* |
 
 ---
 
@@ -10254,6 +10255,19 @@ public readonly title: string;
 - *Type:* string
 
 title of the whole group.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.CustomMetricGroup.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Flag indicating this metric group should be included in the summary as well.
 
 ---
 
@@ -10333,7 +10347,10 @@ optional custom horizontal annotations which will be displayed over the metrics 
 
 ---
 
-##### `important`<sup>Optional</sup> <a name="important" id="cdk-monitoring-constructs.CustomMetricGroup.property.important"></a>
+##### ~~`important`~~<sup>Optional</sup> <a name="important" id="cdk-monitoring-constructs.CustomMetricGroup.property.important"></a>
+
+- *Deprecated:* use addToSummaryDashboard
+Flag indicating, whether this is an important metric group that should be included in the summary as well.
 
 ```typescript
 public readonly important: boolean;
@@ -10341,8 +10358,6 @@ public readonly important: boolean;
 
 - *Type:* boolean
 - *Default:* false
-
-Flag indicating, whether this is an important metric group that should be included in the summary as well.
 
 ---
 
