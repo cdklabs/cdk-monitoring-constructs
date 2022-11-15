@@ -185,6 +185,8 @@ test("anomaly detection", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
+  let numAlarmsCreated = 0;
+
   new CustomMonitoring(scope, {
     alarmFriendlyName: "AnomalyAlarmName",
     metricGroups: [
@@ -215,7 +217,14 @@ test("anomaly detection", () => {
         ],
       },
     ],
+    useCreatedAlarms: {
+      consume(alarms) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
   });
+
+  expect(numAlarmsCreated).toStrictEqual(1);
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -223,6 +232,8 @@ test("anomaly detection", () => {
 test("enhanced anomaly detection", () => {
   const stack = new Stack();
   const scope = new TestMonitoringScope(stack, "Scope");
+
+  let numAlarmsCreated = 0;
 
   new CustomMonitoring(scope, {
     alarmFriendlyName: "AnomalyAlarmName",
@@ -271,7 +282,14 @@ test("enhanced anomaly detection", () => {
         ],
       },
     ],
+    useCreatedAlarms: {
+      consume(alarms) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
   });
+
+  expect(numAlarmsCreated).toStrictEqual(3);
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -279,6 +297,8 @@ test("enhanced anomaly detection", () => {
 test("enhanced anomaly detection with more complex metric", () => {
   const stack = new Stack();
   const scope = new TestMonitoringScope(stack, "Scope");
+
+  let numAlarmsCreated = 0;
 
   new CustomMonitoring(scope, {
     alarmFriendlyName: "AnomalyAlarmName",
@@ -307,7 +327,14 @@ test("enhanced anomaly detection with more complex metric", () => {
         ],
       },
     ],
+    useCreatedAlarms: {
+      consume(alarms) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
   });
+
+  expect(numAlarmsCreated).toStrictEqual(1);
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -315,6 +342,8 @@ test("enhanced anomaly detection with more complex metric", () => {
 test("enhanced anomaly detection with metric math", () => {
   const stack = new Stack();
   const scope = new TestMonitoringScope(stack, "Scope");
+
+  let numAlarmsCreated = 0;
 
   const m1 = new Metric({
     metricName: "Metric1",
@@ -349,7 +378,14 @@ test("enhanced anomaly detection with metric math", () => {
         ],
       },
     ],
+    useCreatedAlarms: {
+      consume(alarms) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
   });
+
+  expect(numAlarmsCreated).toStrictEqual(1);
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
