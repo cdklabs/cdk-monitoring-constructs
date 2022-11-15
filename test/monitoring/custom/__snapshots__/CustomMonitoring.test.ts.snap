@@ -1,5 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`addToSummaryDashboard attribute takes precedence over important in metric group 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DummyName\\"}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":2,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"markdown\\":\\"Monitoring widget that shows up in the summary dashboard\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":100,\\"x\\":0,\\"y\\":3,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DummyGroup1\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyCustomNamespace\\",\\"DummyMetric1\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"]],\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### DummyName\\"}},{\\"type\\":\\"metric\\",\\"width\\":24,\\"height\\":100,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DummyGroup1\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyCustomNamespace\\",\\"DummyMetric1\\",\\"CustomDimension\\",\\"CustomDimensionValue\\"]],\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`anomaly detection 1`] = `
 Object {
   "Parameters": Object {

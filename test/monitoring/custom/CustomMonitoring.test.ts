@@ -37,7 +37,7 @@ test("snapshot test", () => {
     metricGroups: [
       {
         title: "DummyGroup1",
-        important: true,
+        addToSummaryDashboard: true,
         metrics: [
           // regular metric
           new Metric({ metricName: "DummyMetric1", namespace, dimensionsMap }),
@@ -170,6 +170,34 @@ test("snapshot test", () => {
   });
 
   expect(numAlarmsCreated).toStrictEqual(6);
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("addToSummaryDashboard attribute takes precedence over important in metric group", () => {
+  const stack = new Stack();
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new CustomMonitoring(scope, {
+    alarmFriendlyName: "DummyAlarmName",
+    humanReadableName: "DummyName",
+    description: "Monitoring widget that shows up in the summary dashboard",
+    descriptionWidgetHeight: 2,
+    height: 100,
+    addToSummaryDashboard: true,
+    metricGroups: [
+      {
+        title: "DummyGroup1",
+        important: false,
+        addToSummaryDashboard: true,
+        metrics: [
+          // regular metric
+          new Metric({ metricName: "DummyMetric1", namespace, dimensionsMap }),
+        ],
+      },
+    ],
+  });
 
   addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
@@ -403,7 +431,7 @@ test("throws error if attempting to add alarm on a search query", () => {
         metricGroups: [
           {
             title: "DummyGroup1",
-            important: true,
+            addToSummaryDashboard: true,
             metrics: [
               {
                 searchQuery: "DummyMetric4-",
@@ -442,7 +470,7 @@ test("throws error if attempting to add both a regular alarm and an anomoly dete
         metricGroups: [
           {
             title: "DummyGroup1",
-            important: true,
+            addToSummaryDashboard: true,
             metrics: [
               {
                 metric: new Metric({
