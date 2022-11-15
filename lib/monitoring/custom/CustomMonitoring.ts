@@ -170,7 +170,7 @@ export interface CustomMetricGroup {
    */
   readonly graphWidgetLegend?: LegendPosition;
   /**
-   * @deprecated use addToSummaryDashboard
+   * @deprecated use addToSummaryDashboard. addToSummaryDashboard will take precedence over important.
    * Flag indicating, whether this is an important metric group that should be included in the summary as well.
    * @default false
    */
@@ -311,8 +311,8 @@ export class CustomMonitoring extends Monitoring {
     const filteredMetricGroups = summary
       ? this.metricGroups.filter(
           (group) =>
-            group.metricGroup.important ??
             group.metricGroup.addToSummaryDashboard ??
+            group.metricGroup.important ??
             false
         )
       : this.metricGroups;

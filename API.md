@@ -10349,7 +10349,7 @@ optional custom horizontal annotations which will be displayed over the metrics 
 
 ##### ~~`important`~~<sup>Optional</sup> <a name="important" id="cdk-monitoring-constructs.CustomMetricGroup.property.important"></a>
 
-- *Deprecated:* use addToSummaryDashboard
+- *Deprecated:* use addToSummaryDashboard. addToSummaryDashboard will take precedence over important.
 Flag indicating, whether this is an important metric group that should be included in the summary as well.
 
 ```typescript
