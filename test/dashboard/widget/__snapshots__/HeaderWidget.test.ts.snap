@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test - title and description, no custom height 1`] = `
+Array [
+  Object {
+    "height": 2,
+    "properties": Object {
+      "markdown": "# text
+
+description",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test - title and description, with custom height 1`] = `
+Array [
+  Object {
+    "height": 6,
+    "properties": Object {
+      "markdown": "# text
+
+very long description",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test - title only 1`] = `
+Array [
+  Object {
+    "height": 1,
+    "properties": Object {
+      "markdown": "# text",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
