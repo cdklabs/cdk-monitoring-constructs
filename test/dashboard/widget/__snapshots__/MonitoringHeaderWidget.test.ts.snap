@@ -59,3 +59,37 @@ Array [
   },
 ]
 `;
+
+exports[`snapshot test: with link, custom text and description 1`] = `
+Array [
+  Object {
+    "height": 2,
+    "properties": Object {
+      "markdown": "### DummyFamily **[DummyTitle](http://amazon.com)**
+
+CustomDescription",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;
+
+exports[`snapshot test: with link, custom text and description with custom height 1`] = `
+Array [
+  Object {
+    "height": 11,
+    "properties": Object {
+      "markdown": "### DummyFamily **[DummyTitle](http://amazon.com)**
+
+CustomDescription",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;

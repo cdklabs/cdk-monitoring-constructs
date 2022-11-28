@@ -26733,6 +26733,8 @@ const monitoringHeaderWidgetProps: MonitoringHeaderWidgetProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidgetProps.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidgetProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidgetProps.property.descriptionHeight">descriptionHeight</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidgetProps.property.family">family</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidgetProps.property.goToLinkUrl">goToLinkUrl</a></code> | <code>string</code> | *No description.* |
 
@@ -26745,6 +26747,26 @@ public readonly title: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-monitoring-constructs.MonitoringHeaderWidgetProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `descriptionHeight`<sup>Optional</sup> <a name="descriptionHeight" id="cdk-monitoring-constructs.MonitoringHeaderWidgetProps.property.descriptionHeight"></a>
+
+```typescript
+public readonly descriptionHeight: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -47103,13 +47125,15 @@ public readonly title: string;
 ```typescript
 import { HeaderWidget } from 'cdk-monitoring-constructs'
 
-new HeaderWidget(text: string, level?: HeaderLevel)
+new HeaderWidget(text: string, level?: HeaderLevel, description?: string, descriptionHeight?: number)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.HeaderWidget.Initializer.parameter.text">text</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.HeaderWidget.Initializer.parameter.level">level</a></code> | <code><a href="#cdk-monitoring-constructs.HeaderLevel">HeaderLevel</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.HeaderWidget.Initializer.parameter.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.HeaderWidget.Initializer.parameter.descriptionHeight">descriptionHeight</a></code> | <code>number</code> | *No description.* |
 
 ---
 
@@ -47122,6 +47146,18 @@ new HeaderWidget(text: string, level?: HeaderLevel)
 ##### `level`<sup>Optional</sup> <a name="level" id="cdk-monitoring-constructs.HeaderWidget.Initializer.parameter.level"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.HeaderLevel">HeaderLevel</a>
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-monitoring-constructs.HeaderWidget.Initializer.parameter.description"></a>
+
+- *Type:* string
+
+---
+
+##### `descriptionHeight`<sup>Optional</sup> <a name="descriptionHeight" id="cdk-monitoring-constructs.HeaderWidget.Initializer.parameter.descriptionHeight"></a>
+
+- *Type:* number
 
 ---
 

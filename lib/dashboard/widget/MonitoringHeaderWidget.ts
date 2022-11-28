@@ -4,11 +4,18 @@ export interface MonitoringHeaderWidgetProps {
   readonly title: string;
   readonly family?: string;
   readonly goToLinkUrl?: string;
+  readonly description?: string;
+  readonly descriptionHeight?: number;
 }
 
 export class MonitoringHeaderWidget extends HeaderWidget {
   constructor(props: MonitoringHeaderWidgetProps) {
-    super(MonitoringHeaderWidget.getText(props), HeaderLevel.SMALL);
+    super(
+      MonitoringHeaderWidget.getText(props),
+      HeaderLevel.SMALL,
+      props.description,
+      props.descriptionHeight
+    );
   }
 
   private static getText(props: MonitoringHeaderWidgetProps): string {
@@ -19,7 +26,7 @@ export class MonitoringHeaderWidget extends HeaderWidget {
     }
 
     if (props.family) {
-      return `${props.family} **${title}**`;
+      title = `${props.family} **${title}**`;
     }
 
     return title;
