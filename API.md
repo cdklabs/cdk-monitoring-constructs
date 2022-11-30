@@ -6178,7 +6178,7 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.GraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.IGraphqlApi</code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
@@ -6187,10 +6187,10 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 ##### `api`<sup>Required</sup> <a name="api" id="cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api"></a>
 
 ```typescript
-public readonly api: GraphqlApi;
+public readonly api: IGraphqlApi;
 ```
 
-- *Type:* @aws-cdk/aws-appsync-alpha.GraphqlApi
+- *Type:* @aws-cdk/aws-appsync-alpha.IGraphqlApi
 
 the GraphQL API to monitor.
 
@@ -6473,7 +6473,7 @@ const appSyncMonitoringProps: AppSyncMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.GraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.IGraphqlApi</code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
@@ -6670,10 +6670,10 @@ public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
 ##### `api`<sup>Required</sup> <a name="api" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.api"></a>
 
 ```typescript
-public readonly api: GraphqlApi;
+public readonly api: IGraphqlApi;
 ```
 
-- *Type:* @aws-cdk/aws-appsync-alpha.GraphqlApi
+- *Type:* @aws-cdk/aws-appsync-alpha.IGraphqlApi
 
 the GraphQL API to monitor.
 

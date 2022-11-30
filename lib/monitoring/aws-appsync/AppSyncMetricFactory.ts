@@ -1,4 +1,4 @@
-import { GraphqlApi } from "@aws-cdk/aws-appsync-alpha";
+import { IGraphqlApi } from "@aws-cdk/aws-appsync-alpha";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
@@ -13,7 +13,7 @@ export interface AppSyncMetricFactoryProps {
   /**
    * the GraphQL API to monitor
    */
-  readonly api: GraphqlApi;
+  readonly api: IGraphqlApi;
   /**
    * whether the TPS should be filled with zeroes
    * @default - true
