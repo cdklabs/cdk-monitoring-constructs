@@ -10265,7 +10265,7 @@ public readonly addToSummaryDashboard: boolean;
 ```
 
 - *Type:* boolean
-- *Default:* false
+- *Default:* addToSummaryDashboard from CustomMonitoringProps, defaulting to false
 
 Flag indicating this metric group should be included in the summary as well.
 
@@ -10350,14 +10350,14 @@ optional custom horizontal annotations which will be displayed over the metrics 
 ##### ~~`important`~~<sup>Optional</sup> <a name="important" id="cdk-monitoring-constructs.CustomMetricGroup.property.important"></a>
 
 - *Deprecated:* use addToSummaryDashboard. addToSummaryDashboard will take precedence over important.
-Flag indicating, whether this is an important metric group that should be included in the summary as well.
 
 ```typescript
 public readonly important: boolean;
 ```
 
 - *Type:* boolean
-- *Default:* false
+
+> [addToSummaryDashboard](addToSummaryDashboard)
 
 ---
 
@@ -42551,6 +42551,7 @@ Returns widgets to be placed on the main dashboard.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.anomalyDetectingAlarmFactory">anomalyDetectingAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AnomalyDetectingAlarmFactory">AnomalyDetectingAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.customAlarmFactory">customAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.CustomAlarmFactory">CustomAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.metricGroups">metricGroups</a></code> | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations">CustomMetricGroupWithAnnotations</a>[]</code> | *No description.* |
@@ -42558,6 +42559,16 @@ Returns widgets to be placed on the main dashboard.
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.description">description</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.descriptionWidgetHeight">descriptionWidgetHeight</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.property.height">height</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `addToSummaryDashboard`<sup>Required</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.CustomMonitoring.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
