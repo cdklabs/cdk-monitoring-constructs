@@ -56,6 +56,13 @@ export class UsageAlarmFactory {
     });
   }
 
+  /**
+   * @deprecated Did not allow support of adding multiple metrics from the same class.
+   * @param percentMetric 
+   * @param props 
+   * @param disambiguator 
+   * @returns 
+   */
   addMaxCpuUsagePercentAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
@@ -71,6 +78,31 @@ export class UsageAlarmFactory {
       disambiguator,
       threshold: props.maxUsagePercent,
       alarmNameSuffix: "CPU-Usage",
+      alarmDescription: "The CPU usage is too high.",
+    });
+  }
+
+  /**
+   * Allows addition of multiple metrics from the same class.
+   * @param percentMetric 
+   * @param usageType Will be added to Alarm name
+   * @param props 
+   * @param disambiguator 
+   * @returns 
+   */
+  addMaxCpuUsagePercentAlarms(
+    percentMetric: MetricWithAlarmSupport,
+    usageType: UsageType,
+    props: UsageThreshold,
+    disambiguator?: string
+  ) {
+    return this.alarmFactory.addAlarm(percentMetric, {
+      treatMissingData: props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator: props.comparisonOperatorOverride ?? ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxUsagePercent,
+      alarmNameSuffix: `CPU-Usage-${usageType}`,
       alarmDescription: "The CPU usage is too high.",
     });
   }
