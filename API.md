@@ -59241,7 +59241,7 @@ new UsageAlarmFactory(alarmFactory: AlarmFactory)
 ##### `addMaxCpuUsagePercentAlarm` <a name="addMaxCpuUsagePercentAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm"></a>
 
 ```typescript
-public addMaxCpuUsagePercentAlarm(percentMetric: Metric | MathExpression, props: UsageThreshold, disambiguator?: string): AlarmWithAnnotation
+public addMaxCpuUsagePercentAlarm(percentMetric: Metric | MathExpression, props: UsageThreshold, disambiguator?: string, usageType?: UsageType): AlarmWithAnnotation
 ```
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm.parameter.percentMetric"></a>
@@ -59259,6 +59259,12 @@ public addMaxCpuUsagePercentAlarm(percentMetric: Metric | MathExpression, props:
 ###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm.parameter.disambiguator"></a>
 
 - *Type:* string
+
+---
+
+###### `usageType`<sup>Optional</sup> <a name="usageType" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm.parameter.usageType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageType">UsageType</a>
 
 ---
 

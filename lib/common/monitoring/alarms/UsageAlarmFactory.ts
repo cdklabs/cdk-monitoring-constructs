@@ -59,8 +59,11 @@ export class UsageAlarmFactory {
   addMaxCpuUsagePercentAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
-    disambiguator?: string
+    disambiguator?: string,
+    usageType?: UsageType
   ) {
+    const alarmNameSuffix: string =
+      usageType === undefined ? "CPU-Usage" : `${usageType}-CPU-Usage`;
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
         props.treatMissingDataOverride ?? TreatMissingData.MISSING,
@@ -70,7 +73,7 @@ export class UsageAlarmFactory {
       ...props,
       disambiguator,
       threshold: props.maxUsagePercent,
-      alarmNameSuffix: "CPU-Usage",
+      alarmNameSuffix,
       alarmDescription: "The CPU usage is too high.",
     });
   }
