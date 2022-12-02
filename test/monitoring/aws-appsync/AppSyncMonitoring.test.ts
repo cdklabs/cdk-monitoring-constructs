@@ -1,4 +1,4 @@
-import { GraphqlApi } from "@aws-cdk/aws-appsync-alpha";
+import { GraphqlApi, IGraphqlApi } from "@aws-cdk/aws-appsync-alpha";
 import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 
@@ -14,6 +14,29 @@ test("snapshot test: no alarms", () => {
   const dummyApi = new GraphqlApi(stack, "testHttpApi", {
     name: "DummyApi",
   });
+
+  const monitoring = new AppSyncMonitoring(scope, {
+    api: dummyApi,
+    humanReadableName: "Dummy API for testing",
+    alarmFriendlyName: "DummyApi",
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: no alarms with imported IGraphqlApi", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const dummyApi: IGraphqlApi = GraphqlApi.fromGraphqlApiAttributes(
+    scope,
+    "ImportedGraphQlApi",
+    {
+      graphqlApiId: "DummyApiFromElsewhere",
+    }
+  );
 
   const monitoring = new AppSyncMonitoring(scope, {
     api: dummyApi,
