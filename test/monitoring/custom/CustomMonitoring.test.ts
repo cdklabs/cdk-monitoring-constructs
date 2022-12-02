@@ -189,8 +189,34 @@ test("addToSummaryDashboard attribute takes precedence over important in metric 
     metricGroups: [
       {
         title: "DummyGroup1",
-        important: false,
         addToSummaryDashboard: true,
+        important: false,
+        metrics: [
+          // regular metric
+          new Metric({ metricName: "DummyMetric1", namespace, dimensionsMap }),
+        ],
+      },
+    ],
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("addToSummaryDashboard attribute takes value from CustomMonitoringProps if not specified in metric group", () => {
+  const stack = new Stack();
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new CustomMonitoring(scope, {
+    alarmFriendlyName: "DummyAlarmName",
+    humanReadableName: "DummyName",
+    description: "Monitoring widget that shows up in the summary dashboard",
+    descriptionWidgetHeight: 2,
+    height: 100,
+    addToSummaryDashboard: true,
+    metricGroups: [
+      {
+        title: "DummyGroup1",
         metrics: [
           // regular metric
           new Metric({ metricName: "DummyMetric1", namespace, dimensionsMap }),
