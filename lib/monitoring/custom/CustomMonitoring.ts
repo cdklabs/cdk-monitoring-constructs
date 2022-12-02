@@ -171,13 +171,12 @@ export interface CustomMetricGroup {
   readonly graphWidgetLegend?: LegendPosition;
   /**
    * @deprecated use addToSummaryDashboard. addToSummaryDashboard will take precedence over important.
-   * Flag indicating, whether this is an important metric group that should be included in the summary as well.
-   * @default false
+   * @see addToSummaryDashboard
    */
   readonly important?: boolean;
   /**
    * Flag indicating this metric group should be included in the summary as well.
-   * @default false
+   * @default - addToSummaryDashboard from CustomMonitoringProps, defaulting to false
    */
   readonly addToSummaryDashboard?: boolean;
   /**
@@ -238,6 +237,7 @@ export class CustomMonitoring extends Monitoring {
   readonly description?: string;
   readonly descriptionWidgetHeight?: number;
   readonly height?: number;
+  readonly addToSummaryDashboard: boolean;
   readonly customAlarmFactory: CustomAlarmFactory;
   readonly anomalyDetectingAlarmFactory: AnomalyDetectingAlarmFactory;
   readonly metricGroups: CustomMetricGroupWithAnnotations[];
@@ -251,6 +251,7 @@ export class CustomMonitoring extends Monitoring {
     this.description = props.description;
     this.descriptionWidgetHeight = props.descriptionWidgetHeight;
     this.height = props.height;
+    this.addToSummaryDashboard = props.addToSummaryDashboard ?? false;
 
     const alarmFactory = this.createAlarmFactory(
       namingStrategy.resolveAlarmFriendlyName()
@@ -313,7 +314,7 @@ export class CustomMonitoring extends Monitoring {
           (group) =>
             group.metricGroup.addToSummaryDashboard ??
             group.metricGroup.important ??
-            false
+            this.addToSummaryDashboard
         )
       : this.metricGroups;
 
