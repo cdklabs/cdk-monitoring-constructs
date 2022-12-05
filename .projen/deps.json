@@ -158,6 +158,11 @@
       "type": "devenv"
     },
     {
+      "name": "@types/babel__traverse",
+      "version": "7.18.2",
+      "type": "override"
+    },
+    {
       "name": "@types/prettier",
       "version": "2.6.0",
       "type": "override"
