@@ -313,7 +313,7 @@ export class MonitoringFacade extends MonitoringScope {
   addSegment(
     segment: IDashboardSegment,
     overrideProps?: MonitoringDashboardsOverrideProps
-  ) {
+  ): MonitoringFacade {
     this.dashboardFactory?.addSegment({ segment, overrideProps });
     this.createdSegments.push(segment);
     return this;
