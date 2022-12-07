@@ -319,7 +319,11 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  addLargeHeader(text: string, addToSummary?: boolean, addToAlarm?: boolean): MonitoringFacade {
+  addLargeHeader(
+    text: string,
+    addToSummary?: boolean,
+    addToAlarm?: boolean
+  ): MonitoringFacade {
     this.addWidget(
       new HeaderWidget(text, HeaderLevel.LARGE),
       addToSummary ?? false,
@@ -328,7 +332,11 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  addMediumHeader(text: string, addToSummary?: boolean, addToAlarm?: boolean): MonitoringFacade {
+  addMediumHeader(
+    text: string,
+    addToSummary?: boolean,
+    addToAlarm?: boolean
+  ): MonitoringFacade {
     this.addWidget(
       new HeaderWidget(text, HeaderLevel.MEDIUM),
       addToSummary ?? false,
@@ -337,7 +345,11 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  addSmallHeader(text: string, addToSummary?: boolean, addToAlarm?: boolean): MonitoringFacade {
+  addSmallHeader(
+    text: string,
+    addToSummary?: boolean,
+    addToAlarm?: boolean
+  ): MonitoringFacade {
     this.addWidget(
       new HeaderWidget(text, HeaderLevel.SMALL),
       addToSummary ?? false,
@@ -346,7 +358,11 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  addWidget(widget: IWidget, addToSummary?: boolean, addToAlarm?: boolean): MonitoringFacade {
+  addWidget(
+    widget: IWidget,
+    addToSummary?: boolean,
+    addToAlarm?: boolean
+  ): MonitoringFacade {
     this.addSegment(
       new SingleWidgetDashboardSegment(widget, addToSummary, addToAlarm)
     );
@@ -362,7 +378,9 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorApiGatewayV2HttpApi(props: ApiGatewayV2HttpApiMonitoringProps): MonitoringFacade {
+  monitorApiGatewayV2HttpApi(
+    props: ApiGatewayV2HttpApiMonitoringProps
+  ): MonitoringFacade {
     const segment = new ApiGatewayV2HttpApiMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
@@ -374,19 +392,25 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorCertificate(props: CertificateManagerMonitoringProps): MonitoringFacade {
+  monitorCertificate(
+    props: CertificateManagerMonitoringProps
+  ): MonitoringFacade {
     const segment = new CertificateManagerMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorCloudFrontDistribution(props: CloudFrontDistributionMonitoringProps): MonitoringFacade {
+  monitorCloudFrontDistribution(
+    props: CloudFrontDistributionMonitoringProps
+  ): MonitoringFacade {
     const segment = new CloudFrontDistributionMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorCodeBuildProject(props: CodeBuildProjectMonitoringProps): MonitoringFacade {
+  monitorCodeBuildProject(
+    props: CodeBuildProjectMonitoringProps
+  ): MonitoringFacade {
     const segment = new CodeBuildProjectMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
@@ -418,19 +442,25 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorElasticsearchCluster(props: OpenSearchClusterMonitoringProps): MonitoringFacade {
+  monitorElasticsearchCluster(
+    props: OpenSearchClusterMonitoringProps
+  ): MonitoringFacade {
     const segment = new OpenSearchClusterMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorOpenSearchCluster(props: OpenSearchClusterMonitoringProps): MonitoringFacade {
+  monitorOpenSearchCluster(
+    props: OpenSearchClusterMonitoringProps
+  ): MonitoringFacade {
     const segment = new OpenSearchClusterMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorElastiCacheCluster(props: ElastiCacheClusterMonitoringProps): MonitoringFacade {
+  monitorElastiCacheCluster(
+    props: ElastiCacheClusterMonitoringProps
+  ): MonitoringFacade {
     const segment = new ElastiCacheClusterMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
@@ -442,7 +472,9 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorFargateService(props: FargateServiceMonitoringProps): MonitoringFacade {
+  monitorFargateService(
+    props: FargateServiceMonitoringProps
+  ): MonitoringFacade {
     const segment = new FargateServiceMonitoring(this, {
       ...props,
       fargateService: props.fargateService.service,
@@ -453,7 +485,9 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorSimpleFargateService(props: SimpleFargateServiceMonitoringProps): MonitoringFacade {
+  monitorSimpleFargateService(
+    props: SimpleFargateServiceMonitoringProps
+  ): MonitoringFacade {
     const segment = new FargateServiceMonitoring(this, {
       ...props,
       fargateService: props.fargateService,
@@ -499,7 +533,9 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorSimpleEc2Service(props: SimpleEc2ServiceMonitoringProps): MonitoringFacade {
+  monitorSimpleEc2Service(
+    props: SimpleEc2ServiceMonitoringProps
+  ): MonitoringFacade {
     const segment = new Ec2ServiceMonitoring(this, {
       ...props,
       ec2Service: props.ec2Service,
@@ -508,7 +544,9 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorEc2NetworkLoadBalancer(props: Ec2NetworkLoadBalancerMonitoringProps): MonitoringFacade {
+  monitorEc2NetworkLoadBalancer(
+    props: Ec2NetworkLoadBalancerMonitoringProps
+  ): MonitoringFacade {
     const segment = new Ec2ServiceMonitoring(this, {
       ...props,
       ec2Service: props.ec2Service,
@@ -550,37 +588,49 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorAutoScalingGroup(props: AutoScalingGroupMonitoringProps): MonitoringFacade {
+  monitorAutoScalingGroup(
+    props: AutoScalingGroupMonitoringProps
+  ): MonitoringFacade {
     const segment = new AutoScalingGroupMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorKinesisFirehose(props: KinesisFirehoseMonitoringProps): MonitoringFacade {
+  monitorKinesisFirehose(
+    props: KinesisFirehoseMonitoringProps
+  ): MonitoringFacade {
     const segment = new KinesisFirehoseMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorKinesisDataStream(props: KinesisDataStreamMonitoringProps): MonitoringFacade {
+  monitorKinesisDataStream(
+    props: KinesisDataStreamMonitoringProps
+  ): MonitoringFacade {
     const segment = new KinesisDataStreamMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorKinesisDataAnalytics(props: KinesisDataAnalyticsMonitoringProps): MonitoringFacade {
+  monitorKinesisDataAnalytics(
+    props: KinesisDataAnalyticsMonitoringProps
+  ): MonitoringFacade {
     const segment = new KinesisDataAnalyticsMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorLambdaFunction(props: LambdaFunctionMonitoringProps): MonitoringFacade {
+  monitorLambdaFunction(
+    props: LambdaFunctionMonitoringProps
+  ): MonitoringFacade {
     const segment = new LambdaFunctionMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorNetworkLoadBalancer(props: NetworkLoadBalancerMonitoringProps): MonitoringFacade {
+  monitorNetworkLoadBalancer(
+    props: NetworkLoadBalancerMonitoringProps
+  ): MonitoringFacade {
     const segment = new NetworkLoadBalancerMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
@@ -592,13 +642,17 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorRedshiftCluster(props: RedshiftClusterMonitoringProps): MonitoringFacade {
+  monitorRedshiftCluster(
+    props: RedshiftClusterMonitoringProps
+  ): MonitoringFacade {
     const segment = new RedshiftClusterMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorSecretsManagerSecret(props: SecretsManagerSecretMonitoringProps): MonitoringFacade {
+  monitorSecretsManagerSecret(
+    props: SecretsManagerSecretMonitoringProps
+  ): MonitoringFacade {
     const segment = new SecretsManagerSecretMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
@@ -616,7 +670,9 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorSqsQueueWithDlq(props: SqsQueueMonitoringWithDlqProps): MonitoringFacade {
+  monitorSqsQueueWithDlq(
+    props: SqsQueueMonitoringWithDlqProps
+  ): MonitoringFacade {
     const segment = new SqsQueueMonitoringWithDlq(this, props);
     this.addSegment(segment, props);
     return this;
@@ -628,7 +684,9 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorStepFunctionActivity(props: StepFunctionActivityMonitoringProps): MonitoringFacade {
+  monitorStepFunctionActivity(
+    props: StepFunctionActivityMonitoringProps
+  ): MonitoringFacade {
     const segment = new StepFunctionActivityMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
@@ -662,13 +720,17 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  monitorSyntheticsCanary(props: SyntheticsCanaryMonitoringProps): MonitoringFacade {
+  monitorSyntheticsCanary(
+    props: SyntheticsCanaryMonitoringProps
+  ): MonitoringFacade {
     const segment = new SyntheticsCanaryMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
 
-  monitorWebApplicationFirewallAclV2(props: WafV2MonitoringProps): MonitoringFacade {
+  monitorWebApplicationFirewallAclV2(
+    props: WafV2MonitoringProps
+  ): MonitoringFacade {
     const segment = new WafV2Monitoring(this, props);
     this.addSegment(segment, props);
     return this;
