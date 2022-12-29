@@ -640,6 +640,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         /* eslint-enable @typescript-eslint/no-non-null-assertion */
       ],
       leftYAxis: TimeAxisMillisFromZero,
+      leftAnnotations: this.cpuTotalTimeAnnotations,
     });
   }
 
@@ -656,6 +657,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         /* eslint-enable @typescript-eslint/no-non-null-assertion */
       ],
       leftYAxis: PercentageAxisFromZeroToHundred,
+      leftAnnotations: this.memoryUsageAnnotations,
     });
   }
 

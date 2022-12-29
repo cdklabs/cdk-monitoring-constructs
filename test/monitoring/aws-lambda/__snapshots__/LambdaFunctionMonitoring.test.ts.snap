@@ -10,6 +10,162 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP50WarningE50DF463",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP90Warning670FFADC",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP99WarningDDA8F353",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaFaultCountWarning33B0A193",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaFaultRateWarningE6A1BB2B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaMinTPSWarning30EF1FB4",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaMaxTPSWarning0EC2023E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaThrottledCountWarning946A5E19",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaThrottledRateWarning6EB21772",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaUsageCountWarningFB9A10FB",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaRunningTasksHighWarning2A06F60A",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaRunningTasksHighCritical357223A5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIteratorAgeMaxWarning2BC5030F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Function76856677": Object {
       "DependsOn": Array [
         "FunctionServiceRole675BB04A",
@@ -60,6 +216,103 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 110 for 11 datapoints within 55 minutes\\",\\"value\\":110,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 220 for 22 datapoints within 110 minutes\\",\\"value\\":220,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 330 for 33 datapoints within 165 minutes\\",\\"value\\":330,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles (avg)\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Invocations undefined 5 for 30 datapoints within 150 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Concurrent > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Provisioned Concurrency Spillovers > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Iterator Age > 1000000 for 3 datapoints within 15 minutes\\",\\"value\\":1000000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
     "ScopeTestDummyLambdaFaultCountWarning33B0A193": Object {
       "Properties": Object {
@@ -538,6 +791,55 @@ Object {
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 110 for 11 datapoints within 55 minutes\\",\\"value\\":110,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 220 for 22 datapoints within 110 minutes\\",\\"value\\":220,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 330 for 33 datapoints within 165 minutes\\",\\"value\\":330,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
@@ -701,6 +1003,228 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaDurationP100Warning3DEE9E3B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaDurationP90WarningA5BA76D8",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaDurationAverageWarning93C2337F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaMemoryUsageWarningA77BC22D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaP90MemoryUsageWarning9080CECC",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaAverageMemoryUsageWarning59BC5A6E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP50WarningE50DF463",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP90Warning670FFADC",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP99WarningDDA8F353",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaFaultCountWarning33B0A193",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaFaultRateWarningE6A1BB2B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaMinTPSWarning30EF1FB4",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaMaxTPSWarning0EC2023E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaThrottledCountWarning946A5E19",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaThrottledRateWarning6EB21772",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaUsageCountWarningFB9A10FB",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaRunningTasksHighWarning2A06F60A",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaRunningTasksHighCritical357223A5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIteratorAgeMaxWarning2BC5030F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Function76856677": Object {
       "DependsOn": Array [
         "FunctionServiceRole675BB04A",
@@ -751,6 +1275,291 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 110 for 11 datapoints within 55 minutes\\",\\"value\\":110,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 220 for 22 datapoints within 110 minutes\\",\\"value\\":220,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 330 for 33 datapoints within 165 minutes\\",\\"value\\":330,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles (avg)\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Invocations undefined 5 for 30 datapoints within 150 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Concurrent > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Provisioned Concurrency Spillovers > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Iterator Age > 1000000 for 3 datapoints within 15 minutes\\",\\"value\\":1000000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Total Time\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"LambdaInsights\\",\\"cpu_total_time\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"CPUTotalTime.Max\\",\\"stat\\":\\"Maximum\\"}],[\\"LambdaInsights\\",\\"cpu_total_time\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"CPUTotalTime.P90\\",\\"stat\\":\\"p90\\"}],[\\"LambdaInsights\\",\\"cpu_total_time\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"CPUTotalTime.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"CPUTotalTime.Max > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.P90 > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.Avg > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"MemoryUtilization.Max\\",\\"stat\\":\\"Maximum\\"}],[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"MemoryUtilization.P90\\",\\"stat\\":\\"p90\\"}],[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"MemoryUtilization.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"MemoryUtilization.Max > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.P90 > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.Avg > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Function Cost\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Function Cost (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"memory_utilization * duration\\"}],[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"MemoryUtilization.Max\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"memory_utilization\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyLambdaAverageMemoryUsageWarning59BC5A6E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The memory usage is too high.",
+        "AlarmName": "Test-DummyLambda-Average-Memory-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "MemoryUtilization.Avg",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "memory_utilization",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 50,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaDurationAverageWarning93C2337F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average duration is too long.",
+        "AlarmName": "Test-DummyLambda-Duration-Average-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "CPUTotalTime.Avg",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "cpu_total_time",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaDurationP100Warning3DEE9E3B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P100 duration is too long.",
+        "AlarmName": "Test-DummyLambda-Duration-P100-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "CPUTotalTime.Max",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "cpu_total_time",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaDurationP90WarningA5BA76D8": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 duration is too long.",
+        "AlarmName": "Test-DummyLambda-Duration-P90-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "CPUTotalTime.P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "cpu_total_time",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ScopeTestDummyLambdaFaultCountWarning33B0A193": Object {
       "Properties": Object {
@@ -1009,6 +1818,42 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyLambdaMemoryUsageWarningA77BC22D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The memory usage is too high.",
+        "AlarmName": "Test-DummyLambda-Memory-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "MemoryUtilization.Max",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "memory_utilization",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 50,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyLambdaMinTPSWarning30EF1FB4": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -1046,6 +1891,42 @@ Object {
           },
         ],
         "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaP90MemoryUsageWarning9080CECC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The memory usage is too high.",
+        "AlarmName": "Test-DummyLambda-P90-Memory-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "MemoryUtilization.P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "memory_utilization",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 50,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1229,6 +2110,55 @@ Object {
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 110 for 11 datapoints within 55 minutes\\",\\"value\\":110,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 220 for 22 datapoints within 110 minutes\\",\\"value\\":220,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 330 for 33 datapoints within 165 minutes\\",\\"value\\":330,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
@@ -1271,6 +2201,228 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaDurationP100Warning3DEE9E3B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaDurationP90WarningA5BA76D8",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaDurationAverageWarning93C2337F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaMemoryUsageWarningA77BC22D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaP90MemoryUsageWarning9080CECC",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaAverageMemoryUsageWarning59BC5A6E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP50WarningE50DF463",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP90Warning670FFADC",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaLatencyP99WarningDDA8F353",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaFaultCountWarning33B0A193",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaFaultRateWarningE6A1BB2B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaMinTPSWarning30EF1FB4",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaMaxTPSWarning0EC2023E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaThrottledCountWarning946A5E19",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaThrottledRateWarning6EB21772",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaUsageCountWarningFB9A10FB",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaRunningTasksHighWarning2A06F60A",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaRunningTasksHighCritical357223A5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaIteratorAgeMaxWarning2BC5030F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Function76856677": Object {
       "DependsOn": Array [
         "FunctionServiceRole675BB04A",
@@ -1321,6 +2473,291 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 110 for 11 datapoints within 55 minutes\\",\\"value\\":110,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 220 for 22 datapoints within 110 minutes\\",\\"value\\":220,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 330 for 33 datapoints within 165 minutes\\",\\"value\\":330,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles (avg)\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Invocations undefined 5 for 30 datapoints within 150 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Concurrent > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Provisioned Concurrency Spillovers > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Iterator Age > 1000000 for 3 datapoints within 15 minutes\\",\\"value\\":1000000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Total Time\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"LambdaInsights\\",\\"cpu_total_time\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"CPUTotalTime.Max\\",\\"stat\\":\\"Maximum\\"}],[\\"LambdaInsights\\",\\"cpu_total_time\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"CPUTotalTime.P90\\",\\"stat\\":\\"p90\\"}],[\\"LambdaInsights\\",\\"cpu_total_time\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"CPUTotalTime.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"CPUTotalTime.Max > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.P90 > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.Avg > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"MemoryUtilization.Max\\",\\"stat\\":\\"Maximum\\"}],[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"MemoryUtilization.P90\\",\\"stat\\":\\"p90\\"}],[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"MemoryUtilization.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"MemoryUtilization.Max > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.P90 > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.Avg > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Function Cost\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Function Cost (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"memory_utilization * duration\\"}],[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"MemoryUtilization.Max\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"memory_utilization\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyLambdaAverageMemoryUsageWarning59BC5A6E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The memory usage is too high.",
+        "AlarmName": "Test-DummyLambda-Average-Memory-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "MemoryUtilization.Avg",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "memory_utilization",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 50,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaDurationAverageWarning93C2337F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average duration is too long.",
+        "AlarmName": "Test-DummyLambda-Duration-Average-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "CPUTotalTime.Avg",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "cpu_total_time",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaDurationP100Warning3DEE9E3B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P100 duration is too long.",
+        "AlarmName": "Test-DummyLambda-Duration-P100-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "CPUTotalTime.Max",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "cpu_total_time",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaDurationP90WarningA5BA76D8": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 duration is too long.",
+        "AlarmName": "Test-DummyLambda-Duration-P90-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "CPUTotalTime.P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "cpu_total_time",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ScopeTestDummyLambdaFaultCountWarning33B0A193": Object {
       "Properties": Object {
@@ -1579,6 +3016,42 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyLambdaMemoryUsageWarningA77BC22D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The memory usage is too high.",
+        "AlarmName": "Test-DummyLambda-Memory-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "MemoryUtilization.Max",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "memory_utilization",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 50,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyLambdaMinTPSWarning30EF1FB4": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -1616,6 +3089,42 @@ Object {
           },
         ],
         "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaP90MemoryUsageWarning9080CECC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The memory usage is too high.",
+        "AlarmName": "Test-DummyLambda-P90-Memory-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "MemoryUtilization.P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "function_name",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "memory_utilization",
+                "Namespace": "LambdaInsights",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 50,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1799,6 +3308,55 @@ Object {
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 110 for 11 datapoints within 55 minutes\\",\\"value\\":110,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 220 for 22 datapoints within 110 minutes\\",\\"value\\":220,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 330 for 33 datapoints within 165 minutes\\",\\"value\\":330,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
