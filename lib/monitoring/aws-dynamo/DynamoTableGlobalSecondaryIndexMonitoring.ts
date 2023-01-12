@@ -1,6 +1,10 @@
 import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  DynamoTableGlobalSecondaryIndexMetricFactory,
+  DynamoTableGlobalSecondaryIndexMetricFactoryProps,
+} from "./DynamoTableGlobalSecondaryIndexMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -14,10 +18,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  DynamoTableGlobalSecondaryIndexMetricFactory,
-  DynamoTableGlobalSecondaryIndexMetricFactoryProps,
-} from "./DynamoTableGlobalSecondaryIndexMetricFactory";
 
 export interface DynamoTableGlobalSecondaryIndexMonitoringProps
   extends DynamoTableGlobalSecondaryIndexMetricFactoryProps,

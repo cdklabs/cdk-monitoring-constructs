@@ -6,6 +6,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  KinesisDataStreamMetricFactory,
+  KinesisDataStreamMetricFactoryProps,
+} from "./KinesisDataStreamMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -27,10 +31,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  KinesisDataStreamMetricFactory,
-  KinesisDataStreamMetricFactoryProps,
-} from "./KinesisDataStreamMetricFactory";
 
 export interface KinesisDataStreamMonitoringOptions
   extends BaseMonitoringProps {

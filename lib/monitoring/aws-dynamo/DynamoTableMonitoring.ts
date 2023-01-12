@@ -14,6 +14,10 @@ import {
 } from "aws-cdk-lib/aws-dynamodb";
 
 import {
+  DynamoTableMetricFactory,
+  DynamoTableMetricFactoryProps,
+} from "./DynamoTableMetricFactory";
+import {
   AlarmFactory,
   BaseMonitoringProps,
   CapacityType,
@@ -43,10 +47,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  DynamoTableMetricFactory,
-  DynamoTableMetricFactoryProps,
-} from "./DynamoTableMetricFactory";
 
 export interface DynamoTableMonitoringOptions extends BaseMonitoringProps {
   readonly addConsumedReadCapacityAlarm?: Record<

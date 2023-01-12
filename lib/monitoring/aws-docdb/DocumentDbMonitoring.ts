@@ -4,6 +4,10 @@ import {
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
 import {
+  DocumentDbMetricFactory,
+  DocumentDbMetricFactoryProps,
+} from "./DocumentDbMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -23,10 +27,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  DocumentDbMetricFactory,
-  DocumentDbMetricFactoryProps,
-} from "./DocumentDbMetricFactory";
 
 export interface DocumentDbMonitoringOptions extends BaseMonitoringProps {
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;

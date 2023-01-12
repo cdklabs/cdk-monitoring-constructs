@@ -2,6 +2,10 @@ import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 import { CfnBucket, IBucket } from "aws-cdk-lib/aws-s3";
 
 import {
+  S3BucketMetricFactory,
+  S3BucketMetricFactoryProps,
+} from "./S3BucketMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -16,10 +20,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  S3BucketMetricFactory,
-  S3BucketMetricFactoryProps,
-} from "./S3BucketMetricFactory";
 
 export interface S3BucketMonitoringOptions extends BaseMonitoringProps {}
 

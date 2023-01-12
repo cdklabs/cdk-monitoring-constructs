@@ -6,6 +6,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  ApiGatewayV2HttpApiMetricFactory,
+  ApiGatewayV2HttpApiMetricFactoryProps,
+} from "./ApiGatewayV2HttpApiMetricFactory";
+import {
   AlarmFactory,
   BaseMonitoringProps,
   CountAxisFromZero,
@@ -33,10 +37,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  ApiGatewayV2HttpApiMetricFactory,
-  ApiGatewayV2HttpApiMetricFactoryProps,
-} from "./ApiGatewayV2HttpApiMetricFactory";
 
 const DefaultLatencyTypesToRender = [
   LatencyType.P50,

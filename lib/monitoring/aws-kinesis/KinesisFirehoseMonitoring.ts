@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  KinesisFirehoseMetricFactory,
+  KinesisFirehoseMetricFactoryProps,
+} from "./KinesisFirehoseMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -23,10 +27,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  KinesisFirehoseMetricFactory,
-  KinesisFirehoseMetricFactoryProps,
-} from "./KinesisFirehoseMetricFactory";
 
 export interface KinesisFirehoseMonitoringOptions extends BaseMonitoringProps {
   readonly addRecordsThrottledAlarm?: Record<string, RecordsThrottledThreshold>;

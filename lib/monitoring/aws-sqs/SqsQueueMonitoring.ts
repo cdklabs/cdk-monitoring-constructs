@@ -7,6 +7,10 @@ import {
 import { CfnQueue, IQueue } from "aws-cdk-lib/aws-sqs";
 
 import {
+  SqsQueueMetricFactory,
+  SqsQueueMetricFactoryProps,
+} from "./SqsQueueMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -31,10 +35,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  SqsQueueMetricFactory,
-  SqsQueueMetricFactoryProps,
-} from "./SqsQueueMetricFactory";
 
 export interface BaseSqsQueueAlarms {
   readonly addQueueMinSizeAlarm?: Record<string, MinMessageCountThreshold>;

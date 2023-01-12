@@ -3,13 +3,13 @@ import {
   ApplicationTargetGroup,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
+import { ILoadBalancerMetricFactory } from "./LoadBalancerMetricFactory";
 import {
   HealthyMetricColor,
   MetricFactory,
   MetricStatistic,
   UnhealthyMetricColor,
 } from "../../common";
-import { ILoadBalancerMetricFactory } from "./LoadBalancerMetricFactory";
 
 /**
  * Props to create ApplicationLoadBalancerMetricFactory.

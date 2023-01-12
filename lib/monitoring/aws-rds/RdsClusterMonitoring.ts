@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  RdsClusterMetricFactory,
+  RdsClusterMetricFactoryProps,
+} from "./RdsClusterMetricFactory";
+import {
   BaseMonitoringProps,
   ConnectionAlarmFactory,
   CountAxisFromZero,
@@ -27,10 +31,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  RdsClusterMetricFactory,
-  RdsClusterMetricFactoryProps,
-} from "./RdsClusterMetricFactory";
 
 export interface RdsClusterMonitoringOptions extends BaseMonitoringProps {
   readonly addDiskSpaceUsageAlarm?: Record<string, UsageThreshold>;

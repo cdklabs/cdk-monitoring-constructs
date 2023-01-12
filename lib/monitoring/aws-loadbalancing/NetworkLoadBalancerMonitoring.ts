@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  NetworkLoadBalancerMetricFactory,
+  NetworkLoadBalancerMetricFactoryProps,
+} from "./NetworkLoadBalancerMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -25,10 +29,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  NetworkLoadBalancerMetricFactory,
-  NetworkLoadBalancerMetricFactoryProps,
-} from "./NetworkLoadBalancerMetricFactory";
 
 export interface NetworkLoadBalancerMonitoringProps
   extends NetworkLoadBalancerMetricFactoryProps,

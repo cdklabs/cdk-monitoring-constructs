@@ -5,6 +5,11 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 import { IQueue } from "aws-cdk-lib/aws-sqs";
 
+import { SqsQueueMetricFactory } from "./SqsQueueMetricFactory";
+import {
+  SqsQueueMonitoring,
+  SqsQueueMonitoringProps,
+} from "./SqsQueueMonitoring";
 import {
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -22,11 +27,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import { SqsQueueMetricFactory } from "./SqsQueueMetricFactory";
-import {
-  SqsQueueMonitoring,
-  SqsQueueMonitoringProps,
-} from "./SqsQueueMonitoring";
 
 export interface BaseDlqAlarms {
   readonly addDeadLetterQueueMaxSizeAlarm?: Record<

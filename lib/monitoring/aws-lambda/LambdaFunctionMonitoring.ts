@@ -6,6 +6,11 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 import { CfnFunction, IFunction } from "aws-cdk-lib/aws-lambda";
 
+import { LambdaFunctionEnhancedMetricFactory } from "./LambdaFunctionEnhancedMetricFactory";
+import {
+  LambdaFunctionMetricFactory,
+  LambdaFunctionMetricFactoryProps,
+} from "./LambdaFunctionMetricFactory";
 import {
   AgeAlarmFactory,
   AlarmFactory,
@@ -46,11 +51,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import { LambdaFunctionEnhancedMetricFactory } from "./LambdaFunctionEnhancedMetricFactory";
-import {
-  LambdaFunctionMetricFactory,
-  LambdaFunctionMetricFactoryProps,
-} from "./LambdaFunctionMetricFactory";
 
 export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
