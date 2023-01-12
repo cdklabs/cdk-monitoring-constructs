@@ -1,5 +1,6 @@
 import { GraphWidget, IMetric, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
+import { EC2MetricFactory, EC2MetricFactoryProps } from "./EC2MetricFactory";
 import {
   BaseMonitoringProps,
   CountAxisFromZero,
@@ -16,7 +17,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import { EC2MetricFactory, EC2MetricFactoryProps } from "./EC2MetricFactory";
 
 export interface EC2MonitoringOptions
   extends EC2MetricFactoryProps,

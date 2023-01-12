@@ -16,6 +16,7 @@ import {
   NetworkTargetGroup,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
+import { BaseServiceMetricFactory } from "./BaseServiceMetricFactory";
 import {
   BaseMonitoringProps,
   CountAxisFromZero,
@@ -50,7 +51,6 @@ import {
   NetworkLoadBalancerMetricFactoryProps,
   createLoadBalancerMetricFactory,
 } from "../aws-loadbalancing";
-import { BaseServiceMetricFactory } from "./BaseServiceMetricFactory";
 
 export interface BaseEc2ServiceAlarms {
   /**

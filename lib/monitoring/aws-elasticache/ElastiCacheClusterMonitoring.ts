@@ -5,6 +5,11 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  ElastiCacheClusterMetricFactory,
+  ElastiCacheClusterMetricFactoryProps,
+  ElastiCacheClusterType,
+} from "./ElastiCacheClusterMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -28,11 +33,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  ElastiCacheClusterMetricFactory,
-  ElastiCacheClusterMetricFactoryProps,
-  ElastiCacheClusterType,
-} from "./ElastiCacheClusterMetricFactory";
 
 export interface ElastiCacheClusterMonitoringOptions
   extends BaseMonitoringProps {

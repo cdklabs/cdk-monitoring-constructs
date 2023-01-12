@@ -1,14 +1,14 @@
 import { Statistic } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  Domain,
+  OpenSearchBackportedMetrics,
+} from "./OpenSearchBackportedMetrics";
+import {
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
 } from "../../common";
-import {
-  Domain,
-  OpenSearchBackportedMetrics,
-} from "./OpenSearchBackportedMetrics";
 
 export interface OpenSearchClusterMetricFactoryProps {
   readonly domain: Domain;

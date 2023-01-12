@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  CloudFrontDistributionMetricFactory,
+  CloudFrontDistributionMetricFactoryProps,
+} from "./CloudFrontDistributionMetricFactory";
+import {
   AlarmFactory,
   BaseMonitoringProps,
   DefaultGraphWidgetHeight,
@@ -29,10 +33,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  CloudFrontDistributionMetricFactory,
-  CloudFrontDistributionMetricFactoryProps,
-} from "./CloudFrontDistributionMetricFactory";
 
 export interface CloudFrontDistributionMonitoringOptions
   extends BaseMonitoringProps {}

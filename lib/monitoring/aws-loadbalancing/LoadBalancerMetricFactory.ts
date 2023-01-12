@@ -5,9 +5,9 @@ import {
   NetworkTargetGroup,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
-import { MetricFactory, MetricWithAlarmSupport } from "../../common";
 import { ApplicationLoadBalancerMetricFactory } from "./ApplicationLoadBalancerMetricFactory";
 import { NetworkLoadBalancerMetricFactory } from "./NetworkLoadBalancerMetricFactory";
+import { MetricFactory, MetricWithAlarmSupport } from "../../common";
 
 /**
  * Factory method to create appropriate metric factory based on the load balancer and target group type.

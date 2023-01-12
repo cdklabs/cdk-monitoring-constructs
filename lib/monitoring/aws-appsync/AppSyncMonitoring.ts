@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  AppSyncMetricFactory,
+  AppSyncMetricFactoryProps,
+} from "./AppSyncMetricFactory";
+import {
   AlarmFactory,
   BaseMonitoringProps,
   CountAxisFromZero,
@@ -32,10 +36,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  AppSyncMetricFactory,
-  AppSyncMetricFactoryProps,
-} from "./AppSyncMetricFactory";
 
 export interface AppSyncMonitoringOptions extends BaseMonitoringProps {
   readonly add4XXErrorCountAlarm?: Record<string, ErrorCountThreshold>;

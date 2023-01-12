@@ -9,8 +9,8 @@ import { RetentionDays } from "aws-cdk-lib/aws-logs";
 import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
 import { Construct } from "constructs";
 
-import { MonitoringScope } from "../../common";
 import { SecretsManagerSecretMetricFactory } from "./SecretsManagerSecretMetricFactory";
+import { MonitoringScope } from "../../common";
 
 export class SecretsManagerMetricsPublisher extends Construct {
   private static instances: Record<string, SecretsManagerMetricsPublisher> = {};

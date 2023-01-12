@@ -1,11 +1,11 @@
 import { AlarmWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
+import { IWidgetFactory } from "./IWidgetFactory";
 import {
   AlarmWithAnnotation,
   DefaultAlarmWidgetHeight,
   DefaultAlarmWidgetWidth,
 } from "../common";
-import { IWidgetFactory } from "./IWidgetFactory";
 
 export class DefaultWidgetFactory implements IWidgetFactory {
   createAlarmDetailWidget(alarm: AlarmWithAnnotation): IWidget {

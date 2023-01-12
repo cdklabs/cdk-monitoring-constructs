@@ -2,6 +2,7 @@ import { Aspects, Stack } from "aws-cdk-lib";
 import { CompositeAlarm, Dashboard, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 
+import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
 import {
   AddCompositeAlarmProps,
   AlarmFactory,
@@ -110,7 +111,6 @@ import {
   WafV2Monitoring,
   WafV2MonitoringProps,
 } from "../monitoring";
-import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
 
 export interface MonitoringFacadeProps {
   /**

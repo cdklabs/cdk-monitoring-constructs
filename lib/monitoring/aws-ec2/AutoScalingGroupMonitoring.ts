@@ -1,6 +1,10 @@
 import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  AutoScalingGroupMetricFactory,
+  AutoScalingGroupMetricFactoryProps,
+} from "./AutoScalingGroupMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -15,10 +19,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  AutoScalingGroupMetricFactory,
-  AutoScalingGroupMetricFactoryProps,
-} from "./AutoScalingGroupMetricFactory";
 
 export interface AutoScalingGroupMonitoringOptions
   extends BaseMonitoringProps {}

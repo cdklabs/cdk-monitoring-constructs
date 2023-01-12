@@ -26,9 +26,9 @@ import * as stepfunctions from "aws-cdk-lib/aws-stepfunctions";
 import * as wafv2 from "aws-cdk-lib/aws-wafv2";
 import { IConstruct } from "constructs";
 
-import { ElastiCacheClusterType } from "../monitoring";
 import { MonitoringAspectProps, MonitoringAspectType } from "./aspect-types";
 import { MonitoringFacade } from "./MonitoringFacade";
+import { ElastiCacheClusterType } from "../monitoring";
 
 /**
  * A CDK aspect that adds support for monitoring all resources within scope.

@@ -6,6 +6,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  OpenSearchClusterMetricFactory,
+  OpenSearchClusterMetricFactoryProps,
+} from "./OpenSearchClusterMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -36,10 +40,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  OpenSearchClusterMetricFactory,
-  OpenSearchClusterMetricFactoryProps,
-} from "./OpenSearchClusterMetricFactory";
 
 export interface OpenSearchClusterMonitoringOptions
   extends BaseMonitoringProps {

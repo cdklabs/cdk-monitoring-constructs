@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  CertificateManagerMetricFactory,
+  CertificateManagerMetricFactoryProps,
+} from "./CertificateManagerMetricFactory";
+import {
   AgeAlarmFactory,
   BaseMonitoringProps,
   CountAxisFromZero,
@@ -19,10 +23,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  CertificateManagerMetricFactory,
-  CertificateManagerMetricFactoryProps,
-} from "./CertificateManagerMetricFactory";
 
 export interface CertificateManagerMonitoringOptions
   extends BaseMonitoringProps {

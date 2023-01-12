@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  StepFunctionActivityMetricFactory,
+  StepFunctionActivityMetricFactoryProps,
+} from "./StepFunctionActivityMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -27,10 +31,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  StepFunctionActivityMetricFactory,
-  StepFunctionActivityMetricFactoryProps,
-} from "./StepFunctionActivityMetricFactory";
 
 export interface StepFunctionActivityMonitoringProps
   extends StepFunctionActivityMetricFactoryProps,
