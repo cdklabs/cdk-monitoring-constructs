@@ -9,6 +9,7 @@ import {
 } from "aws-cdk-lib/aws-lambda";
 
 import { AlarmWithAnnotation, LambdaFunctionMonitoring } from "../../../lib";
+import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 test("snapshot test: no alarms", () => {
@@ -55,7 +56,7 @@ test("snapshot test: all alarms", () => {
 
   let numAlarmsCreated = 0;
 
-  new LambdaFunctionMonitoring(scope, {
+  const monitoring = new LambdaFunctionMonitoring(scope, {
     lambdaFunction,
     humanReadableName: "Dummy Lambda for testing",
     alarmFriendlyName: "DummyLambda",
@@ -143,6 +144,7 @@ test("snapshot test: all alarms", () => {
     },
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(13);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
@@ -201,10 +203,11 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
 
   let numAlarmsCreated = 0;
 
-  new LambdaFunctionMonitoring(scope, {
+  const monitoring = new LambdaFunctionMonitoring(scope, {
     lambdaFunction,
     humanReadableName: "Dummy Lambda for testing",
     alarmFriendlyName: "DummyLambda",
+    lambdaInsightsEnabled: true,
     addFaultRateAlarm: {
       Warning: {
         maxErrorRate: 1,
@@ -282,6 +285,36 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
         maxAgeInMillis: 1_000_000,
       },
     },
+    addEnhancedMonitoringMaxCpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringP90CpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringAvgCpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringMaxMemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
+    addEnhancedMonitoringP90MemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
+    addEnhancedMonitoringAvgMemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms: AlarmWithAnnotation[]) {
         numAlarmsCreated = alarms.length;
@@ -289,7 +322,8 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
     },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(13);
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(numAlarmsCreated).toStrictEqual(19);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -307,10 +341,11 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
 
   let numAlarmsCreated = 0;
 
-  new LambdaFunctionMonitoring(scope, {
+  const monitoring = new LambdaFunctionMonitoring(scope, {
     lambdaFunction,
     humanReadableName: "Dummy Lambda for testing",
     alarmFriendlyName: "DummyLambda",
+    lambdaInsightsEnabled: true,
     addFaultRateAlarm: {
       Warning: {
         maxErrorRate: 1,
@@ -388,6 +423,36 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
         maxAgeInMillis: 1_000_000,
       },
     },
+    addEnhancedMonitoringMaxCpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringP90CpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringAvgCpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringMaxMemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
+    addEnhancedMonitoringP90MemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
+    addEnhancedMonitoringAvgMemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms: AlarmWithAnnotation[]) {
         numAlarmsCreated = alarms.length;
@@ -395,6 +460,66 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
     },
   });
 
-  expect(numAlarmsCreated).toStrictEqual(13);
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(numAlarmsCreated).toStrictEqual(19);
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("doesn't create alarms for enhanced Lambda Insights metrics if not enabled", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const lambdaFunction = new Function(stack, "Function", {
+    functionName: "DummyLambda",
+    runtime: Runtime.NODEJS_12_X,
+    code: InlineCode.fromInline("{}"),
+    handler: "Dummy::handler",
+  });
+
+  let numAlarmsCreated = 0;
+
+  new LambdaFunctionMonitoring(scope, {
+    lambdaFunction,
+    humanReadableName: "Dummy Lambda for testing",
+    alarmFriendlyName: "DummyLambda",
+    lambdaInsightsEnabled: false,
+    addEnhancedMonitoringMaxCpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringP90CpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringAvgCpuTotalTimeAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
+    addEnhancedMonitoringMaxMemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
+    addEnhancedMonitoringP90MemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
+    addEnhancedMonitoringAvgMemoryUtilizationAlarm: {
+      Warning: {
+        maxUsagePercent: 50,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms: AlarmWithAnnotation[]) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
+  });
+
+  expect(numAlarmsCreated).toStrictEqual(0);
 });
