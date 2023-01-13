@@ -34,6 +34,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Average",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -73,6 +74,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Average",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -97,6 +99,7 @@ Metric {
   "region": undefined,
   "statistic": "p90",
   "unit": undefined,
+  "warnings": undefined,
 }
 `;
 
@@ -121,6 +124,7 @@ Metric {
   "region": undefined,
   "statistic": "p90",
   "unit": undefined,
+  "warnings": undefined,
 }
 `;
 
@@ -143,6 +147,7 @@ Metric {
   "region": undefined,
   "statistic": "p90",
   "unit": undefined,
+  "warnings": undefined,
 }
 `;
 
@@ -180,6 +185,7 @@ AnomalyDetectionMathExpression {
       "region": undefined,
       "statistic": "Average",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -219,6 +225,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
     "b": Metric {
       "account": undefined,
@@ -238,6 +245,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -277,6 +285,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
     "b": Metric {
       "account": undefined,
@@ -296,6 +305,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -317,6 +327,9 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": Array [
+    "Math expression 'SEARCH('{DummyNamespace,DummyDimension} DummyDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespace, ummyDimension, ummyDimension, ummyDimensionValue, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
+  ],
 }
 `;
 
@@ -336,6 +349,9 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": Array [
+    "Math expression 'SEARCH('{DummyNamespaceOverride,DummyDimension} DummyDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespaceOverride, ummyDimension, ummyDimension, ummyDimensionValue, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
+  ],
 }
 `;
 
@@ -355,6 +371,9 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": Array [
+    "Math expression 'SEARCH('{DummyNamespaceOverride,DummyUndefinedDimension,DummyDefinedDimension} DummyDefinedDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespaceOverride, ummyUndefinedDimension, ummyDefinedDimension, ummyDefinedDimension, ummyDimensionValue, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
+  ],
 }
 `;
 
@@ -374,6 +393,9 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": Array [
+    "Math expression 'SEARCH('{DummyNamespaceOverride}  MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespaceOverride, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
+  ],
 }
 `;
 
@@ -396,6 +418,7 @@ Metric {
   "region": undefined,
   "statistic": "Average",
   "unit": undefined,
+  "warnings": undefined,
 }
 `;
 
@@ -433,6 +456,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -472,6 +496,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -511,6 +536,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -550,6 +576,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -574,6 +601,7 @@ Metric {
   "region": undefined,
   "statistic": "Average",
   "unit": undefined,
+  "warnings": undefined,
 }
 `;
 
@@ -611,6 +639,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -650,6 +679,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -689,6 +719,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }
@@ -728,6 +759,7 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "warnings": undefined,
     },
   },
 }

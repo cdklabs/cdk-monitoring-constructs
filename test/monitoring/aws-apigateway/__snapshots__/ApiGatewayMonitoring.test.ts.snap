@@ -319,6 +319,7 @@ Object {
       "Type": "AWS::ApiGateway::Method",
     },
     "DummyApiAccount7A4341D1": Object {
+      "DeletionPolicy": "Retain",
       "DependsOn": Array [
         "DummyApi80F1E171",
       ],
@@ -331,8 +332,10 @@ Object {
         },
       },
       "Type": "AWS::ApiGateway::Account",
+      "UpdateReplacePolicy": "Retain",
     },
     "DummyApiCloudWatchRole478A67A7": Object {
+      "DeletionPolicy": "Retain",
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -362,6 +365,7 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+      "UpdateReplacePolicy": "Retain",
     },
     "DummyApiDeploymentD01F5018548e3dba60631e60c80c03977ce1f18a": Object {
       "DependsOn": Array [
@@ -1391,6 +1395,7 @@ Object {
       "Type": "AWS::ApiGateway::Method",
     },
     "DummyApiAccount7A4341D1": Object {
+      "DeletionPolicy": "Retain",
       "DependsOn": Array [
         "DummyApi80F1E171",
       ],
@@ -1403,8 +1408,10 @@ Object {
         },
       },
       "Type": "AWS::ApiGateway::Account",
+      "UpdateReplacePolicy": "Retain",
     },
     "DummyApiCloudWatchRole478A67A7": Object {
+      "DeletionPolicy": "Retain",
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -1434,6 +1441,7 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+      "UpdateReplacePolicy": "Retain",
     },
     "DummyApiDeploymentD01F5018548e3dba60631e60c80c03977ce1f18a": Object {
       "DependsOn": Array [

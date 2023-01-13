@@ -55,6 +55,12 @@ Object {
             "ValidationDomain": "cdk",
           },
         ],
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyCertificate",
+          },
+        ],
         "ValidationMethod": "EMAIL",
       },
       "Type": "AWS::CertificateManager::Certificate",
@@ -217,6 +223,7 @@ Object {
       "Type": "AWS::ApiGateway::Method",
     },
     "DummyRestApiAccount722BC8C0": Object {
+      "DeletionPolicy": "Retain",
       "DependsOn": Array [
         "DummyRestApi328A173A",
       ],
@@ -229,8 +236,10 @@ Object {
         },
       },
       "Type": "AWS::ApiGateway::Account",
+      "UpdateReplacePolicy": "Retain",
     },
     "DummyRestApiCloudWatchRoleA16B4AC6": Object {
+      "DeletionPolicy": "Retain",
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -260,6 +269,7 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+      "UpdateReplacePolicy": "Retain",
     },
     "DummyRestApiDeploymentE536A000827e68cce8aade0ba98340f42cbf5e9e": Object {
       "DependsOn": Array [
@@ -728,7 +738,20 @@ Object {
             "ApiId",
           ],
         },
-        "Definition": "",
+        "Definition": "type demo {
+  id: String!
+  version: String!
+}
+type Query {
+  getDemos: [ demo! ]
+}
+input DemoInput {
+  version: String!
+}
+type Mutation {
+  addDemo(input: DemoInput!): demo
+}
+",
       },
       "Type": "AWS::AppSync::GraphQLSchema",
     },
@@ -827,17 +850,7 @@ Object {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
               "Principal": Object {
-                "Service": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "ec2.",
-                      Object {
-                        "Ref": "AWS::URLSuffix",
-                      },
-                    ],
-                  ],
-                },
+                "Service": "ec2.amazonaws.com",
               },
             },
           ],
@@ -1187,6 +1200,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "VpcPublicSubnet1NATGateway4D7517AA": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet1DefaultRoute3DA9E72A",
+        "VpcPublicSubnet1RouteTableAssociation97140677",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -1291,6 +1308,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "VpcPublicSubnet2NATGateway9182C01D": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet2DefaultRoute97F91067",
+        "VpcPublicSubnet2RouteTableAssociationDD5762D8",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -2763,7 +2784,9 @@ Object {
       "DeletionPolicy": "Retain",
       "DependsOn": Array [
         "DummyVpcPrivateSubnet1DefaultRouteE47453F6",
+        "DummyVpcPrivateSubnet1RouteTableAssociation88B5105F",
         "DummyVpcPrivateSubnet2DefaultRoute4E564518",
+        "DummyVpcPrivateSubnet2RouteTableAssociationC3594446",
       ],
       "Properties": Object {
         "DBClusterIdentifier": Object {
@@ -3034,6 +3057,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "DummyVpcPublicSubnet1NATGateway61554370": Object {
+      "DependsOn": Array [
+        "DummyVpcPublicSubnet1DefaultRoute166DC84B",
+        "DummyVpcPublicSubnet1RouteTableAssociation8BCD2CE1",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -3138,6 +3165,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "DummyVpcPublicSubnet2NATGateway867E77CE": Object {
+      "DependsOn": Array [
+        "DummyVpcPublicSubnet2DefaultRoute1C29EE76",
+        "DummyVpcPublicSubnet2RouteTableAssociationDCE3DC57",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -3235,7 +3266,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "558dc75fbdc793c8e2f64f85d2d7ed2cb820c727ec7e9b08666ad1af0103992e.zip",
+          "S3Key": "eb5b005c858404ea0c8f68098ed5dcdf5340e02461f149751d10f59c210d5ef8.zip",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -3863,17 +3894,7 @@ Object {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
               "Principal": Object {
-                "Service": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "ec2.",
-                      Object {
-                        "Ref": "AWS::URLSuffix",
-                      },
-                    ],
-                  ],
-                },
+                "Service": "ec2.amazonaws.com",
               },
             },
           ],
@@ -4102,6 +4123,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "VpcPublicSubnet1NATGateway4D7517AA": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet1DefaultRoute3DA9E72A",
+        "VpcPublicSubnet1RouteTableAssociation97140677",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -4206,6 +4231,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "VpcPublicSubnet2NATGateway9182C01D": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet2DefaultRoute97F91067",
+        "VpcPublicSubnet2RouteTableAssociationDD5762D8",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -6389,9 +6418,6 @@ Object {
           "InstanceType": "r5.large.search",
           "ZoneAwarenessEnabled": false,
         },
-        "CognitoOptions": Object {
-          "Enabled": false,
-        },
         "DomainEndpointOptions": Object {
           "EnforceHTTPS": false,
           "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
@@ -6775,7 +6801,9 @@ Object {
       "DeletionPolicy": "Delete",
       "DependsOn": Array [
         "VpcPrivateSubnet1DefaultRouteBE02A9ED",
+        "VpcPrivateSubnet1RouteTableAssociation70C59FA6",
         "VpcPrivateSubnet2DefaultRoute060D2087",
+        "VpcPrivateSubnet2RouteTableAssociationA89CAD56",
       ],
       "Properties": Object {
         "DBClusterIdentifier": Object {
@@ -6794,7 +6822,9 @@ Object {
       "DeletionPolicy": "Delete",
       "DependsOn": Array [
         "VpcPrivateSubnet1DefaultRouteBE02A9ED",
+        "VpcPrivateSubnet1RouteTableAssociation70C59FA6",
         "VpcPrivateSubnet2DefaultRoute060D2087",
+        "VpcPrivateSubnet2RouteTableAssociationA89CAD56",
       ],
       "Properties": Object {
         "DBClusterIdentifier": Object {
@@ -7067,6 +7097,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "VpcPublicSubnet1NATGateway4D7517AA": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet1DefaultRoute3DA9E72A",
+        "VpcPublicSubnet1RouteTableAssociation97140677",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -7171,6 +7205,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "VpcPublicSubnet2NATGateway9182C01D": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet2DefaultRoute97F91067",
+        "VpcPublicSubnet2RouteTableAssociationDD5762D8",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -7702,6 +7740,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "VpcPublicSubnet1NATGateway4D7517AA": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet1DefaultRoute3DA9E72A",
+        "VpcPublicSubnet1RouteTableAssociation97140677",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -7806,6 +7848,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "VpcPublicSubnet2NATGateway9182C01D": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet2DefaultRoute97F91067",
+        "VpcPublicSubnet2RouteTableAssociationDD5762D8",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -8707,6 +8753,9 @@ Object {
       "ap-south-1": Object {
         "states": "states.ap-south-1.amazonaws.com",
       },
+      "ap-south-2": Object {
+        "states": "states.ap-south-2.amazonaws.com",
+      },
       "ap-southeast-1": Object {
         "states": "states.ap-southeast-1.amazonaws.com",
       },
@@ -8745,6 +8794,9 @@ Object {
       },
       "eu-west-3": Object {
         "states": "states.eu-west-3.amazonaws.com",
+      },
+      "me-central-1": Object {
+        "states": "states.me-central-1.amazonaws.com",
       },
       "me-south-1": Object {
         "states": "states.me-south-1.amazonaws.com",

@@ -1,9 +1,9 @@
 import * as apigwv2 from "@aws-cdk/aws-apigatewayv2-alpha";
-import * as appsync from "@aws-cdk/aws-appsync-alpha";
 import * as redshift from "@aws-cdk/aws-redshift-alpha";
 import * as synthetics from "@aws-cdk/aws-synthetics-alpha";
 import { IAspect } from "aws-cdk-lib";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
+import * as appsync from "aws-cdk-lib/aws-appsync";
 import * as autoscaling from "aws-cdk-lib/aws-autoscaling";
 import * as acm from "aws-cdk-lib/aws-certificatemanager";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
