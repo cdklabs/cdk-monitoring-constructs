@@ -321,6 +321,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet1NATGateway0693C346": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet1DefaultRoute62DA4B4B",
+        "ClusterVpcPublicSubnet1RouteTableAssociation0FBEF1F4",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -425,6 +429,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet2NATGateway00B24686": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet2DefaultRoute97446C8A",
+        "ClusterVpcPublicSubnet2RouteTableAssociation8446B27D",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -514,11 +522,6 @@ Object {
     },
     "Repository22E53BBD": Object {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "ImageScanningConfiguration": Object {
-          "ScanOnPush": false,
-        },
-      },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
@@ -2027,6 +2030,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet1NATGateway0693C346": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet1DefaultRoute62DA4B4B",
+        "ClusterVpcPublicSubnet1RouteTableAssociation0FBEF1F4",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -2131,6 +2138,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet2NATGateway00B24686": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet2DefaultRoute97446C8A",
+        "ClusterVpcPublicSubnet2RouteTableAssociation8446B27D",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -2220,11 +2231,6 @@ Object {
     },
     "Repository22E53BBD": Object {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "ImageScanningConfiguration": Object {
-          "ScanOnPush": false,
-        },
-      },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
@@ -3277,6 +3283,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet1NATGateway0693C346": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet1DefaultRoute62DA4B4B",
+        "ClusterVpcPublicSubnet1RouteTableAssociation0FBEF1F4",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -3381,6 +3391,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet2NATGateway00B24686": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet2DefaultRoute97446C8A",
+        "ClusterVpcPublicSubnet2RouteTableAssociation8446B27D",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -3470,11 +3484,6 @@ Object {
     },
     "Repository22E53BBD": Object {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "ImageScanningConfiguration": Object {
-          "ScanOnPush": false,
-        },
-      },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
@@ -4893,6 +4902,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet1NATGateway0693C346": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet1DefaultRoute62DA4B4B",
+        "ClusterVpcPublicSubnet1RouteTableAssociation0FBEF1F4",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -4997,6 +5010,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet2NATGateway00B24686": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet2DefaultRoute97446C8A",
+        "ClusterVpcPublicSubnet2RouteTableAssociation8446B27D",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -5086,11 +5103,6 @@ Object {
     },
     "Repository22E53BBD": Object {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "ImageScanningConfiguration": Object {
-          "ScanOnPush": false,
-        },
-      },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
@@ -6048,6 +6060,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet1NATGateway0693C346": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet1DefaultRoute62DA4B4B",
+        "ClusterVpcPublicSubnet1RouteTableAssociation0FBEF1F4",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -6152,6 +6168,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet2NATGateway00B24686": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet2DefaultRoute97446C8A",
+        "ClusterVpcPublicSubnet2RouteTableAssociation8446B27D",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -6291,11 +6311,6 @@ Object {
     },
     "Repository22E53BBD": Object {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "ImageScanningConfiguration": Object {
-          "ScanOnPush": false,
-        },
-      },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
@@ -7585,6 +7600,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet1NATGateway0693C346": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet1DefaultRoute62DA4B4B",
+        "ClusterVpcPublicSubnet1RouteTableAssociation0FBEF1F4",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -7689,6 +7708,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet2NATGateway00B24686": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet2DefaultRoute97446C8A",
+        "ClusterVpcPublicSubnet2RouteTableAssociation8446B27D",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -7828,11 +7851,6 @@ Object {
     },
     "Repository22E53BBD": Object {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "ImageScanningConfiguration": Object {
-          "ScanOnPush": false,
-        },
-      },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
@@ -8677,6 +8695,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet1NATGateway0693C346": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet1DefaultRoute62DA4B4B",
+        "ClusterVpcPublicSubnet1RouteTableAssociation0FBEF1F4",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -8781,6 +8803,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet2NATGateway00B24686": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet2DefaultRoute97446C8A",
+        "ClusterVpcPublicSubnet2RouteTableAssociation8446B27D",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -8870,11 +8896,6 @@ Object {
     },
     "Repository22E53BBD": Object {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "ImageScanningConfiguration": Object {
-          "ScanOnPush": false,
-        },
-      },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },
@@ -9573,6 +9594,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet1NATGateway0693C346": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet1DefaultRoute62DA4B4B",
+        "ClusterVpcPublicSubnet1RouteTableAssociation0FBEF1F4",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -9677,6 +9702,10 @@ Object {
       "Type": "AWS::EC2::EIP",
     },
     "ClusterVpcPublicSubnet2NATGateway00B24686": Object {
+      "DependsOn": Array [
+        "ClusterVpcPublicSubnet2DefaultRoute97446C8A",
+        "ClusterVpcPublicSubnet2RouteTableAssociation8446B27D",
+      ],
       "Properties": Object {
         "AllocationId": Object {
           "Fn::GetAtt": Array [
@@ -9766,11 +9795,6 @@ Object {
     },
     "Repository22E53BBD": Object {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "ImageScanningConfiguration": Object {
-          "ScanOnPush": false,
-        },
-      },
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Retain",
     },

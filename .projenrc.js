@@ -1,7 +1,7 @@
 const { awscdk, javascript, DependencyType } = require("projen");
 const { workflows } = require("projen/lib/github");
 
-const CDK_VERSION = "2.18.0";
+const CDK_VERSION = "2.60.0";
 
 const project = new awscdk.AwsCdkConstructLibrary({
   name: "cdk-monitoring-constructs",
@@ -11,7 +11,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ["cloudwatch", "monitoring"],
 
   defaultReleaseBranch: "main",
-  majorVersion: 1,
+  majorVersion: 2,
   stability: "experimental",
 
   cdkVersion: CDK_VERSION,
@@ -79,7 +79,6 @@ _By submitting this pull request, I confirm that my contribution is made under t
 // Experimental modules
 [
   "@aws-cdk/aws-apigatewayv2-alpha",
-  "@aws-cdk/aws-appsync-alpha",
   "@aws-cdk/aws-redshift-alpha",
   "@aws-cdk/aws-synthetics-alpha",
 ].forEach((dep) => {

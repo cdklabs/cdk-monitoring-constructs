@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  StepFunctionMetricFactory,
+  StepFunctionMetricFactoryProps,
+} from "./StepFunctionMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -29,10 +33,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  StepFunctionMetricFactory,
-  StepFunctionMetricFactoryProps,
-} from "./StepFunctionMetricFactory";
 
 export interface StepFunctionMonitoringOptions extends BaseMonitoringProps {
   readonly addDurationP50Alarm?: Record<string, DurationThreshold>;

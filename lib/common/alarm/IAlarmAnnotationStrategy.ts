@@ -5,8 +5,8 @@ import {
   Shading,
 } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricWithAlarmSupport } from "../metric";
 import { AlarmMetadata } from "./AlarmFactory";
+import { MetricWithAlarmSupport } from "../metric";
 
 export interface AlarmAnnotationStrategyProps extends AlarmMetadata {
   readonly alarm: Alarm;

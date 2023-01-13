@@ -1,5 +1,9 @@
 import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 import {
+  WafV2MetricFactory,
+  WafV2MetricFactoryProps,
+} from "./WafV2MetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -14,10 +18,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  WafV2MetricFactory,
-  WafV2MetricFactoryProps,
-} from "./WafV2MetricFactory";
 
 export interface WafV2MonitoringOptions extends BaseMonitoringProps {}
 

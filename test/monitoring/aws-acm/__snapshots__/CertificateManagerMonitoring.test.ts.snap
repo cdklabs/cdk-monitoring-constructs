@@ -43,6 +43,12 @@ Object {
             "ValidationDomain": "cdk",
           },
         ],
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Certificate1",
+          },
+        ],
         "ValidationMethod": "EMAIL",
       },
       "Type": "AWS::CertificateManager::Certificate",
@@ -164,6 +170,12 @@ Object {
           Object {
             "DomainName": "www.monitoring.cdk",
             "ValidationDomain": "cdk",
+          },
+        ],
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Certificate1",
           },
         ],
         "ValidationMethod": "EMAIL",

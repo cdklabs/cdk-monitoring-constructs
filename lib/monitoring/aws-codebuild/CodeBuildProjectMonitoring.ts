@@ -6,6 +6,10 @@ import {
 import { CfnProject, IProject } from "aws-cdk-lib/aws-codebuild";
 
 import {
+  CodeBuildProjectMetricFactory,
+  CodeBuildProjectMetricFactoryProps,
+} from "./CodeBuildProjectMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -27,10 +31,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  CodeBuildProjectMetricFactory,
-  CodeBuildProjectMetricFactoryProps,
-} from "./CodeBuildProjectMetricFactory";
 
 export interface CodeBuildProjectMonitoringOptions extends BaseMonitoringProps {
   readonly addDurationP99Alarm?: Record<string, DurationThreshold>;

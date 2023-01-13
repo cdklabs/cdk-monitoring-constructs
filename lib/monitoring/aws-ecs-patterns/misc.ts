@@ -4,6 +4,11 @@ import {
 } from "aws-cdk-lib/aws-ecs-patterns";
 import { IQueue } from "aws-cdk-lib/aws-sqs";
 
+import { Ec2ServiceMonitoring } from "./Ec2ServiceMonitoring";
+import {
+  BaseFargateServiceAlarms,
+  FargateServiceMonitoring,
+} from "./FargateServiceMonitoring";
 import { BaseMonitoringProps, MonitoringScope } from "../../common";
 import {
   BaseDlqAlarms,
@@ -11,11 +16,6 @@ import {
   SqsQueueMonitoring,
   SqsQueueMonitoringWithDlq,
 } from "../aws-sqs";
-import { Ec2ServiceMonitoring } from "./Ec2ServiceMonitoring";
-import {
-  BaseFargateServiceAlarms,
-  FargateServiceMonitoring,
-} from "./FargateServiceMonitoring";
 
 interface BaseQueueProcessingServiceMonitoringProps
   extends BaseMonitoringProps {

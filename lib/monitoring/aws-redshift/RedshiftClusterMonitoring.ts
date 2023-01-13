@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  RedshiftClusterMetricFactory,
+  RedshiftClusterMetricFactoryProps,
+} from "./RedshiftClusterMetricFactory";
+import {
   BaseMonitoringProps,
   BooleanAxisFromZeroToOne,
   CountAxisFromZero,
@@ -31,10 +35,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  RedshiftClusterMetricFactory,
-  RedshiftClusterMetricFactoryProps,
-} from "./RedshiftClusterMetricFactory";
 
 export interface RedshiftClusterMonitoringOptions extends BaseMonitoringProps {
   readonly addDiskSpaceUsageAlarm?: Record<string, UsageThreshold>;

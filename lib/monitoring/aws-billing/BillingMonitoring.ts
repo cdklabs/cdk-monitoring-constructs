@@ -7,6 +7,11 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  BillingCurrency,
+  BillingMetricFactory,
+  BillingRegion,
+} from "./BillingMetricFactory";
+import {
   AlarmFactory,
   AnomalyDetectingAlarmFactory,
   AnomalyDetectionThreshold,
@@ -25,11 +30,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  BillingCurrency,
-  BillingMetricFactory,
-  BillingRegion,
-} from "./BillingMetricFactory";
 
 export interface BillingMonitoringOptions extends BaseMonitoringProps {
   readonly addTotalCostAnomalyAlarm?: Record<string, AnomalyDetectionThreshold>;

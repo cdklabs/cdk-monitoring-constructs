@@ -5,6 +5,11 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 import { IFunction } from "aws-cdk-lib/aws-lambda";
 
+import { SecretsManagerMetricsPublisher } from "./SecretsManagerMetricsPublisher";
+import {
+  SecretsManagerSecretMetricFactory,
+  SecretsManagerSecretMetricFactoryProps,
+} from "./SecretsManagerSecretMetricFactory";
 import {
   AgeAlarmFactory,
   AlarmFactory,
@@ -21,11 +26,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import { SecretsManagerMetricsPublisher } from "./SecretsManagerMetricsPublisher";
-import {
-  SecretsManagerSecretMetricFactory,
-  SecretsManagerSecretMetricFactoryProps,
-} from "./SecretsManagerSecretMetricFactory";
 
 export interface IPublisherConsumer {
   consume(lambdaFunction: IFunction): void;

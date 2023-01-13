@@ -6,6 +6,10 @@ import {
 import { CfnTopic, ITopic } from "aws-cdk-lib/aws-sns";
 
 import {
+  SnsTopicMetricFactory,
+  SnsTopicMetricFactoryProps,
+} from "./SnsTopicMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -25,10 +29,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  SnsTopicMetricFactory,
-  SnsTopicMetricFactoryProps,
-} from "./SnsTopicMetricFactory";
 
 export interface SnsTopicMonitoringOptions extends BaseMonitoringProps {
   readonly addMessageNotificationsFailedAlarm?: Record<

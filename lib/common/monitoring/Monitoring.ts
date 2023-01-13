@@ -1,12 +1,12 @@
 import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
+import { MonitoringScope } from "./MonitoringScope";
 import {
   IDashboardSegment,
   MonitoringDashboardsOverrideProps,
   UserProvidedNames,
 } from "../../dashboard";
 import { AlarmWithAnnotation } from "../alarm";
-import { MonitoringScope } from "./MonitoringScope";
 
 /**
  * An independent unit of monitoring. This is the base for all monitoring classes with alarm support.

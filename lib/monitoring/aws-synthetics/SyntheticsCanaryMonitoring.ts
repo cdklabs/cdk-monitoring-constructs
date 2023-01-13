@@ -4,6 +4,10 @@ import {
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
 import {
+  SyntheticsCanaryMetricFactory,
+  SyntheticsCanaryMetricFactoryProps,
+} from "./SyntheticsCanaryMetricFactory";
+import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
@@ -27,10 +31,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard/index";
-import {
-  SyntheticsCanaryMetricFactory,
-  SyntheticsCanaryMetricFactoryProps,
-} from "./SyntheticsCanaryMetricFactory";
 
 export interface SyntheticsCanaryMonitoringOptions extends BaseMonitoringProps {
   readonly add4xxErrorCountAlarm?: Record<string, ErrorCountThreshold>;

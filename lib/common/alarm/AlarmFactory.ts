@@ -11,12 +11,6 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 
-import {
-  MetricFactoryDefaults,
-  MetricStatistic,
-  MetricWithAlarmSupport,
-} from "../metric";
-import { removeBracketsWithDynamicLabels } from "../strings";
 import { AlarmNamingStrategy } from "./AlarmNamingStrategy";
 import { IAlarmActionStrategy } from "./IAlarmActionStrategy";
 import {
@@ -26,6 +20,12 @@ import {
 } from "./IAlarmAnnotationStrategy";
 import { IAlarmDedupeStringProcessor } from "./IAlarmDedupeStringProcessor";
 import { noopAction } from "./NoopAlarmActionStrategy";
+import {
+  MetricFactoryDefaults,
+  MetricStatistic,
+  MetricWithAlarmSupport,
+} from "../metric";
+import { removeBracketsWithDynamicLabels } from "../strings";
 
 const DefaultDatapointsToAlarm = 3;
 

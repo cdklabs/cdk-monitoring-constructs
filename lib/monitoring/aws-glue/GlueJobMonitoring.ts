@@ -5,6 +5,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  GlueJobMetricFactory,
+  GlueJobMetricFactoryProps,
+} from "./GlueJobMetricFactory";
+import {
   AlarmFactory,
   BaseMonitoringProps,
   CountAxisFromZero,
@@ -28,10 +32,6 @@ import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
-import {
-  GlueJobMetricFactory,
-  GlueJobMetricFactoryProps,
-} from "./GlueJobMetricFactory";
 
 export interface GlueJobMonitoringOptions
   extends GlueJobMetricFactoryProps,
