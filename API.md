@@ -105,6 +105,7 @@ to each other.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 
 ---
@@ -124,6 +125,22 @@ Checks if `x` is a construct.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-monitoring-constructs.BitmapDashboard.isOwnedResource"></a>
+
+```typescript
+import { BitmapDashboard } from 'cdk-monitoring-constructs'
+
+BitmapDashboard.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-monitoring-constructs.BitmapDashboard.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -150,6 +167,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.dashboardArn">dashboardArn</a></code> | <code>string</code> | ARN of this dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.dashboardName">dashboardName</a></code> | <code>string</code> | The name of this dashboard. |
 
 ---
 
@@ -193,6 +212,30 @@ public readonly stack: Stack;
 - *Type:* aws-cdk-lib.Stack
 
 The stack in which this resource is defined.
+
+---
+
+##### `dashboardArn`<sup>Required</sup> <a name="dashboardArn" id="cdk-monitoring-constructs.BitmapDashboard.property.dashboardArn"></a>
+
+```typescript
+public readonly dashboardArn: string;
+```
+
+- *Type:* string
+
+ARN of this dashboard.
+
+---
+
+##### `dashboardName`<sup>Required</sup> <a name="dashboardName" id="cdk-monitoring-constructs.BitmapDashboard.property.dashboardName"></a>
+
+```typescript
+public readonly dashboardName: string;
+```
+
+- *Type:* string
+
+The name of this dashboard.
 
 ---
 
@@ -422,6 +465,7 @@ to each other.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 
 ---
@@ -441,6 +485,22 @@ Checks if `x` is a construct.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isOwnedResource"></a>
+
+```typescript
+import { DashboardWithBitmapCopy } from 'cdk-monitoring-constructs'
+
+DashboardWithBitmapCopy.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -467,6 +527,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.dashboardArn">dashboardArn</a></code> | <code>string</code> | ARN of this dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.dashboardName">dashboardName</a></code> | <code>string</code> | The name of this dashboard. |
 
 ---
 
@@ -510,6 +572,30 @@ public readonly stack: Stack;
 - *Type:* aws-cdk-lib.Stack
 
 The stack in which this resource is defined.
+
+---
+
+##### `dashboardArn`<sup>Required</sup> <a name="dashboardArn" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.property.dashboardArn"></a>
+
+```typescript
+public readonly dashboardArn: string;
+```
+
+- *Type:* string
+
+ARN of this dashboard.
+
+---
+
+##### `dashboardName`<sup>Required</sup> <a name="dashboardName" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.property.dashboardName"></a>
+
+```typescript
+public readonly dashboardName: string;
+```
+
+- *Type:* string
+
+The name of this dashboard.
 
 ---
 
@@ -6178,7 +6264,7 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.IGraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_appsync.IGraphqlApi</code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
@@ -6190,7 +6276,7 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 public readonly api: IGraphqlApi;
 ```
 
-- *Type:* @aws-cdk/aws-appsync-alpha.IGraphqlApi
+- *Type:* aws-cdk-lib.aws_appsync.IGraphqlApi
 
 the GraphQL API to monitor.
 
@@ -6473,7 +6559,7 @@ const appSyncMonitoringProps: AppSyncMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>@aws-cdk/aws-appsync-alpha.IGraphqlApi</code> | the GraphQL API to monitor. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_appsync.IGraphqlApi</code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
 
@@ -6673,7 +6759,7 @@ public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
 public readonly api: IGraphqlApi;
 ```
 
-- *Type:* @aws-cdk/aws-appsync-alpha.IGraphqlApi
+- *Type:* aws-cdk-lib.aws_appsync.IGraphqlApi
 
 the GraphQL API to monitor.
 
@@ -37479,7 +37565,7 @@ const xaxrMathExpressionProps: XaxrMathExpressionProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.color">color</a></code> | <code>string</code> | Color for this metric when added to a Graph in a Dashboard. |
-| <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.label">label</a></code> | <code>string</code> | Label for this metric when added to a Graph in a Dashboard. |
+| <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.label">label</a></code> | <code>string</code> | Label for this expression when added to a Graph in a Dashboard. |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the expression's statistics are applied. |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.searchAccount">searchAccount</a></code> | <code>string</code> | Account to evaluate search expressions within. |
 | <code><a href="#cdk-monitoring-constructs.XaxrMathExpressionProps.property.searchRegion">searchRegion</a></code> | <code>string</code> | Region to evaluate search expressions within. |
@@ -37512,7 +37598,28 @@ public readonly label: string;
 - *Type:* string
 - *Default:* Expression value is used as label
 
-Label for this metric when added to a Graph in a Dashboard.
+Label for this expression when added to a Graph in a Dashboard.
+
+If this expression evaluates to more than one time series (for
+example, through the use of `METRICS()` or `SEARCH()` expressions),
+each time series will appear in the graph using a combination of the
+expression label and the individual metric label. Specify the empty
+string (`''`) to suppress the expression label and only keep the
+metric label.
+
+You can use [dynamic labels](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html)
+to show summary information about the displayed time series
+in the legend. For example, if you use:
+
+```
+[max: ${MAX}] MyMetric
+```
+
+As the metric label, the maximum value in the visible range will
+be shown next to the time series name in the graph's legend. If the
+math expression produces more than one time series, the maximum
+will be shown for each individual time series produce by this
+math expression.
 
 ---
 
@@ -37905,6 +38012,7 @@ Return the widget JSON for use in the dashboard.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -37929,6 +38037,18 @@ public readonly width: number;
 - *Type:* number
 
 The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.AlarmMatrixWidget.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
 
 ---
 
@@ -38098,6 +38218,7 @@ Return the widget JSON for use in the dashboard.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -38122,6 +38243,18 @@ public readonly width: number;
 - *Type:* number
 
 The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
 
 ---
 
@@ -38301,6 +38434,7 @@ All properties except namespace and metricName can be changed.
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.label">label</a></code> | <code>string</code> | Label for this metric when added to a Graph. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.searchAccount">searchAccount</a></code> | <code>string</code> | Account to evaluate search expressions within. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.searchRegion">searchRegion</a></code> | <code>string</code> | Region to evaluate search expressions within. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.warnings">warnings</a></code> | <code>string[]</code> | Warnings generated by this math expression. |
 
 ---
 
@@ -38385,6 +38519,18 @@ public readonly searchRegion: string;
 - *Type:* string
 
 Region to evaluate search expressions within.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Warnings generated by this math expression.
 
 ---
 
@@ -42711,6 +42857,7 @@ Return the widget JSON for use in the dashboard.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CustomWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.CustomWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.CustomWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -42735,6 +42882,18 @@ public readonly width: number;
 - *Type:* number
 
 The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.CustomWidget.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
 
 ---
 
@@ -43457,6 +43616,7 @@ the metric to add.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -43481,6 +43641,18 @@ public readonly width: number;
 - *Type:* number
 
 The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
 
 ---
 
@@ -47216,6 +47388,7 @@ Return the widget JSON for use in the dashboard.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.HeaderWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.HeaderWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.HeaderWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -47240,6 +47413,18 @@ public readonly width: number;
 - *Type:* number
 
 The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.HeaderWidget.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
 
 ---
 
@@ -47310,6 +47495,7 @@ Return the widget JSON for use in the dashboard.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.KeyValueTableWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.KeyValueTableWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -47334,6 +47520,18 @@ public readonly width: number;
 - *Type:* number
 
 The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.KeyValueTableWidget.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
 
 ---
 
@@ -51646,6 +51844,7 @@ Return the widget JSON for use in the dashboard.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -51670,6 +51869,18 @@ public readonly width: number;
 - *Type:* number
 
 The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.MonitoringHeaderWidget.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
 
 ---
 
@@ -55115,6 +55326,7 @@ the metric to add.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -55139,6 +55351,18 @@ public readonly width: number;
 - *Type:* number
 
 The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.SingleAxisGraphWidget.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
 
 ---
 

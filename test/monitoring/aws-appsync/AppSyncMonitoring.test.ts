@@ -1,6 +1,7 @@
-import { GraphqlApi, IGraphqlApi } from "@aws-cdk/aws-appsync-alpha";
+import path from "path";
 import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
+import { GraphqlApi, IGraphqlApi, SchemaFile } from "aws-cdk-lib/aws-appsync";
 
 import { AlarmWithAnnotation, AppSyncMonitoring } from "../../../lib";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
@@ -13,6 +14,9 @@ test("snapshot test: no alarms", () => {
 
   const dummyApi = new GraphqlApi(stack, "testHttpApi", {
     name: "DummyApi",
+    schema: SchemaFile.fromAsset(
+      path.join(__dirname, "..", "..", "assets", "schema.graphql")
+    ),
   });
 
   const monitoring = new AppSyncMonitoring(scope, {
@@ -57,6 +61,9 @@ test("snapshot test: all alarms", () => {
 
   const dummyApi = new GraphqlApi(stack, "testHttpApi", {
     name: "DummyApi",
+    schema: SchemaFile.fromAsset(
+      path.join(__dirname, "..", "..", "assets", "schema.graphql")
+    ),
   });
 
   const monitoring = new AppSyncMonitoring(scope, {

@@ -1,4 +1,4 @@
-import { IGraphqlApi } from "@aws-cdk/aws-appsync-alpha";
+import { IGraphqlApi } from "aws-cdk-lib/aws-appsync";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {

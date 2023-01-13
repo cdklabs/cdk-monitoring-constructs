@@ -5,6 +5,7 @@ Array [
   Object {
     "height": 2,
     "properties": Object {
+      "background": undefined,
       "markdown": "# text
 
 description",
@@ -22,6 +23,7 @@ Array [
   Object {
     "height": 6,
     "properties": Object {
+      "background": undefined,
       "markdown": "# text
 
 very long description",
@@ -39,6 +41,7 @@ Array [
   Object {
     "height": 1,
     "properties": Object {
+      "background": undefined,
       "markdown": "# text",
     },
     "type": "text",

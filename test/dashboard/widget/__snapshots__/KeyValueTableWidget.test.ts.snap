@@ -5,6 +5,7 @@ Array [
   Object {
     "height": 3,
     "properties": Object {
+      "background": undefined,
       "markdown": "| name| has
 |---|---
 | John Wick| a dog",
