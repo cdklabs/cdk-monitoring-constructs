@@ -134,7 +134,7 @@ export class GlueJobMetricFactory {
       this.metricFailedTasksSum(),
       this.rateComputationMethod,
       true,
-      "killed",
+      "failed",
       false
     );
   }
