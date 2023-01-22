@@ -343,7 +343,8 @@ export class DynamoTableMonitoring extends Monitoring {
         this.averagePerOperationLatencyMetrics[operation]!,
         LatencyType.AVERAGE,
         alarmProps,
-        operation + "-" + disambiguator
+        disambiguator,
+        operation
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
