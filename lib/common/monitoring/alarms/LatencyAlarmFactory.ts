@@ -128,9 +128,12 @@ export class LatencyAlarmFactory {
     metric: MetricWithAlarmSupport,
     latencyType: LatencyType,
     props: LatencyThreshold,
-    disambiguator?: string
+    disambiguator?: string,
+    additionalAlarmNameSuffix: string | undefined = undefined
   ) {
-    const alarmNameSuffix = `Latency-${latencyType}`;
+    const alarmNameSuffix = ["Latency", latencyType, additionalAlarmNameSuffix]
+      .filter((i) => i !== undefined)
+      .join("-");
 
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -155,9 +158,16 @@ export class LatencyAlarmFactory {
     metric: MetricWithAlarmSupport,
     latencyType: LatencyType,
     props: LatencyThreshold,
-    disambiguator?: string
+    disambiguator?: string,
+    additionalAlarmNameSuffix: string | undefined = undefined
   ) {
-    const alarmNameSuffix = `IntegrationLatency-${latencyType}`;
+    const alarmNameSuffix = [
+      "IntegrationLatency",
+      latencyType,
+      additionalAlarmNameSuffix,
+    ]
+      .filter((i) => i !== undefined)
+      .join("-");
 
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -182,9 +192,12 @@ export class LatencyAlarmFactory {
     metric: MetricWithAlarmSupport,
     latencyType: LatencyType,
     props: DurationThreshold,
-    disambiguator?: string
+    disambiguator?: string,
+    additionalAlarmNameSuffix: string | undefined = undefined
   ) {
-    const alarmNameSuffix = `Duration-${latencyType}`;
+    const alarmNameSuffix = ["Duration", latencyType, additionalAlarmNameSuffix]
+      .filter((i) => i !== undefined)
+      .join("-");
 
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -209,9 +222,16 @@ export class LatencyAlarmFactory {
     metric: MetricWithAlarmSupport,
     latencyType: LatencyType,
     props: DurationThreshold,
-    disambiguator?: string
+    disambiguator?: string,
+    additionalAlarmNameSuffix: string | undefined = undefined
   ) {
-    const alarmNameSuffix = `Garbage-Collection-Time-${latencyType}`;
+    const alarmNameSuffix = [
+      "Garbage-Collection-Time",
+      latencyType,
+      additionalAlarmNameSuffix,
+    ]
+      .filter((i) => i !== undefined)
+      .join("-");
 
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

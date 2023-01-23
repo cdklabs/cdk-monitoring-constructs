@@ -50657,7 +50657,7 @@ new LatencyAlarmFactory(alarmFactory: AlarmFactory)
 ##### `addDurationAlarm` <a name="addDurationAlarm" id="cdk-monitoring-constructs.LatencyAlarmFactory.addDurationAlarm"></a>
 
 ```typescript
-public addDurationAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: DurationThreshold, disambiguator?: string): AlarmWithAnnotation
+public addDurationAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: DurationThreshold, disambiguator?: string, additionalAlarmNameSuffix?: string): AlarmWithAnnotation
 ```
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addDurationAlarm.parameter.metric"></a>
@@ -50684,10 +50684,16 @@ public addDurationAlarm(metric: Metric | MathExpression, latencyType: LatencyTyp
 
 ---
 
+###### `additionalAlarmNameSuffix`<sup>Optional</sup> <a name="additionalAlarmNameSuffix" id="cdk-monitoring-constructs.LatencyAlarmFactory.addDurationAlarm.parameter.additionalAlarmNameSuffix"></a>
+
+- *Type:* string
+
+---
+
 ##### `addIntegrationLatencyAlarm` <a name="addIntegrationLatencyAlarm" id="cdk-monitoring-constructs.LatencyAlarmFactory.addIntegrationLatencyAlarm"></a>
 
 ```typescript
-public addIntegrationLatencyAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: LatencyThreshold, disambiguator?: string): AlarmWithAnnotation
+public addIntegrationLatencyAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: LatencyThreshold, disambiguator?: string, additionalAlarmNameSuffix?: string): AlarmWithAnnotation
 ```
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addIntegrationLatencyAlarm.parameter.metric"></a>
@@ -50714,10 +50720,16 @@ public addIntegrationLatencyAlarm(metric: Metric | MathExpression, latencyType: 
 
 ---
 
+###### `additionalAlarmNameSuffix`<sup>Optional</sup> <a name="additionalAlarmNameSuffix" id="cdk-monitoring-constructs.LatencyAlarmFactory.addIntegrationLatencyAlarm.parameter.additionalAlarmNameSuffix"></a>
+
+- *Type:* string
+
+---
+
 ##### `addJvmGarbageCollectionDurationAlarm` <a name="addJvmGarbageCollectionDurationAlarm" id="cdk-monitoring-constructs.LatencyAlarmFactory.addJvmGarbageCollectionDurationAlarm"></a>
 
 ```typescript
-public addJvmGarbageCollectionDurationAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: DurationThreshold, disambiguator?: string): AlarmWithAnnotation
+public addJvmGarbageCollectionDurationAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: DurationThreshold, disambiguator?: string, additionalAlarmNameSuffix?: string): AlarmWithAnnotation
 ```
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addJvmGarbageCollectionDurationAlarm.parameter.metric"></a>
@@ -50744,10 +50756,16 @@ public addJvmGarbageCollectionDurationAlarm(metric: Metric | MathExpression, lat
 
 ---
 
+###### `additionalAlarmNameSuffix`<sup>Optional</sup> <a name="additionalAlarmNameSuffix" id="cdk-monitoring-constructs.LatencyAlarmFactory.addJvmGarbageCollectionDurationAlarm.parameter.additionalAlarmNameSuffix"></a>
+
+- *Type:* string
+
+---
+
 ##### `addLatencyAlarm` <a name="addLatencyAlarm" id="cdk-monitoring-constructs.LatencyAlarmFactory.addLatencyAlarm"></a>
 
 ```typescript
-public addLatencyAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: LatencyThreshold, disambiguator?: string): AlarmWithAnnotation
+public addLatencyAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: LatencyThreshold, disambiguator?: string, additionalAlarmNameSuffix?: string): AlarmWithAnnotation
 ```
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addLatencyAlarm.parameter.metric"></a>
@@ -50769,6 +50787,12 @@ public addLatencyAlarm(metric: Metric | MathExpression, latencyType: LatencyType
 ---
 
 ###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.LatencyAlarmFactory.addLatencyAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalAlarmNameSuffix`<sup>Optional</sup> <a name="additionalAlarmNameSuffix" id="cdk-monitoring-constructs.LatencyAlarmFactory.addLatencyAlarm.parameter.additionalAlarmNameSuffix"></a>
 
 - *Type:* string
 
