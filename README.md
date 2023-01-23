@@ -74,7 +74,7 @@ You can browse the documentation at https://constructs.dev/packages/cdk-monitori
 | AWS Billing (`.monitorBilling()`) | AWS account cost | Total cost (anomaly) | [Requires enabling](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) the **Receive Billing Alerts** option in AWS Console / Billing Preferences |
 | AWS Certificate Manager (`.monitorCertificate()`) | Certificate expiration | Days until expiration | |
 | AWS CloudFront (`.monitorCloudFrontDistribution()`) | TPS, traffic, latency, errors | Error rate, low/high TPS | |
-| AWS CloudWatch Logs (`.monitorLog()`) | Patterns present in the log group | | |
+| AWS CloudWatch Logs (`.monitorLog()`) | Patterns present in the log group | Minimum incoming logs | |
 | AWS CloudWatch Synthetics Canary (`.monitorSyntheticsCanary()`) | Latency, error count/rate | Error count/rate, latency | |
 | AWS CodeBuild (`.monitorCodeBuildProject()`) | Build counts (total, successful, failed), failed rate, duration | Failed build count/rate, duration | |
 | AWS DocumentDB (`.monitorDocumentDbCluster()`) | CPU, throttling, read/write latency, transactions, cursors | CPU | |

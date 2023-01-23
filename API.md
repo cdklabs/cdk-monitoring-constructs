@@ -8825,6 +8825,36 @@ public readonly addLowTpsAlarm: {[ key: string ]: LowTpsThreshold};
 
 ---
 
+### CloudWatchLogsMetricFactoryProps <a name="CloudWatchLogsMetricFactoryProps" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { CloudWatchLogsMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const cloudWatchLogsMetricFactoryProps: CloudWatchLogsMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps.property.logGroupName">logGroupName</a></code> | <code>string</code> | Name of the log group to monitor. |
+
+---
+
+##### `logGroupName`<sup>Required</sup> <a name="logGroupName" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps.property.logGroupName"></a>
+
+```typescript
+public readonly logGroupName: string;
+```
+
+- *Type:* string
+
+Name of the log group to monitor.
+
+---
+
 ### CodeBuildProjectMetricFactoryProps <a name="CodeBuildProjectMetricFactoryProps" id="cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps.Initializer"></a>
@@ -20898,10 +20928,11 @@ const logMonitoringProps: LogMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.logGroupName">logGroupName</a></code> | <code>string</code> | name of the log group to analyze for the given pattern. |
-| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.pattern">pattern</a></code> | <code>string</code> | pattern to show, e.g. "ERROR". |
-| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.limit">limit</a></code> | <code>number</code> | number of log messages to search for. |
-| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.title">title</a></code> | <code>string</code> | widget title. |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.logGroupName">logGroupName</a></code> | <code>string</code> | Name of the log group to monitor. |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addMinIncomingLogsAlarm">addMinIncomingLogsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.limit">limit</a></code> | <code>number</code> | Maximum number of log messages to search for. |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.pattern">pattern</a></code> | <code>string</code> | Pattern to search for, e.g. "ERROR". |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.title">title</a></code> | <code>string</code> | Widget title. |
 
 ---
 
@@ -21011,19 +21042,17 @@ public readonly logGroupName: string;
 
 - *Type:* string
 
-name of the log group to analyze for the given pattern.
+Name of the log group to monitor.
 
 ---
 
-##### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-monitoring-constructs.LogMonitoringProps.property.pattern"></a>
+##### `addMinIncomingLogsAlarm`<sup>Optional</sup> <a name="addMinIncomingLogsAlarm" id="cdk-monitoring-constructs.LogMonitoringProps.property.addMinIncomingLogsAlarm"></a>
 
 ```typescript
-public readonly pattern: string;
+public readonly addMinIncomingLogsAlarm: {[ key: string ]: MinUsageCountThreshold};
 ```
 
-- *Type:* string
-
-pattern to show, e.g. "ERROR".
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}
 
 ---
 
@@ -21036,7 +21065,19 @@ public readonly limit: number;
 - *Type:* number
 - *Default:* 10
 
-number of log messages to search for.
+Maximum number of log messages to search for.
+
+---
+
+##### `pattern`<sup>Optional</sup> <a name="pattern" id="cdk-monitoring-constructs.LogMonitoringProps.property.pattern"></a>
+
+```typescript
+public readonly pattern: string;
+```
+
+- *Type:* string
+
+Pattern to search for, e.g. "ERROR".
 
 ---
 
@@ -21049,7 +21090,7 @@ public readonly title: string;
 - *Type:* string
 - *Default:* auto-generated title based on the pattern and limit
 
-widget title.
+Widget title.
 
 ---
 
@@ -42005,6 +42046,52 @@ public readonly distributionUrl: string;
 ---
 
 
+### CloudWatchLogsMetricFactory <a name="CloudWatchLogsMetricFactory" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactory.Initializer"></a>
+
+```typescript
+import { CloudWatchLogsMetricFactory } from 'cdk-monitoring-constructs'
+
+new CloudWatchLogsMetricFactory(metricFactory: MetricFactory, props: CloudWatchLogsMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps">CloudWatchLogsMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps">CloudWatchLogsMetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactory.metricIncomingLogEvents">metricIncomingLogEvents</a></code> | *No description.* |
+
+---
+
+##### `metricIncomingLogEvents` <a name="metricIncomingLogEvents" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactory.metricIncomingLogEvents"></a>
+
+```typescript
+public metricIncomingLogEvents(): Metric | MathExpression
+```
+
+
+
+
 ### CodeBuildProjectMetricFactory <a name="CodeBuildProjectMetricFactory" id="cdk-monitoring-constructs.CodeBuildProjectMetricFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CodeBuildProjectMetricFactory.Initializer"></a>
@@ -50907,6 +50994,8 @@ new LogMonitoring(scope: MonitoringScope, props: LogMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.createIncomingLogsWidget">createIncomingLogsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
 
@@ -50994,16 +51083,64 @@ public widgets(): IWidget[]
 
 Returns widgets to be placed on the main dashboard.
 
+##### `createIncomingLogsWidget` <a name="createIncomingLogsWidget" id="cdk-monitoring-constructs.LogMonitoring.createIncomingLogsWidget"></a>
+
+```typescript
+public createIncomingLogsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LogMonitoring.createIncomingLogsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LogMonitoring.createIncomingLogsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.LogMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.incomingLogEventsMetric">incomingLogEventsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.limit">limit</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.logGroupName">logGroupName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.pattern">pattern</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.logGroupUrl">logGroupUrl</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.pattern">pattern</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.LogMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `incomingLogEventsMetric`<sup>Required</sup> <a name="incomingLogEventsMetric" id="cdk-monitoring-constructs.LogMonitoring.property.incomingLogEventsMetric"></a>
+
+```typescript
+public readonly incomingLogEventsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -51027,13 +51164,23 @@ public readonly logGroupName: string;
 
 ---
 
-##### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-monitoring-constructs.LogMonitoring.property.pattern"></a>
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.LogMonitoring.property.usageAlarmFactory"></a>
 
 ```typescript
-public readonly pattern: string;
+public readonly usageAlarmFactory: UsageAlarmFactory;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `usageAnnotations`<sup>Required</sup> <a name="usageAnnotations" id="cdk-monitoring-constructs.LogMonitoring.property.usageAnnotations"></a>
+
+```typescript
+public readonly usageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -51041,6 +51188,16 @@ public readonly pattern: string;
 
 ```typescript
 public readonly logGroupUrl: string;
+```
+
+- *Type:* string
+
+---
+
+##### `pattern`<sup>Optional</sup> <a name="pattern" id="cdk-monitoring-constructs.LogMonitoring.property.pattern"></a>
+
+```typescript
+public readonly pattern: string;
 ```
 
 - *Type:* string
