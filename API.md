@@ -24429,8 +24429,25 @@ const metricFactoryDefaults: MetricFactoryDefaults = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.namespace">namespace</a></code> | <code>string</code> | Each metric exists in a namespace. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Metric period. |
+| <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.MetricFactoryDefaults.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -24460,6 +24477,21 @@ public readonly period: Duration;
 Metric period.
 
 Default value is used if not defined.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricFactoryDefaults.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -51164,7 +51196,7 @@ additional dimensions.
 ##### `createMetric` <a name="createMetric" id="cdk-monitoring-constructs.MetricFactory.createMetric"></a>
 
 ```typescript
-public createMetric(metricName: string, statistic: MetricStatistic, label?: string, dimensionsMap?: {[ key: string ]: string}, color?: string, namespace?: string, period?: Duration): Metric | MathExpression
+public createMetric(metricName: string, statistic: MetricStatistic, label?: string, dimensionsMap?: {[ key: string ]: string}, color?: string, namespace?: string, period?: Duration, region?: string, account?: string): Metric | MathExpression
 ```
 
 Factory method that creates a metric.
@@ -51230,6 +51262,26 @@ if undefined, uses the global default
 - *Type:* aws-cdk-lib.Duration
 
 specify a custom period;
+
+if undefined, uses the global default
+
+---
+
+###### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.region"></a>
+
+- *Type:* string
+
+specify a custom region;
+
+if undefined, uses the global default
+
+---
+
+###### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.account"></a>
+
+- *Type:* string
+
+specify a custom account;
 
 if undefined, uses the global default
 

@@ -30,6 +30,21 @@ export interface MetricFactoryDefaults {
    * @default - DefaultMetricPeriod
    */
   readonly period?: Duration;
+
+  /**
+   * Region where the metrics exist.
+   *
+   * @default The region configured by the construct holding the Monitoring construct
+   * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html
+   */
+  readonly region?: string;
+  /**
+   * Account where the metrics exist.
+   *
+   * @default The account configured by the construct holding the Monitoring construct
+   * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html
+   */
+  readonly account?: string;
 }
 
 export interface MetricFactoryProps {
@@ -56,6 +71,8 @@ export class MetricFactory {
    * @param color metric color; if undefined, uses a CloudWatch provided color (preferred)
    * @param namespace specify a custom namespace; if undefined, uses the global default
    * @param period specify a custom period; if undefined, uses the global default
+   * @param region specify a custom region; if undefined, uses the global default
+   * @param account specify a custom account; if undefined, uses the global default
    */
   createMetric(
     metricName: string,
@@ -64,7 +81,9 @@ export class MetricFactory {
     dimensionsMap?: DimensionsMap,
     color?: string,
     namespace?: string,
-    period?: Duration
+    period?: Duration,
+    region?: string,
+    account?: string
   ): MetricWithAlarmSupport {
     return new Metric({
       statistic,
@@ -76,6 +95,8 @@ export class MetricFactory {
         : undefined,
       namespace: this.getNamespaceWithFallback(namespace),
       period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
+      region: region ?? this.globalDefaults.region,
+      account: account ?? this.globalDefaults.account,
     });
   }
 
