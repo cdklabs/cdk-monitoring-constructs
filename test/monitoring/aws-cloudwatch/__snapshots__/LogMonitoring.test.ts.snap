@@ -299,7 +299,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs undefined 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -311,7 +311,7 @@ Object {
         "ActionsEnabled": true,
         "AlarmDescription": "The count is too low.",
         "AlarmName": "Test-DummyLogGroup-Usage-Count-Warning",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 3,
         "Metrics": Array [
@@ -350,7 +350,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs undefined 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
