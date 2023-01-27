@@ -37466,6 +37466,8 @@ const wafV2MonitoringProps: WafV2MonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.addBlockedRequestsCountAlarm">addBlockedRequestsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.addBlockedRequestsRateAlarm">addBlockedRequestsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -37584,6 +37586,26 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addBlockedRequestsCountAlarm`<sup>Optional</sup> <a name="addBlockedRequestsCountAlarm" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.addBlockedRequestsCountAlarm"></a>
+
+```typescript
+public readonly addBlockedRequestsCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addBlockedRequestsRateAlarm`<sup>Optional</sup> <a name="addBlockedRequestsRateAlarm" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.addBlockedRequestsRateAlarm"></a>
+
+```typescript
+public readonly addBlockedRequestsRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
 
 ---
 
@@ -60161,10 +60183,24 @@ public createTitleWidget(): MonitoringHeaderWidget
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.allowedRequestsMetric">allowedRequestsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.blockedRequestsMetric">blockedRequestsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.blockedRequestsRateMetric">blockedRequestsRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.WafV2Monitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
 
 ---
 
@@ -60195,6 +60231,36 @@ public readonly blockedRequestsRateMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.WafV2Monitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.WafV2Monitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.WafV2Monitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -60841,6 +60907,7 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 | <code><a href="#cdk-monitoring-constructs.ErrorType.WRITE_ERROR">WRITE_ERROR</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ErrorType.EXPIRED">EXPIRED</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ErrorType.KILLED">KILLED</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ErrorType.BLOCKED">BLOCKED</a></code> | *No description.* |
 
 ---
 
@@ -60900,6 +60967,11 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 ##### `KILLED` <a name="KILLED" id="cdk-monitoring-constructs.ErrorType.KILLED"></a>
+
+---
+
+
+##### `BLOCKED` <a name="BLOCKED" id="cdk-monitoring-constructs.ErrorType.BLOCKED"></a>
 
 ---
 
