@@ -2,19 +2,12 @@ import {
   DoNotModifyDedupeString,
   IAlarmDedupeStringProcessor,
 } from "./IAlarmDedupeStringProcessor";
+import { AlarmNamingInput, IAlarmNamingStrategy } from "./IAlarmNamingStrategy";
 
 const AlarmNamePartSeparator = "-";
 const AlarmLabelPartSeparator = " ";
 
-export interface AlarmNamingInput {
-  readonly alarmNameSuffix: string;
-  readonly alarmNameOverride?: string;
-  readonly alarmDedupeStringSuffix?: string;
-  readonly dedupeStringOverride?: string;
-  readonly disambiguator?: string;
-}
-
-export class AlarmNamingStrategy {
+export class AlarmNamingStrategy implements IAlarmNamingStrategy {
   protected readonly globalPrefix: string;
   protected readonly localPrefix: string;
   protected readonly dedupeStringStrategy: IAlarmDedupeStringProcessor;
