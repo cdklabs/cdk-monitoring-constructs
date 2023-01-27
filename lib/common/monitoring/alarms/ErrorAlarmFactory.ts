@@ -19,6 +19,7 @@ export enum ErrorType {
   WRITE_ERROR = "WriteError",
   EXPIRED = "Expired",
   KILLED = "Killed",
+  BLOCKED = "Blocked",
 }
 
 export interface ErrorCountThreshold extends CustomAlarmThreshold {

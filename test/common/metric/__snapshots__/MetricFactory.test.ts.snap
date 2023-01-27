@@ -130,21 +130,21 @@ Metric {
 
 exports[`snapshot test: createMetric 3`] = `
 Metric {
-  "account": undefined,
+  "account": "123456789",
   "color": "#abcdef",
   "dimensions": Object {},
   "label": "DummyLabel",
   "metricName": "DummyMetricName-AllOptionalParams",
   "namespace": "DummyNamespaceOverride",
   "period": Duration {
-    "amount": 5,
+    "amount": 15,
     "unit": TimeUnit {
       "inMillis": 60000,
       "isoLabel": "M",
       "label": "minutes",
     },
   },
-  "region": undefined,
+  "region": "us-west-2",
   "statistic": "p90",
   "unit": undefined,
   "warnings": undefined,
@@ -396,6 +396,121 @@ MathExpression {
   "warnings": Array [
     "Math expression 'SEARCH('{DummyNamespaceOverride}  MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespaceOverride, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
   ],
+}
+`;
+
+exports[`snapshot test: global defaults 1`] = `
+Metric {
+  "account": undefined,
+  "color": undefined,
+  "dimensions": undefined,
+  "label": undefined,
+  "metricName": "DummyMetricName",
+  "namespace": "SomeNamespace",
+  "period": Duration {
+    "amount": 5,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "region": undefined,
+  "statistic": "p90",
+  "unit": undefined,
+  "warnings": undefined,
+}
+`;
+
+exports[`snapshot test: global defaults 2`] = `
+Metric {
+  "account": undefined,
+  "color": undefined,
+  "dimensions": undefined,
+  "label": undefined,
+  "metricName": "DummyMetricName",
+  "namespace": "DummyNamespace",
+  "period": Duration {
+    "amount": 15,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "region": undefined,
+  "statistic": "p90",
+  "unit": undefined,
+  "warnings": undefined,
+}
+`;
+
+exports[`snapshot test: global defaults 3`] = `
+Metric {
+  "account": undefined,
+  "color": undefined,
+  "dimensions": undefined,
+  "label": undefined,
+  "metricName": "DummyMetricName",
+  "namespace": "DummyNamespace",
+  "period": Duration {
+    "amount": 5,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "region": "us-west-2",
+  "statistic": "p90",
+  "unit": undefined,
+  "warnings": undefined,
+}
+`;
+
+exports[`snapshot test: global defaults 4`] = `
+Metric {
+  "account": "123456789",
+  "color": undefined,
+  "dimensions": undefined,
+  "label": undefined,
+  "metricName": "DummyMetricName",
+  "namespace": "DummyNamespace",
+  "period": Duration {
+    "amount": 5,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "region": undefined,
+  "statistic": "p90",
+  "unit": undefined,
+  "warnings": undefined,
+}
+`;
+
+exports[`snapshot test: global defaults 5`] = `
+Metric {
+  "account": "123456789",
+  "color": undefined,
+  "dimensions": undefined,
+  "label": undefined,
+  "metricName": "DummyMetricName",
+  "namespace": "SomeNamespace",
+  "period": Duration {
+    "amount": 15,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "region": "us-west-2",
+  "statistic": "p90",
+  "unit": undefined,
+  "warnings": undefined,
 }
 `;
 
