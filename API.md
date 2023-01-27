@@ -37329,7 +37329,7 @@ const wafV2MetricFactoryProps: WafV2MetricFactoryProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | Required if acl has a "REGIONAL" scope. |
 
 ---
 
@@ -37350,6 +37350,8 @@ public readonly region: string;
 ```
 
 - *Type:* string
+
+Required if acl has a "REGIONAL" scope.
 
 ---
 
@@ -37490,7 +37492,7 @@ const wafV2MonitoringProps: WafV2MonitoringProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.region">region</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.region">region</a></code> | <code>string</code> | Required if acl has a "REGIONAL" scope. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -37520,6 +37522,8 @@ public readonly region: string;
 ```
 
 - *Type:* string
+
+Required if acl has a "REGIONAL" scope.
 
 ---
 
