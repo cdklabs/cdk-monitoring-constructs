@@ -19,6 +19,7 @@ import {
   IAlarmAnnotationStrategy,
 } from "./IAlarmAnnotationStrategy";
 import { IAlarmDedupeStringProcessor } from "./IAlarmDedupeStringProcessor";
+import { IAlarmNamingStrategy } from "./IAlarmNamingStrategy";
 import { noopAction } from "./NoopAlarmActionStrategy";
 import {
   MetricFactoryDefaults,
@@ -404,6 +405,13 @@ export interface AlarmFactoryDefaults {
   readonly dedupeStringProcessor?: IAlarmDedupeStringProcessor;
 
   /**
+   * Custom strategy to name alarms
+   *
+   * @default - default behaviour (no change)
+   */
+  readonly alarmNamingStrategy?: IAlarmNamingStrategy;
+
+  /**
    * Number of breaches required to transition into an ALARM state.
    *
    * @default - 3
@@ -460,17 +468,19 @@ export class AlarmFactory {
   protected readonly alarmScope: Construct;
   protected readonly globalAlarmDefaults: AlarmFactoryDefaults;
   protected readonly globalMetricDefaults: MetricFactoryDefaults;
-  protected readonly alarmNamingStrategy: AlarmNamingStrategy;
+  protected readonly alarmNamingStrategy: IAlarmNamingStrategy;
 
   constructor(alarmScope: Construct, props: AlarmFactoryProps) {
     this.alarmScope = alarmScope;
     this.globalAlarmDefaults = props.globalAlarmDefaults;
     this.globalMetricDefaults = props.globalMetricDefaults;
-    this.alarmNamingStrategy = new AlarmNamingStrategy(
-      props.globalAlarmDefaults.alarmNamePrefix,
-      props.localAlarmNamePrefix,
-      props.globalAlarmDefaults.dedupeStringProcessor
-    );
+    this.alarmNamingStrategy =
+      props.globalAlarmDefaults.alarmNamingStrategy ??
+      new AlarmNamingStrategy(
+        props.globalAlarmDefaults.alarmNamePrefix,
+        props.localAlarmNamePrefix,
+        props.globalAlarmDefaults.dedupeStringProcessor
+      );
   }
 
   addAlarm(

@@ -15,6 +15,7 @@ import {
   AlarmFactory,
   AlarmFactoryDefaults,
   CompositeAlarmOperator,
+  IAlarmNamingStrategy,
   MetricFactoryDefaults,
   multipleActions,
   noopAction,
@@ -408,4 +409,33 @@ test("addAlarm: disambigatorAction takes precedence over default action", () => 
   });
 
   expect(alarm.action).toStrictEqual(snsAction);
+});
+
+test("addAlarm: custom alarm naming strategy", () => {
+  const alarmName = "alarmName";
+  const alarmLabel = "alarmLabel";
+  const alarmDedupe = "alarmDedupe";
+  const stack = new Stack();
+  const customNamingStrategy: IAlarmNamingStrategy = {
+    // @ts-ignore
+    getName: (props: AlarmNamingInput) => alarmName, 
+    // @ts-ignore
+    getWidgetLabel: (props: AlarmNamingInput) => alarmLabel, 
+    // @ts-ignore
+    getDedupeString: (props: AlarmNamingInput) => alarmDedupe, 
+  };
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: {
+      ...globalAlarmDefaultsWithDisambiguator,
+      alarmNamingStrategy: customNamingStrategy,
+    },
+    localAlarmNamePrefix: "prefix",
+  });
+  const alarm = factory.addAlarm(metric, {
+    ...props,
+  });
+  expect(alarm.alarmName).toBe(alarmName);
+  expect(alarm.alarmLabel).toBe(alarmLabel);
+  expect(alarm.dedupeString).toBe(alarmDedupe);
 });
