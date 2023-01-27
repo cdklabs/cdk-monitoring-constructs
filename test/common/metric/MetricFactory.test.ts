@@ -1,7 +1,9 @@
+import { Duration } from "aws-cdk-lib";
 import { Metric } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   MetricFactory,
+  MetricFactoryDefaults,
   MetricStatistic,
   RateComputationMethod,
 } from "../../../lib";
@@ -17,6 +19,41 @@ test("createMetric without global namespace throws an error", () => {
       MetricStatistic.P90
     )
   ).toThrowError();
+});
+
+test("snapshot test: global defaults", () => {
+  function testMetric(props: MetricFactoryDefaults) {
+    const metricFactory = new MetricFactory({
+      globalDefaults: {
+        namespace: "DummyNamespace",
+        ...props,
+      },
+    });
+    const metric = metricFactory.createMetric(
+      "DummyMetricName",
+      MetricStatistic.P90
+    );
+    expect(metric).toMatchSnapshot();
+  }
+
+  testMetric({
+    namespace: "SomeNamespace",
+  });
+  testMetric({
+    period: Duration.minutes(15),
+  });
+  testMetric({
+    region: "us-west-2",
+  });
+  testMetric({
+    account: "123456789",
+  });
+  testMetric({
+    namespace: "SomeNamespace",
+    period: Duration.minutes(15),
+    region: "us-west-2",
+    account: "123456789",
+  });
 });
 
 test("snapshot test: createMetric", () => {
@@ -53,7 +90,10 @@ test("snapshot test: createMetric", () => {
       AnotherDummyDimension: undefined as unknown as string,
     },
     DummyColor,
-    "DummyNamespaceOverride"
+    "DummyNamespaceOverride",
+    Duration.minutes(15),
+    "us-west-2",
+    "123456789"
   );
 
   expect(metricWithUndefinedDimensions).toMatchSnapshot();
