@@ -2957,6 +2957,7 @@ const alarmFactoryDefaults: AlarmFactoryDefaults = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean \| {[ key: string ]: boolean}</code> | Enables the configured CloudWatch alarm ticketing actions for either all severities, or per severity. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.alarmNamePrefix">alarmNamePrefix</a></code> | <code>string</code> | Global prefix for all alarm names. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.action">action</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Default alarm action used for each alarm, unless it is overridden. |
+| <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.alarmNamingStrategy">alarmNamingStrategy</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmNamingStrategy">IAlarmNamingStrategy</a></code> | Custom strategy to name alarms. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.annotationStrategy">annotationStrategy</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmAnnotationStrategy">IAlarmAnnotationStrategy</a></code> | Custom strategy to create annotations for alarms. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults.property.dedupeStringProcessor">dedupeStringProcessor</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmDedupeStringProcessor">IAlarmDedupeStringProcessor</a></code> | Custom strategy to process dedupe strings of the alarms. |
@@ -3006,6 +3007,19 @@ public readonly action: IAlarmActionStrategy;
 - *Default:* no action.
 
 Default alarm action used for each alarm, unless it is overridden.
+
+---
+
+##### `alarmNamingStrategy`<sup>Optional</sup> <a name="alarmNamingStrategy" id="cdk-monitoring-constructs.AlarmFactoryDefaults.property.alarmNamingStrategy"></a>
+
+```typescript
+public readonly alarmNamingStrategy: IAlarmNamingStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmNamingStrategy">IAlarmNamingStrategy</a>
+- *Default:* default behaviour (no change)
+
+Custom strategy to name alarms.
 
 ---
 
@@ -37329,7 +37343,7 @@ const wafV2MetricFactoryProps: WafV2MetricFactoryProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | Required if acl has a "REGIONAL" scope. |
 
 ---
 
@@ -37350,6 +37364,8 @@ public readonly region: string;
 ```
 
 - *Type:* string
+
+Required if acl has a "REGIONAL" scope.
 
 ---
 
@@ -37490,7 +37506,7 @@ const wafV2MonitoringProps: WafV2MonitoringProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.region">region</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.region">region</a></code> | <code>string</code> | Required if acl has a "REGIONAL" scope. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -37520,6 +37536,8 @@ public readonly region: string;
 ```
 
 - *Type:* string
+
+Required if acl has a "REGIONAL" scope.
 
 ---
 
@@ -38150,6 +38168,8 @@ Any warnings that are produced as a result of putting together this widget.
 
 ### AlarmNamingStrategy <a name="AlarmNamingStrategy" id="cdk-monitoring-constructs.AlarmNamingStrategy"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IAlarmNamingStrategy">IAlarmNamingStrategy</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AlarmNamingStrategy.Initializer"></a>
 
 ```typescript
@@ -38190,7 +38210,7 @@ new AlarmNamingStrategy(globalPrefix: string, localPrefix: string, dedupeStringS
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AlarmNamingStrategy.getDedupeString">getDedupeString</a></code> | Dedupe string resolved like this: - If "dedupeStringOverride" is defined for an alarm, it will be used as a dedupe string. |
 | <code><a href="#cdk-monitoring-constructs.AlarmNamingStrategy.getName">getName</a></code> | Alarm name is resolved like this: - If "alarmNameOverride" is defined for an alarm, it will be used as alarm name. |
-| <code><a href="#cdk-monitoring-constructs.AlarmNamingStrategy.getWidgetLabel">getWidgetLabel</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmNamingStrategy.getWidgetLabel">getWidgetLabel</a></code> | How to generate the label for the alarm displayed on a widget. |
 
 ---
 
@@ -38237,6 +38257,8 @@ properties.
 ```typescript
 public getWidgetLabel(props: AlarmNamingInput): string
 ```
+
+How to generate the label for the alarm displayed on a widget.
 
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AlarmNamingStrategy.getWidgetLabel.parameter.props"></a>
 
@@ -60512,6 +60534,69 @@ Process the dedupe string which was specified by the user as an override.
 ###### `dedupeString`<sup>Required</sup> <a name="dedupeString" id="cdk-monitoring-constructs.IAlarmDedupeStringProcessor.processDedupeStringOverride.parameter.dedupeString"></a>
 
 - *Type:* string
+
+---
+
+
+### IAlarmNamingStrategy <a name="IAlarmNamingStrategy" id="cdk-monitoring-constructs.IAlarmNamingStrategy"></a>
+
+- *Implemented By:* <a href="#cdk-monitoring-constructs.AlarmNamingStrategy">AlarmNamingStrategy</a>, <a href="#cdk-monitoring-constructs.IAlarmNamingStrategy">IAlarmNamingStrategy</a>
+
+Strategy used to name alarms, their widgets, and their dedupe strings.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.IAlarmNamingStrategy.getDedupeString">getDedupeString</a></code> | How to generate the deduplication string for an alarm. |
+| <code><a href="#cdk-monitoring-constructs.IAlarmNamingStrategy.getName">getName</a></code> | How to generate the name of an alarm. |
+| <code><a href="#cdk-monitoring-constructs.IAlarmNamingStrategy.getWidgetLabel">getWidgetLabel</a></code> | How to generate the label for the alarm displayed on a widget. |
+
+---
+
+##### `getDedupeString` <a name="getDedupeString" id="cdk-monitoring-constructs.IAlarmNamingStrategy.getDedupeString"></a>
+
+```typescript
+public getDedupeString(props: AlarmNamingInput): string
+```
+
+How to generate the deduplication string for an alarm.
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.IAlarmNamingStrategy.getDedupeString.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmNamingInput">AlarmNamingInput</a>
+
+---
+
+##### `getName` <a name="getName" id="cdk-monitoring-constructs.IAlarmNamingStrategy.getName"></a>
+
+```typescript
+public getName(props: AlarmNamingInput): string
+```
+
+How to generate the name of an alarm.
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.IAlarmNamingStrategy.getName.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmNamingInput">AlarmNamingInput</a>
+
+AlarmNamingInput.
+
+---
+
+##### `getWidgetLabel` <a name="getWidgetLabel" id="cdk-monitoring-constructs.IAlarmNamingStrategy.getWidgetLabel"></a>
+
+```typescript
+public getWidgetLabel(props: AlarmNamingInput): string
+```
+
+How to generate the label for the alarm displayed on a widget.
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.IAlarmNamingStrategy.getWidgetLabel.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmNamingInput">AlarmNamingInput</a>
+
+AlarmNamingInput.
 
 ---
 

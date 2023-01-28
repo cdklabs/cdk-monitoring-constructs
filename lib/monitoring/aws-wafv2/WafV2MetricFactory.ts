@@ -6,8 +6,12 @@ const MetricNamespace = "AWS/WAFV2";
 const AllRulesDimensionValue = "ALL";
 
 export interface WafV2MetricFactoryProps {
-  readonly region?: string;
   readonly acl: CfnWebACL;
+
+  /**
+   * Required if acl has a "REGIONAL" scope.
+   */
+  readonly region?: string;
 }
 
 /**
@@ -22,6 +26,7 @@ export class WafV2MetricFactory {
     this.dimensions = {
       Rule: AllRulesDimensionValue,
       WebACL: props.acl.name,
+      ...(props.region && { Region: props.region }),
     };
   }
 
