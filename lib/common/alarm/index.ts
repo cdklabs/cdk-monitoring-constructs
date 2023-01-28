@@ -4,6 +4,7 @@ export * from "./CustomAlarmThreshold";
 export * from "./IAlarmActionStrategy";
 export * from "./IAlarmAnnotationStrategy";
 export * from "./IAlarmDedupeStringProcessor";
+export * from "./IAlarmNamingStrategy";
 export * from "./MultipleAlarmActionStrategy";
 export * from "./NoopAlarmActionStrategy";
 export * from "./OpsItemAlarmActionStrategy";
