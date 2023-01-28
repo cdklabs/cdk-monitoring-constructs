@@ -9,6 +9,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
 test("snapshot test: no alarms", () => {
   const stack = new Stack();
   const acl = new CfnWebACL(stack, "DummyAcl", {
+    name: "DummyAclName",
     defaultAction: { allow: {} },
     scope: "REGIONAL",
     visibilityConfig: {
@@ -20,7 +21,7 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  const monitoring = new WafV2Monitoring(scope, { acl });
+  const monitoring = new WafV2Monitoring(scope, { acl, region: "us-east-1" });
 
   addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
@@ -29,8 +30,9 @@ test("snapshot test: no alarms", () => {
 test("snapshot test: all alarms", () => {
   const stack = new Stack();
   const acl = new CfnWebACL(stack, "DummyAcl", {
+    name: "DummyAclName",
     defaultAction: { allow: {} },
-    scope: "REGIONAL",
+    scope: "CLOUDFRONT",
     visibilityConfig: {
       sampledRequestsEnabled: true,
       cloudWatchMetricsEnabled: true,
