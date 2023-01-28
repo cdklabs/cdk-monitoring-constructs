@@ -47,7 +47,7 @@ export class UsageAlarmFactory {
         props.treatMissingDataOverride ?? TreatMissingData.MISSING,
       comparisonOperator:
         props.comparisonOperatorOverride ??
-        ComparisonOperator.LESS_THAN_LOWER_THRESHOLD,
+        ComparisonOperator.LESS_THAN_THRESHOLD,
       ...props,
       disambiguator,
       threshold: props.minCount,
