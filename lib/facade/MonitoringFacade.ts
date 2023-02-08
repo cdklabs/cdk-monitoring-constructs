@@ -192,8 +192,8 @@ export class MonitoringFacade extends MonitoringScope {
 
   createAwsConsoleUrlFactory(): AwsConsoleUrlFactory {
     const stack = Stack.of(this);
-    const awsAccountId = stack.account;
-    const awsAccountRegion = stack.region;
+    const awsAccountId = this.metricFactoryDefaults.account ?? stack.account;
+    const awsAccountRegion = this.metricFactoryDefaults.region ?? stack.region;
     return new AwsConsoleUrlFactory({ awsAccountRegion, awsAccountId });
   }
 
