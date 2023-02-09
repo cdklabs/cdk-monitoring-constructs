@@ -51327,6 +51327,7 @@ new MetricFactory(props?: MetricFactoryProps)
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.divideMetric">divideMetric</a></code> | Creates a metric math expression that divides the given metric by given coefficient. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.getNamespaceWithFallback">getNamespaceWithFallback</a></code> | Returns the given namespace (if defined) or the global namespace as a fallback. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.multiplyMetric">multiplyMetric</a></code> | Creates a metric math expression that multiplies the given metric by given coefficient. |
+| <code><a href="#cdk-monitoring-constructs.MetricFactory.resolvePeriod">resolvePeriod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.sanitizeMetricExpressionIdSuffix">sanitizeMetricExpressionIdSuffix</a></code> | Helper method that helps to sanitize the given expression ID and removes all invalid characters. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.toRate">toRate</a></code> | Creates a metric math expression that computes a rate from a regular metric. |
 
@@ -51781,6 +51782,36 @@ expression label.
 expression ID of the metric;
 
 uses `m1` if undefined
+
+---
+
+##### `resolvePeriod` <a name="resolvePeriod" id="cdk-monitoring-constructs.MetricFactory.resolvePeriod"></a>
+
+```typescript
+public resolvePeriod(period?: Duration, reportFrequency?: Duration, metricName?: string, errorHandling?: ResolvePeriodHandling): Duration
+```
+
+###### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MetricFactory.resolvePeriod.parameter.period"></a>
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+###### `reportFrequency`<sup>Optional</sup> <a name="reportFrequency" id="cdk-monitoring-constructs.MetricFactory.resolvePeriod.parameter.reportFrequency"></a>
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+###### `metricName`<sup>Optional</sup> <a name="metricName" id="cdk-monitoring-constructs.MetricFactory.resolvePeriod.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `errorHandling`<sup>Optional</sup> <a name="errorHandling" id="cdk-monitoring-constructs.MetricFactory.resolvePeriod.parameter.errorHandling"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.ResolvePeriodHandling">ResolvePeriodHandling</a>
 
 ---
 
@@ -54050,8 +54081,14 @@ public metricDiskSpaceUsageInPercent(): Metric | MathExpression
 ##### `metricFreeStorageInBytes` <a name="metricFreeStorageInBytes" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricFreeStorageInBytes"></a>
 
 ```typescript
-public metricFreeStorageInBytes(): Metric | MathExpression
+public metricFreeStorageInBytes(period?: Duration): Metric | MathExpression
 ```
+
+###### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricFreeStorageInBytes.parameter.period"></a>
+
+- *Type:* aws-cdk-lib.Duration
+
+---
 
 ##### `metricInsertLatencyP90InMillis` <a name="metricInsertLatencyP90InMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricInsertLatencyP90InMillis"></a>
 
@@ -54080,8 +54117,14 @@ public metricUpdateLatencyP90InMillis(): Metric | MathExpression
 ##### `metricUsedStorageInBytes` <a name="metricUsedStorageInBytes" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricUsedStorageInBytes"></a>
 
 ```typescript
-public metricUsedStorageInBytes(): Metric | MathExpression
+public metricUsedStorageInBytes(period?: Duration): Metric | MathExpression
 ```
+
+###### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricUsedStorageInBytes.parameter.period"></a>
+
+- *Type:* aws-cdk-lib.Duration
+
+---
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -61782,6 +61825,27 @@ Number of occurrences per hour.
 ##### `PER_DAY` <a name="PER_DAY" id="cdk-monitoring-constructs.RateComputationMethod.PER_DAY"></a>
 
 Number of occurrences per day.
+
+---
+
+
+### ResolvePeriodHandling <a name="ResolvePeriodHandling" id="cdk-monitoring-constructs.ResolvePeriodHandling"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ResolvePeriodHandling.ERROR">ERROR</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ResolvePeriodHandling.CLAMP_TO_MINIMUM_REPORT_FREQUENCY">CLAMP_TO_MINIMUM_REPORT_FREQUENCY</a></code> | *No description.* |
+
+---
+
+##### `ERROR` <a name="ERROR" id="cdk-monitoring-constructs.ResolvePeriodHandling.ERROR"></a>
+
+---
+
+
+##### `CLAMP_TO_MINIMUM_REPORT_FREQUENCY` <a name="CLAMP_TO_MINIMUM_REPORT_FREQUENCY" id="cdk-monitoring-constructs.ResolvePeriodHandling.CLAMP_TO_MINIMUM_REPORT_FREQUENCY"></a>
 
 ---
 

@@ -54,6 +54,11 @@ export interface MetricFactoryProps {
   readonly globalDefaults?: MetricFactoryDefaults;
 }
 
+export enum ResolvePeriodHandling {
+  ERROR,
+  CLAMP_TO_MINIMUM_REPORT_FREQUENCY,
+}
+
 export class MetricFactory {
   protected readonly globalDefaults: MetricFactoryDefaults;
 
@@ -94,7 +99,7 @@ export class MetricFactory {
         ? this.removeUndefinedEntries(dimensionsMap)
         : undefined,
       namespace: this.getNamespaceWithFallback(namespace),
-      period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
+      period: this.resolvePeriod(period),
       region: region ?? this.globalDefaults.region,
       account: account ?? this.globalDefaults.account,
     });
@@ -121,7 +126,7 @@ export class MetricFactory {
       color,
       expression,
       usingMetrics,
-      period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
+      period: this.resolvePeriod(period),
     });
   }
 
@@ -145,8 +150,7 @@ export class MetricFactory {
     label?: string,
     period?: Duration
   ): IMetric {
-    const finalPeriod =
-      period ?? this.globalDefaults.period ?? DefaultMetricPeriod;
+    const finalPeriod = this.resolvePeriod(period);
     const searchNamespace = this.getNamespaceWithFallback(namespace);
     const namespacePlusDimensionKeys = [
       searchNamespace,
@@ -202,7 +206,7 @@ export class MetricFactory {
       color,
       usingMetrics,
       expression: `ANOMALY_DETECTION_BAND(${finalExpressionId},${stdev})`,
-      period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
+      period: this.resolvePeriod(period),
     });
   }
 
@@ -433,6 +437,33 @@ export class MetricFactory {
     Object.keys(additionalDimensions).forEach((key) => {
       target[key] = additionalDimensions[key];
     });
+  }
+
+  resolvePeriod(
+    period?: Duration,
+    reportFrequency?: Duration,
+    metricName?: string,
+    errorHandling = ResolvePeriodHandling.ERROR
+  ): Duration {
+    let resolvedPeriod =
+      period ?? this.globalDefaults.period ?? DefaultMetricPeriod;
+    if (reportFrequency) {
+      if (!metricName) {
+        throw new Error("Bug: Must specify the metric name");
+      }
+      if (resolvedPeriod.toSeconds() < reportFrequency.toSeconds()) {
+        switch (errorHandling) {
+          case ResolvePeriodHandling.ERROR:
+            throw new Error(
+              `The metric ${metricName} is reported at a period of ${reportFrequency}. Please specify a period of this size or larger.`
+            );
+            break;
+          case ResolvePeriodHandling.CLAMP_TO_MINIMUM_REPORT_FREQUENCY:
+            resolvedPeriod = reportFrequency;
+        }
+      }
+    }
+    return resolvedPeriod;
   }
 
   /**

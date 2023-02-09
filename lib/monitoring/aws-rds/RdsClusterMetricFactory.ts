@@ -1,7 +1,12 @@
+import { Duration } from "aws-cdk-lib";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { IDatabaseCluster } from "aws-cdk-lib/aws-rds";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  MetricFactory,
+  MetricStatistic,
+  ResolvePeriodHandling,
+} from "../../common";
 
 const RdsNamespace = "AWS/RDS";
 
@@ -59,21 +64,29 @@ export class RdsClusterMetricFactory {
     );
   }
 
-  metricFreeStorageInBytes() {
-    return this.metric("FreeLocalStorage", MetricStatistic.MIN, "Free");
+  metricFreeStorageInBytes(period?: Duration) {
+    return this.metric("FreeLocalStorage", MetricStatistic.MIN, "Free", period);
   }
 
-  metricUsedStorageInBytes() {
-    return this.metric("VolumeBytesUsed", MetricStatistic.MAX, "Used");
+  metricUsedStorageInBytes(period?: Duration) {
+    period = this.metricFactory.resolvePeriod(
+      period,
+      Duration.minutes(5),
+      "Used Storage (VolumeBytesUsed)",
+      ResolvePeriodHandling.CLAMP_TO_MINIMUM_REPORT_FREQUENCY
+    );
+    return this.metric("VolumeBytesUsed", MetricStatistic.MAX, "Used", period);
   }
 
   metricDiskSpaceUsageInPercent() {
     const used = this.metricUsedStorageInBytes();
-    const free = this.metricFreeStorageInBytes();
+    const free = this.metricFreeStorageInBytes(used.period);
     return this.metricFactory.createMetricMath(
       "100 * (used/(used+free))",
       { used, free },
-      "Disk Usage"
+      "Disk Usage",
+      undefined,
+      used.period
     );
   }
 
@@ -104,7 +117,8 @@ export class RdsClusterMetricFactory {
   private metric(
     metricName: string,
     statistic: MetricStatistic,
-    label: string
+    label: string,
+    period?: Duration
   ) {
     return this.metricFactory.createMetric(
       metricName,
@@ -112,7 +126,8 @@ export class RdsClusterMetricFactory {
       label,
       this.dimensionsMap,
       undefined,
-      RdsNamespace
+      RdsNamespace,
+      period
     );
   }
 }
