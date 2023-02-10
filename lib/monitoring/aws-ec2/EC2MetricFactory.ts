@@ -161,7 +161,7 @@ export class EC2MetricFactory {
    * This can be used to determine the speed of the application.
    */
   metricAverageDiskReadBytes() {
-    return this.createMetrics("DiskReadBytes", MetricStatistic.AVERAGE);
+    return this.createDiskMetrics("ReadBytes", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -170,21 +170,21 @@ export class EC2MetricFactory {
    * This can be used to determine the speed of the application.
    */
   metricAverageDiskWriteBytes() {
-    return this.createMetrics("DiskWriteBytes", MetricStatistic.AVERAGE);
+    return this.createDiskMetrics("WriteBytes", MetricStatistic.AVERAGE);
   }
 
   /**
    * Completed read operations from all instance store volumes available to the instance in a specified period of time.
    */
   metricAverageDiskReadOps() {
-    return this.createMetrics("DiskReadOps", MetricStatistic.AVERAGE);
+    return this.createDiskMetrics("ReadOps", MetricStatistic.AVERAGE);
   }
 
   /**
    * Completed write operations to all instance store volumes available to the instance in a specified period of time.
    */
   metricAverageDiskWriteOps() {
-    return this.createMetrics("DiskWriteOps", MetricStatistic.AVERAGE);
+    return this.createDiskMetrics("WriteOps", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -201,6 +201,33 @@ export class EC2MetricFactory {
    */
   metricAverageNetworkOutRateBytes() {
     return this.createMetrics("NetworkOut", MetricStatistic.AVERAGE);
+  }
+
+  private createDiskMetrics(metricName: string, statistic: MetricStatistic) {
+    const classicMetrics = this.strategy.createMetrics(
+      this.metricFactory,
+      `Disk${metricName}`,
+      statistic
+    );
+    const ebsMetrics = this.strategy.createMetrics(
+      this.metricFactory,
+      `EBS${metricName}`,
+      statistic
+    );
+
+    return classicMetrics.map((classic, i) => {
+      const ebs = ebsMetrics[i];
+      const usingMetrics: Record<string, IMetric> = {};
+      const classicId = `${metricName.toLowerCase()}_classic_${i}`;
+      const ebsId = `${metricName.toLowerCase()}_ebs_${i}`;
+      usingMetrics[classicId] = classic;
+      usingMetrics[ebsId] = ebs;
+      return this.metricFactory.createMetricMath(
+        `AVG(REMOVE_EMPTY([${classicId}, ${ebsId}]))`,
+        usingMetrics,
+        `Disk${metricName}`
+      );
+    });
   }
 
   private createMetrics(metricName: string, statistic: MetricStatistic) {

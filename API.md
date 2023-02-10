@@ -44819,7 +44819,7 @@ CloudWatch when the instance is not allocated a full processor core.
 ##### `metricAverageDiskReadBytes` <a name="metricAverageDiskReadBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskReadBytes"></a>
 
 ```typescript
-public metricAverageDiskReadBytes(): IMetric[]
+public metricAverageDiskReadBytes(): Metric | MathExpression[]
 ```
 
 Bytes read from all instance store volumes available to the instance.
@@ -44830,7 +44830,7 @@ This can be used to determine the speed of the application.
 ##### `metricAverageDiskReadOps` <a name="metricAverageDiskReadOps" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskReadOps"></a>
 
 ```typescript
-public metricAverageDiskReadOps(): IMetric[]
+public metricAverageDiskReadOps(): Metric | MathExpression[]
 ```
 
 Completed read operations from all instance store volumes available to the instance in a specified period of time.
@@ -44838,7 +44838,7 @@ Completed read operations from all instance store volumes available to the insta
 ##### `metricAverageDiskWriteBytes` <a name="metricAverageDiskWriteBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskWriteBytes"></a>
 
 ```typescript
-public metricAverageDiskWriteBytes(): IMetric[]
+public metricAverageDiskWriteBytes(): Metric | MathExpression[]
 ```
 
 Bytes written to all instance store volumes available to the instance.
@@ -44849,7 +44849,7 @@ This can be used to determine the speed of the application.
 ##### `metricAverageDiskWriteOps` <a name="metricAverageDiskWriteOps" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskWriteOps"></a>
 
 ```typescript
-public metricAverageDiskWriteOps(): IMetric[]
+public metricAverageDiskWriteOps(): Metric | MathExpression[]
 ```
 
 Completed write operations to all instance store volumes available to the instance in a specified period of time.
