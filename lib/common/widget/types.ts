@@ -48,6 +48,7 @@ export function createGraphWidget(
 
     case GraphWidgetType.SINGLE_VALUE:
       return new SingleValueWidget({
+        ...props,
         metrics: [...(props.left ?? []), ...(props.right ?? [])],
       });
 
