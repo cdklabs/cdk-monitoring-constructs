@@ -46,6 +46,9 @@ Object {
       "eu-central-1": Object {
         "states": "states.eu-central-1.amazonaws.com",
       },
+      "eu-central-2": Object {
+        "states": "states.eu-central-2.amazonaws.com",
+      },
       "eu-north-1": Object {
         "states": "states.eu-north-1.amazonaws.com",
       },
@@ -793,6 +796,9 @@ Object {
       "eu-central-1": Object {
         "states": "states.eu-central-1.amazonaws.com",
       },
+      "eu-central-2": Object {
+        "states": "states.eu-central-2.amazonaws.com",
+      },
       "eu-north-1": Object {
         "states": "states.eu-north-1.amazonaws.com",
       },
@@ -1539,6 +1545,9 @@ Object {
       },
       "eu-central-1": Object {
         "states": "states.eu-central-1.amazonaws.com",
+      },
+      "eu-central-2": Object {
+        "states": "states.eu-central-2.amazonaws.com",
       },
       "eu-north-1": Object {
         "states": "states.eu-north-1.amazonaws.com",
