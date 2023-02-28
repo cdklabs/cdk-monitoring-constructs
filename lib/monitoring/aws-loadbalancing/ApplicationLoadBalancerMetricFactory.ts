@@ -1,6 +1,6 @@
 import {
-  ApplicationLoadBalancer,
-  ApplicationTargetGroup,
+  IApplicationLoadBalancer,
+  IApplicationTargetGroup,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import { ILoadBalancerMetricFactory } from "./LoadBalancerMetricFactory";
@@ -15,8 +15,8 @@ import {
  * Props to create ApplicationLoadBalancerMetricFactory.
  */
 export interface ApplicationLoadBalancerMetricFactoryProps {
-  readonly applicationLoadBalancer: ApplicationLoadBalancer;
-  readonly applicationTargetGroup: ApplicationTargetGroup;
+  readonly applicationLoadBalancer: IApplicationLoadBalancer;
+  readonly applicationTargetGroup: IApplicationTargetGroup;
 }
 
 /**
@@ -26,8 +26,8 @@ export class ApplicationLoadBalancerMetricFactory
   implements ILoadBalancerMetricFactory
 {
   protected readonly metricFactory: MetricFactory;
-  protected readonly applicationLoadBalancer: ApplicationLoadBalancer;
-  protected readonly applicationTargetGroup: ApplicationTargetGroup;
+  protected readonly applicationLoadBalancer: IApplicationLoadBalancer;
+  protected readonly applicationTargetGroup: IApplicationTargetGroup;
 
   constructor(
     metricFactory: MetricFactory,
@@ -40,7 +40,7 @@ export class ApplicationLoadBalancerMetricFactory
 
   metricHealthyTaskCount() {
     return this.metricFactory.adaptMetric(
-      this.applicationTargetGroup.metricHealthyHostCount({
+      this.applicationTargetGroup.metrics.healthyHostCount({
         label: "Healthy Tasks",
         color: HealthyMetricColor,
         statistic: MetricStatistic.MIN,
@@ -50,7 +50,7 @@ export class ApplicationLoadBalancerMetricFactory
 
   metricUnhealthyTaskCount() {
     return this.metricFactory.adaptMetric(
-      this.applicationTargetGroup.metricUnhealthyHostCount({
+      this.applicationTargetGroup.metrics.unhealthyHostCount({
         label: "Unhealthy Tasks",
         color: UnhealthyMetricColor,
         statistic: MetricStatistic.MAX,
@@ -70,7 +70,7 @@ export class ApplicationLoadBalancerMetricFactory
 
   metricActiveConnectionCount() {
     return this.metricFactory.adaptMetric(
-      this.applicationLoadBalancer.metricActiveConnectionCount({
+      this.applicationLoadBalancer.metrics.activeConnectionCount({
         label: "Active",
       })
     );
@@ -78,7 +78,7 @@ export class ApplicationLoadBalancerMetricFactory
 
   metricNewConnectionCount() {
     return this.metricFactory.adaptMetric(
-      this.applicationLoadBalancer.metricNewConnectionCount({
+      this.applicationLoadBalancer.metrics.newConnectionCount({
         label: "New",
       })
     );
@@ -86,7 +86,7 @@ export class ApplicationLoadBalancerMetricFactory
 
   metricProcessedBytesMin() {
     return this.metricFactory.adaptMetric(
-      this.applicationLoadBalancer.metricProcessedBytes({
+      this.applicationLoadBalancer.metrics.processedBytes({
         statistic: MetricStatistic.MIN,
         label: "Processed Bytes (min)",
       })

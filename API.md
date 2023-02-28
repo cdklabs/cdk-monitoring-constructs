@@ -6239,28 +6239,28 @@ const applicationLoadBalancerMetricFactoryProps: ApplicationLoadBalancerMetricFa
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 
 ---
 
 ##### `applicationLoadBalancer`<sup>Required</sup> <a name="applicationLoadBalancer" id="cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationLoadBalancer"></a>
 
 ```typescript
-public readonly applicationLoadBalancer: ApplicationLoadBalancer;
+public readonly applicationLoadBalancer: IApplicationLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer
 
 ---
 
 ##### `applicationTargetGroup`<sup>Required</sup> <a name="applicationTargetGroup" id="cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationTargetGroup"></a>
 
 ```typescript
-public readonly applicationTargetGroup: ApplicationTargetGroup;
+public readonly applicationTargetGroup: IApplicationTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup
 
 ---
 
@@ -9846,8 +9846,8 @@ const customEc2ServiceMonitoringProps: CustomEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 
 ---
 
@@ -10058,20 +10058,20 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 ##### `loadBalancer`<sup>Optional</sup> <a name="loadBalancer" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.loadBalancer"></a>
 
 ```typescript
-public readonly loadBalancer: ApplicationLoadBalancer | NetworkLoadBalancer;
+public readonly loadBalancer: IApplicationLoadBalancer | INetworkLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer | aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer | aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer
 
 ---
 
 ##### `targetGroup`<sup>Optional</sup> <a name="targetGroup" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.targetGroup"></a>
 
 ```typescript
-public readonly targetGroup: ApplicationTargetGroup | NetworkTargetGroup;
+public readonly targetGroup: IApplicationTargetGroup | INetworkTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup | aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup | aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
 
 ---
 
@@ -10106,8 +10106,8 @@ const customFargateServiceMonitoringProps: CustomFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 
 ---
 
@@ -10318,20 +10318,20 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 ##### `loadBalancer`<sup>Optional</sup> <a name="loadBalancer" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer"></a>
 
 ```typescript
-public readonly loadBalancer: ApplicationLoadBalancer | NetworkLoadBalancer;
+public readonly loadBalancer: IApplicationLoadBalancer | INetworkLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer | aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer | aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer
 
 ---
 
 ##### `targetGroup`<sup>Optional</sup> <a name="targetGroup" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup"></a>
 
 ```typescript
-public readonly targetGroup: ApplicationTargetGroup | NetworkTargetGroup;
+public readonly targetGroup: IApplicationTargetGroup | INetworkTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup | aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup | aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
 
 ---
 
@@ -13547,8 +13547,8 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -13572,20 +13572,20 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 ##### `applicationLoadBalancer`<sup>Required</sup> <a name="applicationLoadBalancer" id="cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer"></a>
 
 ```typescript
-public readonly applicationLoadBalancer: ApplicationLoadBalancer;
+public readonly applicationLoadBalancer: IApplicationLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer
 
 ---
 
 ##### `applicationTargetGroup`<sup>Required</sup> <a name="applicationTargetGroup" id="cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup"></a>
 
 ```typescript
-public readonly applicationTargetGroup: ApplicationTargetGroup;
+public readonly applicationTargetGroup: IApplicationTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup
 
 ---
 
@@ -14154,8 +14154,8 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -14179,20 +14179,20 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 ##### `networkLoadBalancer`<sup>Required</sup> <a name="networkLoadBalancer" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer"></a>
 
 ```typescript
-public readonly networkLoadBalancer: NetworkLoadBalancer;
+public readonly networkLoadBalancer: INetworkLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer
 
 ---
 
 ##### `networkTargetGroup`<sup>Required</sup> <a name="networkTargetGroup" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkTargetGroup"></a>
 
 ```typescript
-public readonly networkTargetGroup: NetworkTargetGroup;
+public readonly networkTargetGroup: INetworkTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
 
 ---
 
@@ -15661,8 +15661,8 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -15686,20 +15686,20 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 ##### `applicationLoadBalancer`<sup>Required</sup> <a name="applicationLoadBalancer" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer"></a>
 
 ```typescript
-public readonly applicationLoadBalancer: ApplicationLoadBalancer;
+public readonly applicationLoadBalancer: IApplicationLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer
 
 ---
 
 ##### `applicationTargetGroup`<sup>Required</sup> <a name="applicationTargetGroup" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup"></a>
 
 ```typescript
-public readonly applicationTargetGroup: ApplicationTargetGroup;
+public readonly applicationTargetGroup: IApplicationTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup
 
 ---
 
@@ -15923,8 +15923,8 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -15948,20 +15948,20 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 ##### `networkLoadBalancer`<sup>Required</sup> <a name="networkLoadBalancer" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancer"></a>
 
 ```typescript
-public readonly networkLoadBalancer: NetworkLoadBalancer;
+public readonly networkLoadBalancer: INetworkLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer
 
 ---
 
 ##### `networkTargetGroup`<sup>Required</sup> <a name="networkTargetGroup" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkTargetGroup"></a>
 
 ```typescript
-public readonly networkTargetGroup: NetworkTargetGroup;
+public readonly networkTargetGroup: INetworkTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
 
 ---
 
@@ -27077,28 +27077,28 @@ const networkLoadBalancerMetricFactoryProps: NetworkLoadBalancerMetricFactoryPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 
 ---
 
 ##### `networkLoadBalancer`<sup>Required</sup> <a name="networkLoadBalancer" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancer"></a>
 
 ```typescript
-public readonly networkLoadBalancer: NetworkLoadBalancer;
+public readonly networkLoadBalancer: INetworkLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer
 
 ---
 
 ##### `networkTargetGroup`<sup>Required</sup> <a name="networkTargetGroup" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkTargetGroup"></a>
 
 ```typescript
-public readonly networkTargetGroup: NetworkTargetGroup;
+public readonly networkTargetGroup: INetworkTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
 
 ---
 
@@ -27116,8 +27116,8 @@ const networkLoadBalancerMonitoringProps: NetworkLoadBalancerMonitoringProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -27135,20 +27135,20 @@ const networkLoadBalancerMonitoringProps: NetworkLoadBalancerMonitoringProps = {
 ##### `networkLoadBalancer`<sup>Required</sup> <a name="networkLoadBalancer" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer"></a>
 
 ```typescript
-public readonly networkLoadBalancer: NetworkLoadBalancer;
+public readonly networkLoadBalancer: INetworkLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer
 
 ---
 
 ##### `networkTargetGroup`<sup>Required</sup> <a name="networkTargetGroup" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkTargetGroup"></a>
 
 ```typescript
-public readonly networkTargetGroup: NetworkTargetGroup;
+public readonly networkTargetGroup: INetworkTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
 
 ---
 

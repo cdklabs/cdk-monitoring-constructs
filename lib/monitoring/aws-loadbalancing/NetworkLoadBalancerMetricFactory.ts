@@ -1,6 +1,6 @@
 import {
-  NetworkLoadBalancer,
-  NetworkTargetGroup,
+  INetworkLoadBalancer,
+  INetworkTargetGroup,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import { ILoadBalancerMetricFactory } from "./LoadBalancerMetricFactory";
@@ -15,8 +15,8 @@ import {
  * Props to create NetworkLoadBalancerMetricFactory.
  */
 export interface NetworkLoadBalancerMetricFactoryProps {
-  readonly networkLoadBalancer: NetworkLoadBalancer;
-  readonly networkTargetGroup: NetworkTargetGroup;
+  readonly networkLoadBalancer: INetworkLoadBalancer;
+  readonly networkTargetGroup: INetworkTargetGroup;
 }
 
 /**
@@ -26,8 +26,8 @@ export class NetworkLoadBalancerMetricFactory
   implements ILoadBalancerMetricFactory
 {
   protected readonly metricFactory: MetricFactory;
-  protected readonly networkLoadBalancer: NetworkLoadBalancer;
-  protected readonly networkTargetGroup: NetworkTargetGroup;
+  protected readonly networkLoadBalancer: INetworkLoadBalancer;
+  protected readonly networkTargetGroup: INetworkTargetGroup;
 
   constructor(
     metricFactory: MetricFactory,
@@ -40,7 +40,7 @@ export class NetworkLoadBalancerMetricFactory
 
   metricHealthyTaskCount() {
     return this.metricFactory.adaptMetric(
-      this.networkTargetGroup.metricHealthyHostCount({
+      this.networkTargetGroup.metrics.healthyHostCount({
         label: "Healthy Tasks",
         color: HealthyMetricColor,
         statistic: MetricStatistic.MIN,
@@ -50,7 +50,7 @@ export class NetworkLoadBalancerMetricFactory
 
   metricUnhealthyTaskCount() {
     return this.metricFactory.adaptMetric(
-      this.networkTargetGroup.metricUnHealthyHostCount({
+      this.networkTargetGroup.metrics.unHealthyHostCount({
         label: "Unhealthy Tasks",
         color: UnhealthyMetricColor,
         statistic: MetricStatistic.MAX,
@@ -70,7 +70,7 @@ export class NetworkLoadBalancerMetricFactory
 
   metricActiveConnectionCount() {
     return this.metricFactory.adaptMetric(
-      this.networkLoadBalancer.metricActiveFlowCount({
+      this.networkLoadBalancer.metrics.activeFlowCount({
         label: "Active",
       })
     );
@@ -78,7 +78,7 @@ export class NetworkLoadBalancerMetricFactory
 
   metricNewConnectionCount() {
     return this.metricFactory.adaptMetric(
-      this.networkLoadBalancer.metricNewFlowCount({
+      this.networkLoadBalancer.metrics.newFlowCount({
         label: "New",
       })
     );
@@ -86,7 +86,7 @@ export class NetworkLoadBalancerMetricFactory
 
   metricProcessedBytesMin() {
     return this.metricFactory.adaptMetric(
-      this.networkLoadBalancer.metricProcessedBytes({
+      this.networkLoadBalancer.metrics.processedBytes({
         statistic: MetricStatistic.MIN,
         label: "Processed Bytes (min)",
       })

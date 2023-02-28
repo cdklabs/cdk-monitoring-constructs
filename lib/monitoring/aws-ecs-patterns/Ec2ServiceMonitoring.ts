@@ -10,10 +10,10 @@ import {
   NetworkLoadBalancedEc2Service,
 } from "aws-cdk-lib/aws-ecs-patterns";
 import {
-  ApplicationLoadBalancer,
-  ApplicationTargetGroup,
-  NetworkLoadBalancer,
-  NetworkTargetGroup,
+  IApplicationLoadBalancer,
+  IApplicationTargetGroup,
+  INetworkLoadBalancer,
+  INetworkTargetGroup,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import { BaseServiceMetricFactory } from "./BaseServiceMetricFactory";
@@ -135,8 +135,8 @@ export interface Ec2ApplicationLoadBalancerMonitoringProps
 export interface CustomEc2ServiceMonitoringProps
   extends BaseLoadBalancedEc2ServiceMonitoringProps {
   readonly ec2Service: Ec2Service;
-  readonly loadBalancer?: ApplicationLoadBalancer | NetworkLoadBalancer;
-  readonly targetGroup?: ApplicationTargetGroup | NetworkTargetGroup;
+  readonly loadBalancer?: IApplicationLoadBalancer | INetworkLoadBalancer;
+  readonly targetGroup?: IApplicationTargetGroup | INetworkTargetGroup;
 }
 
 export class Ec2ServiceMonitoring extends Monitoring {
@@ -186,8 +186,8 @@ export class Ec2ServiceMonitoring extends Monitoring {
     if (this.hasLoadBalancer) {
       this.loadBalancerMetricFactory = createLoadBalancerMetricFactory(
         this.metricFactory,
-        props.loadBalancer,
-        props.targetGroup
+        props.loadBalancer!,
+        props.targetGroup!
       );
       this.healthyTaskCountMetric =
         this.loadBalancerMetricFactory.metricHealthyTaskCount();

@@ -3266,7 +3266,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "eb5b005c858404ea0c8f68098ed5dcdf5340e02461f149751d10f59c210d5ef8.zip",
+          "S3Key": "e45ee2082d227db1b6f0292696ce5ce2b061c105d15efb341925ca040d1feb68.zip",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -8776,6 +8776,9 @@ Object {
       },
       "eu-central-1": Object {
         "states": "states.eu-central-1.amazonaws.com",
+      },
+      "eu-central-2": Object {
+        "states": "states.eu-central-2.amazonaws.com",
       },
       "eu-north-1": Object {
         "states": "states.eu-north-1.amazonaws.com",

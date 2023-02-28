@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot nlb test: all alarms 1`] = `
+exports[`snapshot nlb test: all alarms - 0 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -1207,7 +1207,323 @@ Object {
 }
 `;
 
-exports[`snapshot nlb test: no alarms 1`] = `
+exports[`snapshot nlb test: all alarms - 1 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyNetworkLoadBalancerHealthyTasksWarning4E5A0F2D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyNetworkLoadBalancerUnhealthyTasksWarningC5CE52E5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyNetworkLoadBalancerHealthyTaskPercentWarning54405290",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyNetworkLoadBalancerProcessedBytesMinWarning153EE6ED",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Network Load Balancer **Default/ImportedNLB-Default/ImportedNetworkTargetGroup**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/NetworkELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyNetworkLoadBalancerHealthyTaskPercentWarning54405290": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Percentage of healthy tasks is too low.",
+        "AlarmName": "Test-DummyNetworkLoadBalancer-Healthy-Task-Percent-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
+            "Id": "expr_1",
+            "Label": "Healthy Task Percent",
+          },
+          Object {
+            "Id": "healthyTaskCount",
+            "Label": "Healthy Tasks",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LoadBalancer",
+                    "Value": "network/my-load-balancer/50dc6c495c0c9188",
+                  },
+                  Object {
+                    "Name": "TargetGroup",
+                    "Value": "targetgroup/my-target-group/50dc6c495c0c9188",
+                  },
+                ],
+                "MetricName": "HealthyHostCount",
+                "Namespace": "AWS/NetworkELB",
+              },
+              "Period": 300,
+              "Stat": "Minimum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "unhealthyTaskCount",
+            "Label": "Unhealthy Tasks",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LoadBalancer",
+                    "Value": "network/my-load-balancer/50dc6c495c0c9188",
+                  },
+                  Object {
+                    "Name": "TargetGroup",
+                    "Value": "targetgroup/my-target-group/50dc6c495c0c9188",
+                  },
+                ],
+                "MetricName": "UnHealthyHostCount",
+                "Namespace": "AWS/NetworkELB",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 75,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyNetworkLoadBalancerHealthyTasksWarning4E5A0F2D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of healthy tasks is too low.",
+        "AlarmName": "Test-DummyNetworkLoadBalancer-Healthy-Tasks-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Healthy Tasks",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LoadBalancer",
+                    "Value": "network/my-load-balancer/50dc6c495c0c9188",
+                  },
+                  Object {
+                    "Name": "TargetGroup",
+                    "Value": "targetgroup/my-target-group/50dc6c495c0c9188",
+                  },
+                ],
+                "MetricName": "HealthyHostCount",
+                "Namespace": "AWS/NetworkELB",
+              },
+              "Period": 300,
+              "Stat": "Minimum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 3,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyNetworkLoadBalancerProcessedBytesMinWarning153EE6ED": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Minimum number of processed bytes is too low.",
+        "AlarmName": "Test-DummyNetworkLoadBalancer-Processed-Bytes-Min-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Processed Bytes (min)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LoadBalancer",
+                    "Value": "network/my-load-balancer/50dc6c495c0c9188",
+                  },
+                ],
+                "MetricName": "ProcessedBytes",
+                "Namespace": "AWS/NetworkELB",
+              },
+              "Period": 300,
+              "Stat": "Minimum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1024,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyNetworkLoadBalancerUnhealthyTasksWarningC5CE52E5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of unhealthy tasks is too high.",
+        "AlarmName": "Test-DummyNetworkLoadBalancer-Unhealthy-Tasks-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Unhealthy Tasks",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LoadBalancer",
+                    "Value": "network/my-load-balancer/50dc6c495c0c9188",
+                  },
+                  Object {
+                    "Name": "TargetGroup",
+                    "Value": "targetgroup/my-target-group/50dc6c495c0c9188",
+                  },
+                ],
+                "MetricName": "UnHealthyHostCount",
+                "Namespace": "AWS/NetworkELB",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 3,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Network Load Balancer **Default/ImportedNLB-Default/ImportedNetworkTargetGroup**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/NetworkELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot nlb test: no alarms - 0 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -1942,6 +2258,95 @@ Object {
         },
       },
       "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot nlb test: no alarms - 1 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Network Load Balancer **Default/ImportedNLB-Default/ImportedNetworkTargetGroup**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/NetworkELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Network Load Balancer **Default/ImportedNLB-Default/ImportedNetworkTargetGroup**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"HealthyHostCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Healthy Tasks\\",\\"stat\\":\\"Minimum\\"}],[\\"AWS/NetworkELB\\",\\"UnHealthyHostCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {

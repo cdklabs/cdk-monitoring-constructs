@@ -1,7 +1,10 @@
 import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import { Vpc } from "aws-cdk-lib/aws-ec2";
-import { NetworkLoadBalancer } from "aws-cdk-lib/aws-elasticloadbalancingv2";
+import {
+  NetworkLoadBalancer,
+  NetworkTargetGroup,
+} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import {
   AlarmWithAnnotation,
@@ -10,11 +13,8 @@ import {
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
-test("snapshot nlb test: no alarms", () => {
+function createNlb() {
   const stack = new Stack();
-
-  const scope = new TestMonitoringScope(stack, "Scope");
-
   const vpc = new Vpc(stack, "Vpc");
   const networkLoadBalancer = new NetworkLoadBalancer(stack, "NLB", {
     vpc: vpc,
@@ -22,64 +22,98 @@ test("snapshot nlb test: no alarms", () => {
   const networkTargetGroup = networkLoadBalancer
     .addListener("Listener", { port: 80 })
     .addTargets("Target", { port: 80 });
+  return { networkLoadBalancer, networkTargetGroup, stack };
+}
 
-  const monitoring = new NetworkLoadBalancerMonitoring(scope, {
-    networkLoadBalancer,
-    networkTargetGroup,
-    alarmFriendlyName: "DummyNetworkLoadBalancer",
-  });
-
-  addMonitoringDashboardsToStack(stack, monitoring);
-  expect(Template.fromStack(stack)).toMatchSnapshot();
-});
-
-test("snapshot nlb test: all alarms", () => {
+function importNlb() {
   const stack = new Stack();
+  const nlbArn =
+    "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/network/my-load-balancer/50dc6c495c0c9188";
+  const tgArn =
+    "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-target-group/50dc6c495c0c9188";
+  const networkLoadBalancer =
+    NetworkLoadBalancer.fromNetworkLoadBalancerAttributes(
+      stack,
+      "ImportedNLB",
+      {
+        loadBalancerArn: nlbArn,
+      }
+    );
+  const networkTargetGroup = NetworkTargetGroup.fromTargetGroupAttributes(
+    stack,
+    "ImportedNetworkTargetGroup",
+    {
+      loadBalancerArns: nlbArn,
+      targetGroupArn: tgArn,
+    }
+  );
+  return { networkLoadBalancer, networkTargetGroup, stack };
+}
 
-  const scope = new TestMonitoringScope(stack, "Scope");
+test.each([createNlb, importNlb])(
+  "snapshot nlb test: no alarms - %#",
+  (factory) => {
+    let props = factory();
+    const networkLoadBalancer = props.networkLoadBalancer;
+    const networkTargetGroup = props.networkTargetGroup;
+    const stack = props.stack;
 
-  const vpc = new Vpc(stack, "Vpc");
-  const networkLoadBalancer = new NetworkLoadBalancer(stack, "NLB", {
-    vpc: vpc,
-  });
-  const networkTargetGroup = networkLoadBalancer
-    .addListener("Listener", { port: 80 })
-    .addTargets("Target", { port: 80 });
+    const scope = new TestMonitoringScope(stack, "Scope");
+    const monitoring = new NetworkLoadBalancerMonitoring(scope, {
+      networkLoadBalancer,
+      networkTargetGroup,
+      alarmFriendlyName: "DummyNetworkLoadBalancer",
+    });
 
-  let numAlarmsCreated = 0;
+    addMonitoringDashboardsToStack(stack, monitoring);
+    expect(Template.fromStack(stack)).toMatchSnapshot();
+  }
+);
 
-  const monitoring = new NetworkLoadBalancerMonitoring(scope, {
-    networkLoadBalancer,
-    networkTargetGroup,
-    alarmFriendlyName: "DummyNetworkLoadBalancer",
-    addHealthyTaskCountAlarm: {
-      Warning: {
-        minHealthyTasks: 3,
-      },
-    },
-    addUnhealthyTaskCountAlarm: {
-      Warning: {
-        maxUnhealthyTasks: 3,
-      },
-    },
-    addHealthyTaskPercentAlarm: {
-      Warning: {
-        minHealthyTaskPercent: 75,
-      },
-    },
-    addMinProcessedBytesAlarm: {
-      Warning: {
-        minProcessedBytes: 1024,
-      },
-    },
-    useCreatedAlarms: {
-      consume(alarms: AlarmWithAnnotation[]) {
-        numAlarmsCreated = alarms.length;
-      },
-    },
-  });
+test.each([createNlb, importNlb])(
+  "snapshot nlb test: all alarms - %#",
+  (lbResourcesFactory) => {
+    let lbResources = lbResourcesFactory();
+    const networkLoadBalancer = lbResources.networkLoadBalancer;
+    const networkTargetGroup = lbResources.networkTargetGroup;
+    const stack = lbResources.stack;
+    const scope = new TestMonitoringScope(stack, "Scope");
 
-  addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(4);
-  expect(Template.fromStack(stack)).toMatchSnapshot();
-});
+    let numAlarmsCreated = 0;
+
+    const monitoring = new NetworkLoadBalancerMonitoring(scope, {
+      networkLoadBalancer,
+      networkTargetGroup,
+      alarmFriendlyName: "DummyNetworkLoadBalancer",
+      addHealthyTaskCountAlarm: {
+        Warning: {
+          minHealthyTasks: 3,
+        },
+      },
+      addUnhealthyTaskCountAlarm: {
+        Warning: {
+          maxUnhealthyTasks: 3,
+        },
+      },
+      addHealthyTaskPercentAlarm: {
+        Warning: {
+          minHealthyTaskPercent: 75,
+        },
+      },
+      addMinProcessedBytesAlarm: {
+        Warning: {
+          minProcessedBytes: 1024,
+        },
+      },
+      useCreatedAlarms: {
+        consume(alarms: AlarmWithAnnotation[]) {
+          numAlarmsCreated = alarms.length;
+        },
+      },
+    });
+
+    addMonitoringDashboardsToStack(stack, monitoring);
+    expect(numAlarmsCreated).toStrictEqual(4);
+    expect(Template.fromStack(stack)).toMatchSnapshot();
+  }
+);
