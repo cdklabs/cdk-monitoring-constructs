@@ -1,5 +1,4 @@
 # Contributing Guidelines
-
 Thank you for your interest in contributing to our project. Whether it's a bug report, new feature, correction, or additional
 documentation, we greatly value feedback and contributions from our community.
 
@@ -26,21 +25,36 @@ Contributions via pull requests are much appreciated. Before sending us a pull r
 2. You check existing open, and recently merged, pull requests to make sure someone else hasn't addressed the problem already.
 3. You open an issue to discuss any significant work - we would hate for your time to be wasted.
 
-To send us a pull request, please:
-
+### Sending a pull request
 1. Fork the repository.
 2. Modify the source; please focus on the specific change you are contributing. If you also reformat all the code, it will be hard for us to focus on your change.
 3. Ensure local tests pass.
-4. Commit to your fork using clear commit messages.
-5. Send us a pull request, answering any default questions in the pull request interface.
+4. Commit to your fork using a clear commit message following [the Conventional Commits specification](https://www.conventionalcommits.org/).
+5. Send us a pull request, answering any default questions in the pull request template.
 6. Pay attention to any automated CI failures reported in the pull request, and stay involved in the conversation.
 
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
+### Building the project locally
+1. Install Yarn: https://classic.yarnpkg.com/lang/en/docs/install
+2. Install the dependencies: `yarn install`
+3. Build the project: `yarn build`
+
+When building locally, some of the packaging steps may fail due to lack of local dependencies. At minimum, you want the `package:js` step to succeed. The later steps (`package:java`, `package:python`, `package:dotnet`) will be run as part of the automated CI in your pull request.
+
+### Linking to another project locally
+You may want to perform an `npm link` or something similar to test changes in the library with an actual CDK application residing in another project.
+
+1. Build the project such that the `package:js` step succeeds: `yarn build`
+2. Unpack the JS package: `tar zxvf dist/js/cdk-monitoring-constructs@0.0.0.jsii.tgz`
+3. Perform your `npm link` or similar method using the unpacked `package` directory
+
+You may need to manually modify the version in the unpacked `package.json` as appropriate.
+
 
 ## Finding contributions to work on
-Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
+Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any "help wanted" issues is a great place to start.
 
 
 ## Code of Conduct
