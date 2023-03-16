@@ -272,6 +272,27 @@ This is a general procedure on how to do it:
 
 Both of these monitoring base classes are dashboard segments, so you can add them to your monitoring by calling `.addSegment()`.
 
+### Custom dashboards
+
+If you want *even* more flexibility, you can take complete control over dashboard generation by leveraging dynamic dashboarding features. This allows you to create an arbitrary number of dashboards while configuring each of them separately. Here's how:
+
+1. Create an instance of your monitoring facade by instantiating a `DefaultDynamicDashboardFactory` and providing it via props.
+2. This will require providing an array of `DynamicDashboardConfiguration` objects, which will require at least specifying names for dashboards you want generated. For example, if you wanted to create two dashboards, one for your AWS Hosted Service metrics and one for AWS Supporting Infrastructure Metrics, you would do this:
+    ```
+    const dynamicDashboardFactory = new DefaultDynamicDashboardFactory(
+      stack,
+      "TestDynamicDashboardFactory",
+      {
+          dashboardNamePrefix: "GenericHostedAWSService",
+          dashboardConfigs: [{ name: "HostedService" }, { name: "Infrastructure" }],
+      }
+    );
+    ````
+    This would generate two dashboards with the names "GenericHostedAWSService-HostedService" and "GenericHostedAWSService-Infrastructure"
+3. Identify the monitoring constructs used by your application and augment them by implementing the `IDynamicDashboardSegment` interface.
+4. Replace `monitoring.addSegment` calls in your application with `monitoring.addDynamicSegment` calls and provide the extended implementations you created in the previous step.
+5. cdk-monitoring-constructs will now create your requested dashboards according to the configs you specified via `DynamicDashboardConfiguration` in step #2 and will populate them with the widgets you specified via the `IDynamicDashboardSegment.widgetsByDashboardType` in your custom implementations created in step #3.
+
 ### Monitoring Scopes
 
 With CDK Monitoring Constructs, you can monitor complete CDK construct scopes. It will automatically discover all monitorable resources within the scope (recursively)) and add them to your dashboard.
