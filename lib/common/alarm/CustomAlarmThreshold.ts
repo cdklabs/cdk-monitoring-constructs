@@ -4,7 +4,7 @@ import {
   TreatMissingData,
 } from "aws-cdk-lib/aws-cloudwatch";
 
-import { IAlarmActionStrategy } from "./IAlarmActionStrategy";
+import { IAlarmActionStrategy } from "./action";
 
 /**
  * Common customization that can be attached to each alarm.

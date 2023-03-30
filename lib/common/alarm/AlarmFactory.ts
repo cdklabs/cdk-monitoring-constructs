@@ -11,8 +11,8 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 
+import { IAlarmActionStrategy, noopAction } from "./action";
 import { AlarmNamingStrategy } from "./AlarmNamingStrategy";
-import { IAlarmActionStrategy } from "./IAlarmActionStrategy";
 import {
   AlarmAnnotationStrategyProps,
   DefaultAlarmAnnotationStrategy,
@@ -20,7 +20,6 @@ import {
 } from "./IAlarmAnnotationStrategy";
 import { IAlarmDedupeStringProcessor } from "./IAlarmDedupeStringProcessor";
 import { IAlarmNamingStrategy } from "./IAlarmNamingStrategy";
-import { noopAction } from "./NoopAlarmActionStrategy";
 import {
   MetricFactoryDefaults,
   MetricStatistic,

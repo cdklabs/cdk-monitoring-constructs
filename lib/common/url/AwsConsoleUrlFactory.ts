@@ -31,6 +31,17 @@ export class AwsConsoleUrlFactory {
     return undefined;
   }
 
+  getApiGatewayUrl(restApiId: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/apigateway/home?region=${region}#/apis/${restApiId}/dashboard`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getCloudFrontDistributionUrl(distributionId: string): string | undefined {
+    const destinationUrl = `https://console.aws.amazon.com/cloudfront/v2/home#/monitoring/${distributionId}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
   getCloudWatchLogGroupUrl(logGroupName: string): string | undefined {
     const region = this.awsAccountRegion;
     const destinationUrl = `https://${region}.console.aws.amazon.com/cloudwatch/home?region=${region}#logsV2:log-groups/log-group/${logGroupName}`;
@@ -43,86 +54,15 @@ export class AwsConsoleUrlFactory {
     return this.getAwsConsoleUrl(destinationUrl);
   }
 
-  getSnsTopicUrl(topicArn: string): string | undefined {
+  getDocumentDbClusterUrl(clusterId: string): string | undefined {
     const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/sns/v3/home?region=${region}#/topic/${topicArn}`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getSqsQueueUrl(queueUrl: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/sqs/v2/home?region=${region}#/queues/${queueUrl}`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getLambdaFunctionUrl(functionName: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/lambda/home?region=${region}#/functions/${functionName}`;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/docdb/home?region=${region}#cluster-details/${clusterId}`;
     return this.getAwsConsoleUrl(destinationUrl);
   }
 
   getDynamoTableUrl(tableName: string): string | undefined {
     const region = this.awsAccountRegion;
     const destinationUrl = `https://${region}.console.aws.amazon.com/dynamodb/home?region=${region}#tables:selected=${tableName}`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getStateMachineUrl(stateMachineArn: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/states/home?region=${region}#/statemachines/view/${stateMachineArn}`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getKinesisDataStreamUrl(streamName: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/kinesis/home?region=${region}#/streams/details/${streamName}/monitoring`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getKinesisFirehoseDeliveryStreamUrl(streamName: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/firehose/home?region=${region}#/details/${streamName}/monitoring`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getKinesisAnalyticsUrl(application: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/kinesisanalytics/home?region=${region}#/details?applicationName=${application}`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getS3BucketUrl(bucketName: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://s3.console.aws.amazon.com/s3/buckets/${bucketName}?region=${region}&tab=metrics`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getApiGatewayUrl(restApiId: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/apigateway/home?region=${region}#/apis/${restApiId}/dashboard`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getRdsClusterUrl(clusterId: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/rds/home?region=${region}#database:id=${clusterId};is-cluster=true;tab=monitoring`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getRedshiftClusterUrl(clusterId: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/redshiftv2/home?region=${region}#cluster-details?cluster=${clusterId}`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getOpenSearchClusterUrl(domainName: string): string | undefined {
-    const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/es/home?region=${region}#domain:resource=${domainName};action=dashboard;tab=TAB_CLUSTER_HEALTH_ID_V2`;
-    return this.getAwsConsoleUrl(destinationUrl);
-  }
-
-  getCloudFrontDistributionUrl(distributionId: string): string | undefined {
-    const destinationUrl = `https://console.aws.amazon.com/cloudfront/v2/home#/monitoring/${distributionId}`;
     return this.getAwsConsoleUrl(destinationUrl);
   }
 
@@ -143,9 +83,69 @@ export class AwsConsoleUrlFactory {
     }
   }
 
-  getDocumentDbClusterUrl(clusterId: string): string | undefined {
+  getKinesisAnalyticsUrl(application: string): string | undefined {
     const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/docdb/home?region=${region}#cluster-details/${clusterId}`;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/kinesisanalytics/home?region=${region}#/details?applicationName=${application}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getKinesisDataStreamUrl(streamName: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/kinesis/home?region=${region}#/streams/details/${streamName}/monitoring`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getKinesisFirehoseDeliveryStreamUrl(streamName: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/firehose/home?region=${region}#/details/${streamName}/monitoring`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getLambdaFunctionUrl(functionName: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/lambda/home?region=${region}#/functions/${functionName}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getOpenSearchClusterUrl(domainName: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/es/home?region=${region}#domain:resource=${domainName};action=dashboard;tab=TAB_CLUSTER_HEALTH_ID_V2`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getRdsClusterUrl(clusterId: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/rds/home?region=${region}#database:id=${clusterId};is-cluster=true;tab=monitoring`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getRedshiftClusterUrl(clusterId: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/redshiftv2/home?region=${region}#cluster-details?cluster=${clusterId}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getSnsTopicUrl(topicArn: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/sns/v3/home?region=${region}#/topic/${topicArn}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getStateMachineUrl(stateMachineArn: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/states/home?region=${region}#/statemachines/view/${stateMachineArn}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getSqsQueueUrl(queueUrl: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/sqs/v2/home?region=${region}#/queues/${queueUrl}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
+  getS3BucketUrl(bucketName: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://s3.console.aws.amazon.com/s3/buckets/${bucketName}?region=${region}&tab=metrics`;
     return this.getAwsConsoleUrl(destinationUrl);
   }
 

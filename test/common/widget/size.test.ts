@@ -8,7 +8,7 @@ import {
   ThreeQuartersWidth,
   TwoThirdsWidth,
   recommendedWidgetWidth,
-} from "../../lib";
+} from "../../../lib";
 
 test("widget width recommendation", () => {
   // edge case

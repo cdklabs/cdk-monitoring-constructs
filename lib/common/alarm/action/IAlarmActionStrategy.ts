@@ -1,6 +1,6 @@
 import { AlarmBase } from "aws-cdk-lib/aws-cloudwatch";
 
-import { AlarmMetadata } from "./AlarmFactory";
+import { AlarmMetadata } from "../AlarmFactory";
 
 /**
  * Properties necessary to append actions to an alarm.

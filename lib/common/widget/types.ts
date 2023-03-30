@@ -7,11 +7,11 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 export enum GraphWidgetType {
-  LINE = "Line",
-  STACKED_AREA = "StackedArea",
-  PIE = "Pie",
   BAR = "Bar",
+  LINE = "Line",
+  PIE = "Pie",
   SINGLE_VALUE = "SingleValue",
+  STACKED_AREA = "StackedArea",
 }
 
 /**
@@ -25,14 +25,14 @@ export function createGraphWidget(
   props: GraphWidgetProps
 ): IWidget {
   switch (type) {
-    case GraphWidgetType.LINE:
-      return new GraphWidget(props);
-
     case GraphWidgetType.BAR:
       return new GraphWidget({
         ...props,
         view: GraphWidgetView.BAR,
       });
+
+    case GraphWidgetType.LINE:
+      return new GraphWidget(props);
 
     case GraphWidgetType.PIE:
       return new GraphWidget({
@@ -40,16 +40,16 @@ export function createGraphWidget(
         view: GraphWidgetView.PIE,
       });
 
-    case GraphWidgetType.STACKED_AREA:
-      return new GraphWidget({
-        ...props,
-        stacked: true,
-      });
-
     case GraphWidgetType.SINGLE_VALUE:
       return new SingleValueWidget({
         ...props,
         metrics: [...(props.left ?? []), ...(props.right ?? [])],
+      });
+
+    case GraphWidgetType.STACKED_AREA:
+      return new GraphWidget({
+        ...props,
+        stacked: true,
       });
 
     default:
