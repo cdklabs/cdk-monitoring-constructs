@@ -781,7 +781,9 @@ public readonly summaryDashboard: Dashboard;
 
 ### MonitoringFacade <a name="MonitoringFacade" id="cdk-monitoring-constructs.MonitoringFacade"></a>
 
-Main entry point to create your monitoring.
+An implementation of a {@link MonitoringScope}.
+
+This acts as the convenient main entrypoint to monitor resources.
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.MonitoringFacade.Initializer"></a>
 
@@ -874,7 +876,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRdsCluster">monitorRdsCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRedshiftCluster">monitorRedshiftCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorS3Bucket">monitorS3Bucket</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorScope">monitorScope</a></code> | Monitor all the resources in the given scope. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorScope">monitorScope</a></code> | Uses an aspect to automatically monitor all resources in the given scope. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManagerSecret">monitorSecretsManagerSecret</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSimpleEc2Service">monitorSimpleEc2Service</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSimpleFargateService">monitorSimpleFargateService</a></code> | *No description.* |
@@ -1586,17 +1588,21 @@ public monitorS3Bucket(props: S3BucketMonitoringProps): MonitoringFacade
 public monitorScope(scope: Construct, aspectProps?: MonitoringAspectProps): void
 ```
 
-Monitor all the resources in the given scope.
+Uses an aspect to automatically monitor all resources in the given scope.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.MonitoringFacade.monitorScope.parameter.scope"></a>
 
 - *Type:* constructs.Construct
+
+Scope with resources to monitor.
 
 ---
 
 ###### `aspectProps`<sup>Optional</sup> <a name="aspectProps" id="cdk-monitoring-constructs.MonitoringFacade.monitorScope.parameter.aspectProps"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectProps">MonitoringAspectProps</a>
+
+Optional configuration.
 
 ---
 
@@ -1793,7 +1799,9 @@ The tree node.
 
 ### MonitoringScope <a name="MonitoringScope" id="cdk-monitoring-constructs.MonitoringScope"></a>
 
-A scope (construct) where all monitoring constructs are living in.
+A scope where all the monitoring of constructs is managed (alarms, dashboards, etc.).
+
+Standard usages will use {@link MonitoringFacade}.
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.MonitoringScope.Initializer"></a>
 
@@ -26872,7 +26880,7 @@ public readonly dashboardFactory: IDashboardFactory;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>
-- *Default:* `DefaultDashboardFactory`; facade logical ID used as default name
+- *Default:* An instance of {@link DefaultDashboardFactory}; facade logical ID used as default name
 
 Defaults for dashboard factory.
 
@@ -60951,35 +60959,35 @@ trigger if any of the alarms is triggered.
 
 ### DashboardRenderingPreference <a name="DashboardRenderingPreference" id="cdk-monitoring-constructs.DashboardRenderingPreference"></a>
 
-Preferred way of rendering the widgets.
+Preferred way of rendering dashboard widgets.
 
 #### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_ONLY">INTERACTIVE_ONLY</a></code> | create standard set of dashboards with interactive widgets only. |
-| <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference.BITMAP_ONLY">BITMAP_ONLY</a></code> | create standard set of dashboards with bitmap widgets only. |
-| <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_AND_BITMAP">INTERACTIVE_AND_BITMAP</a></code> | create a two sets of dashboards: standard set (interactive) and a copy (bitmap). |
+| <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_ONLY">INTERACTIVE_ONLY</a></code> | Create standard set of dashboards with interactive widgets only. |
+| <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference.BITMAP_ONLY">BITMAP_ONLY</a></code> | Create standard set of dashboards with bitmap widgets only. |
+| <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_AND_BITMAP">INTERACTIVE_AND_BITMAP</a></code> | Create a two sets of dashboards: standard set (interactive) and a copy (bitmap). |
 
 ---
 
 ##### `INTERACTIVE_ONLY` <a name="INTERACTIVE_ONLY" id="cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_ONLY"></a>
 
-create standard set of dashboards with interactive widgets only.
+Create standard set of dashboards with interactive widgets only.
 
 ---
 
 
 ##### `BITMAP_ONLY` <a name="BITMAP_ONLY" id="cdk-monitoring-constructs.DashboardRenderingPreference.BITMAP_ONLY"></a>
 
-create standard set of dashboards with bitmap widgets only.
+Create standard set of dashboards with bitmap widgets only.
 
 ---
 
 
 ##### `INTERACTIVE_AND_BITMAP` <a name="INTERACTIVE_AND_BITMAP" id="cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_AND_BITMAP"></a>
 
-create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
+Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 ---
 

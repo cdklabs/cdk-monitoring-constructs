@@ -26,7 +26,10 @@ import * as stepfunctions from "aws-cdk-lib/aws-stepfunctions";
 import * as wafv2 from "aws-cdk-lib/aws-wafv2";
 import { IConstruct } from "constructs";
 
-import { MonitoringAspectProps, MonitoringAspectType } from "./aspect-types";
+import {
+  MonitoringAspectProps,
+  MonitoringAspectType,
+} from "./IMonitoringAspect";
 import { MonitoringFacade } from "./MonitoringFacade";
 import { ElastiCacheClusterType } from "../monitoring";
 
@@ -394,5 +397,3 @@ export class MonitoringAspect implements IAspect {
     }
   }
 }
-
-export * from "./aspect-types";

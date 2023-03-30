@@ -6,7 +6,9 @@ import { MetricFactory } from "../metric";
 import { AwsConsoleUrlFactory } from "../url";
 
 /**
- * A scope (construct) where all monitoring constructs are living in.
+ * A scope where all the monitoring of constructs is managed (alarms, dashboards, etc.).
+ *
+ * Standard usages will use {@link MonitoringFacade}.
  */
 export abstract class MonitoringScope extends Construct {
   /**

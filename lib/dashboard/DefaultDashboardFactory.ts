@@ -7,26 +7,9 @@ import {
 import { Construct } from "constructs";
 
 import { BitmapDashboard } from "./BitmapDashboard";
+import { DashboardRenderingPreference } from "./DashboardRenderingPreference";
 import { DashboardWithBitmapCopy } from "./DashboardWithBitmapCopy";
 import { IDashboardFactory, IDashboardFactoryProps } from "./IDashboardFactory";
-
-/**
- * Preferred way of rendering the widgets.
- */
-export enum DashboardRenderingPreference {
-  /**
-   * create standard set of dashboards with interactive widgets only
-   */
-  INTERACTIVE_ONLY,
-  /**
-   * create standard set of dashboards with bitmap widgets only
-   */
-  BITMAP_ONLY,
-  /**
-   * create a two sets of dashboards: standard set (interactive) and a copy (bitmap)
-   */
-  INTERACTIVE_AND_BITMAP,
-}
 
 export interface MonitoringDashboardsProps {
   /**
