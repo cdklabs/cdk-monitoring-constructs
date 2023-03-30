@@ -1,4 +1,5 @@
 export * from "./BitmapDashboard";
+export * from "./DashboardRenderingPreference";
 export * from "./DashboardSegment";
 export * from "./DashboardWithBitmapCopy";
 export * from "./DefaultDashboardFactory";

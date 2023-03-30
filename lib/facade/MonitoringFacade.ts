@@ -2,7 +2,8 @@ import { Aspects, Stack } from "aws-cdk-lib";
 import { CompositeAlarm, Dashboard, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 
-import { MonitoringAspect, MonitoringAspectProps } from "./MonitoringAspect";
+import { MonitoringAspectProps } from "./IMonitoringAspect";
+import { MonitoringAspect } from "./MonitoringAspect";
 import {
   AddCompositeAlarmProps,
   AlarmFactory,
@@ -115,25 +116,30 @@ import {
 export interface MonitoringFacadeProps {
   /**
    * Defaults for metric factory.
+   *
    * @default - empty (no preferences)
    */
   readonly metricFactoryDefaults?: MetricFactoryDefaults;
 
   /**
    * Defaults for alarm factory.
+   *
    * @default - actions enabled, facade logical ID used as default alarm name prefix
    */
   readonly alarmFactoryDefaults?: AlarmFactoryDefaults;
 
   /**
    * Defaults for dashboard factory.
-   * @default - `DefaultDashboardFactory`; facade logical ID used as default name
+   *
+   * @default - An instance of {@link DefaultDashboardFactory}; facade logical ID used as default name
    */
   readonly dashboardFactory?: IDashboardFactory;
 }
 
 /**
- * Main entry point to create your monitoring.
+ * An implementation of a {@link MonitoringScope}.
+ *
+ * This acts as the convenient main entrypoint to monitor resources.
  */
 export class MonitoringFacade extends MonitoringScope {
   protected readonly metricFactoryDefaults: MetricFactoryDefaults;
@@ -144,39 +150,18 @@ export class MonitoringFacade extends MonitoringScope {
   constructor(scope: Construct, id: string, props?: MonitoringFacadeProps) {
     super(scope, id);
 
-    this.metricFactoryDefaults =
-      props?.metricFactoryDefaults ??
-      MonitoringFacade.getDefaultMetricFactoryDefaults();
-    this.alarmFactoryDefaults =
-      props?.alarmFactoryDefaults ??
-      MonitoringFacade.getDefaultAlarmFactoryDefaults(id);
-    this.dashboardFactory =
-      props?.dashboardFactory ??
-      MonitoringFacade.getDefaultDashboardFactory(this, id);
-
-    this.createdSegments = [];
-  }
-
-  private static getDefaultMetricFactoryDefaults(): MetricFactoryDefaults {
-    return {};
-  }
-
-  private static getDefaultAlarmFactoryDefaults(
-    defaultName: string
-  ): AlarmFactoryDefaults {
-    return {
-      alarmNamePrefix: defaultName,
+    this.metricFactoryDefaults = props?.metricFactoryDefaults ?? {};
+    this.alarmFactoryDefaults = props?.alarmFactoryDefaults ?? {
+      alarmNamePrefix: id,
       actionsEnabled: true,
     };
-  }
+    this.dashboardFactory =
+      props?.dashboardFactory ??
+      new DefaultDashboardFactory(scope, `${id}-Dashboards`, {
+        dashboardNamePrefix: id,
+      });
 
-  private static getDefaultDashboardFactory(
-    scope: Construct,
-    defaultName: string
-  ): IDashboardFactory {
-    return new DefaultDashboardFactory(scope, `${defaultName}-Dashboards`, {
-      dashboardNamePrefix: defaultName,
-    });
+    this.createdSegments = [];
   }
 
   // FACTORIES
@@ -353,8 +338,21 @@ export class MonitoringFacade extends MonitoringScope {
     return this;
   }
 
-  // MONITORING
-  // ==========
+  // RESOURCE MONITORING
+  // ===================
+
+  /**
+   * Uses an aspect to automatically monitor all resources in the given scope.
+   *
+   * @param scope Scope with resources to monitor.
+   * @param aspectProps Optional configuration.
+   *
+   * @experimental
+   */
+  monitorScope(scope: Construct, aspectProps?: MonitoringAspectProps) {
+    const aspect = new MonitoringAspect(this, aspectProps);
+    Aspects.of(scope).add(aspect);
+  }
 
   monitorApiGateway(props: ApiGatewayMonitoringProps) {
     const segment = new ApiGatewayMonitoring(this, props);
@@ -684,16 +682,5 @@ export class MonitoringFacade extends MonitoringScope {
     const segment = new CustomMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
-  }
-
-  /**
-   * Monitor all the resources in the given scope.
-   * @param scope
-   * @param aspectProps
-   * @experimental
-   */
-  monitorScope(scope: Construct, aspectProps?: MonitoringAspectProps) {
-    const aspect = new MonitoringAspect(this, aspectProps);
-    Aspects.of(scope).add(aspect);
   }
 }

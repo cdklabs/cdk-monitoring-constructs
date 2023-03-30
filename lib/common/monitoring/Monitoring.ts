@@ -8,6 +8,23 @@ import {
 } from "../../dashboard";
 import { AlarmWithAnnotation } from "../alarm";
 
+export interface IAlarmConsumer {
+  consume(alarms: AlarmWithAnnotation[]): void;
+}
+
+/**
+ * Base class for properties passed to each monitoring construct.
+ * It contains (mostly optional) properties to specify naming, placement, and so on.
+ */
+export interface BaseMonitoringProps
+  extends UserProvidedNames,
+    MonitoringDashboardsOverrideProps {
+  /**
+   * Calls provided function to process all alarms created.
+   */
+  readonly useCreatedAlarms?: IAlarmConsumer;
+}
+
 /**
  * An independent unit of monitoring. This is the base for all monitoring classes with alarm support.
  */
@@ -84,21 +101,4 @@ export abstract class Monitoring implements IDashboardSegment {
    * Returns widgets to be placed on the main dashboard.
    */
   abstract widgets(): IWidget[];
-}
-
-export interface IAlarmConsumer {
-  consume(alarms: AlarmWithAnnotation[]): void;
-}
-
-/**
- * Base class for properties passed to each monitoring construct.
- * It contains (mostly optional) properties to specify naming, placement, and so on.
- */
-export interface BaseMonitoringProps
-  extends UserProvidedNames,
-    MonitoringDashboardsOverrideProps {
-  /**
-   * Calls provided function to process all alarms created.
-   */
-  readonly useCreatedAlarms?: IAlarmConsumer;
 }

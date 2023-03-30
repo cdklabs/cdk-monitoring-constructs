@@ -7,12 +7,12 @@
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/cdklabs/cdk-monitoring-constructs)
 [![Mergify](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/cdklabs/cdk-monitoring-constructs&style=flat)](https://mergify.io)
 
-Easy-to-use CDK constructs for monitoring your AWS infrastructure.
+Easy-to-use CDK constructs for monitoring your AWS infrastructure with [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/).
 
 * Easily add commonly-used alarms using predefined properties
-* Generate concise Cloudwatch dashboards that indicate your alarms
+* Generate concise CloudWatch dashboards that indicate your alarms
 * Extend the library with your own extensions or custom metrics
-* Consume the library in multiple languages (see below)
+* Consume the library in multiple supported languages
 
 
 ## Installation
@@ -54,11 +54,6 @@ See https://pypi.org/project/cdk-monitoring-constructs/
 <details><summary><strong>C#</strong></summary>
 
 See https://www.nuget.org/packages/Cdklabs.CdkMonitoringConstructs/
-</details>
-
-<details><summary><strong>Golang</strong></summary>
-
-Coming soon!
 </details>
 
 
@@ -104,17 +99,21 @@ You can browse the documentation at https://constructs.dev/packages/cdk-monitori
 
 ## Getting started
 
-### Create monitoring stack and facade
+### Create a facade
 
 _Important note_: **Please, do NOT import anything from the `/dist/lib` package.** This is unsupported and might break any time.
 
-Create an instance of `MonitoringFacade`, which is the main entry point:
+1. Create an instance of `MonitoringFacade`, which is the main entrypoint.
+1. Call methods on the facade like `.monitorLambdaFunction()` and chain them together to define your monitors. You can also use methods to add your own widgets, headers of various sizes, and more.
+
+For examples of monitoring different resources, refer to [the unit tests](https://github.com/cdklabs/cdk-monitoring-constructs/tree/main/test/monitoring).
 
 ```ts
 export interface MonitoringStackProps extends DeploymentStackProps {
   // ...
 }
 
+// This could be in the same stack as your resources, as a nested stack, or a separate stack as you see fit
 export class MonitoringStack extends DeploymentStack {
   constructor(parent: App, name: string, props: MonitoringStackProps) {
     super(parent, name, props);
@@ -129,20 +128,14 @@ export class MonitoringStack extends DeploymentStack {
     // Monitor your resources
     monitoring
       .addLargeHeader("Storage")
-      .monitorDynamoTable({ /* table1 */ })
-      .monitorDynamoTable({ /* table2 */ })
-      .monitorDynamoTable({ /* table3 */ })
-      // etc.
+      .monitorDynamoTable({ /* Monitor a DynamoDB table */ })
+      .monitorDynamoTable({ /* and a different table */ })
+      .monitorLambdaFunction({ /* and a Lambda function */ })
+      .monitorCustom({ /* and some arbitrary metrics in CloudWatch */ })
+      // ... etc.
   }
 }
 ```
-
-### Set up your monitoring
-
-Once the facade is created, you can use it to call methods like `.monitorLambdaFunction()` and chain them together to define your monitors.
-
-You can also use facade methods to add your own widgets, headers of various sizes, and more.
-
 
 ### Customize actions
 
@@ -257,33 +250,28 @@ monitorCustom({
 })
 ```
 
-Search metric does not support setting an alarm, that is a CloudWatch limitation.
+Search metrics do not support setting an alarm, which is a CloudWatch limitation.
 
-### Custom monitoring segment
+### Custom monitoring segments
 
-If you want even more flexibility, you can create your own Dashboard Segment.
+If you want even more flexibility, you can create your own segment.
 
 This is a general procedure on how to do it:
 
 1. Extend the `Monitoring` class
 1. Override the `widgets()` method (and/or similar ones)
-1. Leverage the metric factor and alarm factory, provided by the base class (you can create additional factories, if you will)
+1. Leverage the metric factory and alarm factory provided by the base class (you can create additional factories, if you will)
 1. Add all alarms to `.addAlarm()` so they are visible to the user and being placed on the alarm summary dashboard
 
-Both of these monitoring base classes are dashboard segments, so you can add them to your monitoring by calling `.addSegment()`.
+Both of these monitoring base classes are dashboard segments, so you can add them to your monitoring by calling `.addSegment()` on the `MonitoringFacade`.
 
-### Monitoring Scopes
+### Monitoring scopes
 
-With CDK Monitoring Constructs, you can monitor complete CDK construct scopes. It will automatically discover all monitorable resources within the scope (recursively)) and add them to your dashboard.
-
-```ts
-monitoring.monitorScope(stack);
-```
-
-You can also specify default alarms for any specific resource and disable automatic monitoring for it as well.
+You can monitor complete CDK construct scopes using an aspect. It will automatically discover all monitorable resources within the scope recursively and add them to your dashboard.
 
 ```ts
 monitoring.monitorScope(stack, {
+  // With optional configuration
   lambda: {
     props: {
       addLatencyP50Alarm: {
@@ -293,12 +281,13 @@ monitoring.monitorScope(stack, {
   },
 
   // Some resources that aren't dependent on nodes (e.g. general metrics across instances/account) may be included
-  // by default, but can be explicitly disabled.
+  // by default, which can be explicitly disabled.
   billing: { enabled: false },
   ec2: { enabled: false },
   elasticCache: { enabled: false },
 });
 ```
+
 
 ## Contributing/Security
 
