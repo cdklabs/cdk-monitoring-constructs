@@ -6,7 +6,7 @@ import { MetricFactory } from "../metric";
 import { AwsConsoleUrlFactory } from "../url";
 
 /**
- * A scope where all the monitoring of constructs is managed (alarms, dashboards, etc.).
+ * A scope where all monitored constructs are managed from (i.e., alarms, dashboards, etc.).
  *
  * Standard usages will use {@link MonitoringFacade}.
  */
@@ -24,6 +24,7 @@ export abstract class MonitoringScope extends Construct {
   /**
    * Creates a new alarm factory.
    * Alarms created will be named with the given prefix, unless a local name override is present.
+   *
    * @param alarmNamePrefix alarm name prefix
    */
   abstract createAlarmFactory(alarmNamePrefix: string): AlarmFactory;

@@ -6,7 +6,7 @@ import {
   OpsItemSeverity,
 } from "aws-cdk-lib/aws-cloudwatch-actions";
 
-import { OpsItemAlarmActionStrategy } from "../../../lib";
+import { OpsItemAlarmActionStrategy } from "../../../../lib";
 
 test("snapshot test", () => {
   const stack = new Stack();

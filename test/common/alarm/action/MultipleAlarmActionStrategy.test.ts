@@ -3,7 +3,7 @@ import { Template } from "aws-cdk-lib/assertions";
 import { Alarm, Metric } from "aws-cdk-lib/aws-cloudwatch";
 import { Topic } from "aws-cdk-lib/aws-sns";
 
-import { multipleActions, SnsAlarmActionStrategy } from "../../../lib";
+import { multipleActions, SnsAlarmActionStrategy } from "../../../../lib";
 
 test("snapshot test: multiple actions", () => {
   const stack = new Stack();

@@ -1799,7 +1799,7 @@ The tree node.
 
 ### MonitoringScope <a name="MonitoringScope" id="cdk-monitoring-constructs.MonitoringScope"></a>
 
-A scope where all the monitoring of constructs is managed (alarms, dashboards, etc.).
+A scope where all monitored constructs are managed from (i.e., alarms, dashboards, etc.).
 
 Standard usages will use {@link MonitoringFacade}.
 
@@ -61127,20 +61127,20 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.GraphWidgetType.LINE">LINE</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA">STACKED_AREA</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.GraphWidgetType.PIE">PIE</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GraphWidgetType.BAR">BAR</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GraphWidgetType.LINE">LINE</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GraphWidgetType.PIE">PIE</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GraphWidgetType.SINGLE_VALUE">SINGLE_VALUE</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA">STACKED_AREA</a></code> | *No description.* |
 
 ---
+
+##### `BAR` <a name="BAR" id="cdk-monitoring-constructs.GraphWidgetType.BAR"></a>
+
+---
+
 
 ##### `LINE` <a name="LINE" id="cdk-monitoring-constructs.GraphWidgetType.LINE"></a>
-
----
-
-
-##### `STACKED_AREA` <a name="STACKED_AREA" id="cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA"></a>
 
 ---
 
@@ -61150,12 +61150,12 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 ---
 
 
-##### `BAR` <a name="BAR" id="cdk-monitoring-constructs.GraphWidgetType.BAR"></a>
+##### `SINGLE_VALUE` <a name="SINGLE_VALUE" id="cdk-monitoring-constructs.GraphWidgetType.SINGLE_VALUE"></a>
 
 ---
 
 
-##### `SINGLE_VALUE` <a name="SINGLE_VALUE" id="cdk-monitoring-constructs.GraphWidgetType.SINGLE_VALUE"></a>
+##### `STACKED_AREA` <a name="STACKED_AREA" id="cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA"></a>
 
 ---
 

@@ -3,8 +3,8 @@ import { Match, Template } from "aws-cdk-lib/assertions";
 import { ComparisonOperator, Metric } from "aws-cdk-lib/aws-cloudwatch";
 import { Topic } from "aws-cdk-lib/aws-sns";
 
-import { CustomMonitoring, notifySns } from "../../../lib";
-import { TestMonitoringScope } from "../../monitoring/TestMonitoringScope";
+import { CustomMonitoring, notifySns } from "../../../../lib";
+import { TestMonitoringScope } from "../../../monitoring/TestMonitoringScope";
 
 const namespace = "DummyCustomNamespace";
 const dimensionsMap = { CustomDimension: "CustomDimensionValue" };
