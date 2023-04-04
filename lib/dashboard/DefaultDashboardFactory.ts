@@ -5,11 +5,12 @@ import {
   PeriodOverride,
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
-
 import { BitmapDashboard } from "./BitmapDashboard";
 import { DashboardRenderingPreference } from "./DashboardRenderingPreference";
 import { DashboardWithBitmapCopy } from "./DashboardWithBitmapCopy";
+import { IDynamicDashboardSegment } from "./DynamicDashboardSegment";
 import { IDashboardFactory, IDashboardFactoryProps } from "./IDashboardFactory";
+import { IDynamicDashboardFactory } from "./IDynamicDashboardFactory";
 
 export interface MonitoringDashboardsProps {
   /**
@@ -67,14 +68,24 @@ export interface MonitoringDashboardsProps {
   readonly renderingPreference?: DashboardRenderingPreference;
 }
 
+export enum DefaultDashboards {
+  SUMMARY = "Summary",
+  DETAIL = "Detail",
+  ALARMS = "Alarms",
+}
+
 export class DefaultDashboardFactory
   extends Construct
-  implements IDashboardFactory
+  implements IDashboardFactory, IDynamicDashboardFactory
 {
+  // Legacy Dashboard Fields
   readonly dashboard?: Dashboard;
   readonly summaryDashboard?: Dashboard;
   readonly alarmDashboard?: Dashboard;
   readonly anyDashboardCreated: boolean;
+
+  // Dynamic Dashboard Fields
+  readonly dashboards: Record<string, Dashboard> = {};
 
   constructor(scope: Construct, id: string, props: MonitoringDashboardsProps) {
     super(scope, id);
@@ -108,6 +119,7 @@ export class DefaultDashboardFactory
         periodOverride:
           props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
       });
+      this.dashboards[DefaultDashboards.DETAIL] = this.dashboard;
     }
     if (createSummaryDashboard) {
       anyDashboardCreated = true;
@@ -121,6 +133,7 @@ export class DefaultDashboardFactory
             props.summaryDashboardPeriodOverride ?? PeriodOverride.INHERIT,
         }
       );
+      this.dashboards[DefaultDashboards.SUMMARY] = this.summaryDashboard;
     }
     if (createAlarmDashboard) {
       anyDashboardCreated = true;
@@ -134,24 +147,10 @@ export class DefaultDashboardFactory
             props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
         }
       );
+      this.dashboards[DefaultDashboards.ALARMS] = this.alarmDashboard;
     }
 
     this.anyDashboardCreated = anyDashboardCreated;
-  }
-
-  protected createDashboard(
-    renderingPreference: DashboardRenderingPreference,
-    id: string,
-    props: DashboardProps
-  ) {
-    switch (renderingPreference) {
-      case DashboardRenderingPreference.INTERACTIVE_ONLY:
-        return new Dashboard(this, id, props);
-      case DashboardRenderingPreference.BITMAP_ONLY:
-        return new BitmapDashboard(this, id, props);
-      case DashboardRenderingPreference.INTERACTIVE_AND_BITMAP:
-        return new DashboardWithBitmapCopy(this, id, props);
-    }
   }
 
   addSegment(props: IDashboardFactoryProps) {
@@ -172,6 +171,33 @@ export class DefaultDashboardFactory
     }
   }
 
+  addDynamicSegment(segment: IDynamicDashboardSegment): void {
+    this.dashboard?.addWidgets(
+      ...segment.widgetsForDashboard(DefaultDashboards.DETAIL)
+    );
+    this.summaryDashboard?.addWidgets(
+      ...segment.widgetsForDashboard(DefaultDashboards.SUMMARY)
+    );
+    this.alarmDashboard?.addWidgets(
+      ...segment.widgetsForDashboard(DefaultDashboards.ALARMS)
+    );
+  }
+
+  protected createDashboard(
+    renderingPreference: DashboardRenderingPreference,
+    id: string,
+    props: DashboardProps
+  ) {
+    switch (renderingPreference) {
+      case DashboardRenderingPreference.INTERACTIVE_ONLY:
+        return new Dashboard(this, id, props);
+      case DashboardRenderingPreference.BITMAP_ONLY:
+        return new BitmapDashboard(this, id, props);
+      case DashboardRenderingPreference.INTERACTIVE_AND_BITMAP:
+        return new DashboardWithBitmapCopy(this, id, props);
+    }
+  }
+
   createdDashboard(): Dashboard | undefined {
     return this.dashboard;
   }
@@ -182,5 +208,17 @@ export class DefaultDashboardFactory
 
   createdAlarmDashboard(): Dashboard | undefined {
     return this.alarmDashboard;
+  }
+
+  getDashboard(type: string): Dashboard | undefined {
+    if (type === DefaultDashboards.SUMMARY) {
+      return this.summaryDashboard;
+    } else if (type === DefaultDashboards.DETAIL) {
+      return this.dashboard;
+    } else if (type === DefaultDashboards.ALARMS) {
+      return this.alarmDashboard;
+    } else {
+      throw new Error("Unexpected dashboard name!");
+    }
   }
 }

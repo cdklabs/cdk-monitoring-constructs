@@ -265,6 +265,72 @@ This is a general procedure on how to do it:
 
 Both of these monitoring base classes are dashboard segments, so you can add them to your monitoring by calling `.addSegment()` on the `MonitoringFacade`.
 
+### Custom dashboards
+
+If you want *even* more flexibility, you can take complete control over dashboard generation by leveraging dynamic dashboarding features. This allows you to create an arbitrary number of dashboards while configuring each of them separately. You can do this in three simple steps:
+
+1. Create the dynamic dashboard factory
+2. Create `IDynamicDashboardSegment` implementations
+3. Add Dynamic Segments to MonitoringFacade
+
+#### **Create the dynamic dashboard factory**
+
+The below code sample will generate two dashboards with the following names:
+* ExampleDashboards-HostedService
+* ExampleDashboards-Infrastructure
+
+
+```
+  // create the dynamic dashboard factory.
+  const factory = new DynamicDashboardFactory(stack, "DynamicDashboards", {
+    dashboardNamePrefix: "ExampleDashboards",
+    // a list of dashboard names is the minimum required config information
+    // for creating dynamic dashboards
+    dashboardConfigs: [
+      { name: "HostedService" },
+      { name: "Infrastructure" },
+    ],
+  });
+```
+
+#### **Create `IDynamicDashboardSegment` implementations**
+For each construct you want monitored, you will need to create an implementation of an `IDynamicDashboardSegment`. I will leave more complex implementations of this interface as an excercise for the reader and we will use the following simple reference implementation for examples:
+
+```
+class ExampleSegment implements IDynamicDashboardSegment {
+  widgetsForDashboard(name: string): IWidget[] {
+    // this logic is what's responsible for allowing your dynamic segment to return
+    // different widgets for different dashboards
+    if (name === "HostedService") {
+      return [new TextWidget({ markdown: "This shows metrics for your service hosted on AWS Infrastructure" })];
+    } else if (name === "Infrastucture") {
+      return [new TextWidget({ markdown: "This shows metrics for the AWS Infrastructure supporting your hosted service" })];
+    } else {
+      throw new Error("Unexpected dashboard name!");
+    }
+  }
+}
+```
+
+#### **Add Dynamic Segments to MonitoringFacade**
+
+When you have instances of an `IDynamicDashboardSegment` to use, they can be added to your dashboard like this:
+
+```
+  monitoring.addDynamicSegment(new ExampleSegment());
+```
+
+Now, this widget will be added to both dashboards and will show different content depending on the dashboard. Using the above example code, two dashboards will be generated with the following content:
+
+* Dashboard Name: "ExampleDashboards-HostedService"
+  * Content: "This shows metrics for your service hosted on AWS Infrastructure"
+* Dashboard Name: "ExampleDashboards-Infrastructure"
+  * Content: "This shows metrics for the AWS Infrastructure supporting your hosted service"
+
+### Monitoring Scopes
+
+With CDK Monitoring Constructs, you can monitor complete CDK construct scopes. It will automatically discover all monitorable resources within the scope (recursively)) and add them to your dashboard.
+
 ### Monitoring scopes
 
 You can monitor complete CDK construct scopes using an aspect. It will automatically discover all monitorable resources within the scope recursively and add them to your dashboard.

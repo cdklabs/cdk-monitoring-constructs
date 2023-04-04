@@ -602,7 +602,7 @@ The name of this dashboard.
 
 ### DefaultDashboardFactory <a name="DefaultDashboardFactory" id="cdk-monitoring-constructs.DefaultDashboardFactory"></a>
 
-- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DefaultDashboardFactory.Initializer"></a>
 
@@ -643,10 +643,12 @@ new DefaultDashboardFactory(scope: Construct, id: string, props: MonitoringDashb
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.addDynamicSegment">addDynamicSegment</a></code> | Adds a dynamic dashboard segment. |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.addSegment">addSegment</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.createdAlarmDashboard">createdAlarmDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.createdDashboard">createdDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.createdSummaryDashboard">createdSummaryDashboard</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.getDashboard">getDashboard</a></code> | Gets the dashboard for the requested dashboard type. |
 
 ---
 
@@ -657,6 +659,20 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.DefaultDashboardFactory.addDynamicSegment"></a>
+
+```typescript
+public addDynamicSegment(segment: IDynamicDashboardSegment): void
+```
+
+Adds a dynamic dashboard segment.
+
+###### `segment`<sup>Required</sup> <a name="segment" id="cdk-monitoring-constructs.DefaultDashboardFactory.addDynamicSegment.parameter.segment"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
+---
 
 ##### `addSegment` <a name="addSegment" id="cdk-monitoring-constructs.DefaultDashboardFactory.addSegment"></a>
 
@@ -687,6 +703,20 @@ public createdDashboard(): Dashboard
 ```typescript
 public createdSummaryDashboard(): Dashboard
 ```
+
+##### `getDashboard` <a name="getDashboard" id="cdk-monitoring-constructs.DefaultDashboardFactory.getDashboard"></a>
+
+```typescript
+public getDashboard(type: string): Dashboard
+```
+
+Gets the dashboard for the requested dashboard type.
+
+###### `type`<sup>Required</sup> <a name="type" id="cdk-monitoring-constructs.DefaultDashboardFactory.getDashboard.parameter.type"></a>
+
+- *Type:* string
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -720,6 +750,7 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.anyDashboardCreated">anyDashboardCreated</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.dashboards">dashboards</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Dashboard}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.alarmDashboard">alarmDashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.dashboard">dashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.property.summaryDashboard">summaryDashboard</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Dashboard</code> | *No description.* |
@@ -745,6 +776,16 @@ public readonly anyDashboardCreated: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `dashboards`<sup>Required</sup> <a name="dashboards" id="cdk-monitoring-constructs.DefaultDashboardFactory.property.dashboards"></a>
+
+```typescript
+public readonly dashboards: {[ key: string ]: Dashboard};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Dashboard}
 
 ---
 
@@ -775,6 +816,148 @@ public readonly summaryDashboard: Dashboard;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Dashboard
+
+---
+
+
+### DynamicDashboardFactory <a name="DynamicDashboardFactory" id="cdk-monitoring-constructs.DynamicDashboardFactory"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DynamicDashboardFactory.Initializer"></a>
+
+```typescript
+import { DynamicDashboardFactory } from 'cdk-monitoring-constructs'
+
+new DynamicDashboardFactory(scope: Construct, id: string, props: MonitoringDynamicDashboardsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringDynamicDashboardsProps">MonitoringDynamicDashboardsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.DynamicDashboardFactory.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-monitoring-constructs.DynamicDashboardFactory.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.DynamicDashboardFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringDynamicDashboardsProps">MonitoringDynamicDashboardsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.addDynamicSegment">addDynamicSegment</a></code> | Adds a dynamic dashboard segment. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.getDashboard">getDashboard</a></code> | Gets the dashboard for the requested dashboard type. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-monitoring-constructs.DynamicDashboardFactory.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.DynamicDashboardFactory.addDynamicSegment"></a>
+
+```typescript
+public addDynamicSegment(segment: IDynamicDashboardSegment): void
+```
+
+Adds a dynamic dashboard segment.
+
+###### `segment`<sup>Required</sup> <a name="segment" id="cdk-monitoring-constructs.DynamicDashboardFactory.addDynamicSegment.parameter.segment"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
+---
+
+##### `getDashboard` <a name="getDashboard" id="cdk-monitoring-constructs.DynamicDashboardFactory.getDashboard"></a>
+
+```typescript
+public getDashboard(type: string): Dashboard
+```
+
+Gets the dashboard for the requested dashboard type.
+
+###### `type`<sup>Required</sup> <a name="type" id="cdk-monitoring-constructs.DynamicDashboardFactory.getDashboard.parameter.type"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct"></a>
+
+```typescript
+import { DynamicDashboardFactory } from 'cdk-monitoring-constructs'
+
+DynamicDashboardFactory.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.property.dashboards">dashboards</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Dashboard}</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-monitoring-constructs.DynamicDashboardFactory.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `dashboards`<sup>Required</sup> <a name="dashboards" id="cdk-monitoring-constructs.DynamicDashboardFactory.property.dashboards"></a>
+
+```typescript
+public readonly dashboards: {[ key: string ]: Dashboard};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Dashboard}
 
 ---
 
@@ -828,20 +1011,18 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createAwsConsoleUrlFactory">createAwsConsoleUrlFactory</a></code> | Creates a new factory that creates AWS Console URLs. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addDynamicSegment">addDynamicSegment</a></code> | Adds a dashboard segment which returns dynamic content depending on dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addLargeHeader">addLargeHeader</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addMediumHeader">addMediumHeader</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addSegment">addSegment</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addSegment">addSegment</a></code> | Adds a dashboard segment to go on one of the {@link DefaultDashboards}. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addSmallHeader">addSmallHeader</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addWidget">addWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator">createCompositeAlarmUsingDisambiguator</a></code> | Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag">createCompositeAlarmUsingTag</a></code> | Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmDashboard">createdAlarmDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarms">createdAlarms</a></code> | Returns the created alarms across all the monitorings added up until now. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithDisambiguator">createdAlarmsWithDisambiguator</a></code> | Returns a subset of created alarms that are marked by a specific disambiguator. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithTag">createdAlarmsWithTag</a></code> | Returns a subset of created alarms that are marked by a specific custom tag. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdDashboard">createdDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdMonitorings">createdMonitorings</a></code> | Returns the created monitorings added up until now. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdSummaryDashboard">createdSummaryDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGateway">monitorApiGateway</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGatewayV2HttpApi">monitorApiGatewayV2HttpApi</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorAppSyncApi">monitorAppSyncApi</a></code> | *No description.* |
@@ -940,6 +1121,22 @@ public createWidgetFactory(): IWidgetFactory
 
 Creates a new widget factory.
 
+##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.MonitoringFacade.addDynamicSegment"></a>
+
+```typescript
+public addDynamicSegment(segment: IDynamicDashboardSegment): void
+```
+
+Adds a dashboard segment which returns dynamic content depending on dashboard type.
+
+###### `segment`<sup>Required</sup> <a name="segment" id="cdk-monitoring-constructs.MonitoringFacade.addDynamicSegment.parameter.segment"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
+dynamic segment to add.
+
+---
+
 ##### `addLargeHeader` <a name="addLargeHeader" id="cdk-monitoring-constructs.MonitoringFacade.addLargeHeader"></a>
 
 ```typescript
@@ -994,15 +1191,21 @@ public addMediumHeader(text: string, addToSummary?: boolean, addToAlarm?: boolea
 public addSegment(segment: IDashboardSegment, overrideProps?: MonitoringDashboardsOverrideProps): MonitoringFacade
 ```
 
+Adds a dashboard segment to go on one of the {@link DefaultDashboards}.
+
 ###### `segment`<sup>Required</sup> <a name="segment" id="cdk-monitoring-constructs.MonitoringFacade.addSegment.parameter.segment"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+
+segment to add.
 
 ---
 
 ###### `overrideProps`<sup>Optional</sup> <a name="overrideProps" id="cdk-monitoring-constructs.MonitoringFacade.addSegment.parameter.overrideProps"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringDashboardsOverrideProps">MonitoringDashboardsOverrideProps</a>
+
+props to specify which default dashboards this segment is added to.
 
 ---
 
@@ -1108,12 +1311,6 @@ customization options.
 
 ---
 
-##### `createdAlarmDashboard` <a name="createdAlarmDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdAlarmDashboard"></a>
-
-```typescript
-public createdAlarmDashboard(): Dashboard
-```
-
 ##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.MonitoringFacade.createdAlarms"></a>
 
 ```typescript
@@ -1154,12 +1351,6 @@ tag to filter alarms by.
 
 ---
 
-##### `createdDashboard` <a name="createdDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdDashboard"></a>
-
-```typescript
-public createdDashboard(): Dashboard
-```
-
 ##### `createdMonitorings` <a name="createdMonitorings" id="cdk-monitoring-constructs.MonitoringFacade.createdMonitorings"></a>
 
 ```typescript
@@ -1167,12 +1358,6 @@ public createdMonitorings(): Monitoring[]
 ```
 
 Returns the created monitorings added up until now.
-
-##### `createdSummaryDashboard` <a name="createdSummaryDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdSummaryDashboard"></a>
-
-```typescript
-public createdSummaryDashboard(): Dashboard
-```
 
 ##### `monitorApiGateway` <a name="monitorApiGateway" id="cdk-monitoring-constructs.MonitoringFacade.monitorApiGateway"></a>
 
@@ -1781,6 +1966,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.property.dashboardFactory">dashboardFactory</a></code> | <code><a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a></code> | *No description.* |
 
 ---
 
@@ -1793,6 +1979,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `dashboardFactory`<sup>Optional</sup> <a name="dashboardFactory" id="cdk-monitoring-constructs.MonitoringFacade.property.dashboardFactory"></a>
+
+```typescript
+public readonly dashboardFactory: IDynamicDashboardFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
 
 ---
 
@@ -12730,6 +12926,81 @@ public readonly maxDuration: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+---
+
+### DynamicDashboardConfiguration <a name="DynamicDashboardConfiguration" id="cdk-monitoring-constructs.DynamicDashboardConfiguration"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.DynamicDashboardConfiguration.Initializer"></a>
+
+```typescript
+import { DynamicDashboardConfiguration } from 'cdk-monitoring-constructs'
+
+const dynamicDashboardConfiguration: DynamicDashboardConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.name">name</a></code> | <code>string</code> | Name of the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.periodOverride">periodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.range">range</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.renderingPreference">renderingPreference</a></code> | <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a></code> | Dashboard rendering preference. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.DynamicDashboardConfiguration.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Name of the dashboard.
+
+Full dashboard name will take the form of:
+`{@link MonitoringDynamicDashboardsProps.dashboardNamePrefix}-{@link name}`
+
+---
+
+##### `periodOverride`<sup>Optional</sup> <a name="periodOverride" id="cdk-monitoring-constructs.DynamicDashboardConfiguration.property.periodOverride"></a>
+
+```typescript
+public readonly periodOverride: PeriodOverride;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.PeriodOverride
+- *Default:* respect individual graphs (PeriodOverride.INHERIT)
+
+Period override for the dashboard.
+
+---
+
+##### `range`<sup>Optional</sup> <a name="range" id="cdk-monitoring-constructs.DynamicDashboardConfiguration.property.range"></a>
+
+```typescript
+public readonly range: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* 8 hours
+
+Range of the dashboard.
+
+---
+
+##### `renderingPreference`<sup>Optional</sup> <a name="renderingPreference" id="cdk-monitoring-constructs.DynamicDashboardConfiguration.property.renderingPreference"></a>
+
+```typescript
+public readonly renderingPreference: DashboardRenderingPreference;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a>
+- *Default:* DashboardRenderingPreference.INTERACTIVE_ONLY
+
+Dashboard rendering preference.
 
 ---
 
@@ -26840,6 +27111,51 @@ Range of the summary dashboard.
 
 ---
 
+### MonitoringDynamicDashboardsProps <a name="MonitoringDynamicDashboardsProps" id="cdk-monitoring-constructs.MonitoringDynamicDashboardsProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MonitoringDynamicDashboardsProps.Initializer"></a>
+
+```typescript
+import { MonitoringDynamicDashboardsProps } from 'cdk-monitoring-constructs'
+
+const monitoringDynamicDashboardsProps: MonitoringDynamicDashboardsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDynamicDashboardsProps.property.dashboardConfigs">dashboardConfigs</a></code> | <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration">DynamicDashboardConfiguration</a>[]</code> | List of dashboard types to generate. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDynamicDashboardsProps.property.dashboardNamePrefix">dashboardNamePrefix</a></code> | <code>string</code> | Prefix added to each dashboard's name. |
+
+---
+
+##### `dashboardConfigs`<sup>Required</sup> <a name="dashboardConfigs" id="cdk-monitoring-constructs.MonitoringDynamicDashboardsProps.property.dashboardConfigs"></a>
+
+```typescript
+public readonly dashboardConfigs: DynamicDashboardConfiguration[];
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration">DynamicDashboardConfiguration</a>[]
+
+List of dashboard types to generate.
+
+---
+
+##### `dashboardNamePrefix`<sup>Required</sup> <a name="dashboardNamePrefix" id="cdk-monitoring-constructs.MonitoringDynamicDashboardsProps.property.dashboardNamePrefix"></a>
+
+```typescript
+public readonly dashboardNamePrefix: string;
+```
+
+- *Type:* string
+
+Prefix added to each dashboard's name.
+
+This allows to have all dashboards sorted close to each other and also separate multiple monitoring facades.
+
+---
+
 ### MonitoringFacadeProps <a name="MonitoringFacadeProps" id="cdk-monitoring-constructs.MonitoringFacadeProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MonitoringFacadeProps.Initializer"></a>
@@ -26855,7 +27171,7 @@ const monitoringFacadeProps: MonitoringFacadeProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.alarmFactoryDefaults">alarmFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactoryDefaults">AlarmFactoryDefaults</a></code> | Defaults for alarm factory. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.dashboardFactory">dashboardFactory</a></code> | <code><a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a></code> | Defaults for dashboard factory. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.dashboardFactory">dashboardFactory</a></code> | <code><a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a></code> | Defaults for dashboard factory. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacadeProps.property.metricFactoryDefaults">metricFactoryDefaults</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults">MetricFactoryDefaults</a></code> | Defaults for metric factory. |
 
 ---
@@ -26876,11 +27192,11 @@ Defaults for alarm factory.
 ##### `dashboardFactory`<sup>Optional</sup> <a name="dashboardFactory" id="cdk-monitoring-constructs.MonitoringFacadeProps.property.dashboardFactory"></a>
 
 ```typescript
-public readonly dashboardFactory: IDashboardFactory;
+public readonly dashboardFactory: IDynamicDashboardFactory;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>
-- *Default:* An instance of {@link DefaultDashboardFactory}; facade logical ID used as default name
+- *Type:* <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
+- *Default:* An instance of {@link DynamicDashboardFactory}; facade logical ID used as default name
 
 Defaults for dashboard factory.
 
@@ -38823,6 +39139,7 @@ new ApiGatewayMonitoring(scope: MonitoringScope, props: ApiGatewayMonitoringProp
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
@@ -38914,6 +39231,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.ApiGatewayMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.ApiGatewayMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.ApiGatewayMonitoring.createErrorCountWidget"></a>
 
@@ -39375,6 +39706,7 @@ new ApiGatewayV2HttpApiMonitoring(scope: MonitoringScope, props: ApiGatewayV2Htt
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
@@ -39466,6 +39798,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.createErrorCountWidget"></a>
 
@@ -39976,6 +40322,7 @@ new AppSyncMonitoring(scope: MonitoringScope, props: AppSyncMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
@@ -40067,6 +40414,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.AppSyncMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.AppSyncMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.AppSyncMonitoring.createErrorCountWidget"></a>
 
@@ -40527,6 +40888,7 @@ new AutoScalingGroupMonitoring(scope: MonitoringScope, props: AutoScalingGroupMo
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupSizeWidget">createGroupSizeWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupStatusWidget">createGroupStatusWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
@@ -40616,6 +40978,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createGroupSizeWidget` <a name="createGroupSizeWidget" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.createGroupSizeWidget"></a>
 
@@ -41194,6 +41570,7 @@ new BillingMonitoring(scope: MonitoringScope, props: BillingMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.createChargesByServiceWidget">createChargesByServiceWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoring.createTotalChargesWidget">createTotalChargesWidget</a></code> | *No description.* |
@@ -41283,6 +41660,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.BillingMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.BillingMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createChargesByServiceWidget` <a name="createChargesByServiceWidget" id="cdk-monitoring-constructs.BillingMonitoring.createChargesByServiceWidget"></a>
 
@@ -41477,6 +41868,7 @@ new CertificateManagerMonitoring(scope: MonitoringScope, props: CertificateManag
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.createDaysToExpiryWidget">createDaysToExpiryWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
@@ -41565,6 +41957,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.CertificateManagerMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.CertificateManagerMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createDaysToExpiryWidget` <a name="createDaysToExpiryWidget" id="cdk-monitoring-constructs.CertificateManagerMonitoring.createDaysToExpiryWidget"></a>
 
@@ -41786,6 +42192,7 @@ new CloudFrontDistributionMonitoring(scope: MonitoringScope, props: CloudFrontDi
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createCacheWidget">createCacheWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
@@ -41877,6 +42284,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createCacheWidget` <a name="createCacheWidget" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.createCacheWidget"></a>
 
@@ -42305,6 +42726,7 @@ new CodeBuildProjectMonitoring(scope: MonitoringScope, props: CodeBuildProjectMo
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createBuildCountsWidget">createBuildCountsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createDurationWidget">createDurationWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring.createFailedBuildRateWidget">createFailedBuildRateWidget</a></code> | *No description.* |
@@ -42395,6 +42817,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createBuildCountsWidget` <a name="createBuildCountsWidget" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.createBuildCountsWidget"></a>
 
@@ -42776,6 +43212,7 @@ new CustomMonitoring(scope: MonitoringScope, props: CustomMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -42862,6 +43299,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.CustomMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.CustomMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -43311,6 +43762,7 @@ new DocumentDbMonitoring(scope: MonitoringScope, props: DocumentDbMonitoringProp
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoring.createResourceUsageWidget">createResourceUsageWidget</a></code> | *No description.* |
@@ -43402,6 +43854,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.DocumentDbMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.DocumentDbMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.DocumentDbMonitoring.createConnectionsWidget"></a>
 
@@ -44058,6 +44524,7 @@ new DynamoTableGlobalSecondaryIndexMonitoring(scope: MonitoringScope, props: Dyn
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -44144,6 +44611,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 
@@ -44318,6 +44799,7 @@ new DynamoTableMonitoring(scope: MonitoringScope, props: DynamoTableMonitoringPr
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createErrorsWidget">createErrorsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.createReadCapacityWidget">createReadCapacityWidget</a></code> | *No description.* |
@@ -44410,6 +44892,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.DynamoTableMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.DynamoTableMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createErrorsWidget` <a name="createErrorsWidget" id="cdk-monitoring-constructs.DynamoTableMonitoring.createErrorsWidget"></a>
 
@@ -44926,6 +45422,7 @@ new EC2Monitoring(scope: MonitoringScope, props: EC2MonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createCpuWidget">createCpuWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createDiskOpsWidget">createDiskOpsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.createDiskWidget">createDiskWidget</a></code> | *No description.* |
@@ -45017,6 +45514,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.EC2Monitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.EC2Monitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createCpuWidget` <a name="createCpuWidget" id="cdk-monitoring-constructs.EC2Monitoring.createCpuWidget"></a>
 
@@ -45245,6 +45756,7 @@ new Ec2ServiceMonitoring(scope: MonitoringScope, props: CustomEc2ServiceMonitori
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createCpuWidget">createCpuWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createMemoryWidget">createMemoryWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createTaskHealthWidget">createTaskHealthWidget</a></code> | *No description.* |
@@ -45336,6 +45848,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createCpuWidget` <a name="createCpuWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createCpuWidget"></a>
 
@@ -45928,6 +46454,7 @@ new ElastiCacheClusterMonitoring(scope: MonitoringScope, props: ElastiCacheClust
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createCpuUsageWidget">createCpuUsageWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createItemCountWidget">createItemCountWidget</a></code> | *No description.* |
@@ -46019,6 +46546,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createConnectionsWidget"></a>
 
@@ -46491,6 +47032,7 @@ new FargateServiceMonitoring(scope: MonitoringScope, props: CustomFargateService
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createCpuWidget">createCpuWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createMemoryWidget">createMemoryWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createTaskHealthWidget">createTaskHealthWidget</a></code> | *No description.* |
@@ -46582,6 +47124,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.FargateServiceMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.FargateServiceMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createCpuWidget` <a name="createCpuWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createCpuWidget"></a>
 
@@ -47098,6 +47654,7 @@ new GlueJobMonitoring(scope: MonitoringScope, props: GlueJobMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createDataMovementWidget">createDataMovementWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
@@ -47190,6 +47747,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.GlueJobMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.GlueJobMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createDataMovementWidget` <a name="createDataMovementWidget" id="cdk-monitoring-constructs.GlueJobMonitoring.createDataMovementWidget"></a>
 
@@ -48105,6 +48676,7 @@ new KinesisDataAnalyticsMonitoring(scope: MonitoringScope, props: KinesisDataAna
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createDownTimeWidget">createDownTimeWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createFullRestartsWidget">createFullRestartsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createGarbageCollectionWidget">createGarbageCollectionWidget</a></code> | *No description.* |
@@ -48200,6 +48772,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createDownTimeWidget` <a name="createDownTimeWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createDownTimeWidget"></a>
 
@@ -48740,6 +49326,7 @@ new KinesisDataStreamMonitoring(scope: MonitoringScope, props: KinesisDataStream
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createCapacityWidget">createCapacityWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIncomingDataWidget">createIncomingDataWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring.createIteratorAgeWidget">createIteratorAgeWidget</a></code> | *No description.* |
@@ -48835,6 +49422,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createCapacityWidget` <a name="createCapacityWidget" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.createCapacityWidget"></a>
 
@@ -49438,6 +50039,7 @@ new KinesisFirehoseMonitoring(scope: MonitoringScope, props: KinesisFirehoseMoni
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createConversionWidget">createConversionWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createIncomingRecordWidget">createIncomingRecordWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
@@ -49529,6 +50131,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createConversionWidget` <a name="createConversionWidget" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.createConversionWidget"></a>
 
@@ -50037,6 +50653,7 @@ new LambdaFunctionMonitoring(scope: MonitoringScope, props: LambdaFunctionMonito
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createInvocationWidget">createInvocationWidget</a></code> | *No description.* |
@@ -50134,6 +50751,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createErrorCountWidget"></a>
 
@@ -51078,6 +51709,7 @@ new LogMonitoring(scope: MonitoringScope, props: LogMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.createIncomingLogsWidget">createIncomingLogsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
@@ -51166,6 +51798,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.LogMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.LogMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createIncomingLogsWidget` <a name="createIncomingLogsWidget" id="cdk-monitoring-constructs.LogMonitoring.createIncomingLogsWidget"></a>
 
@@ -51870,7 +52516,7 @@ false if undefined
 
 ### Monitoring <a name="Monitoring" id="cdk-monitoring-constructs.Monitoring"></a>
 
-- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 An independent unit of monitoring.
 
@@ -51915,6 +52561,7 @@ new Monitoring(scope: MonitoringScope, props?: BaseMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.Monitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.Monitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.Monitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.Monitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -52001,6 +52648,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.Monitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.Monitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 
@@ -52433,6 +53094,7 @@ new NetworkLoadBalancerMonitoring(scope: MonitoringScope, props: NetworkLoadBala
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -52519,6 +53181,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 
@@ -53278,6 +53954,7 @@ new OpenSearchClusterMonitoring(scope: MonitoringScope, props: OpenSearchCluster
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -53364,6 +54041,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -54152,6 +54843,7 @@ new RdsClusterMonitoring(scope: MonitoringScope, props: RdsClusterMonitoringProp
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createCpuAndDiskUsageWidget">createCpuAndDiskUsageWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
@@ -54242,6 +54934,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.RdsClusterMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.RdsClusterMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.RdsClusterMonitoring.createConnectionsWidget"></a>
 
@@ -54609,6 +55315,7 @@ new RedshiftClusterMonitoring(scope: MonitoringScope, props: RedshiftClusterMoni
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createCpuAndDiskUsageWidget">createCpuAndDiskUsageWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
@@ -54701,6 +55408,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.createConnectionsWidget"></a>
 
@@ -55088,6 +55809,7 @@ new S3BucketMonitoring(scope: MonitoringScope, props: S3BucketMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -55174,6 +55896,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.S3BucketMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.S3BucketMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 
@@ -55311,6 +56047,7 @@ new SecretsManagerSecretMonitoring(scope: MonitoringScope, props: SecretsManager
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createDaysSinceLastChangeWidget">createDaysSinceLastChangeWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createDaysSinceLastRotationWidget">createDaysSinceLastRotationWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
@@ -55400,6 +56137,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createDaysSinceLastChangeWidget` <a name="createDaysSinceLastChangeWidget" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.createDaysSinceLastChangeWidget"></a>
 
@@ -55890,6 +56641,7 @@ new SnsTopicMonitoring(scope: MonitoringScope, props: SnsTopicMonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createMessageCountWidget">createMessageCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createMessageFailedWidget">createMessageFailedWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoring.createMessageSizeWidget">createMessageSizeWidget</a></code> | *No description.* |
@@ -55980,6 +56732,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SnsTopicMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SnsTopicMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createMessageCountWidget` <a name="createMessageCountWidget" id="cdk-monitoring-constructs.SnsTopicMonitoring.createMessageCountWidget"></a>
 
@@ -56292,6 +57058,7 @@ new SqsQueueMonitoring(scope: MonitoringScope, props: SqsQueueMonitoringProps, i
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createMessageAgeWidget">createMessageAgeWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createMessageCountWidget">createMessageCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoring.createMessageSizeWidget">createMessageSizeWidget</a></code> | *No description.* |
@@ -56384,6 +57151,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SqsQueueMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SqsQueueMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createMessageAgeWidget` <a name="createMessageAgeWidget" id="cdk-monitoring-constructs.SqsQueueMonitoring.createMessageAgeWidget"></a>
 
@@ -56685,6 +57466,7 @@ new SqsQueueMonitoringWithDlq(scope: MonitoringScope, props: SqsQueueMonitoringW
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageAgeWidget">createMessageAgeWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageCountWidget">createMessageCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageSizeWidget">createMessageSizeWidget</a></code> | *No description.* |
@@ -56777,6 +57559,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createMessageAgeWidget` <a name="createMessageAgeWidget" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.createMessageAgeWidget"></a>
 
@@ -57037,6 +57833,55 @@ public readonly queueUrl: string;
 ---
 
 
+### StaticSegmentDynamicAdapter <a name="StaticSegmentDynamicAdapter" id="cdk-monitoring-constructs.StaticSegmentDynamicAdapter"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.StaticSegmentDynamicAdapter.Initializer"></a>
+
+```typescript
+import { StaticSegmentDynamicAdapter } from 'cdk-monitoring-constructs'
+
+new StaticSegmentDynamicAdapter(props: IDashboardFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.IDashboardFactoryProps">IDashboardFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.StaticSegmentDynamicAdapter.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.IDashboardFactoryProps">IDashboardFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+
+---
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.StaticSegmentDynamicAdapter.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.StaticSegmentDynamicAdapter.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+
+
+
 ### StepFunctionActivityMetricFactory <a name="StepFunctionActivityMetricFactory" id="cdk-monitoring-constructs.StepFunctionActivityMetricFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.StepFunctionActivityMetricFactory.Initializer"></a>
@@ -57229,6 +58074,7 @@ new StepFunctionActivityMonitoring(scope: MonitoringScope, props: StepFunctionAc
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -57315,6 +58161,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -57686,6 +58546,7 @@ new StepFunctionLambdaIntegrationMonitoring(scope: MonitoringScope, props: StepF
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -57772,6 +58633,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -58108,6 +58983,7 @@ new StepFunctionMonitoring(scope: MonitoringScope, props: StepFunctionMonitoring
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -58194,6 +59070,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.StepFunctionMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.StepFunctionMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -58587,6 +59477,7 @@ new StepFunctionServiceIntegrationMonitoring(scope: MonitoringScope, props: Step
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -58673,6 +59564,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -58974,6 +59879,7 @@ new SyntheticsCanaryMonitoring(scope: MonitoringScope, props: SyntheticsCanaryMo
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorCountWidget">createErrorCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorRateWidget">createErrorRateWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
@@ -59064,6 +59970,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createErrorCountWidget` <a name="createErrorCountWidget" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring.createErrorCountWidget"></a>
 
@@ -60109,6 +61029,7 @@ new WafV2Monitoring(scope: MonitoringScope, props: WafV2MonitoringProps)
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createAllowedRequestsWidget">createAllowedRequestsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsRateWidget">createBlockedRequestsRateWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.WafV2Monitoring.createBlockedRequestsWidget">createBlockedRequestsWidget</a></code> | *No description.* |
@@ -60199,6 +61120,20 @@ public widgets(): IWidget[]
 ```
 
 Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.WafV2Monitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.WafV2Monitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 ##### `createAllowedRequestsWidget` <a name="createAllowedRequestsWidget" id="cdk-monitoring-constructs.WafV2Monitoring.createAllowedRequestsWidget"></a>
 
@@ -60739,6 +61674,81 @@ Returns all widgets.
 These should go to the detailed service dashboard.
 
 
+### IDynamicDashboardFactory <a name="IDynamicDashboardFactory" id="cdk-monitoring-constructs.IDynamicDashboardFactory"></a>
+
+- *Implemented By:* <a href="#cdk-monitoring-constructs.DefaultDashboardFactory">DefaultDashboardFactory</a>, <a href="#cdk-monitoring-constructs.DynamicDashboardFactory">DynamicDashboardFactory</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
+
+This dashboard factory interface provides for dynamic dashboard generation through IDynamicDashboard segments which will return different content depending on the dashboard type.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.IDynamicDashboardFactory.addDynamicSegment">addDynamicSegment</a></code> | Adds a dynamic dashboard segment. |
+| <code><a href="#cdk-monitoring-constructs.IDynamicDashboardFactory.getDashboard">getDashboard</a></code> | Gets the dashboard for the requested dashboard type. |
+
+---
+
+##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.IDynamicDashboardFactory.addDynamicSegment"></a>
+
+```typescript
+public addDynamicSegment(segment: IDynamicDashboardSegment): void
+```
+
+Adds a dynamic dashboard segment.
+
+###### `segment`<sup>Required</sup> <a name="segment" id="cdk-monitoring-constructs.IDynamicDashboardFactory.addDynamicSegment.parameter.segment"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
+IDynamicDashboardSegment.
+
+---
+
+##### `getDashboard` <a name="getDashboard" id="cdk-monitoring-constructs.IDynamicDashboardFactory.getDashboard"></a>
+
+```typescript
+public getDashboard(type: string): Dashboard
+```
+
+Gets the dashboard for the requested dashboard type.
+
+###### `type`<sup>Required</sup> <a name="type" id="cdk-monitoring-constructs.IDynamicDashboardFactory.getDashboard.parameter.type"></a>
+
+- *Type:* string
+
+---
+
+
+### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
+
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.IDynamicDashboardSegment.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+
+---
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.IDynamicDashboardSegment.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.IDynamicDashboardSegment.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+name of dashboard for which widgets are generated.
+
+---
+
+
 ### IEC2MetricFactoryStrategy <a name="IEC2MetricFactoryStrategy" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy"></a>
 
 - *Implemented By:* <a href="#cdk-monitoring-constructs.IEC2MetricFactoryStrategy">IEC2MetricFactoryStrategy</a>
@@ -60988,6 +61998,33 @@ Create standard set of dashboards with bitmap widgets only.
 ##### `INTERACTIVE_AND_BITMAP` <a name="INTERACTIVE_AND_BITMAP" id="cdk-monitoring-constructs.DashboardRenderingPreference.INTERACTIVE_AND_BITMAP"></a>
 
 Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
+
+---
+
+
+### DefaultDashboards <a name="DefaultDashboards" id="cdk-monitoring-constructs.DefaultDashboards"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboards.SUMMARY">SUMMARY</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboards.DETAIL">DETAIL</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboards.ALARMS">ALARMS</a></code> | *No description.* |
+
+---
+
+##### `SUMMARY` <a name="SUMMARY" id="cdk-monitoring-constructs.DefaultDashboards.SUMMARY"></a>
+
+---
+
+
+##### `DETAIL` <a name="DETAIL" id="cdk-monitoring-constructs.DefaultDashboards.DETAIL"></a>
+
+---
+
+
+##### `ALARMS` <a name="ALARMS" id="cdk-monitoring-constructs.DefaultDashboards.ALARMS"></a>
 
 ---
 
