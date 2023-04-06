@@ -1019,10 +1019,13 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addWidget">addWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator">createCompositeAlarmUsingDisambiguator</a></code> | Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag">createCompositeAlarmUsingTag</a></code> | Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmDashboard">createdAlarmDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarms">createdAlarms</a></code> | Returns the created alarms across all the monitorings added up until now. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithDisambiguator">createdAlarmsWithDisambiguator</a></code> | Returns a subset of created alarms that are marked by a specific disambiguator. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithTag">createdAlarmsWithTag</a></code> | Returns a subset of created alarms that are marked by a specific custom tag. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdDashboard">createdDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdMonitorings">createdMonitorings</a></code> | Returns the created monitorings added up until now. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdSummaryDashboard">createdSummaryDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGateway">monitorApiGateway</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGatewayV2HttpApi">monitorApiGatewayV2HttpApi</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorAppSyncApi">monitorAppSyncApi</a></code> | *No description.* |
@@ -1311,6 +1314,12 @@ customization options.
 
 ---
 
+##### ~~`createdAlarmDashboard`~~ <a name="createdAlarmDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdAlarmDashboard"></a>
+
+```typescript
+public createdAlarmDashboard(): Dashboard
+```
+
 ##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.MonitoringFacade.createdAlarms"></a>
 
 ```typescript
@@ -1351,6 +1360,12 @@ tag to filter alarms by.
 
 ---
 
+##### ~~`createdDashboard`~~ <a name="createdDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdDashboard"></a>
+
+```typescript
+public createdDashboard(): Dashboard
+```
+
 ##### `createdMonitorings` <a name="createdMonitorings" id="cdk-monitoring-constructs.MonitoringFacade.createdMonitorings"></a>
 
 ```typescript
@@ -1358,6 +1373,12 @@ public createdMonitorings(): Monitoring[]
 ```
 
 Returns the created monitorings added up until now.
+
+##### ~~`createdSummaryDashboard`~~ <a name="createdSummaryDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdSummaryDashboard"></a>
+
+```typescript
+public createdSummaryDashboard(): Dashboard
+```
 
 ##### `monitorApiGateway` <a name="monitorApiGateway" id="cdk-monitoring-constructs.MonitoringFacade.monitorApiGateway"></a>
 
@@ -12943,7 +12964,7 @@ const dynamicDashboardConfiguration: DynamicDashboardConfiguration = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.name">name</a></code> | <code>string</code> | Name of the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.name">name</a></code> | <code>string</code> | Name of the dashboard. Full dashboard name will take the form of: `{@link MonitoringDynamicDashboardsProps.dashboardNamePrefix}-{@link name}`. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.periodOverride">periodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.range">range</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.renderingPreference">renderingPreference</a></code> | <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a></code> | Dashboard rendering preference. |
@@ -12958,10 +12979,11 @@ public readonly name: string;
 
 - *Type:* string
 
-Name of the dashboard.
+Name of the dashboard. Full dashboard name will take the form of: `{@link MonitoringDynamicDashboardsProps.dashboardNamePrefix}-{@link name}`.
 
-Full dashboard name will take the form of:
-`{@link MonitoringDynamicDashboardsProps.dashboardNamePrefix}-{@link name}`
+NOTE: In order to support backwards compatibility, the dashboard names in
+{@link DefaultDashboardFactory.DefaultDashboards} are reserved and cannot be
+used as dashboard names.
 
 ---
 

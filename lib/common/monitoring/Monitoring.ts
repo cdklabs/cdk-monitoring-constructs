@@ -107,14 +107,15 @@ export abstract class Monitoring
   abstract widgets(): IWidget[];
 
   widgetsForDashboard(name: string): IWidget[] {
-    if (name === DefaultDashboards.SUMMARY) {
-      return this.summaryWidgets();
-    } else if (name === DefaultDashboards.DETAIL) {
-      return this.widgets();
-    } else if (name === DefaultDashboards.ALARMS) {
-      return this.alarmWidgets();
-    } else {
-      return [];
+    switch (name) {
+      case DefaultDashboards.SUMMARY:
+        return this.summaryWidgets();
+      case DefaultDashboards.DETAIL:
+        return this.widgets();
+      case DefaultDashboards.ALARMS:
+        return this.alarmWidgets();
+      default:
+        return [];
     }
   }
 }

@@ -1,5 +1,5 @@
 import { Aspects, Stack } from "aws-cdk-lib";
-import { CompositeAlarm, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { CompositeAlarm, Dashboard, IWidget } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 
 import { MonitoringAspectProps } from "./IMonitoringAspect";
@@ -17,6 +17,7 @@ import {
 } from "../common";
 import {
   DefaultDashboardFactory,
+  DefaultDashboards,
   DefaultWidgetFactory,
   HeaderLevel,
   HeaderWidget,
@@ -199,6 +200,30 @@ export class MonitoringFacade extends MonitoringScope {
 
   // GENERIC
   // =======
+
+  /**
+   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
+   * @returns default detail dashboard
+   */
+  createdDashboard(): Dashboard | undefined {
+    return this.dashboardFactory?.getDashboard(DefaultDashboards.DETAIL);
+  }
+
+  /**
+   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
+   * @returns default summary dashboard
+   */
+  createdSummaryDashboard(): Dashboard | undefined {
+    return this.dashboardFactory?.getDashboard(DefaultDashboards.SUMMARY);
+  }
+
+  /**
+   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
+   * @returns default alarms dashboard
+   */
+  createdAlarmDashboard(): Dashboard | undefined {
+    return this.dashboardFactory?.getDashboard(DefaultDashboards.ALARMS);
+  }
 
   /**
    * Returns the created alarms across all the monitorings added up until now.
