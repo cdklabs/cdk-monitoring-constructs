@@ -311,7 +311,7 @@ class ExampleSegment implements IDynamicDashboardSegment {
   widgetsForDashboard(name: string): IWidget[] {
     // this logic is what's responsible for allowing your dynamic segment to return
     // different widgets for different dashboards
-    switch (string) {
+    switch (name) {
       case DashboardTypes.HostedService:
         return [new TextWidget({ markdown: "This shows metrics for your service hosted on AWS Infrastructure" })];
       case DashboardTypes.Infrastructure:
