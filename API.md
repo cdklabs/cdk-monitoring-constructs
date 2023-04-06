@@ -707,12 +707,12 @@ public createdSummaryDashboard(): Dashboard
 ##### `getDashboard` <a name="getDashboard" id="cdk-monitoring-constructs.DefaultDashboardFactory.getDashboard"></a>
 
 ```typescript
-public getDashboard(type: string): Dashboard
+public getDashboard(name: string): Dashboard
 ```
 
 Gets the dashboard for the requested dashboard type.
 
-###### `type`<sup>Required</sup> <a name="type" id="cdk-monitoring-constructs.DefaultDashboardFactory.getDashboard.parameter.type"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.DefaultDashboardFactory.getDashboard.parameter.name"></a>
 
 - *Type:* string
 
@@ -12981,9 +12981,8 @@ public readonly name: string;
 
 Name of the dashboard. Full dashboard name will take the form of: `{@link MonitoringDynamicDashboardsProps.dashboardNamePrefix}-{@link name}`.
 
-NOTE: In order to support backwards compatibility, the dashboard names in
-{@link DefaultDashboardFactory.DefaultDashboards} are reserved and cannot be
-used as dashboard names.
+NOTE: The dashboard names in {@link DefaultDashboardFactory.DefaultDashboards}
+are reserved and cannot be used as dashboard names.
 
 ---
 

@@ -210,15 +210,16 @@ export class DefaultDashboardFactory
     return this.alarmDashboard;
   }
 
-  getDashboard(type: string): Dashboard | undefined {
-    if (type === DefaultDashboards.SUMMARY) {
-      return this.summaryDashboard;
-    } else if (type === DefaultDashboards.DETAIL) {
-      return this.dashboard;
-    } else if (type === DefaultDashboards.ALARMS) {
-      return this.alarmDashboard;
-    } else {
-      throw new Error("Unexpected dashboard name!");
+  getDashboard(name: string): Dashboard | undefined {
+    switch (name) {
+      case DefaultDashboards.SUMMARY:
+        return this.summaryDashboard;
+      case DefaultDashboards.DETAIL:
+        return this.dashboard;
+      case DefaultDashboards.ALARMS:
+        return this.alarmDashboard;
+      default:
+        throw new Error("Unexpected dashboard name!");
     }
   }
 }

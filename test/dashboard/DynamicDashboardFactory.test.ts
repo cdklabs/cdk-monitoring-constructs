@@ -10,12 +10,13 @@ enum TestDashboards {
 
 class TestSegment implements IDynamicDashboardSegment {
   widgetsForDashboard(name: string): IWidget[] {
-    if (name === TestDashboards.Dynamic1) {
-      return [new TextWidget({ markdown: "Dynamic1" })];
-    } else if (name === TestDashboards.Dynamic2) {
-      return [new TextWidget({ markdown: "Dynamic2" })];
-    } else {
-      return [];
+    switch (name) {
+      case TestDashboards.Dynamic1:
+        return [new TextWidget({ markdown: "Dynamic1" })];
+      case TestDashboards.Dynamic2:
+        return [new TextWidget({ markdown: "Dynamic2" })];
+      default:
+        return [];
     }
   }
 }
@@ -57,7 +58,7 @@ test("does not allow duplicate dashboard names", () => {
       dashboardNamePrefix: "testPrefix",
       dashboardConfigs: [{ name: "Dynamic1" }, { name: "Dynamic1" }],
     });
-  }).toThrow("Cannot have duplicate dashboard names!");
+  }).toThrow("Duplicate dashboard name found: Dynamic1");
 });
 
 test("does not allow reserved dashboard names", () => {
@@ -66,7 +67,10 @@ test("does not allow reserved dashboard names", () => {
   expect(() => {
     new DynamicDashboardFactory(stack, "DynamicDashboards", {
       dashboardNamePrefix: "testPrefix",
-      dashboardConfigs: [{ name: "Summary" }, { name: "Detail" }],
+      dashboardConfigs: [
+        { name: "Summary" },
+        { name: "CustomDetailDashboard" },
+      ],
     });
-  }).toThrow("Cannot have reserved dashboard names!");
+  }).toThrow("Summary is a reserved name and cannot be used");
 });

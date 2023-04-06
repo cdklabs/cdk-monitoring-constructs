@@ -18,9 +18,8 @@ export interface DynamicDashboardConfiguration {
    * Name of the dashboard. Full dashboard name will take the form of:
    * `{@link MonitoringDynamicDashboardsProps.dashboardNamePrefix}-{@link name}`
    *
-   * NOTE: In order to support backwards compatibility, the dashboard names in
-   * {@link DefaultDashboardFactory.DefaultDashboards} are reserved and cannot be
-   * used as dashboard names.
+   * NOTE: The dashboard names in {@link DefaultDashboardFactory.DefaultDashboards}
+   * are reserved and cannot be used as dashboard names.
    */
   readonly name: string;
 
@@ -72,13 +71,17 @@ export class DynamicDashboardFactory
 
     props.dashboardConfigs.forEach((dashboardConfig) => {
       if (this.dashboards[dashboardConfig.name]) {
-        throw new Error("Cannot have duplicate dashboard names!");
+        throw new Error(
+          `Duplicate dashboard name found: ${dashboardConfig.name}`
+        );
       }
 
       if (
         Object.values<string>(DefaultDashboards).includes(dashboardConfig.name)
       ) {
-        throw new Error("Cannot have reserved dashboard names!");
+        throw new Error(
+          `${dashboardConfig.name} is a reserved name and cannot be used`
+        );
       }
 
       const renderingPreference =
