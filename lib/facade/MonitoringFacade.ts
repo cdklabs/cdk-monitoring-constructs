@@ -17,20 +17,15 @@ import {
 } from "../common";
 import {
   DefaultDashboardFactory,
-  DefaultDashboards,
   DefaultWidgetFactory,
   HeaderLevel,
   HeaderWidget,
+  IDashboardFactory,
   IDashboardSegment,
   IWidgetFactory,
   MonitoringDashboardsOverrideProps,
   SingleWidgetDashboardSegment,
 } from "../dashboard";
-import {
-  IDynamicDashboardSegment,
-  StaticSegmentDynamicAdapter,
-} from "../dashboard/DynamicDashboardSegment";
-import { IDynamicDashboardFactory } from "../dashboard/IDynamicDashboardFactory";
 import {
   ApiGatewayMonitoring,
   ApiGatewayMonitoringProps,
@@ -136,9 +131,9 @@ export interface MonitoringFacadeProps {
   /**
    * Defaults for dashboard factory.
    *
-   * @default - An instance of {@link DynamicDashboardFactory}; facade logical ID used as default name
+   * @default - An instance of {@link DefaultDashboardFactory}; facade logical ID used as default name
    */
-  readonly dashboardFactory?: IDynamicDashboardFactory;
+  readonly dashboardFactory?: IDashboardFactory;
 }
 
 /**
@@ -149,11 +144,8 @@ export interface MonitoringFacadeProps {
 export class MonitoringFacade extends MonitoringScope {
   protected readonly metricFactoryDefaults: MetricFactoryDefaults;
   protected readonly alarmFactoryDefaults: AlarmFactoryDefaults;
-  public readonly dashboardFactory?: IDynamicDashboardFactory;
-  protected readonly createdSegments: (
-    | IDashboardSegment
-    | IDynamicDashboardSegment
-  )[];
+  protected readonly dashboardFactory?: IDashboardFactory;
+  protected readonly createdSegments: IDashboardSegment[];
 
   constructor(scope: Construct, id: string, props?: MonitoringFacadeProps) {
     super(scope, id);
@@ -201,28 +193,16 @@ export class MonitoringFacade extends MonitoringScope {
   // GENERIC
   // =======
 
-  /**
-   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
-   * @returns default detail dashboard
-   */
   createdDashboard(): Dashboard | undefined {
-    return this.dashboardFactory?.getDashboard(DefaultDashboards.DETAIL);
+    return this.dashboardFactory?.createdDashboard();
   }
 
-  /**
-   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
-   * @returns default summary dashboard
-   */
   createdSummaryDashboard(): Dashboard | undefined {
-    return this.dashboardFactory?.getDashboard(DefaultDashboards.SUMMARY);
+    return this.dashboardFactory?.createdSummaryDashboard();
   }
 
-  /**
-   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
-   * @returns default alarms dashboard
-   */
   createdAlarmDashboard(): Dashboard | undefined {
-    return this.dashboardFactory?.getDashboard(DefaultDashboards.ALARMS);
+    return this.dashboardFactory?.createdAlarmDashboard();
   }
 
   /**
@@ -315,30 +295,11 @@ export class MonitoringFacade extends MonitoringScope {
       .map((s) => s as Monitoring);
   }
 
-  /**
-   * Adds a dashboard segment which returns dynamic content depending on dashboard type.
-   * @param segment dynamic segment to add.
-   */
-  addDynamicSegment(segment: IDynamicDashboardSegment) {
-    this.dashboardFactory?.addDynamicSegment(segment);
-    this.createdSegments.push(segment);
-  }
-
-  /**
-   * Adds a dashboard segment to go on one of the {@link DefaultDashboards}.
-   * @param segment segment to add
-   * @param overrideProps props to specify which default dashboards this segment is added to.
-   */
   addSegment(
     segment: IDashboardSegment,
     overrideProps?: MonitoringDashboardsOverrideProps
   ) {
-    const adaptedSegment = new StaticSegmentDynamicAdapter({
-      segment,
-      overrideProps,
-    });
-    this.dashboardFactory?.addDynamicSegment(adaptedSegment);
-
+    this.dashboardFactory?.addSegment({ segment, overrideProps });
     this.createdSegments.push(segment);
     return this;
   }
