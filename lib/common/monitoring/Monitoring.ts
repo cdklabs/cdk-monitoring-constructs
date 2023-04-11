@@ -2,9 +2,7 @@ import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import { MonitoringScope } from "./MonitoringScope";
 import {
-  DefaultDashboards,
   IDashboardSegment,
-  IDynamicDashboardSegment,
   MonitoringDashboardsOverrideProps,
   UserProvidedNames,
 } from "../../dashboard";
@@ -30,9 +28,7 @@ export interface BaseMonitoringProps
 /**
  * An independent unit of monitoring. This is the base for all monitoring classes with alarm support.
  */
-export abstract class Monitoring
-  implements IDashboardSegment, IDynamicDashboardSegment
-{
+export abstract class Monitoring implements IDashboardSegment {
   protected readonly scope: MonitoringScope;
   protected readonly alarms: AlarmWithAnnotation[];
   protected readonly localAlarmNamePrefixOverride?: string;
@@ -105,17 +101,4 @@ export abstract class Monitoring
    * Returns widgets to be placed on the main dashboard.
    */
   abstract widgets(): IWidget[];
-
-  widgetsForDashboard(name: string): IWidget[] {
-    switch (name) {
-      case DefaultDashboards.SUMMARY:
-        return this.summaryWidgets();
-      case DefaultDashboards.DETAIL:
-        return this.widgets();
-      case DefaultDashboards.ALARMS:
-        return this.alarmWidgets();
-      default:
-        return [];
-    }
-  }
 }
