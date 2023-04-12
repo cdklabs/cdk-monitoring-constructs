@@ -8,11 +8,9 @@ const DOCS = `
           Param | Description
           ---|---
           **graph** | The graph definition. Use the parameters from the **Source** tab in CloudWatch Console's **Metrics** page.
-          **useMonitorPortal** (default = true) | Flag indicating whether we want to use MonitorPortal to render the graph. False will switch to CloudWatch API.
 
           ### Example parameters
           \`\`\` yaml
-          useMonitorPortal: boolean
           graph:
             view: timeSeries
             metrics:
