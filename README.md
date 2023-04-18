@@ -93,7 +93,7 @@ You can browse the documentation at https://constructs.dev/packages/cdk-monitori
 | AWS SNS Topic (`.monitorSnsTopic()`) | Message count, size, failed notifications | Failed notifications, min/max published messages | |
 | AWS SQS Queue (`.monitorSqsQueue()`, `.monitorSqsQueueWithDlq()`) | Message count, age, size | Message count, age, DLQ incoming messages | |
 | AWS Step Functions (`.monitorStepFunction()`, `.monitorStepFunctionActivity()`, `monitorStepFunctionLambdaIntegration()`, `.monitorStepFunctionServiceIntegration()`) | Execution count and breakdown per state | Duration, failed, failed rate, aborted, throttled, timed out executions | |
-| AWS Web Application Firewall (`.monitorWebApplicationFirewallAcl()`) | Allowed/blocked requests | Blocked requests count/rate | |
+| AWS Web Application Firewall (`.monitorWebApplicationFirewallAclV2()`) | Allowed/blocked requests | Blocked requests count/rate | |
 | Custom metrics (`.monitorCustom()`) | Addition of custom metrics into the dashboard (each group is a widget) | | Supports anomaly detection |
 
 
