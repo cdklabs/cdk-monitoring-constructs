@@ -245,6 +245,7 @@ monitorCustom({
         // Allow any value for the given dimension (pardon the weird typing to satisfy DimensionsMap)
         SecondDimension: undefined as unknown as string
       }
+      statistic: MetricStatistic.SUM,
     }
   ]
 })
