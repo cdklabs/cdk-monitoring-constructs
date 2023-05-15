@@ -30,11 +30,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_rcu_sum/PERIOD(consumed_rcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Consumed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -42,11 +42,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_wcu_sum/PERIOD(consumed_wcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Consumed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -91,11 +91,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_rcu_sum/PERIOD(consumed_rcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Consumed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -103,11 +103,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_wcu_sum/PERIOD(consumed_wcu_sum)\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Consumed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"GlobalSecondaryIndexName\\",\\"non-existing-index\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
