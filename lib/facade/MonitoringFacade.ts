@@ -165,7 +165,7 @@ export class MonitoringFacade extends MonitoringScope {
     };
     this.dashboardFactory =
       props?.dashboardFactory ??
-      new DefaultDashboardFactory(scope, `${id}-Dashboards`, {
+      new DefaultDashboardFactory(this, `${id}-Dashboards`, {
         dashboardNamePrefix: id,
       });
 
