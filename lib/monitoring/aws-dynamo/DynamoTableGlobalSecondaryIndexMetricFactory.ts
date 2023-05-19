@@ -12,6 +12,7 @@ export interface DynamoTableGlobalSecondaryIndexMetricFactoryProps {
 
 export class DynamoTableGlobalSecondaryIndexMetricFactory {
   protected readonly metricFactory: MetricFactory;
+  protected readonly table: ITable;
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
@@ -19,6 +20,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
     props: DynamoTableGlobalSecondaryIndexMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
+    this.table = props.table;
     this.dimensionsMap = {
       TableName: props.table.tableName,
       GlobalSecondaryIndexName: props.globalSecondaryIndexName,
@@ -48,24 +50,28 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
   }
 
   metricConsumedReadCapacityUnits() {
-    return this.metricFactory.createMetric(
-      "ConsumedReadCapacityUnits",
-      MetricStatistic.SUM,
-      "Consumed",
-      this.dimensionsMap,
-      undefined,
-      DynamoDbNamespace
+    return this.metricFactory.createMetricMath(
+      "consumed_rcu_sum/PERIOD(consumed_rcu_sum)",
+      {
+        consumed_rcu_sum: this.table.metricConsumedReadCapacityUnits({
+          statistic: MetricStatistic.SUM,
+          dimensionsMap: this.dimensionsMap,
+        }),
+      },
+      "Consumed"
     );
   }
 
   metricConsumedWriteCapacityUnits() {
-    return this.metricFactory.createMetric(
-      "ConsumedWriteCapacityUnits",
-      MetricStatistic.SUM,
-      "Consumed",
-      this.dimensionsMap,
-      undefined,
-      DynamoDbNamespace
+    return this.metricFactory.createMetricMath(
+      "consumed_wcu_sum/PERIOD(consumed_wcu_sum)",
+      {
+        consumed_wcu_sum: this.table.metricConsumedWriteCapacityUnits({
+          statistic: MetricStatistic.SUM,
+          dimensionsMap: this.dimensionsMap,
+        }),
+      },
+      "Consumed"
     );
   }
 
