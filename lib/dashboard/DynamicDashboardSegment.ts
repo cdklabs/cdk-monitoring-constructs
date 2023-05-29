@@ -17,26 +17,31 @@ export class StaticSegmentDynamicAdapter implements IDynamicDashboardSegment {
     this.props = props;
   }
 
+  /**
+   * Adapts an IDashboardSegment to the IDynamicDashboardSegment interface by using
+   * overrideProps to determine if a segment should be shown on a specific dashboard.
+   * The default values are true, so consumers must set these to false if they would
+   * like to hide these items from dashboards
+   */
   widgetsForDashboard(name: string): IWidget[] {
-    if (
-      this.props.overrideProps?.addToDetailDashboard ||
-      name === DefaultDashboards.DETAIL
-    ) {
+    let addToDetailDashboard = true;
+    let addToSummaryDashboard = true;
+    let addToAlarmsDashboard = true;
+    const overrideProps = this.props.overrideProps;
+    if (overrideProps != null) {
+      addToDetailDashboard = overrideProps.addToDetailDashboard ?? true;
+      addToSummaryDashboard = overrideProps.addToSummaryDashboard ?? true;
+      addToAlarmsDashboard = overrideProps.addToAlarmDashboard ?? true;
+    }
+    if (addToDetailDashboard != false && name === DefaultDashboards.DETAIL) {
       return this.props.segment.widgets();
     }
-    if (
-      this.props.overrideProps?.addToSummaryDashboard ||
-      name === DefaultDashboards.SUMMARY
-    ) {
+    if (addToSummaryDashboard != false && name === DefaultDashboards.SUMMARY) {
       return this.props.segment.summaryWidgets();
     }
-    if (
-      this.props.overrideProps?.addToAlarmDashboard ||
-      name === DefaultDashboards.ALARMS
-    ) {
+    if (addToAlarmsDashboard != false && name === DefaultDashboards.ALARMS) {
       return this.props.segment.alarmWidgets();
     }
-
     return [];
   }
 }

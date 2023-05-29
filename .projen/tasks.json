@@ -233,7 +233,7 @@
       "description": "Prepare a release from \"main\" branch",
       "env": {
         "RELEASE": "true",
-        "MAJOR": "4"
+        "MAJOR": "5"
       },
       "steps": [
         {

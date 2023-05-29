@@ -1,30 +1,37 @@
 import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import { IDashboardSegment } from "./DashboardSegment";
+import { DefaultDashboards } from "./DefaultDashboardFactory";
+import { IDynamicDashboardSegment } from "./DynamicDashboardSegment";
 
-export class SingleWidgetDashboardSegment implements IDashboardSegment {
+export class SingleWidgetDashboardSegment
+  implements IDashboardSegment, IDynamicDashboardSegment
+{
   protected readonly widget: IWidget;
-  protected readonly addToSummary: boolean;
-  protected readonly addToAlarm: boolean;
 
-  constructor(widget: IWidget, addToSummary?: boolean, addToAlarm?: boolean) {
+  constructor(widget: IWidget) {
     this.widget = widget;
-    this.addToSummary = addToSummary ?? true;
-    this.addToAlarm = addToAlarm ?? true;
+  }
+
+  widgetsForDashboard(name: string): IWidget[] {
+    switch (name) {
+      case DefaultDashboards.SUMMARY:
+        return [this.widget];
+      case DefaultDashboards.DETAIL:
+        return [this.widget];
+      case DefaultDashboards.ALARMS:
+        return [this.widget];
+      default:
+        return [];
+    }
   }
 
   alarmWidgets(): IWidget[] {
-    if (this.addToAlarm) {
-      return [this.widget];
-    }
-    return [];
+    return [this.widget];
   }
 
   summaryWidgets(): IWidget[] {
-    if (this.addToSummary) {
-      return [this.widget];
-    }
-    return [];
+    return [this.widget];
   }
 
   widgets(): IWidget[] {
