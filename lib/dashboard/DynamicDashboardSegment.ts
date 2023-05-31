@@ -28,7 +28,7 @@ export class StaticSegmentDynamicAdapter implements IDynamicDashboardSegment {
     const addToDetailDashboard = overrideProps?.addToDetailDashboard ?? true;
     const addToSummaryDashboard = overrideProps?.addToSummaryDashboard ?? true;
     const addToAlarmsDashboard = overrideProps?.addToAlarmDashboard ?? true;
-    if (addToDetailDashboard != false && name === DefaultDashboards.DETAIL) {
+    if (addToDetailDashboard && name === DefaultDashboards.DETAIL) {
       return this.props.segment.widgets();
     }
     if (addToSummaryDashboard != false && name === DefaultDashboards.SUMMARY) {
