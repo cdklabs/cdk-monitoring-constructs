@@ -24,15 +24,10 @@ export class StaticSegmentDynamicAdapter implements IDynamicDashboardSegment {
    * like to hide these items from dashboards
    */
   widgetsForDashboard(name: string): IWidget[] {
-    let addToDetailDashboard = true;
-    let addToSummaryDashboard = true;
-    let addToAlarmsDashboard = true;
     const overrideProps = this.props.overrideProps;
-    if (overrideProps != null) {
-      addToDetailDashboard = overrideProps.addToDetailDashboard ?? true;
-      addToSummaryDashboard = overrideProps.addToSummaryDashboard ?? true;
-      addToAlarmsDashboard = overrideProps.addToAlarmDashboard ?? true;
-    }
+    const addToDetailDashboard = overrideProps?.addToDetailDashboard ?? true;
+    const addToSummaryDashboard = overrideProps?.addToSummaryDashboard ?? true;
+    const addToAlarmsDashboard = overrideProps?.addToAlarmDashboard ?? true;
     if (addToDetailDashboard != false && name === DefaultDashboards.DETAIL) {
       return this.props.segment.widgets();
     }
