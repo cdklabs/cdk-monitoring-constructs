@@ -101,10 +101,10 @@ describe("test of defaults", () => {
     result.hasResourceProperties("AWS::CloudWatch::Dashboard", {
       DashboardBody: dashboardCapture,
     });
-    for (var i = 0; i < 3; i++) {
+
+    do {
       const dashboardBody = JSON.parse(dashboardCapture.asString());
       expect(dashboardBody.widgets).toHaveLength(0);
-      dashboardCapture.next();
-    }
+    } while (dashboardCapture.next());
   });
 });

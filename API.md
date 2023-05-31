@@ -56492,12 +56492,12 @@ These should go to the detailed service dashboard.
 ##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard"></a>
 
 ```typescript
-public widgetsForDashboard(name: string): IWidget[]
+public widgetsForDashboard(_name: string): IWidget[]
 ```
 
 Returns widgets for the requested dashboard type.
 
-###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard.parameter.name"></a>
+###### `_name`<sup>Required</sup> <a name="_name" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard.parameter._name"></a>
 
 - *Type:* string
 

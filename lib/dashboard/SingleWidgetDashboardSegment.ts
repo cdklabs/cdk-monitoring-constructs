@@ -1,7 +1,5 @@
 import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
-
 import { IDashboardSegment } from "./DashboardSegment";
-import { DefaultDashboards } from "./DefaultDashboardFactory";
 import { IDynamicDashboardSegment } from "./DynamicDashboardSegment";
 
 export class SingleWidgetDashboardSegment
@@ -13,17 +11,8 @@ export class SingleWidgetDashboardSegment
     this.widget = widget;
   }
 
-  widgetsForDashboard(name: string): IWidget[] {
-    switch (name) {
-      case DefaultDashboards.SUMMARY:
-        return [this.widget];
-      case DefaultDashboards.DETAIL:
-        return [this.widget];
-      case DefaultDashboards.ALARMS:
-        return [this.widget];
-      default:
-        return [];
-    }
+  widgetsForDashboard(_name: string): IWidget[] {
+    return [this.widget];
   }
 
   alarmWidgets(): IWidget[] {
