@@ -34,7 +34,7 @@ export class StaticSegmentDynamicAdapter implements IDynamicDashboardSegment {
     if (addToSummaryDashboard && name === DefaultDashboards.SUMMARY) {
       return this.props.segment.summaryWidgets();
     }
-    if (addToAlarmsDashboard != false && name === DefaultDashboards.ALARMS) {
+    if (addToAlarmsDashboard && name === DefaultDashboards.ALARMS) {
       return this.props.segment.alarmWidgets();
     }
     return [];
