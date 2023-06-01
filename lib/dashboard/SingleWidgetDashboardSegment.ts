@@ -12,7 +12,7 @@ export class SingleWidgetDashboardSegment
   /**
    * Create a dashboard segment representing a single widget.
    * @param widget widget to add
-   * @param dashboardsToInclude list of dashboard names which will include the dashboard
+   * @param dashboardsToInclude list of dashboard names which to show this widget on. Defaults to the default dashboards.
    */
   constructor(widget: IWidget, dashboardsToInclude?: string[]) {
     this.widget = widget;
