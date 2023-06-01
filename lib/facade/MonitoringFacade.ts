@@ -371,9 +371,11 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   addWidget(widget: IWidget, addToSummary?: boolean, addToAlarm?: boolean) {
-    this.addSegment(
-      new SingleWidgetDashboardSegment(widget, addToSummary, addToAlarm)
-    );
+    this.addSegment(new SingleWidgetDashboardSegment(widget), {
+      addToAlarmDashboard: addToAlarm ?? true,
+      addToSummaryDashboard: addToSummary ?? true,
+      addToDetailDashboard: true,
+    });
     return this;
   }
 

@@ -1,33 +1,57 @@
 import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
-
 import { IDashboardSegment } from "./DashboardSegment";
+import { DefaultDashboards } from "./DefaultDashboardFactory";
+import { IDynamicDashboardSegment } from "./DynamicDashboardSegment";
 
-export class SingleWidgetDashboardSegment implements IDashboardSegment {
+export class SingleWidgetDashboardSegment
+  implements IDashboardSegment, IDynamicDashboardSegment
+{
   protected readonly widget: IWidget;
-  protected readonly addToSummary: boolean;
-  protected readonly addToAlarm: boolean;
+  protected readonly dashboardsToInclude: string[];
 
-  constructor(widget: IWidget, addToSummary?: boolean, addToAlarm?: boolean) {
+  /**
+   * Create a dashboard segment representing a single widget.
+   * @param widget widget to add
+   * @param dashboardsToInclude list of dashboard names which to show this widget on. Defaults to the default dashboards.
+   */
+  constructor(widget: IWidget, dashboardsToInclude?: string[]) {
     this.widget = widget;
-    this.addToSummary = addToSummary ?? true;
-    this.addToAlarm = addToAlarm ?? true;
+    this.dashboardsToInclude = dashboardsToInclude ?? [
+      DefaultDashboards.ALARMS,
+      DefaultDashboards.DETAIL,
+      DefaultDashboards.SUMMARY,
+    ];
+  }
+
+  widgetsForDashboard(name: string): IWidget[] {
+    if (this.dashboardsToInclude.includes(name)) {
+      return [this.widget];
+    } else {
+      return [];
+    }
   }
 
   alarmWidgets(): IWidget[] {
-    if (this.addToAlarm) {
+    if (this.dashboardsToInclude.includes(DefaultDashboards.ALARMS)) {
       return [this.widget];
+    } else {
+      return [];
     }
-    return [];
   }
 
   summaryWidgets(): IWidget[] {
-    if (this.addToSummary) {
+    if (this.dashboardsToInclude.includes(DefaultDashboards.SUMMARY)) {
       return [this.widget];
+    } else {
+      return [];
     }
-    return [];
   }
 
   widgets(): IWidget[] {
-    return [this.widget];
+    if (this.dashboardsToInclude.includes(DefaultDashboards.DETAIL)) {
+      return [this.widget];
+    } else {
+      return [];
+    }
   }
 }

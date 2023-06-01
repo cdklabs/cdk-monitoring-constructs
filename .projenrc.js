@@ -11,7 +11,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ["cloudwatch", "monitoring"],
 
   defaultReleaseBranch: "main",
-  majorVersion: 4,
+  majorVersion: 5,
   stability: "experimental",
 
   cdkVersion: CDK_VERSION,

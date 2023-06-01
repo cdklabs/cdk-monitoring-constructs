@@ -56426,21 +56426,20 @@ Any warnings that are produced as a result of putting together this widget.
 
 ### SingleWidgetDashboardSegment <a name="SingleWidgetDashboardSegment" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment"></a>
 
-- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer"></a>
 
 ```typescript
 import { SingleWidgetDashboardSegment } from 'cdk-monitoring-constructs'
 
-new SingleWidgetDashboardSegment(widget: IWidget, addToSummary?: boolean, addToAlarm?: boolean)
+new SingleWidgetDashboardSegment(widget: IWidget, dashboardsToInclude?: string[])
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget">widget</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IWidget</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.addToSummary">addToSummary</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.addToAlarm">addToAlarm</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget">widget</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IWidget</code> | widget to add. |
+| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.dashboardsToInclude">dashboardsToInclude</a></code> | <code>string[]</code> | list of dashboard names which to show this widget on. |
 
 ---
 
@@ -56448,17 +56447,17 @@ new SingleWidgetDashboardSegment(widget: IWidget, addToSummary?: boolean, addToA
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
 
----
-
-##### `addToSummary`<sup>Optional</sup> <a name="addToSummary" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.addToSummary"></a>
-
-- *Type:* boolean
+widget to add.
 
 ---
 
-##### `addToAlarm`<sup>Optional</sup> <a name="addToAlarm" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.addToAlarm"></a>
+##### `dashboardsToInclude`<sup>Optional</sup> <a name="dashboardsToInclude" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.dashboardsToInclude"></a>
 
-- *Type:* boolean
+- *Type:* string[]
+
+list of dashboard names which to show this widget on.
+
+Defaults to the default dashboards.
 
 ---
 
@@ -56469,6 +56468,7 @@ new SingleWidgetDashboardSegment(widget: IWidget, addToSummary?: boolean, addToA
 | <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
 | <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.summaryWidgets">summaryWidgets</a></code> | Returns widgets for the summary. |
 | <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgets">widgets</a></code> | Returns all widgets. |
+| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 
 ---
 
@@ -56501,6 +56501,20 @@ public widgets(): IWidget[]
 Returns all widgets.
 
 These should go to the detailed service dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 
 
@@ -57882,7 +57896,7 @@ new StaticSegmentDynamicAdapter(props: IDashboardFactoryProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+| <code><a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter.widgetsForDashboard">widgetsForDashboard</a></code> | Adapts an IDashboardSegment to the IDynamicDashboardSegment interface by using overrideProps to determine if a segment should be shown on a specific dashboard. |
 
 ---
 
@@ -57892,7 +57906,10 @@ new StaticSegmentDynamicAdapter(props: IDashboardFactoryProps)
 public widgetsForDashboard(name: string): IWidget[]
 ```
 
-Returns widgets for the requested dashboard type.
+Adapts an IDashboardSegment to the IDynamicDashboardSegment interface by using overrideProps to determine if a segment should be shown on a specific dashboard.
+
+The default values are true, so consumers must set these to false if they would
+like to hide these items from dashboards
 
 ###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.StaticSegmentDynamicAdapter.widgetsForDashboard.parameter.name"></a>
 
@@ -61743,7 +61760,7 @@ Gets the dashboard for the requested dashboard type.
 
 ### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 

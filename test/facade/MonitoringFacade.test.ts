@@ -1,6 +1,12 @@
 import { Stack } from "aws-cdk-lib";
-import { Template } from "aws-cdk-lib/assertions";
-import { DynamicDashboardFactory, MonitoringFacade } from "../../lib";
+import { Capture, Template } from "aws-cdk-lib/assertions";
+import { TextWidget } from "aws-cdk-lib/aws-cloudwatch";
+import {
+  DefaultDashboardFactory,
+  DynamicDashboardFactory,
+  MonitoringFacade,
+  SingleWidgetDashboardSegment,
+} from "../../lib";
 
 describe("test of defaults", () => {
   test("only default dashboard gets created by default", () => {
@@ -56,5 +62,49 @@ describe("test of defaults", () => {
     result.hasResourceProperties("AWS::CloudWatch::Dashboard", {
       DashboardName: "testPrefix-Dynamic2",
     });
+  });
+
+  test("SingleWidgetDashboardSegment is not displayed if addSegment overrides set to false", () => {
+    // configure monitoring facade with dashboard factory which populates all three default dashboards
+    const stack = new Stack();
+    const dashboardFactory = new DefaultDashboardFactory(
+      stack,
+      "TestDashboardFactory",
+      {
+        dashboardNamePrefix: "testPrefix",
+        createDashboard: true,
+        createAlarmDashboard: true,
+        createSummaryDashboard: true,
+      }
+    );
+    const facade = new MonitoringFacade(stack, "Test", {
+      dashboardFactory: dashboardFactory,
+    });
+
+    // add SingleWidgetDashboardSegment with default ctor args but use overrides to
+    // direct exclusion from default dashboards
+    facade.addSegment(
+      new SingleWidgetDashboardSegment(
+        new TextWidget({ markdown: "Simple Dashboard Segment" })
+      ),
+      {
+        addToAlarmDashboard: false,
+        addToDetailDashboard: false,
+        addToSummaryDashboard: false,
+      }
+    );
+
+    // verify that the generated dashboards do not include the SingleWidgetDashboardSegment
+    // due to override exclusion directives
+    const result = Template.fromStack(stack);
+    const dashboardCapture = new Capture();
+    result.hasResourceProperties("AWS::CloudWatch::Dashboard", {
+      DashboardBody: dashboardCapture,
+    });
+
+    do {
+      const dashboardBody = JSON.parse(dashboardCapture.asString());
+      expect(dashboardBody.widgets).toHaveLength(0);
+    } while (dashboardCapture.next());
   });
 });
