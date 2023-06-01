@@ -56433,18 +56433,29 @@ Any warnings that are produced as a result of putting together this widget.
 ```typescript
 import { SingleWidgetDashboardSegment } from 'cdk-monitoring-constructs'
 
-new SingleWidgetDashboardSegment(widget: IWidget)
+new SingleWidgetDashboardSegment(widget: IWidget, dashboardsToInclude?: string[])
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget">widget</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IWidget</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget">widget</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IWidget</code> | widget to add. |
+| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.dashboardsToInclude">dashboardsToInclude</a></code> | <code>string[]</code> | list of dashboard names which will include the dashboard. |
 
 ---
 
 ##### `widget`<sup>Required</sup> <a name="widget" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
+
+widget to add.
+
+---
+
+##### `dashboardsToInclude`<sup>Optional</sup> <a name="dashboardsToInclude" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.dashboardsToInclude"></a>
+
+- *Type:* string[]
+
+list of dashboard names which will include the dashboard.
 
 ---
 
@@ -56492,12 +56503,12 @@ These should go to the detailed service dashboard.
 ##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard"></a>
 
 ```typescript
-public widgetsForDashboard(_name: string): IWidget[]
+public widgetsForDashboard(name: string): IWidget[]
 ```
 
 Returns widgets for the requested dashboard type.
 
-###### `_name`<sup>Required</sup> <a name="_name" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard.parameter._name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SingleWidgetDashboardSegment.widgetsForDashboard.parameter.name"></a>
 
 - *Type:* string
 
