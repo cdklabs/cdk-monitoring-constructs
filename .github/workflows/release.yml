@@ -235,7 +235,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - name: Send notification
-        uses: slackapi/slack-github-action@v1.18.0
+        uses: slackapi/slack-github-action@v1.24.0
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
