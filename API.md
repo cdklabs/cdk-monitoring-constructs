@@ -56439,7 +56439,7 @@ new SingleWidgetDashboardSegment(widget: IWidget, dashboardsToInclude?: string[]
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.widget">widget</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IWidget</code> | widget to add. |
-| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.dashboardsToInclude">dashboardsToInclude</a></code> | <code>string[]</code> | list of dashboard names which will include the dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment.Initializer.parameter.dashboardsToInclude">dashboardsToInclude</a></code> | <code>string[]</code> | list of dashboard names which to show this widget on. |
 
 ---
 
@@ -56455,7 +56455,9 @@ widget to add.
 
 - *Type:* string[]
 
-list of dashboard names which will include the dashboard.
+list of dashboard names which to show this widget on.
+
+Defaults to the default dashboards.
 
 ---
 
