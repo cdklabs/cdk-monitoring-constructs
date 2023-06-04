@@ -12,7 +12,36 @@ Object {
   "Resources": Object {
     "Alarm7103F465": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"widgets\\":[]}",
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestnonexistingindexReadThrottledEventsWarning572114F6",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestnonexistingindexWriteThrottledEventsWarning2D1BA7C7",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
       },
       "Type": "AWS::CloudWatch::Dashboard",
     },
@@ -70,12 +99,100 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"indexThrottles\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"indexThrottles\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
       },
       "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestnonexistingindexReadThrottledEventsWarning572114F6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Read throttled events above threshold.",
+        "AlarmName": "Test-non-existing-index-Read-Throttled-Events-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(readThrottles,0)",
+            "Id": "expr_1",
+            "Label": "Read",
+          },
+          Object {
+            "Id": "readThrottles",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "GlobalSecondaryIndexName",
+                    "Value": "non-existing-index",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "ReadThrottleEvents",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestnonexistingindexWriteThrottledEventsWarning2D1BA7C7": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Write throttled events above threshold.",
+        "AlarmName": "Test-non-existing-index-Write-Throttled-Events-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(writeThrottles,0)",
+            "Id": "expr_1",
+            "Label": "Write",
+          },
+          Object {
+            "Id": "writeThrottles",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "GlobalSecondaryIndexName",
+                    "Value": "non-existing-index",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "WriteThrottleEvents",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "Summary68521F81": Object {
       "Properties": Object {
@@ -131,7 +248,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"indexThrottles\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"indexThrottles\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

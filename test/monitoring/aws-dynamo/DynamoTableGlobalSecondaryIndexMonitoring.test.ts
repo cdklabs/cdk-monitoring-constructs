@@ -22,6 +22,16 @@ test("snapshot test: no alarms", () => {
   const monitoring = new DynamoTableGlobalSecondaryIndexMonitoring(scope, {
     table,
     globalSecondaryIndexName: "non-existing-index",
+    addReadThrottledEventsCountAlarm: {
+      Warning: {
+        maxThrottledEventsThreshold: 5,
+      },
+    },
+    addWriteThrottledEventsCountAlarm: {
+      Warning: {
+        maxThrottledEventsThreshold: 5,
+      },
+    },
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);

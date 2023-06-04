@@ -1,4 +1,8 @@
-import { GraphWidget, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import {
+  GraphWidget,
+  HorizontalAnnotation,
+  IWidget,
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   DynamoTableGlobalSecondaryIndexMetricFactory,
@@ -6,13 +10,16 @@ import {
 } from "./DynamoTableGlobalSecondaryIndexMetricFactory";
 import {
   BaseMonitoringProps,
+  CapacityType,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
+  DynamoAlarmFactory,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
   ThirdWidth,
+  ThrottledEventsThreshold,
 } from "../../common";
 import {
   MonitoringHeaderWidget,
@@ -22,7 +29,14 @@ import {
 export interface DynamoTableGlobalSecondaryIndexMonitoringProps
   extends DynamoTableGlobalSecondaryIndexMetricFactoryProps,
     BaseMonitoringProps {
-  // no alarms
+  readonly addReadThrottledEventsCountAlarm?: Record<
+    string,
+    ThrottledEventsThreshold
+  >;
+  readonly addWriteThrottledEventsCountAlarm?: Record<
+    string,
+    ThrottledEventsThreshold
+  >;
 }
 
 export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
@@ -37,6 +51,9 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
   protected readonly readThrottleCountMetric: MetricWithAlarmSupport;
   protected readonly writeThrottleCountMetric: MetricWithAlarmSupport;
   protected readonly indexThrottleCountMetric: MetricWithAlarmSupport;
+
+  protected readonly gsiAlarmFactory: DynamoAlarmFactory;
+  protected readonly throttledEventsAnnotations: HorizontalAnnotation[];
 
   constructor(
     scope: MonitoringScope,
@@ -74,6 +91,35 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
       metricFactory.metricThrottledWriteRequestCount();
     this.indexThrottleCountMetric =
       metricFactory.metricThrottledIndexRequestCount();
+
+    const alarmFactory = scope.createAlarmFactory(
+      namingStrategy.resolveAlarmFriendlyName()
+    );
+    this.gsiAlarmFactory = new DynamoAlarmFactory(alarmFactory);
+    this.throttledEventsAnnotations = [];
+
+    for (const disambiguator in props.addReadThrottledEventsCountAlarm) {
+      const alarmProps = props.addReadThrottledEventsCountAlarm[disambiguator];
+      const createdAlarm = this.gsiAlarmFactory.addThrottledEventsAlarm(
+        this.readThrottleCountMetric,
+        CapacityType.READ,
+        alarmProps,
+        disambiguator
+      );
+      this.throttledEventsAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addWriteThrottledEventsCountAlarm) {
+      const alarmProps = props.addWriteThrottledEventsCountAlarm[disambiguator];
+      const createdAlarm = this.gsiAlarmFactory.addThrottledEventsAlarm(
+        this.writeThrottleCountMetric,
+        CapacityType.WRITE,
+        alarmProps,
+        disambiguator
+      );
+      this.throttledEventsAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
   }
 
   summaryWidgets(): IWidget[] {
@@ -137,6 +183,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
         this.indexThrottleCountMetric,
       ],
       leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.throttledEventsAnnotations,
     });
   }
 }

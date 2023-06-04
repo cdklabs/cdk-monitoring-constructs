@@ -13087,6 +13087,8 @@ const dynamoTableGlobalSecondaryIndexMonitoringProps: DynamoTableGlobalSecondary
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.addReadThrottledEventsCountAlarm">addReadThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.addWriteThrottledEventsCountAlarm">addWriteThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -13205,6 +13207,26 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addReadThrottledEventsCountAlarm`<sup>Optional</sup> <a name="addReadThrottledEventsCountAlarm" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.addReadThrottledEventsCountAlarm"></a>
+
+```typescript
+public readonly addReadThrottledEventsCountAlarm: {[ key: string ]: ThrottledEventsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}
+
+---
+
+##### `addWriteThrottledEventsCountAlarm`<sup>Optional</sup> <a name="addWriteThrottledEventsCountAlarm" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.addWriteThrottledEventsCountAlarm"></a>
+
+```typescript
+public readonly addWriteThrottledEventsCountAlarm: {[ key: string ]: ThrottledEventsThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}
 
 ---
 
