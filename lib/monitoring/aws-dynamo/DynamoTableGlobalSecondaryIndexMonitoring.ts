@@ -120,6 +120,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
       this.throttledEventsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
+    props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
   summaryWidgets(): IWidget[] {
