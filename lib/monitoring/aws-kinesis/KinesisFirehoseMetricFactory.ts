@@ -151,7 +151,7 @@ export class KinesisFirehoseMetricFactory {
       "BytesPerSecondLimit",
       MetricStatistic.AVERAGE,
       "Incoming Bytes/s Limit",
-      undefined,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
@@ -162,7 +162,7 @@ export class KinesisFirehoseMetricFactory {
       "RecordsPerSecondLimit",
       MetricStatistic.AVERAGE,
       "Records/s Limit",
-      undefined,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
@@ -173,7 +173,7 @@ export class KinesisFirehoseMetricFactory {
       "PutRequestsPerSecondLimit",
       MetricStatistic.AVERAGE,
       "PutRequests/s Limit",
-      undefined,
+      this.dimensionsMap,
       undefined,
       FirehoseNamespace
     );
