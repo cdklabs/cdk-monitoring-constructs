@@ -1,4 +1,4 @@
-import { MathExpression, Metric } from "aws-cdk-lib/aws-cloudwatch";
+import {MathExpression, Metric} from "aws-cdk-lib/aws-cloudwatch";
 
 /**
  * Any metric we can create an alarm on.

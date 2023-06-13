@@ -1,118 +1,88 @@
-import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
-import { IDatabaseCluster } from "aws-cdk-lib/aws-rds";
+import {DimensionsMap} from "aws-cdk-lib/aws-cloudwatch";
+import {IDatabaseCluster} from "aws-cdk-lib/aws-rds";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {MetricFactory, MetricStatistic} from "../../common";
 
 const RdsNamespace = "AWS/RDS";
 
 export interface RdsClusterMetricFactoryProps {
-  /**
-   * database cluster identifier (either this or `cluster` need to be specified)
-   * @deprecated please use `cluster` instead
-   */
-  readonly clusterIdentifier?: string;
-  /**
-   * database cluster (either this or `clusterIdentifier` need to be specified)
-   */
-  readonly cluster?: IDatabaseCluster;
+    /**
+     * database cluster identifier (either this or `cluster` need to be specified)
+     * @deprecated please use `cluster` instead
+     */
+    readonly clusterIdentifier?: string;
+    /**
+     * database cluster (either this or `clusterIdentifier` need to be specified)
+     */
+    readonly cluster?: IDatabaseCluster;
 }
 
 export class RdsClusterMetricFactory {
-  readonly clusterIdentifier: string;
-  protected readonly metricFactory: MetricFactory;
-  protected readonly dimensionsMap: DimensionsMap;
+    readonly clusterIdentifier: string;
+    protected readonly metricFactory: MetricFactory;
+    protected readonly dimensionsMap: DimensionsMap;
 
-  constructor(
-    metricFactory: MetricFactory,
-    props: RdsClusterMetricFactoryProps
-  ) {
-    this.metricFactory = metricFactory;
-    this.clusterIdentifier =
-      RdsClusterMetricFactory.resolveDbClusterIdentifier(props);
-    this.dimensionsMap = { DBClusterIdentifier: this.clusterIdentifier };
-  }
-
-  private static resolveDbClusterIdentifier(
-    props: RdsClusterMetricFactoryProps
-  ): string {
-    if (props.clusterIdentifier !== undefined && props.cluster === undefined) {
-      return props.clusterIdentifier;
-    } else if (
-      props.clusterIdentifier === undefined &&
-      props.cluster !== undefined
-    ) {
-      return props.cluster.clusterIdentifier;
-    } else if (props.cluster !== undefined && props.cluster !== undefined) {
-      throw Error("Only one of `clusterIdentifier` and `cluster` is supported");
-    } else {
-      throw Error(
-        "At least one of `clusterIdentifier` or `cluster` is required"
-      );
+    constructor(metricFactory: MetricFactory, props: RdsClusterMetricFactoryProps) {
+        this.metricFactory = metricFactory;
+        this.clusterIdentifier = RdsClusterMetricFactory.resolveDbClusterIdentifier(props);
+        this.dimensionsMap = {DBClusterIdentifier: this.clusterIdentifier};
     }
-  }
 
-  metricTotalConnectionCount() {
-    return this.metric(
-      "DatabaseConnections",
-      MetricStatistic.AVERAGE,
-      "Connections"
-    );
-  }
+    private static resolveDbClusterIdentifier(props: RdsClusterMetricFactoryProps): string {
+        if (props.clusterIdentifier !== undefined && props.cluster === undefined) {
+            return props.clusterIdentifier;
+        } else if (props.clusterIdentifier === undefined && props.cluster !== undefined) {
+            return props.cluster.clusterIdentifier;
+        } else if (props.cluster !== undefined && props.cluster !== undefined) {
+            throw Error("Only one of `clusterIdentifier` and `cluster` is supported");
+        } else {
+            throw Error("At least one of `clusterIdentifier` or `cluster` is required");
+        }
+    }
 
-  metricFreeStorageInBytes() {
-    return this.metric("FreeLocalStorage", MetricStatistic.MIN, "Free");
-  }
+    metricTotalConnectionCount() {
+        return this.metric("DatabaseConnections", MetricStatistic.AVERAGE, "Connections");
+    }
 
-  metricUsedStorageInBytes() {
-    return this.metric("VolumeBytesUsed", MetricStatistic.MAX, "Used");
-  }
+    metricFreeStorageInBytes() {
+        return this.metric("FreeLocalStorage", MetricStatistic.MIN, "Free");
+    }
 
-  metricDiskSpaceUsageInPercent() {
-    const used = this.metricUsedStorageInBytes();
-    const free = this.metricFreeStorageInBytes();
-    return this.metricFactory.createMetricMath(
-      "100 * (used/(used+free))",
-      { used, free },
-      "Disk Usage"
-    );
-  }
+    metricUsedStorageInBytes() {
+        return this.metric("VolumeBytesUsed", MetricStatistic.MAX, "Used");
+    }
 
-  metricAverageCpuUsageInPercent() {
-    return this.metric("CPUUtilization", MetricStatistic.AVERAGE, "CPU Usage");
-  }
+    metricDiskSpaceUsageInPercent() {
+        const used = this.metricUsedStorageInBytes();
+        const free = this.metricFreeStorageInBytes();
+        return this.metricFactory.createMetricMath("100 * (used/(used+free))", {used, free}, "Disk Usage");
+    }
 
-  metricSelectLatencyP90InMillis() {
-    return this.metric("SelectLatency", MetricStatistic.P90, "Select");
-  }
+    metricAverageCpuUsageInPercent() {
+        return this.metric("CPUUtilization", MetricStatistic.AVERAGE, "CPU Usage");
+    }
 
-  metricInsertLatencyP90InMillis() {
-    return this.metric("InsertLatency", MetricStatistic.P90, "Insert");
-  }
+    metricSelectLatencyP90InMillis() {
+        return this.metric("SelectLatency", MetricStatistic.P90, "Select");
+    }
 
-  metricUpdateLatencyP90InMillis() {
-    return this.metric("UpdateLatency", MetricStatistic.P90, "Update");
-  }
+    metricInsertLatencyP90InMillis() {
+        return this.metric("InsertLatency", MetricStatistic.P90, "Insert");
+    }
 
-  metricDeleteLatencyP90InMillis() {
-    return this.metric("DeleteLatency", MetricStatistic.P90, "Delete");
-  }
+    metricUpdateLatencyP90InMillis() {
+        return this.metric("UpdateLatency", MetricStatistic.P90, "Update");
+    }
 
-  metricCommitLatencyP90InMillis() {
-    return this.metric("CommitLatency", MetricStatistic.P90, "Commit");
-  }
+    metricDeleteLatencyP90InMillis() {
+        return this.metric("DeleteLatency", MetricStatistic.P90, "Delete");
+    }
 
-  private metric(
-    metricName: string,
-    statistic: MetricStatistic,
-    label: string
-  ) {
-    return this.metricFactory.createMetric(
-      metricName,
-      statistic,
-      label,
-      this.dimensionsMap,
-      undefined,
-      RdsNamespace
-    );
-  }
+    metricCommitLatencyP90InMillis() {
+        return this.metric("CommitLatency", MetricStatistic.P90, "Commit");
+    }
+
+    private metric(metricName: string, statistic: MetricStatistic, label: string) {
+        return this.metricFactory.createMetric(metricName, statistic, label, this.dimensionsMap, undefined, RdsNamespace);
+    }
 }

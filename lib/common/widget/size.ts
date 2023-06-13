@@ -23,19 +23,15 @@ export const DefaultLogWidgetHeight = 7;
  * @param numTotalWidgets total number of widgets to be placed
  */
 export function recommendedWidgetWidth(numTotalWidgets: number) {
-  function numRowsTaken(numItems: number, itemSize: number) {
-    return Math.ceil((numItems * itemSize) / FullWidth);
-  }
+    function numRowsTaken(numItems: number, itemSize: number) {
+        return Math.ceil((numItems * itemSize) / FullWidth);
+    }
 
-  const numItemsFixed = Math.max(1, numTotalWidgets);
-  const widths = [QuarterWidth, ThirdWidth, HalfWidth, FullWidth];
-  let i = 0;
-  while (
-    i < widths.length - 1 &&
-    numRowsTaken(numItemsFixed, widths[i + 1]) ===
-      numRowsTaken(numItemsFixed, widths[i])
-  ) {
-    i++;
-  }
-  return widths[i];
+    const numItemsFixed = Math.max(1, numTotalWidgets);
+    const widths = [QuarterWidth, ThirdWidth, HalfWidth, FullWidth];
+    let i = 0;
+    while (i < widths.length - 1 && numRowsTaken(numItemsFixed, widths[i + 1]) === numRowsTaken(numItemsFixed, widths[i])) {
+        i++;
+    }
+    return widths[i];
 }

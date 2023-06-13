@@ -1,12 +1,5 @@
-import {
-  OpsItemCategory,
-  OpsItemSeverity,
-  SsmAction,
-} from "aws-cdk-lib/aws-cloudwatch-actions";
-import {
-  AlarmActionStrategyProps,
-  IAlarmActionStrategy,
-} from "./IAlarmActionStrategy";
+import {OpsItemCategory, OpsItemSeverity, SsmAction} from "aws-cdk-lib/aws-cloudwatch-actions";
+import {AlarmActionStrategyProps, IAlarmActionStrategy} from "./IAlarmActionStrategy";
 
 /**
  * Creates an AWS OpsCenter OpsItem with critical severity.
@@ -14,7 +7,7 @@ import {
  * @param category optional category (no category by default)
  */
 export function createCriticalSeverityOpsItem(category?: OpsItemCategory) {
-  return createOpsItem(OpsItemSeverity.CRITICAL, category);
+    return createOpsItem(OpsItemSeverity.CRITICAL, category);
 }
 
 /**
@@ -23,7 +16,7 @@ export function createCriticalSeverityOpsItem(category?: OpsItemCategory) {
  * @param category optional category (no category by default)
  */
 export function createHighSeverityOpsItem(category?: OpsItemCategory) {
-  return createOpsItem(OpsItemSeverity.HIGH, category);
+    return createOpsItem(OpsItemSeverity.HIGH, category);
 }
 
 /**
@@ -32,7 +25,7 @@ export function createHighSeverityOpsItem(category?: OpsItemCategory) {
  * @param category optional category (no category by default)
  */
 export function createMediumSeverityOpsItem(category?: OpsItemCategory) {
-  return createOpsItem(OpsItemSeverity.MEDIUM, category);
+    return createOpsItem(OpsItemSeverity.MEDIUM, category);
 }
 
 /**
@@ -41,7 +34,7 @@ export function createMediumSeverityOpsItem(category?: OpsItemCategory) {
  * @param category optional category (no category by default)
  */
 export function createLowSeverityOpsItem(category?: OpsItemCategory) {
-  return createOpsItem(OpsItemSeverity.LOW, category);
+    return createOpsItem(OpsItemSeverity.LOW, category);
 }
 
 /**
@@ -50,33 +43,30 @@ export function createLowSeverityOpsItem(category?: OpsItemCategory) {
  * @param severity desired item severity
  * @param category optional category (no category by default)
  */
-export function createOpsItem(
-  severity: OpsItemSeverity,
-  category?: OpsItemCategory
-) {
-  return new OpsItemAlarmActionStrategy(severity, category);
+export function createOpsItem(severity: OpsItemSeverity, category?: OpsItemCategory) {
+    return new OpsItemAlarmActionStrategy(severity, category);
 }
 
 /**
  * Alarm action strategy that creates an AWS OpsCenter OpsItem.
  */
 export class OpsItemAlarmActionStrategy implements IAlarmActionStrategy {
-  /**
-   * OPS Item Severity
-   */
-  readonly severity: OpsItemSeverity;
+    /**
+     * OPS Item Severity
+     */
+    readonly severity: OpsItemSeverity;
 
-  /**
-   * OPS Item Category
-   */
-  readonly category?: OpsItemCategory;
+    /**
+     * OPS Item Category
+     */
+    readonly category?: OpsItemCategory;
 
-  constructor(severity: OpsItemSeverity, category?: OpsItemCategory) {
-    this.severity = severity;
-    this.category = category;
-  }
+    constructor(severity: OpsItemSeverity, category?: OpsItemCategory) {
+        this.severity = severity;
+        this.category = category;
+    }
 
-  addAlarmActions(props: AlarmActionStrategyProps): void {
-    props.alarm.addAlarmAction(new SsmAction(this.severity, this.category));
-  }
+    addAlarmActions(props: AlarmActionStrategyProps): void {
+        props.alarm.addAlarmAction(new SsmAction(this.severity, this.category));
+    }
 }
