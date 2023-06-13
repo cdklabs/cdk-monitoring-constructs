@@ -1,10 +1,10 @@
-const { awscdk, javascript, DependencyType } = require("projen");
-const { workflows } = require("projen/lib/github");
+import { awscdk, javascript, github, DependencyType } from "projen";
 
 const CDK_VERSION = "2.65.0";
 
 const project = new awscdk.AwsCdkConstructLibrary({
   name: "cdk-monitoring-constructs",
+  projenrcTs: true,
   repositoryUrl: "https://github.com/cdklabs/cdk-monitoring-constructs",
   author: "CDK Monitoring Constructs Team",
   authorAddress: "monitoring-cdk-constructs@amazon.com",
@@ -66,14 +66,6 @@ _By submitting this pull request, I confirm that my contribution is made under t
 
   // Code linting config
   prettier: true,
-  prettierOptions: {
-    arrowParens: "always",
-    bracketSpacing: false,
-    printWidth: 140,
-    semi: true,
-    tabWidth: 4,
-    trailingComma: "all",
-  },
 });
 
 // Experimental modules
@@ -95,7 +87,7 @@ _By submitting this pull request, I confirm that my contribution is made under t
 project.deps.addDependency("@types/prettier@2.6.0", DependencyType.DEVENV);
 
 // Add some other eslint rules followed across this project
-project.eslint.addRules({
+project.eslint?.addRules({
   "no-case-declarations": "off",
   "no-bitwise": "off",
   "no-shadow": "off",
@@ -112,12 +104,12 @@ project.eslint.addRules({
 project.addPackageIgnore("*.ts");
 project.addPackageIgnore("!*.d.ts");
 
-project.release.addJobs({
+project.release?.addJobs({
   notify_slack: {
     name: "Send Slack notification",
-    runsOn: "ubuntu-latest",
+    runsOn: ["ubuntu-latest"],
     permissions: {
-      actions: workflows.JobPermission.READ,
+      actions: github.workflows.JobPermission.READ,
     },
     needs: [
       "release",
