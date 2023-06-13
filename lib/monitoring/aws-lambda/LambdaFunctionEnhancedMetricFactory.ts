@@ -1,73 +1,103 @@
-import {IFunction} from "aws-cdk-lib/aws-lambda";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
 
-import {MetricFactory, MetricStatistic} from "../../common";
+import { MetricFactory, MetricStatistic } from "../../common";
 
 const LambdaInsightsNamespace = "LambdaInsights";
 
 export class LambdaFunctionEnhancedMetricFactory {
-    protected readonly metricFactory: MetricFactory;
-    protected readonly lambdaFunction: IFunction;
+  protected readonly metricFactory: MetricFactory;
+  protected readonly lambdaFunction: IFunction;
 
-    constructor(metricFactory: MetricFactory, lambdaFunction: IFunction) {
-        this.metricFactory = metricFactory;
-        this.lambdaFunction = lambdaFunction;
-    }
+  constructor(metricFactory: MetricFactory, lambdaFunction: IFunction) {
+    this.metricFactory = metricFactory;
+    this.lambdaFunction = lambdaFunction;
+  }
 
-    enhancedMetricMaxCpuTotalTime() {
-        return this.enhancedMetric("cpu_total_time", MetricStatistic.MAX, "CPUTotalTime.Max");
-    }
+  enhancedMetricMaxCpuTotalTime() {
+    return this.enhancedMetric(
+      "cpu_total_time",
+      MetricStatistic.MAX,
+      "CPUTotalTime.Max"
+    );
+  }
 
-    enhancedMetricP90CpuTotalTime() {
-        return this.enhancedMetric("cpu_total_time", MetricStatistic.P90, "CPUTotalTime.P90");
-    }
+  enhancedMetricP90CpuTotalTime() {
+    return this.enhancedMetric(
+      "cpu_total_time",
+      MetricStatistic.P90,
+      "CPUTotalTime.P90"
+    );
+  }
 
-    enhancedMetricAvgCpuTotalTime() {
-        return this.enhancedMetric("cpu_total_time", MetricStatistic.AVERAGE, "CPUTotalTime.Avg");
-    }
+  enhancedMetricAvgCpuTotalTime() {
+    return this.enhancedMetric(
+      "cpu_total_time",
+      MetricStatistic.AVERAGE,
+      "CPUTotalTime.Avg"
+    );
+  }
 
-    enhancedMetricMaxMemoryUtilization() {
-        return this.enhancedMetric("memory_utilization", MetricStatistic.MAX, "MemoryUtilization.Max");
-    }
+  enhancedMetricMaxMemoryUtilization() {
+    return this.enhancedMetric(
+      "memory_utilization",
+      MetricStatistic.MAX,
+      "MemoryUtilization.Max"
+    );
+  }
 
-    enhancedMetricP90MemoryUtilization() {
-        return this.enhancedMetric("memory_utilization", MetricStatistic.P90, "MemoryUtilization.P90");
-    }
+  enhancedMetricP90MemoryUtilization() {
+    return this.enhancedMetric(
+      "memory_utilization",
+      MetricStatistic.P90,
+      "MemoryUtilization.P90"
+    );
+  }
 
-    enhancedMetricAvgMemoryUtilization() {
-        return this.enhancedMetric("memory_utilization", MetricStatistic.AVERAGE, "MemoryUtilization.Avg");
-    }
+  enhancedMetricAvgMemoryUtilization() {
+    return this.enhancedMetric(
+      "memory_utilization",
+      MetricStatistic.AVERAGE,
+      "MemoryUtilization.Avg"
+    );
+  }
 
-    enhancedMetricFunctionCost() {
-        return this.metricFactory.createMetricMath(
-            "memory_utilization * duration",
-            {
-                memory_utilization: this.enhancedMetricMaxMemoryUtilization(),
-                duration: this.enhancedMetricFunctionDuration(),
-            },
-            "Function Cost (avg: ${AVG}, max: ${MAX})",
-        );
-    }
+  enhancedMetricFunctionCost() {
+    return this.metricFactory.createMetricMath(
+      "memory_utilization * duration",
+      {
+        memory_utilization: this.enhancedMetricMaxMemoryUtilization(),
+        duration: this.enhancedMetricFunctionDuration(),
+      },
+      "Function Cost (avg: ${AVG}, max: ${MAX})"
+    );
+  }
 
-    private enhancedMetricFunctionDuration() {
-        return this.metricFactory.adaptMetric(
-            this.lambdaFunction.metricDuration({
-                statistic: MetricStatistic.SUM,
-            }),
-        );
-    }
+  private enhancedMetricFunctionDuration() {
+    return this.metricFactory.adaptMetric(
+      this.lambdaFunction.metricDuration({
+        statistic: MetricStatistic.SUM,
+      })
+    );
+  }
 
-    private enhancedMetric(metricName: string, statistic: MetricStatistic, label: string, color?: string) {
-        const [functionName, functionVersion] = this.lambdaFunction.functionName.split(":");
-        return this.metricFactory.createMetric(
-            metricName,
-            statistic,
-            label,
-            {
-                function_name: functionName,
-                version: functionVersion,
-            },
-            color,
-            LambdaInsightsNamespace,
-        );
-    }
+  private enhancedMetric(
+    metricName: string,
+    statistic: MetricStatistic,
+    label: string,
+    color?: string
+  ) {
+    const [functionName, functionVersion] =
+      this.lambdaFunction.functionName.split(":");
+    return this.metricFactory.createMetric(
+      metricName,
+      statistic,
+      label,
+      {
+        function_name: functionName,
+        version: functionVersion,
+      },
+      color,
+      LambdaInsightsNamespace
+    );
+  }
 }

@@ -1,9 +1,3 @@
 {
-  "arrowParens": "always",
-  "bracketSpacing": false,
-  "printWidth": 140,
-  "semi": true,
-  "tabWidth": 4,
-  "trailingComma": "all",
   "overrides": []
 }

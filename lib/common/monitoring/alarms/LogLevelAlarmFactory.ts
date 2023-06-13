@@ -1,42 +1,53 @@
-import {ComparisonOperator, TreatMissingData} from "aws-cdk-lib/aws-cloudwatch";
+import {
+  ComparisonOperator,
+  TreatMissingData,
+} from "aws-cdk-lib/aws-cloudwatch";
 
-import {AlarmFactory, CustomAlarmThreshold} from "../../alarm";
-import {MetricWithAlarmSupport} from "../../metric";
+import { AlarmFactory, CustomAlarmThreshold } from "../../alarm";
+import { MetricWithAlarmSupport } from "../../metric";
 
 /**
  * Level of a given log
  */
 export enum LogLevel {
-    ERROR = "ERROR",
-    CRITICAL = "CRITICAL",
-    FATAL = "FATAL",
+  ERROR = "ERROR",
+  CRITICAL = "CRITICAL",
+  FATAL = "FATAL",
 }
 
 export interface LogLevelCountThreshold extends CustomAlarmThreshold {
-    /**
-     * Threshold for the number of logs to alarm on
-     */
-    readonly maxLogCount: number;
+  /**
+   * Threshold for the number of logs to alarm on
+   */
+  readonly maxLogCount: number;
 }
 
 export class LogLevelAlarmFactory {
-    protected readonly alarmFactory: AlarmFactory;
+  protected readonly alarmFactory: AlarmFactory;
 
-    constructor(alarmFactory: AlarmFactory) {
-        this.alarmFactory = alarmFactory;
-    }
+  constructor(alarmFactory: AlarmFactory) {
+    this.alarmFactory = alarmFactory;
+  }
 
-    addLogCountAlarm(metric: MetricWithAlarmSupport, logLevel: LogLevel, props: LogLevelCountThreshold, disambiguator?: string) {
-        return this.alarmFactory.addAlarm(metric, {
-            treatMissingData: props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
-            comparisonOperator: props.comparisonOperatorOverride ?? ComparisonOperator.GREATER_THAN_THRESHOLD,
-            ...props,
-            disambiguator,
-            threshold: props.maxLogCount,
-            alarmNameSuffix: `${LogLevel[logLevel]}-Logs-Count`,
-            // we will dedupe any kind of error to the same ticket
-            alarmDedupeStringSuffix: `${LogLevel[logLevel].toLowerCase()}`,
-            alarmDescription: `${LogLevel[logLevel]} logs count is too high.`,
-        });
-    }
+  addLogCountAlarm(
+    metric: MetricWithAlarmSupport,
+    logLevel: LogLevel,
+    props: LogLevelCountThreshold,
+    disambiguator?: string
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxLogCount,
+      alarmNameSuffix: `${LogLevel[logLevel]}-Logs-Count`,
+      // we will dedupe any kind of error to the same ticket
+      alarmDedupeStringSuffix: `${LogLevel[logLevel].toLowerCase()}`,
+      alarmDescription: `${LogLevel[logLevel]} logs count is too high.`,
+    });
+  }
 }

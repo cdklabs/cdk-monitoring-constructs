@@ -1,122 +1,125 @@
-import {DimensionsMap} from "aws-cdk-lib/aws-cloudwatch";
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
-import {MetricFactory, MetricStatistic} from "../../common";
+import { MetricFactory, MetricStatistic } from "../../common";
 
 export interface KinesisDataAnalyticsMetricFactoryProps {
-    readonly application: string;
+  readonly application: string;
 }
 
 /**
  * Used internally by this class to ease generating metrics
  */
 interface MetricsSpec {
-    readonly name: string;
-    readonly description: string;
-    readonly metricStatistic?: MetricStatistic;
+  readonly name: string;
+  readonly description: string;
+  readonly metricStatistic?: MetricStatistic;
 }
 
 /**
  * @see https://docs.aws.amazon.com/kinesisanalytics/latest/java/metrics-dimensions.html
  */
 export class KinesisDataAnalyticsMetricFactory {
-    protected readonly metricFactory: MetricFactory;
-    protected readonly dimensionsMap: DimensionsMap;
+  protected readonly metricFactory: MetricFactory;
+  protected readonly dimensionsMap: DimensionsMap;
 
-    constructor(metricFactory: MetricFactory, props: KinesisDataAnalyticsMetricFactoryProps) {
-        this.metricFactory = metricFactory;
-        this.dimensionsMap = {
-            Application: props.application,
-        };
-    }
+  constructor(
+    metricFactory: MetricFactory,
+    props: KinesisDataAnalyticsMetricFactoryProps
+  ) {
+    this.metricFactory = metricFactory;
+    this.dimensionsMap = {
+      Application: props.application,
+    };
+  }
 
-    metricKPUsCount() {
-        return this.generateMetric({
-            name: "KPUs",
-            description: "Kinesis Processing Units",
-        });
-    }
+  metricKPUsCount() {
+    return this.generateMetric({
+      name: "KPUs",
+      description: "Kinesis Processing Units",
+    });
+  }
 
-    metricDowntimeMs() {
-        return this.generateMetric({
-            name: "downtime",
-            description: "Downtime",
-        });
-    }
+  metricDowntimeMs() {
+    return this.generateMetric({
+      name: "downtime",
+      description: "Downtime",
+    });
+  }
 
-    metricUptimeMs() {
-        return this.generateMetric({
-            name: "uptime",
-            description: "Uptime",
-        });
-    }
+  metricUptimeMs() {
+    return this.generateMetric({
+      name: "uptime",
+      description: "Uptime",
+    });
+  }
 
-    metricFullRestartsCount() {
-        return this.generateMetric({
-            name: "fullRestarts",
-            description: "Restarts",
-        });
-    }
+  metricFullRestartsCount() {
+    return this.generateMetric({
+      name: "fullRestarts",
+      description: "Restarts",
+    });
+  }
 
-    metricNumberOfFailedCheckpointsCount() {
-        return this.generateMetric({
-            name: "numberOfFailedCheckpoints",
-            description: "Failed Checkpoints",
-            metricStatistic: MetricStatistic.SUM,
-        });
-    }
+  metricNumberOfFailedCheckpointsCount() {
+    return this.generateMetric({
+      name: "numberOfFailedCheckpoints",
+      description: "Failed Checkpoints",
+      metricStatistic: MetricStatistic.SUM,
+    });
+  }
 
-    metricLastCheckpointDurationMs() {
-        return this.generateMetric({
-            name: "lastCheckpointDuration",
-            description: "Last Checkpoint Duration",
-        });
-    }
+  metricLastCheckpointDurationMs() {
+    return this.generateMetric({
+      name: "lastCheckpointDuration",
+      description: "Last Checkpoint Duration",
+    });
+  }
 
-    metricLastCheckpointSizeBytes() {
-        return this.generateMetric({
-            name: "lastCheckpointSize",
-            description: "Last Checkpoint Size",
-            metricStatistic: MetricStatistic.SUM,
-        });
-    }
+  metricLastCheckpointSizeBytes() {
+    return this.generateMetric({
+      name: "lastCheckpointSize",
+      description: "Last Checkpoint Size",
+      metricStatistic: MetricStatistic.SUM,
+    });
+  }
 
-    metricCpuUtilizationPercent() {
-        return this.generateMetric({
-            name: "cpuUtilization",
-            description: "CPU Utilization",
-        });
-    }
+  metricCpuUtilizationPercent() {
+    return this.generateMetric({
+      name: "cpuUtilization",
+      description: "CPU Utilization",
+    });
+  }
 
-    metricHeapMemoryUtilizationPercent() {
-        return this.generateMetric({
-            name: "heapMemoryUtilization",
-            description: "Heap Memory Utilization",
-        });
-    }
+  metricHeapMemoryUtilizationPercent() {
+    return this.generateMetric({
+      name: "heapMemoryUtilization",
+      description: "Heap Memory Utilization",
+    });
+  }
 
-    metricOldGenerationGCTimeMs() {
-        return this.generateMetric({
-            name: "oldGenerationGCTime",
-            description: "GC Time",
-        });
-    }
+  metricOldGenerationGCTimeMs() {
+    return this.generateMetric({
+      name: "oldGenerationGCTime",
+      description: "GC Time",
+    });
+  }
 
-    metricOldGenerationGCCount() {
-        return this.generateMetric({
-            name: "oldGenerationGCCount",
-            metricStatistic: MetricStatistic.N,
-            description: "GC Count",
-        });
-    }
+  metricOldGenerationGCCount() {
+    return this.generateMetric({
+      name: "oldGenerationGCCount",
+      metricStatistic: MetricStatistic.N,
+      description: "GC Count",
+    });
+  }
 
-    private generateMetric(metricsSpec: MetricsSpec) {
-        return this.metricFactory.createMetric(
-            metricsSpec.name,
-            metricsSpec.metricStatistic || MetricStatistic.AVERAGE,
-            metricsSpec.description,
-            this.dimensionsMap,
-            undefined, // the hex color code of the metric on a graph
-            "AWS/KinesisAnalytics",
-        );
-    }
+  private generateMetric(metricsSpec: MetricsSpec) {
+    return this.metricFactory.createMetric(
+      metricsSpec.name,
+      metricsSpec.metricStatistic || MetricStatistic.AVERAGE,
+      metricsSpec.description,
+      this.dimensionsMap,
+      undefined, // the hex color code of the metric on a graph
+      "AWS/KinesisAnalytics"
+    );
+  }
 }
