@@ -32,6 +32,21 @@ test("snapshot test: all alarms", () => {
         maxRecordsThrottledThreshold: 5,
       },
     },
+    addIncomingBytesExceedThresholdAlarm: {
+      Critical: {
+        safetyThresholdLimit: 0.6,
+      },
+    },
+    addIncomingRecordsExceedThresholdAlarm: {
+      Critical: {
+        safetyThresholdLimit: 0.7,
+      },
+    },
+    addIncomingPutRequestsExceedThresholdAlarm: {
+      Critical: {
+        safetyThresholdLimit: 0.8,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms) {
         numAlarmsCreated = alarms.length;
@@ -40,6 +55,46 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(1);
+  expect(numAlarmsCreated).toStrictEqual(4);
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("test: validation error if incoming traffic usage alarm threshold equal to 1", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  expect(() => {
+    new KinesisFirehoseMonitoring(scope, {
+      deliveryStreamName:
+        "my-firehose-delivery-stream-with-unexpected-threshold",
+      addIncomingBytesExceedThresholdAlarm: {
+        Critical: {
+          safetyThresholdLimit: 1.0,
+        },
+      },
+    });
+  }).toThrow(
+    `safetyThresholdLimit must be in range [0.0, 1.0) for IncomingBytesExceedThresholdAlarm.`
+  );
+});
+
+test("test: validation error if incoming traffic usage alarm threshold less than 0", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  expect(() => {
+    new KinesisFirehoseMonitoring(scope, {
+      deliveryStreamName:
+        "my-firehose-delivery-stream-with-unexpected-threshold",
+      addIncomingRecordsExceedThresholdAlarm: {
+        Critical: {
+          safetyThresholdLimit: -0.1,
+        },
+      },
+    });
+  }).toThrow(
+    `safetyThresholdLimit must be in range [0.0, 1.0) for IncomingRecordsExceedThresholdAlarm.`
+  );
 });

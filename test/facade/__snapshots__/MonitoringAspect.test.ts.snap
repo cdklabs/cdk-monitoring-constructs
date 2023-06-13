@@ -4985,7 +4985,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4997,7 +4997,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -5023,7 +5023,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
