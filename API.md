@@ -16731,6 +16731,288 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 
 ---
 
+### FirehoseStreamLimitThreshold <a name="FirehoseStreamLimitThreshold" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.Initializer"></a>
+
+```typescript
+import { FirehoseStreamLimitThreshold } from 'cdk-monitoring-constructs'
+
+const firehoseStreamLimitThreshold: FirehoseStreamLimitThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.safetyThresholdLimit">safetyThresholdLimit</a></code> | <code>number</code> | Threshold value between [0.0, 1.0) for when the alarm should be triggered. |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+Dedupe strings are global and not unique per CTI.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `safetyThresholdLimit`<sup>Required</sup> <a name="safetyThresholdLimit" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.safetyThresholdLimit"></a>
+
+```typescript
+public readonly safetyThresholdLimit: number;
+```
+
+- *Type:* number
+
+Threshold value between [0.0, 1.0) for when the alarm should be triggered.
+
+---
+
 ### FullRestartCountThreshold <a name="FullRestartCountThreshold" id="cdk-monitoring-constructs.FullRestartCountThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.FullRestartCountThreshold.Initializer"></a>
@@ -19620,6 +19902,9 @@ const kinesisFirehoseMonitoringOptions: KinesisFirehoseMonitoringOptions = { ...
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingBytesExceedThresholdAlarm">addIncomingBytesExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingPutRequestsExceedThresholdAlarm">addIncomingPutRequestsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingRecordsExceedThresholdAlarm">addIncomingRecordsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addRecordsThrottledAlarm">addRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 
 ---
@@ -19722,6 +20007,36 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addIncomingBytesExceedThresholdAlarm`<sup>Optional</sup> <a name="addIncomingBytesExceedThresholdAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingBytesExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addIncomingBytesExceedThresholdAlarm: {[ key: string ]: FirehoseStreamLimitThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}
+
+---
+
+##### `addIncomingPutRequestsExceedThresholdAlarm`<sup>Optional</sup> <a name="addIncomingPutRequestsExceedThresholdAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingPutRequestsExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addIncomingPutRequestsExceedThresholdAlarm: {[ key: string ]: FirehoseStreamLimitThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}
+
+---
+
+##### `addIncomingRecordsExceedThresholdAlarm`<sup>Optional</sup> <a name="addIncomingRecordsExceedThresholdAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingRecordsExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addIncomingRecordsExceedThresholdAlarm: {[ key: string ]: FirehoseStreamLimitThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}
+
+---
+
 ##### `addRecordsThrottledAlarm`<sup>Optional</sup> <a name="addRecordsThrottledAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addRecordsThrottledAlarm"></a>
 
 ```typescript
@@ -19754,6 +20069,9 @@ const kinesisFirehoseMonitoringProps: KinesisFirehoseMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingBytesExceedThresholdAlarm">addIncomingBytesExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingPutRequestsExceedThresholdAlarm">addIncomingPutRequestsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingRecordsExceedThresholdAlarm">addIncomingRecordsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addRecordsThrottledAlarm">addRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 
 ---
@@ -19863,6 +20181,36 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addIncomingBytesExceedThresholdAlarm`<sup>Optional</sup> <a name="addIncomingBytesExceedThresholdAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingBytesExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addIncomingBytesExceedThresholdAlarm: {[ key: string ]: FirehoseStreamLimitThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}
+
+---
+
+##### `addIncomingPutRequestsExceedThresholdAlarm`<sup>Optional</sup> <a name="addIncomingPutRequestsExceedThresholdAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingPutRequestsExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addIncomingPutRequestsExceedThresholdAlarm: {[ key: string ]: FirehoseStreamLimitThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}
+
+---
+
+##### `addIncomingRecordsExceedThresholdAlarm`<sup>Optional</sup> <a name="addIncomingRecordsExceedThresholdAlarm" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingRecordsExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addIncomingRecordsExceedThresholdAlarm: {[ key: string ]: FirehoseStreamLimitThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}
 
 ---
 
@@ -48347,11 +48695,48 @@ new KinesisAlarmFactory(alarmFactory: AlarmFactory)
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm">addFirehoseStreamExceedSafetyThresholdAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addIteratorMaxAgeAlarm">addIteratorMaxAgeAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedReadThroughputExceededAlarm">addProvisionedReadThroughputExceededAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addProvisionedWriteThroughputExceededAlarm">addProvisionedWriteThroughputExceededAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addPutRecordsFailedAlarm">addPutRecordsFailedAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory.addPutRecordsThrottledAlarm">addPutRecordsThrottledAlarm</a></code> | *No description.* |
+
+---
+
+##### `addFirehoseStreamExceedSafetyThresholdAlarm` <a name="addFirehoseStreamExceedSafetyThresholdAlarm" id="cdk-monitoring-constructs.KinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm"></a>
+
+```typescript
+public addFirehoseStreamExceedSafetyThresholdAlarm(metric: Metric | MathExpression, metricName: string, quotaName: string, props: FirehoseStreamLimitThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-monitoring-constructs.KinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `quotaName`<sup>Required</sup> <a name="quotaName" id="cdk-monitoring-constructs.KinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm.parameter.quotaName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.KinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.KinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
 
 ---
 
@@ -50275,6 +50660,7 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.failedConversionMetric">failedConversionMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingBytesMetric">incomingBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingBytesToLimitRate">incomingBytesToLimitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingLimitAnnotations">incomingLimitAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingPutRequestsToLimitRate">incomingPutRequestsToLimitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingRecordsMetric">incomingRecordsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingRecordsToLimitRate">incomingRecordsToLimitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
@@ -50316,6 +50702,16 @@ public readonly incomingBytesToLimitRate: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `incomingLimitAnnotations`<sup>Required</sup> <a name="incomingLimitAnnotations" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingLimitAnnotations"></a>
+
+```typescript
+public readonly incomingLimitAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 

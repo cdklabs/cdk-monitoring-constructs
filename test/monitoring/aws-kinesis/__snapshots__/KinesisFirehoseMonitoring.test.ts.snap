@@ -27,6 +27,39 @@ Object {
                   "Arn",
                 ],
               },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyfirehosedeliverystreamIncomingBytesCritical6248CFCD",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyfirehosedeliverystreamIncomingRecordsCritical8EFBC879",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyfirehosedeliverystreamIncomingPutRequestsCritical31DBB0F0",
+                  "Arn",
+                ],
+              },
               "\\"]},\\"yAxis\\":{}}}]}",
             ],
           ],
@@ -44,7 +77,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttled > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttled > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -56,12 +89,186 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Incoming Bytes / Limit > 0.6 for 3 datapoints within 15 minutes\\",\\"value\\":0.6,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Incoming Records / Limit > 0.7 for 3 datapoints within 15 minutes\\",\\"value\\":0.7,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Incoming PutRequests / Limit > 0.8 for 3 datapoints within 15 minutes\\",\\"value\\":0.8,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
       },
       "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestmyfirehosedeliverystreamIncomingBytesCritical6248CFCD": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "IncomingBytes exceeded BytesPerSecondLimit alarming threshold of 0.6",
+        "AlarmName": "Test-my-firehose-delivery-stream-IncomingBytes-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "(bytes_in / PERIOD(bytes_in)) / bytes_max",
+            "Id": "expr_1",
+            "Label": "Incoming Bytes / Limit",
+          },
+          Object {
+            "Id": "bytes_in",
+            "Label": "Incoming (bytes)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DeliveryStreamName",
+                    "Value": "my-firehose-delivery-stream",
+                  },
+                ],
+                "MetricName": "IncomingBytes",
+                "Namespace": "AWS/Firehose",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "bytes_max",
+            "Label": "Incoming Bytes/s Limit",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DeliveryStreamName",
+                    "Value": "my-firehose-delivery-stream",
+                  },
+                ],
+                "MetricName": "BytesPerSecondLimit",
+                "Namespace": "AWS/Firehose",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.6,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyfirehosedeliverystreamIncomingPutRequestsCritical31DBB0F0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "IncomingPutRequests exceeded PutRequestsPerSecondLimit alarming threshold of 0.8",
+        "AlarmName": "Test-my-firehose-delivery-stream-IncomingPutRequests-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "(requests_in / PERIOD(requests_in)) / requests_max",
+            "Id": "expr_1",
+            "Label": "Incoming PutRequests / Limit",
+          },
+          Object {
+            "Id": "requests_in",
+            "Label": "Incoming (PutRequest)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DeliveryStreamName",
+                    "Value": "my-firehose-delivery-stream",
+                  },
+                ],
+                "MetricName": "IncomingPutRequests",
+                "Namespace": "AWS/Firehose",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "requests_max",
+            "Label": "PutRequests/s Limit",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DeliveryStreamName",
+                    "Value": "my-firehose-delivery-stream",
+                  },
+                ],
+                "MetricName": "PutRequestsPerSecondLimit",
+                "Namespace": "AWS/Firehose",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.8,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyfirehosedeliverystreamIncomingRecordsCritical8EFBC879": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "IncomingRecords exceeded RecordsPerSecondLimit alarming threshold of 0.7",
+        "AlarmName": "Test-my-firehose-delivery-stream-IncomingRecords-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "(records_in / PERIOD(records_in)) / records_max",
+            "Id": "expr_1",
+            "Label": "Incoming Records / Limit",
+          },
+          Object {
+            "Id": "records_in",
+            "Label": "Incoming (Records)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DeliveryStreamName",
+                    "Value": "my-firehose-delivery-stream",
+                  },
+                ],
+                "MetricName": "IncomingRecords",
+                "Namespace": "AWS/Firehose",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "records_max",
+            "Label": "Records/s Limit",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DeliveryStreamName",
+                    "Value": "my-firehose-delivery-stream",
+                  },
+                ],
+                "MetricName": "RecordsPerSecondLimit",
+                "Namespace": "AWS/Firehose",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.7,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ScopeTestmyfirehosedeliverystreamPutRecordsThrottledCritical95611854": Object {
       "Properties": Object {
@@ -107,7 +314,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttled > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttled > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -175,7 +382,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (P90)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -187,7 +394,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -204,7 +411,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Firehose\\",\\"IncomingRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"ThrottledRecords\\",\\"DeliveryStreamName\\",\\"my-firehose-delivery-stream\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Conversions\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

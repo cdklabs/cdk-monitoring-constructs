@@ -73,7 +73,7 @@ export class KinesisFirehoseMetricFactory {
     return this.metricFactory.createMetric(
       "IncomingRecords",
       MetricStatistic.SUM,
-      "Incoming",
+      "Incoming (Records)",
       this.dimensionsMap,
       undefined,
       FirehoseNamespace

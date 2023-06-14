@@ -21,6 +21,7 @@ import {
   QuarterWidth,
   RateAxisFromZero,
   RecordsThrottledThreshold,
+  FirehoseStreamLimitThreshold,
   TimeAxisMillisFromZero,
 } from "../../common";
 import {
@@ -30,6 +31,18 @@ import {
 
 export interface KinesisFirehoseMonitoringOptions extends BaseMonitoringProps {
   readonly addRecordsThrottledAlarm?: Record<string, RecordsThrottledThreshold>;
+  readonly addIncomingBytesExceedThresholdAlarm?: Record<
+    string,
+    FirehoseStreamLimitThreshold
+  >;
+  readonly addIncomingRecordsExceedThresholdAlarm?: Record<
+    string,
+    FirehoseStreamLimitThreshold
+  >;
+  readonly addIncomingPutRequestsExceedThresholdAlarm?: Record<
+    string,
+    FirehoseStreamLimitThreshold
+  >;
 }
 
 export interface KinesisFirehoseMonitoringProps
@@ -42,6 +55,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
 
   readonly kinesisAlarmFactory: KinesisAlarmFactory;
   readonly recordCountAnnotations: HorizontalAnnotation[];
+  readonly incomingLimitAnnotations: HorizontalAnnotation[];
 
   readonly incomingBytesMetric: MetricWithAlarmSupport;
   readonly incomingRecordsMetric: MetricWithAlarmSupport;
@@ -75,6 +89,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     );
     this.kinesisAlarmFactory = new KinesisAlarmFactory(alarmFactory);
     this.recordCountAnnotations = [];
+    this.incomingLimitAnnotations = [{ value: 1, label: "100% usage" }];
 
     this.incomingBytesMetric = metricFactory.metricIncomingBytes();
     this.incomingRecordsMetric = metricFactory.metricIncomingRecordCount();
@@ -100,6 +115,51 @@ export class KinesisFirehoseMonitoring extends Monitoring {
         disambiguator
       );
       this.recordCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addIncomingBytesExceedThresholdAlarm) {
+      const alarmProps =
+        props.addIncomingBytesExceedThresholdAlarm[disambiguator];
+      const createdAlarm =
+        this.kinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm(
+          this.incomingBytesToLimitRate,
+          "IncomingBytes",
+          "BytesPerSecondLimit",
+          alarmProps,
+          disambiguator
+        );
+      this.incomingLimitAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addIncomingRecordsExceedThresholdAlarm) {
+      const alarmProps =
+        props.addIncomingRecordsExceedThresholdAlarm[disambiguator];
+      const createdAlarm =
+        this.kinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm(
+          this.incomingRecordsToLimitRate,
+          "IncomingRecords",
+          "RecordsPerSecondLimit",
+          alarmProps,
+          disambiguator
+        );
+      this.incomingLimitAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addIncomingPutRequestsExceedThresholdAlarm) {
+      const alarmProps =
+        props.addIncomingPutRequestsExceedThresholdAlarm[disambiguator];
+      const createdAlarm =
+        this.kinesisAlarmFactory.addFirehoseStreamExceedSafetyThresholdAlarm(
+          this.incomingPutRequestsToLimitRate,
+          "IncomingPutRequests",
+          "PutRequestsPerSecondLimit",
+          alarmProps,
+          disambiguator
+        );
+      this.incomingLimitAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
 
@@ -174,7 +234,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
         this.incomingPutRequestsToLimitRate.with({ label: "PutRequests" }),
       ],
       leftYAxis: RateAxisFromZero,
-      leftAnnotations: [{ value: 1, label: "100% usage" }],
+      leftAnnotations: this.incomingLimitAnnotations,
     });
   }
 }
