@@ -46,7 +46,8 @@ function isNetworkTargetGroup(
 export function createLoadBalancerMetricFactory(
   metricFactory: MetricFactory,
   loadBalancer: INetworkLoadBalancer | IApplicationLoadBalancer,
-  targetGroup: INetworkTargetGroup | IApplicationTargetGroup
+  targetGroup: INetworkTargetGroup | IApplicationTargetGroup,
+  invertStatisticsOfTaskCountEnabled?: boolean
 ): ILoadBalancerMetricFactory {
   if (
     isNetworkLoadBalancer(loadBalancer) &&
@@ -55,6 +56,7 @@ export function createLoadBalancerMetricFactory(
     return new NetworkLoadBalancerMetricFactory(metricFactory, {
       networkLoadBalancer: loadBalancer,
       networkTargetGroup: targetGroup,
+      invertStatisticsOfTaskCountEnabled: invertStatisticsOfTaskCountEnabled,
     });
   } else if (
     isApplicationLoadBalancer(loadBalancer) &&
@@ -63,12 +65,31 @@ export function createLoadBalancerMetricFactory(
     return new ApplicationLoadBalancerMetricFactory(metricFactory, {
       applicationLoadBalancer: loadBalancer,
       applicationTargetGroup: targetGroup,
+      invertStatisticsOfTaskCountEnabled: invertStatisticsOfTaskCountEnabled,
     });
   } else {
     throw new Error(
       "Invalid type of load balancer or target group (only ALB and NLB are supported)."
     );
   }
+}
+
+/**
+ * Base of Monitoring props for load-balancer metric factories.
+ */
+export interface BaseLoadBalancerMetricFactoryProps {
+  /**
+   * Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+   *
+   * When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+   * When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+   *
+   * `invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+   *
+   * @default false
+   */
+  readonly invertStatisticsOfTaskCountEnabled?: boolean;
 }
 
 /**

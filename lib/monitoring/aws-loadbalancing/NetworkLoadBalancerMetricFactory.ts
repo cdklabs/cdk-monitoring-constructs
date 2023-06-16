@@ -3,7 +3,10 @@ import {
   INetworkTargetGroup,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
-import { ILoadBalancerMetricFactory } from "./LoadBalancerMetricFactory";
+import {
+  ILoadBalancerMetricFactory,
+  BaseLoadBalancerMetricFactoryProps,
+} from "./LoadBalancerMetricFactory";
 import {
   HealthyMetricColor,
   MetricFactory,
@@ -14,7 +17,8 @@ import {
 /**
  * Props to create NetworkLoadBalancerMetricFactory.
  */
-export interface NetworkLoadBalancerMetricFactoryProps {
+export interface NetworkLoadBalancerMetricFactoryProps
+  extends BaseLoadBalancerMetricFactoryProps {
   readonly networkLoadBalancer: INetworkLoadBalancer;
   readonly networkTargetGroup: INetworkTargetGroup;
 }
@@ -28,6 +32,7 @@ export class NetworkLoadBalancerMetricFactory
   protected readonly metricFactory: MetricFactory;
   protected readonly networkLoadBalancer: INetworkLoadBalancer;
   protected readonly networkTargetGroup: INetworkTargetGroup;
+  protected readonly invertStatisticsOfTaskCountEnabled: boolean;
 
   constructor(
     metricFactory: MetricFactory,
@@ -36,6 +41,8 @@ export class NetworkLoadBalancerMetricFactory
     this.metricFactory = metricFactory;
     this.networkLoadBalancer = props.networkLoadBalancer;
     this.networkTargetGroup = props.networkTargetGroup;
+    this.invertStatisticsOfTaskCountEnabled =
+      props.invertStatisticsOfTaskCountEnabled ?? false;
   }
 
   metricHealthyTaskCount() {
@@ -43,7 +50,9 @@ export class NetworkLoadBalancerMetricFactory
       this.networkTargetGroup.metrics.healthyHostCount({
         label: "Healthy Tasks",
         color: HealthyMetricColor,
-        statistic: MetricStatistic.MIN,
+        statistic: this.invertStatisticsOfTaskCountEnabled
+          ? MetricStatistic.MAX
+          : MetricStatistic.MIN,
       })
     );
   }
@@ -53,7 +62,9 @@ export class NetworkLoadBalancerMetricFactory
       this.networkTargetGroup.metrics.unHealthyHostCount({
         label: "Unhealthy Tasks",
         color: UnhealthyMetricColor,
-        statistic: MetricStatistic.MAX,
+        statistic: this.invertStatisticsOfTaskCountEnabled
+          ? MetricStatistic.MIN
+          : MetricStatistic.MAX,
       })
     );
   }
