@@ -11,6 +11,7 @@ export * from "./LatencyAlarmFactory";
 export * from "./LogLevelAlarmFactory";
 export * from "./OpenSearchClusterAlarmFactory";
 export * from "./QueueAlarmFactory";
+export * from "./SecretsManagerAlarmFactory";
 export * from "./TaskHealthAlarmFactory";
 export * from "./ThroughputAlarmFactory";
 export * from "./TopicAlarmFactory";

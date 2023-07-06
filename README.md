@@ -89,7 +89,8 @@ You can browse the documentation at https://constructs.dev/packages/cdk-monitori
 | AWS RDS (`.monitorRdsCluster()`) | Query duration, connections, latency, disk/CPU usage | Connections, disk and CPU usage | |
 | AWS Redshift (`.monitorRedshiftCluster()`) | Query duration, connections, latency, disk/CPU usage | Query duration, connections, disk and CPU usage | |
 | AWS S3 Bucket (`.monitorS3Bucket()`) | Bucket size and number of objects | | |
-| AWS SecretsManager (`.monitorSecretsManagerSecret()`) | Days since last rotation | Days since last change or rotation | |
+| AWS SecretsManager (`.monitorSecretsManager()`) | Max secret count, min secret sount, secret count change | Min/max secret count or change in secret count | |
+| AWS SecretsManager Secret (`.monitorSecretsManagerSecret()`) | Days since last rotation | Days since last change or rotation | |
 | AWS SNS Topic (`.monitorSnsTopic()`) | Message count, size, failed notifications | Failed notifications, min/max published messages | |
 | AWS SQS Queue (`.monitorSqsQueue()`, `.monitorSqsQueueWithDlq()`) | Message count, age, size | Message count, age, DLQ incoming messages | |
 | AWS Step Functions (`.monitorStepFunction()`, `.monitorStepFunctionActivity()`, `monitorStepFunctionLambdaIntegration()`, `.monitorStepFunctionServiceIntegration()`) | Execution count and breakdown per state | Duration, failed, failed rate, aborted, throttled, timed out executions | |

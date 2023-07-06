@@ -94,6 +94,8 @@ import {
   RedshiftClusterMonitoringProps,
   S3BucketMonitoring,
   S3BucketMonitoringProps,
+  SecretsManagerMonitoring,
+  SecretsManagerMonitoringProps,
   SecretsManagerSecretMonitoring,
   SecretsManagerSecretMonitoringProps,
   SimpleEc2ServiceMonitoringProps,
@@ -633,6 +635,12 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorRedshiftCluster(props: RedshiftClusterMonitoringProps) {
     const segment = new RedshiftClusterMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorSecretsManager(props: SecretsManagerMonitoringProps) {
+    const segment = new SecretsManagerMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

@@ -1061,6 +1061,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRedshiftCluster">monitorRedshiftCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorS3Bucket">monitorS3Bucket</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorScope">monitorScope</a></code> | Uses an aspect to automatically monitor all resources in the given scope. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManager">monitorSecretsManager</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManagerSecret">monitorSecretsManagerSecret</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSimpleEc2Service">monitorSimpleEc2Service</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSimpleFargateService">monitorSimpleFargateService</a></code> | *No description.* |
@@ -1809,6 +1810,18 @@ Scope with resources to monitor.
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectProps">MonitoringAspectProps</a>
 
 Optional configuration.
+
+---
+
+##### `monitorSecretsManager` <a name="monitorSecretsManager" id="cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManager"></a>
+
+```typescript
+public monitorSecretsManager(props: SecretsManagerMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManager.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps">SecretsManagerMonitoringProps</a>
 
 ---
 
@@ -8652,6 +8665,319 @@ public readonly certificate: ICertificate;
 ```
 
 - *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+### ChangeInSecretCountThreshold <a name="ChangeInSecretCountThreshold" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.Initializer"></a>
+
+```typescript
+import { ChangeInSecretCountThreshold } from 'cdk-monitoring-constructs'
+
+const changeInSecretCountThreshold: ChangeInSecretCountThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmWhenDecreased">alarmWhenDecreased</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmWhenIncreased">alarmWhenIncreased</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.requiredSecretCount">requiredSecretCount</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.additionalDescription">additionalDescription</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+Dedupe strings are global and not unique per CTI.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `alarmWhenDecreased`<sup>Required</sup> <a name="alarmWhenDecreased" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmWhenDecreased"></a>
+
+```typescript
+public readonly alarmWhenDecreased: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `alarmWhenIncreased`<sup>Required</sup> <a name="alarmWhenIncreased" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmWhenIncreased"></a>
+
+```typescript
+public readonly alarmWhenIncreased: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `requiredSecretCount`<sup>Required</sup> <a name="requiredSecretCount" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.requiredSecretCount"></a>
+
+```typescript
+public readonly requiredSecretCount: number;
+```
+
+- *Type:* number
+
+---
+
+##### `additionalDescription`<sup>Optional</sup> <a name="additionalDescription" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.additionalDescription"></a>
+
+```typescript
+public readonly additionalDescription: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -24578,6 +24904,286 @@ public readonly maxMessageCount: number;
 
 ---
 
+### MaxSecretCountThreshold <a name="MaxSecretCountThreshold" id="cdk-monitoring-constructs.MaxSecretCountThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MaxSecretCountThreshold.Initializer"></a>
+
+```typescript
+import { MaxSecretCountThreshold } from 'cdk-monitoring-constructs'
+
+const maxSecretCountThreshold: MaxSecretCountThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.maxSecretCount">maxSecretCount</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+Dedupe strings are global and not unique per CTI.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxSecretCount`<sup>Required</sup> <a name="maxSecretCount" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.maxSecretCount"></a>
+
+```typescript
+public readonly maxSecretCount: number;
+```
+
+- *Type:* number
+
+---
+
 ### MaxTimeToDrainThreshold <a name="MaxTimeToDrainThreshold" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.Initializer"></a>
@@ -26646,6 +27252,286 @@ Behaviour in case the metric data is missing.
 
 ```typescript
 public readonly minRunningTasks: number;
+```
+
+- *Type:* number
+
+---
+
+### MinSecretCountThreshold <a name="MinSecretCountThreshold" id="cdk-monitoring-constructs.MinSecretCountThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MinSecretCountThreshold.Initializer"></a>
+
+```typescript
+import { MinSecretCountThreshold } from 'cdk-monitoring-constructs'
+
+const minSecretCountThreshold: MinSecretCountThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.minSecretCount">minSecretCount</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+Dedupe strings are global and not unique per CTI.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `minSecretCount`<sup>Required</sup> <a name="minSecretCount" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.minSecretCount"></a>
+
+```typescript
+public readonly minSecretCount: number;
 ```
 
 - *Type:* number
@@ -33222,6 +34108,316 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+### SecretsManagerMonitoringOptions <a name="SecretsManagerMonitoringOptions" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.Initializer"></a>
+
+```typescript
+import { SecretsManagerMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const secretsManagerMonitoringOptions: SecretsManagerMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addChangeInSecretsAlarm">addChangeInSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold">ChangeInSecretCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addMaxNumberSecretsAlarm">addMaxNumberSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxSecretCountThreshold">MaxSecretCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addMinNumberSecretsAlarm">addMinNumberSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinSecretCountThreshold">MinSecretCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addChangeInSecretsAlarm`<sup>Optional</sup> <a name="addChangeInSecretsAlarm" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addChangeInSecretsAlarm"></a>
+
+```typescript
+public readonly addChangeInSecretsAlarm: {[ key: string ]: ChangeInSecretCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold">ChangeInSecretCountThreshold</a>}
+
+---
+
+##### `addMaxNumberSecretsAlarm`<sup>Optional</sup> <a name="addMaxNumberSecretsAlarm" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addMaxNumberSecretsAlarm"></a>
+
+```typescript
+public readonly addMaxNumberSecretsAlarm: {[ key: string ]: MaxSecretCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxSecretCountThreshold">MaxSecretCountThreshold</a>}
+
+---
+
+##### `addMinNumberSecretsAlarm`<sup>Optional</sup> <a name="addMinNumberSecretsAlarm" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addMinNumberSecretsAlarm"></a>
+
+```typescript
+public readonly addMinNumberSecretsAlarm: {[ key: string ]: MinSecretCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinSecretCountThreshold">MinSecretCountThreshold</a>}
+
+---
+
+### SecretsManagerMonitoringProps <a name="SecretsManagerMonitoringProps" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.Initializer"></a>
+
+```typescript
+import { SecretsManagerMonitoringProps } from 'cdk-monitoring-constructs'
+
+const secretsManagerMonitoringProps: SecretsManagerMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addChangeInSecretsAlarm">addChangeInSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold">ChangeInSecretCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addMaxNumberSecretsAlarm">addMaxNumberSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxSecretCountThreshold">MaxSecretCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addMinNumberSecretsAlarm">addMinNumberSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinSecretCountThreshold">MinSecretCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addChangeInSecretsAlarm`<sup>Optional</sup> <a name="addChangeInSecretsAlarm" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addChangeInSecretsAlarm"></a>
+
+```typescript
+public readonly addChangeInSecretsAlarm: {[ key: string ]: ChangeInSecretCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold">ChangeInSecretCountThreshold</a>}
+
+---
+
+##### `addMaxNumberSecretsAlarm`<sup>Optional</sup> <a name="addMaxNumberSecretsAlarm" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addMaxNumberSecretsAlarm"></a>
+
+```typescript
+public readonly addMaxNumberSecretsAlarm: {[ key: string ]: MaxSecretCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxSecretCountThreshold">MaxSecretCountThreshold</a>}
+
+---
+
+##### `addMinNumberSecretsAlarm`<sup>Optional</sup> <a name="addMinNumberSecretsAlarm" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addMinNumberSecretsAlarm"></a>
+
+```typescript
+public readonly addMinNumberSecretsAlarm: {[ key: string ]: MinSecretCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinSecretCountThreshold">MinSecretCountThreshold</a>}
 
 ---
 
@@ -56353,6 +57549,374 @@ Returns widgets for the requested dashboard type.
 
 
 
+### SecretsManagerAlarmFactory <a name="SecretsManagerAlarmFactory" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.Initializer"></a>
+
+```typescript
+import { SecretsManagerAlarmFactory } from 'cdk-monitoring-constructs'
+
+new SecretsManagerAlarmFactory(alarmFactory: AlarmFactory)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerAlarmFactory.Initializer.parameter.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.Initializer.parameter.alarmFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerAlarmFactory.addChangeInSecretCountAlarm">addChangeInSecretCountAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMaxSecretCountAlarm">addMaxSecretCountAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMinSecretCountAlarm">addMinSecretCountAlarm</a></code> | *No description.* |
+
+---
+
+##### `addChangeInSecretCountAlarm` <a name="addChangeInSecretCountAlarm" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addChangeInSecretCountAlarm"></a>
+
+```typescript
+public addChangeInSecretCountAlarm(metric: Metric | MathExpression, props: ChangeInSecretCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addChangeInSecretCountAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addChangeInSecretCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold">ChangeInSecretCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addChangeInSecretCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addMaxSecretCountAlarm` <a name="addMaxSecretCountAlarm" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMaxSecretCountAlarm"></a>
+
+```typescript
+public addMaxSecretCountAlarm(metric: Metric | MathExpression, props: MaxSecretCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMaxSecretCountAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMaxSecretCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MaxSecretCountThreshold">MaxSecretCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMaxSecretCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addMinSecretCountAlarm` <a name="addMinSecretCountAlarm" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMinSecretCountAlarm"></a>
+
+```typescript
+public addMinSecretCountAlarm(metric: Metric | MathExpression, props: MinSecretCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMinSecretCountAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMinSecretCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MinSecretCountThreshold">MinSecretCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.SecretsManagerAlarmFactory.addMinSecretCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+
+
+
+### SecretsManagerMetricFactory <a name="SecretsManagerMetricFactory" id="cdk-monitoring-constructs.SecretsManagerMetricFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SecretsManagerMetricFactory.Initializer"></a>
+
+```typescript
+import { SecretsManagerMetricFactory } from 'cdk-monitoring-constructs'
+
+new SecretsManagerMetricFactory(metricFactory: MetricFactory)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.SecretsManagerMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricFactory.metricSecretCount">metricSecretCount</a></code> | *No description.* |
+
+---
+
+##### `metricSecretCount` <a name="metricSecretCount" id="cdk-monitoring-constructs.SecretsManagerMetricFactory.metricSecretCount"></a>
+
+```typescript
+public metricSecretCount(): Metric | MathExpression
+```
+
+
+
+
+### SecretsManagerMonitoring <a name="SecretsManagerMonitoring" id="cdk-monitoring-constructs.SecretsManagerMonitoring"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SecretsManagerMonitoring.Initializer"></a>
+
+```typescript
+import { SecretsManagerMonitoring } from 'cdk-monitoring-constructs'
+
+new SecretsManagerMonitoring(scope: MonitoringScope, props: SecretsManagerMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps">SecretsManagerMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.SecretsManagerMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SecretsManagerMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps">SecretsManagerMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.createSecretsCountWidget">createSecretsCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.SecretsManagerMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.SecretsManagerMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.SecretsManagerMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.SecretsManagerMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.SecretsManagerMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.SecretsManagerMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.SecretsManagerMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `createSecretsCountWidget` <a name="createSecretsCountWidget" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createSecretsCountWidget"></a>
+
+```typescript
+public createSecretsCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createSecretsCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createSecretsCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.SecretsManagerMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.property.secretsCountAnnotation">secretsCountAnnotation</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.property.secretsCountMetric">secretsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.property.secretsManagerAlarmFactory">secretsManagerAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.SecretsManagerAlarmFactory">SecretsManagerAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `secretsCountAnnotation`<sup>Required</sup> <a name="secretsCountAnnotation" id="cdk-monitoring-constructs.SecretsManagerMonitoring.property.secretsCountAnnotation"></a>
+
+```typescript
+public readonly secretsCountAnnotation: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `secretsCountMetric`<sup>Required</sup> <a name="secretsCountMetric" id="cdk-monitoring-constructs.SecretsManagerMonitoring.property.secretsCountMetric"></a>
+
+```typescript
+public readonly secretsCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `secretsManagerAlarmFactory`<sup>Required</sup> <a name="secretsManagerAlarmFactory" id="cdk-monitoring-constructs.SecretsManagerMonitoring.property.secretsManagerAlarmFactory"></a>
+
+```typescript
+public readonly secretsManagerAlarmFactory: SecretsManagerAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.SecretsManagerAlarmFactory">SecretsManagerAlarmFactory</a>
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.SecretsManagerMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### SecretsManagerSecretMetricFactory <a name="SecretsManagerSecretMetricFactory" id="cdk-monitoring-constructs.SecretsManagerSecretMetricFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SecretsManagerSecretMetricFactory.Initializer"></a>
@@ -62087,7 +63651,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -62178,7 +63742,7 @@ Gets the dashboard for the requested dashboard type.
 
 ### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
