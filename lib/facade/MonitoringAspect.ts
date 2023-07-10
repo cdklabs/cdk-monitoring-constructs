@@ -52,6 +52,7 @@ export class MonitoringAspect implements IAspect {
     this.monitorApiGateway(node);
     this.monitorApiGatewayV2(node);
     this.monitorAppSync(node);
+    this.monitorAuroraCluster(node);
     this.monitorAutoScalingGroup(node);
     this.monitorCloudFront(node);
     this.monitorCodeBuild(node);
@@ -129,6 +130,19 @@ export class MonitoringAspect implements IAspect {
     if (isEnabled && node instanceof appsync.GraphqlApi) {
       this.monitoringFacade.monitorAppSyncApi({
         api: node,
+        alarmFriendlyName: node.node.path,
+        ...props,
+      });
+    }
+  }
+
+  private monitorAuroraCluster(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.auroraCluster
+    );
+    if (isEnabled && node instanceof rds.ServerlessCluster) {
+      this.monitoringFacade.monitorAuroraCluster({
+        cluster: node,
         alarmFriendlyName: node.node.path,
         ...props,
       });

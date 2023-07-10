@@ -1063,6 +1063,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGateway">monitorApiGateway</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGatewayV2HttpApi">monitorApiGatewayV2HttpApi</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorAppSyncApi">monitorAppSyncApi</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorAuroraCluster">monitorAuroraCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorAutoScalingGroup">monitorAutoScalingGroup</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorBilling">monitorBilling</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorCertificate">monitorCertificate</a></code> | *No description.* |
@@ -1448,6 +1449,18 @@ public monitorAppSyncApi(props: AppSyncMonitoringProps): MonitoringFacade
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorAppSyncApi.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.AppSyncMonitoringProps">AppSyncMonitoringProps</a>
+
+---
+
+##### `monitorAuroraCluster` <a name="monitorAuroraCluster" id="cdk-monitoring-constructs.MonitoringFacade.monitorAuroraCluster"></a>
+
+```typescript
+public monitorAuroraCluster(props: AuroraClusterMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorAuroraCluster.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps">AuroraClusterMonitoringProps</a>
 
 ---
 
@@ -7427,6 +7440,366 @@ public readonly rateComputationMethod: RateComputationMethod;
 - *Default:* average
 
 method to compute TPS.
+
+---
+
+### AuroraClusterMonitoringOptions <a name="AuroraClusterMonitoringOptions" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.Initializer"></a>
+
+```typescript
+import { AuroraClusterMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const auroraClusterMonitoringOptions: AuroraClusterMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMaxServerlessDatabaseCapacityAlarm">addMaxServerlessDatabaseCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addCpuUsageAlarm"></a>
+
+```typescript
+public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addMaxConnectionCountAlarm`<sup>Optional</sup> <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMaxConnectionCountAlarm: {[ key: string ]: HighConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}
+
+---
+
+##### `addMaxServerlessDatabaseCapacityAlarm`<sup>Optional</sup> <a name="addMaxServerlessDatabaseCapacityAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMaxServerlessDatabaseCapacityAlarm"></a>
+
+```typescript
+public readonly addMaxServerlessDatabaseCapacityAlarm: {[ key: string ]: UsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}
+
+---
+
+##### `addMinConnectionCountAlarm`<sup>Optional</sup> <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMinConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
+
+---
+
+### AuroraClusterMonitoringProps <a name="AuroraClusterMonitoringProps" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.Initializer"></a>
+
+```typescript
+import { AuroraClusterMonitoringProps } from 'cdk-monitoring-constructs'
+
+const auroraClusterMonitoringProps: AuroraClusterMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster \| aws-cdk-lib.aws_rds.ServerlessCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMaxServerlessDatabaseCapacityAlarm">addMaxServerlessDatabaseCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `cluster`<sup>Optional</sup> <a name="cluster" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: IDatabaseCluster | ServerlessCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster | aws-cdk-lib.aws_rds.ServerlessCluster
+
+database cluster (either this or `clusterIdentifier` need to be specified).
+
+---
+
+##### ~~`clusterIdentifier`~~<sup>Optional</sup> <a name="clusterIdentifier" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.clusterIdentifier"></a>
+
+- *Deprecated:* please use `cluster` instead
+
+```typescript
+public readonly clusterIdentifier: string;
+```
+
+- *Type:* string
+
+database cluster identifier (either this or `cluster` need to be specified).
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addCpuUsageAlarm"></a>
+
+```typescript
+public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addMaxConnectionCountAlarm`<sup>Optional</sup> <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMaxConnectionCountAlarm: {[ key: string ]: HighConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}
+
+---
+
+##### `addMaxServerlessDatabaseCapacityAlarm`<sup>Optional</sup> <a name="addMaxServerlessDatabaseCapacityAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMaxServerlessDatabaseCapacityAlarm"></a>
+
+```typescript
+public readonly addMaxServerlessDatabaseCapacityAlarm: {[ key: string ]: UsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}
+
+---
+
+##### `addMinConnectionCountAlarm`<sup>Optional</sup> <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMinConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
 
 ---
 
@@ -20735,6 +21108,341 @@ public readonly maxMessagesPublishedCount: number;
 
 ---
 
+### HighServerlessDatabaseCapacityThreshold <a name="HighServerlessDatabaseCapacityThreshold" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.Initializer"></a>
+
+```typescript
+import { HighServerlessDatabaseCapacityThreshold } from 'cdk-monitoring-constructs'
+
+const highServerlessDatabaseCapacityThreshold: HighServerlessDatabaseCapacityThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.maxServerlessDatabaseCapacity">maxServerlessDatabaseCapacity</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.minMetricSamplesToAlarm"></a>
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxServerlessDatabaseCapacity`<sup>Required</sup> <a name="maxServerlessDatabaseCapacity" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.maxServerlessDatabaseCapacity"></a>
+
+```typescript
+public readonly maxServerlessDatabaseCapacity: number;
+```
+
+- *Type:* number
+
+---
+
 ### HighTpsThreshold <a name="HighTpsThreshold" id="cdk-monitoring-constructs.HighTpsThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.HighTpsThreshold.Initializer"></a>
@@ -30679,6 +31387,7 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway">apiGateway</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2">apiGatewayV2</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.appSync">appSync</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.auroraCluster">auroraCluster</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.billing">billing</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.cloudFront">cloudFront</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
@@ -30739,6 +31448,16 @@ public readonly apiGatewayV2: MonitoringAspectType;
 
 ```typescript
 public readonly appSync: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `auroraCluster`<sup>Optional</sup> <a name="auroraCluster" id="cdk-monitoring-constructs.MonitoringAspectProps.property.auroraCluster"></a>
+
+```typescript
+public readonly auroraCluster: MonitoringAspectType;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
@@ -35170,7 +35889,7 @@ const rdsClusterMetricFactoryProps: RdsClusterMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster \| aws-cdk-lib.aws_rds.ServerlessCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
 
 ---
@@ -35178,10 +35897,10 @@ const rdsClusterMetricFactoryProps: RdsClusterMetricFactoryProps = { ... }
 ##### `cluster`<sup>Optional</sup> <a name="cluster" id="cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.cluster"></a>
 
 ```typescript
-public readonly cluster: IDatabaseCluster;
+public readonly cluster: IDatabaseCluster | ServerlessCluster;
 ```
 
-- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster | aws-cdk-lib.aws_rds.ServerlessCluster
 
 database cluster (either this or `clusterIdentifier` need to be specified).
 
@@ -35381,7 +36100,7 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster \| aws-cdk-lib.aws_rds.ServerlessCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -35400,10 +36119,10 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 ##### `cluster`<sup>Optional</sup> <a name="cluster" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.cluster"></a>
 
 ```typescript
-public readonly cluster: IDatabaseCluster;
+public readonly cluster: IDatabaseCluster | ServerlessCluster;
 ```
 
-- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster | aws-cdk-lib.aws_rds.ServerlessCluster
 
 database cluster (either this or `clusterIdentifier` need to be specified).
 
@@ -46057,6 +46776,463 @@ public readonly tpsMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+
+### AuroraAlarmFactory <a name="AuroraAlarmFactory" id="cdk-monitoring-constructs.AuroraAlarmFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AuroraAlarmFactory.Initializer"></a>
+
+```typescript
+import { AuroraAlarmFactory } from 'cdk-monitoring-constructs'
+
+new AuroraAlarmFactory(alarmFactory: AlarmFactory)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraAlarmFactory.Initializer.parameter.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.AuroraAlarmFactory.Initializer.parameter.alarmFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraAlarmFactory.addMaxServerlessDatabaseCapacity">addMaxServerlessDatabaseCapacity</a></code> | *No description.* |
+
+---
+
+##### `addMaxServerlessDatabaseCapacity` <a name="addMaxServerlessDatabaseCapacity" id="cdk-monitoring-constructs.AuroraAlarmFactory.addMaxServerlessDatabaseCapacity"></a>
+
+```typescript
+public addMaxServerlessDatabaseCapacity(metric: Metric | MathExpression, props: HighServerlessDatabaseCapacityThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.AuroraAlarmFactory.addMaxServerlessDatabaseCapacity.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AuroraAlarmFactory.addMaxServerlessDatabaseCapacity.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold">HighServerlessDatabaseCapacityThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.AuroraAlarmFactory.addMaxServerlessDatabaseCapacity.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+
+
+
+### AuroraClusterMonitoring <a name="AuroraClusterMonitoring" id="cdk-monitoring-constructs.AuroraClusterMonitoring"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AuroraClusterMonitoring.Initializer"></a>
+
+```typescript
+import { AuroraClusterMonitoring } from 'cdk-monitoring-constructs'
+
+new AuroraClusterMonitoring(scope: MonitoringScope, props: AuroraClusterMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps">AuroraClusterMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.AuroraClusterMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AuroraClusterMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps">AuroraClusterMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createCpuUsageWidget">createCpuUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createServerlessDatabaseCapacityWidget">createServerlessDatabaseCapacityWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.AuroraClusterMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.AuroraClusterMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.AuroraClusterMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.AuroraClusterMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.AuroraClusterMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.AuroraClusterMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.AuroraClusterMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createConnectionsWidget"></a>
+
+```typescript
+public createConnectionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createConnectionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createConnectionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createCpuUsageWidget` <a name="createCpuUsageWidget" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createCpuUsageWidget"></a>
+
+```typescript
+public createCpuUsageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createCpuUsageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createCpuUsageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createServerlessDatabaseCapacityWidget` <a name="createServerlessDatabaseCapacityWidget" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createServerlessDatabaseCapacityWidget"></a>
+
+```typescript
+public createServerlessDatabaseCapacityWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createServerlessDatabaseCapacityWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createServerlessDatabaseCapacityWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.AuroraClusterMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.commitLatencyMetric">commitLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.connectionAlarmFactory">connectionAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.connectionAnnotations">connectionAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.deleteLatencyMetric">deleteLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.insertLatencyMetric">insertLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.selectLatencyMetric">selectLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.serverlessCapacityAnnotations">serverlessCapacityAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.serverlessDatabaseCapacityMetric">serverlessDatabaseCapacityMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.updateLatencyMetric">updateLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `commitLatencyMetric`<sup>Required</sup> <a name="commitLatencyMetric" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.commitLatencyMetric"></a>
+
+```typescript
+public readonly commitLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `connectionAlarmFactory`<sup>Required</sup> <a name="connectionAlarmFactory" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.connectionAlarmFactory"></a>
+
+```typescript
+public readonly connectionAlarmFactory: ConnectionAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a>
+
+---
+
+##### `connectionAnnotations`<sup>Required</sup> <a name="connectionAnnotations" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.connectionAnnotations"></a>
+
+```typescript
+public readonly connectionAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `connectionsMetric`<sup>Required</sup> <a name="connectionsMetric" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.connectionsMetric"></a>
+
+```typescript
+public readonly connectionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuUsageMetric`<sup>Required</sup> <a name="cpuUsageMetric" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.cpuUsageMetric"></a>
+
+```typescript
+public readonly cpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `deleteLatencyMetric`<sup>Required</sup> <a name="deleteLatencyMetric" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.deleteLatencyMetric"></a>
+
+```typescript
+public readonly deleteLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `insertLatencyMetric`<sup>Required</sup> <a name="insertLatencyMetric" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.insertLatencyMetric"></a>
+
+```typescript
+public readonly insertLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `selectLatencyMetric`<sup>Required</sup> <a name="selectLatencyMetric" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.selectLatencyMetric"></a>
+
+```typescript
+public readonly selectLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `serverlessCapacityAnnotations`<sup>Required</sup> <a name="serverlessCapacityAnnotations" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.serverlessCapacityAnnotations"></a>
+
+```typescript
+public readonly serverlessCapacityAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `serverlessDatabaseCapacityMetric`<sup>Required</sup> <a name="serverlessDatabaseCapacityMetric" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.serverlessDatabaseCapacityMetric"></a>
+
+```typescript
+public readonly serverlessDatabaseCapacityMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `updateLatencyMetric`<sup>Required</sup> <a name="updateLatencyMetric" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.updateLatencyMetric"></a>
+
+```typescript
+public readonly updateLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `usageAnnotations`<sup>Required</sup> <a name="usageAnnotations" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.usageAnnotations"></a>
+
+```typescript
+public readonly usageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `url`<sup>Optional</sup> <a name="url" id="cdk-monitoring-constructs.AuroraClusterMonitoring.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -60474,6 +61650,7 @@ new RdsClusterMetricFactory(metricFactory: MetricFactory, props: RdsClusterMetri
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricFreeStorageInBytes">metricFreeStorageInBytes</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricInsertLatencyP90InMillis">metricInsertLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricSelectLatencyP90InMillis">metricSelectLatencyP90InMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricServerlessDatabaseCapacity">metricServerlessDatabaseCapacity</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricTotalConnectionCount">metricTotalConnectionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricUpdateLatencyP90InMillis">metricUpdateLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricUsedStorageInBytes">metricUsedStorageInBytes</a></code> | *No description.* |
@@ -60522,6 +61699,12 @@ public metricInsertLatencyP90InMillis(): Metric | MathExpression
 public metricSelectLatencyP90InMillis(): Metric | MathExpression
 ```
 
+##### `metricServerlessDatabaseCapacity` <a name="metricServerlessDatabaseCapacity" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricServerlessDatabaseCapacity"></a>
+
+```typescript
+public metricServerlessDatabaseCapacity(): Metric | MathExpression
+```
+
 ##### `metricTotalConnectionCount` <a name="metricTotalConnectionCount" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricTotalConnectionCount"></a>
 
 ```typescript
@@ -60546,6 +61729,7 @@ public metricUsedStorageInBytes(): Metric | MathExpression
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster \| aws-cdk-lib.aws_rds.ServerlessCluster</code> | *No description.* |
 
 ---
 
@@ -60556,6 +61740,16 @@ public readonly clusterIdentifier: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `cluster`<sup>Optional</sup> <a name="cluster" id="cdk-monitoring-constructs.RdsClusterMetricFactory.property.cluster"></a>
+
+```typescript
+public readonly cluster: IDatabaseCluster | ServerlessCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster | aws-cdk-lib.aws_rds.ServerlessCluster
 
 ---
 
@@ -66895,6 +68089,7 @@ new UsageAlarmFactory(alarmFactory: AlarmFactory)
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxMasterMemoryUsagePercentAlarm">addMaxMasterMemoryUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxMemoryUsagePercentAlarm">addMaxMemoryUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxThreadCountUsageAlarm">addMaxThreadCountUsageAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm">addMaxUsageCountAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMemoryUsagePercentAlarm">addMemoryUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMinUsageCountAlarm">addMinUsageCountAlarm</a></code> | *No description.* |
 
@@ -67099,6 +68294,30 @@ public addMaxThreadCountUsageAlarm(percentMetric: Metric | MathExpression, props
 ---
 
 ###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxThreadCountUsageAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addMaxUsageCountAlarm` <a name="addMaxUsageCountAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm"></a>
+
+```typescript
+public addMaxUsageCountAlarm(metric: Metric | MathExpression, props: UsageCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm.parameter.disambiguator"></a>
 
 - *Type:* string
 
@@ -67870,7 +69089,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -67961,7 +69180,7 @@ Gets the dashboard for the requested dashboard type.
 
 ### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 

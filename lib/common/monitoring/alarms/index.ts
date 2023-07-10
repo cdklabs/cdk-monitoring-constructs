@@ -1,5 +1,6 @@
 export * from "./AgeAlarmFactory";
 export * from "./AnomalyDetectingAlarmFactory";
+export * from "./AuroraAlarmFactory";
 export * from "./CustomAlarmFactory";
 export * from "./ConnectionAlarmFactory";
 export * from "./DynamoAlarmFactory";

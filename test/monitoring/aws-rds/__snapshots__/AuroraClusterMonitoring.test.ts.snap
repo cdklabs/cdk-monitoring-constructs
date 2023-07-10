@@ -1,0 +1,698 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAuroraClusterCPUUsageWarning437834D4",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAuroraClusterConnectionCountLowWarning5B09883B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAuroraClusterConnectionCountHighWarning7EDDD90E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAuroraClusterUsageCountWarning291913E2",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Aurora Cluster **[DummyAuroraCluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              ";is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"CPU Usage\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"CPU Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Connections\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"ServerlessDatabaseCapacity\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Serverless Database Capacity\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Serverless Database Capacity > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeDummyAuroraCluster61A7551D": Object {
+      "DeletionPolicy": "Snapshot",
+      "Properties": Object {
+        "CopyTagsToSnapshot": true,
+        "DBClusterIdentifier": "my-aurora-cluster",
+        "DBClusterParameterGroupName": "default.aurora-mysql5.7",
+        "Engine": "aurora-mysql",
+        "EngineMode": "serverless",
+        "MasterUserPassword": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{{resolve:secretsmanager:",
+              Object {
+                "Ref": "ScopeDummyAuroraClusterSecret18674A5A",
+              },
+              ":SecretString:password::}}",
+            ],
+          ],
+        },
+        "MasterUsername": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{{resolve:secretsmanager:",
+              Object {
+                "Ref": "ScopeDummyAuroraClusterSecret18674A5A",
+              },
+              ":SecretString:username::}}",
+            ],
+          ],
+        },
+        "StorageEncrypted": true,
+        "VpcSecurityGroupIds": Array [],
+      },
+      "Type": "AWS::RDS::DBCluster",
+      "UpdateReplacePolicy": "Snapshot",
+    },
+    "ScopeDummyAuroraClusterSecret18674A5A": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "Description": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "Generated by the CDK for stack: ",
+              Object {
+                "Ref": "AWS::StackName",
+              },
+            ],
+          ],
+        },
+        "GenerateSecretString": Object {
+          "ExcludeCharacters": " %+~\`#$&*()|[]{}:;<>?!'/@\\"\\\\",
+          "GenerateStringKey": "password",
+          "PasswordLength": 30,
+          "SecretStringTemplate": "{\\"username\\":\\"admin\\"}",
+        },
+      },
+      "Type": "AWS::SecretsManager::Secret",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ScopeDummyAuroraClusterSecretAttachmentA4BBBBD1": Object {
+      "Properties": Object {
+        "SecretId": Object {
+          "Ref": "ScopeDummyAuroraClusterSecret18674A5A",
+        },
+        "TargetId": Object {
+          "Ref": "ScopeDummyAuroraCluster61A7551D",
+        },
+        "TargetType": "AWS::RDS::DBCluster",
+      },
+      "Type": "AWS::SecretsManager::SecretTargetAttachment",
+    },
+    "ScopeTestDummyAuroraClusterCPUUsageWarning437834D4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "Test-DummyAuroraCluster-CPU-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "CPU Usage",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": Object {
+                      "Ref": "ScopeDummyAuroraCluster61A7551D",
+                    },
+                  },
+                ],
+                "MetricName": "CPUUtilization",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 80,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAuroraClusterConnectionCountHighWarning7EDDD90E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of connections is too high.",
+        "AlarmName": "Test-DummyAuroraCluster-Connection-Count-High-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Connections",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": Object {
+                      "Ref": "ScopeDummyAuroraCluster61A7551D",
+                    },
+                  },
+                ],
+                "MetricName": "DatabaseConnections",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAuroraClusterConnectionCountLowWarning5B09883B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of connections is too low.",
+        "AlarmName": "Test-DummyAuroraCluster-Connection-Count-Low-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Connections",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": Object {
+                      "Ref": "ScopeDummyAuroraCluster61A7551D",
+                    },
+                  },
+                ],
+                "MetricName": "DatabaseConnections",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyAuroraClusterUsageCountWarning291913E2": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The count is too high.",
+        "AlarmName": "Test-DummyAuroraCluster-Usage-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Serverless Database Capacity",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": Object {
+                      "Ref": "ScopeDummyAuroraCluster61A7551D",
+                    },
+                  },
+                ],
+                "MetricName": "ServerlessDatabaseCapacity",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Aurora Cluster **[DummyAuroraCluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              ";is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"CPU Usage\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"CPU Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Connections\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"ServerlessDatabaseCapacity\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Serverless Database Capacity\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Serverless Database Capacity > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Aurora Cluster **[DummyAuroraCluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              ";is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"CPU Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"ServerlessDatabaseCapacity\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Serverless Database Capacity\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeDummyAuroraCluster61A7551D": Object {
+      "DeletionPolicy": "Snapshot",
+      "Properties": Object {
+        "CopyTagsToSnapshot": true,
+        "DBClusterIdentifier": "my-aurora-cluster",
+        "DBClusterParameterGroupName": "default.aurora-mysql5.7",
+        "Engine": "aurora-mysql",
+        "EngineMode": "serverless",
+        "MasterUserPassword": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{{resolve:secretsmanager:",
+              Object {
+                "Ref": "ScopeDummyAuroraClusterSecret18674A5A",
+              },
+              ":SecretString:password::}}",
+            ],
+          ],
+        },
+        "MasterUsername": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{{resolve:secretsmanager:",
+              Object {
+                "Ref": "ScopeDummyAuroraClusterSecret18674A5A",
+              },
+              ":SecretString:username::}}",
+            ],
+          ],
+        },
+        "StorageEncrypted": true,
+        "VpcSecurityGroupIds": Array [],
+      },
+      "Type": "AWS::RDS::DBCluster",
+      "UpdateReplacePolicy": "Snapshot",
+    },
+    "ScopeDummyAuroraClusterSecret18674A5A": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "Description": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "Generated by the CDK for stack: ",
+              Object {
+                "Ref": "AWS::StackName",
+              },
+            ],
+          ],
+        },
+        "GenerateSecretString": Object {
+          "ExcludeCharacters": " %+~\`#$&*()|[]{}:;<>?!'/@\\"\\\\",
+          "GenerateStringKey": "password",
+          "PasswordLength": 30,
+          "SecretStringTemplate": "{\\"username\\":\\"admin\\"}",
+        },
+      },
+      "Type": "AWS::SecretsManager::Secret",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ScopeDummyAuroraClusterSecretAttachmentA4BBBBD1": Object {
+      "Properties": Object {
+        "SecretId": Object {
+          "Ref": "ScopeDummyAuroraClusterSecret18674A5A",
+        },
+        "TargetId": Object {
+          "Ref": "ScopeDummyAuroraCluster61A7551D",
+        },
+        "TargetType": "AWS::RDS::DBCluster",
+      },
+      "Type": "AWS::SecretsManager::SecretTargetAttachment",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Aurora Cluster **[DummyAuroraCluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              ";is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"CPU Usage\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"ServerlessDatabaseCapacity\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "ScopeDummyAuroraCluster61A7551D",
+              },
+              "\\",{\\"label\\":\\"Serverless Database Capacity\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
