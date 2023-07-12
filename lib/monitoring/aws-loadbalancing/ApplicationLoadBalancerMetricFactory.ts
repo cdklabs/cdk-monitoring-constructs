@@ -3,7 +3,10 @@ import {
   IApplicationTargetGroup,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
-import { ILoadBalancerMetricFactory } from "./LoadBalancerMetricFactory";
+import {
+  ILoadBalancerMetricFactory,
+  BaseLoadBalancerMetricFactoryProps,
+} from "./LoadBalancerMetricFactory";
 import {
   HealthyMetricColor,
   MetricFactory,
@@ -14,7 +17,8 @@ import {
 /**
  * Props to create ApplicationLoadBalancerMetricFactory.
  */
-export interface ApplicationLoadBalancerMetricFactoryProps {
+export interface ApplicationLoadBalancerMetricFactoryProps
+  extends BaseLoadBalancerMetricFactoryProps {
   readonly applicationLoadBalancer: IApplicationLoadBalancer;
   readonly applicationTargetGroup: IApplicationTargetGroup;
 }
@@ -28,6 +32,7 @@ export class ApplicationLoadBalancerMetricFactory
   protected readonly metricFactory: MetricFactory;
   protected readonly applicationLoadBalancer: IApplicationLoadBalancer;
   protected readonly applicationTargetGroup: IApplicationTargetGroup;
+  protected readonly invertStatisticsOfTaskCountEnabled: boolean;
 
   constructor(
     metricFactory: MetricFactory,
@@ -36,6 +41,8 @@ export class ApplicationLoadBalancerMetricFactory
     this.metricFactory = metricFactory;
     this.applicationLoadBalancer = props.applicationLoadBalancer;
     this.applicationTargetGroup = props.applicationTargetGroup;
+    this.invertStatisticsOfTaskCountEnabled =
+      props.invertStatisticsOfTaskCountEnabled ?? false;
   }
 
   metricHealthyTaskCount() {
@@ -43,7 +50,9 @@ export class ApplicationLoadBalancerMetricFactory
       this.applicationTargetGroup.metrics.healthyHostCount({
         label: "Healthy Tasks",
         color: HealthyMetricColor,
-        statistic: MetricStatistic.MIN,
+        statistic: this.invertStatisticsOfTaskCountEnabled
+          ? MetricStatistic.MAX
+          : MetricStatistic.MIN,
       })
     );
   }
@@ -53,7 +62,9 @@ export class ApplicationLoadBalancerMetricFactory
       this.applicationTargetGroup.metrics.unhealthyHostCount({
         label: "Unhealthy Tasks",
         color: UnhealthyMetricColor,
-        statistic: MetricStatistic.MAX,
+        statistic: this.invertStatisticsOfTaskCountEnabled
+          ? MetricStatistic.MIN
+          : MetricStatistic.MAX,
       })
     );
   }

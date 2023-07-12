@@ -102,6 +102,19 @@ interface BaseLoadBalancedFargateServiceMonitoringProps
     string,
     MinProcessedBytesThreshold
   >;
+
+  /**
+   * Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+   *
+   * When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+   * When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+   *
+   * `invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+   *
+   * @default false
+   */
+  readonly invertLoadBalancerTaskCountMetricsStatistics?: boolean;
 }
 
 /**
@@ -190,7 +203,8 @@ export class FargateServiceMonitoring extends Monitoring {
       this.loadBalancerMetricFactory = createLoadBalancerMetricFactory(
         this.metricFactory,
         props.loadBalancer!,
-        props.targetGroup!
+        props.targetGroup!,
+        props.invertLoadBalancerTaskCountMetricsStatistics
       );
       this.healthyTaskCountMetric =
         this.loadBalancerMetricFactory.metricHealthyTaskCount();

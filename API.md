@@ -6477,8 +6477,28 @@ const applicationLoadBalancerMetricFactoryProps: ApplicationLoadBalancerMetricFa
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
+
+---
+
+##### `invertStatisticsOfTaskCountEnabled`<sup>Optional</sup> <a name="invertStatisticsOfTaskCountEnabled" id="cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.invertStatisticsOfTaskCountEnabled"></a>
+
+```typescript
+public readonly invertStatisticsOfTaskCountEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -7855,6 +7875,45 @@ public readonly minAutoScalingTaskCount: number;
 - *Type:* number
 
 minimum number of tasks, as specified in your auto scaling config.
+
+---
+
+### BaseLoadBalancerMetricFactoryProps <a name="BaseLoadBalancerMetricFactoryProps" id="cdk-monitoring-constructs.BaseLoadBalancerMetricFactoryProps"></a>
+
+Base of Monitoring props for load-balancer metric factories.
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.BaseLoadBalancerMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { BaseLoadBalancerMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const baseLoadBalancerMetricFactoryProps: BaseLoadBalancerMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BaseLoadBalancerMetricFactoryProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+
+---
+
+##### `invertStatisticsOfTaskCountEnabled`<sup>Optional</sup> <a name="invertStatisticsOfTaskCountEnabled" id="cdk-monitoring-constructs.BaseLoadBalancerMetricFactoryProps.property.invertStatisticsOfTaskCountEnabled"></a>
+
+```typescript
+public readonly invertStatisticsOfTaskCountEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -10397,6 +10456,7 @@ const customEc2ServiceMonitoringProps: CustomEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 
@@ -10606,6 +10666,25 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 
 ---
 
+##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
+
+```typescript
+public readonly invertLoadBalancerTaskCountMetricsStatistics: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
 ##### `loadBalancer`<sup>Optional</sup> <a name="loadBalancer" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.loadBalancer"></a>
 
 ```typescript
@@ -10657,6 +10736,7 @@ const customFargateServiceMonitoringProps: CustomFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 
@@ -10863,6 +10943,25 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}
+
+---
+
+##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
+
+```typescript
+public readonly invertLoadBalancerTaskCountMetricsStatistics: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -14195,6 +14294,7 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -14214,6 +14314,26 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+
+---
+
+##### `invertStatisticsOfTaskCountEnabled`<sup>Optional</sup> <a name="invertStatisticsOfTaskCountEnabled" id="cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled"></a>
+
+```typescript
+public readonly invertStatisticsOfTaskCountEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -14438,6 +14558,25 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}
+
+---
+
+##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
+
+```typescript
+public readonly invertLoadBalancerTaskCountMetricsStatistics: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -14802,6 +14941,7 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -14821,6 +14961,26 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+
+---
+
+##### `invertStatisticsOfTaskCountEnabled`<sup>Optional</sup> <a name="invertStatisticsOfTaskCountEnabled" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled"></a>
+
+```typescript
+public readonly invertStatisticsOfTaskCountEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -15048,6 +15208,25 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 
 ---
 
+##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
+
+```typescript
+public readonly invertLoadBalancerTaskCountMetricsStatistics: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
 ### Ec2ServiceMonitoringProps <a name="Ec2ServiceMonitoringProps" id="cdk-monitoring-constructs.Ec2ServiceMonitoringProps"></a>
 
 Monitoring props for load-balanced EC2 service.
@@ -15081,6 +15260,7 @@ const ec2ServiceMonitoringProps: Ec2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 
 ---
 
@@ -15285,6 +15465,25 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}
+
+---
+
+##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
+
+```typescript
+public readonly invertLoadBalancerTaskCountMetricsStatistics: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -16309,6 +16508,7 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -16328,6 +16528,26 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+
+---
+
+##### `invertStatisticsOfTaskCountEnabled`<sup>Optional</sup> <a name="invertStatisticsOfTaskCountEnabled" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled"></a>
+
+```typescript
+public readonly invertStatisticsOfTaskCountEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -16555,6 +16775,25 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 
 ---
 
+##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
+
+```typescript
+public readonly invertLoadBalancerTaskCountMetricsStatistics: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
 ### FargateNetworkLoadBalancerMonitoringProps <a name="FargateNetworkLoadBalancerMonitoringProps" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps"></a>
 
 Monitoring props for Fargate service with network load balancer and plain service.
@@ -16571,6 +16810,7 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -16590,6 +16830,26 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+
+---
+
+##### `invertStatisticsOfTaskCountEnabled`<sup>Optional</sup> <a name="invertStatisticsOfTaskCountEnabled" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled"></a>
+
+```typescript
+public readonly invertStatisticsOfTaskCountEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -16817,6 +17077,25 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 
 ---
 
+##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
+
+```typescript
+public readonly invertLoadBalancerTaskCountMetricsStatistics: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
 ### FargateServiceMonitoringProps <a name="FargateServiceMonitoringProps" id="cdk-monitoring-constructs.FargateServiceMonitoringProps"></a>
 
 Monitoring props for load-balanced Fargate service.
@@ -16850,6 +17129,7 @@ const fargateServiceMonitoringProps: FargateServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 
 ---
 
@@ -17054,6 +17334,25 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}
+
+---
+
+##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
+
+```typescript
+public readonly invertLoadBalancerTaskCountMetricsStatistics: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -28678,8 +28977,28 @@ const networkLoadBalancerMetricFactoryProps: NetworkLoadBalancerMetricFactoryPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
+
+---
+
+##### `invertStatisticsOfTaskCountEnabled`<sup>Optional</sup> <a name="invertStatisticsOfTaskCountEnabled" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.invertStatisticsOfTaskCountEnabled"></a>
+
+```typescript
+public readonly invertStatisticsOfTaskCountEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
@@ -28717,6 +29036,7 @@ const networkLoadBalancerMonitoringProps: NetworkLoadBalancerMonitoringProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -28730,6 +29050,25 @@ const networkLoadBalancerMonitoringProps: NetworkLoadBalancerMonitoringProps = {
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `invertStatisticsOfTaskCountEnabled`<sup>Optional</sup> <a name="invertStatisticsOfTaskCountEnabled" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled"></a>
+
+```typescript
+public readonly invertStatisticsOfTaskCountEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`.
+
+When `invertStatisticsOfTaskCountEnabled` is set to false, the minimum of `HealthyHostCount` and the maximum of `UnHealthyHostCount` are monitored.
+When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `HealthyHostCount` and the minimum of `UnHealthyHostCount` are monitored.
+
+`invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
 
 ---
 
