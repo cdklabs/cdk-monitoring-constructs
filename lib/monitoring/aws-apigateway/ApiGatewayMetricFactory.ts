@@ -1,4 +1,4 @@
-import { RestApiBase } from "aws-cdk-lib/aws-apigateway";
+import { IRestApi } from "aws-cdk-lib/aws-apigateway";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
@@ -14,9 +14,9 @@ const ApiGatewayNamespace = "AWS/ApiGateway";
 
 export interface ApiGatewayMetricFactoryProps {
   /**
-   * API to monitor (cannot use IRestApi, since it does not provide API name)
+   * API to monitor
    */
-  readonly api: RestApiBase;
+  readonly api: IRestApi;
   /**
    * @default - prod
    */
