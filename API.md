@@ -4257,7 +4257,7 @@ const apiGatewayMetricFactoryProps: ApiGatewayMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.RestApiBase</code> | API to monitor (cannot use IRestApi, since it does not provide API name). |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.IRestApi</code> | API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
@@ -4269,12 +4269,12 @@ const apiGatewayMetricFactoryProps: ApiGatewayMetricFactoryProps = { ... }
 ##### `api`<sup>Required</sup> <a name="api" id="cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.api"></a>
 
 ```typescript
-public readonly api: RestApiBase;
+public readonly api: IRestApi;
 ```
 
-- *Type:* aws-cdk-lib.aws_apigateway.RestApiBase
+- *Type:* aws-cdk-lib.aws_apigateway.IRestApi
 
-API to monitor (cannot use IRestApi, since it does not provide API name).
+API to monitor.
 
 ---
 
@@ -4733,7 +4733,7 @@ const apiGatewayMonitoringProps: ApiGatewayMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.RestApiBase</code> | API to monitor (cannot use IRestApi, since it does not provide API name). |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.IRestApi</code> | API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
@@ -4775,12 +4775,12 @@ const apiGatewayMonitoringProps: ApiGatewayMonitoringProps = { ... }
 ##### `api`<sup>Required</sup> <a name="api" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.api"></a>
 
 ```typescript
-public readonly api: RestApiBase;
+public readonly api: IRestApi;
 ```
 
-- *Type:* aws-cdk-lib.aws_apigateway.RestApiBase
+- *Type:* aws-cdk-lib.aws_apigateway.IRestApi
 
-API to monitor (cannot use IRestApi, since it does not provide API name).
+API to monitor.
 
 ---
 
