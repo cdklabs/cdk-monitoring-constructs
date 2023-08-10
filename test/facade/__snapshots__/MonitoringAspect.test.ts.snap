@@ -147,23 +147,59 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi ",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -177,19 +213,47 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **DummyRestApi ",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"DummyRestApi\\",\\"Stage\\",\\"",
+              Object {
+                "Ref": "DummyRestApiProdStageB70B7437",
+              },
+              "\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -271,6 +335,17 @@ Object {
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Retain",
     },
+    "DummyRestApiDeployment1CA45D1Eb2b2ef98b0af2d8440e2a441c4976e4c": Object {
+      "DependsOn": Array [
+        "DummyRestApiANYCDDCFD86",
+      ],
+      "Properties": Object {
+        "RestApiId": Object {
+          "Ref": "DummyRestApi328A173A",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
     "DummyRestApiDeploymentE536A000827e68cce8aade0ba98340f42cbf5e9e": Object {
       "DependsOn": Array [
         "DummyRestApiANYCDDCFD86",
@@ -295,6 +370,36 @@ Object {
           "Ref": "DummyRestApi328A173A",
         },
         "StageName": "prod",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "DummyRestApiDevStage9C608189": Object {
+      "DependsOn": Array [
+        "DummyRestApiAccount722BC8C0",
+      ],
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "DummyRestApiDeployment1CA45D1Eb2b2ef98b0af2d8440e2a441c4976e4c",
+        },
+        "RestApiId": Object {
+          "Ref": "DummyRestApi328A173A",
+        },
+        "StageName": "DevStage",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "DummyRestApiProdStageB70B7437": Object {
+      "DependsOn": Array [
+        "DummyRestApiAccount722BC8C0",
+      ],
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "DummyRestApiDeployment1CA45D1Eb2b2ef98b0af2d8440e2a441c4976e4c",
+        },
+        "RestApiId": Object {
+          "Ref": "DummyRestApi328A173A",
+        },
+        "StageName": "ProdStage",
       },
       "Type": "AWS::ApiGateway::Stage",
     },
