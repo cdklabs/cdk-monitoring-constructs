@@ -3,6 +3,7 @@ import {
   HorizontalAnnotation,
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
+import { IFunction, CfnFunction } from "aws-cdk-lib/aws-lambda";
 
 import {
   StepFunctionLambdaIntegrationMetricFactory,
@@ -71,10 +72,10 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
   ) {
     super(scope, props);
 
-    const fallbackConstructName = props.lambdaFunction.functionName;
     const namingStrategy = new MonitoringNamingStrategy({
       ...props,
-      fallbackConstructName,
+      namedConstruct: props.lambdaFunction,
+      fallbackConstructName: this.resolveFunctionName(props.lambdaFunction),
     });
     this.title = namingStrategy.resolveHumanReadableName();
     this.functionUrl = scope
@@ -259,5 +260,10 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
         leftAnnotations: this.errorRateAnnotations,
       }),
     ];
+  }
+
+  private resolveFunctionName(lambdaFunction: IFunction): string | undefined {
+    // try to take the name (if specified) instead of token
+    return (lambdaFunction.node.defaultChild as CfnFunction)?.functionName;
   }
 }
