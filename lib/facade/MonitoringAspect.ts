@@ -106,6 +106,7 @@ export class MonitoringAspect implements IAspect {
     if (isEnabled && node instanceof apigw.RestApi) {
       this.monitoringFacade.monitorApiGateway({
         api: node,
+        apiStage: node.deploymentStage.stageName,
         ...props,
       });
     }

@@ -89,6 +89,18 @@ describe("MonitoringAspect", () => {
     const api = new apigw.RestApi(stack, "DummyRestApi");
     api.root.addMethod("ANY");
 
+    const deployment = new apigw.Deployment(stack, "DummyRestApiDeployment", {
+      api,
+    });
+    new apigw.Stage(stack, "DummyRestApiDevStage", {
+      deployment,
+      stageName: "DevStage",
+    });
+    api.deploymentStage = new apigw.Stage(stack, "DummyRestApiProdStage", {
+      deployment,
+      stageName: "ProdStage",
+    });
+
     // WHEN
     facade.monitorScope(stack, defaultAspectProps);
 
