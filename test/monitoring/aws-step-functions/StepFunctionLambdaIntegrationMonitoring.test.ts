@@ -16,7 +16,7 @@ test("snapshot test: no alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -37,7 +37,7 @@ test("snapshot test: all alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });

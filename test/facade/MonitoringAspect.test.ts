@@ -391,7 +391,7 @@ describe("MonitoringAspect", () => {
     new lambda.Function(stack, "DummyFunction", {
       code: lambda.Code.fromInline("lambda"),
       handler: "index.handler",
-      runtime: lambda.Runtime.NODEJS_12_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
     });
 
     // WHEN

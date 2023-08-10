@@ -8,7 +8,7 @@ test("widget", () => {
 
   const handler = new Function(stack, "Function", {
     // execution environment
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     // code loaded from "lambda" directory
     code: Code.fromInline(
       'exports.handler = function(event, ctx, cb) { return cb(null, "Hello World!"); }'

@@ -19,7 +19,7 @@ test("snapshot test: no alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -49,7 +49,7 @@ test("snapshot test: all alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -156,7 +156,7 @@ test("snapshot test: all alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
     layers: [
@@ -196,7 +196,7 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -334,7 +334,7 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -472,7 +472,7 @@ test("doesn't create alarms for enhanced Lambda Insights metrics if not enabled"
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_12_X,
+    runtime: Runtime.NODEJS_18_X,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
