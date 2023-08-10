@@ -146,7 +146,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambdaIntegration](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambda](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
               Object {
                 "Ref": "Function76856677",
               },
@@ -472,7 +472,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambdaIntegration](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambda](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
               Object {
                 "Ref": "Function76856677",
               },
@@ -651,7 +651,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambdaIntegration](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambda](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
               Object {
                 "Ref": "Function76856677",
               },
@@ -743,7 +743,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambdaIntegration](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### States Lambda Integration **[DummyLambda](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
               Object {
                 "Ref": "Function76856677",
               },
