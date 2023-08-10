@@ -182,7 +182,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs18.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -901,11 +901,11 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs18.x",
       },
       "Type": "AWS::Lambda::Function",
     },
-    "FunctionCurrentVersion4E2B2261086ba6102febde15151db28b70bf0e44": Object {
+    "FunctionCurrentVersion4E2B22612881a8e13ea008f06ac95a40e1387c5c": Object {
       "Properties": Object {
         "FunctionName": Object {
           "Ref": "Function76856677",
@@ -920,7 +920,7 @@ Object {
         },
         "FunctionVersion": Object {
           "Fn::GetAtt": Array [
-            "FunctionCurrentVersion4E2B2261086ba6102febde15151db28b70bf0e44",
+            "FunctionCurrentVersion4E2B22612881a8e13ea008f06ac95a40e1387c5c",
             "Version",
           ],
         },
@@ -1241,7 +1241,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs18.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -2439,7 +2439,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs18.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -3415,7 +3415,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs18.x",
       },
       "Type": "AWS::Lambda::Function",
     },
