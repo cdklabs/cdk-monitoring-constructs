@@ -2,6 +2,7 @@ import { Duration, Stack } from "aws-cdk-lib";
 import { Capture, Template } from "aws-cdk-lib/assertions";
 import {
   Alarm,
+  CfnAlarm,
   ComparisonOperator,
   Metric,
   Shading,
@@ -440,4 +441,32 @@ test("addAlarm: custom alarm naming strategy", () => {
   expect(alarm.alarmName).toBe(`${alarmName}-${disambiguator}`);
   expect(alarm.alarmLabel).toBe(`${alarmLabel}-${disambiguator}`);
   expect(alarm.dedupeString).toBe(`${alarmDedupe}-${disambiguator}`);
+});
+
+test("addAlarm: custom metric adjuster, applies it and DefaultMetricAdjuster after it", () => {
+  const actual = factory.addAlarm(metric, {
+    ...props,
+    disambiguator: "AdjustMetric",
+    metricAdjuster: {
+      adjustMetric(metric) {
+        return metric.with({
+          label: "MyLabel (avg: ${AVG})",
+          period: Duration.minutes(5),
+        });
+      },
+    },
+    period: Duration.minutes(10),
+  });
+
+  expect(actual.annotation.label).toEqual(
+    "MyLabel < 10 for 10 datapoints within 100 minutes"
+  );
+  const cfnAlarm = actual.alarm.node.defaultChild as CfnAlarm;
+  expect(cfnAlarm.metrics).toHaveLength(1);
+  expect(
+    (
+      (cfnAlarm.metrics as CfnAlarm.MetricDataQueryProperty[])?.[0]
+        ?.metricStat as CfnAlarm.MetricStatProperty
+    )?.period
+  ).toEqual(Duration.minutes(10).toSeconds());
 });

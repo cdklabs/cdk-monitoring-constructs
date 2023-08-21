@@ -21,11 +21,15 @@ import {
 import { IAlarmDedupeStringProcessor } from "./IAlarmDedupeStringProcessor";
 import { IAlarmNamingStrategy } from "./IAlarmNamingStrategy";
 import {
+  CompositeMetricAdjuster,
+  DefaultMetricAdjuster,
+  IMetricAdjuster,
+} from "./metric-adjuster";
+import {
   MetricFactoryDefaults,
   MetricStatistic,
   MetricWithAlarmSupport,
 } from "../metric";
-import { removeBracketsWithDynamicLabels } from "../strings";
 
 const DefaultDatapointsToAlarm = 3;
 
@@ -235,6 +239,13 @@ export interface AddAlarmProps {
    * @default - no override (default visibility)
    */
   readonly overrideAnnotationVisibility?: boolean;
+
+  /**
+   * If specified, adjusts the metric before creating an alarm from it.
+   *
+   * @default - no adjuster
+   */
+  readonly metricAdjuster?: IMetricAdjuster;
 }
 
 /**
@@ -486,19 +497,19 @@ export class AlarmFactory {
     metric: MetricWithAlarmSupport,
     props: AddAlarmProps
   ): AlarmWithAnnotation {
-    // prepare the metric
+    // adjust the metric
 
-    let adjustedMetric = metric;
-    if (props.period) {
-      // Adjust metric period for the alarm
-      adjustedMetric = adjustedMetric.with({ period: props.period });
-    }
-    if (adjustedMetric.label) {
-      // Annotations do not support dynamic labels, so we have to remove them from metric name
-      adjustedMetric = adjustedMetric.with({
-        label: removeBracketsWithDynamicLabels(adjustedMetric.label),
-      });
-    }
+    const metricAdjuster = props.metricAdjuster
+      ? CompositeMetricAdjuster.of(
+          props.metricAdjuster,
+          DefaultMetricAdjuster.INSTANCE
+        )
+      : DefaultMetricAdjuster.INSTANCE;
+    const adjustedMetric = metricAdjuster.adjustMetric(
+      metric,
+      this.alarmScope,
+      props
+    );
 
     // prepare primary alarm properties
 

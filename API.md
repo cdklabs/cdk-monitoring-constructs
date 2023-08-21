@@ -2318,6 +2318,7 @@ const addAlarmProps: AddAlarmProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
@@ -2576,6 +2577,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.AddAlarmProps.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -3957,6 +3971,7 @@ const anomalyDetectionThreshold: AnomalyDetectionThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -4141,6 +4156,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -7373,6 +7401,7 @@ const availabilityThreshold: AvailabilityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -7554,6 +7583,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.AvailabilityThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -8754,6 +8796,7 @@ const changeInSecretCountThreshold: ChangeInSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -8938,6 +8981,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -9901,6 +9957,7 @@ const consumedCapacityThreshold: ConsumedCapacityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -10085,6 +10142,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -10183,6 +10253,7 @@ const customAlarmThreshold: CustomAlarmThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -10363,6 +10434,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -11686,6 +11770,7 @@ const customThreshold: CustomThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -11870,6 +11955,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.CustomThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -12137,6 +12235,7 @@ const daysSinceUpdateThreshold: DaysSinceUpdateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -12321,6 +12420,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -12417,6 +12529,7 @@ const daysToExpiryThreshold: DaysToExpiryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -12598,6 +12711,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -13122,6 +13248,7 @@ const durationThreshold: DurationThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -13303,6 +13430,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.DurationThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -15959,6 +16099,7 @@ const errorCountThreshold: ErrorCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -16143,6 +16284,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.ErrorCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ErrorCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -16239,6 +16393,7 @@ const errorRateThreshold: ErrorRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -16420,6 +16575,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.ErrorRateThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -17383,6 +17551,7 @@ const firehoseStreamLimitThreshold: FirehoseStreamLimitThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -17567,6 +17736,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -17665,6 +17847,7 @@ const fullRestartCountThreshold: FullRestartCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -17846,6 +18029,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -18363,6 +18559,7 @@ const healthyTaskCountThreshold: HealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -18547,6 +18744,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -18643,6 +18853,7 @@ const healthyTaskPercentThreshold: HealthyTaskPercentThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -18827,6 +19038,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -18923,6 +19147,7 @@ const highConnectionCountThreshold: HighConnectionCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -19107,6 +19332,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -19203,6 +19441,7 @@ const highMessagesPublishedThreshold: HighMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -19387,6 +19626,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -19483,6 +19735,7 @@ const highTpsThreshold: HighTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -19664,6 +19917,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.HighTpsThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -21681,6 +21947,7 @@ const latencyThreshold: LatencyThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -21865,6 +22132,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.LatencyThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LatencyThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -21961,6 +22241,7 @@ const logLevelCountThreshold: LogLevelCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -22142,6 +22423,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -22430,6 +22724,7 @@ const lowConnectionCountThreshold: LowConnectionCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -22614,6 +22909,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -22710,6 +23018,7 @@ const lowMessagesPublishedThreshold: LowMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -22894,6 +23203,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -22990,6 +23312,7 @@ const lowTpsThreshold: LowTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -23174,6 +23497,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.LowTpsThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowTpsThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -23270,6 +23606,7 @@ const maxAgeThreshold: MaxAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -23454,6 +23791,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxAgeThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxAgeThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -23550,6 +23900,7 @@ const maxDowntimeThreshold: MaxDowntimeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -23734,6 +24085,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -23830,6 +24194,7 @@ const maxIncomingMessagesCountThreshold: MaxIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -24014,6 +24379,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -24110,6 +24488,7 @@ const maxItemsCountThreshold: MaxItemsCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -24294,6 +24673,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -24390,6 +24782,7 @@ const maxIteratorAgeThreshold: MaxIteratorAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -24574,6 +24967,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -24670,6 +25076,7 @@ const maxMessageAgeThreshold: MaxMessageAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -24854,6 +25261,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -24950,6 +25370,7 @@ const maxMessageCountThreshold: MaxMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -25134,6 +25555,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -25230,6 +25664,7 @@ const maxSecretCountThreshold: MaxSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -25414,6 +25849,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -25510,6 +25958,7 @@ const maxTimeToDrainThreshold: MaxTimeToDrainThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -25694,6 +26143,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -25790,6 +26252,7 @@ const maxUsedSwapMemoryThreshold: MaxUsedSwapMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -25971,6 +26434,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -26182,6 +26658,7 @@ const minFreeableMemoryThreshold: MinFreeableMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -26366,6 +26843,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -26462,6 +26952,7 @@ const minIncomingMessagesCountThreshold: MinIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -26646,6 +27137,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -26742,6 +27246,7 @@ const minMessageCountThreshold: MinMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -26926,6 +27431,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -27022,6 +27540,7 @@ const minProcessedBytesThreshold: MinProcessedBytesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -27206,6 +27725,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -27304,6 +27836,7 @@ const minRunningTaskCountThreshold: MinRunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -27488,6 +28021,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -27584,6 +28130,7 @@ const minSecretCountThreshold: MinSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -27768,6 +28315,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -27864,6 +28424,7 @@ const minUsageCountThreshold: MinUsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -28045,6 +28606,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -29257,6 +29831,7 @@ const notificationsFailedThreshold: NotificationsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -29441,6 +30016,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -29537,6 +30125,7 @@ const openSearchClusterAutomatedSnapshotFailureThreshold: OpenSearchClusterAutom
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -29721,6 +30310,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -29817,6 +30419,7 @@ const openSearchClusterIndexWritesBlockedThreshold: OpenSearchClusterIndexWrites
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -29998,6 +30601,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -30802,6 +31418,7 @@ const openSearchClusterNodesThreshold: OpenSearchClusterNodesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -30986,6 +31603,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -31082,6 +31712,7 @@ const openSearchClusterStatusCustomization: OpenSearchClusterStatusCustomization
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -31266,6 +31897,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -31362,6 +32006,7 @@ const openSearchKmsKeyErrorThreshold: OpenSearchKmsKeyErrorThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -31546,6 +32191,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -31642,6 +32300,7 @@ const openSearchKmsKeyInaccessibleThreshold: OpenSearchKmsKeyInaccessibleThresho
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -31823,6 +32482,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -32659,6 +33331,7 @@ const recordsFailedThreshold: RecordsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -32843,6 +33516,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -32939,6 +33625,7 @@ const recordsThrottledThreshold: RecordsThrottledThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -33120,6 +33807,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -33612,6 +34312,7 @@ const runningTaskCountThreshold: RunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -33796,6 +34497,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -33892,6 +34606,7 @@ const runningTaskRateThreshold: RunningTaskRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -34073,6 +34788,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -38418,6 +39146,7 @@ const throttledEventsThreshold: ThrottledEventsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -38602,6 +39331,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -38698,6 +39440,7 @@ const unhealthyTaskCountThreshold: UnhealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -38882,6 +39625,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -38978,6 +39734,7 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -39162,6 +39919,19 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.UsageCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
 ##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UsageCountThreshold.property.minMetricSamplesToAlarm"></a>
 
 ```typescript
@@ -39258,6 +40028,7 @@ const usageThreshold: UsageThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
@@ -39439,6 +40210,19 @@ public readonly fillAlarmRange: boolean;
 - *Default:* false
 
 Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.UsageThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
@@ -44945,6 +45729,90 @@ public readonly projectUrl: string;
 ---
 
 
+### CompositeMetricAdjuster <a name="CompositeMetricAdjuster" id="cdk-monitoring-constructs.CompositeMetricAdjuster"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+
+Allows to apply a collection of {@link IMetricAdjuster} to a metric.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CompositeMetricAdjuster.Initializer"></a>
+
+```typescript
+import { CompositeMetricAdjuster } from 'cdk-monitoring-constructs'
+
+new CompositeMetricAdjuster(adjusters: IMetricAdjuster[])
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CompositeMetricAdjuster.Initializer.parameter.adjusters">adjusters</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>[]</code> | *No description.* |
+
+---
+
+##### `adjusters`<sup>Required</sup> <a name="adjusters" id="cdk-monitoring-constructs.CompositeMetricAdjuster.Initializer.parameter.adjusters"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>[]
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CompositeMetricAdjuster.adjustMetric">adjustMetric</a></code> | Adjusts a metric. |
+
+---
+
+##### `adjustMetric` <a name="adjustMetric" id="cdk-monitoring-constructs.CompositeMetricAdjuster.adjustMetric"></a>
+
+```typescript
+public adjustMetric(metric: Metric | MathExpression, alarmScope: Construct, props: AddAlarmProps): Metric | MathExpression
+```
+
+Adjusts a metric.
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.CompositeMetricAdjuster.adjustMetric.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `alarmScope`<sup>Required</sup> <a name="alarmScope" id="cdk-monitoring-constructs.CompositeMetricAdjuster.adjustMetric.parameter.alarmScope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.CompositeMetricAdjuster.adjustMetric.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AddAlarmProps">AddAlarmProps</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CompositeMetricAdjuster.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-monitoring-constructs.CompositeMetricAdjuster.of"></a>
+
+```typescript
+import { CompositeMetricAdjuster } from 'cdk-monitoring-constructs'
+
+CompositeMetricAdjuster.of(adjusters: IMetricAdjuster)
+```
+
+###### `adjusters`<sup>Required</sup> <a name="adjusters" id="cdk-monitoring-constructs.CompositeMetricAdjuster.of.parameter.adjusters"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+
+---
+
+
+
 ### ConnectionAlarmFactory <a name="ConnectionAlarmFactory" id="cdk-monitoring-constructs.ConnectionAlarmFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.ConnectionAlarmFactory.Initializer"></a>
@@ -45487,6 +46355,81 @@ Creates annotation based on the metric and alarm properties.
 
 
 
+
+### DefaultMetricAdjuster <a name="DefaultMetricAdjuster" id="cdk-monitoring-constructs.DefaultMetricAdjuster"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+
+Applies the default metric adjustments.
+
+These adjustments are always applied last, regardless the value configured in {@link AddAlarmProps.metricAdjuster}.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DefaultMetricAdjuster.Initializer"></a>
+
+```typescript
+import { DefaultMetricAdjuster } from 'cdk-monitoring-constructs'
+
+new DefaultMetricAdjuster()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DefaultMetricAdjuster.adjustMetric">adjustMetric</a></code> | Adjusts a metric. |
+
+---
+
+##### `adjustMetric` <a name="adjustMetric" id="cdk-monitoring-constructs.DefaultMetricAdjuster.adjustMetric"></a>
+
+```typescript
+public adjustMetric(metric: Metric | MathExpression, _: Construct, props: AddAlarmProps): Metric | MathExpression
+```
+
+Adjusts a metric.
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.DefaultMetricAdjuster.adjustMetric.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `_`<sup>Required</sup> <a name="_" id="cdk-monitoring-constructs.DefaultMetricAdjuster.adjustMetric.parameter._"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.DefaultMetricAdjuster.adjustMetric.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AddAlarmProps">AddAlarmProps</a>
+
+---
+
+
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DefaultMetricAdjuster.property.INSTANCE">INSTANCE</a></code> | <code><a href="#cdk-monitoring-constructs.DefaultMetricAdjuster">DefaultMetricAdjuster</a></code> | *No description.* |
+
+---
+
+##### `INSTANCE`<sup>Required</sup> <a name="INSTANCE" id="cdk-monitoring-constructs.DefaultMetricAdjuster.property.INSTANCE"></a>
+
+```typescript
+public readonly INSTANCE: DefaultMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.DefaultMetricAdjuster">DefaultMetricAdjuster</a>
+
+---
 
 ### DefaultWidgetFactory <a name="DefaultWidgetFactory" id="cdk-monitoring-constructs.DefaultWidgetFactory"></a>
 
@@ -57689,6 +58632,83 @@ public readonly url: string;
 ---
 
 
+### Route53HealthCheckMetricAdjuster <a name="Route53HealthCheckMetricAdjuster" id="cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+
+Adjusts a metric so that alarms created from it can be used in Route53 Health Checks.
+
+The metric will be validated to ensure it satisfies Route53 Health Check alarm requirements, otherwise it will throw an {@link Error}.
+
+> [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html)
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster.Initializer"></a>
+
+```typescript
+import { Route53HealthCheckMetricAdjuster } from 'cdk-monitoring-constructs'
+
+new Route53HealthCheckMetricAdjuster()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster.adjustMetric">adjustMetric</a></code> | Adjusts a metric. |
+
+---
+
+##### `adjustMetric` <a name="adjustMetric" id="cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster.adjustMetric"></a>
+
+```typescript
+public adjustMetric(metric: Metric | MathExpression, alarmScope: Construct, props: AddAlarmProps): Metric | MathExpression
+```
+
+Adjusts a metric.
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster.adjustMetric.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `alarmScope`<sup>Required</sup> <a name="alarmScope" id="cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster.adjustMetric.parameter.alarmScope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster.adjustMetric.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AddAlarmProps">AddAlarmProps</a>
+
+---
+
+
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster.property.INSTANCE">INSTANCE</a></code> | <code><a href="#cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster">Route53HealthCheckMetricAdjuster</a></code> | *No description.* |
+
+---
+
+##### `INSTANCE`<sup>Required</sup> <a name="INSTANCE" id="cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster.property.INSTANCE"></a>
+
+```typescript
+public readonly INSTANCE: Route53HealthCheckMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster">Route53HealthCheckMetricAdjuster</a>
+
+---
+
 ### S3BucketMetricFactory <a name="S3BucketMetricFactory" id="cdk-monitoring-constructs.S3BucketMetricFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.S3BucketMetricFactory.Initializer"></a>
@@ -64199,6 +65219,53 @@ public metricProcessedBytesMin(): Metric | MathExpression
 ```typescript
 public metricUnhealthyTaskCount(): Metric | MathExpression
 ```
+
+
+### IMetricAdjuster <a name="IMetricAdjuster" id="cdk-monitoring-constructs.IMetricAdjuster"></a>
+
+- *Implemented By:* <a href="#cdk-monitoring-constructs.CompositeMetricAdjuster">CompositeMetricAdjuster</a>, <a href="#cdk-monitoring-constructs.DefaultMetricAdjuster">DefaultMetricAdjuster</a>, <a href="#cdk-monitoring-constructs.Route53HealthCheckMetricAdjuster">Route53HealthCheckMetricAdjuster</a>, <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+
+Adjusts a metric before creating adding an alarm to it.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.IMetricAdjuster.adjustMetric">adjustMetric</a></code> | Adjusts a metric. |
+
+---
+
+##### `adjustMetric` <a name="adjustMetric" id="cdk-monitoring-constructs.IMetricAdjuster.adjustMetric"></a>
+
+```typescript
+public adjustMetric(metric: Metric | MathExpression, alarmScope: Construct, props: AddAlarmProps): Metric | MathExpression
+```
+
+Adjusts a metric.
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.IMetricAdjuster.adjustMetric.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+The metric to adjust.
+
+---
+
+###### `alarmScope`<sup>Required</sup> <a name="alarmScope" id="cdk-monitoring-constructs.IMetricAdjuster.adjustMetric.parameter.alarmScope"></a>
+
+- *Type:* constructs.Construct
+
+The alarm scope.
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.IMetricAdjuster.adjustMetric.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AddAlarmProps">AddAlarmProps</a>
+
+The props specified for adding the alarm.
+
+---
 
 
 ### IPublisherConsumer <a name="IPublisherConsumer" id="cdk-monitoring-constructs.IPublisherConsumer"></a>

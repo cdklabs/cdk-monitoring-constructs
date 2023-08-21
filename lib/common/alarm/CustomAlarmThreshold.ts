@@ -5,6 +5,7 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import { IAlarmActionStrategy } from "./action";
+import { IMetricAdjuster } from "./metric-adjuster";
 
 /**
  * Common customization that can be attached to each alarm.
@@ -136,4 +137,11 @@ export interface CustomAlarmThreshold {
    * @default - false
    */
   readonly fillAlarmRange?: boolean;
+
+  /**
+   * If specified, adjusts the metric before creating an alarm from it.
+   *
+   * @default - no adjuster
+   */
+  readonly metricAdjuster?: IMetricAdjuster;
 }

@@ -254,6 +254,58 @@ monitorCustom({
 
 Search metrics do not support setting an alarm, which is a CloudWatch limitation.
 
+### Route53 Health Checks
+
+Route53 has [strict requirements](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html) as to which alarms are allowed to be referenced in Health Checks.
+You adjust the metric for an alarm sot hat it can be used in a Route53 Health Checks as follows:
+
+```ts
+monitoring
+  .monitorSomething(something, {
+    addSomeAlarm: {
+      Warning: {
+        // ...other props
+        metricAdjuster: Route53HealthCheckMetricAdjuster.INSTANCE,
+      }
+    }
+  });
+```
+
+This will ensure the alarm can be used on a Route53 Health Check or otherwise throw an `Error` indicating why the alarm can't be used.
+In order to easily find your Route53 Health Check alarms later on, you can apply a custom tag to them as follows:
+
+```ts
+import { CfnHealthCheck } from "aws-cdk-lib/aws-route53";
+
+monitoring
+  .monitorSomething(something, {
+    addSomeAlarm: {
+      Warning: {
+        // ...other props
+        customTags: ["route53-health-check"],
+        metricAdjuster: Route53HealthCheckMetricAdjuster.INSTANCE,
+      }
+    }
+  });
+
+const alarms = monitoring.createdAlarmsWithTag("route53-health-check");
+
+const healthChecks = alarms.map(({ alarm }) => {
+  const id = getHealthCheckConstructId(alarm);
+
+  return new CfnHealthCheck(scope, id, {
+    healthCheckConfig: {
+      // ...other props
+      type: "CLOUDWATCH_METRIC",
+      alarmIdentifier: {
+        name: alarm.alarmName,
+        region: alarm.stack.region,
+      },
+    },
+  });
+});
+```
+
 ### Custom monitoring segments
 
 If you want even more flexibility, you can create your own segment.

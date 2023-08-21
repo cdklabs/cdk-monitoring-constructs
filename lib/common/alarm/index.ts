@@ -1,4 +1,5 @@
 export * from "./action";
+export * from "./metric-adjuster";
 export * from "./AlarmFactory";
 export * from "./AlarmNamingStrategy";
 export * from "./CustomAlarmThreshold";
