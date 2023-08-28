@@ -55062,7 +55062,7 @@ if undefined, uses the global default
 ##### `createMetricAnomalyDetection` <a name="createMetricAnomalyDetection" id="cdk-monitoring-constructs.MetricFactory.createMetricAnomalyDetection"></a>
 
 ```typescript
-public createMetricAnomalyDetection(metric: IMetric, stdev: number, label: string, color?: string, expressionId?: string, period?: Duration): Metric | MathExpression
+public createMetricAnomalyDetection(metric: IMetric, stdev: number, label: string, color?: string, expressionId?: string, period?: Duration, region?: string, account?: string): Metric | MathExpression
 ```
 
 Factory method that creates anomaly detection on a metric.
@@ -55127,10 +55127,30 @@ if undefined, uses the global default
 
 ---
 
+###### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricFactory.createMetricAnomalyDetection.parameter.region"></a>
+
+- *Type:* string
+
+specify a custom region;
+
+if undefined, uses the global default
+
+---
+
+###### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.MetricFactory.createMetricAnomalyDetection.parameter.account"></a>
+
+- *Type:* string
+
+specify a custom account;
+
+if undefined, uses the global default
+
+---
+
 ##### `createMetricMath` <a name="createMetricMath" id="cdk-monitoring-constructs.MetricFactory.createMetricMath"></a>
 
 ```typescript
-public createMetricMath(expression: string, usingMetrics: {[ key: string ]: IMetric}, label: string, color?: string, period?: Duration): Metric | MathExpression
+public createMetricMath(expression: string, usingMetrics: {[ key: string ]: IMetric}, label: string, color?: string, period?: Duration, region?: string, account?: string): Metric | MathExpression
 ```
 
 Factory method that creates a metric math expression.
@@ -55181,10 +55201,30 @@ if undefined, uses the global default
 
 ---
 
+###### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricFactory.createMetricMath.parameter.region"></a>
+
+- *Type:* string
+
+specify a custom region;
+
+if undefined, uses the global default
+
+---
+
+###### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.MetricFactory.createMetricMath.parameter.account"></a>
+
+- *Type:* string
+
+specify a custom account;
+
+if undefined, uses the global default
+
+---
+
 ##### `createMetricSearch` <a name="createMetricSearch" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch"></a>
 
 ```typescript
-public createMetricSearch(query: string, dimensionsMap: {[ key: string ]: string}, statistic: MetricStatistic, namespace?: string, label?: string, period?: Duration): IMetric
+public createMetricSearch(query: string, dimensionsMap: {[ key: string ]: string}, statistic: MetricStatistic, namespace?: string, label?: string, period?: Duration, region?: string, account?: string): IMetric
 ```
 
 Factory method that creates a metric search query.
@@ -55244,6 +55284,26 @@ default is " " as it cannot be empty string
 - *Type:* aws-cdk-lib.Duration
 
 specify a custom period;
+
+if undefined, uses the global default
+
+---
+
+###### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch.parameter.region"></a>
+
+- *Type:* string
+
+specify a custom region;
+
+if undefined, uses the global default
+
+---
+
+###### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch.parameter.account"></a>
+
+- *Type:* string
+
+specify a custom account;
 
 if undefined, uses the global default
 
@@ -64708,7 +64768,7 @@ new XaxrMathExpression(props: XaxrMathExpressionProps)
 
 ---
 
-##### `toMetricConfig` <a name="toMetricConfig" id="cdk-monitoring-constructs.XaxrMathExpression.toMetricConfig"></a>
+##### ~~`toMetricConfig`~~ <a name="toMetricConfig" id="cdk-monitoring-constructs.XaxrMathExpression.toMetricConfig"></a>
 
 ```typescript
 public toMetricConfig(): MetricConfig
@@ -64716,7 +64776,7 @@ public toMetricConfig(): MetricConfig
 
 Inspect the details of the metric object.
 
-##### `with` <a name="with" id="cdk-monitoring-constructs.XaxrMathExpression.with"></a>
+##### ~~`with`~~ <a name="with" id="cdk-monitoring-constructs.XaxrMathExpression.with"></a>
 
 ```typescript
 public with(options: MathExpressionOptions): IMetric

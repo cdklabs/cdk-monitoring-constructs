@@ -1,11 +1,7 @@
 import { Duration } from "aws-cdk-lib";
-import { IMetric, Metric } from "aws-cdk-lib/aws-cloudwatch";
+import { IMetric, MathExpression, Metric } from "aws-cdk-lib/aws-cloudwatch";
 
-import {
-  MetricStatistic,
-  MetricWithAlarmSupport,
-  XaxrMathExpression,
-} from "../../common";
+import { MetricStatistic, MetricWithAlarmSupport } from "../../common";
 
 export const BillingRegion = "us-east-1";
 export const BillingCurrency = "USD";
@@ -17,20 +13,17 @@ const DefaultServiceLimit = 10;
 
 export class BillingMetricFactory {
   metricSearchTopCostByServiceInUsd(): IMetric {
-    // standard MathExpression class does not support region
-    // TODO: revisit after migration to CDK 1.126.0
-
-    const search = new XaxrMathExpression({
+    const search = new MathExpression({
       period: BillingPeriod,
-      region: BillingRegion,
+      searchRegion: BillingRegion,
       expression: `SEARCH('{${BillingNamespace},Currency,ServiceName} MetricName="${BillingMetric}"', 'Maximum', ${BillingPeriod.toSeconds()})`,
       usingMetrics: {},
       label: " ",
     });
 
-    return new XaxrMathExpression({
+    return new MathExpression({
       period: BillingPeriod,
-      region: BillingRegion,
+      searchRegion: BillingRegion,
       expression: `SORT(search, MAX, DESC, ${DefaultServiceLimit})`,
       usingMetrics: { search },
       label: " ",

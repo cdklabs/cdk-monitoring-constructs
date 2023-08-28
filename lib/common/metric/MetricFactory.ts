@@ -108,13 +108,17 @@ export class MetricFactory {
    * @param label metric label (required, as there is no reasonable default)
    * @param color metric color; if undefined, uses a CloudWatch provided color (preferred)
    * @param period specify a custom period; if undefined, uses the global default
+   * @param region specify a custom region; if undefined, uses the global default
+   * @param account specify a custom account; if undefined, uses the global default
    */
   createMetricMath(
     expression: string,
     usingMetrics: Record<string, IMetric>,
     label: string,
     color?: string,
-    period?: Duration
+    period?: Duration,
+    region?: string,
+    account?: string
   ): MetricWithAlarmSupport {
     return new MathExpression({
       label,
@@ -122,6 +126,8 @@ export class MetricFactory {
       expression,
       usingMetrics,
       period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
+      searchRegion: region ?? this.globalDefaults.region,
+      searchAccount: account ?? this.globalDefaults.account,
     });
   }
 
@@ -136,6 +142,8 @@ export class MetricFactory {
    * @param namespace specify a custom namespace; if undefined, uses the global default
    * @param label specify custom label for search metrics; default is " " as it cannot be empty string
    * @param period specify a custom period; if undefined, uses the global default
+   * @param region specify a custom region; if undefined, uses the global default
+   * @param account specify a custom account; if undefined, uses the global default
    */
   createMetricSearch(
     query: string,
@@ -143,7 +151,9 @@ export class MetricFactory {
     statistic: MetricStatistic,
     namespace?: string,
     label?: string,
-    period?: Duration
+    period?: Duration,
+    region?: string,
+    account?: string
   ): IMetric {
     const finalPeriod =
       period ?? this.globalDefaults.period ?? DefaultMetricPeriod;
@@ -169,6 +179,8 @@ export class MetricFactory {
       // cannot be an empty string and undefined is no good either
       label: label ?? " ",
       period: finalPeriod,
+      searchRegion: region ?? this.globalDefaults.region,
+      searchAccount: account ?? this.globalDefaults.account,
     });
   }
 
@@ -185,6 +197,8 @@ export class MetricFactory {
    * @param color metric color; if undefined, uses a CloudWatch provided color (preferred)
    * @param expressionId expression ID of the metric; uses `m1` if undefined
    * @param period specify a custom period; if undefined, uses the global default
+   * @param region specify a custom region; if undefined, uses the global default
+   * @param account specify a custom account; if undefined, uses the global default
    */
   createMetricAnomalyDetection(
     metric: IMetric,
@@ -192,7 +206,9 @@ export class MetricFactory {
     label: string,
     color?: string,
     expressionId?: string,
-    period?: Duration
+    period?: Duration,
+    region?: string,
+    account?: string
   ): MetricWithAlarmSupport {
     const finalExpressionId = expressionId ?? "m1";
     const usingMetrics: Record<string, IMetric> = {};
@@ -203,6 +219,8 @@ export class MetricFactory {
       usingMetrics,
       expression: `ANOMALY_DETECTION_BAND(${finalExpressionId},${stdev})`,
       period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
+      searchRegion: region ?? this.globalDefaults.region,
+      searchAccount: account ?? this.globalDefaults.account,
     });
   }
 

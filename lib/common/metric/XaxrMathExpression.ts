@@ -28,9 +28,12 @@ export interface XaxrMathExpressionProps extends MathExpressionProps {
   readonly region?: string;
 }
 
+// TODO: remove this as a breaking change
 /**
  * Custom wrapper class for MathExpression that supports account and region specification.
  * @see https://github.com/aws/aws-cdk/issues/9039
+ *
+ * @deprecated Use MathExpression from aws-cdk-lib/aws-cloudwatch instead.
  */
 export class XaxrMathExpression implements IMetric {
   private props: XaxrMathExpressionProps;
@@ -41,22 +44,22 @@ export class XaxrMathExpression implements IMetric {
     this.mathExpression = new MathExpression(props);
   }
 
+  /**
+   * @deprecated Use MathExpression from aws-cdk-lib/aws-cloudwatch instead.
+   */
   with(options: MathExpressionOptions): IMetric {
-    return new XaxrMathExpression({
+    return new MathExpression({
       ...this.props,
       ...options,
+      searchAccount: this.props.account,
+      searchRegion: this.props.region,
     });
   }
 
+  /**
+   * @deprecated Use MathExpression from aws-cdk-lib/aws-cloudwatch instead.
+   */
   toMetricConfig(): MetricConfig {
-    const defaultMetricConfig = this.mathExpression.toMetricConfig();
-    return {
-      ...defaultMetricConfig,
-      renderingProperties: {
-        ...defaultMetricConfig.renderingProperties,
-        accountId: this.props.account,
-        region: this.props.region,
-      },
-    };
+    return this.mathExpression.toMetricConfig();
   }
 }

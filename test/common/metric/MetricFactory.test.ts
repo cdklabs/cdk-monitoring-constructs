@@ -21,7 +21,7 @@ test("createMetric without global namespace throws an error", () => {
   ).toThrowError();
 });
 
-test("snapshot test: global defaults", () => {
+describe("snapshot test: global defaults", () => {
   function testMetric(props: MetricFactoryDefaults) {
     const metricFactory = new MetricFactory({
       globalDefaults: {
@@ -29,30 +29,69 @@ test("snapshot test: global defaults", () => {
         ...props,
       },
     });
+
     const metric = metricFactory.createMetric(
       "DummyMetricName",
       MetricStatistic.P90
     );
-    expect(metric).toMatchSnapshot();
+    const metricMath = metricFactory.createMetricMath(
+      "DummyExpression",
+      {},
+      "label"
+    );
+    const metricSearch = metricFactory.createMetricSearch(
+      "DummyQuery",
+      {},
+      MetricStatistic.P90
+    );
+    const metricAnomalyDetection = metricFactory.createMetricAnomalyDetection(
+      new Metric({
+        metricName: "DummyMetric1",
+        namespace: "DummyNamespace",
+      }),
+      2,
+      "label"
+    );
+
+    expect({
+      metric,
+      metricMath,
+      metricSearch,
+      metricAnomalyDetection,
+    }).toMatchSnapshot();
   }
 
-  testMetric({
-    namespace: "SomeNamespace",
+  test("with namespace", () => {
+    testMetric({
+      namespace: "CustomTestNamespace",
+    });
   });
-  testMetric({
-    period: Duration.minutes(15),
+
+  test("with period", () => {
+    testMetric({
+      period: Duration.minutes(15),
+    });
   });
-  testMetric({
-    region: "us-west-2",
+
+  test("with region", () => {
+    testMetric({
+      region: "us-west-2",
+    });
   });
-  testMetric({
-    account: "123456789",
+
+  test("with account", () => {
+    testMetric({
+      account: "123456789",
+    });
   });
-  testMetric({
-    namespace: "SomeNamespace",
-    period: Duration.minutes(15),
-    region: "us-west-2",
-    account: "123456789",
+
+  test("with multiple props", () => {
+    testMetric({
+      namespace: "CustomTestNamespace",
+      period: Duration.minutes(15),
+      region: "us-west-2",
+      account: "123456789",
+    });
   });
 });
 
