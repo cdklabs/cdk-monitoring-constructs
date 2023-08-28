@@ -140,7 +140,7 @@ export class MonitoringStack extends DeploymentStack {
 
 ### Customize actions
 
-Alarms should have an action setup, otherwise they are not very useful. Currently, we support notifying an SNS Topic.
+Alarms should have an action setup, otherwise they are not very useful. Currently, we support notifying an SNS topic.
 
 ```ts
 const onAlarmTopic = new Topic(this, "AlarmTopic");
