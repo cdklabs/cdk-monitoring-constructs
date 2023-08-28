@@ -399,118 +399,503 @@ MathExpression {
 }
 `;
 
-exports[`snapshot test: global defaults 1`] = `
-Metric {
-  "account": undefined,
-  "color": undefined,
-  "dimensions": undefined,
-  "label": undefined,
-  "metricName": "DummyMetricName",
-  "namespace": "SomeNamespace",
-  "period": Duration {
-    "amount": 5,
-    "unit": TimeUnit {
-      "inMillis": 60000,
-      "isoLabel": "M",
-      "label": "minutes",
+exports[`snapshot test: global defaults with account 1`] = `
+Object {
+  "metric": Metric {
+    "account": "123456789",
+    "color": undefined,
+    "dimensions": undefined,
+    "label": undefined,
+    "metricName": "DummyMetricName",
+    "namespace": "DummyNamespace",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "region": undefined,
+    "statistic": "p90",
+    "unit": undefined,
+    "warnings": undefined,
+  },
+  "metricAnomalyDetection": AnomalyDetectionMathExpression {
+    "color": undefined,
+    "expression": "ANOMALY_DETECTION_BAND(m1,2)",
+    "label": "label",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": "123456789",
+    "searchRegion": undefined,
+    "usingMetrics": Object {
+      "m1": Metric {
+        "account": undefined,
+        "color": undefined,
+        "dimensions": undefined,
+        "label": undefined,
+        "metricName": "DummyMetric1",
+        "namespace": "DummyNamespace",
+        "period": Duration {
+          "amount": 5,
+          "unit": TimeUnit {
+            "inMillis": 60000,
+            "isoLabel": "M",
+            "label": "minutes",
+          },
+        },
+        "region": undefined,
+        "statistic": "Average",
+        "unit": undefined,
+        "warnings": undefined,
+      },
     },
   },
-  "region": undefined,
-  "statistic": "p90",
-  "unit": undefined,
-  "warnings": undefined,
+  "metricMath": MathExpression {
+    "color": undefined,
+    "expression": "DummyExpression",
+    "label": "label",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": "123456789",
+    "searchRegion": undefined,
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    ],
+  },
+  "metricSearch": MathExpression {
+    "color": undefined,
+    "expression": "SEARCH('{DummyNamespace}  DummyQuery', 'p90', 300)",
+    "label": " ",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": "123456789",
+    "searchRegion": undefined,
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'SEARCH('{DummyNamespace}  DummyQuery', 'p90', 300)' references unknown identifiers: ummyNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
+    ],
+  },
 }
 `;
 
-exports[`snapshot test: global defaults 2`] = `
-Metric {
-  "account": undefined,
-  "color": undefined,
-  "dimensions": undefined,
-  "label": undefined,
-  "metricName": "DummyMetricName",
-  "namespace": "DummyNamespace",
-  "period": Duration {
-    "amount": 15,
-    "unit": TimeUnit {
-      "inMillis": 60000,
-      "isoLabel": "M",
-      "label": "minutes",
+exports[`snapshot test: global defaults with multiple props 1`] = `
+Object {
+  "metric": Metric {
+    "account": "123456789",
+    "color": undefined,
+    "dimensions": undefined,
+    "label": undefined,
+    "metricName": "DummyMetricName",
+    "namespace": "CustomTestNamespace",
+    "period": Duration {
+      "amount": 15,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "region": "us-west-2",
+    "statistic": "p90",
+    "unit": undefined,
+    "warnings": undefined,
+  },
+  "metricAnomalyDetection": AnomalyDetectionMathExpression {
+    "color": undefined,
+    "expression": "ANOMALY_DETECTION_BAND(m1,2)",
+    "label": "label",
+    "period": Duration {
+      "amount": 15,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": "123456789",
+    "searchRegion": "us-west-2",
+    "usingMetrics": Object {
+      "m1": Metric {
+        "account": undefined,
+        "color": undefined,
+        "dimensions": undefined,
+        "label": undefined,
+        "metricName": "DummyMetric1",
+        "namespace": "DummyNamespace",
+        "period": Duration {
+          "amount": 15,
+          "unit": TimeUnit {
+            "inMillis": 60000,
+            "isoLabel": "M",
+            "label": "minutes",
+          },
+        },
+        "region": undefined,
+        "statistic": "Average",
+        "unit": undefined,
+        "warnings": undefined,
+      },
     },
   },
-  "region": undefined,
-  "statistic": "p90",
-  "unit": undefined,
-  "warnings": undefined,
+  "metricMath": MathExpression {
+    "color": undefined,
+    "expression": "DummyExpression",
+    "label": "label",
+    "period": Duration {
+      "amount": 15,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": "123456789",
+    "searchRegion": "us-west-2",
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    ],
+  },
+  "metricSearch": MathExpression {
+    "color": undefined,
+    "expression": "SEARCH('{CustomTestNamespace}  DummyQuery', 'p90', 900)",
+    "label": " ",
+    "period": Duration {
+      "amount": 15,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": "123456789",
+    "searchRegion": "us-west-2",
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'SEARCH('{CustomTestNamespace}  DummyQuery', 'p90', 900)' references unknown identifiers: ustomTestNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
+    ],
+  },
 }
 `;
 
-exports[`snapshot test: global defaults 3`] = `
-Metric {
-  "account": undefined,
-  "color": undefined,
-  "dimensions": undefined,
-  "label": undefined,
-  "metricName": "DummyMetricName",
-  "namespace": "DummyNamespace",
-  "period": Duration {
-    "amount": 5,
-    "unit": TimeUnit {
-      "inMillis": 60000,
-      "isoLabel": "M",
-      "label": "minutes",
+exports[`snapshot test: global defaults with namespace 1`] = `
+Object {
+  "metric": Metric {
+    "account": undefined,
+    "color": undefined,
+    "dimensions": undefined,
+    "label": undefined,
+    "metricName": "DummyMetricName",
+    "namespace": "CustomTestNamespace",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "region": undefined,
+    "statistic": "p90",
+    "unit": undefined,
+    "warnings": undefined,
+  },
+  "metricAnomalyDetection": AnomalyDetectionMathExpression {
+    "color": undefined,
+    "expression": "ANOMALY_DETECTION_BAND(m1,2)",
+    "label": "label",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": undefined,
+    "usingMetrics": Object {
+      "m1": Metric {
+        "account": undefined,
+        "color": undefined,
+        "dimensions": undefined,
+        "label": undefined,
+        "metricName": "DummyMetric1",
+        "namespace": "DummyNamespace",
+        "period": Duration {
+          "amount": 5,
+          "unit": TimeUnit {
+            "inMillis": 60000,
+            "isoLabel": "M",
+            "label": "minutes",
+          },
+        },
+        "region": undefined,
+        "statistic": "Average",
+        "unit": undefined,
+        "warnings": undefined,
+      },
     },
   },
-  "region": "us-west-2",
-  "statistic": "p90",
-  "unit": undefined,
-  "warnings": undefined,
+  "metricMath": MathExpression {
+    "color": undefined,
+    "expression": "DummyExpression",
+    "label": "label",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": undefined,
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    ],
+  },
+  "metricSearch": MathExpression {
+    "color": undefined,
+    "expression": "SEARCH('{CustomTestNamespace}  DummyQuery', 'p90', 300)",
+    "label": " ",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": undefined,
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'SEARCH('{CustomTestNamespace}  DummyQuery', 'p90', 300)' references unknown identifiers: ustomTestNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
+    ],
+  },
 }
 `;
 
-exports[`snapshot test: global defaults 4`] = `
-Metric {
-  "account": "123456789",
-  "color": undefined,
-  "dimensions": undefined,
-  "label": undefined,
-  "metricName": "DummyMetricName",
-  "namespace": "DummyNamespace",
-  "period": Duration {
-    "amount": 5,
-    "unit": TimeUnit {
-      "inMillis": 60000,
-      "isoLabel": "M",
-      "label": "minutes",
+exports[`snapshot test: global defaults with period 1`] = `
+Object {
+  "metric": Metric {
+    "account": undefined,
+    "color": undefined,
+    "dimensions": undefined,
+    "label": undefined,
+    "metricName": "DummyMetricName",
+    "namespace": "DummyNamespace",
+    "period": Duration {
+      "amount": 15,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "region": undefined,
+    "statistic": "p90",
+    "unit": undefined,
+    "warnings": undefined,
+  },
+  "metricAnomalyDetection": AnomalyDetectionMathExpression {
+    "color": undefined,
+    "expression": "ANOMALY_DETECTION_BAND(m1,2)",
+    "label": "label",
+    "period": Duration {
+      "amount": 15,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": undefined,
+    "usingMetrics": Object {
+      "m1": Metric {
+        "account": undefined,
+        "color": undefined,
+        "dimensions": undefined,
+        "label": undefined,
+        "metricName": "DummyMetric1",
+        "namespace": "DummyNamespace",
+        "period": Duration {
+          "amount": 15,
+          "unit": TimeUnit {
+            "inMillis": 60000,
+            "isoLabel": "M",
+            "label": "minutes",
+          },
+        },
+        "region": undefined,
+        "statistic": "Average",
+        "unit": undefined,
+        "warnings": undefined,
+      },
     },
   },
-  "region": undefined,
-  "statistic": "p90",
-  "unit": undefined,
-  "warnings": undefined,
+  "metricMath": MathExpression {
+    "color": undefined,
+    "expression": "DummyExpression",
+    "label": "label",
+    "period": Duration {
+      "amount": 15,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": undefined,
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    ],
+  },
+  "metricSearch": MathExpression {
+    "color": undefined,
+    "expression": "SEARCH('{DummyNamespace}  DummyQuery', 'p90', 900)",
+    "label": " ",
+    "period": Duration {
+      "amount": 15,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": undefined,
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'SEARCH('{DummyNamespace}  DummyQuery', 'p90', 900)' references unknown identifiers: ummyNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
+    ],
+  },
 }
 `;
 
-exports[`snapshot test: global defaults 5`] = `
-Metric {
-  "account": "123456789",
-  "color": undefined,
-  "dimensions": undefined,
-  "label": undefined,
-  "metricName": "DummyMetricName",
-  "namespace": "SomeNamespace",
-  "period": Duration {
-    "amount": 15,
-    "unit": TimeUnit {
-      "inMillis": 60000,
-      "isoLabel": "M",
-      "label": "minutes",
+exports[`snapshot test: global defaults with region 1`] = `
+Object {
+  "metric": Metric {
+    "account": undefined,
+    "color": undefined,
+    "dimensions": undefined,
+    "label": undefined,
+    "metricName": "DummyMetricName",
+    "namespace": "DummyNamespace",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "region": "us-west-2",
+    "statistic": "p90",
+    "unit": undefined,
+    "warnings": undefined,
+  },
+  "metricAnomalyDetection": AnomalyDetectionMathExpression {
+    "color": undefined,
+    "expression": "ANOMALY_DETECTION_BAND(m1,2)",
+    "label": "label",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": "us-west-2",
+    "usingMetrics": Object {
+      "m1": Metric {
+        "account": undefined,
+        "color": undefined,
+        "dimensions": undefined,
+        "label": undefined,
+        "metricName": "DummyMetric1",
+        "namespace": "DummyNamespace",
+        "period": Duration {
+          "amount": 5,
+          "unit": TimeUnit {
+            "inMillis": 60000,
+            "isoLabel": "M",
+            "label": "minutes",
+          },
+        },
+        "region": undefined,
+        "statistic": "Average",
+        "unit": undefined,
+        "warnings": undefined,
+      },
     },
   },
-  "region": "us-west-2",
-  "statistic": "p90",
-  "unit": undefined,
-  "warnings": undefined,
+  "metricMath": MathExpression {
+    "color": undefined,
+    "expression": "DummyExpression",
+    "label": "label",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": "us-west-2",
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    ],
+  },
+  "metricSearch": MathExpression {
+    "color": undefined,
+    "expression": "SEARCH('{DummyNamespace}  DummyQuery', 'p90', 300)",
+    "label": " ",
+    "period": Duration {
+      "amount": 5,
+      "unit": TimeUnit {
+        "inMillis": 60000,
+        "isoLabel": "M",
+        "label": "minutes",
+      },
+    },
+    "searchAccount": undefined,
+    "searchRegion": "us-west-2",
+    "usingMetrics": Object {},
+    "warnings": Array [
+      "Math expression 'SEARCH('{DummyNamespace}  DummyQuery', 'p90', 300)' references unknown identifiers: ummyNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
+    ],
+  },
 }
 `;
 
