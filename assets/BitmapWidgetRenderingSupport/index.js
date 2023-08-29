@@ -1,4 +1,4 @@
-const aws = require('aws-sdk');
+const { CloudWatchClient, GetMetricWidgetImageCommand } = require('@aws-sdk/client-cloudwatch');
 
 const DOCS = `
           ## Display a CloudWatch bitmap graph
@@ -21,27 +21,15 @@ const DOCS = `
 
 exports.handler = async (event) => {
     async function renderUsingCloudWatch(graph, width, height) {
-        const params = {MetricWidget: JSON.stringify(graph)};
-        const region = graph.region;
-        const customBackoff = (retryCount) => {
-            // Keep retrying with a random delay, long enough to overcome throttling from CW
-            const delay = 300 + Math.floor(Math.random() * 500);
-            console.log(`retry number ${retryCount} with a delay of ${delay} ms`);
-            return delay;
-        }
-        const clientOptions = {
-            region,
-            // Keep retrying until the Lambda times out
-            maxRetries: 99,
-            retryDelayOptions: {customBackoff},
-            httpOptions: {
-                connectTimeout: 3 * 1000,
-                timeout: 3 * 1000,
-            },
-        };
-        const cloudwatch = new aws.CloudWatch(clientOptions);
-        const image = await cloudwatch.getMetricWidgetImage(params).promise();
-        const base64Image = Buffer.from(image.MetricWidgetImage).toString('base64');
+        const client = new CloudWatchClient({
+            signingRegion: graph.region,
+            retryMode: 'standard',
+        });
+        const command = new GetMetricWidgetImageCommand({
+            MetricWidget: JSON.stringify(graph),
+        });
+        const response = await client.send(command);
+        const base64Image = Buffer.from(response.MetricWidgetImage).toString('base64');
         return `<img width="${width}" height="${height}" loading="lazy" src="data:image/png;base64,${base64Image}"/>`;
     }
 
