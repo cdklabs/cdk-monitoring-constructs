@@ -34,7 +34,7 @@ export class BitmapWidgetRenderingSupport extends Construct {
         "Custom Widget Render for Bitmap Widgets (MonitoringCDKConstructs)",
       handler: "index.handler",
       memorySize: 128,
-      runtime: Runtime.NODEJS_14_X,
+      runtime: Runtime.NODEJS_18_X,
       timeout: Duration.seconds(60),
       logRetention: RetentionDays.ONE_DAY,
     });
