@@ -139,9 +139,9 @@ export class KinesisDataStreamMonitoring extends Monitoring {
     this.putRecordsFailedRecordsCountMetric =
       metricFactory.metricPutRecordsFailedRecordsCount();
     this.readProvisionedThroughputExceededMetric =
-      metricFactory.metricReadProvisionedThroughputExceededPercent();
+      metricFactory.metricReadProvisionedThroughputExceeded();
     this.writeProvisionedThroughputExceededMetric =
-      metricFactory.metricWriteProvisionedThroughputExceededPercent();
+      metricFactory.metricWriteProvisionedThroughputExceeded();
 
     for (const disambiguator in props.addIteratorMaxAgeAlarm) {
       const alarmProps = props.addIteratorMaxAgeAlarm[disambiguator];
@@ -292,7 +292,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
         this.readProvisionedThroughputExceededMetric,
         this.writeProvisionedThroughputExceededMetric,
       ],
-      leftYAxis: TimeAxisMillisFromZero,
+      leftYAxis: CountAxisFromZero,
       leftAnnotations: this.provisionedCapacityAnnotations,
     });
   }

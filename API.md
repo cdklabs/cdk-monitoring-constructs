@@ -52069,7 +52069,9 @@ new KinesisDataStreamMetricFactory(metricFactory: MetricFactory, props: KinesisD
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricPutRecordsTotalRecordsCount">metricPutRecordsTotalRecordsCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricPutRecordSuccessCount">metricPutRecordSuccessCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricPutRecordSumBytes">metricPutRecordSumBytes</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricReadProvisionedThroughputExceeded">metricReadProvisionedThroughputExceeded</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricReadProvisionedThroughputExceededPercent">metricReadProvisionedThroughputExceededPercent</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricWriteProvisionedThroughputExceeded">metricWriteProvisionedThroughputExceeded</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricWriteProvisionedThroughputExceededPercent">metricWriteProvisionedThroughputExceededPercent</a></code> | *No description.* |
 
 ---
@@ -52176,13 +52178,25 @@ public metricPutRecordSuccessCount(): Metric | MathExpression
 public metricPutRecordSumBytes(): Metric | MathExpression
 ```
 
-##### `metricReadProvisionedThroughputExceededPercent` <a name="metricReadProvisionedThroughputExceededPercent" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricReadProvisionedThroughputExceededPercent"></a>
+##### `metricReadProvisionedThroughputExceeded` <a name="metricReadProvisionedThroughputExceeded" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricReadProvisionedThroughputExceeded"></a>
+
+```typescript
+public metricReadProvisionedThroughputExceeded(): Metric | MathExpression
+```
+
+##### ~~`metricReadProvisionedThroughputExceededPercent`~~ <a name="metricReadProvisionedThroughputExceededPercent" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricReadProvisionedThroughputExceededPercent"></a>
 
 ```typescript
 public metricReadProvisionedThroughputExceededPercent(): Metric | MathExpression
 ```
 
-##### `metricWriteProvisionedThroughputExceededPercent` <a name="metricWriteProvisionedThroughputExceededPercent" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricWriteProvisionedThroughputExceededPercent"></a>
+##### `metricWriteProvisionedThroughputExceeded` <a name="metricWriteProvisionedThroughputExceeded" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricWriteProvisionedThroughputExceeded"></a>
+
+```typescript
+public metricWriteProvisionedThroughputExceeded(): Metric | MathExpression
+```
+
+##### ~~`metricWriteProvisionedThroughputExceededPercent`~~ <a name="metricWriteProvisionedThroughputExceededPercent" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactory.metricWriteProvisionedThroughputExceededPercent"></a>
 
 ```typescript
 public metricWriteProvisionedThroughputExceededPercent(): Metric | MathExpression
