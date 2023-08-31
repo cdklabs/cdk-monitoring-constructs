@@ -212,7 +212,21 @@ export class KinesisDataStreamMetricFactory {
     );
   }
 
+  /**
+   * @deprecated please use `metricReadProvisionedThroughputExceeded` instead
+   */
   metricReadProvisionedThroughputExceededPercent() {
+    return this.metricReadProvisionedThroughputExceeded();
+  }
+
+  /**
+   * @deprecated please use `metricWriteProvisionedThroughputExceeded` instead
+   */
+  metricWriteProvisionedThroughputExceededPercent() {
+    return this.metricWriteProvisionedThroughputExceeded();
+  }
+
+  metricReadProvisionedThroughputExceeded() {
     return this.metricFactory.createMetric(
       "ReadProvisionedThroughputExceeded",
       MetricStatistic.AVERAGE,
@@ -223,7 +237,7 @@ export class KinesisDataStreamMetricFactory {
     );
   }
 
-  metricWriteProvisionedThroughputExceededPercent() {
+  metricWriteProvisionedThroughputExceeded() {
     return this.metricFactory.createMetric(
       "WriteProvisionedThroughputExceeded",
       MetricStatistic.AVERAGE,

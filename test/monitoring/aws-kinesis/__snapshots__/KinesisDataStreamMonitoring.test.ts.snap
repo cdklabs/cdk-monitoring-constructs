@@ -100,7 +100,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"ReadProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Read\\"}],[\\"AWS/Kinesis\\",\\"WriteProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Write\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bytes\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"ReadProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Read\\"}],[\\"AWS/Kinesis\\",\\"WriteProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Write\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bytes\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -311,7 +311,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"ReadProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Read\\"}],[\\"AWS/Kinesis\\",\\"WriteProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Write\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"ReadProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Read\\"}],[\\"AWS/Kinesis\\",\\"WriteProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Write\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -387,7 +387,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"ReadProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Read\\"}],[\\"AWS/Kinesis\\",\\"WriteProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Write\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bytes\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"ReadProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Read\\"}],[\\"AWS/Kinesis\\",\\"WriteProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Write\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bytes\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -428,7 +428,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"ReadProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Read\\"}],[\\"AWS/Kinesis\\",\\"WriteProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Write\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"ReadProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Read\\"}],[\\"AWS/Kinesis\\",\\"WriteProvisionedThroughputExceeded\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Write\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
