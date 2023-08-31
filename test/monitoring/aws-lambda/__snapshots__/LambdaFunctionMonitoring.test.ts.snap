@@ -1318,7 +1318,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"visible\\":false,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1366,7 +1366,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Total Time\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Custom annotation label\\",\\"value\\":2,\\"color\\":\\"#8c564b\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Total Time\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2153,7 +2153,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"visible\\":false,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

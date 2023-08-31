@@ -3973,6 +3973,9 @@ const anomalyDetectionThreshold: AnomalyDetectionThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -4189,6 +4192,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -7403,6 +7445,9 @@ const availabilityThreshold: AvailabilityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -7616,6 +7661,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -8798,6 +8882,9 @@ const changeInSecretCountThreshold: ChangeInSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -9014,6 +9101,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -9959,6 +10085,9 @@ const consumedCapacityThreshold: ConsumedCapacityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -10175,6 +10304,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.period"></a>
 
 ```typescript
@@ -10255,6 +10423,9 @@ const customAlarmThreshold: CustomAlarmThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -10467,6 +10638,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -11772,6 +11982,9 @@ const customThreshold: CustomThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -11988,6 +12201,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -12237,6 +12489,9 @@ const daysSinceUpdateThreshold: DaysSinceUpdateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -12453,6 +12708,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.period"></a>
 
 ```typescript
@@ -12531,6 +12825,9 @@ const daysToExpiryThreshold: DaysToExpiryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -12744,6 +13041,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -13250,6 +13586,9 @@ const durationThreshold: DurationThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -13463,6 +13802,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -16101,6 +16479,9 @@ const errorCountThreshold: ErrorCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -16317,6 +16698,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.ErrorCountThreshold.property.period"></a>
 
 ```typescript
@@ -16395,6 +16815,9 @@ const errorRateThreshold: ErrorRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -16608,6 +17031,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -17553,6 +18015,9 @@ const firehoseStreamLimitThreshold: FirehoseStreamLimitThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -17769,6 +18234,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.period"></a>
 
 ```typescript
@@ -17849,6 +18353,9 @@ const fullRestartCountThreshold: FullRestartCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -18062,6 +18569,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -18561,6 +19107,9 @@ const healthyTaskCountThreshold: HealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -18777,6 +19326,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.period"></a>
 
 ```typescript
@@ -18855,6 +19443,9 @@ const healthyTaskPercentThreshold: HealthyTaskPercentThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -19071,6 +19662,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.period"></a>
 
 ```typescript
@@ -19149,6 +19779,9 @@ const highConnectionCountThreshold: HighConnectionCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -19365,6 +19998,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.period"></a>
 
 ```typescript
@@ -19443,6 +20115,9 @@ const highMessagesPublishedThreshold: HighMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -19659,6 +20334,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.period"></a>
 
 ```typescript
@@ -19737,6 +20451,9 @@ const highTpsThreshold: HighTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -19950,6 +20667,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -21949,6 +22705,9 @@ const latencyThreshold: LatencyThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -22165,6 +22924,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LatencyThreshold.property.period"></a>
 
 ```typescript
@@ -22243,6 +23041,9 @@ const logLevelCountThreshold: LogLevelCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -22456,6 +23257,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -22726,6 +23566,9 @@ const lowConnectionCountThreshold: LowConnectionCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -22942,6 +23785,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.period"></a>
 
 ```typescript
@@ -23020,6 +23902,9 @@ const lowMessagesPublishedThreshold: LowMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -23236,6 +24121,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.period"></a>
 
 ```typescript
@@ -23314,6 +24238,9 @@ const lowTpsThreshold: LowTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -23530,6 +24457,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LowTpsThreshold.property.period"></a>
 
 ```typescript
@@ -23608,6 +24574,9 @@ const maxAgeThreshold: MaxAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -23824,6 +24793,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxAgeThreshold.property.period"></a>
 
 ```typescript
@@ -23902,6 +24910,9 @@ const maxDowntimeThreshold: MaxDowntimeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -24118,6 +25129,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.period"></a>
 
 ```typescript
@@ -24196,6 +25246,9 @@ const maxIncomingMessagesCountThreshold: MaxIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -24412,6 +25465,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.period"></a>
 
 ```typescript
@@ -24490,6 +25582,9 @@ const maxItemsCountThreshold: MaxItemsCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -24706,6 +25801,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.period"></a>
 
 ```typescript
@@ -24784,6 +25918,9 @@ const maxIteratorAgeThreshold: MaxIteratorAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -25000,6 +26137,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.period"></a>
 
 ```typescript
@@ -25078,6 +26254,9 @@ const maxMessageAgeThreshold: MaxMessageAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -25294,6 +26473,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.period"></a>
 
 ```typescript
@@ -25372,6 +26590,9 @@ const maxMessageCountThreshold: MaxMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -25588,6 +26809,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.period"></a>
 
 ```typescript
@@ -25666,6 +26926,9 @@ const maxSecretCountThreshold: MaxSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -25882,6 +27145,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.period"></a>
 
 ```typescript
@@ -25960,6 +27262,9 @@ const maxTimeToDrainThreshold: MaxTimeToDrainThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -26176,6 +27481,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.period"></a>
 
 ```typescript
@@ -26254,6 +27598,9 @@ const maxUsedSwapMemoryThreshold: MaxUsedSwapMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -26470,6 +27817,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.period"></a>
 
 ```typescript
@@ -26660,6 +28046,9 @@ const minFreeableMemoryThreshold: MinFreeableMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -26876,6 +28265,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.period"></a>
 
 ```typescript
@@ -26954,6 +28382,9 @@ const minIncomingMessagesCountThreshold: MinIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -27170,6 +28601,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.period"></a>
 
 ```typescript
@@ -27248,6 +28718,9 @@ const minMessageCountThreshold: MinMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -27464,6 +28937,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.period"></a>
 
 ```typescript
@@ -27542,6 +29054,9 @@ const minProcessedBytesThreshold: MinProcessedBytesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -27758,6 +29273,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.period"></a>
 
 ```typescript
@@ -27838,6 +29392,9 @@ const minRunningTaskCountThreshold: MinRunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -28054,6 +29611,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.period"></a>
 
 ```typescript
@@ -28132,6 +29728,9 @@ const minSecretCountThreshold: MinSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -28348,6 +29947,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.period"></a>
 
 ```typescript
@@ -28426,6 +30064,9 @@ const minUsageCountThreshold: MinUsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -28639,6 +30280,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -29833,6 +31513,9 @@ const notificationsFailedThreshold: NotificationsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -30049,6 +31732,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.period"></a>
 
 ```typescript
@@ -30127,6 +31849,9 @@ const openSearchClusterAutomatedSnapshotFailureThreshold: OpenSearchClusterAutom
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -30343,6 +32068,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.period"></a>
 
 ```typescript
@@ -30421,6 +32185,9 @@ const openSearchClusterIndexWritesBlockedThreshold: OpenSearchClusterIndexWrites
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -30634,6 +32401,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -31420,6 +33226,9 @@ const openSearchClusterNodesThreshold: OpenSearchClusterNodesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -31636,6 +33445,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.period"></a>
 
 ```typescript
@@ -31714,6 +33562,9 @@ const openSearchClusterStatusCustomization: OpenSearchClusterStatusCustomization
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -31930,6 +33781,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.period"></a>
 
 ```typescript
@@ -32008,6 +33898,9 @@ const openSearchKmsKeyErrorThreshold: OpenSearchKmsKeyErrorThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -32224,6 +34117,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.period"></a>
 
 ```typescript
@@ -32302,6 +34234,9 @@ const openSearchKmsKeyInaccessibleThreshold: OpenSearchKmsKeyInaccessibleThresho
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -32515,6 +34450,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -33333,6 +35307,9 @@ const recordsFailedThreshold: RecordsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -33549,6 +35526,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.period"></a>
 
 ```typescript
@@ -33627,6 +35643,9 @@ const recordsThrottledThreshold: RecordsThrottledThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -33840,6 +35859,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -34314,6 +36372,9 @@ const runningTaskCountThreshold: RunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -34530,6 +36591,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.period"></a>
 
 ```typescript
@@ -34608,6 +36708,9 @@ const runningTaskRateThreshold: RunningTaskRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -34821,6 +36924,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
@@ -39148,6 +41290,9 @@ const throttledEventsThreshold: ThrottledEventsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -39364,6 +41509,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.period"></a>
 
 ```typescript
@@ -39442,6 +41626,9 @@ const unhealthyTaskCountThreshold: UnhealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -39658,6 +41845,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.period"></a>
 
 ```typescript
@@ -39736,6 +41962,9 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -39952,6 +42181,45 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
 ##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.UsageCountThreshold.property.period"></a>
 
 ```typescript
@@ -40030,6 +42298,9 @@ const usageThreshold: UsageThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
@@ -40243,6 +42514,45 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
 
 ---
 
