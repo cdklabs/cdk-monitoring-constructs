@@ -139,6 +139,27 @@ export interface CustomAlarmThreshold {
   readonly fillAlarmRange?: boolean;
 
   /**
+   * If specified, it modifies the final alarm annotation color.
+   *
+   * @default - no override (default color)
+   */
+  readonly overrideAnnotationColor?: string;
+
+  /**
+   * If specified, it modifies the final alarm annotation label.
+   *
+   * @default - no override (default label)
+   */
+  readonly overrideAnnotationLabel?: string;
+
+  /**
+   * If specified, it modifies the final alarm annotation visibility.
+   *
+   * @default - no override (default visibility)
+   */
+  readonly overrideAnnotationVisibility?: boolean;
+
+  /**
    * If specified, adjusts the metric before creating an alarm from it.
    *
    * @default - no adjuster
