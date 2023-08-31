@@ -1,6 +1,6 @@
 import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
-import { ComparisonOperator } from "aws-cdk-lib/aws-cloudwatch";
+import { Color, ComparisonOperator } from "aws-cdk-lib/aws-cloudwatch";
 import {
   Function,
   InlineCode,
@@ -212,12 +212,15 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
       Warning: {
         maxErrorRate: 1,
         datapointsToAlarm: 10,
+        overrideAnnotationVisibility: false,
       },
     },
     addFaultCountAlarm: {
       Warning: {
         maxErrorCount: 2,
         datapointsToAlarm: 20,
+        overrideAnnotationColor: Color.BROWN,
+        overrideAnnotationLabel: "Custom annotation label",
       },
     },
     addLatencyP50Alarm: {
