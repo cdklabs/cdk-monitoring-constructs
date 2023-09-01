@@ -416,9 +416,14 @@ monitoring.monitorScope(stack, {
 ```
 
 
-## Contributing/Security
+## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md) for more information.
+
+
+## Security policy
+
+See [SECURITY](SECURITY.md) for more information.
 
 
 ## License
