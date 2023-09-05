@@ -58234,6 +58234,7 @@ new MultipleAlarmActionStrategy(actions: IAlarmActionStrategy[])
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy.addAlarmActions">addAlarmActions</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy.flattenedAlarmActions">flattenedAlarmActions</a></code> | Returns list of alarm actions where any nested instances of MultipleAlarmActionStrategy are flattened. |
 
 ---
 
@@ -58248,6 +58249,14 @@ public addAlarmActions(props: AlarmActionStrategyProps): void
 - *Type:* <a href="#cdk-monitoring-constructs.AlarmActionStrategyProps">AlarmActionStrategyProps</a>
 
 ---
+
+##### `flattenedAlarmActions` <a name="flattenedAlarmActions" id="cdk-monitoring-constructs.MultipleAlarmActionStrategy.flattenedAlarmActions"></a>
+
+```typescript
+public flattenedAlarmActions(): IAlarmActionStrategy[]
+```
+
+Returns list of alarm actions where any nested instances of MultipleAlarmActionStrategy are flattened.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
