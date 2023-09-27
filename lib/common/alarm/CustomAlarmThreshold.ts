@@ -20,8 +20,7 @@ export interface CustomAlarmThreshold {
 
   /**
    * If this is defined, the alarm dedupe string is set to this exact value.
-   * Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
-   * Dedupe strings are global and not unique per CTI.
+   * Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
    *
    * @default - undefined (no override)
    */
@@ -29,7 +28,7 @@ export interface CustomAlarmThreshold {
 
   /**
    * If this is defined, the alarm name is set to this exact value.
-   * Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+   * Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
    */
   readonly alarmNameOverride?: string;
 
