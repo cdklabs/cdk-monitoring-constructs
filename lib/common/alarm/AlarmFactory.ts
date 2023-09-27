@@ -77,7 +77,7 @@ export interface AddAlarmProps {
 
   /**
    * If this is defined, the alarm dedupe string is set to this exact value.
-   * Please be aware that you need to handle deduping for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+   * Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
    *
    * @default - undefined (no override)
    */
@@ -85,7 +85,7 @@ export interface AddAlarmProps {
 
   /**
    * If this is defined, the alarm name is set to this exact value.
-   * Please be aware that you need to specify prefix for different stages (Beta, Prod...) and realms (EU, NA...) manually.
+   * Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
    */
   readonly alarmNameOverride?: string;
 
@@ -436,7 +436,7 @@ export interface AlarmFactoryDefaults {
   readonly evaluationPeriods?: number;
 
   /**
-   * Global prefix for all alarm names. This should be something unique to avoid collisions with other CTIs.
+   * Global prefix for all alarm names. This should be something unique to avoid potential collisions.
    * This is ignored if an alarm's dedupeStringOverride is declared.
    */
   readonly alarmNamePrefix: string;

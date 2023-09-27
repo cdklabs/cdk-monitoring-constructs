@@ -100,7 +100,7 @@ Object {
           },
           "S3Key": "Fixed key that does not depend on asset changes",
         },
-        "Description": "Custom Widget Render for Bitmap Widgets (MonitoringCDKConstructs)",
+        "Description": "Custom Widget Render for Bitmap Widgets (cdk-monitoring-constructs)",
         "Handler": "index.handler",
         "MemorySize": 128,
         "Role": Object {
