@@ -1036,11 +1036,20 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "UpdateReplacePolicy": "Delete",
     },
     "ServiceQueueProcessingServiceEE7BDA66": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -1054,6 +1063,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ECS::Service",
     },
     "ServiceQueueProcessingServiceTaskCountTarget5BDDC275": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "MaxCapacity": 2,
         "MinCapacity": 1,
@@ -1097,6 +1110,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
     },
     "ServiceQueueProcessingServiceTaskCountTargetCpuScalingB61B5CB3": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingServiceTaskCountTargetCpuScalingCEE99E74",
         "PolicyType": "TargetTrackingScaling",
@@ -1113,6 +1130,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
     },
     "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingLowerAlarm8BE4DBC2": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "AlarmActions": Array [
           Object {
@@ -1142,6 +1163,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy0D8D677F": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy97220EDC",
         "PolicyType": "StepScaling",
@@ -1162,6 +1187,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
     },
     "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingUpperAlarmDB08D9F3": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "AlarmActions": Array [
           Object {
@@ -1191,6 +1220,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy07B9814A": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy48591319",
         "PolicyType": "StepScaling",
@@ -2625,11 +2658,20 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "UpdateReplacePolicy": "Delete",
     },
     "ServiceQueueProcessingServiceEE7BDA66": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -2643,6 +2685,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ECS::Service",
     },
     "ServiceQueueProcessingServiceTaskCountTarget5BDDC275": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "MaxCapacity": 2,
         "MinCapacity": 1,
@@ -2686,6 +2732,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
     },
     "ServiceQueueProcessingServiceTaskCountTargetCpuScalingB61B5CB3": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingServiceTaskCountTargetCpuScalingCEE99E74",
         "PolicyType": "TargetTrackingScaling",
@@ -2702,6 +2752,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
     },
     "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingLowerAlarm8BE4DBC2": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "AlarmActions": Array [
           Object {
@@ -2731,6 +2785,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy0D8D677F": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy97220EDC",
         "PolicyType": "StepScaling",
@@ -2751,6 +2809,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
     },
     "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingUpperAlarmDB08D9F3": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "AlarmActions": Array [
           Object {
@@ -2780,6 +2842,10 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy07B9814A": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy48591319",
         "PolicyType": "StepScaling",
@@ -3523,11 +3589,20 @@ Object {
       "UpdateReplacePolicy": "Delete",
     },
     "ServiceQueueProcessingFargateService217E8E72": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -3561,6 +3636,10 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceQueueProcessingFargateServiceSecurityGroup6E981512": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/QueueProcessingFargateService/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -3577,6 +3656,10 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTarget2625B8CE": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "MaxCapacity": 2,
         "MinCapacity": 1,
@@ -3620,6 +3703,10 @@ Object {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetCpuScalingC17EA933": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingFargateServiceTaskCountTargetCpuScalingDE63F1A9",
         "PolicyType": "TargetTrackingScaling",
@@ -3636,6 +3723,10 @@ Object {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerAlarm93370C6B": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "AlarmActions": Array [
           Object {
@@ -3665,6 +3756,10 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy71477EF0": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy804ED875",
         "PolicyType": "StepScaling",
@@ -3685,6 +3780,10 @@ Object {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperAlarmABF85567": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "AlarmActions": Array [
           Object {
@@ -3714,6 +3813,10 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy344EA7D4": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy99F7A126",
         "PolicyType": "StepScaling",
@@ -4735,11 +4838,20 @@ Object {
       "UpdateReplacePolicy": "Delete",
     },
     "ServiceQueueProcessingFargateService217E8E72": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -4773,6 +4885,10 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceQueueProcessingFargateServiceSecurityGroup6E981512": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/QueueProcessingFargateService/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -4789,6 +4905,10 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTarget2625B8CE": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "MaxCapacity": 2,
         "MinCapacity": 1,
@@ -4832,6 +4952,10 @@ Object {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetCpuScalingC17EA933": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingFargateServiceTaskCountTargetCpuScalingDE63F1A9",
         "PolicyType": "TargetTrackingScaling",
@@ -4848,6 +4972,10 @@ Object {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerAlarm93370C6B": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "AlarmActions": Array [
           Object {
@@ -4877,6 +5005,10 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy71477EF0": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy804ED875",
         "PolicyType": "StepScaling",
@@ -4897,6 +5029,10 @@ Object {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperAlarmABF85567": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "AlarmActions": Array [
           Object {
@@ -4926,6 +5062,10 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy344EA7D4": Object {
+      "DependsOn": Array [
+        "ServiceQueueProcessingTaskDefTaskRoleDefaultPolicy11D50174",
+        "ServiceQueueProcessingTaskDefTaskRoleBDE5D3C6",
+      ],
       "Properties": Object {
         "PolicyName": "ServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy99F7A126",
         "PolicyType": "StepScaling",

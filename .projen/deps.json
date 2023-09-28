@@ -2,17 +2,12 @@
   "dependencies": [
     {
       "name": "@aws-cdk/aws-apigatewayv2-alpha",
-      "version": "2.65.0-alpha.0",
+      "version": "2.99.0-alpha.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-redshift-alpha",
-      "version": "2.65.0-alpha.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-synthetics-alpha",
-      "version": "2.65.0-alpha.0",
+      "version": "2.99.0-alpha.0",
       "type": "build"
     },
     {
@@ -37,7 +32,7 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "2.65.0",
+      "version": "2.99.0",
       "type": "build"
     },
     {
@@ -135,17 +130,12 @@
     },
     {
       "name": "@aws-cdk/aws-apigatewayv2-alpha",
-      "version": "2.65.0-alpha.0",
+      "version": "2.99.0-alpha.0",
       "type": "devenv"
     },
     {
       "name": "@aws-cdk/aws-redshift-alpha",
-      "version": "2.65.0-alpha.0",
-      "type": "devenv"
-    },
-    {
-      "name": "@aws-cdk/aws-synthetics-alpha",
-      "version": "2.65.0-alpha.0",
+      "version": "2.99.0-alpha.0",
       "type": "devenv"
     },
     {
@@ -165,22 +155,17 @@
     },
     {
       "name": "@aws-cdk/aws-apigatewayv2-alpha",
-      "version": "^2.65.0-alpha.0",
+      "version": "^2.99.0-alpha.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-redshift-alpha",
-      "version": "^2.65.0-alpha.0",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-synthetics-alpha",
-      "version": "^2.65.0-alpha.0",
+      "version": "^2.99.0-alpha.0",
       "type": "peer"
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.65.0",
+      "version": "^2.99.0",
       "type": "peer"
     },
     {

@@ -1,12 +1,12 @@
+import { Duration, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 import {
   Canary,
   Code,
   Runtime,
   Schedule,
   Test,
-} from "@aws-cdk/aws-synthetics-alpha";
-import { Duration, Stack } from "aws-cdk-lib";
-import { Template } from "aws-cdk-lib/assertions";
+} from "aws-cdk-lib/aws-synthetics";
 
 import { AlarmWithAnnotation } from "../../../lib";
 import { SyntheticsCanaryMonitoring } from "../../../lib/monitoring/aws-synthetics";
@@ -21,7 +21,7 @@ test("snapshot test: no alarms", () => {
       code: Code.fromInline("/* nothing */"),
       handler: "index.handler", // must end with '.handler'
     }),
-    runtime: Runtime.SYNTHETICS_NODEJS_2_0,
+    runtime: Runtime.SYNTHETICS_NODEJS_PUPPETEER_5_1,
   });
 
   const scope = new TestMonitoringScope(stack, "Scope");
@@ -40,7 +40,7 @@ test("snapshot test: all alarms", () => {
       code: Code.fromInline("/* nothing */"),
       handler: "index.handler", // must end with '.handler'
     }),
-    runtime: Runtime.SYNTHETICS_NODEJS_2_0,
+    runtime: Runtime.SYNTHETICS_NODEJS_PUPPETEER_5_1,
   });
 
   const scope = new TestMonitoringScope(stack, "Scope");

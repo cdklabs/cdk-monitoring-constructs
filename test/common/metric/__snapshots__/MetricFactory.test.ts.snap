@@ -327,9 +327,6 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
-  "warnings": Array [
-    "Math expression 'SEARCH('{DummyNamespace,DummyDimension} DummyDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespace, ummyDimension, ummyDimension, ummyDimensionValue, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
-  ],
 }
 `;
 
@@ -349,9 +346,6 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
-  "warnings": Array [
-    "Math expression 'SEARCH('{DummyNamespaceOverride,DummyDimension} DummyDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespaceOverride, ummyDimension, ummyDimension, ummyDimensionValue, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
-  ],
 }
 `;
 
@@ -371,9 +365,6 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
-  "warnings": Array [
-    "Math expression 'SEARCH('{DummyNamespaceOverride,DummyUndefinedDimension,DummyDefinedDimension} DummyDefinedDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespaceOverride, ummyUndefinedDimension, ummyDefinedDimension, ummyDefinedDimension, ummyDimensionValue, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
-  ],
 }
 `;
 
@@ -393,9 +384,6 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
-  "warnings": Array [
-    "Math expression 'SEARCH('{DummyNamespaceOverride}  MyMetricPrefix-', 'Sum', 300)' references unknown identifiers: ummyNamespaceOverride, yMetricPrefix, um. Please add them to the 'usingMetrics' map.",
-  ],
 }
 `;
 
@@ -476,6 +464,9 @@ Object {
     "warnings": Array [
       "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
     ],
+    "warningsV2": Object {
+      "CloudWatch:Math:UnknownIdentifier": "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    },
   },
   "metricSearch": MathExpression {
     "color": undefined,
@@ -492,9 +483,6 @@ Object {
     "searchAccount": "123456789",
     "searchRegion": undefined,
     "usingMetrics": Object {},
-    "warnings": Array [
-      "Math expression 'SEARCH('{DummyNamespace}  DummyQuery', 'p90', 300)' references unknown identifiers: ummyNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
-    ],
   },
 }
 `;
@@ -576,6 +564,9 @@ Object {
     "warnings": Array [
       "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
     ],
+    "warningsV2": Object {
+      "CloudWatch:Math:UnknownIdentifier": "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    },
   },
   "metricSearch": MathExpression {
     "color": undefined,
@@ -592,9 +583,6 @@ Object {
     "searchAccount": "123456789",
     "searchRegion": "us-west-2",
     "usingMetrics": Object {},
-    "warnings": Array [
-      "Math expression 'SEARCH('{CustomTestNamespace}  DummyQuery', 'p90', 900)' references unknown identifiers: ustomTestNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
-    ],
   },
 }
 `;
@@ -676,6 +664,9 @@ Object {
     "warnings": Array [
       "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
     ],
+    "warningsV2": Object {
+      "CloudWatch:Math:UnknownIdentifier": "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    },
   },
   "metricSearch": MathExpression {
     "color": undefined,
@@ -692,9 +683,6 @@ Object {
     "searchAccount": undefined,
     "searchRegion": undefined,
     "usingMetrics": Object {},
-    "warnings": Array [
-      "Math expression 'SEARCH('{CustomTestNamespace}  DummyQuery', 'p90', 300)' references unknown identifiers: ustomTestNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
-    ],
   },
 }
 `;
@@ -776,6 +764,9 @@ Object {
     "warnings": Array [
       "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
     ],
+    "warningsV2": Object {
+      "CloudWatch:Math:UnknownIdentifier": "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    },
   },
   "metricSearch": MathExpression {
     "color": undefined,
@@ -792,9 +783,6 @@ Object {
     "searchAccount": undefined,
     "searchRegion": undefined,
     "usingMetrics": Object {},
-    "warnings": Array [
-      "Math expression 'SEARCH('{DummyNamespace}  DummyQuery', 'p90', 900)' references unknown identifiers: ummyNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
-    ],
   },
 }
 `;
@@ -876,6 +864,9 @@ Object {
     "warnings": Array [
       "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
     ],
+    "warningsV2": Object {
+      "CloudWatch:Math:UnknownIdentifier": "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
+    },
   },
   "metricSearch": MathExpression {
     "color": undefined,
@@ -892,9 +883,6 @@ Object {
     "searchAccount": undefined,
     "searchRegion": "us-west-2",
     "usingMetrics": Object {},
-    "warnings": Array [
-      "Math expression 'SEARCH('{DummyNamespace}  DummyQuery', 'p90', 300)' references unknown identifiers: ummyNamespace, ummyQuery, p90. Please add them to the 'usingMetrics' map.",
-    ],
   },
 }
 `;

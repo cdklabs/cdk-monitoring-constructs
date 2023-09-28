@@ -1,5 +1,5 @@
-import { Canary } from "@aws-cdk/aws-synthetics-alpha";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
+import { Canary } from "aws-cdk-lib/aws-synthetics";
 import {
   MetricFactory,
   MetricStatistic,
