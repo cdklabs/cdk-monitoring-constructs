@@ -1823,12 +1823,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -4148,12 +4154,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -6473,12 +6485,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -8190,12 +8208,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -9907,12 +9931,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -11624,12 +11654,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -13912,12 +13948,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -16147,12 +16189,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -18382,12 +18430,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -20009,12 +20063,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -21636,12 +21696,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -23263,12 +23329,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },

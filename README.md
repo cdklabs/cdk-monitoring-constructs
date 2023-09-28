@@ -26,13 +26,12 @@ In your `package.json`:
 ```json
 {
   "dependencies": {
-    "cdk-monitoring-constructs": "^5.0.0",
+    "cdk-monitoring-constructs": "^6.0.0",
 
     // peer dependencies of cdk-monitoring-constructs
-    "@aws-cdk/aws-apigatewayv2-alpha": "^2.65.0-alpha.0",
-    "@aws-cdk/aws-redshift-alpha": "^2.65.0-alpha.0",
-    "@aws-cdk/aws-synthetics-alpha": "^2.65.0-alpha.0",
-    "aws-cdk-lib": "^2.65.0",
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.99.0-alpha.0",
+    "@aws-cdk/aws-redshift-alpha": "^2.99.0-alpha.0",
+    "aws-cdk-lib": "^2.99.0",
     "constructs": "^10.0.5"
 
     // ...your other dependencies...

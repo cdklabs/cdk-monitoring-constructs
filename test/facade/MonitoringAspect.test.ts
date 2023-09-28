@@ -1,7 +1,6 @@
 import path from "path";
 import * as apigwv2 from "@aws-cdk/aws-apigatewayv2-alpha";
 import * as redshift from "@aws-cdk/aws-redshift-alpha";
-import * as synthetics from "@aws-cdk/aws-synthetics-alpha";
 import { App, Duration, SecretValue, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
@@ -29,6 +28,7 @@ import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager";
 import * as sns from "aws-cdk-lib/aws-sns";
 import * as sqs from "aws-cdk-lib/aws-sqs";
 import * as stepfunctions from "aws-cdk-lib/aws-stepfunctions";
+import * as synthetics from "aws-cdk-lib/aws-synthetics";
 import * as wafv2 from "aws-cdk-lib/aws-wafv2";
 
 import {
@@ -563,7 +563,7 @@ describe("MonitoringAspect", () => {
         code: synthetics.Code.fromInline("/* nothing */"),
         handler: "index.handler",
       }),
-      runtime: synthetics.Runtime.SYNTHETICS_NODEJS_2_0,
+      runtime: synthetics.Runtime.SYNTHETICS_NODEJS_PUPPETEER_5_1,
     });
 
     // WHEN

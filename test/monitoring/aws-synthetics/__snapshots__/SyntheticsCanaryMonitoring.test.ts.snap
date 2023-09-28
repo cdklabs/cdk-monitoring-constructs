@@ -102,7 +102,7 @@ Object {
           ],
         },
         "Name": "canary",
-        "RuntimeVersion": "syn-nodejs-2.0",
+        "RuntimeVersion": "syn-nodejs-puppeteer-5.1",
         "Schedule": Object {
           "DurationInSeconds": "0",
           "Expression": "rate(5 minutes)",
@@ -605,7 +605,7 @@ Object {
           ],
         },
         "Name": "canary",
-        "RuntimeVersion": "syn-nodejs-2.0",
+        "RuntimeVersion": "syn-nodejs-puppeteer-5.1",
         "Schedule": Object {
           "DurationInSeconds": "0",
           "Expression": "rate(5 minutes)",

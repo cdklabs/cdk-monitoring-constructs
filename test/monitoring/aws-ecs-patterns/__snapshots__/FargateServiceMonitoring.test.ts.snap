@@ -1234,12 +1234,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -1386,6 +1392,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroupEgress",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -1402,6 +1411,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceSecurityGroupfromServiceLBSecurityGroup2201BD838080ED59CEF4": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "Description": "Load balancer to target",
         "FromPort": 8080,
@@ -3027,12 +3039,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -3179,6 +3197,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroupEgress",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -3195,6 +3216,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceSecurityGroupfromServiceLBSecurityGroup2201BD838080ED59CEF4": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "Description": "Load balancer to target",
         "FromPort": 8080,
@@ -4820,12 +4844,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -4972,6 +5002,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroupEgress",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -4988,6 +5021,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceSecurityGroupfromServiceLBSecurityGroup2201BD838080ED59CEF4": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "Description": "Load balancer to target",
         "FromPort": 8080,
@@ -6005,12 +6041,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -6157,6 +6199,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroupEgress",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -6173,6 +6218,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceSecurityGroupfromServiceLBSecurityGroup2201BD838080ED59CEF4": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "Description": "Load balancer to target",
         "FromPort": 8080,
@@ -7190,12 +7238,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -7342,6 +7396,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroupEgress",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -7358,6 +7415,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceSecurityGroupfromServiceLBSecurityGroup2201BD838080ED59CEF4": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "Description": "Load balancer to target",
         "FromPort": 8080,
@@ -8375,12 +8435,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -8527,6 +8593,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroupEgress",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -8543,6 +8612,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceSecurityGroupfromServiceLBSecurityGroup2201BD838080ED59CEF4": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "Description": "Load balancer to target",
         "FromPort": 8080,
@@ -10152,12 +10224,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -10251,6 +10329,9 @@ Object {
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -11855,12 +11936,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -11954,6 +12041,9 @@ Object {
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -13558,12 +13648,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -13657,6 +13753,9 @@ Object {
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -14653,12 +14752,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -14752,6 +14857,9 @@ Object {
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -15748,12 +15856,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -15847,6 +15961,9 @@ Object {
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -16843,12 +16960,18 @@ Object {
       "DependsOn": Array [
         "ServiceLBPublicListenerECSGroup0CC8688C",
         "ServiceLBPublicListener46709EAA",
+        "ServiceTaskDefTaskRole0CFE2F57",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -16942,6 +17065,9 @@ Object {
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
     },
     "ServiceSecurityGroupEEA09B68": Object {
+      "DependsOn": Array [
+        "ServiceTaskDefTaskRole0CFE2F57",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -18536,12 +18662,18 @@ Object {
       "DependsOn": Array [
         "NLBListener96C8170F",
         "NLBListenerTargetGroupA6463B24",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -18585,6 +18717,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -20149,12 +20284,18 @@ Object {
       "DependsOn": Array [
         "NLBListener96C8170F",
         "NLBListenerTargetGroupA6463B24",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -20198,6 +20339,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -21762,12 +21906,18 @@ Object {
       "DependsOn": Array [
         "NLBListener96C8170F",
         "NLBListenerTargetGroupA6463B24",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -21811,6 +21961,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -22817,12 +22970,18 @@ Object {
       "DependsOn": Array [
         "NLBListener96C8170F",
         "NLBListenerTargetGroupA6463B24",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -22866,6 +23025,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -23872,12 +24034,18 @@ Object {
       "DependsOn": Array [
         "NLBListener96C8170F",
         "NLBListenerTargetGroupA6463B24",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -23921,6 +24089,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -24927,12 +25098,18 @@ Object {
       "DependsOn": Array [
         "NLBListener96C8170F",
         "NLBListenerTargetGroupA6463B24",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -24976,6 +25153,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -25981,11 +26161,19 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -26019,6 +26207,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -26920,11 +27111,19 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -26958,6 +27157,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -27859,11 +28061,19 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -27897,6 +28107,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -28623,11 +28836,19 @@ Object {
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -28661,6 +28882,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -29387,11 +29611,19 @@ Object {
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -29425,6 +29657,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -30151,11 +30386,19 @@ Object {
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -30189,6 +30432,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefinnitionTaskRole60F99C59",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [

@@ -1631,7 +1631,7 @@ Object {
           ],
         },
         "Name": "canary",
-        "RuntimeVersion": "syn-nodejs-2.0",
+        "RuntimeVersion": "syn-nodejs-puppeteer-5.1",
         "Schedule": Object {
           "DurationInSeconds": "0",
           "Expression": "rate(5 minutes)",
@@ -3371,7 +3371,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "e45ee2082d227db1b6f0292696ce5ce2b061c105d15efb341925ca040d1feb68.zip",
+          "S3Key": "5bc602ecde93c947efe5899ae355f999986a1acbe610b1c0b9c468d738857555.zip",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -3380,7 +3380,8 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs18.x",
+        "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -5017,9 +5018,6 @@ Object {
               "KeyId": "alias/aws/kinesis",
             },
           ],
-        },
-        "StreamModeDetails": Object {
-          "StreamMode": "PROVISIONED",
         },
       },
       "Type": "AWS::Kinesis::Stream",
@@ -8870,6 +8868,9 @@ Object {
       "ap-southeast-3": Object {
         "states": "states.ap-southeast-3.amazonaws.com",
       },
+      "ap-southeast-4": Object {
+        "states": "states.ap-southeast-4.amazonaws.com",
+      },
       "ca-central-1": Object {
         "states": "states.ca-central-1.amazonaws.com",
       },
@@ -8902,6 +8903,9 @@ Object {
       },
       "eu-west-3": Object {
         "states": "states.eu-west-3.amazonaws.com",
+      },
+      "il-central-1": Object {
+        "states": "states.il-central-1.amazonaws.com",
       },
       "me-central-1": Object {
         "states": "states.me-central-1.amazonaws.com",
@@ -9105,6 +9109,7 @@ Object {
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "DummyStateMachine912BDB94": Object {
+      "DeletionPolicy": "Delete",
       "DependsOn": Array [
         "DummyStateMachineRoleC6C4FF37",
       ],
@@ -9118,6 +9123,7 @@ Object {
         },
       },
       "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
     },
     "DummyStateMachineRoleC6C4FF37": Object {
       "Properties": Object {

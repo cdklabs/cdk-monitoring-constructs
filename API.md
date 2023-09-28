@@ -46,6 +46,7 @@ new BitmapDashboard(scope: Construct, id: string, props: DashboardProps)
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addVariable">addVariable</a></code> | Add a variable to the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
 
 ---
@@ -77,6 +78,22 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addVariable` <a name="addVariable" id="cdk-monitoring-constructs.BitmapDashboard.addVariable"></a>
+
+```typescript
+public addVariable(variable: IVariable): void
+```
+
+Add a variable to the dashboard.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_dashboard_variables.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_dashboard_variables.html)
+
+###### `variable`<sup>Required</sup> <a name="variable" id="cdk-monitoring-constructs.BitmapDashboard.addVariable.parameter.variable"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IVariable
 
 ---
 
@@ -406,6 +423,7 @@ new DashboardWithBitmapCopy(scope: Construct, id: string, props: DashboardProps)
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addVariable">addVariable</a></code> | Add a variable to the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
 
 ---
@@ -437,6 +455,22 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addVariable` <a name="addVariable" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.addVariable"></a>
+
+```typescript
+public addVariable(variable: IVariable): void
+```
+
+Add a variable to the dashboard.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_dashboard_variables.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_dashboard_variables.html)
+
+###### `variable`<sup>Required</sup> <a name="variable" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.addVariable.parameter.variable"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IVariable
 
 ---
 
@@ -40799,7 +40833,7 @@ const syntheticsCanaryMetricFactoryProps: SyntheticsCanaryMetricFactoryProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.canary">canary</a></code> | <code>@aws-cdk/aws-synthetics-alpha.Canary</code> | CloudWatch Canary to monitor. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.canary">canary</a></code> | <code>aws-cdk-lib.aws_synthetics.Canary</code> | CloudWatch Canary to monitor. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | Method used to calculate relative rates. |
 
 ---
@@ -40810,7 +40844,7 @@ const syntheticsCanaryMetricFactoryProps: SyntheticsCanaryMetricFactoryProps = {
 public readonly canary: Canary;
 ```
 
-- *Type:* @aws-cdk/aws-synthetics-alpha.Canary
+- *Type:* aws-cdk-lib.aws_synthetics.Canary
 
 CloudWatch Canary to monitor.
 
@@ -41020,7 +41054,7 @@ const syntheticsCanaryMonitoringProps: SyntheticsCanaryMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.canary">canary</a></code> | <code>@aws-cdk/aws-synthetics-alpha.Canary</code> | CloudWatch Canary to monitor. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.canary">canary</a></code> | <code>aws-cdk-lib.aws_synthetics.Canary</code> | CloudWatch Canary to monitor. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | Method used to calculate relative rates. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -41043,7 +41077,7 @@ const syntheticsCanaryMonitoringProps: SyntheticsCanaryMonitoringProps = { ... }
 public readonly canary: Canary;
 ```
 
-- *Type:* @aws-cdk/aws-synthetics-alpha.Canary
+- *Type:* aws-cdk-lib.aws_synthetics.Canary
 
 CloudWatch Canary to monitor.
 
@@ -43415,6 +43449,7 @@ Return the widget JSON for use in the dashboard.
 | <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.AlarmMatrixWidget.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -43449,6 +43484,18 @@ public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.AlarmMatrixWidget.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Any warnings that are produced as a result of putting together this widget.
 
@@ -43625,6 +43672,7 @@ Return the widget JSON for use in the dashboard.
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -43659,6 +43707,18 @@ public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.AlarmSummaryMatrixWidget.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Any warnings that are produced as a result of putting together this widget.
 
@@ -43841,6 +43901,7 @@ All properties except namespace and metricName can be changed.
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.searchAccount">searchAccount</a></code> | <code>string</code> | Account to evaluate search expressions within. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.searchRegion">searchRegion</a></code> | <code>string</code> | Region to evaluate search expressions within. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.warnings">warnings</a></code> | <code>string[]</code> | Warnings generated by this math expression. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Warnings generated by this math expression. |
 
 ---
 
@@ -43928,13 +43989,27 @@ Region to evaluate search expressions within.
 
 ---
 
-##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.warnings"></a>
+##### ~~`warnings`~~<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.warnings"></a>
+
+- *Deprecated:* - use warningsV2
 
 ```typescript
 public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Warnings generated by this math expression.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Warnings generated by this math expression.
 
@@ -48529,6 +48604,7 @@ Return the widget JSON for use in the dashboard.
 | <code><a href="#cdk-monitoring-constructs.CustomWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.CustomWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.CustomWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.CustomWidget.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -48563,6 +48639,18 @@ public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.CustomWidget.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Any warnings that are produced as a result of putting together this widget.
 
@@ -49378,6 +49466,7 @@ the metric to add.
 | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidget.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -49412,6 +49501,18 @@ public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.DoubleAxisGraphWidget.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Any warnings that are produced as a result of putting together this widget.
 
@@ -53255,6 +53356,7 @@ Return the widget JSON for use in the dashboard.
 | <code><a href="#cdk-monitoring-constructs.HeaderWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.HeaderWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.HeaderWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.HeaderWidget.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -53289,6 +53391,18 @@ public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.HeaderWidget.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Any warnings that are produced as a result of putting together this widget.
 
@@ -53362,6 +53476,7 @@ Return the widget JSON for use in the dashboard.
 | <code><a href="#cdk-monitoring-constructs.KeyValueTableWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.KeyValueTableWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.KeyValueTableWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidget.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -53396,6 +53511,18 @@ public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.KeyValueTableWidget.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Any warnings that are produced as a result of putting together this widget.
 
@@ -58037,6 +58164,7 @@ Return the widget JSON for use in the dashboard.
 | <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringHeaderWidget.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -58071,6 +58199,18 @@ public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.MonitoringHeaderWidget.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Any warnings that are produced as a result of putting together this widget.
 
@@ -62063,6 +62203,7 @@ the metric to add.
 | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
 | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidget.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
 
 ---
 
@@ -62097,6 +62238,18 @@ public readonly warnings: string[];
 ```
 
 - *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.SingleAxisGraphWidget.property.warningsV2"></a>
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 Any warnings that are produced as a result of putting together this widget.
 

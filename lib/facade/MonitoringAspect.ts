@@ -1,6 +1,5 @@
 import * as apigwv2 from "@aws-cdk/aws-apigatewayv2-alpha";
 import * as redshift from "@aws-cdk/aws-redshift-alpha";
-import * as synthetics from "@aws-cdk/aws-synthetics-alpha";
 import { IAspect } from "aws-cdk-lib";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
 import * as appsync from "aws-cdk-lib/aws-appsync";
@@ -23,6 +22,7 @@ import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager";
 import * as sns from "aws-cdk-lib/aws-sns";
 import * as sqs from "aws-cdk-lib/aws-sqs";
 import * as stepfunctions from "aws-cdk-lib/aws-stepfunctions";
+import * as synthetics from "aws-cdk-lib/aws-synthetics";
 import * as wafv2 from "aws-cdk-lib/aws-wafv2";
 import { IConstruct } from "constructs";
 

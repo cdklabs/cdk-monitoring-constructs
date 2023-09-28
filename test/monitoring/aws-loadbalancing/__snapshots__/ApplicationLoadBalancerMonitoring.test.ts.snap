@@ -1311,12 +1311,18 @@ Object {
       "DependsOn": Array [
         "ALBListener3B99FF85",
         "ALBListenerTargetGroupD5D64FBA",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -1360,6 +1366,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -1376,6 +1385,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceSecurityGroupfromALBSecurityGroup4360B6498080C0B3A736": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "Description": "Load balancer to target",
         "FromPort": 8080,
@@ -2610,11 +2622,19 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -2648,6 +2668,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -3609,12 +3632,18 @@ Object {
       "DependsOn": Array [
         "ALBListener3B99FF85",
         "ALBListenerTargetGroupD5D64FBA",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -3658,6 +3687,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -3674,6 +3706,9 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "ServiceSecurityGroupfromALBSecurityGroup4360B6498080C0B3A736": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "Description": "Load balancer to target",
         "FromPort": 8080,
@@ -4513,11 +4548,19 @@ Object {
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -4551,6 +4594,9 @@ Object {
       "Type": "AWS::ECS::Service",
     },
     "ServiceSecurityGroupC96ED6A7": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "GroupDescription": "Default/Service/SecurityGroup",
         "SecurityGroupEgress": Array [
@@ -6717,12 +6763,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ALBListener3B99FF85",
         "ALBListenerTargetGroupD5D64FBA",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -8539,11 +8591,19 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::CloudWatch::Alarm",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -10091,12 +10151,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "DependsOn": Array [
         "ALBListener3B99FF85",
         "ALBListenerTargetGroupD5D64FBA",
+        "TaskDefTaskRole1EDB4A67",
       ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
@@ -11506,11 +11572,19 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "ServiceD69D759B": Object {
+      "DependsOn": Array [
+        "TaskDefTaskRole1EDB4A67",
+      ],
       "Properties": Object {
         "Cluster": Object {
           "Ref": "ClusterEB0386A7",
         },
         "DeploymentConfiguration": Object {
+          "Alarms": Object {
+            "AlarmNames": Array [],
+            "Enable": false,
+            "Rollback": false,
+          },
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50,
         },
