@@ -88,7 +88,9 @@ export class DynamicDashboardFactory
         dashboardConfig.renderingPreference ??
         DashboardRenderingPreference.INTERACTIVE_ONLY;
       const start: string =
-        "-" + (dashboardConfig.range ?? Duration.hours(8).toIsoString());
+        "-" +
+        (dashboardConfig.range?.toIsoString() ??
+          Duration.hours(8).toIsoString());
 
       const dashboard = this.createDashboard(
         renderingPreference,

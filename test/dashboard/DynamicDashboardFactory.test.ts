@@ -1,4 +1,4 @@
-import { Stack } from "aws-cdk-lib";
+import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import { IWidget, TextWidget } from "aws-cdk-lib/aws-cloudwatch";
 import { DynamicDashboardFactory, IDynamicDashboardSegment } from "../../lib";
@@ -28,7 +28,7 @@ test("dynamic dashboards created", () => {
     dashboardNamePrefix: "testPrefix",
     dashboardConfigs: [
       { name: TestDashboards.Dynamic1 },
-      { name: TestDashboards.Dynamic2 },
+      { name: TestDashboards.Dynamic2, range: Duration.days(7) },
     ],
   });
 
@@ -45,7 +45,7 @@ test("dynamic dashboards created", () => {
     DashboardName: "testPrefix-Dynamic1",
   });
   result.hasResourceProperties("AWS::CloudWatch::Dashboard", {
-    DashboardBody: `{"start":"-PT8H","periodOverride":"inherit","widgets":[{"type":"text","width":6,"height":2,"x":0,"y":0,"properties":{"markdown":"Dynamic2"}}]}`,
+    DashboardBody: `{"start":"-P7D","periodOverride":"inherit","widgets":[{"type":"text","width":6,"height":2,"x":0,"y":0,"properties":{"markdown":"Dynamic2"}}]}`,
     DashboardName: "testPrefix-Dynamic2",
   });
 });
