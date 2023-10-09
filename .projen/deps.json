@@ -1,16 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "@aws-cdk/aws-apigatewayv2-alpha",
-      "version": "2.99.0-alpha.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-redshift-alpha",
-      "version": "2.99.0-alpha.0",
-      "type": "build"
-    },
-    {
       "name": "@types/jest",
       "version": "^27",
       "type": "build"
@@ -28,16 +18,6 @@
     {
       "name": "@typescript-eslint/parser",
       "version": "^6",
-      "type": "build"
-    },
-    {
-      "name": "aws-cdk-lib",
-      "version": "2.99.0",
-      "type": "build"
-    },
-    {
-      "name": "constructs",
-      "version": "10.0.5",
       "type": "build"
     },
     {
