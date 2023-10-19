@@ -60,10 +60,14 @@ export class UsageAlarmFactory {
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
     disambiguator?: string,
-    usageType?: UsageType
+    usageType?: UsageType,
+    additionalAlarmNameSuffix?: string
   ) {
-    const alarmNameSuffix: string =
-      usageType === undefined ? "CPU-Usage" : `${usageType}-CPU-Usage`;
+    const alarmNameSuffix: string = [
+      usageType,
+      "CPU-Usage",
+      additionalAlarmNameSuffix,
+    ].join("-");
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
         props.treatMissingDataOverride ?? TreatMissingData.MISSING,

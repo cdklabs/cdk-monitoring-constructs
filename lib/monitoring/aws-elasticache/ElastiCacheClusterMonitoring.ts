@@ -1,4 +1,5 @@
 import {
+  Column,
   GraphWidget,
   HorizontalAnnotation,
   IWidget,
@@ -13,6 +14,7 @@ import {
   BaseMonitoringProps,
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
+  DefaultTwoLinerGraphWidgetHalfHeight,
   DefaultSummaryWidgetHeight,
   ElastiCacheAlarmFactory,
   MaxItemsCountThreshold,
@@ -45,6 +47,11 @@ export interface ElastiCacheClusterMonitoringOptions
    * Add CPU usage alarm
    */
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
+
+  /**
+   * Add redis engine CPU usage alarm
+   */
+  readonly addRedisEngineCpuUsageAlarm?: Record<string, UsageThreshold>;
 
   /**
    * Add alarm on total number of items
@@ -81,9 +88,11 @@ export interface ElastiCacheClusterMonitoringProps
 export class ElastiCacheClusterMonitoring extends Monitoring {
   readonly title: string;
   readonly clusterUrl?: string;
+  readonly elastiCacheClusterType: ElastiCacheClusterType;
 
   readonly connectionsMetric: MetricWithAlarmSupport;
   readonly cpuUsageMetric: MetricWithAlarmSupport;
+  readonly redisEngineCpuUsageMetric: MetricWithAlarmSupport;
   readonly freeableMemoryMetric: MetricWithAlarmSupport;
   readonly unusedMemoryMetric: MetricWithAlarmSupport;
   readonly swapMemoryMetric: MetricWithAlarmSupport;
@@ -94,6 +103,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
   readonly usageAlarmFactory: UsageAlarmFactory;
   readonly elastiCacheAlarmFactory: ElastiCacheAlarmFactory;
   readonly cpuUsageAnnotations: HorizontalAnnotation[];
+  readonly redisEngineCpuUsageAnnotations: HorizontalAnnotation[];
   readonly itemsCountAnnotations: HorizontalAnnotation[];
   readonly evictedItemsCountAnnotations: HorizontalAnnotation[];
   readonly memoryUsageAnnotations: HorizontalAnnotation[];
@@ -103,6 +113,8 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     props: ElastiCacheClusterMonitoringProps
   ) {
     super(scope, props);
+
+    this.elastiCacheClusterType = props.clusterType;
 
     const clusterType = capitalizeFirstLetterOnly(
       ElastiCacheClusterType[props.clusterType]
@@ -127,6 +139,8 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     );
     this.connectionsMetric = metricFactory.metricAverageConnections();
     this.cpuUsageMetric = metricFactory.metricMaxCpuUtilizationInPercent();
+    this.redisEngineCpuUsageMetric =
+      metricFactory.metricMaxRedisEngineCpuUtilizationInPercent();
     this.freeableMemoryMetric =
       metricFactory.metricAverageFreeableMemoryInBytes();
     this.unusedMemoryMetric = metricFactory.metricAverageUnusedMemoryInBytes();
@@ -137,6 +151,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     this.itemsEvictedMetrics = metricFactory.metricEvictions();
 
     this.cpuUsageAnnotations = [];
+    this.redisEngineCpuUsageAnnotations = [];
     this.itemsCountAnnotations = [];
     this.evictedItemsCountAnnotations = [];
     this.memoryUsageAnnotations = [];
@@ -157,6 +172,20 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       this.cpuUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
+
+    for (const disambiguator in props.addRedisEngineCpuUsageAlarm) {
+      const alarmProps = props.addRedisEngineCpuUsageAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
+        this.redisEngineCpuUsageMetric,
+        alarmProps,
+        disambiguator,
+        undefined,
+        "RedisEngine"
+      );
+      this.redisEngineCpuUsageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
     for (const disambiguator in props.addMaxItemsCountAlarm) {
       const alarmProps = props.addMaxItemsCountAlarm[disambiguator];
       const createdAlarm = this.elastiCacheAlarmFactory.addMaxItemsCountAlarm(
@@ -214,13 +243,32 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
   }
 
   widgets(): IWidget[] {
-    return [
-      this.createTitleWidget(),
-      this.createCpuUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createMemoryUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createConnectionsWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createItemCountWidget(QuarterWidth, DefaultGraphWidgetHeight),
-    ];
+    if (this.elastiCacheClusterType == ElastiCacheClusterType.REDIS) {
+      return [
+        this.createTitleWidget(),
+        new Column(
+          this.createCpuUsageWidget(
+            QuarterWidth,
+            DefaultTwoLinerGraphWidgetHalfHeight
+          ),
+          this.createRedisEngineCpuUsageWidget(
+            QuarterWidth,
+            DefaultTwoLinerGraphWidgetHalfHeight
+          )
+        ),
+        this.createMemoryUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createConnectionsWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createItemCountWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      ];
+    } else {
+      return [
+        this.createTitleWidget(),
+        this.createCpuUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createMemoryUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createConnectionsWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createItemCountWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      ];
+    }
   }
 
   createTitleWidget() {
@@ -239,6 +287,17 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       left: [this.cpuUsageMetric],
       leftYAxis: PercentageAxisFromZeroToHundred,
       leftAnnotations: this.cpuUsageAnnotations,
+    });
+  }
+
+  createRedisEngineCpuUsageWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Engine CPU Utilization",
+      left: [this.redisEngineCpuUsageMetric],
+      leftYAxis: PercentageAxisFromZeroToHundred,
+      leftAnnotations: this.redisEngineCpuUsageAnnotations,
     });
   }
 

@@ -112,6 +112,21 @@ export class ElastiCacheClusterMetricFactory {
     );
   }
 
+  /**
+   * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html
+   * Because Redis is single-threaded, you can use this metric to analyze the load of the Redis process itself.
+   */
+  metricMaxRedisEngineCpuUtilizationInPercent() {
+    return this.metricFactory.createMetric(
+      "EngineCPUUtilization",
+      MetricStatistic.MAX,
+      "Cluster Engine CPU Utilization",
+      this.dimensionsMap,
+      undefined,
+      Namespace
+    );
+  }
+
   metricAverageConnections() {
     return this.metricFactory.createMetric(
       "CurrConnections",

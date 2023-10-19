@@ -52,6 +52,7 @@ test("snapshot test: all alarms", () => {
   new ElastiCacheClusterMonitoring(scope, {
     clusterType: ElastiCacheClusterType.REDIS,
     addCpuUsageAlarm: { Warning: { maxUsagePercent: 11 } },
+    addRedisEngineCpuUsageAlarm: { Warning: { maxUsagePercent: 10 } },
     addMaxItemsCountAlarm: { Warning: { maxItemsCount: 21 } },
     addMaxEvictedItemsCountAlarm: { Warning: { maxItemsCount: 31 } },
     addMinFreeableMemoryAlarm: { Warning: { minFreeableMemoryInBytes: 41 } },
@@ -64,7 +65,7 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreatedForMemcached).toStrictEqual(5);
-  expect(numAlarmsCreatedForRedis).toStrictEqual(5);
+  expect(numAlarmsCreatedForRedis).toStrictEqual(6);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
