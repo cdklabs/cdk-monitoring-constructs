@@ -188,7 +188,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiLatencyAverageWarning27D59767",
+                  "ScopeTestDummyApiLatencyTM95100Warning206C89FE",
                   "Arn",
                 ],
               },
@@ -199,7 +199,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyP50WarningB23B4040",
+                  "ScopeTestDummyApiLatencyTM99100Warning38223F80",
                   "Arn",
                 ],
               },
@@ -210,7 +210,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyP70Warning3CC3EBD5",
+                  "ScopeTestDummyApiLatencyTM999100Warning20E62DC6",
                   "Arn",
                 ],
               },
@@ -221,7 +221,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyP90WarningF259FC77",
+                  "ScopeTestDummyApiLatencyTM9999100Warning800AFBBF",
                   "Arn",
                 ],
               },
@@ -232,7 +232,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyP95WarningD9A4B89B",
+                  "ScopeTestDummyApiLatencyAverageWarning27D59767",
                   "Arn",
                 ],
               },
@@ -243,7 +243,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyP99WarningC8929BAD",
+                  "ScopeTestDummyApiIntegrationLatencyP50WarningB23B4040",
                   "Arn",
                 ],
               },
@@ -254,7 +254,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyP999Warning9F27E61C",
+                  "ScopeTestDummyApiIntegrationLatencyP70Warning3CC3EBD5",
                   "Arn",
                 ],
               },
@@ -265,7 +265,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyP9999WarningA7C40063",
+                  "ScopeTestDummyApiIntegrationLatencyP90WarningF259FC77",
                   "Arn",
                 ],
               },
@@ -276,7 +276,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyP100Warning347C1F98",
+                  "ScopeTestDummyApiIntegrationLatencyP95WarningD9A4B89B",
                   "Arn",
                 ],
               },
@@ -287,7 +287,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyTM50Warning6B4229D0",
+                  "ScopeTestDummyApiIntegrationLatencyP99WarningC8929BAD",
                   "Arn",
                 ],
               },
@@ -298,7 +298,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyTM70WarningB60BC024",
+                  "ScopeTestDummyApiIntegrationLatencyP999Warning9F27E61C",
                   "Arn",
                 ],
               },
@@ -309,7 +309,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyTM90Warning2A0B535F",
+                  "ScopeTestDummyApiIntegrationLatencyP9999WarningA7C40063",
                   "Arn",
                 ],
               },
@@ -320,7 +320,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyTM95WarningCA30746B",
+                  "ScopeTestDummyApiIntegrationLatencyP100Warning347C1F98",
                   "Arn",
                 ],
               },
@@ -331,7 +331,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyTM99WarningACB026E2",
+                  "ScopeTestDummyApiIntegrationLatencyTM50Warning6B4229D0",
                   "Arn",
                 ],
               },
@@ -342,7 +342,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyTM999Warning08B604B1",
+                  "ScopeTestDummyApiIntegrationLatencyTM70WarningB60BC024",
                   "Arn",
                 ],
               },
@@ -353,7 +353,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyTM9999Warning26E553E4",
+                  "ScopeTestDummyApiIntegrationLatencyTM90Warning2A0B535F",
                   "Arn",
                 ],
               },
@@ -364,7 +364,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiIntegrationLatencyAverageWarning1FB2E797",
+                  "ScopeTestDummyApiIntegrationLatencyTM95WarningCA30746B",
                   "Arn",
                 ],
               },
@@ -375,7 +375,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiErrorCountWarning11BE36AF",
+                  "ScopeTestDummyApiIntegrationLatencyTM99WarningACB026E2",
                   "Arn",
                 ],
               },
@@ -386,7 +386,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiErrorRateWarningD181D1C6",
+                  "ScopeTestDummyApiIntegrationLatencyTM999Warning08B604B1",
                   "Arn",
                 ],
               },
@@ -397,7 +397,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiFaultCountWarning6270BEC0",
+                  "ScopeTestDummyApiIntegrationLatencyTM9999Warning26E553E4",
                   "Arn",
                 ],
               },
@@ -408,7 +408,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiFaultRateWarning63CFB7F0",
+                  "ScopeTestDummyApiIntegrationLatencyTM95100WarningDB62B359",
                   "Arn",
                 ],
               },
@@ -419,11 +419,99 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApiMinTPSWarning4E8DB4D0",
+                  "ScopeTestDummyApiIntegrationLatencyTM99100Warning304E790F",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":36,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiIntegrationLatencyTM999100WarningE199BD2E",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":36,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiIntegrationLatencyTM9999100Warning3D3FA4F3",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":36,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiIntegrationLatencyAverageWarning1FB2E797",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":40,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiErrorCountWarning11BE36AF",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":40,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiErrorRateWarningD181D1C6",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":40,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiFaultCountWarning6270BEC0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":40,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiFaultRateWarning63CFB7F0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":44,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApiMinTPSWarning4E8DB4D0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":44,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -535,6 +623,38 @@ Object {
               Object {
                 "Ref": "testHttpApiC57B300F",
               },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(95%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(95%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(95%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(95%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99.9%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99.9%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99.9%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99.9%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99.99%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99.99%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99.99%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99.99%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
               "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM50 (avg: \${AVG})\\",\\"stat\\":\\"tm50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
               Object {
                 "Ref": "testHttpApiC57B300F",
@@ -587,7 +707,7 @@ Object {
               Object {
                 "Ref": "testHttpApiC57B300F",
               },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM99.99 (avg: \${AVG})\\",\\"stat\\":\\"tm99.99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM99.99 (avg: \${AVG})\\",\\"stat\\":\\"tm99.99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(95%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99.9%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99.99%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(95%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99.9%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99.99%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1258,6 +1378,46 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyApiIntegrationLatencyTM95100WarningDB62B359": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM(95%:100%) integration latency is too high.",
+        "AlarmName": "Test-DummyApi-IntegrationLatency-TM(95%:100%)-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM(95%:100%)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiId",
+                    "Value": Object {
+                      "Ref": "testHttpApiC57B300F",
+                    },
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "$default",
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "TM(95%:100%)",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyApiIntegrationLatencyTM95WarningCA30746B": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -1294,6 +1454,126 @@ Object {
           },
         ],
         "Threshold": 295,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiIntegrationLatencyTM99100Warning304E790F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM(99%:100%) integration latency is too high.",
+        "AlarmName": "Test-DummyApi-IntegrationLatency-TM(99%:100%)-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM(99%:100%)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiId",
+                    "Value": Object {
+                      "Ref": "testHttpApiC57B300F",
+                    },
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "$default",
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "TM(99%:100%)",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiIntegrationLatencyTM999100WarningE199BD2E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM(99.9%:100%) integration latency is too high.",
+        "AlarmName": "Test-DummyApi-IntegrationLatency-TM(99.9%:100%)-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM(99.9%:100%)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiId",
+                    "Value": Object {
+                      "Ref": "testHttpApiC57B300F",
+                    },
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "$default",
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "TM(99.9%:100%)",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiIntegrationLatencyTM9999100Warning3D3FA4F3": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM(99.99%:100%) integration latency is too high.",
+        "AlarmName": "Test-DummyApi-IntegrationLatency-TM(99.99%:100%)-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM(99.99%:100%)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiId",
+                    "Value": Object {
+                      "Ref": "testHttpApiC57B300F",
+                    },
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "$default",
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "TM(99.99%:100%)",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1898,6 +2178,46 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyApiLatencyTM95100Warning206C89FE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM(95%:100%) latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM(95%:100%)-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM(95%:100%)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiId",
+                    "Value": Object {
+                      "Ref": "testHttpApiC57B300F",
+                    },
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "$default",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "TM(95%:100%)",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyApiLatencyTM95WarningFFD46CB8": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -1934,6 +2254,126 @@ Object {
           },
         ],
         "Threshold": 295,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM99100Warning38223F80": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM(99%:100%) latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM(99%:100%)-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM(99%:100%)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiId",
+                    "Value": Object {
+                      "Ref": "testHttpApiC57B300F",
+                    },
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "$default",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "TM(99%:100%)",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM999100Warning20E62DC6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM(99.9%:100%) latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM(99.9%:100%)-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM(99.9%:100%)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiId",
+                    "Value": Object {
+                      "Ref": "testHttpApiC57B300F",
+                    },
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "$default",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "TM(99.9%:100%)",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApiLatencyTM9999100Warning800AFBBF": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM(99.99%:100%) latency is too high.",
+        "AlarmName": "Test-DummyApi-Latency-TM(99.99%:100%)-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 29999,
+        "EvaluationPeriods": 29999,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TM(99.99%:100%)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiId",
+                    "Value": Object {
+                      "Ref": "testHttpApiC57B300F",
+                    },
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "$default",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "TM(99.99%:100%)",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 29999,
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -2242,6 +2682,38 @@ Object {
               Object {
                 "Ref": "testHttpApiC57B300F",
               },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(95%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(95%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(95%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(95%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99.9%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99.9%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99.9%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99.9%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99.99%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99.99%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM(99.99%:100%) (avg: \${AVG})\\",\\"stat\\":\\"TM(99.99%:100%)\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
               "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM50 (avg: \${AVG})\\",\\"stat\\":\\"tm50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
               Object {
                 "Ref": "testHttpApiC57B300F",
@@ -2294,7 +2766,7 @@ Object {
               Object {
                 "Ref": "testHttpApiC57B300F",
               },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM99.99 (avg: \${AVG})\\",\\"stat\\":\\"tm99.99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"TM99.99 (avg: \${AVG})\\",\\"stat\\":\\"tm99.99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(95%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99.9%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99.99%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P50 > 150 for 150 datapoints within 750 minutes\\",\\"value\\":150,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P70 > 170 for 170 datapoints within 850 minutes\\",\\"value\\":170,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P90 > 190 for 190 datapoints within 950 minutes\\",\\"value\\":190,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P95 > 195 for 195 datapoints within 975 minutes\\",\\"value\\":195,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99 > 199 for 199 datapoints within 995 minutes\\",\\"value\\":199,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.9 > 1999 for 1999 datapoints within 9995 minutes\\",\\"value\\":1999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P99.99 > 19999 for 19999 datapoints within 99995 minutes\\",\\"value\\":19999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"P100 > 1100 for 1100 datapoints within 5500 minutes\\",\\"value\\":1100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM50 > 250 for 250 datapoints within 1250 minutes\\",\\"value\\":250,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM70 > 270 for 270 datapoints within 1350 minutes\\",\\"value\\":270,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM90 > 290 for 290 datapoints within 1450 minutes\\",\\"value\\":290,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM95 > 295 for 295 datapoints within 1475 minutes\\",\\"value\\":295,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99 > 299 for 299 datapoints within 1495 minutes\\",\\"value\\":299,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.9 > 2999 for 2999 datapoints within 14995 minutes\\",\\"value\\":2999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM99.99 > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(95%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99.9%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TM(99.99%:100%) > 29999 for 29999 datapoints within 149995 minutes\\",\\"value\\":29999,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Average > 20 for 20 datapoints within 100 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

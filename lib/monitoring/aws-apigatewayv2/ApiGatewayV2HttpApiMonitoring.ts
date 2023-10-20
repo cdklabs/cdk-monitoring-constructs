@@ -58,6 +58,7 @@ export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP9999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP100Alarm?: Record<string, LatencyThreshold>;
+
   readonly addLatencyTM50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM70Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM90Alarm?: Record<string, LatencyThreshold>;
@@ -65,6 +66,12 @@ export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyTM99Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM9999Alarm?: Record<string, LatencyThreshold>;
+
+  readonly addLatencyTM95OutlierAlarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM99OutlierAlarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM999OutlierAlarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM9999OutlierAlarm?: Record<string, LatencyThreshold>;
+
   readonly addLatencyAverageAlarm?: Record<string, LatencyThreshold>;
 
   readonly addIntegrationLatencyP50Alarm?: Record<string, LatencyThreshold>;
@@ -75,6 +82,7 @@ export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly addIntegrationLatencyP999Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyP9999Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyP100Alarm?: Record<string, LatencyThreshold>;
+
   readonly addIntegrationLatencyTM50Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM70Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM90Alarm?: Record<string, LatencyThreshold>;
@@ -82,6 +90,24 @@ export interface ApiGatewayV2MonitoringOptions extends BaseMonitoringProps {
   readonly addIntegrationLatencyTM99Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM999Alarm?: Record<string, LatencyThreshold>;
   readonly addIntegrationLatencyTM9999Alarm?: Record<string, LatencyThreshold>;
+
+  readonly addIntegrationLatencyTM95OutlierAlarm?: Record<
+    string,
+    LatencyThreshold
+  >;
+  readonly addIntegrationLatencyTM99OutlierAlarm?: Record<
+    string,
+    LatencyThreshold
+  >;
+  readonly addIntegrationLatencyTM999OutlierAlarm?: Record<
+    string,
+    LatencyThreshold
+  >;
+  readonly addIntegrationLatencyTM9999OutlierAlarm?: Record<
+    string,
+    LatencyThreshold
+  >;
+
   readonly addIntegrationLatencyAverageAlarm?: Record<string, LatencyThreshold>;
 
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
@@ -200,6 +226,10 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       [LatencyType.TM99]: props.addLatencyTM99Alarm,
       [LatencyType.TM999]: props.addLatencyTM999Alarm,
       [LatencyType.TM9999]: props.addLatencyTM9999Alarm,
+      [LatencyType.TM95_TOP]: props.addLatencyTM95OutlierAlarm,
+      [LatencyType.TM99_TOP]: props.addLatencyTM99OutlierAlarm,
+      [LatencyType.TM999_TOP]: props.addLatencyTM999OutlierAlarm,
+      [LatencyType.TM9999_TOP]: props.addLatencyTM999OutlierAlarm,
       [LatencyType.AVERAGE]: props.addLatencyAverageAlarm,
     };
 
@@ -219,6 +249,10 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       [LatencyType.TM99]: props.addIntegrationLatencyTM99Alarm,
       [LatencyType.TM999]: props.addIntegrationLatencyTM999Alarm,
       [LatencyType.TM9999]: props.addIntegrationLatencyTM9999Alarm,
+      [LatencyType.TM95_TOP]: props.addIntegrationLatencyTM95OutlierAlarm,
+      [LatencyType.TM99_TOP]: props.addIntegrationLatencyTM99OutlierAlarm,
+      [LatencyType.TM999_TOP]: props.addIntegrationLatencyTM999OutlierAlarm,
+      [LatencyType.TM9999_TOP]: props.addIntegrationLatencyTM9999OutlierAlarm,
       [LatencyType.AVERAGE]: props.addIntegrationLatencyAverageAlarm,
     };
 
