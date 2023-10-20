@@ -88,7 +88,7 @@ export interface ElastiCacheClusterMonitoringProps
 export class ElastiCacheClusterMonitoring extends Monitoring {
   readonly title: string;
   readonly clusterUrl?: string;
-  readonly elastiCacheClusterType: ElastiCacheClusterType;
+  readonly clusterType: ElastiCacheClusterType;
 
   readonly connectionsMetric: MetricWithAlarmSupport;
   readonly cpuUsageMetric: MetricWithAlarmSupport;
@@ -243,7 +243,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
   }
 
   widgets(): IWidget[] {
-    if (this.elastiCacheClusterType == ElastiCacheClusterType.REDIS) {
+    if (this.clusterType === ElastiCacheClusterType.REDIS) {
       return [
         this.createTitleWidget(),
         new Column(
