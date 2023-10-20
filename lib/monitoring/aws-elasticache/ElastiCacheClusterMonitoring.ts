@@ -44,12 +44,14 @@ export interface ElastiCacheClusterMonitoringOptions
   readonly clusterType: ElastiCacheClusterType;
 
   /**
-   * Add CPU usage alarm
+   * Add CPU usage alarm (useful for all clusterTypes including Redis)
    */
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
 
   /**
    * Add redis engine CPU usage alarm
+   * Note: it is recommended to monitor CPU Utilization as well
+   * for hosts with two vCPUs or less
    */
   readonly addRedisEngineCpuUsageAlarm?: Record<string, UsageThreshold>;
 
@@ -114,7 +116,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
   ) {
     super(scope, props);
 
-    this.elastiCacheClusterType = props.clusterType;
+    this.clusterType = props.clusterType;
 
     const clusterType = capitalizeFirstLetterOnly(
       ElastiCacheClusterType[props.clusterType]
@@ -171,6 +173,10 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       );
       this.cpuUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
+    }
+
+    if (props.addRedisEngineCpuUsageAlarm !== undefined && props.clusterType !== ElastiCacheClusterType.REDIS) {
+      throw new Error("It is only possible to alarm on Redis Engine CPU Usage for Redis clusters")
     }
 
     for (const disambiguator in props.addRedisEngineCpuUsageAlarm) {
