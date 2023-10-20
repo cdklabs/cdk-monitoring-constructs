@@ -52,6 +52,7 @@ test("snapshot test: all alarms", () => {
   new ElastiCacheClusterMonitoring(scope, {
     clusterType: ElastiCacheClusterType.REDIS,
     addCpuUsageAlarm: { Warning: { maxUsagePercent: 11 } },
+    addRedisEngineCpuUsageAlarm: { Warning: { maxUsagePercent: 10 } },
     addMaxItemsCountAlarm: { Warning: { maxItemsCount: 21 } },
     addMaxEvictedItemsCountAlarm: { Warning: { maxItemsCount: 31 } },
     addMinFreeableMemoryAlarm: { Warning: { minFreeableMemoryInBytes: 41 } },
@@ -64,7 +65,7 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreatedForMemcached).toStrictEqual(5);
-  expect(numAlarmsCreatedForRedis).toStrictEqual(5);
+  expect(numAlarmsCreatedForRedis).toStrictEqual(6);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -88,4 +89,19 @@ test("snapshot test: cluster ID specified", () => {
   });
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("validation test: redisEngineCpuUsageAlarm added for non-redis cluster ", () => {
+  const stack = new Stack();
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  expect(
+    () =>
+      new ElastiCacheClusterMonitoring(scope, {
+        clusterType: ElastiCacheClusterType.MEMCACHED,
+        addRedisEngineCpuUsageAlarm: { Warning: { maxUsagePercent: 10 } },
+      })
+  ).toThrowError(
+    "It is only possible to alarm on Redis Engine CPU Usage for Redis clusters"
+  );
 });

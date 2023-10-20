@@ -150,6 +150,34 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestRedisALLCPUUsageRedisEngineWarningFFAEE1C0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "Test-Redis-ALL-CPU-Usage-RedisEngine-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestRedisALLCPUUsageWarningF75B1746": Object {
       "Properties": Object {
         "ActionsEnabled": true,
