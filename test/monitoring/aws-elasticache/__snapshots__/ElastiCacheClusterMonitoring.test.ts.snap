@@ -10,11 +10,11 @@ Object {
     },
   },
   "Resources": Object {
-    "ScopeTestMemcachedALLCPUUsageWarning87FE6DEF": Object {
+    "ScopeTestMemcachedALLCPUUsageWarningB9311F1B": Object {
       "Properties": Object {
         "ActionsEnabled": true,
         "AlarmDescription": "The CPU usage is too high.",
-        "AlarmName": "Test-Memcached-ALL--CPU-Usage--Warning",
+        "AlarmName": "Test-Memcached-ALL-CPU-Usage-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 3,
@@ -150,11 +150,11 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "ScopeTestRedisALLCPUUsageRedisEngineWarningABF817E0": Object {
+    "ScopeTestRedisALLCPUUsageRedisEngineWarningFFAEE1C0": Object {
       "Properties": Object {
         "ActionsEnabled": true,
         "AlarmDescription": "The CPU usage is too high.",
-        "AlarmName": "Test-Redis-ALL--CPU-Usage-RedisEngine-Warning",
+        "AlarmName": "Test-Redis-ALL-CPU-Usage-RedisEngine-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 3,
@@ -178,11 +178,11 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "ScopeTestRedisALLCPUUsageWarningC888D096": Object {
+    "ScopeTestRedisALLCPUUsageWarningF75B1746": Object {
       "Properties": Object {
         "ActionsEnabled": true,
         "AlarmDescription": "The CPU usage is too high.",
-        "AlarmName": "Test-Redis-ALL--CPU-Usage--Warning",
+        "AlarmName": "Test-Redis-ALL-CPU-Usage-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 3,

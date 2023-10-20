@@ -16083,11 +16083,12 @@ const elastiCacheClusterMonitoringOptions: ElastiCacheClusterMonitoringOptions =
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.clusterType">clusterType</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterType">ElastiCacheClusterType</a></code> | Cluster type (needed, since each type has their own specific metrics). |
-| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add CPU usage alarm. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add CPU usage alarm (useful for all clusterTypes including Redis). |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxEvictedItemsCountAlarm">addMaxEvictedItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on number of evicted items. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxItemsCountAlarm">addMaxItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on total number of items. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold">MaxUsedSwapMemoryThreshold</a>}</code> | Add alarm on amount of used swap memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}</code> | Add alarm on amount of freeable memory. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addRedisEngineCpuUsageAlarm">addRedisEngineCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add Redis engine CPU usage alarm. |
 
 ---
 
@@ -16209,7 +16210,7 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
 
-Add CPU usage alarm.
+Add CPU usage alarm (useful for all clusterTypes including Redis).
 
 ---
 
@@ -16261,6 +16262,21 @@ Add alarm on amount of freeable memory.
 
 ---
 
+##### `addRedisEngineCpuUsageAlarm`<sup>Optional</sup> <a name="addRedisEngineCpuUsageAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addRedisEngineCpuUsageAlarm"></a>
+
+```typescript
+public readonly addRedisEngineCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Add Redis engine CPU usage alarm.
+
+It is recommended to monitor CPU utilization with `addCpuUsageAlarm` 
+as well for hosts with two vCPUs or less.
+
+---
+
 ### ElastiCacheClusterMonitoringProps <a name="ElastiCacheClusterMonitoringProps" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.Initializer"></a>
@@ -16284,11 +16300,12 @@ const elastiCacheClusterMonitoringProps: ElastiCacheClusterMonitoringProps = { .
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.clusterType">clusterType</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterType">ElastiCacheClusterType</a></code> | Cluster type (needed, since each type has their own specific metrics). |
-| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add CPU usage alarm. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add CPU usage alarm (useful for all clusterTypes including Redis). |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMaxEvictedItemsCountAlarm">addMaxEvictedItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on number of evicted items. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMaxItemsCountAlarm">addMaxItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on total number of items. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold">MaxUsedSwapMemoryThreshold</a>}</code> | Add alarm on amount of used swap memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}</code> | Add alarm on amount of freeable memory. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addRedisEngineCpuUsageAlarm">addRedisEngineCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add Redis engine CPU usage alarm. |
 
 ---
 
@@ -16423,7 +16440,7 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
 
-Add CPU usage alarm.
+Add CPU usage alarm (useful for all clusterTypes including Redis).
 
 ---
 
@@ -16472,6 +16489,21 @@ public readonly addMinFreeableMemoryAlarm: {[ key: string ]: MinFreeableMemoryTh
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}
 
 Add alarm on amount of freeable memory.
+
+---
+
+##### `addRedisEngineCpuUsageAlarm`<sup>Optional</sup> <a name="addRedisEngineCpuUsageAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addRedisEngineCpuUsageAlarm"></a>
+
+```typescript
+public readonly addRedisEngineCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Add Redis engine CPU usage alarm.
+
+It is recommended to monitor CPU utilization with `addCpuUsageAlarm` 
+as well for hosts with two vCPUs or less.
 
 ---
 
@@ -51570,6 +51602,7 @@ new ElastiCacheClusterMetricFactory(metricFactory: MetricFactory, props: ElastiC
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricEvictions">metricEvictions</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxCpuUtilizationInPercent">metricMaxCpuUtilizationInPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxItemCount">metricMaxItemCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxRedisEngineCpuUtilizationInPercent">metricMaxRedisEngineCpuUtilizationInPercent</a></code> | Because Redis is single-threaded, you can use this metric to analyze the load of the Redis process itself. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricNetworkBytesIn">metricNetworkBytesIn</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricNetworkBytesOut">metricNetworkBytesOut</a></code> | *No description.* |
 
@@ -51622,6 +51655,20 @@ public metricMaxCpuUtilizationInPercent(): Metric | MathExpression
 ```typescript
 public metricMaxItemCount(): Metric | MathExpression
 ```
+
+##### `metricMaxRedisEngineCpuUtilizationInPercent` <a name="metricMaxRedisEngineCpuUtilizationInPercent" id="cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxRedisEngineCpuUtilizationInPercent"></a>
+
+```typescript
+public metricMaxRedisEngineCpuUtilizationInPercent(): Metric | MathExpression
+```
+
+Because Redis is single-threaded, you can use this metric to analyze the load of the Redis process itself.
+
+Note that you may want to monitor both Engine CPU Utilization as well as CPU Utilization as background
+processes can take up a significant portion of the CPU workload. This is especially important for 
+hosts with 2 vCPUs or less.
+
+> [https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html)
 
 ##### `metricNetworkBytesIn` <a name="metricNetworkBytesIn" id="cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricNetworkBytesIn"></a>
 
@@ -51684,6 +51731,7 @@ new ElastiCacheClusterMonitoring(scope: MonitoringScope, props: ElastiCacheClust
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createCpuUsageWidget">createCpuUsageWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createItemCountWidget">createItemCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createMemoryUsageWidget">createMemoryUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createRedisEngineCpuUsageWidget">createRedisEngineCpuUsageWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
@@ -51858,6 +51906,24 @@ public createMemoryUsageWidget(width: number, height: number): GraphWidget
 
 ---
 
+##### `createRedisEngineCpuUsageWidget` <a name="createRedisEngineCpuUsageWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createRedisEngineCpuUsageWidget"></a>
+
+```typescript
+public createRedisEngineCpuUsageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createRedisEngineCpuUsageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createRedisEngineCpuUsageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
 ##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createTitleWidget"></a>
 
 ```typescript
@@ -51869,6 +51935,7 @@ public createTitleWidget(): MonitoringHeaderWidget
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.clusterType">clusterType</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterType">ElastiCacheClusterType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.cpuUsageAnnotations">cpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
@@ -51880,11 +51947,23 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsEvictedMetrics">itemsEvictedMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.itemsMemoryMetric">itemsMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.redisEngineCpuUsageAnnotations">redisEngineCpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.redisEngineCpuUsageMetric">redisEngineCpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.swapMemoryMetric">swapMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.unusedMemoryMetric">unusedMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.clusterUrl">clusterUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `clusterType`<sup>Required</sup> <a name="clusterType" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.clusterType"></a>
+
+```typescript
+public readonly clusterType: ElastiCacheClusterType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheClusterType">ElastiCacheClusterType</a>
 
 ---
 
@@ -51995,6 +52074,26 @@ public readonly memoryUsageAnnotations: HorizontalAnnotation[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `redisEngineCpuUsageAnnotations`<sup>Required</sup> <a name="redisEngineCpuUsageAnnotations" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.redisEngineCpuUsageAnnotations"></a>
+
+```typescript
+public readonly redisEngineCpuUsageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `redisEngineCpuUsageMetric`<sup>Required</sup> <a name="redisEngineCpuUsageMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.redisEngineCpuUsageMetric"></a>
+
+```typescript
+public readonly redisEngineCpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
@@ -66540,7 +66639,7 @@ new UsageAlarmFactory(alarmFactory: AlarmFactory)
 ##### `addMaxCpuUsagePercentAlarm` <a name="addMaxCpuUsagePercentAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm"></a>
 
 ```typescript
-public addMaxCpuUsagePercentAlarm(percentMetric: Metric | MathExpression, props: UsageThreshold, disambiguator?: string, usageType?: UsageType): AlarmWithAnnotation
+public addMaxCpuUsagePercentAlarm(percentMetric: Metric | MathExpression, props: UsageThreshold, disambiguator?: string, usageType?: UsageType, additionalAlarmNameSuffix?: string): AlarmWithAnnotation
 ```
 
 ###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm.parameter.percentMetric"></a>
@@ -66564,6 +66663,12 @@ public addMaxCpuUsagePercentAlarm(percentMetric: Metric | MathExpression, props:
 ###### `usageType`<sup>Optional</sup> <a name="usageType" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm.parameter.usageType"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.UsageType">UsageType</a>
+
+---
+
+###### `additionalAlarmNameSuffix`<sup>Optional</sup> <a name="additionalAlarmNameSuffix" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm.parameter.additionalAlarmNameSuffix"></a>
+
+- *Type:* string
 
 ---
 
