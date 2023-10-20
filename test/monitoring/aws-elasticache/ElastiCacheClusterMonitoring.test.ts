@@ -90,3 +90,18 @@ test("snapshot test: cluster ID specified", () => {
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
+
+test("validation test: redisEngineCpuUsageAlarm added for non-redis cluster ", () => {
+  const stack = new Stack();
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  expect(
+    () =>
+      new ElastiCacheClusterMonitoring(scope, {
+        clusterType: ElastiCacheClusterType.MEMCACHED,
+        addRedisEngineCpuUsageAlarm: { Warning: { maxUsagePercent: 10 } },
+      })
+  ).toThrowError(
+    "It is only possible to alarm on Redis Engine CPU Usage for Redis clusters"
+  );
+});
