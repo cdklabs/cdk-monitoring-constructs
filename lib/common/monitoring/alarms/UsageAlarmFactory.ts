@@ -67,7 +67,9 @@ export class UsageAlarmFactory {
       usageType,
       "CPU-Usage",
       additionalAlarmNameSuffix,
-    ].join("-");
+    ]
+      .filter((i) => i !== undefined)
+      .join("-");
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
         props.treatMissingDataOverride ?? TreatMissingData.MISSING,
