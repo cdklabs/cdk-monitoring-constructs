@@ -4477,9 +4477,13 @@ const apiGatewayMonitoringOptions: ApiGatewayMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM70Alarm">addLatencyTM70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM90Alarm">addLatencyTM90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM95Alarm">addLatencyTM95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM95OutlierAlarm">addLatencyTM95OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM9999Alarm">addLatencyTM9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM9999OutlierAlarm">addLatencyTM9999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM999Alarm">addLatencyTM999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM999OutlierAlarm">addLatencyTM999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM99Alarm">addLatencyTM99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM99OutlierAlarm">addLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
 
@@ -4763,10 +4767,30 @@ public readonly addLatencyTM95Alarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addLatencyTM95OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM95OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM95OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM95OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addLatencyTM9999Alarm`<sup>Optional</sup> <a name="addLatencyTM9999Alarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM9999Alarm"></a>
 
 ```typescript
 public readonly addLatencyTM9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyTM9999OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM9999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM9999OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM9999OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -4783,10 +4807,30 @@ public readonly addLatencyTM999Alarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addLatencyTM999OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM999OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM999OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addLatencyTM99Alarm`<sup>Optional</sup> <a name="addLatencyTM99Alarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM99Alarm"></a>
 
 ```typescript
 public readonly addLatencyTM99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyTM99OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM99OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM99OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM99OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -4867,9 +4911,13 @@ const apiGatewayMonitoringProps: ApiGatewayMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM70Alarm">addLatencyTM70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM90Alarm">addLatencyTM90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM95Alarm">addLatencyTM95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM95OutlierAlarm">addLatencyTM95OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM9999Alarm">addLatencyTM9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM9999OutlierAlarm">addLatencyTM9999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM999Alarm">addLatencyTM999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM999OutlierAlarm">addLatencyTM999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM99Alarm">addLatencyTM99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM99OutlierAlarm">addLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
 
@@ -5222,10 +5270,30 @@ public readonly addLatencyTM95Alarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addLatencyTM95OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM95OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM95OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM95OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addLatencyTM9999Alarm`<sup>Optional</sup> <a name="addLatencyTM9999Alarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM9999Alarm"></a>
 
 ```typescript
 public readonly addLatencyTM9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyTM9999OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM9999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM9999OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM9999OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -5242,10 +5310,30 @@ public readonly addLatencyTM999Alarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addLatencyTM999OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM999OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM999OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addLatencyTM99Alarm`<sup>Optional</sup> <a name="addLatencyTM99Alarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM99Alarm"></a>
 
 ```typescript
 public readonly addLatencyTM99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyTM99OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM99OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM99OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM99OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -5416,9 +5504,13 @@ const apiGatewayV2HttpApiMonitoringProps: ApiGatewayV2HttpApiMonitoringProps = {
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM70Alarm">addIntegrationLatencyTM70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM90Alarm">addIntegrationLatencyTM90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM95Alarm">addIntegrationLatencyTM95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM95OutlierAlarm">addIntegrationLatencyTM95OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM9999Alarm">addIntegrationLatencyTM9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM9999OutlierAlarm">addIntegrationLatencyTM9999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM999Alarm">addIntegrationLatencyTM999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM999OutlierAlarm">addIntegrationLatencyTM999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM99Alarm">addIntegrationLatencyTM99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM99OutlierAlarm">addIntegrationLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyAverageAlarm">addLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyP100Alarm">addLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
@@ -5432,9 +5524,13 @@ const apiGatewayV2HttpApiMonitoringProps: ApiGatewayV2HttpApiMonitoringProps = {
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM70Alarm">addLatencyTM70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM90Alarm">addLatencyTM90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM95Alarm">addLatencyTM95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM95OutlierAlarm">addLatencyTM95OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM9999Alarm">addLatencyTM9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM9999OutlierAlarm">addLatencyTM9999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM999Alarm">addLatencyTM999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM999OutlierAlarm">addLatencyTM999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM99Alarm">addLatencyTM99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM99OutlierAlarm">addLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
 
@@ -5785,10 +5881,30 @@ public readonly addIntegrationLatencyTM95Alarm: {[ key: string ]: LatencyThresho
 
 ---
 
+##### `addIntegrationLatencyTM95OutlierAlarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM95OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM95OutlierAlarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyTM95OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addIntegrationLatencyTM9999Alarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM9999Alarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM9999Alarm"></a>
 
 ```typescript
 public readonly addIntegrationLatencyTM9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addIntegrationLatencyTM9999OutlierAlarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM9999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM9999OutlierAlarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyTM9999OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -5805,10 +5921,30 @@ public readonly addIntegrationLatencyTM999Alarm: {[ key: string ]: LatencyThresh
 
 ---
 
+##### `addIntegrationLatencyTM999OutlierAlarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM999OutlierAlarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyTM999OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addIntegrationLatencyTM99Alarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM99Alarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM99Alarm"></a>
 
 ```typescript
 public readonly addIntegrationLatencyTM99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addIntegrationLatencyTM99OutlierAlarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM99OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addIntegrationLatencyTM99OutlierAlarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyTM99OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -5945,10 +6081,30 @@ public readonly addLatencyTM95Alarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addLatencyTM95OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM95OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM95OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM95OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addLatencyTM9999Alarm`<sup>Optional</sup> <a name="addLatencyTM9999Alarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM9999Alarm"></a>
 
 ```typescript
 public readonly addLatencyTM9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyTM9999OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM9999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM9999OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM9999OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -5965,10 +6121,30 @@ public readonly addLatencyTM999Alarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addLatencyTM999OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM999OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM999OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addLatencyTM99Alarm`<sup>Optional</sup> <a name="addLatencyTM99Alarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM99Alarm"></a>
 
 ```typescript
 public readonly addLatencyTM99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyTM99OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM99OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM99OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM99OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -6043,9 +6219,13 @@ const apiGatewayV2MonitoringOptions: ApiGatewayV2MonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM70Alarm">addIntegrationLatencyTM70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM90Alarm">addIntegrationLatencyTM90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM95Alarm">addIntegrationLatencyTM95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM95OutlierAlarm">addIntegrationLatencyTM95OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM9999Alarm">addIntegrationLatencyTM9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM9999OutlierAlarm">addIntegrationLatencyTM9999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM999Alarm">addIntegrationLatencyTM999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM999OutlierAlarm">addIntegrationLatencyTM999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM99Alarm">addIntegrationLatencyTM99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM99OutlierAlarm">addIntegrationLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyAverageAlarm">addLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyP100Alarm">addLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
@@ -6059,9 +6239,13 @@ const apiGatewayV2MonitoringOptions: ApiGatewayV2MonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM70Alarm">addLatencyTM70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM90Alarm">addLatencyTM90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM95Alarm">addLatencyTM95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM95OutlierAlarm">addLatencyTM95OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM9999Alarm">addLatencyTM9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM9999OutlierAlarm">addLatencyTM9999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM999Alarm">addLatencyTM999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM999OutlierAlarm">addLatencyTM999OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM99Alarm">addLatencyTM99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM99OutlierAlarm">addLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
 
@@ -6345,10 +6529,30 @@ public readonly addIntegrationLatencyTM95Alarm: {[ key: string ]: LatencyThresho
 
 ---
 
+##### `addIntegrationLatencyTM95OutlierAlarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM95OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM95OutlierAlarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyTM95OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addIntegrationLatencyTM9999Alarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM9999Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM9999Alarm"></a>
 
 ```typescript
 public readonly addIntegrationLatencyTM9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addIntegrationLatencyTM9999OutlierAlarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM9999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM9999OutlierAlarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyTM9999OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -6365,10 +6569,30 @@ public readonly addIntegrationLatencyTM999Alarm: {[ key: string ]: LatencyThresh
 
 ---
 
+##### `addIntegrationLatencyTM999OutlierAlarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM999OutlierAlarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyTM999OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addIntegrationLatencyTM99Alarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM99Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM99Alarm"></a>
 
 ```typescript
 public readonly addIntegrationLatencyTM99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addIntegrationLatencyTM99OutlierAlarm`<sup>Optional</sup> <a name="addIntegrationLatencyTM99OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addIntegrationLatencyTM99OutlierAlarm"></a>
+
+```typescript
+public readonly addIntegrationLatencyTM99OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -6505,10 +6729,30 @@ public readonly addLatencyTM95Alarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addLatencyTM95OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM95OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM95OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM95OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addLatencyTM9999Alarm`<sup>Optional</sup> <a name="addLatencyTM9999Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM9999Alarm"></a>
 
 ```typescript
 public readonly addLatencyTM9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyTM9999OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM9999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM9999OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM9999OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -6525,10 +6769,30 @@ public readonly addLatencyTM999Alarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addLatencyTM999OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM999OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM999OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM999OutlierAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addLatencyTM99Alarm`<sup>Optional</sup> <a name="addLatencyTM99Alarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM99Alarm"></a>
 
 ```typescript
 public readonly addLatencyTM99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addLatencyTM99OutlierAlarm`<sup>Optional</sup> <a name="addLatencyTM99OutlierAlarm" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM99OutlierAlarm"></a>
+
+```typescript
+public readonly addLatencyTM99OutlierAlarm: {[ key: string ]: LatencyThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
@@ -68162,6 +68426,10 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM99">TM99</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM999">TM999</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM9999">TM9999</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyType.TM95_TOP">TM95_TOP</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyType.TM99_TOP">TM99_TOP</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyType.TM999_TOP">TM999_TOP</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyType.TM9999_TOP">TM9999_TOP</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.AVERAGE">AVERAGE</a></code> | *No description.* |
 
 ---
@@ -68241,6 +68509,26 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 ---
 
 
+##### `TM95_TOP` <a name="TM95_TOP" id="cdk-monitoring-constructs.LatencyType.TM95_TOP"></a>
+
+---
+
+
+##### `TM99_TOP` <a name="TM99_TOP" id="cdk-monitoring-constructs.LatencyType.TM99_TOP"></a>
+
+---
+
+
+##### `TM999_TOP` <a name="TM999_TOP" id="cdk-monitoring-constructs.LatencyType.TM999_TOP"></a>
+
+---
+
+
+##### `TM9999_TOP` <a name="TM9999_TOP" id="cdk-monitoring-constructs.LatencyType.TM9999_TOP"></a>
+
+---
+
+
 ##### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.LatencyType.AVERAGE"></a>
 
 ---
@@ -68307,6 +68595,10 @@ Metric aggregation statistic to be used with the IMetric objects.
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM80_BOTH">TM80_BOTH</a></code> | trimmed mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM75_BOTH">TM75_BOTH</a></code> | trimmed mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM70_BOTH">TM70_BOTH</a></code> | trimmed mean; |
+| <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM95_TOP">TM95_TOP</a></code> | trimmed mean; |
+| <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM99_TOP">TM99_TOP</a></code> | trimmed mean; |
+| <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM999_TOP">TM999_TOP</a></code> | trimmed mean; |
+| <code><a href="#cdk-monitoring-constructs.MetricStatistic.TM9999_TOP">TM9999_TOP</a></code> | trimmed mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM50">WM50</a></code> | winsorized mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM70">WM70</a></code> | winsorized mean; |
 | <code><a href="#cdk-monitoring-constructs.MetricStatistic.WM90">WM90</a></code> | winsorized mean; |
@@ -68507,6 +68799,42 @@ calculates the average after removing the 25% lowest data points and the 25% hig
 trimmed mean;
 
 calculates the average after removing the 30% lowest data points and the 30% highest data points
+
+---
+
+
+##### `TM95_TOP` <a name="TM95_TOP" id="cdk-monitoring-constructs.MetricStatistic.TM95_TOP"></a>
+
+trimmed mean;
+
+calculates the average after removing the 95% lowest data points
+
+---
+
+
+##### `TM99_TOP` <a name="TM99_TOP" id="cdk-monitoring-constructs.MetricStatistic.TM99_TOP"></a>
+
+trimmed mean;
+
+calculates the average after removing the 99% lowest data points
+
+---
+
+
+##### `TM999_TOP` <a name="TM999_TOP" id="cdk-monitoring-constructs.MetricStatistic.TM999_TOP"></a>
+
+trimmed mean;
+
+calculates the average after removing the 99.9% lowest data points
+
+---
+
+
+##### `TM9999_TOP` <a name="TM9999_TOP" id="cdk-monitoring-constructs.MetricStatistic.TM9999_TOP"></a>
+
+trimmed mean;
+
+calculates the average after removing the 99.99% lowest data points
 
 ---
 

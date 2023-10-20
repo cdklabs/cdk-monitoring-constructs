@@ -150,6 +150,30 @@ test("snapshot test: all alarms", () => {
         datapointsToAlarm: 29999,
       },
     },
+    addLatencyTM95OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM99OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM999OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM9999OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
     addLatencyAverageAlarm: {
       Warning: {
         maxLatency: Duration.millis(20),
@@ -170,7 +194,7 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(22);
+  expect(numAlarmsCreated).toStrictEqual(26);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -304,6 +328,30 @@ test("snapshot test: all alarms using interface", () => {
         datapointsToAlarm: 29999,
       },
     },
+    addLatencyTM95OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM99OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM999OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM9999OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
     addLatencyAverageAlarm: {
       Warning: {
         maxLatency: Duration.millis(20),
@@ -324,6 +372,6 @@ test("snapshot test: all alarms using interface", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(22);
+  expect(numAlarmsCreated).toStrictEqual(26);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

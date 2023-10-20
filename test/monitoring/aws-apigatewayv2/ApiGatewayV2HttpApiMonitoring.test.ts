@@ -133,6 +133,30 @@ test("snapshot test: all alarms", () => {
         datapointsToAlarm: 29999,
       },
     },
+    addLatencyTM95OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM99OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM999OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addLatencyTM9999OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
     addLatencyAverageAlarm: {
       Warning: {
         maxLatency: Duration.millis(20),
@@ -229,6 +253,30 @@ test("snapshot test: all alarms", () => {
         datapointsToAlarm: 29999,
       },
     },
+    addIntegrationLatencyTM95OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addIntegrationLatencyTM99OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addIntegrationLatencyTM999OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
+    addIntegrationLatencyTM9999OutlierAlarm: {
+      Warning: {
+        maxLatency: Duration.millis(29999),
+        datapointsToAlarm: 29999,
+      },
+    },
     addIntegrationLatencyAverageAlarm: {
       Warning: {
         maxLatency: Duration.millis(20),
@@ -273,6 +321,6 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(38);
+  expect(numAlarmsCreated).toStrictEqual(46);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
