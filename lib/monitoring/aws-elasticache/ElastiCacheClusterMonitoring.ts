@@ -49,9 +49,10 @@ export interface ElastiCacheClusterMonitoringOptions
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
 
   /**
-   * Add redis engine CPU usage alarm
-   * Note: it is recommended to monitor CPU Utilization as well
-   * for hosts with two vCPUs or less
+   * Add Redis engine CPU usage alarm.
+   *
+   * It is recommended to monitor CPU utilization with `addCpuUsageAlarm` 
+   * as well for hosts with two vCPUs or less.
    */
   readonly addRedisEngineCpuUsageAlarm?: Record<string, UsageThreshold>;
 

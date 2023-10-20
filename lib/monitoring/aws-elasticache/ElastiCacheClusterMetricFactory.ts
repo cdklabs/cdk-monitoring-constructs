@@ -113,11 +113,12 @@ export class ElastiCacheClusterMetricFactory {
   }
 
   /**
-   * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html
    * Because Redis is single-threaded, you can use this metric to analyze the load of the Redis process itself.
    * Note that you may want to monitor both Engine CPU Utilization as well as CPU Utilization as background
    * processes can take up a significant portion of the CPU workload. This is especially important for 
-   * hosts with 2 vCPUs or less
+   * hosts with 2 vCPUs or less.
+   *
+   * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html
    */
   metricMaxRedisEngineCpuUtilizationInPercent() {
     return this.metricFactory.createMetric(
