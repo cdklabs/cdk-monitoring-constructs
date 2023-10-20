@@ -23,6 +23,10 @@ export enum LatencyType {
   TM99 = "TM99",
   TM999 = "TM999",
   TM9999 = "TM9999",
+  TM95_TOP = "TM(95%:100%)",
+  TM99_TOP = "TM(99%:100%)",
+  TM999_TOP = "TM(99.9%:100%)",
+  TM9999_TOP = "TM(99.99%:100%)",
   AVERAGE = "Average",
 }
 
@@ -58,6 +62,14 @@ export function getLatencyTypeStatistic(latencyType: LatencyType) {
       return MetricStatistic.TM999;
     case LatencyType.TM9999:
       return MetricStatistic.TM9999;
+    case LatencyType.TM95_TOP:
+      return MetricStatistic.TM95_TOP;
+    case LatencyType.TM99_TOP:
+      return MetricStatistic.TM99_TOP;
+    case LatencyType.TM999_TOP:
+      return MetricStatistic.TM999_TOP;
+    case LatencyType.TM9999_TOP:
+      return MetricStatistic.TM9999_TOP;
     case LatencyType.AVERAGE:
       return MetricStatistic.AVERAGE;
     default:
@@ -98,6 +110,10 @@ export function getLatencyTypeLabel(latencyType: LatencyType) {
       return latencyType.replace("999", "99.9") + averageSuffix;
     case LatencyType.P9999:
     case LatencyType.TM9999:
+    case LatencyType.TM95_TOP:
+    case LatencyType.TM99_TOP:
+    case LatencyType.TM999_TOP:
+    case LatencyType.TM9999_TOP:
       // we need proper decimal here
       return latencyType.replace("9999", "99.99") + averageSuffix;
     case LatencyType.AVERAGE:

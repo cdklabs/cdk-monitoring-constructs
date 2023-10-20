@@ -65,6 +65,7 @@ export enum MetricStatistic {
    * trimmed mean; calculates the average after removing the 0.01% of data points with the highest values
    */
   TM9999 = "tm99.99",
+
   /**
    * trimmed mean; calculates the average after removing the 1% lowest data points and the 1% highest data points
    */
@@ -93,6 +94,23 @@ export enum MetricStatistic {
    * trimmed mean; calculates the average after removing the 30% lowest data points and the 30% highest data points
    */
   TM70_BOTH = "TM(30%:70%)",
+
+  /**
+   * trimmed mean; calculates the average after removing the 95% lowest data points
+   */
+  TM95_TOP = "TM(95%:100%)",
+  /**
+   * trimmed mean; calculates the average after removing the 99% lowest data points
+   */
+  TM99_TOP = "TM(99%:100%)",
+  /**
+   * trimmed mean; calculates the average after removing the 99.9% lowest data points
+   */
+  TM999_TOP = "TM(99.9%:100%)",
+  /**
+   * trimmed mean; calculates the average after removing the 99.99% lowest data points
+   */
+  TM9999_TOP = "TM(99.99%:100%)",
 
   /**
    * winsorized mean; calculates the average while treating the 50% of the highest values to be equal to the value at the 50th percentile

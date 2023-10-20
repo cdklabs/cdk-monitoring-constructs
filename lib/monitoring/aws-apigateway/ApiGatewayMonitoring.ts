@@ -64,6 +64,10 @@ export interface ApiGatewayMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyTM99Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM999Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyTM9999Alarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM95OutlierAlarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM99OutlierAlarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM999OutlierAlarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyTM9999OutlierAlarm?: Record<string, LatencyThreshold>;
   readonly addLatencyAverageAlarm?: Record<string, LatencyThreshold>;
 
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
@@ -175,6 +179,10 @@ export class ApiGatewayMonitoring extends Monitoring {
       [LatencyType.TM99]: props.addLatencyTM99Alarm,
       [LatencyType.TM999]: props.addLatencyTM999Alarm,
       [LatencyType.TM9999]: props.addLatencyTM9999Alarm,
+      [LatencyType.TM95_TOP]: props.addLatencyTM95OutlierAlarm,
+      [LatencyType.TM99_TOP]: props.addLatencyTM99OutlierAlarm,
+      [LatencyType.TM999_TOP]: props.addLatencyTM999OutlierAlarm,
+      [LatencyType.TM9999_TOP]: props.addLatencyTM999OutlierAlarm,
       [LatencyType.AVERAGE]: props.addLatencyAverageAlarm,
     };
 
