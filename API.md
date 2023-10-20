@@ -16536,7 +16536,7 @@ public readonly addRedisEngineCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 Add Redis engine CPU usage alarm.
 
-It is recommended to monitor CPU utilization with `addCpuUsageAlarm` 
+It is recommended to monitor CPU utilization with `addCpuUsageAlarm`
 as well for hosts with two vCPUs or less.
 
 ---
@@ -16766,7 +16766,7 @@ public readonly addRedisEngineCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 Add Redis engine CPU usage alarm.
 
-It is recommended to monitor CPU utilization with `addCpuUsageAlarm` 
+It is recommended to monitor CPU utilization with `addCpuUsageAlarm`
 as well for hosts with two vCPUs or less.
 
 ---
@@ -51929,7 +51929,7 @@ public metricMaxRedisEngineCpuUtilizationInPercent(): Metric | MathExpression
 Because Redis is single-threaded, you can use this metric to analyze the load of the Redis process itself.
 
 Note that you may want to monitor both Engine CPU Utilization as well as CPU Utilization as background
-processes can take up a significant portion of the CPU workload. This is especially important for 
+processes can take up a significant portion of the CPU workload. This is especially important for
 hosts with 2 vCPUs or less.
 
 > [https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html)
