@@ -148,7 +148,10 @@ export interface MonitoringFacadeProps {
 /**
  * An implementation of a {@link MonitoringScope}.
  *
- * This acts as the convenient main entrypoint to monitor resources.
+ * This is a convenient main entrypoint to monitor resources.
+ *
+ * Provides methods for retrieving and creating alarms based on added segments that are subclasses of
+ * {@link Monitoring}.
  */
 export class MonitoringFacade extends MonitoringScope {
   protected readonly metricFactoryDefaults: MetricFactoryDefaults;
@@ -206,7 +209,38 @@ export class MonitoringFacade extends MonitoringScope {
   // =======
 
   /**
-   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
+   * Adds a dashboard segment which returns dynamic content depending on dashboard type.
+   *
+   * @param segment dynamic segment to add.
+   */
+  addDynamicSegment(segment: IDynamicDashboardSegment) {
+    this.dashboardFactory?.addDynamicSegment(segment);
+    this.createdSegments.push(segment);
+    return this;
+  }
+
+  /**
+   * Adds a dashboard segment to go on one of the {@link DefaultDashboards}.
+   *
+   * @param segment segment to add
+   * @param overrideProps props to specify which default dashboards this segment is added to.
+   */
+  addSegment(
+    segment: IDashboardSegment,
+    overrideProps?: MonitoringDashboardsOverrideProps
+  ) {
+    const adaptedSegment = new StaticSegmentDynamicAdapter({
+      segment,
+      overrideProps,
+    });
+    this.dashboardFactory?.addDynamicSegment(adaptedSegment);
+    this.createdSegments.push(segment);
+    return this;
+  }
+
+  /**
+   * @deprecated - prefer calling dashboardFactory.getDashboard directly.
+   *
    * @returns default detail dashboard
    */
   createdDashboard(): Dashboard | undefined {
@@ -214,7 +248,8 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   /**
-   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
+   * @deprecated - prefer calling dashboardFactory.getDashboard directly.
+   *
    * @returns default summary dashboard
    */
   createdSummaryDashboard(): Dashboard | undefined {
@@ -222,7 +257,8 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   /**
-   * @deprecated -- prefer calling dashboardFactory.getDashboard directly.
+   * @deprecated - prefer calling dashboardFactory.getDashboard directly.
+   *
    * @returns default alarms dashboard
    */
   createdAlarmDashboard(): Dashboard | undefined {
@@ -230,20 +266,18 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   /**
-   * Returns the created alarms across all the monitorings added up until now.
+   * Returns the created alarms across all added segments that subclass {@link Monitoring}
+   * added up until now.
    */
   createdAlarms(): AlarmWithAnnotation[] {
-    const alarms: AlarmWithAnnotation[] = [];
-    this.createdSegments.forEach((monitoring) => {
-      if (monitoring instanceof Monitoring) {
-        alarms.push(...monitoring.createdAlarms());
-      }
-    });
-    return alarms;
+    return this.createdMonitorings().flatMap((monitoring) =>
+      monitoring.createdAlarms()
+    );
   }
 
   /**
    * Returns a subset of created alarms that are marked by a specific custom tag.
+   *
    * @param customTag tag to filter alarms by
    */
   createdAlarmsWithTag(customTag: string): AlarmWithAnnotation[] {
@@ -254,6 +288,7 @@ export class MonitoringFacade extends MonitoringScope {
 
   /**
    * Returns a subset of created alarms that are marked by a specific disambiguator.
+   *
    * @param disambiguator disambiguator to filter alarms by
    */
   createdAlarmsWithDisambiguator(disambiguator: string): AlarmWithAnnotation[] {
@@ -261,6 +296,18 @@ export class MonitoringFacade extends MonitoringScope {
       (alarm) => alarm.disambiguator === disambiguator
     );
   }
+
+  /**
+   * Returns the added segments that subclass {@link Monitoring}.
+   */
+  createdMonitorings(): Monitoring[] {
+    return this.createdSegments
+      .filter((s) => s instanceof Monitoring)
+      .map((s) => s as Monitoring);
+  }
+
+  // COMPOSITE ALARM CREATORS
+  // ========================
 
   /**
    * Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm.
@@ -310,42 +357,8 @@ export class MonitoringFacade extends MonitoringScope {
     return undefined;
   }
 
-  /**
-   * Returns the created monitorings added up until now.
-   */
-  createdMonitorings(): Monitoring[] {
-    return this.createdSegments
-      .filter((s) => s instanceof Monitoring)
-      .map((s) => s as Monitoring);
-  }
-
-  /**
-   * Adds a dashboard segment which returns dynamic content depending on dashboard type.
-   * @param segment dynamic segment to add.
-   */
-  addDynamicSegment(segment: IDynamicDashboardSegment) {
-    this.dashboardFactory?.addDynamicSegment(segment);
-    this.createdSegments.push(segment);
-  }
-
-  /**
-   * Adds a dashboard segment to go on one of the {@link DefaultDashboards}.
-   * @param segment segment to add
-   * @param overrideProps props to specify which default dashboards this segment is added to.
-   */
-  addSegment(
-    segment: IDashboardSegment,
-    overrideProps?: MonitoringDashboardsOverrideProps
-  ) {
-    const adaptedSegment = new StaticSegmentDynamicAdapter({
-      segment,
-      overrideProps,
-    });
-    this.dashboardFactory?.addDynamicSegment(adaptedSegment);
-
-    this.createdSegments.push(segment);
-    return this;
-  }
+  // BASIC WIDGETS
+  // =============
 
   addLargeHeader(text: string, addToSummary?: boolean, addToAlarm?: boolean) {
     this.addWidget(
