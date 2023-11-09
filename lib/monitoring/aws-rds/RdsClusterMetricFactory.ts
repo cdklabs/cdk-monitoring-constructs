@@ -1,5 +1,5 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
-import { IDatabaseCluster } from "aws-cdk-lib/aws-rds";
+import { IDatabaseCluster, ServerlessCluster } from "aws-cdk-lib/aws-rds";
 
 import { MetricFactory, MetricStatistic } from "../../common";
 
@@ -14,11 +14,12 @@ export interface RdsClusterMetricFactoryProps {
   /**
    * database cluster (either this or `clusterIdentifier` need to be specified)
    */
-  readonly cluster?: IDatabaseCluster;
+  readonly cluster?: IDatabaseCluster | ServerlessCluster;
 }
 
 export class RdsClusterMetricFactory {
   readonly clusterIdentifier: string;
+  readonly cluster?: IDatabaseCluster | ServerlessCluster;
   protected readonly metricFactory: MetricFactory;
   protected readonly dimensionsMap: DimensionsMap;
 
@@ -27,6 +28,7 @@ export class RdsClusterMetricFactory {
     props: RdsClusterMetricFactoryProps
   ) {
     this.metricFactory = metricFactory;
+    this.cluster = props.cluster;
     this.clusterIdentifier =
       RdsClusterMetricFactory.resolveDbClusterIdentifier(props);
     this.dimensionsMap = { DBClusterIdentifier: this.clusterIdentifier };
@@ -49,6 +51,10 @@ export class RdsClusterMetricFactory {
         "At least one of `clusterIdentifier` or `cluster` is required"
       );
     }
+  }
+
+  private isServerlessCluster(obj: any): obj is ServerlessCluster {
+    return (obj as any).clusterArn !== undefined;
   }
 
   metricTotalConnectionCount() {
@@ -99,6 +105,19 @@ export class RdsClusterMetricFactory {
 
   metricCommitLatencyP90InMillis() {
     return this.metric("CommitLatency", MetricStatistic.P90, "Commit");
+  }
+
+  metricServerlessDatabaseCapacity() {
+    if (!this.isServerlessCluster(this.cluster)) {
+      throw Error(
+        "Cluster is not of type `ServerlessCluster`. Metric is not applicable"
+      );
+    }
+    return this.metric(
+      "ServerlessDatabaseCapacity",
+      MetricStatistic.AVERAGE,
+      "Serverless Database Capacity"
+    );
   }
 
   private metric(

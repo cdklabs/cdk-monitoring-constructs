@@ -38,6 +38,8 @@ import {
   ApiGatewayV2HttpApiMonitoringProps,
   AppSyncMonitoring,
   AppSyncMonitoringProps,
+  AuroraClusterMonitoring,
+  AuroraClusterMonitoringProps,
   AutoScalingGroupMonitoring,
   AutoScalingGroupMonitoringProps,
   BillingMonitoring,
@@ -411,6 +413,12 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorAppSyncApi(props: AppSyncMonitoringProps) {
     const segment = new AppSyncMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorAuroraCluster(props: AuroraClusterMonitoringProps) {
+    const segment = new AuroraClusterMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

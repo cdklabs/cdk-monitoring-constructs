@@ -2,6 +2,7 @@ import {
   ApiGatewayMonitoringOptions,
   ApiGatewayV2MonitoringOptions,
   AppSyncMonitoringOptions,
+  AuroraClusterMonitoringOptions,
   AutoScalingGroupMonitoringOptions,
   BillingMonitoringOptions,
   CertificateManagerMonitoringOptions,
@@ -47,6 +48,7 @@ export interface MonitoringAspectProps {
   readonly apiGateway?: MonitoringAspectType<ApiGatewayMonitoringOptions>;
   readonly apiGatewayV2?: MonitoringAspectType<ApiGatewayV2MonitoringOptions>;
   readonly appSync?: MonitoringAspectType<AppSyncMonitoringOptions>;
+  readonly auroraCluster?: MonitoringAspectType<AuroraClusterMonitoringOptions>;
   readonly autoScalingGroup?: MonitoringAspectType<AutoScalingGroupMonitoringOptions>;
   readonly billing?: MonitoringAspectType<BillingMonitoringOptions>;
   readonly cloudFront?: MonitoringAspectType<CloudFrontDistributionMonitoringOptions>;

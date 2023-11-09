@@ -37,6 +37,25 @@ export class UsageAlarmFactory {
     this.alarmFactory = alarmFactory;
   }
 
+  addMaxUsageCountAlarm(
+    metric: MetricWithAlarmSupport,
+    props: UsageCountThreshold,
+    disambiguator?: string
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxUsageCount,
+      alarmNameSuffix: "Usage-Count",
+      alarmDescription: "The count is too high.",
+    });
+  }
+
   addMinUsageCountAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: MinUsageCountThreshold,
