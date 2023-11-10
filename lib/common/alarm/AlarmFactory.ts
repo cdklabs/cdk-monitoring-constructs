@@ -7,6 +7,7 @@ import {
   CompositeAlarm,
   HorizontalAnnotation,
   IAlarmRule,
+  MathExpression,
   TreatMissingData,
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
@@ -187,6 +188,18 @@ export interface AddAlarmProps {
   readonly evaluateLowSampleCountPercentile?: boolean;
 
   /**
+   * Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+   * If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+   * to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+   * If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+   * according to the treatMissingData parameter.
+   * If specified, deprecated minMetricSamplesToAlarm has no effect.
+   *
+   * @default - default behaviour - no condition on sample count will be used
+   */
+  readonly minSampleCountToEvaluateDatapoint?: number;
+
+  /**
    * Specifies how many samples (N) of the metric is needed to trigger the alarm.
    * If this property is specified, an artificial composite alarm is created of the following:
    * <ul>
@@ -195,6 +208,9 @@ export interface AddAlarmProps {
    * </ul>
    * The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
    * @default - default behaviour - no condition on sample count will be added to the alarm
+   * @deprecated Use minMetricSampleCountToAlarm instead. minMetricSamplesAlarm uses different evaluation period
+   *   for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has sufficient
+   *   number of samples
    */
   readonly minMetricSamplesToAlarm?: number;
 
@@ -511,6 +527,9 @@ export class AlarmFactory {
       props
     );
 
+    // metric that will be ultimately used to create the alarm
+    let alarmMetric: MetricWithAlarmSupport = adjustedMetric;
+
     // prepare primary alarm properties
 
     const actionsEnabled = this.determineActionsEnabled(
@@ -549,32 +568,56 @@ export class AlarmFactory {
       );
     }
 
+    // apply metric math for minimum metric samples
+
+    if (props.minSampleCountToEvaluateDatapoint) {
+      if (adjustedMetric instanceof MathExpression) {
+        throw new Error(
+          "minSampleCountToEvaluateDatapoint is not supported for MathExpressions"
+        );
+      }
+
+      const metricSampleCount = adjustedMetric.with({
+        statistic: MetricStatistic.N,
+        label: "Sample count",
+      });
+
+      alarmMetric = new MathExpression({
+        label: `${adjustedMetric}`,
+        expression: `IF(sampleCount > ${props.minSampleCountToEvaluateDatapoint}, metric)`,
+        usingMetrics: {
+          metric: adjustedMetric,
+          sampleCount: metricSampleCount,
+        },
+      });
+    }
+
     // create primary alarm
 
-    const primaryAlarm = adjustedMetric.createAlarm(
-      this.alarmScope,
+    const primaryAlarm = alarmMetric.createAlarm(this.alarmScope, alarmName, {
       alarmName,
-      {
-        alarmName,
-        alarmDescription,
-        threshold: props.threshold,
-        comparisonOperator: props.comparisonOperator,
-        treatMissingData: props.treatMissingData,
-        // default value (undefined) means "evaluate"
-        evaluateLowSampleCountPercentile: evaluateLowSampleCountPercentile
-          ? undefined
-          : "ignore",
-        datapointsToAlarm,
-        evaluationPeriods,
-        actionsEnabled,
-      }
-    );
+      alarmDescription,
+      threshold: props.threshold,
+      comparisonOperator: props.comparisonOperator,
+      treatMissingData: props.treatMissingData,
+      // default value (undefined) means "evaluate"
+      evaluateLowSampleCountPercentile: evaluateLowSampleCountPercentile
+        ? undefined
+        : "ignore",
+      datapointsToAlarm,
+      evaluationPeriods,
+      actionsEnabled,
+    });
 
     let alarm: AlarmBase = primaryAlarm;
 
     // create composite alarm for min metric samples (if defined)
+    // deprecated in favour of minSampleCountToEvaluateDatapoint
 
-    if (props.minMetricSamplesToAlarm) {
+    if (
+      !props.minSampleCountToEvaluateDatapoint &&
+      props.minMetricSamplesToAlarm
+    ) {
       const metricSampleCount = adjustedMetric.with({
         statistic: MetricStatistic.N,
       });
@@ -627,6 +670,8 @@ export class AlarmFactory {
       datapointsToAlarm,
       dedupeString,
       minMetricSamplesToAlarm: props.minMetricSamplesToAlarm,
+      minSampleCountToEvaluateDatapoint:
+        props.minSampleCountToEvaluateDatapoint,
       fillAlarmRange: props.fillAlarmRange ?? false,
       overrideAnnotationColor: props.overrideAnnotationColor,
       overrideAnnotationLabel: props.overrideAnnotationLabel,
