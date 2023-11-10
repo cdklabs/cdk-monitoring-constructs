@@ -318,6 +318,31 @@ This is a general procedure on how to do it:
 
 Both of these monitoring base classes are dashboard segments, so you can add them to your monitoring by calling `.addSegment()` on the `MonitoringFacade`.
 
+### Modifying or omitting widgets from default dashboard segments
+
+While the dashboard widgets defined in the library are meant to cover most use cases, they might not be what you're looking for.
+
+To modify the widgets:
+
+1. Extend the appropriate `Monitoring` class (e.g., `LambdaFunctionMonitoring` for `monitorLambdaFunction`) and override the relevant methods (e.g., `widgets`):
+    ```ts
+    export class MyCustomizedLambdaFunctionMonitoring extends LambdaFunctionMonitoring {
+      widgets(): IWidget[] {
+        return [
+          // Whatever widgets you want instead of what LambdaFunctionMonitoring has
+        ];
+      }
+    }
+    ```
+1. Use the facade's `addSegment` method with your custom class:
+    ```ts
+    declare const facade: MonitoringFacade;
+
+    facade.addSegment(new MyCustomizedLambdaFunctionMonitoring(facade, {
+      // Props for LambdaFunctionMonitoring
+    }));
+    ```
+
 ### Custom dashboards
 
 If you want *even* more flexibility, you can take complete control over dashboard generation by leveraging dynamic dashboarding features. This allows you to create an arbitrary number of dashboards while configuring each of them separately. You can do this in three simple steps:
