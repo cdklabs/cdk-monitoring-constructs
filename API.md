@@ -2643,9 +2643,9 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AddAlarmProps.property.minMetricSamplesToAlarm"></a>
 
-- *Deprecated:* Use minMetricSampleCountToAlarm instead. minMetricSamplesAlarm uses different evaluation period
-for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has sufficient
-number of samples
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;

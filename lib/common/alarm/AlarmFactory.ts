@@ -208,9 +208,9 @@ export interface AddAlarmProps {
    * </ul>
    * The newly created composite alarm will be returned as a result, and it will take the original alarm actions.
    * @default - default behaviour - no condition on sample count will be added to the alarm
-   * @deprecated Use minMetricSampleCountToAlarm instead. minMetricSamplesAlarm uses different evaluation period
-   *   for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has sufficient
-   *   number of samples
+   * @deprecated Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+   *   period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+   *   sufficient number of samples
    */
   readonly minMetricSamplesToAlarm?: number;
 
@@ -573,7 +573,9 @@ export class AlarmFactory {
     if (props.minSampleCountToEvaluateDatapoint) {
       if (adjustedMetric instanceof MathExpression) {
         throw new Error(
-          "minSampleCountToEvaluateDatapoint is not supported for MathExpressions"
+          "minSampleCountToEvaluateDatapoint is not supported for MathExpressions. " +
+            "If you already use MathExpression, you can extend your expression to evaluate " +
+            "the sample count using IF statement, e.g. IF(sampleCount > X, mathExpression)."
         );
       }
 
