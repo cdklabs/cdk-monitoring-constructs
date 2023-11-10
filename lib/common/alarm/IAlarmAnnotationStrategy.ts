@@ -13,6 +13,7 @@ export interface AlarmAnnotationStrategyProps extends AlarmMetadata {
   readonly metric: MetricWithAlarmSupport;
   readonly comparisonOperator: ComparisonOperator;
   readonly minMetricSamplesToAlarm?: number;
+  readonly minSampleCountToEvaluateDatapoint?: number;
   readonly threshold: number;
   readonly datapointsToAlarm: number;
   readonly evaluationPeriods: number;

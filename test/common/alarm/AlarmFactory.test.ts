@@ -1,9 +1,10 @@
 import { Duration, Stack } from "aws-cdk-lib";
-import { Capture, Template } from "aws-cdk-lib/assertions";
+import { Capture, Match, Template } from "aws-cdk-lib/assertions";
 import {
   Alarm,
   CfnAlarm,
   ComparisonOperator,
+  MathExpression,
   Metric,
   Shading,
   TreatMissingData,
@@ -328,6 +329,84 @@ test("addAlarm: check created alarms when minMetricSamplesToAlarm is used", () =
       ],
     ],
   });
+});
+
+test("addAlarm: check created alarms when minSampleCountToEvaluateDatapoint is used", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults,
+    localAlarmNamePrefix: "prefix",
+  });
+  factory.addAlarm(metric, {
+    ...props,
+    alarmNameSuffix: "none",
+    comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
+    minSampleCountToEvaluateDatapoint: 42,
+    minMetricSamplesToAlarm: 55, // not used if minSampleCountToEvaluateDatapoint defined
+  });
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    AlarmName: "DummyServiceAlarms-prefix-none",
+    AlarmDescription: "Description",
+    ComparisonOperator: "LessThanThreshold",
+    DatapointsToAlarm: 10,
+    EvaluationPeriods: 10,
+    TreatMissingData: "notBreaching",
+    Metrics: [
+      Match.objectLike({
+        Expression: "IF(sampleCount > 42, metric)",
+        Label: "DummyMetric1",
+      }),
+      {
+        Id: "metric",
+        MetricStat: {
+          Metric: Match.objectLike({
+            MetricName: "DummyMetric1",
+          }),
+          Period: 300,
+          Stat: "Average",
+        },
+        ReturnData: false,
+      },
+      {
+        Id: "sampleCount",
+        MetricStat: {
+          Metric: Match.objectLike({
+            MetricName: "DummyMetric1",
+          }),
+          Period: 300,
+          Stat: "SampleCount",
+        },
+        ReturnData: false,
+      },
+    ],
+  });
+});
+
+test("addAlarm: minSampleCountToEvaluateDatapoint used with Math Expression throws error", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults,
+    localAlarmNamePrefix: "prefix",
+  });
+  const mathExpression = new MathExpression({
+    expression: "MAX(metric)",
+    usingMetrics: {
+      metric,
+    },
+  });
+
+  expect(() =>
+    factory.addAlarm(mathExpression, {
+      ...props,
+      minSampleCountToEvaluateDatapoint: 42,
+    })
+  ).toThrow(
+    "minSampleCountToEvaluateDatapoint is not supported for MathExpressions"
+  );
 });
 
 test("addCompositeAlarm: snapshot for operator", () => {
