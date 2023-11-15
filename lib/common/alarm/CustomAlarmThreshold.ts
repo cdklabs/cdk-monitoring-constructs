@@ -40,6 +40,18 @@ export interface CustomAlarmThreshold {
   readonly alarmDescriptionOverride?: string;
 
   /**
+   * Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+   * If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+   * to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+   * If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+   * according to the treatMissingData parameter.
+   * If specified, deprecated minMetricSamplesToAlarm has no effect.
+   *
+   * @default - default behaviour - no condition on sample count will be used
+   */
+  readonly minSampleCountToEvaluateDatapoint?: number;
+
+  /**
    * Specifies how many samples (N) of the metric is needed to trigger the alarm.
    * If this property is specified, a composite alarm is created of the following:
    * <ul>
@@ -48,6 +60,9 @@ export interface CustomAlarmThreshold {
    * </ul>
    * This composite alarm will be returned as a result and uses the specified alarm actions.
    * @default - default behaviour - no condition on sample count will be added to the alarm
+   * @deprecated Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+   *   period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+   *   sufficient number of samples
    */
   readonly minMetricSamplesToAlarm?: number;
 

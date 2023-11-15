@@ -701,17 +701,51 @@ Object {
         "AlarmName": "Test-DummyAlarmName-AlarmForDummyMetric12-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": Array [
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
           Object {
-            "Name": "CustomDimension",
-            "Value": "CustomDimensionValue",
+            "Expression": "IF(sampleCount > 15, metric)",
+            "Id": "expr_1",
+            "Label": "DummyMetric12",
+          },
+          Object {
+            "Id": "metric",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CustomDimension",
+                    "Value": "CustomDimensionValue",
+                  },
+                ],
+                "MetricName": "DummyMetric12",
+                "Namespace": "DummyCustomNamespace",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "sampleCount",
+            "Label": "Sample count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CustomDimension",
+                    "Value": "CustomDimensionValue",
+                  },
+                ],
+                "MetricName": "DummyMetric12",
+                "Namespace": "DummyCustomNamespace",
+              },
+              "Period": 300,
+              "Stat": "SampleCount",
+            },
+            "ReturnData": false,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "DummyMetric12",
-        "Namespace": "DummyCustomNamespace",
-        "Period": 300,
-        "Statistic": "Average",
         "Threshold": 10,
         "TreatMissingData": "missing",
       },
