@@ -285,6 +285,7 @@ test("addAlarm: check created alarms when minMetricSamplesToAlarm is used", () =
     alarmNameSuffix: "none",
     comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
     minMetricSamplesToAlarm: 42,
+    period: Duration.minutes(15),
   });
 
   const template = Template.fromStack(stack);
@@ -292,6 +293,7 @@ test("addAlarm: check created alarms when minMetricSamplesToAlarm is used", () =
     AlarmName: "DummyServiceAlarms-prefix-none",
     MetricName: "DummyMetric1",
     Statistic: "Average",
+    Period: 900,
   });
   template.hasResourceProperties("AWS::CloudWatch::Alarm", {
     AlarmName: "DummyServiceAlarms-prefix-none-NoSamples",
@@ -304,6 +306,7 @@ test("addAlarm: check created alarms when minMetricSamplesToAlarm is used", () =
     Statistic: "SampleCount",
     Threshold: 42,
     TreatMissingData: "breaching",
+    Period: 900,
   });
 
   const alarmRuleCapture = new Capture();
@@ -344,6 +347,7 @@ test("addAlarm: check created alarms when minSampleCountToEvaluateDatapoint is u
     comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
     minSampleCountToEvaluateDatapoint: 42,
     minMetricSamplesToAlarm: 55, // not used if minSampleCountToEvaluateDatapoint defined
+    period: Duration.minutes(15),
   });
 
   const template = Template.fromStack(stack);
@@ -365,7 +369,7 @@ test("addAlarm: check created alarms when minSampleCountToEvaluateDatapoint is u
           Metric: Match.objectLike({
             MetricName: "DummyMetric1",
           }),
-          Period: 300,
+          Period: 900,
           Stat: "Average",
         },
         ReturnData: false,
@@ -376,7 +380,7 @@ test("addAlarm: check created alarms when minSampleCountToEvaluateDatapoint is u
           Metric: Match.objectLike({
             MetricName: "DummyMetric1",
           }),
-          Period: 300,
+          Period: 900,
           Stat: "SampleCount",
         },
         ReturnData: false,
