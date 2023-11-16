@@ -4055,6 +4055,7 @@ const anomalyDetectionThreshold: AnomalyDetectionThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -4256,7 +4257,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -4273,6 +4278,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -8150,6 +8174,7 @@ const availabilityThreshold: AvailabilityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -8348,7 +8373,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AvailabilityThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.AvailabilityThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -8365,6 +8394,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.AvailabilityThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -9586,6 +9634,7 @@ const changeInSecretCountThreshold: ChangeInSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -9787,7 +9836,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -9804,6 +9857,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -10788,6 +10860,7 @@ const consumedCapacityThreshold: ConsumedCapacityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -10986,7 +11059,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -11003,6 +11080,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -11125,6 +11221,7 @@ const customAlarmThreshold: CustomAlarmThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -11322,7 +11419,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -11339,6 +11440,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -12683,6 +12803,7 @@ const customThreshold: CustomThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -12884,7 +13005,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.CustomThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.CustomThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -12901,6 +13026,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.CustomThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -13189,6 +13333,7 @@ const daysSinceUpdateThreshold: DaysSinceUpdateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -13387,7 +13532,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -13404,6 +13553,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -13524,6 +13692,7 @@ const daysToExpiryThreshold: DaysToExpiryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -13722,7 +13891,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -13739,6 +13912,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -14284,6 +14476,7 @@ const durationThreshold: DurationThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -14482,7 +14675,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DurationThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.DurationThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -14499,6 +14696,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.DurationThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -17208,6 +17424,7 @@ const errorCountThreshold: ErrorCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -17406,7 +17623,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ErrorCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ErrorCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -17423,6 +17644,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.ErrorCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -17543,6 +17783,7 @@ const errorRateThreshold: ErrorRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -17741,7 +17982,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ErrorRateThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ErrorRateThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -17758,6 +18003,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.ErrorRateThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -18742,6 +19006,7 @@ const firehoseStreamLimitThreshold: FirehoseStreamLimitThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -18940,7 +19205,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -18957,6 +19226,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -19079,6 +19367,7 @@ const fullRestartCountThreshold: FullRestartCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -19277,7 +19566,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -19294,6 +19587,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -19832,6 +20144,7 @@ const healthyTaskCountThreshold: HealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -20030,7 +20343,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -20047,6 +20364,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -20167,6 +20503,7 @@ const healthyTaskPercentThreshold: HealthyTaskPercentThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -20365,7 +20702,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -20382,6 +20723,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -20502,6 +20862,7 @@ const highConnectionCountThreshold: HighConnectionCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -20700,7 +21061,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -20717,6 +21082,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -20837,6 +21221,7 @@ const highMessagesPublishedThreshold: HighMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -21035,7 +21420,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -21052,6 +21441,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -21172,6 +21580,7 @@ const highServerlessDatabaseCapacityThreshold: HighServerlessDatabaseCapacityThr
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -21370,7 +21779,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -21387,6 +21800,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -21507,6 +21939,7 @@ const highTpsThreshold: HighTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -21705,7 +22138,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighTpsThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.HighTpsThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -21722,6 +22159,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.HighTpsThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -23760,6 +24216,7 @@ const latencyThreshold: LatencyThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -23958,7 +24415,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LatencyThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LatencyThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -23975,6 +24436,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.LatencyThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -24095,6 +24575,7 @@ const logLevelCountThreshold: LogLevelCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -24293,7 +24774,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -24310,6 +24795,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -24619,6 +25123,7 @@ const lowConnectionCountThreshold: LowConnectionCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -24817,7 +25322,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -24834,6 +25343,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -24954,6 +25482,7 @@ const lowMessagesPublishedThreshold: LowMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -25152,7 +25681,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -25169,6 +25702,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -25289,6 +25841,7 @@ const lowTpsThreshold: LowTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -25487,7 +26040,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowTpsThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LowTpsThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -25504,6 +26061,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.LowTpsThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -25624,6 +26200,7 @@ const maxAgeThreshold: MaxAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -25822,7 +26399,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxAgeThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxAgeThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -25839,6 +26420,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxAgeThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -25959,6 +26559,7 @@ const maxDowntimeThreshold: MaxDowntimeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -26157,7 +26758,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -26174,6 +26779,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -26294,6 +26918,7 @@ const maxIncomingMessagesCountThreshold: MaxIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -26492,7 +27117,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -26509,6 +27138,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -26629,6 +27277,7 @@ const maxItemsCountThreshold: MaxItemsCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -26827,7 +27476,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -26844,6 +27497,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -26964,6 +27636,7 @@ const maxIteratorAgeThreshold: MaxIteratorAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -27162,7 +27835,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -27179,6 +27856,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -27299,6 +27995,7 @@ const maxMessageAgeThreshold: MaxMessageAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -27497,7 +28194,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -27514,6 +28215,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -27634,6 +28354,7 @@ const maxMessageCountThreshold: MaxMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -27832,7 +28553,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -27849,6 +28574,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -27969,6 +28713,7 @@ const maxSecretCountThreshold: MaxSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -28167,7 +28912,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -28184,6 +28933,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -28304,6 +29072,7 @@ const maxTimeToDrainThreshold: MaxTimeToDrainThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -28502,7 +29271,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -28519,6 +29292,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -28639,6 +29431,7 @@ const maxUsedSwapMemoryThreshold: MaxUsedSwapMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -28837,7 +29630,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -28854,6 +29651,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -29086,6 +29902,7 @@ const minFreeableMemoryThreshold: MinFreeableMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -29284,7 +30101,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -29301,6 +30122,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -29421,6 +30261,7 @@ const minIncomingMessagesCountThreshold: MinIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -29619,7 +30460,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -29636,6 +30481,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -29756,6 +30620,7 @@ const minMessageCountThreshold: MinMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -29954,7 +30819,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -29971,6 +30840,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -30091,6 +30979,7 @@ const minProcessedBytesThreshold: MinProcessedBytesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -30289,7 +31178,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -30306,6 +31199,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -30428,6 +31340,7 @@ const minRunningTaskCountThreshold: MinRunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -30626,7 +31539,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -30643,6 +31560,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -30763,6 +31699,7 @@ const minSecretCountThreshold: MinSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -30961,7 +31898,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -30978,6 +31919,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -31098,6 +32058,7 @@ const minUsageCountThreshold: MinUsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -31296,7 +32257,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -31313,6 +32278,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -32557,6 +33541,7 @@ const notificationsFailedThreshold: NotificationsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -32755,7 +33740,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -32772,6 +33761,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -32892,6 +33900,7 @@ const openSearchClusterAutomatedSnapshotFailureThreshold: OpenSearchClusterAutom
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -33090,7 +34099,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -33107,6 +34120,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -33227,6 +34259,7 @@ const openSearchClusterIndexWritesBlockedThreshold: OpenSearchClusterIndexWrites
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -33425,7 +34458,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -33442,6 +34479,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -34267,6 +35323,7 @@ const openSearchClusterNodesThreshold: OpenSearchClusterNodesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -34465,7 +35522,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -34482,6 +35543,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -34602,6 +35682,7 @@ const openSearchClusterStatusCustomization: OpenSearchClusterStatusCustomization
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -34800,7 +35881,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -34817,6 +35902,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -34937,6 +36041,7 @@ const openSearchKmsKeyErrorThreshold: OpenSearchKmsKeyErrorThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -35135,7 +36240,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -35152,6 +36261,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -35272,6 +36400,7 @@ const openSearchKmsKeyInaccessibleThreshold: OpenSearchKmsKeyInaccessibleThresho
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -35470,7 +36599,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -35487,6 +36620,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -36344,6 +37496,7 @@ const recordsFailedThreshold: RecordsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -36542,7 +37695,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -36559,6 +37716,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -36679,6 +37855,7 @@ const recordsThrottledThreshold: RecordsThrottledThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -36877,7 +38054,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -36894,6 +38075,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -37407,6 +38607,7 @@ const runningTaskCountThreshold: RunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -37605,7 +38806,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -37622,6 +38827,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -37742,6 +38966,7 @@ const runningTaskRateThreshold: RunningTaskRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -37940,7 +39165,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -37957,6 +39186,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -42323,6 +43571,7 @@ const throttledEventsThreshold: ThrottledEventsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -42521,7 +43770,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -42538,6 +43791,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -42658,6 +43930,7 @@ const unhealthyTaskCountThreshold: UnhealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -42856,7 +44129,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -42873,6 +44150,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -42993,6 +44289,7 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -43191,7 +44488,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UsageCountThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UsageCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -43208,6 +44509,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.UsageCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
@@ -43328,6 +44648,7 @@ const usageThreshold: UsageThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
@@ -43526,7 +44847,11 @@ If specified, adjusts the metric before creating an alarm from it.
 
 ---
 
-##### `minMetricSamplesToAlarm`<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UsageThreshold.property.minMetricSamplesToAlarm"></a>
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.UsageThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
 
 ```typescript
 public readonly minMetricSamplesToAlarm: number;
@@ -43543,6 +44868,25 @@ If this property is specified, a composite alarm is created of the following:
 <li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
 </ul>
 This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.UsageThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 

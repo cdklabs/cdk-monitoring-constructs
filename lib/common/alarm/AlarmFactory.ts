@@ -587,6 +587,7 @@ export class AlarmFactory {
       alarmMetric = new MathExpression({
         label: `${adjustedMetric}`,
         expression: `IF(sampleCount > ${props.minSampleCountToEvaluateDatapoint}, metric)`,
+        period: adjustedMetric.period,
         usingMetrics: {
           metric: adjustedMetric,
           sampleCount: metricSampleCount,

@@ -90,6 +90,7 @@ test("snapshot test", () => {
               Warning: {
                 threshold: 10,
                 comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+                minSampleCountToEvaluateDatapoint: 15,
               },
               Critical: {
                 threshold: 50,
