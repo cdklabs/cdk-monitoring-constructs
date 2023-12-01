@@ -1000,7 +1000,10 @@ public readonly dashboards: {[ key: string ]: Dashboard};
 
 An implementation of a {@link MonitoringScope}.
 
-This acts as the convenient main entrypoint to monitor resources.
+This is a convenient main entrypoint to monitor resources.
+
+Provides methods for retrieving and creating alarms based on added segments that are subclasses of
+{@link Monitoring}.
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.MonitoringFacade.Initializer"></a>
 
@@ -1054,11 +1057,11 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator">createCompositeAlarmUsingDisambiguator</a></code> | Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag">createCompositeAlarmUsingTag</a></code> | Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmDashboard">createdAlarmDashboard</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarms">createdAlarms</a></code> | Returns the created alarms across all the monitorings added up until now. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarms">createdAlarms</a></code> | Returns the created alarms across all added segments that subclass {@link Monitoring} added up until now. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithDisambiguator">createdAlarmsWithDisambiguator</a></code> | Returns a subset of created alarms that are marked by a specific disambiguator. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithTag">createdAlarmsWithTag</a></code> | Returns a subset of created alarms that are marked by a specific custom tag. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdDashboard">createdDashboard</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdMonitorings">createdMonitorings</a></code> | Returns the created monitorings added up until now. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdMonitorings">createdMonitorings</a></code> | Returns the added segments that subclass {@link Monitoring}. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdSummaryDashboard">createdSummaryDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGateway">monitorApiGateway</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGatewayV2HttpApi">monitorApiGatewayV2HttpApi</a></code> | *No description.* |
@@ -1163,7 +1166,7 @@ Creates a new widget factory.
 ##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.MonitoringFacade.addDynamicSegment"></a>
 
 ```typescript
-public addDynamicSegment(segment: IDynamicDashboardSegment): void
+public addDynamicSegment(segment: IDynamicDashboardSegment): MonitoringFacade
 ```
 
 Adds a dashboard segment which returns dynamic content depending on dashboard type.
@@ -1362,7 +1365,7 @@ public createdAlarmDashboard(): Dashboard
 public createdAlarms(): AlarmWithAnnotation[]
 ```
 
-Returns the created alarms across all the monitorings added up until now.
+Returns the created alarms across all added segments that subclass {@link Monitoring} added up until now.
 
 ##### `createdAlarmsWithDisambiguator` <a name="createdAlarmsWithDisambiguator" id="cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithDisambiguator"></a>
 
@@ -1408,7 +1411,7 @@ public createdDashboard(): Dashboard
 public createdMonitorings(): Monitoring[]
 ```
 
-Returns the created monitorings added up until now.
+Returns the added segments that subclass {@link Monitoring}.
 
 ##### ~~`createdSummaryDashboard`~~ <a name="createdSummaryDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdSummaryDashboard"></a>
 
