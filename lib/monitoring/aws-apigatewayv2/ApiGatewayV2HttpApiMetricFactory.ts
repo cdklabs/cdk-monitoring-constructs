@@ -1,4 +1,4 @@
-import { IHttpApi } from "@aws-cdk/aws-apigatewayv2-alpha";
+import { IHttpApi } from "aws-cdk-lib/aws-apigatewayv2";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
@@ -51,7 +51,7 @@ export class ApiGatewayV2HttpApiMetricFactory {
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
     this.dimensionsMap = {
-      ApiId: props.api.httpApiId,
+      ApiId: props.api.apiId,
       Stage: props.apiStage ?? "$default",
       ...(props.apiMethod && { Method: props.apiMethod }),
       ...(props.apiResource && { Resource: props.apiResource }),

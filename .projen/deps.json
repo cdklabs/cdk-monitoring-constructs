@@ -100,13 +100,8 @@
       "type": "build"
     },
     {
-      "name": "@aws-cdk/aws-apigatewayv2-alpha",
-      "version": "2.99.0-alpha.0",
-      "type": "devenv"
-    },
-    {
       "name": "@aws-cdk/aws-redshift-alpha",
-      "version": "2.99.0-alpha.0",
+      "version": "2.112.0-alpha.0",
       "type": "devenv"
     },
     {
@@ -125,18 +120,13 @@
       "type": "override"
     },
     {
-      "name": "@aws-cdk/aws-apigatewayv2-alpha",
-      "version": "^2.99.0-alpha.0",
-      "type": "peer"
-    },
-    {
       "name": "@aws-cdk/aws-redshift-alpha",
-      "version": "^2.99.0-alpha.0",
+      "version": "^2.112.0-alpha.0",
       "type": "peer"
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.99.0",
+      "version": "^2.112.0",
       "type": "peer"
     },
     {
