@@ -7,7 +7,9 @@ import {
   CompositeAlarm,
   HorizontalAnnotation,
   IAlarmRule,
+  IMetric,
   MathExpression,
+  Metric,
   TreatMissingData,
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
@@ -198,6 +200,20 @@ export interface AddAlarmProps {
    * @default - default behaviour - no condition on sample count will be used
    */
   readonly minSampleCountToEvaluateDatapoint?: number;
+
+  /**
+   * This property is required in the following situation:
+   * <ol>
+   *     <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>
+   *     <li>the metric used for the alarm is a <code>MathExpression</code></li>
+   *     <li>the <code>MathExpression</code> is composed of more than one metric</li>
+   * </ol>
+   *
+   * In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+   * property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+   * for <code>minSampleCountToEvaluateDatapoint</code>.
+   */
+  readonly sampleCountMetricId?: string;
 
   /**
    * Specifies how many samples (N) of the metric is needed to trigger the alarm.
@@ -571,27 +587,55 @@ export class AlarmFactory {
     // apply metric math for minimum metric samples
 
     if (props.minSampleCountToEvaluateDatapoint) {
+      let label: string = `${adjustedMetric}`;
+      let metricExpression: string;
+      let metricSampleCountId: string = "sampleCount";
+      let usingMetrics: Record<string, IMetric>;
+
       if (adjustedMetric instanceof MathExpression) {
-        throw new Error(
-          "minSampleCountToEvaluateDatapoint is not supported for MathExpressions. " +
-            "If you already use MathExpression, you can extend your expression to evaluate " +
-            "the sample count using IF statement, e.g. IF(sampleCount > X, mathExpression)."
-        );
+        label = adjustedMetric.label ?? label;
+        metricExpression = `(${adjustedMetric.expression})`;
+
+        if (Object.keys(adjustedMetric.usingMetrics).length === 1) {
+          const sampleCountMetric = (
+            adjustedMetric.usingMetrics[
+              Object.keys(adjustedMetric.usingMetrics)[0]
+            ] as Metric
+          ).with({
+            statistic: MetricStatistic.N,
+            label: "Sample count",
+          });
+
+          usingMetrics = {
+            ...adjustedMetric.usingMetrics,
+            [metricSampleCountId]: sampleCountMetric,
+          };
+        } else if (props.sampleCountMetricId) {
+          usingMetrics = adjustedMetric.usingMetrics;
+          metricSampleCountId = props.sampleCountMetricId;
+        } else {
+          throw new Error(
+            "sampleCountMetricId must be specified when using minSampleCountToEvaluateDatapoint with a multiple-metric MathExpression"
+          );
+        }
+      } else {
+        const metricId: string = "metric";
+
+        metricExpression = metricId;
+        usingMetrics = {
+          [metricId]: adjustedMetric,
+          [metricSampleCountId]: adjustedMetric.with({
+            statistic: MetricStatistic.N,
+            label: "Sample count",
+          }),
+        };
       }
 
-      const metricSampleCount = adjustedMetric.with({
-        statistic: MetricStatistic.N,
-        label: "Sample count",
-      });
-
       alarmMetric = new MathExpression({
-        label: `${adjustedMetric}`,
-        expression: `IF(sampleCount > ${props.minSampleCountToEvaluateDatapoint}, metric)`,
+        label,
+        expression: `IF(${metricSampleCountId} > ${props.minSampleCountToEvaluateDatapoint}, ${metricExpression})`,
         period: adjustedMetric.period,
-        usingMetrics: {
-          metric: adjustedMetric,
-          sampleCount: metricSampleCount,
-        },
+        usingMetrics,
       });
     }
 

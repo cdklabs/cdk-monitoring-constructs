@@ -20,6 +20,7 @@ import {
   CompositeAlarmOperator,
   IAlarmNamingStrategy,
   MetricFactoryDefaults,
+  MetricStatistic,
   multipleActions,
   noopAction,
   SnsAlarmActionStrategy,
@@ -389,7 +390,7 @@ test("addAlarm: check created alarms when minSampleCountToEvaluateDatapoint is u
   });
 });
 
-test("addAlarm: minSampleCountToEvaluateDatapoint used with Math Expression throws error", () => {
+test("addAlarm: check created alarms when minSampleCountToEvaluateDatapoint is used with single-metric MathExpression", () => {
   const stack = new Stack();
   const factory = new AlarmFactory(stack, {
     globalMetricDefaults,
@@ -398,19 +399,150 @@ test("addAlarm: minSampleCountToEvaluateDatapoint used with Math Expression thro
   });
   const mathExpression = new MathExpression({
     expression: "MAX(metric)",
+    label: "max",
     usingMetrics: {
       metric,
+    },
+  });
+
+  factory.addAlarm(mathExpression, {
+    ...props,
+    alarmNameSuffix: "none",
+    comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
+    minSampleCountToEvaluateDatapoint: 42,
+    period: Duration.minutes(15),
+  });
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    AlarmName: "DummyServiceAlarms-prefix-none",
+    AlarmDescription: "Description",
+    ComparisonOperator: "LessThanThreshold",
+    DatapointsToAlarm: 10,
+    EvaluationPeriods: 10,
+    TreatMissingData: "notBreaching",
+    Metrics: [
+      Match.objectLike({
+        Expression: "IF(sampleCount > 42, (MAX(metric)))",
+        Label: "max",
+      }),
+      {
+        Id: "metric",
+        MetricStat: {
+          Metric: Match.objectLike({
+            MetricName: "DummyMetric1",
+          }),
+          Period: 900,
+          Stat: "Average",
+        },
+        ReturnData: false,
+      },
+      {
+        Id: "sampleCount",
+        MetricStat: {
+          Metric: Match.objectLike({
+            MetricName: "DummyMetric1",
+          }),
+          Period: 900,
+          Stat: "SampleCount",
+        },
+        ReturnData: false,
+      },
+    ],
+  });
+});
+
+test("addAlarm: should throw Error when minSampleCountToEvaluateDatapoint is used with multiple-metric MathExpression and sampleCountMetricId is not specified", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults,
+    localAlarmNamePrefix: "prefix",
+  });
+  const mathExpression = new MathExpression({
+    expression: "MAX(metric)",
+    label: "max",
+    usingMetrics: {
+      m1: metric,
+      m2: metric.with({ statistic: MetricStatistic.N }),
     },
   });
 
   expect(() =>
     factory.addAlarm(mathExpression, {
       ...props,
+      alarmNameSuffix: "none",
+      comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
       minSampleCountToEvaluateDatapoint: 42,
+      period: Duration.minutes(15),
     })
   ).toThrow(
-    "minSampleCountToEvaluateDatapoint is not supported for MathExpressions"
+    "sampleCountMetricId must be specified when using minSampleCountToEvaluateDatapoint with a multiple-metric MathExpression"
   );
+});
+
+test("addAlarm: check created alarms when minSampleCountToEvaluateDatapoint is used with multiple-metric MathExpression and sampleCountMetricId is specified", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults,
+    localAlarmNamePrefix: "prefix",
+  });
+  const mathExpression = new MathExpression({
+    expression: "MAX(m1)",
+    label: "max",
+    usingMetrics: {
+      m1: metric,
+      m2: metric.with({ statistic: MetricStatistic.N }),
+    },
+  });
+
+  factory.addAlarm(mathExpression, {
+    ...props,
+    alarmNameSuffix: "none",
+    comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
+    minSampleCountToEvaluateDatapoint: 42,
+    sampleCountMetricId: "m2",
+    period: Duration.minutes(15),
+  });
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::CloudWatch::Alarm", {
+    AlarmName: "DummyServiceAlarms-prefix-none",
+    AlarmDescription: "Description",
+    ComparisonOperator: "LessThanThreshold",
+    DatapointsToAlarm: 10,
+    EvaluationPeriods: 10,
+    TreatMissingData: "notBreaching",
+    Metrics: [
+      Match.objectLike({
+        Expression: "IF(m2 > 42, (MAX(m1)))",
+        Label: "max",
+      }),
+      {
+        Id: "m1",
+        MetricStat: {
+          Metric: Match.objectLike({
+            MetricName: "DummyMetric1",
+          }),
+          Period: 900,
+          Stat: "Average",
+        },
+        ReturnData: false,
+      },
+      {
+        Id: "m2",
+        MetricStat: {
+          Metric: Match.objectLike({
+            MetricName: "DummyMetric1",
+          }),
+          Period: 900,
+          Stat: "SampleCount",
+        },
+        ReturnData: false,
+      },
+    ],
+  });
 });
 
 test("addCompositeAlarm: snapshot for operator", () => {

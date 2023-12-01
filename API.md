@@ -2376,6 +2376,7 @@ const addAlarmProps: AddAlarmProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.AddAlarmProps.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 
 ---
 
@@ -2749,6 +2750,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.AddAlarmProps.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
