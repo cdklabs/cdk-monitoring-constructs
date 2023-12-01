@@ -1,6 +1,6 @@
-import { HttpApi } from "@aws-cdk/aws-apigatewayv2-alpha";
 import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
+import { HttpApi } from "aws-cdk-lib/aws-apigatewayv2";
 
 import {
   AlarmWithAnnotation,

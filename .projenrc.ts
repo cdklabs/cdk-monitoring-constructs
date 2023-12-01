@@ -1,6 +1,6 @@
 import { awscdk, javascript, github, DependencyType } from "projen";
 
-const CDK_VERSION = "2.99.0";
+const CDK_VERSION = "2.112.0";
 
 const project = new awscdk.AwsCdkConstructLibrary({
   name: "cdk-monitoring-constructs",
@@ -11,7 +11,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ["cloudwatch", "monitoring"],
 
   defaultReleaseBranch: "main",
-  majorVersion: 6,
+  majorVersion: 7,
   stability: "experimental",
 
   cdkVersion: CDK_VERSION,
@@ -69,18 +69,16 @@ _By submitting this pull request, I confirm that my contribution is made under t
 });
 
 // Experimental modules
-["@aws-cdk/aws-apigatewayv2-alpha", "@aws-cdk/aws-redshift-alpha"].forEach(
-  (dep) => {
-    project.deps.addDependency(
-      `${dep}@^${CDK_VERSION}-alpha.0`,
-      DependencyType.PEER
-    );
-    project.deps.addDependency(
-      `${dep}@${CDK_VERSION}-alpha.0`,
-      DependencyType.DEVENV
-    );
-  }
-);
+["@aws-cdk/aws-redshift-alpha"].forEach((dep) => {
+  project.deps.addDependency(
+    `${dep}@^${CDK_VERSION}-alpha.0`,
+    DependencyType.PEER
+  );
+  project.deps.addDependency(
+    `${dep}@${CDK_VERSION}-alpha.0`,
+    DependencyType.DEVENV
+  );
+});
 // https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/60310
 project.deps.addDependency("@types/prettier@2.6.0", DependencyType.DEVENV);
 

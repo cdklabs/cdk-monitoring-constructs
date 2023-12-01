@@ -5455,7 +5455,7 @@ const apiGatewayV2HttpApiMetricFactoryProps: ApiGatewayV2HttpApiMetricFactoryPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.api">api</a></code> | <code>@aws-cdk/aws-apigatewayv2-alpha.IHttpApi</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigatewayv2.IHttpApi</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
@@ -5470,7 +5470,7 @@ const apiGatewayV2HttpApiMetricFactoryProps: ApiGatewayV2HttpApiMetricFactoryPro
 public readonly api: IHttpApi;
 ```
 
-- *Type:* @aws-cdk/aws-apigatewayv2-alpha.IHttpApi
+- *Type:* aws-cdk-lib.aws_apigatewayv2.IHttpApi
 
 ---
 
@@ -5545,7 +5545,7 @@ const apiGatewayV2HttpApiMonitoringProps: ApiGatewayV2HttpApiMonitoringProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.api">api</a></code> | <code>@aws-cdk/aws-apigatewayv2-alpha.IHttpApi</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigatewayv2.IHttpApi</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
@@ -5614,7 +5614,7 @@ const apiGatewayV2HttpApiMonitoringProps: ApiGatewayV2HttpApiMonitoringProps = {
 public readonly api: IHttpApi;
 ```
 
-- *Type:* @aws-cdk/aws-apigatewayv2-alpha.IHttpApi
+- *Type:* aws-cdk-lib.aws_apigatewayv2.IHttpApi
 
 ---
 

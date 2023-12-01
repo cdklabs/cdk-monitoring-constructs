@@ -1,9 +1,9 @@
 import path from "path";
-import * as apigwv2 from "@aws-cdk/aws-apigatewayv2-alpha";
 import * as redshift from "@aws-cdk/aws-redshift-alpha";
 import { App, Duration, SecretValue, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
+import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2";
 import * as appsync from "aws-cdk-lib/aws-appsync";
 import * as autoscaling from "aws-cdk-lib/aws-autoscaling";
 import * as acm from "aws-cdk-lib/aws-certificatemanager";
