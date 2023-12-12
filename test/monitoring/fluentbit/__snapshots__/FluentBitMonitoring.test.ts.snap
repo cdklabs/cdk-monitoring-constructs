@@ -1,0 +1,347 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DummyLogGroup09717585": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "RetentionInDays": 731,
+      },
+      "Type": "AWS::Logs::LogGroup",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### FluentBit\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Input Metrics\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyNamespace\\",\\"fluentbit_input_records_total\\",{\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Output Metrics\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyNamespace\\",\\"fluentbit_output_retries_total\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"fluentbit_output_retries_failed_total\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"fluentbit_output_errors_total\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"fluentbit_output_dropped_records_total\\",{\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Filter Metrics\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyNamespace\\",\\"fluentbit_filter_emit_records_total\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"fluentbit_filter_drop_records_total\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"fluentbit_filter_add_records_total\\",{\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Storage Metrics\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"DummyNamespace\\",\\"total_chunks\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"mem_chunks\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"fs_chunks\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"fs_chunks_up\\",{\\"stat\\":\\"Maximum\\"}],[\\"DummyNamespace\\",\\"fs_chunks_down\\",{\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeFluentBitfluentbitfilteraddrecordstotalDefaultDummyLogGroupMetricFilter63BA010D": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_filter_add_records_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_filter_add_records_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitfilterdroprecordstotalDefaultDummyLogGroupMetricFilter278C811C": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_filter_drop_records_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_filter_drop_records_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitfilteremitrecordstotalDefaultDummyLogGroupMetricFilter2054D228": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_filter_emit_records_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_filter_emit_records_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitinputbytestotalDefaultDummyLogGroupMetricFilter69312BC8": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_input_bytes_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_input_bytes_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitinputrecordstotalDefaultDummyLogGroupMetricFilter7383F883": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_input_records_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_input_records_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitoutputdroppedrecordstotalDefaultDummyLogGroupMetricFilter10A7E033": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_output_dropped_records_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_output_dropped_records_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitoutputerrorstotalDefaultDummyLogGroupMetricFilter26B2575E": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_output_errors_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_output_errors_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitoutputprocbytestotalDefaultDummyLogGroupMetricFilter58311F26": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_output_proc_bytes_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_output_proc_bytes_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitoutputprocrecordstotalDefaultDummyLogGroupMetricFilterC48AE6B4": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_output_proc_records_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_output_proc_records_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitoutputretriesfailedtotalDefaultDummyLogGroupMetricFilter774C1B5E": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_output_retries_failed_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_output_retries_failed_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfluentbitoutputretriestotalDefaultDummyLogGroupMetricFilter1ABA9ECA": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.metric = \\"fluentbit_output_retries_total\\" }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fluentbit_output_retries_total",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.value",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfschunksDefaultDummyLogGroupMetricFilterC8FA94CD": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.storage_layer.chunks.fs_chunks = * }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fs_chunks",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.storage_layer.chunks.fs_chunks",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfschunksdownDefaultDummyLogGroupMetricFilter631D8E97": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.storage_layer.chunks.fs_chunks_down = * }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fs_chunks_down",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.storage_layer.chunks.fs_chunks_down",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitfschunksupDefaultDummyLogGroupMetricFilter4D35B33A": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.storage_layer.chunks.fs_chunks_up = * }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "fs_chunks_up",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.storage_layer.chunks.fs_chunks_up",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBitmemchunksDefaultDummyLogGroupMetricFilter8595E036": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.storage_layer.chunks.mem_chunks = * }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "mem_chunks",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.storage_layer.chunks.mem_chunks",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "ScopeFluentBittotalchunksDefaultDummyLogGroupMetricFilter972137A0": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.storage_layer.chunks.total_chunks = * }",
+        "LogGroupName": Object {
+          "Ref": "DummyLogGroup09717585",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": "total_chunks",
+            "MetricNamespace": "DummyNamespace",
+            "MetricValue": "$.storage_layer.chunks.total_chunks",
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
