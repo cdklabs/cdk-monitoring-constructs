@@ -83,8 +83,8 @@
   "version": "0.0.0",
   "jest": {
     "testMatch": [
-      "<rootDir>/lib/**/__tests__/**/*.ts?(x)",
-      "<rootDir>/(test|lib)/**/*(*.)@(spec|test).ts?(x)"
+      "**/lib/**/__tests__/**/*.ts?(x)",
+      "**/(test|lib)/**/*(*.)@(spec|test).ts?(x)"
     ],
     "clearMocks": true,
     "collectCoverage": true,
