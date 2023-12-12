@@ -19425,6 +19425,7 @@ const fluentBitMonitoringProps: FluentBitMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Log group that contains FluentBit metric logs. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.createOptionalMetricFilters">createOptionalMetricFilters</a></code> | <code>boolean</code> | Metrics for input bytes total, output bytes total and output records total are not shown on default dashboard. |
 
 ---
 
@@ -19548,6 +19549,21 @@ public readonly logGroup: ILogGroup;
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 
 Log group that contains FluentBit metric logs.
+
+---
+
+##### `createOptionalMetricFilters`<sup>Optional</sup> <a name="createOptionalMetricFilters" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.createOptionalMetricFilters"></a>
+
+```typescript
+public readonly createOptionalMetricFilters: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Metrics for input bytes total, output bytes total and output records total are not shown on default dashboard.
+
+If you want to get MetricFilters created to have those metrics present in CloudWatch set this flag to true
 
 ---
 

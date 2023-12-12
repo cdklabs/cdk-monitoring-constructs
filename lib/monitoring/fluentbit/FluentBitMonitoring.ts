@@ -19,10 +19,16 @@ export interface FluentBitMonitoringProps
   extends FluentBitMetricFactoryProps,
     BaseMonitoringProps {
   /**
-
-Log group that contains FluentBit metric logs
-    */
+   * Log group that contains FluentBit metric logs
+   */
   readonly logGroup: ILogGroup;
+
+  /**
+   * Metrics for input bytes total, output bytes total and output records total are not shown on default dashboard.
+   * If you want to get MetricFilters created to have those metrics present in CloudWatch set this flag to true
+   * @default false
+   */
+  readonly createOptionalMetricFilters?: boolean;
 }
 
 export class FluentBitMonitoring extends Monitoring {
@@ -42,7 +48,9 @@ export class FluentBitMonitoring extends Monitoring {
     this.inputMetrics = this.metricFactory.inputMetrics(props.logGroup);
     this.outputMetrics = this.metricFactory.outputMetrics(props.logGroup);
     this.filterMetrics = this.metricFactory.filterMetrics(props.logGroup);
-    this.metricFactory.metricsWithoutWidgets(props.logGroup);
+    if (props.createOptionalMetricFilters) {
+      this.metricFactory.metricsWithoutWidgets(props.logGroup);
+    }
   }
 
   widgets(): IWidget[] {
