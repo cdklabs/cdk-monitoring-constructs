@@ -27,3 +27,4 @@ export * from "./aws-step-functions";
 export * from "./aws-synthetics";
 export * from "./aws-wafv2";
 export * from "./custom";
+export * from "./fluentbit";

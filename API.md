@@ -1085,6 +1085,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorFargateApplicationLoadBalancer">monitorFargateApplicationLoadBalancer</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorFargateNetworkLoadBalancer">monitorFargateNetworkLoadBalancer</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorFargateService">monitorFargateService</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorFluentBit">monitorFluentBit</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorGlueJob">monitorGlueJob</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorKinesisDataAnalytics">monitorKinesisDataAnalytics</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorKinesisDataStream">monitorKinesisDataStream</a></code> | *No description.* |
@@ -1680,6 +1681,18 @@ public monitorFargateService(props: FargateServiceMonitoringProps): MonitoringFa
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorFargateService.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps">FargateServiceMonitoringProps</a>
+
+---
+
+##### `monitorFluentBit` <a name="monitorFluentBit" id="cdk-monitoring-constructs.MonitoringFacade.monitorFluentBit"></a>
+
+```typescript
+public monitorFluentBit(props: FluentBitMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorFluentBit.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.FluentBitMonitoringProps">FluentBitMonitoringProps</a>
 
 ---
 
@@ -19355,6 +19368,202 @@ public readonly safetyThresholdLimit: number;
 - *Type:* number
 
 Threshold value between [0.0, 1.0) for when the alarm should be triggered.
+
+---
+
+### FluentBitMetricFactoryProps <a name="FluentBitMetricFactoryProps" id="cdk-monitoring-constructs.FluentBitMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.FluentBitMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { FluentBitMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const fluentBitMetricFactoryProps: FluentBitMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactoryProps.property.namespace">namespace</a></code> | <code>string</code> | Namespace that metrics will be emitted to. |
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-monitoring-constructs.FluentBitMetricFactoryProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+- *Default:* metric factory default
+
+Namespace that metrics will be emitted to.
+
+---
+
+### FluentBitMonitoringProps <a name="FluentBitMonitoringProps" id="cdk-monitoring-constructs.FluentBitMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.FluentBitMonitoringProps.Initializer"></a>
+
+```typescript
+import { FluentBitMonitoringProps } from 'cdk-monitoring-constructs'
+
+const fluentBitMonitoringProps: FluentBitMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.namespace">namespace</a></code> | <code>string</code> | Namespace that metrics will be emitted to. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Log group that contains FluentBit metric logs. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.createOptionalMetricFilters">createOptionalMetricFilters</a></code> | <code>boolean</code> | Metrics for input bytes total, output bytes total and output records total are not shown on default dashboard. |
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+- *Default:* metric factory default
+
+Namespace that metrics will be emitted to.
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+Log group that contains FluentBit metric logs.
+
+---
+
+##### `createOptionalMetricFilters`<sup>Optional</sup> <a name="createOptionalMetricFilters" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.createOptionalMetricFilters"></a>
+
+```typescript
+public readonly createOptionalMetricFilters: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Metrics for input bytes total, output bytes total and output records total are not shown on default dashboard.
+
+If you want to get MetricFilters created to have those metrics present in CloudWatch set this flag to true
 
 ---
 
@@ -55653,6 +55862,256 @@ Creates annotation based on the metric and alarm properties.
 
 
 
+### FluentBitMetricFactory <a name="FluentBitMetricFactory" id="cdk-monitoring-constructs.FluentBitMetricFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.FluentBitMetricFactory.Initializer"></a>
+
+```typescript
+import { FluentBitMetricFactory } from 'cdk-monitoring-constructs'
+
+new FluentBitMetricFactory(scope: MonitoringScope, props: FluentBitMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactoryProps">FluentBitMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.FluentBitMetricFactory.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.FluentBitMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.FluentBitMetricFactoryProps">FluentBitMetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.filterMetrics">filterMetrics</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.inputMetrics">inputMetrics</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.metricsWithoutWidgets">metricsWithoutWidgets</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.outputMetrics">outputMetrics</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.storageMetrics">storageMetrics</a></code> | *No description.* |
+
+---
+
+##### `filterMetrics` <a name="filterMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.filterMetrics"></a>
+
+```typescript
+public filterMetrics(logGroup: ILogGroup): Metric[]
+```
+
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.filterMetrics.parameter.logGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `inputMetrics` <a name="inputMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.inputMetrics"></a>
+
+```typescript
+public inputMetrics(logGroup: ILogGroup): Metric[]
+```
+
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.inputMetrics.parameter.logGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `metricsWithoutWidgets` <a name="metricsWithoutWidgets" id="cdk-monitoring-constructs.FluentBitMetricFactory.metricsWithoutWidgets"></a>
+
+```typescript
+public metricsWithoutWidgets(logGroup: ILogGroup): void
+```
+
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.metricsWithoutWidgets.parameter.logGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `outputMetrics` <a name="outputMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.outputMetrics"></a>
+
+```typescript
+public outputMetrics(logGroup: ILogGroup): Metric[]
+```
+
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.outputMetrics.parameter.logGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `storageMetrics` <a name="storageMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.storageMetrics"></a>
+
+```typescript
+public storageMetrics(logGroup: ILogGroup): Metric[]
+```
+
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.storageMetrics.parameter.logGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+
+
+
+### FluentBitMonitoring <a name="FluentBitMonitoring" id="cdk-monitoring-constructs.FluentBitMonitoring"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.FluentBitMonitoring.Initializer"></a>
+
+```typescript
+import { FluentBitMonitoring } from 'cdk-monitoring-constructs'
+
+new FluentBitMonitoring(scope: MonitoringScope, props: FluentBitMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps">FluentBitMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.FluentBitMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.FluentBitMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.FluentBitMonitoringProps">FluentBitMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.FluentBitMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.FluentBitMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.FluentBitMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.FluentBitMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.FluentBitMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.FluentBitMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.FluentBitMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.FluentBitMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.FluentBitMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.FluentBitMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.FluentBitMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.FluentBitMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+
+
+
 ### GlueJobMetricFactory <a name="GlueJobMetricFactory" id="cdk-monitoring-constructs.GlueJobMetricFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.GlueJobMetricFactory.Initializer"></a>
@@ -70488,7 +70947,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -70579,7 +71038,7 @@ Gets the dashboard for the requested dashboard type.
 
 ### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -71058,6 +71517,147 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 ##### `BLOCKED` <a name="BLOCKED" id="cdk-monitoring-constructs.ErrorType.BLOCKED"></a>
+
+---
+
+
+### FluentBitFilterMetricTag <a name="FluentBitFilterMetricTag" id="cdk-monitoring-constructs.FluentBitFilterMetricTag"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitFilterMetricTag.FILTER_EMIT_RECORDS">FILTER_EMIT_RECORDS</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitFilterMetricTag.FILTER_DROP_RECORDS">FILTER_DROP_RECORDS</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitFilterMetricTag.FILTER_ADD_RECORDS">FILTER_ADD_RECORDS</a></code> | *No description.* |
+
+---
+
+##### `FILTER_EMIT_RECORDS` <a name="FILTER_EMIT_RECORDS" id="cdk-monitoring-constructs.FluentBitFilterMetricTag.FILTER_EMIT_RECORDS"></a>
+
+---
+
+
+##### `FILTER_DROP_RECORDS` <a name="FILTER_DROP_RECORDS" id="cdk-monitoring-constructs.FluentBitFilterMetricTag.FILTER_DROP_RECORDS"></a>
+
+---
+
+
+##### `FILTER_ADD_RECORDS` <a name="FILTER_ADD_RECORDS" id="cdk-monitoring-constructs.FluentBitFilterMetricTag.FILTER_ADD_RECORDS"></a>
+
+---
+
+
+### FluentBitInputMetricTag <a name="FluentBitInputMetricTag" id="cdk-monitoring-constructs.FluentBitInputMetricTag"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitInputMetricTag.INPUT_RECORDS">INPUT_RECORDS</a></code> | *No description.* |
+
+---
+
+##### `INPUT_RECORDS` <a name="INPUT_RECORDS" id="cdk-monitoring-constructs.FluentBitInputMetricTag.INPUT_RECORDS"></a>
+
+---
+
+
+### FluentBitMetricsWithoutWidget <a name="FluentBitMetricsWithoutWidget" id="cdk-monitoring-constructs.FluentBitMetricsWithoutWidget"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricsWithoutWidget.INPUT_BYTES">INPUT_BYTES</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricsWithoutWidget.OUTPUT_PROC_RECORDS">OUTPUT_PROC_RECORDS</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricsWithoutWidget.OUTPUT_PROC_BYTES">OUTPUT_PROC_BYTES</a></code> | *No description.* |
+
+---
+
+##### `INPUT_BYTES` <a name="INPUT_BYTES" id="cdk-monitoring-constructs.FluentBitMetricsWithoutWidget.INPUT_BYTES"></a>
+
+---
+
+
+##### `OUTPUT_PROC_RECORDS` <a name="OUTPUT_PROC_RECORDS" id="cdk-monitoring-constructs.FluentBitMetricsWithoutWidget.OUTPUT_PROC_RECORDS"></a>
+
+---
+
+
+##### `OUTPUT_PROC_BYTES` <a name="OUTPUT_PROC_BYTES" id="cdk-monitoring-constructs.FluentBitMetricsWithoutWidget.OUTPUT_PROC_BYTES"></a>
+
+---
+
+
+### FluentBitOutputMetricTag <a name="FluentBitOutputMetricTag" id="cdk-monitoring-constructs.FluentBitOutputMetricTag"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitOutputMetricTag.OUTPUT_RETRIES">OUTPUT_RETRIES</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitOutputMetricTag.OUTPUT_RETRIES_FAILED">OUTPUT_RETRIES_FAILED</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitOutputMetricTag.OUTPUT_ERRORS">OUTPUT_ERRORS</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitOutputMetricTag.OUTPUT_DROPPED_RECORDS">OUTPUT_DROPPED_RECORDS</a></code> | *No description.* |
+
+---
+
+##### `OUTPUT_RETRIES` <a name="OUTPUT_RETRIES" id="cdk-monitoring-constructs.FluentBitOutputMetricTag.OUTPUT_RETRIES"></a>
+
+---
+
+
+##### `OUTPUT_RETRIES_FAILED` <a name="OUTPUT_RETRIES_FAILED" id="cdk-monitoring-constructs.FluentBitOutputMetricTag.OUTPUT_RETRIES_FAILED"></a>
+
+---
+
+
+##### `OUTPUT_ERRORS` <a name="OUTPUT_ERRORS" id="cdk-monitoring-constructs.FluentBitOutputMetricTag.OUTPUT_ERRORS"></a>
+
+---
+
+
+##### `OUTPUT_DROPPED_RECORDS` <a name="OUTPUT_DROPPED_RECORDS" id="cdk-monitoring-constructs.FluentBitOutputMetricTag.OUTPUT_DROPPED_RECORDS"></a>
+
+---
+
+
+### FluentBitStorageMetricTag <a name="FluentBitStorageMetricTag" id="cdk-monitoring-constructs.FluentBitStorageMetricTag"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitStorageMetricTag.TOTAL_CHUNKS">TOTAL_CHUNKS</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitStorageMetricTag.MEM_CHUNKS">MEM_CHUNKS</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitStorageMetricTag.FS_CHUNKS">FS_CHUNKS</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitStorageMetricTag.FS_CHUNKS_UP">FS_CHUNKS_UP</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitStorageMetricTag.FS_CHUNKS_DOWN">FS_CHUNKS_DOWN</a></code> | *No description.* |
+
+---
+
+##### `TOTAL_CHUNKS` <a name="TOTAL_CHUNKS" id="cdk-monitoring-constructs.FluentBitStorageMetricTag.TOTAL_CHUNKS"></a>
+
+---
+
+
+##### `MEM_CHUNKS` <a name="MEM_CHUNKS" id="cdk-monitoring-constructs.FluentBitStorageMetricTag.MEM_CHUNKS"></a>
+
+---
+
+
+##### `FS_CHUNKS` <a name="FS_CHUNKS" id="cdk-monitoring-constructs.FluentBitStorageMetricTag.FS_CHUNKS"></a>
+
+---
+
+
+##### `FS_CHUNKS_UP` <a name="FS_CHUNKS_UP" id="cdk-monitoring-constructs.FluentBitStorageMetricTag.FS_CHUNKS_UP"></a>
+
+---
+
+
+##### `FS_CHUNKS_DOWN` <a name="FS_CHUNKS_DOWN" id="cdk-monitoring-constructs.FluentBitStorageMetricTag.FS_CHUNKS_DOWN"></a>
 
 ---
 

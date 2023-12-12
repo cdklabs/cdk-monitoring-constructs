@@ -94,6 +94,7 @@ You can browse the documentation at https://constructs.dev/packages/cdk-monitori
 | AWS SQS Queue (`.monitorSqsQueue()`, `.monitorSqsQueueWithDlq()`) | Message count, age, size | Message count, age, DLQ incoming messages | |
 | AWS Step Functions (`.monitorStepFunction()`, `.monitorStepFunctionActivity()`, `monitorStepFunctionLambdaIntegration()`, `.monitorStepFunctionServiceIntegration()`) | Execution count and breakdown per state | Duration, failed, failed rate, aborted, throttled, timed out executions | |
 | AWS Web Application Firewall (`.monitorWebApplicationFirewallAclV2()`) | Allowed/blocked requests | Blocked requests count/rate | |
+| FluentBit (`.monitorFluentBit()`) | Num of input records, Output failures & retries, Filter metrics, Storage metrics | | FluentBit needs proper configuration with  metrics enabled: [Official sample configuration](https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/fluent-bit/send-fb-internal-metrics-to-cw). This function creates MetricFilters to publish all FluentBit metrics. |
 | Custom metrics (`.monitorCustom()`) | Addition of custom metrics into the dashboard (each group is a widget) | | Supports anomaly detection |
 
 

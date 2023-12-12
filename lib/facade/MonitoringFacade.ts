@@ -70,6 +70,8 @@ import {
   FargateNetworkLoadBalancerMonitoringProps,
   FargateServiceMonitoring,
   FargateServiceMonitoringProps,
+  FluentBitMonitoring,
+  FluentBitMonitoringProps,
   getQueueProcessingEc2ServiceMonitoring,
   getQueueProcessingFargateServiceMonitoring,
   GlueJobMonitoring,
@@ -750,6 +752,12 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorCustom(props: CustomMonitoringProps) {
     const segment = new CustomMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorFluentBit(props: FluentBitMonitoringProps) {
+    const segment = new FluentBitMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
