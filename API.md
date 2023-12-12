@@ -19424,7 +19424,7 @@ const fluentBitMonitoringProps: FluentBitMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
-| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Log group to which FluentBit emits metrics logs. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Log group that contains FluentBit metric logs. |
 
 ---
 
@@ -19547,7 +19547,7 @@ public readonly logGroup: ILogGroup;
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 
-Log group to which FluentBit emits metrics logs.
+Log group that contains FluentBit metric logs.
 
 ---
 
@@ -55879,69 +55879,69 @@ new FluentBitMetricFactory(scope: MonitoringScope, props: FluentBitMetricFactory
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitFilterMetrics">fluentBitFilterMetrics</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitInputMetrics">fluentBitInputMetrics</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitMetricsWithoutWidgets">fluentBitMetricsWithoutWidgets</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitOutputMetrics">fluentBitOutputMetrics</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitStorageMetrics">fluentBitStorageMetrics</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.filterMetrics">filterMetrics</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.inputMetrics">inputMetrics</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.metricsWithoutWidgets">metricsWithoutWidgets</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.outputMetrics">outputMetrics</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactory.storageMetrics">storageMetrics</a></code> | *No description.* |
 
 ---
 
-##### `fluentBitFilterMetrics` <a name="fluentBitFilterMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitFilterMetrics"></a>
+##### `filterMetrics` <a name="filterMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.filterMetrics"></a>
 
 ```typescript
-public fluentBitFilterMetrics(logGroup: ILogGroup): Metric[]
+public filterMetrics(logGroup: ILogGroup): Metric[]
 ```
 
-###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitFilterMetrics.parameter.logGroup"></a>
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.filterMetrics.parameter.logGroup"></a>
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 
 ---
 
-##### `fluentBitInputMetrics` <a name="fluentBitInputMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitInputMetrics"></a>
+##### `inputMetrics` <a name="inputMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.inputMetrics"></a>
 
 ```typescript
-public fluentBitInputMetrics(logGroup: ILogGroup): Metric[]
+public inputMetrics(logGroup: ILogGroup): Metric[]
 ```
 
-###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitInputMetrics.parameter.logGroup"></a>
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.inputMetrics.parameter.logGroup"></a>
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 
 ---
 
-##### `fluentBitMetricsWithoutWidgets` <a name="fluentBitMetricsWithoutWidgets" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitMetricsWithoutWidgets"></a>
+##### `metricsWithoutWidgets` <a name="metricsWithoutWidgets" id="cdk-monitoring-constructs.FluentBitMetricFactory.metricsWithoutWidgets"></a>
 
 ```typescript
-public fluentBitMetricsWithoutWidgets(logGroup: ILogGroup): void
+public metricsWithoutWidgets(logGroup: ILogGroup): void
 ```
 
-###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitMetricsWithoutWidgets.parameter.logGroup"></a>
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.metricsWithoutWidgets.parameter.logGroup"></a>
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 
 ---
 
-##### `fluentBitOutputMetrics` <a name="fluentBitOutputMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitOutputMetrics"></a>
+##### `outputMetrics` <a name="outputMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.outputMetrics"></a>
 
 ```typescript
-public fluentBitOutputMetrics(logGroup: ILogGroup): Metric[]
+public outputMetrics(logGroup: ILogGroup): Metric[]
 ```
 
-###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitOutputMetrics.parameter.logGroup"></a>
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.outputMetrics.parameter.logGroup"></a>
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 
 ---
 
-##### `fluentBitStorageMetrics` <a name="fluentBitStorageMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitStorageMetrics"></a>
+##### `storageMetrics` <a name="storageMetrics" id="cdk-monitoring-constructs.FluentBitMetricFactory.storageMetrics"></a>
 
 ```typescript
-public fluentBitStorageMetrics(logGroup: ILogGroup): Metric[]
+public storageMetrics(logGroup: ILogGroup): Metric[]
 ```
 
-###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.fluentBitStorageMetrics.parameter.logGroup"></a>
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-monitoring-constructs.FluentBitMetricFactory.storageMetrics.parameter.logGroup"></a>
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 

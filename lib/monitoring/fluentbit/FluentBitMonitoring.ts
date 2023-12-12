@@ -20,7 +20,7 @@ export interface FluentBitMonitoringProps
     BaseMonitoringProps {
   /**
 
-Log group to which FluentBit emits metrics logs
+Log group that contains FluentBit metric logs
     */
   readonly logGroup: ILogGroup;
 }
@@ -28,78 +28,81 @@ Log group to which FluentBit emits metrics logs
 export class FluentBitMonitoring extends Monitoring {
   protected readonly logGroupName: string;
   protected readonly metricFactory: FluentBitMetricFactory;
-  protected readonly fluentBitStorageMetrics: Metric[];
-  protected readonly fluentBitInputMetrics: Metric[];
-  protected readonly fluentBitOutputMetrics: Metric[];
-  protected readonly fluentBitFilterMetrics: Metric[];
+  protected readonly storageMetrics: Metric[];
+  protected readonly inputMetrics: Metric[];
+  protected readonly outputMetrics: Metric[];
+  protected readonly filterMetrics: Metric[];
 
   constructor(scope: MonitoringScope, props: FluentBitMonitoringProps) {
     super(scope, props);
     this.logGroupName = props.logGroup.logGroupName;
     this.metricFactory = new FluentBitMetricFactory(scope, props);
 
-    this.fluentBitStorageMetrics = this.metricFactory.fluentBitStorageMetrics(
-      props.logGroup
-    );
-    this.fluentBitInputMetrics = this.metricFactory.fluentBitInputMetrics(
-      props.logGroup
-    );
-    this.fluentBitOutputMetrics = this.metricFactory.fluentBitOutputMetrics(
-      props.logGroup
-    );
-    this.fluentBitFilterMetrics = this.metricFactory.fluentBitFilterMetrics(
-      props.logGroup
-    );
-    this.metricFactory.fluentBitMetricsWithoutWidgets(props.logGroup);
+    this.storageMetrics = this.metricFactory.storageMetrics(props.logGroup);
+    this.inputMetrics = this.metricFactory.inputMetrics(props.logGroup);
+    this.outputMetrics = this.metricFactory.outputMetrics(props.logGroup);
+    this.filterMetrics = this.metricFactory.filterMetrics(props.logGroup);
+    this.metricFactory.metricsWithoutWidgets(props.logGroup);
   }
 
   widgets(): IWidget[] {
     return [
-      new MonitoringHeaderWidget({
-        title: "FluentBit",
-      }),
-      this.createFluentBitInputWidget(),
-      this.createFluentBitOutputWidget(),
-      this.createFluentBitFilterWidget(),
-      this.createFluentBitStorageWidget(),
+      this.createTitleWidget(),
+      this.inputMetricsWidget(),
+      this.outputMetricsWidget(),
+      this.filterMetricsWidget(),
+      this.storageMetricsWidget(),
     ];
   }
 
-  private createFluentBitInputWidget() {
-    return this.createFluentBitMetricWidget(
-      [...Object.values(this.fluentBitInputMetrics)],
+  summaryWidgets(): IWidget[] {
+    return [
+      this.createTitleWidget(),
+      this.outputMetricsWidget(),
+      this.storageMetricsWidget(),
+    ];
+  }
+
+  private createTitleWidget() {
+    return new MonitoringHeaderWidget({
+      title: "FluentBit",
+    });
+  }
+  private inputMetricsWidget() {
+    return this.createMetricWidget(
+      [...Object.values(this.inputMetrics)],
       "Input Metrics"
     );
   }
-  private createFluentBitOutputWidget() {
-    return this.createFluentBitMetricWidget(
-      [...Object.values(this.fluentBitOutputMetrics)],
+  private outputMetricsWidget() {
+    return this.createMetricWidget(
+      [...Object.values(this.outputMetrics)],
       "Output Metrics"
     );
   }
 
-  private createFluentBitFilterWidget() {
-    return this.createFluentBitMetricWidget(
-      [...Object.values(this.fluentBitFilterMetrics)],
+  private filterMetricsWidget() {
+    return this.createMetricWidget(
+      [...Object.values(this.filterMetrics)],
       "Filter Metrics"
     );
   }
 
-  private createFluentBitStorageWidget() {
-    return this.createFluentBitMetricWidget(
-      [...Object.values(this.fluentBitStorageMetrics)],
+  private storageMetricsWidget() {
+    return this.createMetricWidget(
+      [...Object.values(this.storageMetrics)],
       "Storage Metrics"
     );
   }
 
-  private createFluentBitMetricWidget(
+  private createMetricWidget(
     metrics: MetricWithAlarmSupport[],
     title: string
   ): GraphWidget {
     return new GraphWidget({
       width: HalfWidth,
       height: DefaultGraphWidgetHeight,
-      title: `${title}`,
+      title,
       left: metrics,
       leftAnnotations: undefined,
       leftYAxis: CountAxisFromZero,

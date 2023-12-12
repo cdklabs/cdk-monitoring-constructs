@@ -1,4 +1,3 @@
-import { Metric } from "aws-cdk-lib/aws-cloudwatch";
 import { FilterPattern, ILogGroup, MetricFilter } from "aws-cdk-lib/aws-logs";
 import {
   FluentBitFilterMetricTag,
@@ -30,31 +29,22 @@ export class FluentBitMetricFactory {
       this.metricFactory.getNamespaceWithFallback(props.namespace);
   }
 
-  fluentBitFilterMetrics(logGroup: ILogGroup) {
-    const filterMetrics: Metric[] = [];
-    Object.values(FluentBitFilterMetricTag).forEach((metricName) => {
-      const metric = this.pluginMetric(logGroup, metricName);
-      filterMetrics.push(metric);
+  filterMetrics(logGroup: ILogGroup) {
+    return Object.values(FluentBitFilterMetricTag).map((metricName) => {
+      return this.pluginMetric(logGroup, metricName);
     });
-    return filterMetrics;
   }
 
-  fluentBitOutputMetrics(logGroup: ILogGroup) {
-    const outputMetrics: Metric[] = [];
-    Object.values(FluentBitOutputMetricTag).forEach((metricName) => {
-      const metric = this.pluginMetric(logGroup, metricName);
-      outputMetrics.push(metric);
+  outputMetrics(logGroup: ILogGroup) {
+    return Object.values(FluentBitOutputMetricTag).map((metricName) => {
+      return this.pluginMetric(logGroup, metricName);
     });
-    return outputMetrics;
   }
 
-  fluentBitInputMetrics(logGroup: ILogGroup) {
-    const inputMetrics: Metric[] = [];
-    Object.values(FluentBitInputMetricTag).forEach((metricName) => {
-      const metric = this.pluginMetric(logGroup, metricName);
-      inputMetrics.push(metric);
+  inputMetrics(logGroup: ILogGroup) {
+    return Object.values(FluentBitInputMetricTag).map((metricName) => {
+      return this.pluginMetric(logGroup, metricName);
     });
-    return inputMetrics;
   }
 
   private pluginMetric(logGroup: ILogGroup, metricName: string) {
@@ -74,9 +64,8 @@ export class FluentBitMetricFactory {
     });
   }
 
-  fluentBitStorageMetrics(logGroup: ILogGroup) {
-    const storageMetrics: Metric[] = [];
-    Object.values(FluentBitStorageMetricTag).forEach((metricName) => {
+  storageMetrics(logGroup: ILogGroup) {
+    return Object.values(FluentBitStorageMetricTag).map((metricName) => {
       const valueString = `$.storage_layer.chunks.${metricName}`;
       const metricFilter = new MetricFilter(
         this.scope,
@@ -92,12 +81,11 @@ export class FluentBitMetricFactory {
       const metric = metricFilter.metric({
         statistic: MetricStatistic.MAX,
       });
-      storageMetrics.push(metric);
+      return metric;
     });
-    return storageMetrics;
   }
 
-  fluentBitMetricsWithoutWidgets(logGroup: ILogGroup) {
+  metricsWithoutWidgets(logGroup: ILogGroup) {
     Object.values(FluentBitMetricsWithoutWidget).forEach((metricName) =>
       this.pluginMetric(logGroup, metricName)
     );
