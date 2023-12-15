@@ -2,7 +2,7 @@ import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import { InstanceType } from "aws-cdk-lib/aws-ec2";
 import { Repository } from "aws-cdk-lib/aws-ecr";
-import { Cluster, EcrImage } from "aws-cdk-lib/aws-ecs";
+import { Cluster, Ec2Service, EcrImage } from "aws-cdk-lib/aws-ecs";
 import {
   ApplicationLoadBalancedEc2Service,
   NetworkLoadBalancedEc2Service,
@@ -261,3 +261,29 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
     });
   }
 );
+
+test("snapshot test: with imported service", () => {
+  const stack = new Stack();
+
+  const importedService = Ec2Service.fromEc2ServiceAttributes(
+    stack,
+    "ImportedEc2Service",
+    {
+      cluster: Cluster.fromClusterArn(
+        stack,
+        "ImportedCluster",
+        "arn:aws:ecs:us-west-2:123456789012:cluster/DummyCluster"
+      ),
+      serviceName: "DummyService",
+    }
+  );
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+  const monitoring = new Ec2ServiceMonitoring(scope, {
+    ec2Service: importedService,
+    alarmFriendlyName: "DummyEc2Service",
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});

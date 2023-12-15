@@ -4,7 +4,7 @@ import {
   IMetric,
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
-import { Ec2Service } from "aws-cdk-lib/aws-ecs";
+import { Ec2Service, IBaseService } from "aws-cdk-lib/aws-ecs";
 import {
   ApplicationLoadBalancedEc2Service,
   NetworkLoadBalancedEc2Service,
@@ -147,7 +147,7 @@ export interface Ec2ApplicationLoadBalancerMonitoringProps
 
 export interface CustomEc2ServiceMonitoringProps
   extends BaseLoadBalancedEc2ServiceMonitoringProps {
-  readonly ec2Service: Ec2Service;
+  readonly ec2Service: IBaseService;
   readonly loadBalancer?: IApplicationLoadBalancer | INetworkLoadBalancer;
   readonly targetGroup?: IApplicationTargetGroup | INetworkTargetGroup;
 }

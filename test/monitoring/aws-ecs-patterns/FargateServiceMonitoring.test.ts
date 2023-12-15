@@ -457,3 +457,29 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
     });
   }
 );
+
+test("snapshot test: with imported service", () => {
+  const stack = new Stack();
+
+  const importedService = FargateService.fromFargateServiceAttributes(
+    stack,
+    "ImportedEc2Service",
+    {
+      cluster: Cluster.fromClusterArn(
+        stack,
+        "ImportedCluster",
+        "arn:aws:ecs:us-west-2:123456789012:cluster/DummyCluster"
+      ),
+      serviceName: "DummyService",
+    }
+  );
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+  const monitoring = new FargateServiceMonitoring(scope, {
+    fargateService: importedService,
+    alarmFriendlyName: "DummyFargateService",
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
