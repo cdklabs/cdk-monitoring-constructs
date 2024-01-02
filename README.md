@@ -257,7 +257,7 @@ Search metrics do not support setting an alarm, which is a CloudWatch limitation
 ### Route53 Health Checks
 
 Route53 has [strict requirements](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html) as to which alarms are allowed to be referenced in Health Checks.
-You adjust the metric for an alarm sot hat it can be used in a Route53 Health Checks as follows:
+You adjust the metric for an alarm so that it can be used in a Route53 Health Checks as follows:
 
 ```ts
 monitoring
