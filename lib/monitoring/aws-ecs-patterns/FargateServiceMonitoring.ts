@@ -4,7 +4,7 @@ import {
   IMetric,
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
-import { FargateService } from "aws-cdk-lib/aws-ecs";
+import { FargateService, IBaseService } from "aws-cdk-lib/aws-ecs";
 import {
   ApplicationLoadBalancedFargateService,
   NetworkLoadBalancedFargateService,
@@ -147,7 +147,7 @@ export interface FargateApplicationLoadBalancerMonitoringProps
 
 export interface CustomFargateServiceMonitoringProps
   extends BaseLoadBalancedFargateServiceMonitoringProps {
-  readonly fargateService: FargateService;
+  readonly fargateService: IBaseService;
   readonly loadBalancer?: IApplicationLoadBalancer | INetworkLoadBalancer;
   readonly targetGroup?: IApplicationTargetGroup | INetworkTargetGroup;
 }

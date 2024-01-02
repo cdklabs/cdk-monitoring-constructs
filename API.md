@@ -8970,17 +8970,17 @@ const baseServiceMetricFactoryProps: BaseServiceMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.service">service</a></code> | <code>aws-cdk-lib.aws_ecs.BaseService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.service">service</a></code> | <code>aws-cdk-lib.aws_ecs.IBaseService</code> | *No description.* |
 
 ---
 
 ##### `service`<sup>Required</sup> <a name="service" id="cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.service"></a>
 
 ```typescript
-public readonly service: BaseService;
+public readonly service: IBaseService;
 ```
 
-- *Type:* aws-cdk-lib.aws_ecs.BaseService
+- *Type:* aws-cdk-lib.aws_ecs.IBaseService
 
 ---
 
@@ -11599,7 +11599,7 @@ const customEc2ServiceMonitoringProps: CustomEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.IBaseService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -11767,10 +11767,10 @@ minimum number of tasks, as specified in your auto scaling config.
 ##### `ec2Service`<sup>Required</sup> <a name="ec2Service" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.ec2Service"></a>
 
 ```typescript
-public readonly ec2Service: Ec2Service;
+public readonly ec2Service: IBaseService;
 ```
 
-- *Type:* aws-cdk-lib.aws_ecs.Ec2Service
+- *Type:* aws-cdk-lib.aws_ecs.IBaseService
 
 ---
 
@@ -11879,7 +11879,7 @@ const customFargateServiceMonitoringProps: CustomFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.IBaseService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -12047,10 +12047,10 @@ minimum number of tasks, as specified in your auto scaling config.
 ##### `fargateService`<sup>Required</sup> <a name="fargateService" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.fargateService"></a>
 
 ```typescript
-public readonly fargateService: FargateService;
+public readonly fargateService: IBaseService;
 ```
 
-- *Type:* aws-cdk-lib.aws_ecs.FargateService
+- *Type:* aws-cdk-lib.aws_ecs.IBaseService
 
 ---
 
