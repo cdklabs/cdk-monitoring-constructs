@@ -46,10 +46,11 @@ import {
   MonitoringNamingStrategy,
 } from "../../dashboard";
 import {
+  ApplicationLoadBalancerMetricFactory,
   ApplicationLoadBalancerMetricFactoryProps,
   ILoadBalancerMetricFactory,
+  NetworkLoadBalancerMetricFactory,
   NetworkLoadBalancerMetricFactoryProps,
-  createLoadBalancerMetricFactory,
 } from "../aws-loadbalancing";
 
 export interface BaseFargateServiceAlarms {
@@ -122,9 +123,8 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cl
  */
 export interface FargateServiceMonitoringProps
   extends BaseLoadBalancedFargateServiceMonitoringProps {
-  readonly fargateService:
-    | NetworkLoadBalancedFargateService
-    | ApplicationLoadBalancedFargateService;
+  readonly networkLoadBalancedFargateService?: NetworkLoadBalancedFargateService;
+  readonly applicationLoadBalancedFargateService?: ApplicationLoadBalancedFargateService;
 }
 
 /**
@@ -133,7 +133,7 @@ export interface FargateServiceMonitoringProps
 export interface FargateNetworkLoadBalancerMonitoringProps
   extends NetworkLoadBalancerMetricFactoryProps,
     BaseLoadBalancedFargateServiceMonitoringProps {
-  readonly fargateService: FargateService;
+  readonly fargateService: IBaseService;
 }
 
 /**
@@ -142,14 +142,16 @@ export interface FargateNetworkLoadBalancerMonitoringProps
 export interface FargateApplicationLoadBalancerMonitoringProps
   extends ApplicationLoadBalancerMetricFactoryProps,
     BaseLoadBalancedFargateServiceMonitoringProps {
-  readonly fargateService: FargateService;
+  readonly fargateService: IBaseService;
 }
 
 export interface CustomFargateServiceMonitoringProps
   extends BaseLoadBalancedFargateServiceMonitoringProps {
   readonly fargateService: IBaseService;
-  readonly loadBalancer?: IApplicationLoadBalancer | INetworkLoadBalancer;
-  readonly targetGroup?: IApplicationTargetGroup | INetworkTargetGroup;
+  readonly networkLoadBalancer?: INetworkLoadBalancer;
+  readonly applicationLoadBalancer?: IApplicationLoadBalancer;
+  readonly networkTargetGroup?: INetworkTargetGroup;
+  readonly applicationTargetGroup?: IApplicationTargetGroup;
 }
 
 export class FargateServiceMonitoring extends Monitoring {
@@ -185,8 +187,12 @@ export class FargateServiceMonitoring extends Monitoring {
   ) {
     super(scope, props);
 
-    this.hasLoadBalancer =
-      props.loadBalancer !== undefined && props.targetGroup !== undefined;
+    const hasNetworkLoadBalancer =
+      props.networkLoadBalancer != null && props.networkTargetGroup != null;
+    const hasApplicationLoadBalancer =
+      props.applicationLoadBalancer != null &&
+      props.applicationTargetGroup != null;
+    this.hasLoadBalancer = hasNetworkLoadBalancer || hasApplicationLoadBalancer;
 
     const namingStrategy = new MonitoringNamingStrategy({
       ...props,
@@ -200,12 +206,19 @@ export class FargateServiceMonitoring extends Monitoring {
       { service: props.fargateService }
     );
     if (this.hasLoadBalancer) {
-      this.loadBalancerMetricFactory = createLoadBalancerMetricFactory(
-        this.metricFactory,
-        props.loadBalancer!,
-        props.targetGroup!,
-        props.invertLoadBalancerTaskCountMetricsStatistics
-      );
+      this.loadBalancerMetricFactory = hasNetworkLoadBalancer
+        ? new NetworkLoadBalancerMetricFactory(this.metricFactory, {
+            networkLoadBalancer: props.networkLoadBalancer!,
+            networkTargetGroup: props.networkTargetGroup!,
+            invertStatisticsOfTaskCountEnabled:
+              props.invertLoadBalancerTaskCountMetricsStatistics,
+          })
+        : new ApplicationLoadBalancerMetricFactory(this.metricFactory, {
+            applicationLoadBalancer: props.applicationLoadBalancer!,
+            applicationTargetGroup: props.applicationTargetGroup!,
+            invertStatisticsOfTaskCountEnabled:
+              props.invertLoadBalancerTaskCountMetricsStatistics,
+          });
       this.healthyTaskCountMetric =
         this.loadBalancerMetricFactory.metricHealthyTaskCount();
       this.unhealthyTaskCountMetric =

@@ -11884,9 +11884,11 @@ const customFargateServiceMonitoringProps: CustomFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 
 ---
 
@@ -12094,6 +12096,26 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 
 ---
 
+##### `applicationLoadBalancer`<sup>Optional</sup> <a name="applicationLoadBalancer" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.applicationLoadBalancer"></a>
+
+```typescript
+public readonly applicationLoadBalancer: IApplicationLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer
+
+---
+
+##### `applicationTargetGroup`<sup>Optional</sup> <a name="applicationTargetGroup" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.applicationTargetGroup"></a>
+
+```typescript
+public readonly applicationTargetGroup: IApplicationTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup
+
+---
+
 ##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
 
 ```typescript
@@ -12113,23 +12135,23 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cl
 
 ---
 
-##### `loadBalancer`<sup>Optional</sup> <a name="loadBalancer" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer"></a>
+##### `networkLoadBalancer`<sup>Optional</sup> <a name="networkLoadBalancer" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.networkLoadBalancer"></a>
 
 ```typescript
-public readonly loadBalancer: IApplicationLoadBalancer | INetworkLoadBalancer;
+public readonly networkLoadBalancer: INetworkLoadBalancer;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer | aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer
 
 ---
 
-##### `targetGroup`<sup>Optional</sup> <a name="targetGroup" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup"></a>
+##### `networkTargetGroup`<sup>Optional</sup> <a name="networkTargetGroup" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.networkTargetGroup"></a>
 
 ```typescript
-public readonly targetGroup: IApplicationTargetGroup | INetworkTargetGroup;
+public readonly networkTargetGroup: INetworkTargetGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup | aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
 
 ---
 
@@ -18177,7 +18199,7 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.IBaseService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -18382,10 +18404,10 @@ minimum number of tasks, as specified in your auto scaling config.
 ##### `fargateService`<sup>Required</sup> <a name="fargateService" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.fargateService"></a>
 
 ```typescript
-public readonly fargateService: FargateService;
+public readonly fargateService: IBaseService;
 ```
 
-- *Type:* aws-cdk-lib.aws_ecs.FargateService
+- *Type:* aws-cdk-lib.aws_ecs.IBaseService
 
 ---
 
@@ -18479,7 +18501,7 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.IBaseService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
@@ -18684,10 +18706,10 @@ minimum number of tasks, as specified in your auto scaling config.
 ##### `fargateService`<sup>Required</sup> <a name="fargateService" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.fargateService"></a>
 
 ```typescript
-public readonly fargateService: FargateService;
+public readonly fargateService: IBaseService;
 ```
 
-- *Type:* aws-cdk-lib.aws_ecs.FargateService
+- *Type:* aws-cdk-lib.aws_ecs.IBaseService
 
 ---
 
@@ -18778,12 +18800,13 @@ const fargateServiceMonitoringProps: FargateServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService \| aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.applicationLoadBalancedFargateService">applicationLoadBalancedFargateService</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.networkLoadBalancedFargateService">networkLoadBalancedFargateService</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService</code> | *No description.* |
 
 ---
 
@@ -18941,16 +18964,6 @@ minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
-##### `fargateService`<sup>Required</sup> <a name="fargateService" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.fargateService"></a>
-
-```typescript
-public readonly fargateService: NetworkLoadBalancedFargateService | ApplicationLoadBalancedFargateService;
-```
-
-- *Type:* aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService | aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService
-
----
-
 ##### `addHealthyTaskCountAlarm`<sup>Optional</sup> <a name="addHealthyTaskCountAlarm" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addHealthyTaskCountAlarm"></a>
 
 ```typescript
@@ -18991,6 +19004,16 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 
 ---
 
+##### `applicationLoadBalancedFargateService`<sup>Optional</sup> <a name="applicationLoadBalancedFargateService" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.applicationLoadBalancedFargateService"></a>
+
+```typescript
+public readonly applicationLoadBalancedFargateService: ApplicationLoadBalancedFargateService;
+```
+
+- *Type:* aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService
+
+---
+
 ##### `invertLoadBalancerTaskCountMetricsStatistics`<sup>Optional</sup> <a name="invertLoadBalancerTaskCountMetricsStatistics" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics"></a>
 
 ```typescript
@@ -19007,6 +19030,16 @@ When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum 
 
 `invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+##### `networkLoadBalancedFargateService`<sup>Optional</sup> <a name="networkLoadBalancedFargateService" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.networkLoadBalancedFargateService"></a>
+
+```typescript
+public readonly networkLoadBalancedFargateService: NetworkLoadBalancedFargateService;
+```
+
+- *Type:* aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService
 
 ---
 

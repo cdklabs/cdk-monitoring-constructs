@@ -93,8 +93,8 @@ test.each([createAlb, importAlb])(
 
     const monitoring = new FargateServiceMonitoring(scope, {
       fargateService,
-      loadBalancer: lbResources.applicationLoadBalancer,
-      targetGroup: lbResources.applicationTargetGroup,
+      applicationLoadBalancer: lbResources.applicationLoadBalancer,
+      applicationTargetGroup: lbResources.applicationTargetGroup,
       alarmFriendlyName: "DummyFargateService",
     });
 
@@ -131,8 +131,8 @@ test.each([createAlb, importAlb])(
 
     const monitoring = new FargateServiceMonitoring(scope, {
       fargateService,
-      loadBalancer: lbResources.applicationLoadBalancer,
-      targetGroup: lbResources.applicationTargetGroup,
+      applicationLoadBalancer: lbResources.applicationLoadBalancer,
+      applicationTargetGroup: lbResources.applicationTargetGroup,
       alarmFriendlyName: "DummyFargateService",
       addHealthyTaskCountAlarm: {
         Warning: {

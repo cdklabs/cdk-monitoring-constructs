@@ -507,11 +507,28 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorFargateService(props: FargateServiceMonitoringProps) {
+    if (
+      (props.applicationLoadBalancedFargateService == null &&
+        props.networkLoadBalancedFargateService == null) ||
+      (props.applicationLoadBalancedFargateService != null &&
+        props.networkLoadBalancedFargateService != null)
+    ) {
+      throw new Error(
+        "One of properties `applicationLoadBalancedFargateService` or `networkLoadBalancedFargateService` should be defined"
+      );
+    }
+
     const segment = new FargateServiceMonitoring(this, {
       ...props,
-      fargateService: props.fargateService.service,
-      loadBalancer: props.fargateService.loadBalancer,
-      targetGroup: props.fargateService.targetGroup,
+      fargateService: (props.applicationLoadBalancedFargateService?.service ??
+        props.networkLoadBalancedFargateService?.service)!,
+      networkLoadBalancer:
+        props.networkLoadBalancedFargateService?.loadBalancer,
+      networkTargetGroup: props.networkLoadBalancedFargateService?.targetGroup,
+      applicationLoadBalancer:
+        props.applicationLoadBalancedFargateService?.loadBalancer,
+      applicationTargetGroup:
+        props.applicationLoadBalancedFargateService?.targetGroup,
     });
     this.addSegment(segment, props);
     return this;
@@ -532,8 +549,8 @@ export class MonitoringFacade extends MonitoringScope {
     const segment = new FargateServiceMonitoring(this, {
       ...props,
       fargateService: props.fargateService,
-      loadBalancer: props.networkLoadBalancer,
-      targetGroup: props.networkTargetGroup,
+      networkLoadBalancer: props.networkLoadBalancer,
+      networkTargetGroup: props.networkTargetGroup,
     });
     this.addSegment(segment, props);
     return this;
@@ -545,8 +562,8 @@ export class MonitoringFacade extends MonitoringScope {
     const segment = new FargateServiceMonitoring(this, {
       ...props,
       fargateService: props.fargateService,
-      loadBalancer: props.applicationLoadBalancer,
-      targetGroup: props.applicationTargetGroup,
+      applicationLoadBalancer: props.applicationLoadBalancer,
+      applicationTargetGroup: props.applicationTargetGroup,
     });
     this.addSegment(segment, props);
     return this;
