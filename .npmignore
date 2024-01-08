@@ -7,6 +7,8 @@ permissions-backup.acl
 /dist/changelog.md
 /dist/version.txt
 /.mergify.yml
+/.prettierignore
+/.prettierrc.json
 /test/
 /tsconfig.dev.json
 !/lib/
@@ -23,3 +25,5 @@ tsconfig.tsbuildinfo
 !.jsii
 *.ts
 !*.d.ts
+/.gitattributes
+/.projenrc.ts
