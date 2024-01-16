@@ -12155,6 +12155,7 @@ const customMetricGroup: CustomMetricGroup = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetAxis">graphWidgetAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional axis. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetLegend">graphWidgetLegend</a></code> | <code>aws-cdk-lib.aws_cloudwatch.LegendPosition</code> | graph widget legend. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis">graphWidgetRightAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional right axis. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetSetPeriodToTimeRange">graphWidgetSetPeriodToTimeRange</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetType">graphWidgetType</a></code> | <code><a href="#cdk-monitoring-constructs.GraphWidgetType">GraphWidgetType</a></code> | type of the widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalAnnotations">horizontalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalRightAnnotations">horizontalRightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together). |
@@ -12235,6 +12236,18 @@ public readonly graphWidgetRightAxis: YAxisProps;
 - *Default:* undefined
 
 optional right axis.
+
+---
+
+##### `graphWidgetSetPeriodToTimeRange`<sup>Optional</sup> <a name="graphWidgetSetPeriodToTimeRange" id="cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetSetPeriodToTimeRange"></a>
+
+```typescript
+public readonly graphWidgetSetPeriodToTimeRange: boolean;
+```
+
+- *Type:* boolean
+
+> [{GraphWidgetProps.setPeriodToTimeRange}]({GraphWidgetProps.setPeriodToTimeRange})
 
 ---
 
