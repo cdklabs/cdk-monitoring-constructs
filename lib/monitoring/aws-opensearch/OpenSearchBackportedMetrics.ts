@@ -3,7 +3,7 @@ import {
   DimensionsMap,
   Metric,
   MetricOptions,
-  Statistic,
+  Stats,
 } from "aws-cdk-lib/aws-cloudwatch";
 import * as elasticsearch from "aws-cdk-lib/aws-elasticsearch";
 import * as opensearch from "aws-cdk-lib/aws-opensearchservice";
@@ -53,7 +53,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricClusterStatusRed(props?: MetricOptions): Metric {
     return this.metric("ClusterStatus.red", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -65,7 +65,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricClusterStatusYellow(props?: MetricOptions): Metric {
     return this.metric("ClusterStatus.yellow", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -77,7 +77,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricFreeStorageSpace(props?: MetricOptions): Metric {
     return this.metric("FreeStorageSpace", {
-      statistic: Statistic.MINIMUM,
+      statistic: Stats.MINIMUM,
       ...props,
     });
   }
@@ -89,7 +89,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricClusterIndexWritesBlocked(props?: MetricOptions): Metric {
     return this.metric("ClusterIndexWritesBlocked", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       period: Duration.minutes(1),
       ...props,
     });
@@ -113,7 +113,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricNodes(props?: MetricOptions): Metric {
     return this.metric("Nodes", {
-      statistic: Statistic.MINIMUM,
+      statistic: Stats.MINIMUM,
       period: Duration.hours(1),
       ...props,
     });
@@ -126,7 +126,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricAutomatedSnapshotFailure(props?: MetricOptions): Metric {
     return this.metric("AutomatedSnapshotFailure", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -138,7 +138,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricCPUUtilization(props?: MetricOptions): Metric {
     return this.metric("CPUUtilization", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -150,7 +150,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricJVMMemoryPressure(props?: MetricOptions): Metric {
     return this.metric("JVMMemoryPressure", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -162,7 +162,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricMasterCPUUtilization(props?: MetricOptions): Metric {
     return this.metric("MasterCPUUtilization", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -174,7 +174,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricMasterJVMMemoryPressure(props?: MetricOptions): Metric {
     return this.metric("MasterJVMMemoryPressure", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -186,7 +186,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricKMSKeyError(props?: MetricOptions): Metric {
     return this.metric("KMSKeyError", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -198,7 +198,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricKMSKeyInaccessible(props?: MetricOptions): Metric {
     return this.metric("KMSKeyInaccessible", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
@@ -210,7 +210,7 @@ export class OpenSearchBackportedMetrics {
    */
   metricSearchableDocuments(props?: MetricOptions): Metric {
     return this.metric("SearchableDocuments", {
-      statistic: Statistic.MAXIMUM,
+      statistic: Stats.MAXIMUM,
       ...props,
     });
   }
