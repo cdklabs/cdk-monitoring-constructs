@@ -1855,7 +1855,7 @@ public monitorS3Bucket(props: S3BucketMonitoringProps): MonitoringFacade
 ##### `monitorScope` <a name="monitorScope" id="cdk-monitoring-constructs.MonitoringFacade.monitorScope"></a>
 
 ```typescript
-public monitorScope(scope: Construct, aspectProps?: MonitoringAspectProps): void
+public monitorScope(scope: Construct, aspectProps?: MonitoringAspectProps): MonitoringFacade
 ```
 
 Uses an aspect to automatically monitor all resources in the given scope.
