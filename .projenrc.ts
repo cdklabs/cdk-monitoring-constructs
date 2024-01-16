@@ -1,4 +1,10 @@
-import { awscdk, javascript, github, DependencyType } from "projen";
+import {
+  awscdk,
+  javascript,
+  github,
+  DependencyType,
+  ReleasableCommits,
+} from "projen";
 
 const CDK_VERSION = "2.112.0";
 
@@ -18,6 +24,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   srcdir: "lib",
   testdir: "test",
+
+  // To reduce the noisy release frequency we only release features and fixes
+  releasableCommits: ReleasableCommits.featuresAndFixes(),
 
   // Artifact config: Python
   publishToPypi: {
