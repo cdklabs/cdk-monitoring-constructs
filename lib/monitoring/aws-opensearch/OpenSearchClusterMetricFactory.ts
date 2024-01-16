@@ -1,4 +1,4 @@
-import { Statistic } from "aws-cdk-lib/aws-cloudwatch";
+import { Stats } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   Domain,
@@ -41,7 +41,7 @@ export class OpenSearchClusterMetricFactory {
 
   metricSearchCount() {
     return this.domainMetrics.metric("SearchRate", {
-      statistic: Statistic.SUM,
+      statistic: Stats.SUM,
     });
   }
 
@@ -140,10 +140,10 @@ export class OpenSearchClusterMetricFactory {
 
   metricDiskSpaceUsageInPercent() {
     const used = this.domainMetrics.metric("ClusterUsedSpace", {
-      statistic: Statistic.SUM,
+      statistic: Stats.SUM,
     });
     const free = this.domainMetrics.metric("FreeStorageSpace", {
-      statistic: Statistic.SUM,
+      statistic: Stats.SUM,
     });
     return this.metricFactory.createMetricMath(
       "100 * (used/(used+free))",
