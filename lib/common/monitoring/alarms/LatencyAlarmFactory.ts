@@ -28,6 +28,7 @@ export enum LatencyType {
   TM999_TOP = "TM(99.9%:100%)",
   TM9999_TOP = "TM(99.99%:100%)",
   AVERAGE = "Average",
+  MAX = "Maximum",
 }
 
 export function getLatencyTypeStatistic(latencyType: LatencyType) {
@@ -72,6 +73,8 @@ export function getLatencyTypeStatistic(latencyType: LatencyType) {
       return MetricStatistic.TM9999_TOP;
     case LatencyType.AVERAGE:
       return MetricStatistic.AVERAGE;
+    case LatencyType.MAX:
+      return MetricStatistic.MAX;
     default:
       throw new Error(
         "Unsupported latency type (unknown statistic): " + latencyType
@@ -90,10 +93,12 @@ export function getLatencyTypeExpressionId(latencyType: LatencyType) {
     case LatencyType.P9999:
     case LatencyType.P100:
       // remove the P prefix
-      return latencyType.substr(1);
+      return latencyType.substring(1);
     case LatencyType.AVERAGE:
       // making it shorter for backwards compatibility
       return "Avg";
+    case LatencyType.MAX:
+      return "Max";
     default:
       // use as-is
       return latencyType;
@@ -119,6 +124,8 @@ export function getLatencyTypeLabel(latencyType: LatencyType) {
     case LatencyType.AVERAGE:
       // no suffix here, since we already have average
       return "Average";
+    case LatencyType.MAX:
+      return "Maximum";
     default:
       // use as-is
       return latencyType + averageSuffix;

@@ -23729,6 +23729,7 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMinInvocationsCountAlarm">addMinInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
@@ -23985,6 +23986,16 @@ public readonly addMaxIteratorAgeAlarm: {[ key: string ]: MaxAgeThreshold};
 
 ---
 
+##### `addMaxLatencyAlarm`<sup>Optional</sup> <a name="addMaxLatencyAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxLatencyAlarm"></a>
+
+```typescript
+public readonly addMaxLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addMinInvocationsCountAlarm`<sup>Optional</sup> <a name="addMinInvocationsCountAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMinInvocationsCountAlarm"></a>
 
 ```typescript
@@ -24075,6 +24086,7 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMinInvocationsCountAlarm">addMinInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
@@ -24376,6 +24388,16 @@ public readonly addMaxIteratorAgeAlarm: {[ key: string ]: MaxAgeThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}
+
+---
+
+##### `addMaxLatencyAlarm`<sup>Optional</sup> <a name="addMaxLatencyAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxLatencyAlarm"></a>
+
+```typescript
+public readonly addMaxLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
 
 ---
 
@@ -59236,6 +59258,7 @@ new LambdaFunctionMetricFactory(metricFactory: MetricFactory, props: LambdaFunct
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricFaultRate">metricFaultRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricInvocationCount">metricInvocationCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricInvocationRate">metricInvocationRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyInMillis">metricLatencyInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP50InMillis">metricLatencyP50InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP90InMillis">metricLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP99InMillis">metricLatencyP99InMillis</a></code> | *No description.* |
@@ -59278,19 +59301,31 @@ public metricInvocationCount(): Metric | MathExpression
 public metricInvocationRate(): Metric | MathExpression
 ```
 
-##### `metricLatencyP50InMillis` <a name="metricLatencyP50InMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP50InMillis"></a>
+##### `metricLatencyInMillis` <a name="metricLatencyInMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyInMillis"></a>
+
+```typescript
+public metricLatencyInMillis(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyInMillis.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
+##### ~~`metricLatencyP50InMillis`~~ <a name="metricLatencyP50InMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP50InMillis"></a>
 
 ```typescript
 public metricLatencyP50InMillis(): Metric | MathExpression
 ```
 
-##### `metricLatencyP90InMillis` <a name="metricLatencyP90InMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP90InMillis"></a>
+##### ~~`metricLatencyP90InMillis`~~ <a name="metricLatencyP90InMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP90InMillis"></a>
 
 ```typescript
 public metricLatencyP90InMillis(): Metric | MathExpression
 ```
 
-##### `metricLatencyP99InMillis` <a name="metricLatencyP99InMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP99InMillis"></a>
+##### ~~`metricLatencyP99InMillis`~~ <a name="metricLatencyP99InMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP99InMillis"></a>
 
 ```typescript
 public metricLatencyP99InMillis(): Metric | MathExpression
@@ -59697,6 +59732,7 @@ public createTpsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeAnnotations">maxIteratorAgeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeMetric">maxIteratorAgeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxLatencyMetric">maxLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory">LambdaFunctionMetricFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.namingStrategy">namingStrategy</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringNamingStrategy">MonitoringNamingStrategy</a></code> | *No description.* |
@@ -59889,6 +59925,16 @@ public readonly maxIteratorAgeAnnotations: HorizontalAnnotation[];
 
 ```typescript
 public readonly maxIteratorAgeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `maxLatencyMetric`<sup>Required</sup> <a name="maxLatencyMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxLatencyMetric"></a>
+
+```typescript
+public readonly maxLatencyMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
@@ -71767,6 +71813,7 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM999_TOP">TM999_TOP</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.TM9999_TOP">TM9999_TOP</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyType.AVERAGE">AVERAGE</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyType.MAX">MAX</a></code> | *No description.* |
 
 ---
 
@@ -71866,6 +71913,11 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 ##### `AVERAGE` <a name="AVERAGE" id="cdk-monitoring-constructs.LatencyType.AVERAGE"></a>
+
+---
+
+
+##### `MAX` <a name="MAX" id="cdk-monitoring-constructs.LatencyType.MAX"></a>
 
 ---
 
