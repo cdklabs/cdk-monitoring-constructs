@@ -12,29 +12,27 @@ import { MetricFactory, MetricWithAlarmSupport } from "../../common";
 // It's not possible to use instanceOf with typescript interfaces, so we have to use type guards to differentiate
 // between the interfaces. As another problem, the LoadBalancer/TargetGroup for both Network and Application types
 // don't have distinguished fields that could be used to differentiate between both types, so we resort to using
-// the name of the class below.
-//
-// Ideally the 2 interfaces would provide a specific field to distinguish both types.
+// checking for unique methods in their metrics interfaces.
 function isApplicationLoadBalancer(
   loadBalancer: INetworkLoadBalancer | IApplicationLoadBalancer
 ): loadBalancer is IApplicationLoadBalancer {
-  return loadBalancer.constructor.name.indexOf("Application") != -1;
+  return !!(loadBalancer.metrics as any).httpRedirectCount;
 }
 function isNetworkLoadBalancer(
   loadBalancer: INetworkLoadBalancer | IApplicationLoadBalancer
 ): loadBalancer is INetworkLoadBalancer {
-  return loadBalancer.constructor.name.indexOf("Network") != -1;
+  return !isApplicationLoadBalancer(loadBalancer);
 }
 
 function isApplicationTargetGroup(
   targetGroup: INetworkTargetGroup | IApplicationTargetGroup
 ): targetGroup is IApplicationTargetGroup {
-  return targetGroup.constructor.name.indexOf("Application") != -1;
+  return !!(targetGroup.metrics as any).httpCodeTarget;
 }
 function isNetworkTargetGroup(
   targetGroup: INetworkTargetGroup | IApplicationTargetGroup
 ): targetGroup is INetworkTargetGroup {
-  return targetGroup.constructor.name.indexOf("Network") != -1;
+  return !isApplicationTargetGroup(targetGroup);
 }
 
 /**
