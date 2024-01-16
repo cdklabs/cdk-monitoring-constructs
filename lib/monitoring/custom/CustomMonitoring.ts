@@ -170,6 +170,10 @@ export interface CustomMetricGroup {
    */
   readonly graphWidgetLegend?: LegendPosition;
   /**
+   * @see {GraphWidgetProps.setPeriodToTimeRange}
+   */
+  readonly graphWidgetSetPeriodToTimeRange?: boolean;
+  /**
    * @deprecated use addToSummaryDashboard. addToSummaryDashboard will take precedence over important.
    * @see addToSummaryDashboard
    */
@@ -409,6 +413,8 @@ export class CustomMonitoring extends Monitoring {
         leftYAxis: annotatedGroup.metricGroup.graphWidgetAxis,
         rightYAxis: annotatedGroup.metricGroup.graphWidgetRightAxis,
         legendPosition: annotatedGroup.metricGroup.graphWidgetLegend,
+        setPeriodToTimeRange:
+          annotatedGroup.metricGroup.graphWidgetSetPeriodToTimeRange,
       };
 
       const widget = useAnomalyDetectionWidget

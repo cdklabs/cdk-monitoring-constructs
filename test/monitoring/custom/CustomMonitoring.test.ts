@@ -107,6 +107,7 @@ test("snapshot test", () => {
       {
         title: "DummyGroup3",
         graphWidgetType: GraphWidgetType.PIE,
+        graphWidgetSetPeriodToTimeRange: true,
         metrics: [
           // regular metric
           new Metric({ metricName: "DummyMetric20", namespace, dimensionsMap }),
