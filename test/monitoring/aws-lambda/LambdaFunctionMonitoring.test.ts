@@ -90,6 +90,11 @@ test("snapshot test: all alarms", () => {
         datapointsToAlarm: 33,
       },
     },
+    addMaxLatencyAlarm: {
+      Warning: {
+        maxLatency: Duration.seconds(60),
+      },
+    },
     addLowTpsAlarm: {
       Warning: {
         minTps: 0,
@@ -145,7 +150,7 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(13);
+  expect(numAlarmsCreated).toStrictEqual(14);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -241,6 +246,11 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
         datapointsToAlarm: 33,
       },
     },
+    addMaxLatencyAlarm: {
+      Warning: {
+        maxLatency: Duration.seconds(60),
+      },
+    },
     addLowTpsAlarm: {
       Warning: {
         minTps: 0,
@@ -326,7 +336,7 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(19);
+  expect(numAlarmsCreated).toStrictEqual(20);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -379,6 +389,11 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
         datapointsToAlarm: 33,
       },
     },
+    addMaxLatencyAlarm: {
+      Warning: {
+        maxLatency: Duration.seconds(60),
+      },
+    },
     addLowTpsAlarm: {
       Warning: {
         minTps: 0,
@@ -464,7 +479,7 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(19);
+  expect(numAlarmsCreated).toStrictEqual(20);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 

@@ -56,6 +56,7 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
+  readonly addMaxLatencyAlarm?: Record<string, LatencyThreshold>;
 
   readonly addFaultCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFaultRateAlarm?: Record<string, ErrorRateThreshold>;
@@ -143,6 +144,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
   readonly p50LatencyMetric: MetricWithAlarmSupport;
   readonly p90LatencyMetric: MetricWithAlarmSupport;
   readonly p99LatencyMetric: MetricWithAlarmSupport;
+  readonly maxLatencyMetric: MetricWithAlarmSupport;
   readonly faultCountMetric: MetricWithAlarmSupport;
   readonly faultRateMetric: MetricWithAlarmSupport;
   readonly invocationCountMetric: MetricWithAlarmSupport;
@@ -202,9 +204,18 @@ export class LambdaFunctionMonitoring extends Monitoring {
       props
     );
     this.tpsMetric = this.metricFactory.metricTps();
-    this.p50LatencyMetric = this.metricFactory.metricLatencyP50InMillis();
-    this.p90LatencyMetric = this.metricFactory.metricLatencyP90InMillis();
-    this.p99LatencyMetric = this.metricFactory.metricLatencyP99InMillis();
+    this.p50LatencyMetric = this.metricFactory.metricLatencyInMillis(
+      LatencyType.P50
+    );
+    this.p90LatencyMetric = this.metricFactory.metricLatencyInMillis(
+      LatencyType.P90
+    );
+    this.p99LatencyMetric = this.metricFactory.metricLatencyInMillis(
+      LatencyType.P99
+    );
+    this.maxLatencyMetric = this.metricFactory.metricLatencyInMillis(
+      LatencyType.MAX
+    );
     this.faultCountMetric = this.metricFactory.metricFaultCount();
     this.faultRateMetric = this.metricFactory.metricFaultRate();
     this.invocationCountMetric = this.metricFactory.metricInvocationCount();
@@ -359,6 +370,18 @@ export class LambdaFunctionMonitoring extends Monitoring {
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
+    for (const disambiguator in props.addMaxLatencyAlarm) {
+      const alarmProps = props.addMaxLatencyAlarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.maxLatencyMetric,
+        LatencyType.MAX,
+        alarmProps,
+        disambiguator
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
     for (const disambiguator in props.addFaultCountAlarm) {
       const alarmProps = props.addFaultCountAlarm[disambiguator];
       const createdAlarm = this.errorAlarmFactory.addErrorCountAlarm(

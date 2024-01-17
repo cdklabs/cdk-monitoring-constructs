@@ -5227,15 +5227,15 @@ Object {
               Object {
                 "Ref": "DummyFunction3BB5AE03",
               },
-              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
               Object {
                 "Ref": "DummyFunction3BB5AE03",
               },
-              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
               Object {
                 "Ref": "DummyFunction3BB5AE03",
               },
-              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5333,15 +5333,15 @@ Object {
               Object {
                 "Ref": "DummyFunction3BB5AE03",
               },
-              "\\",{\\"label\\":\\"P50\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
               Object {
                 "Ref": "DummyFunction3BB5AE03",
               },
-              "\\",{\\"label\\":\\"P90\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
               Object {
                 "Ref": "DummyFunction3BB5AE03",
               },
-              "\\",{\\"label\\":\\"P99\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

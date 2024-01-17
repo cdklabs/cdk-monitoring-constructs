@@ -133,42 +133,42 @@ export class ApiGatewayV2HttpApiMetricFactory {
   }
 
   /**
-   * @deprecated use metricLatencyInMillis instead
+   * @deprecated Use {@link metricLatencyInMillis} instead.
    */
   metricLatencyP50InMillis() {
     return this.metricLatencyInMillis(LatencyType.P50);
   }
 
   /**
-   * @deprecated use metricLatencyInMillis instead
+   * @deprecated Use {@link metricLatencyInMillis} instead.
    */
   metricLatencyP90InMillis() {
     return this.metricLatencyInMillis(LatencyType.P90);
   }
 
   /**
-   * @deprecated use metricLatencyInMillis instead
+   * @deprecated Use {@link metricLatencyInMillis} instead.
    */
   metricLatencyP99InMillis() {
     return this.metricLatencyInMillis(LatencyType.P99);
   }
 
   /**
-   * @deprecated use metricIntegrationLatencyInMillis instead
+   * @deprecated Use {@link metricIntegrationLatencyInMillis} instead.
    */
   metricIntegrationLatencyP50InMillis() {
     return this.metricIntegrationLatencyInMillis(LatencyType.P50);
   }
 
   /**
-   * @deprecated use metricIntegrationLatencyInMillis instead
+   * @deprecated Use {@link metricIntegrationLatencyInMillis} instead.
    */
   metricIntegrationLatencyP90InMillis() {
     return this.metricIntegrationLatencyInMillis(LatencyType.P90);
   }
 
   /**
-   * @deprecated use metricIntegrationLatencyInMillis instead
+   * @deprecated Use {@link metricIntegrationLatencyInMillis} instead.
    */
   metricIntegrationLatencyP99InMillis() {
     return this.metricIntegrationLatencyInMillis(LatencyType.P99);

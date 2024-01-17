@@ -1,9 +1,12 @@
 import { IFunction } from "aws-cdk-lib/aws-lambda";
 
 import {
+  LatencyType,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
+  getLatencyTypeLabel,
+  getLatencyTypeStatistic,
 } from "../../common";
 
 export interface LambdaFunctionMetricFactoryProps {
@@ -45,7 +48,7 @@ export class LambdaFunctionMetricFactory {
   }
 
   /**
-   * @deprecated use metricInvocationRate
+   * @deprecated Use {@link metricInvocationRate} instead.
    */
   metricTps() {
     return this.metricFactory.toRate(
@@ -111,31 +114,34 @@ export class LambdaFunctionMetricFactory {
     );
   }
 
+  metricLatencyInMillis(latencyType: LatencyType) {
+    return this.metricFactory.adaptMetric(
+      this.lambdaFunction.metricDuration({
+        statistic: getLatencyTypeStatistic(latencyType),
+        label: getLatencyTypeLabel(latencyType),
+      })
+    );
+  }
+
+  /**
+   * @deprecated Use {@link metricLatencyInMillis} instead.
+   */
   metricLatencyP99InMillis() {
-    return this.metricFactory.adaptMetric(
-      this.lambdaFunction.metricDuration({
-        statistic: MetricStatistic.P99,
-        label: "P99",
-      })
-    );
+    return this.metricLatencyInMillis(LatencyType.P99);
   }
 
+  /**
+   * @deprecated Use {@link metricLatencyInMillis} instead.
+   */
   metricLatencyP90InMillis() {
-    return this.metricFactory.adaptMetric(
-      this.lambdaFunction.metricDuration({
-        statistic: MetricStatistic.P90,
-        label: "P90",
-      })
-    );
+    return this.metricLatencyInMillis(LatencyType.P90);
   }
 
+  /**
+   * @deprecated Use {@link metricLatencyInMillis} instead.
+   */
   metricLatencyP50InMillis() {
-    return this.metricFactory.adaptMetric(
-      this.lambdaFunction.metricDuration({
-        statistic: MetricStatistic.P50,
-        label: "P50",
-      })
-    );
+    return this.metricLatencyInMillis(LatencyType.P50);
   }
 
   metricConcurrentExecutions() {
