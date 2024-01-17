@@ -29666,6 +29666,365 @@ public readonly maxTimeToDrain: Duration;
 
 ---
 
+### MaxUsageCountThreshold <a name="MaxUsageCountThreshold" id="cdk-monitoring-constructs.MaxUsageCountThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MaxUsageCountThreshold.Initializer"></a>
+
+```typescript
+import { MaxUsageCountThreshold } from 'cdk-monitoring-constructs'
+
+const maxUsageCountThreshold: MaxUsageCountThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.maxCount">maxCount</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxCount`<sup>Required</sup> <a name="maxCount" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.maxCount"></a>
+
+```typescript
+public readonly maxCount: number;
+```
+
+- *Type:* number
+
+---
+
 ### MaxUsedSwapMemoryThreshold <a name="MaxUsedSwapMemoryThreshold" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.Initializer"></a>
@@ -44564,7 +44923,9 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 
 ---
 
-##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.actionOverride"></a>
+##### ~~`actionOverride`~~<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.actionOverride"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly actionOverride: IAlarmActionStrategy;
@@ -44577,7 +44938,9 @@ Allows to override the default alarm action.
 
 ---
 
-##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.UsageCountThreshold.property.actionsEnabled"></a>
+##### ~~`actionsEnabled`~~<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.UsageCountThreshold.property.actionsEnabled"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly actionsEnabled: boolean;
@@ -44590,7 +44953,9 @@ Enables the configured CloudWatch alarm ticketing actions.
 
 ---
 
-##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.alarmDescriptionOverride"></a>
+##### ~~`alarmDescriptionOverride`~~<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.alarmDescriptionOverride"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly alarmDescriptionOverride: string;
@@ -44603,7 +44968,9 @@ A text included in the generated ticket description body, which fully replaces t
 
 ---
 
-##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.alarmNameOverride"></a>
+##### ~~`alarmNameOverride`~~<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.alarmNameOverride"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly alarmNameOverride: string;
@@ -44617,7 +44984,9 @@ Please be aware that you need to specify prefix for different stages (Beta, Prod
 
 ---
 
-##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.comparisonOperatorOverride"></a>
+##### ~~`comparisonOperatorOverride`~~<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.comparisonOperatorOverride"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly comparisonOperatorOverride: ComparisonOperator;
@@ -44630,7 +44999,9 @@ Comparison operator used to compare actual value against the threshold.
 
 ---
 
-##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.UsageCountThreshold.property.customParams"></a>
+##### ~~`customParams`~~<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.UsageCountThreshold.property.customParams"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly customParams: {[ key: string ]: any};
@@ -44643,7 +45014,9 @@ This allows user to attach custom parameters to this alarm, which can later be a
 
 ---
 
-##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.UsageCountThreshold.property.customTags"></a>
+##### ~~`customTags`~~<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.UsageCountThreshold.property.customTags"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly customTags: string[];
@@ -44656,7 +45029,9 @@ This allows user to attach custom values to this alarm, which can later be acces
 
 ---
 
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.UsageCountThreshold.property.datapointsToAlarm"></a>
+##### ~~`datapointsToAlarm`~~<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.UsageCountThreshold.property.datapointsToAlarm"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly datapointsToAlarm: number;
@@ -44669,7 +45044,9 @@ Number of breaches required to transition into an ALARM state.
 
 ---
 
-##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.dedupeStringOverride"></a>
+##### ~~`dedupeStringOverride`~~<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.dedupeStringOverride"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly dedupeStringOverride: string;
@@ -44684,7 +45061,9 @@ Please be aware that you need to handle deduping for different stages (Beta, Pro
 
 ---
 
-##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.UsageCountThreshold.property.documentationLink"></a>
+##### ~~`documentationLink`~~<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.UsageCountThreshold.property.documentationLink"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly documentationLink: string;
@@ -44697,7 +45076,9 @@ An optional link included in the generated ticket description body.
 
 ---
 
-##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.UsageCountThreshold.property.evaluateLowSampleCountPercentile"></a>
+##### ~~`evaluateLowSampleCountPercentile`~~<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.UsageCountThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly evaluateLowSampleCountPercentile: boolean;
@@ -44713,7 +45094,9 @@ If you specify <code>true</code>, the alarm is always evaluated and possibly cha
 
 ---
 
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.UsageCountThreshold.property.evaluationPeriods"></a>
+##### ~~`evaluationPeriods`~~<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.UsageCountThreshold.property.evaluationPeriods"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly evaluationPeriods: number;
@@ -44726,7 +45109,9 @@ Number of periods to consider when checking the number of breaching datapoints.
 
 ---
 
-##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.UsageCountThreshold.property.fillAlarmRange"></a>
+##### ~~`fillAlarmRange`~~<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.UsageCountThreshold.property.fillAlarmRange"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly fillAlarmRange: boolean;
@@ -44739,7 +45124,9 @@ Indicates whether the alarming range of values should be highlighted in the widg
 
 ---
 
-##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.UsageCountThreshold.property.metricAdjuster"></a>
+##### ~~`metricAdjuster`~~<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.UsageCountThreshold.property.metricAdjuster"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly metricAdjuster: IMetricAdjuster;
@@ -44776,7 +45163,9 @@ This composite alarm will be returned as a result and uses the specified alarm a
 
 ---
 
-##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.UsageCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+##### ~~`minSampleCountToEvaluateDatapoint`~~<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.UsageCountThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly minSampleCountToEvaluateDatapoint: number;
@@ -44795,7 +45184,9 @@ If specified, deprecated minMetricSamplesToAlarm has no effect.
 
 ---
 
-##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationColor"></a>
+##### ~~`overrideAnnotationColor`~~<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationColor"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly overrideAnnotationColor: string;
@@ -44808,7 +45199,9 @@ If specified, it modifies the final alarm annotation color.
 
 ---
 
-##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationLabel"></a>
+##### ~~`overrideAnnotationLabel`~~<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationLabel"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly overrideAnnotationLabel: string;
@@ -44821,7 +45214,9 @@ If specified, it modifies the final alarm annotation label.
 
 ---
 
-##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationVisibility"></a>
+##### ~~`overrideAnnotationVisibility`~~<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationVisibility"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly overrideAnnotationVisibility: boolean;
@@ -44834,7 +45229,9 @@ If specified, it modifies the final alarm annotation visibility.
 
 ---
 
-##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.UsageCountThreshold.property.period"></a>
+##### ~~`period`~~<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.UsageCountThreshold.property.period"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly period: Duration;
@@ -44847,7 +45244,9 @@ Period override for the metric to alarm on.
 
 ---
 
-##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.UsageCountThreshold.property.runbookLink"></a>
+##### ~~`runbookLink`~~<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.UsageCountThreshold.property.runbookLink"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly runbookLink: string;
@@ -44860,7 +45259,9 @@ An optional link included in the generated ticket description body.
 
 ---
 
-##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.treatMissingDataOverride"></a>
+##### ~~`treatMissingDataOverride`~~<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.treatMissingDataOverride"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly treatMissingDataOverride: TreatMissingData;
@@ -44873,7 +45274,9 @@ Behaviour in case the metric data is missing.
 
 ---
 
-##### `maxUsageCount`<sup>Required</sup> <a name="maxUsageCount" id="cdk-monitoring-constructs.UsageCountThreshold.property.maxUsageCount"></a>
+##### ~~`maxUsageCount`~~<sup>Required</sup> <a name="maxUsageCount" id="cdk-monitoring-constructs.UsageCountThreshold.property.maxUsageCount"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
 
 ```typescript
 public readonly maxUsageCount: number;
@@ -69998,6 +70401,7 @@ new UsageAlarmFactory(alarmFactory: AlarmFactory)
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxCountAlarm">addMaxCountAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxCpuUsagePercentAlarm">addMaxCpuUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxDiskUsagePercentAlarm">addMaxDiskUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxFileDescriptorPercentAlarm">addMaxFileDescriptorPercentAlarm</a></code> | *No description.* |
@@ -70008,7 +70412,32 @@ new UsageAlarmFactory(alarmFactory: AlarmFactory)
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxThreadCountUsageAlarm">addMaxThreadCountUsageAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm">addMaxUsageCountAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMemoryUsagePercentAlarm">addMemoryUsagePercentAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMinCountAlarm">addMinCountAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMinUsageCountAlarm">addMinUsageCountAlarm</a></code> | *No description.* |
+
+---
+
+##### `addMaxCountAlarm` <a name="addMaxCountAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCountAlarm"></a>
+
+```typescript
+public addMaxCountAlarm(metric: Metric | MathExpression, props: MaxUsageCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCountAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
 
 ---
 
@@ -70216,7 +70645,7 @@ public addMaxThreadCountUsageAlarm(percentMetric: Metric | MathExpression, props
 
 ---
 
-##### `addMaxUsageCountAlarm` <a name="addMaxUsageCountAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm"></a>
+##### ~~`addMaxUsageCountAlarm`~~ <a name="addMaxUsageCountAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm"></a>
 
 ```typescript
 public addMaxUsageCountAlarm(metric: Metric | MathExpression, props: UsageCountThreshold, disambiguator?: string): AlarmWithAnnotation
@@ -70270,7 +70699,31 @@ public addMemoryUsagePercentAlarm(percentMetric: Metric | MathExpression, props:
 
 ---
 
-##### `addMinUsageCountAlarm` <a name="addMinUsageCountAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMinUsageCountAlarm"></a>
+##### `addMinCountAlarm` <a name="addMinCountAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMinCountAlarm"></a>
+
+```typescript
+public addMinCountAlarm(percentMetric: Metric | MathExpression, props: MinUsageCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `percentMetric`<sup>Required</sup> <a name="percentMetric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMinCountAlarm.parameter.percentMetric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.UsageAlarmFactory.addMinCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addMinCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`addMinUsageCountAlarm`~~ <a name="addMinUsageCountAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMinUsageCountAlarm"></a>
 
 ```typescript
 public addMinUsageCountAlarm(percentMetric: Metric | MathExpression, props: MinUsageCountThreshold, disambiguator?: string): AlarmWithAnnotation

@@ -26,6 +26,13 @@ export interface MinUsageCountThreshold extends CustomAlarmThreshold {
   readonly minCount: number;
 }
 
+export interface MaxUsageCountThreshold extends CustomAlarmThreshold {
+  readonly maxCount: number;
+}
+
+/**
+ * @deprecated Use MaxUsageCountThreshold instead.
+ */
 export interface UsageCountThreshold extends CustomAlarmThreshold {
   readonly maxUsageCount: number;
 }
@@ -37,6 +44,47 @@ export class UsageAlarmFactory {
     this.alarmFactory = alarmFactory;
   }
 
+  addMaxCountAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MaxUsageCountThreshold,
+    disambiguator?: string
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxCount,
+      alarmNameSuffix: "Max-Usage-Count",
+      alarmDescription: "The count is too high.",
+    });
+  }
+
+  addMinCountAlarm(
+    percentMetric: MetricWithAlarmSupport,
+    props: MinUsageCountThreshold,
+    disambiguator?: string
+  ) {
+    return this.alarmFactory.addAlarm(percentMetric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.LESS_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.minCount,
+      alarmNameSuffix: "Min-Usage-Count",
+      alarmDescription: "The count is too low.",
+    });
+  }
+
+  /**
+   * @deprecated Use {@link addMaxCountAlarm} instead.
+   */
   addMaxUsageCountAlarm(
     metric: MetricWithAlarmSupport,
     props: UsageCountThreshold,
@@ -56,6 +104,9 @@ export class UsageAlarmFactory {
     });
   }
 
+  /**
+   * @deprecated Use {@link addMinCountAlarm} instead.
+   */
   addMinUsageCountAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: MinUsageCountThreshold,
