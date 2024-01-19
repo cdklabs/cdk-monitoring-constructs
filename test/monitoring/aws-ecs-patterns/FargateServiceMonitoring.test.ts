@@ -11,7 +11,10 @@ import {
   ApplicationLoadBalancedFargateService,
   NetworkLoadBalancedFargateService,
 } from "aws-cdk-lib/aws-ecs-patterns";
-import { NetworkLoadBalancer } from "aws-cdk-lib/aws-elasticloadbalancingv2";
+import {
+  NetworkLoadBalancer,
+  NetworkTargetGroup,
+} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import { AlarmWithAnnotation, FargateServiceMonitoring } from "../../../lib";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
@@ -477,6 +480,49 @@ test("snapshot test: with imported service", () => {
   const scope = new TestMonitoringScope(stack, "Scope");
   const monitoring = new FargateServiceMonitoring(scope, {
     fargateService: importedService,
+    alarmFriendlyName: "DummyFargateService",
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: with imported NLB", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const cluster = new Cluster(stack, "Cluster");
+  const image = new EcrImage(new Repository(stack, "Repository"), "DummyImage");
+  const taskDefinition = new FargateTaskDefinition(stack, "TaskDef", {});
+
+  taskDefinition
+    .addContainer("Container", { image })
+    .addPortMappings({ containerPort: 8080 });
+
+  const fargateService = new FargateService(stack, "Service", {
+    cluster,
+    taskDefinition,
+  });
+  const networkLoadBalancer =
+    NetworkLoadBalancer.fromNetworkLoadBalancerAttributes(stack, "NLB", {
+      loadBalancerArn:
+        "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/net/LoadBalancer/123",
+    });
+  const networkTargetGroup = NetworkTargetGroup.fromTargetGroupAttributes(
+    stack,
+    "NTG",
+    {
+      targetGroupArn:
+        "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/TargetGroup/123",
+      loadBalancerArns: networkLoadBalancer.loadBalancerArn,
+    }
+  );
+
+  const monitoring = new FargateServiceMonitoring(scope, {
+    fargateService,
+    loadBalancer: networkLoadBalancer,
+    targetGroup: networkTargetGroup,
     alarmFriendlyName: "DummyFargateService",
   });
 
