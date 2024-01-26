@@ -94,6 +94,8 @@ import {
   QueueProcessingFargateServiceMonitoringProps,
   RdsClusterMonitoring,
   RdsClusterMonitoringProps,
+  RdsInstanceMonitoring,
+  RdsInstanceMonitoringProps,
   RedshiftClusterMonitoring,
   RedshiftClusterMonitoringProps,
   S3BucketMonitoring,
@@ -677,6 +679,12 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorRdsCluster(props: RdsClusterMonitoringProps): this {
     const segment = new RdsClusterMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorRdsInstance(props: RdsInstanceMonitoringProps): this {
+    const segment = new RdsInstanceMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

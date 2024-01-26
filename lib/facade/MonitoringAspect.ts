@@ -320,6 +320,12 @@ export class MonitoringAspect implements IAspect {
         alarmFriendlyName: node.node.path,
         ...props,
       });
+    } else if (isEnabled && node instanceof rds.DatabaseInstance) {
+      this.monitoringFacade.monitorRdsInstance({
+        instance: node,
+        alarmFriendlyName: node.node.path,
+        ...props,
+      });
     }
   }
 

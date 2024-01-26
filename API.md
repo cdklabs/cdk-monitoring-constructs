@@ -1097,6 +1097,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorQueueProcessingEc2Service">monitorQueueProcessingEc2Service</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorQueueProcessingFargateService">monitorQueueProcessingFargateService</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRdsCluster">monitorRdsCluster</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRdsInstance">monitorRdsInstance</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRedshiftCluster">monitorRedshiftCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorS3Bucket">monitorS3Bucket</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorScope">monitorScope</a></code> | Uses an aspect to automatically monitor all resources in the given scope. |
@@ -1825,6 +1826,18 @@ public monitorRdsCluster(props: RdsClusterMonitoringProps): MonitoringFacade
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorRdsCluster.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps">RdsClusterMonitoringProps</a>
+
+---
+
+##### `monitorRdsInstance` <a name="monitorRdsInstance" id="cdk-monitoring-constructs.MonitoringFacade.monitorRdsInstance"></a>
+
+```typescript
+public monitorRdsInstance(props: RdsInstanceMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorRdsInstance.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps">RdsInstanceMonitoringProps</a>
 
 ---
 
@@ -38090,6 +38103,381 @@ public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCount
 
 ---
 
+### RdsInstanceMetricFactoryProps <a name="RdsInstanceMetricFactoryProps" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const rdsInstanceMetricFactoryProps: RdsInstanceMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.instance">instance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | database instance. |
+
+---
+
+##### `instance`<sup>Optional</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.instance"></a>
+
+```typescript
+public readonly instance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+database instance.
+
+---
+
+### RdsInstanceMonitoringOptions <a name="RdsInstanceMonitoringOptions" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.Initializer"></a>
+
+```typescript
+import { RdsInstanceMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const rdsInstanceMonitoringOptions: RdsInstanceMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addCpuUsageAlarm"></a>
+
+```typescript
+public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addDiskSpaceUsageAlarm`<sup>Optional</sup> <a name="addDiskSpaceUsageAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addDiskSpaceUsageAlarm"></a>
+
+```typescript
+public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addMaxConnectionCountAlarm`<sup>Optional</sup> <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMaxConnectionCountAlarm: {[ key: string ]: HighConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}
+
+---
+
+##### `addMinConnectionCountAlarm`<sup>Optional</sup> <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addMinConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
+
+---
+
+### RdsInstanceMonitoringProps <a name="RdsInstanceMonitoringProps" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceMonitoringProps } from 'cdk-monitoring-constructs'
+
+const rdsInstanceMonitoringProps: RdsInstanceMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.instance">instance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | database instance. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `instance`<sup>Optional</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.instance"></a>
+
+```typescript
+public readonly instance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+database instance.
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addCpuUsageAlarm"></a>
+
+```typescript
+public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addDiskSpaceUsageAlarm`<sup>Optional</sup> <a name="addDiskSpaceUsageAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addDiskSpaceUsageAlarm"></a>
+
+```typescript
+public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addMaxConnectionCountAlarm`<sup>Optional</sup> <a name="addMaxConnectionCountAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addMaxConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMaxConnectionCountAlarm: {[ key: string ]: HighConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}
+
+---
+
+##### `addMinConnectionCountAlarm`<sup>Optional</sup> <a name="addMinConnectionCountAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addMinConnectionCountAlarm"></a>
+
+```typescript
+public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
+
+---
+
 ### RecordsFailedThreshold <a name="RecordsFailedThreshold" id="cdk-monitoring-constructs.RecordsFailedThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RecordsFailedThreshold.Initializer"></a>
@@ -49741,6 +50129,7 @@ new AwsConsoleUrlFactory(props: AwsConsoleUrlFactoryProps)
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getLambdaFunctionUrl">getLambdaFunctionUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getOpenSearchClusterUrl">getOpenSearchClusterUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getRdsClusterUrl">getRdsClusterUrl</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getRdsInstanceUrl">getRdsInstanceUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getRedshiftClusterUrl">getRedshiftClusterUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getS3BucketUrl">getS3BucketUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getSnsTopicUrl">getSnsTopicUrl</a></code> | *No description.* |
@@ -49918,6 +50307,18 @@ public getRdsClusterUrl(clusterId: string): string
 ```
 
 ###### `clusterId`<sup>Required</sup> <a name="clusterId" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getRdsClusterUrl.parameter.clusterId"></a>
+
+- *Type:* string
+
+---
+
+##### `getRdsInstanceUrl` <a name="getRdsInstanceUrl" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getRdsInstanceUrl"></a>
+
+```typescript
+public getRdsInstanceUrl(instanceId: string): string
+```
+
+###### `instanceId`<sup>Required</sup> <a name="instanceId" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getRdsInstanceUrl.parameter.instanceId"></a>
 
 - *Type:* string
 
@@ -64444,6 +64845,547 @@ public readonly url: string;
 ---
 
 
+### RdsInstanceMetricFactory <a name="RdsInstanceMetricFactory" id="cdk-monitoring-constructs.RdsInstanceMetricFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.Initializer"></a>
+
+```typescript
+import { RdsInstanceMetricFactory } from 'cdk-monitoring-constructs'
+
+new RdsInstanceMetricFactory(metricFactory: MetricFactory, props: RdsInstanceMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactoryProps">RdsInstanceMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RdsInstanceMetricFactoryProps">RdsInstanceMetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricAverageCpuUsageInPercent">metricAverageCpuUsageInPercent</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricAverageFreeableMemory">metricAverageFreeableMemory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricAverageFreeStorageSpace">metricAverageFreeStorageSpace</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricReadIops">metricReadIops</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricReadLatencyInMillis">metricReadLatencyInMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricReadThroughput">metricReadThroughput</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricTotalConnectionCount">metricTotalConnectionCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricWriteIops">metricWriteIops</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricWriteLatencyInMillis">metricWriteLatencyInMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.metricWriteThroughput">metricWriteThroughput</a></code> | *No description.* |
+
+---
+
+##### `metricAverageCpuUsageInPercent` <a name="metricAverageCpuUsageInPercent" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricAverageCpuUsageInPercent"></a>
+
+```typescript
+public metricAverageCpuUsageInPercent(): Metric | MathExpression
+```
+
+##### `metricAverageFreeableMemory` <a name="metricAverageFreeableMemory" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricAverageFreeableMemory"></a>
+
+```typescript
+public metricAverageFreeableMemory(): Metric | MathExpression
+```
+
+##### `metricAverageFreeStorageSpace` <a name="metricAverageFreeStorageSpace" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricAverageFreeStorageSpace"></a>
+
+```typescript
+public metricAverageFreeStorageSpace(): Metric | MathExpression
+```
+
+##### `metricReadIops` <a name="metricReadIops" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricReadIops"></a>
+
+```typescript
+public metricReadIops(): Metric | MathExpression
+```
+
+##### `metricReadLatencyInMillis` <a name="metricReadLatencyInMillis" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricReadLatencyInMillis"></a>
+
+```typescript
+public metricReadLatencyInMillis(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricReadLatencyInMillis.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
+##### `metricReadThroughput` <a name="metricReadThroughput" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricReadThroughput"></a>
+
+```typescript
+public metricReadThroughput(): Metric | MathExpression
+```
+
+##### `metricTotalConnectionCount` <a name="metricTotalConnectionCount" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricTotalConnectionCount"></a>
+
+```typescript
+public metricTotalConnectionCount(): Metric | MathExpression
+```
+
+##### `metricWriteIops` <a name="metricWriteIops" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricWriteIops"></a>
+
+```typescript
+public metricWriteIops(): Metric | MathExpression
+```
+
+##### `metricWriteLatencyInMillis` <a name="metricWriteLatencyInMillis" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricWriteLatencyInMillis"></a>
+
+```typescript
+public metricWriteLatencyInMillis(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricWriteLatencyInMillis.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
+##### `metricWriteThroughput` <a name="metricWriteThroughput" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.metricWriteThroughput"></a>
+
+```typescript
+public metricWriteThroughput(): Metric | MathExpression
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instance">instance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | *No description.* |
+
+---
+
+##### `instanceIdentifier`<sup>Required</sup> <a name="instanceIdentifier" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+---
+
+##### `instance`<sup>Optional</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instance"></a>
+
+```typescript
+public readonly instance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+---
+
+
+### RdsInstanceMonitoring <a name="RdsInstanceMonitoring" id="cdk-monitoring-constructs.RdsInstanceMonitoring"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.RdsInstanceMonitoring.Initializer"></a>
+
+```typescript
+import { RdsInstanceMonitoring } from 'cdk-monitoring-constructs'
+
+new RdsInstanceMonitoring(scope: MonitoringScope, props: RdsInstanceMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps">RdsInstanceMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.RdsInstanceMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.RdsInstanceMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps">RdsInstanceMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.createCpuAndDiskUsageWidget">createCpuAndDiskUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.RdsInstanceMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.RdsInstanceMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.RdsInstanceMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.RdsInstanceMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.RdsInstanceMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.RdsInstanceMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.RdsInstanceMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createConnectionsWidget"></a>
+
+```typescript
+public createConnectionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createConnectionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createConnectionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createCpuAndDiskUsageWidget` <a name="createCpuAndDiskUsageWidget" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createCpuAndDiskUsageWidget"></a>
+
+```typescript
+public createCpuAndDiskUsageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createCpuAndDiskUsageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createCpuAndDiskUsageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createLatencyWidget"></a>
+
+```typescript
+public createLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.RdsInstanceMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.connectionAlarmFactory">connectionAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.connectionAnnotations">connectionAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.freeableMemoryMetric">freeableMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.freeStorageSpaceMetric">freeStorageSpaceMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.readIopsMetric">readIopsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.readLatencyMetric">readLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.readThroughputMetric">readThroughputMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.writeIopsMetric">writeIopsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.writeLatencyMetric">writeLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.writeThroughputMetric">writeThroughputMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `connectionAlarmFactory`<sup>Required</sup> <a name="connectionAlarmFactory" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.connectionAlarmFactory"></a>
+
+```typescript
+public readonly connectionAlarmFactory: ConnectionAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a>
+
+---
+
+##### `connectionAnnotations`<sup>Required</sup> <a name="connectionAnnotations" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.connectionAnnotations"></a>
+
+```typescript
+public readonly connectionAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `connectionsMetric`<sup>Required</sup> <a name="connectionsMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.connectionsMetric"></a>
+
+```typescript
+public readonly connectionsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `cpuUsageMetric`<sup>Required</sup> <a name="cpuUsageMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.cpuUsageMetric"></a>
+
+```typescript
+public readonly cpuUsageMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `freeableMemoryMetric`<sup>Required</sup> <a name="freeableMemoryMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.freeableMemoryMetric"></a>
+
+```typescript
+public readonly freeableMemoryMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `freeStorageSpaceMetric`<sup>Required</sup> <a name="freeStorageSpaceMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.freeStorageSpaceMetric"></a>
+
+```typescript
+public readonly freeStorageSpaceMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `readIopsMetric`<sup>Required</sup> <a name="readIopsMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.readIopsMetric"></a>
+
+```typescript
+public readonly readIopsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `readLatencyMetric`<sup>Required</sup> <a name="readLatencyMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.readLatencyMetric"></a>
+
+```typescript
+public readonly readLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `readThroughputMetric`<sup>Required</sup> <a name="readThroughputMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.readThroughputMetric"></a>
+
+```typescript
+public readonly readThroughputMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
+
+---
+
+##### `usageAnnotations`<sup>Required</sup> <a name="usageAnnotations" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.usageAnnotations"></a>
+
+```typescript
+public readonly usageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `writeIopsMetric`<sup>Required</sup> <a name="writeIopsMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.writeIopsMetric"></a>
+
+```typescript
+public readonly writeIopsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `writeLatencyMetric`<sup>Required</sup> <a name="writeLatencyMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.writeLatencyMetric"></a>
+
+```typescript
+public readonly writeLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `writeThroughputMetric`<sup>Required</sup> <a name="writeThroughputMetric" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.writeThroughputMetric"></a>
+
+```typescript
+public readonly writeThroughputMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `url`<sup>Optional</sup> <a name="url" id="cdk-monitoring-constructs.RdsInstanceMonitoring.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### RedshiftClusterMetricFactory <a name="RedshiftClusterMetricFactory" id="cdk-monitoring-constructs.RedshiftClusterMetricFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.RedshiftClusterMetricFactory.Initializer"></a>
@@ -71459,7 +72401,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -71550,7 +72492,7 @@ Gets the dashboard for the requested dashboard type.
 
 ### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 

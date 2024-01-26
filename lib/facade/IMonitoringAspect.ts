@@ -19,6 +19,7 @@ import {
   LambdaFunctionMonitoringOptions,
   OpenSearchClusterMonitoringOptions,
   RdsClusterMonitoringOptions,
+  RdsInstanceMonitoringOptions,
   RedshiftClusterMonitoringOptions,
   S3BucketMonitoringOptions,
   SecretsManagerSecretMonitoringOptions,
@@ -63,7 +64,9 @@ export interface MonitoringAspectProps {
   readonly kinesisFirehose?: MonitoringAspectType<KinesisFirehoseMonitoringOptions>;
   readonly lambda?: MonitoringAspectType<LambdaFunctionMonitoringOptions>;
   readonly openSearch?: MonitoringAspectType<OpenSearchClusterMonitoringOptions>;
-  readonly rds?: MonitoringAspectType<RdsClusterMonitoringOptions>;
+  readonly rds?: MonitoringAspectType<
+    RdsClusterMonitoringOptions | RdsInstanceMonitoringOptions
+  >;
   readonly redshift?: MonitoringAspectType<RedshiftClusterMonitoringOptions>;
   readonly s3?: MonitoringAspectType<S3BucketMonitoringOptions>;
   readonly secretsManager?: MonitoringAspectType<SecretsManagerSecretMonitoringOptions>;
