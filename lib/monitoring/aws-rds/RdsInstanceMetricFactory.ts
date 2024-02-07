@@ -15,12 +15,12 @@ export interface RdsInstanceMetricFactoryProps {
   /**
    * database instance
    */
-  readonly instance?: IDatabaseInstance;
+  readonly instance: IDatabaseInstance;
 }
 
 export class RdsInstanceMetricFactory {
   readonly instanceIdentifier: string;
-  readonly instance?: IDatabaseInstance;
+  readonly instance: IDatabaseInstance;
   protected readonly metricFactory: MetricFactory;
   protected readonly dimensionsMap: DimensionsMap;
 
@@ -30,45 +30,45 @@ export class RdsInstanceMetricFactory {
   ) {
     this.metricFactory = metricFactory;
     this.instance = props.instance;
-    this.instanceIdentifier =
-      RdsInstanceMetricFactory.resolveDbInstanceIdentifier(props);
-    this.dimensionsMap = { DBInstanceIdentifier: this.instanceIdentifier };
-  }
-
-  private static resolveDbInstanceIdentifier(
-    props: RdsInstanceMetricFactoryProps
-  ): string {
-    if (!props.instance) {
-      throw Error("`instance` is required");
-    }
-    return props.instance.instanceIdentifier;
+    this.instanceIdentifier = props.instance.instanceIdentifier;
+    this.dimensionsMap = {
+      DBInstanceIdentifier: this.instanceIdentifier,
+    };
   }
 
   metricTotalConnectionCount() {
-    return this.metric(
-      "DatabaseConnections",
-      MetricStatistic.SUM,
-      "Connections: Sum"
+    return this.metricFactory.adaptMetric(
+      this.instance.metricDatabaseConnections({
+        statistic: MetricStatistic.SUM,
+        label: "Connections: Sum",
+      })
     );
   }
 
   metricAverageCpuUsageInPercent() {
-    return this.metric("CPUUtilization", MetricStatistic.AVERAGE, "CPU Usage");
+    return this.metricFactory.adaptMetric(
+      this.instance.metricCPUUtilization({
+        statistic: MetricStatistic.AVERAGE,
+        label: "CPU Usage",
+      })
+    );
   }
 
   metricMaxFreeStorageSpace() {
-    return this.metric(
-      "FreeStorageSpace",
-      MetricStatistic.MAX,
-      "FreeStorageSpace: MAX"
+    return this.metricFactory.adaptMetric(
+      this.instance.metricFreeStorageSpace({
+        statistic: MetricStatistic.MAX,
+        label: "FreeStorageSpace: MAX",
+      })
     );
   }
 
   metricAverageFreeableMemory() {
-    return this.metric(
-      "FreeableMemory",
-      MetricStatistic.AVERAGE,
-      "FreeableMemory: Average"
+    return this.metricFactory.adaptMetric(
+      this.instance.metricFreeableMemory({
+        statistic: MetricStatistic.AVERAGE,
+        label: "FreeStorageSpace: Average",
+      })
     );
   }
 
@@ -90,10 +90,11 @@ export class RdsInstanceMetricFactory {
   }
 
   metricReadIops() {
-    return this.metric(
-      "ReadIOPS",
-      MetricStatistic.AVERAGE,
-      "ReadIOPS: Average"
+    return this.metricFactory.adaptMetric(
+      this.instance.metricReadIOPS({
+        statistic: MetricStatistic.AVERAGE,
+        label: "ReadIOPS: Average",
+      })
     );
   }
 
@@ -115,10 +116,11 @@ export class RdsInstanceMetricFactory {
   }
 
   metricWriteIops() {
-    return this.metric(
-      "WriteIOPS",
-      MetricStatistic.AVERAGE,
-      "WriteIOPS: Average"
+    return this.metricFactory.adaptMetric(
+      this.instance.metricWriteIOPS({
+        statistic: MetricStatistic.AVERAGE,
+        label: "WriteIOPS: Average",
+      })
     );
   }
 

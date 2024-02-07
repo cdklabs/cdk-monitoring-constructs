@@ -64,9 +64,12 @@ export interface MonitoringAspectProps {
   readonly kinesisFirehose?: MonitoringAspectType<KinesisFirehoseMonitoringOptions>;
   readonly lambda?: MonitoringAspectType<LambdaFunctionMonitoringOptions>;
   readonly openSearch?: MonitoringAspectType<OpenSearchClusterMonitoringOptions>;
-  readonly rds?: MonitoringAspectType<
-    RdsClusterMonitoringOptions | RdsInstanceMonitoringOptions
-  >;
+  /**
+   * @deprecated Use rdsCluster instead.
+   */
+  readonly rds?: MonitoringAspectType<RdsClusterMonitoringOptions>;
+  readonly rdsCluster?: MonitoringAspectType<RdsClusterMonitoringOptions>;
+  readonly rdsInstance?: MonitoringAspectType<RdsInstanceMonitoringOptions>;
   readonly redshift?: MonitoringAspectType<RedshiftClusterMonitoringOptions>;
   readonly s3?: MonitoringAspectType<S3BucketMonitoringOptions>;
   readonly secretsManager?: MonitoringAspectType<SecretsManagerSecretMonitoringOptions>;

@@ -33058,6 +33058,8 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.lambda">lambda</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.openSearch">openSearch</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rds">rds</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rdsCluster">rdsCluster</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rdsInstance">rdsInstance</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.redshift">redshift</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.s3">s3</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.secretsManager">secretsManager</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
@@ -33259,10 +33261,32 @@ public readonly openSearch: MonitoringAspectType;
 
 ---
 
-##### `rds`<sup>Optional</sup> <a name="rds" id="cdk-monitoring-constructs.MonitoringAspectProps.property.rds"></a>
+##### ~~`rds`~~<sup>Optional</sup> <a name="rds" id="cdk-monitoring-constructs.MonitoringAspectProps.property.rds"></a>
+
+- *Deprecated:* Use rdsCluster instead.
 
 ```typescript
 public readonly rds: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `rdsCluster`<sup>Optional</sup> <a name="rdsCluster" id="cdk-monitoring-constructs.MonitoringAspectProps.property.rdsCluster"></a>
+
+```typescript
+public readonly rdsCluster: MonitoringAspectType;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+
+---
+
+##### `rdsInstance`<sup>Optional</sup> <a name="rdsInstance" id="cdk-monitoring-constructs.MonitoringAspectProps.property.rdsInstance"></a>
+
+```typescript
+public readonly rdsInstance: MonitoringAspectType;
 ```
 
 - *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
@@ -38121,7 +38145,7 @@ const rdsInstanceMetricFactoryProps: RdsInstanceMetricFactoryProps = { ... }
 
 ---
 
-##### `instance`<sup>Optional</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.instance"></a>
+##### `instance`<sup>Required</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.instance"></a>
 
 ```typescript
 public readonly instance: IDatabaseInstance;
@@ -38328,7 +38352,7 @@ const rdsInstanceMonitoringProps: RdsInstanceMonitoringProps = { ... }
 
 ---
 
-##### `instance`<sup>Optional</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.instance"></a>
+##### `instance`<sup>Required</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.instance"></a>
 
 ```typescript
 public readonly instance: IDatabaseInstance;
@@ -64968,8 +64992,18 @@ public metricWriteThroughput(): Metric | MathExpression
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instance">instance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `instance`<sup>Required</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instance"></a>
+
+```typescript
+public readonly instance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
 
 ---
 
@@ -64980,16 +65014,6 @@ public readonly instanceIdentifier: string;
 ```
 
 - *Type:* string
-
----
-
-##### `instance`<sup>Optional</sup> <a name="instance" id="cdk-monitoring-constructs.RdsInstanceMetricFactory.property.instance"></a>
-
-```typescript
-public readonly instance: IDatabaseInstance;
-```
-
-- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
 
 ---
 
