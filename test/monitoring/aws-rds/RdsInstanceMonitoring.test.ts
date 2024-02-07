@@ -40,9 +40,9 @@ test.each([createRdsInstance])("snapshot test: all alarms - %#", (factory) => {
 
   const monitoring = new RdsInstanceMonitoring(scope, {
     instance: instance,
-    addDiskSpaceUsageAlarm: {
+    addFreeStorageSpaceAlarm: {
       Warning: {
-        maxUsagePercent: 80,
+        minCount: 20,
       },
     },
     addCpuUsageAlarm: {

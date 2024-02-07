@@ -56,11 +56,11 @@ export class RdsInstanceMetricFactory {
     return this.metric("CPUUtilization", MetricStatistic.AVERAGE, "CPU Usage");
   }
 
-  metricAverageFreeStorageSpace() {
+  metricMaxFreeStorageSpace() {
     return this.metric(
       "FreeStorageSpace",
-      MetricStatistic.AVERAGE,
-      "FreeStorageSpace: Average"
+      MetricStatistic.MAX,
+      "FreeStorageSpace: MAX"
     );
   }
 

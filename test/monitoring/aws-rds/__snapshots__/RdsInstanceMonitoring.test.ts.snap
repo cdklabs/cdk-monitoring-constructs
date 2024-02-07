@@ -23,7 +23,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDatabaseInstanceDiskUsageWarning97C72092",
+                  "ScopeTestDatabaseInstanceMinUsageCountWarning32B7AE36",
                   "Arn",
                 ],
               },
@@ -203,11 +203,11 @@ Object {
               Object {
                 "Ref": "DatabaseInstance24D16791",
               },
-              "\\",{\\"label\\":\\"FreeStorageSpace: Average\\"}],[\\"AWS/RDS\\",\\"FreeableMemory\\",\\"DBInstanceIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"FreeStorageSpace: MAX\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/RDS\\",\\"FreeableMemory\\",\\"DBInstanceIdentifier\\",\\"",
               Object {
                 "Ref": "DatabaseInstance24D16791",
               },
-              "\\",{\\"label\\":\\"FreeableMemory: Average\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"FreeStorageSpace: Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"FreeableMemory: Average\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"FreeStorageSpace: MAX < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -354,18 +354,18 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "ScopeTestDatabaseInstanceDiskUsageWarning97C72092": Object {
+    "ScopeTestDatabaseInstanceMinUsageCountWarning32B7AE36": Object {
       "Properties": Object {
         "ActionsEnabled": true,
-        "AlarmDescription": "The disk usage is too high.",
-        "AlarmName": "Test-DatabaseInstance-Disk-Usage-Warning",
-        "ComparisonOperator": "GreaterThanThreshold",
+        "AlarmDescription": "The count is too low.",
+        "AlarmName": "Test-DatabaseInstance-Min-Usage-Count-Warning",
+        "ComparisonOperator": "LessThanThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 3,
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "FreeStorageSpace: Average",
+            "Label": "FreeStorageSpace: MAX",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -380,12 +380,12 @@ Object {
                 "Namespace": "AWS/RDS",
               },
               "Period": 300,
-              "Stat": "Average",
+              "Stat": "Maximum",
             },
             "ReturnData": true,
           },
         ],
-        "Threshold": 80,
+        "Threshold": 20,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -412,11 +412,11 @@ Object {
               Object {
                 "Ref": "DatabaseInstance24D16791",
               },
-              "\\",{\\"label\\":\\"FreeStorageSpace: Average\\"}],[\\"AWS/RDS\\",\\"FreeableMemory\\",\\"DBInstanceIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"FreeStorageSpace: MAX\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/RDS\\",\\"FreeableMemory\\",\\"DBInstanceIdentifier\\",\\"",
               Object {
                 "Ref": "DatabaseInstance24D16791",
               },
-              "\\",{\\"label\\":\\"FreeableMemory: Average\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"FreeStorageSpace: Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"FreeableMemory: Average\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"FreeStorageSpace: MAX < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1029,7 +1029,7 @@ Object {
               Object {
                 "Ref": "DatabaseInstance24D16791",
               },
-              "\\",{\\"label\\":\\"FreeStorageSpace: Average\\"}],[\\"AWS/RDS\\",\\"FreeableMemory\\",\\"DBInstanceIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"FreeStorageSpace: MAX\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/RDS\\",\\"FreeableMemory\\",\\"DBInstanceIdentifier\\",\\"",
               Object {
                 "Ref": "DatabaseInstance24D16791",
               },
@@ -1094,7 +1094,7 @@ Object {
               Object {
                 "Ref": "DatabaseInstance24D16791",
               },
-              "\\",{\\"label\\":\\"FreeStorageSpace: Average\\"}],[\\"AWS/RDS\\",\\"FreeableMemory\\",\\"DBInstanceIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"FreeStorageSpace: MAX\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/RDS\\",\\"FreeableMemory\\",\\"DBInstanceIdentifier\\",\\"",
               Object {
                 "Ref": "DatabaseInstance24D16791",
               },
