@@ -64,7 +64,8 @@ export class MonitoringAspect implements IAspect {
     this.monitorKinesisFirehose(node);
     this.monitorLambda(node);
     this.monitorOpenSearch(node);
-    this.monitorRds(node);
+    this.monitorRdsCluster(node);
+    this.monitorRdsInstance(node);
     this.monitorRedshift(node);
     this.monitorS3(node);
     this.monitorSecretsManager(node);
@@ -312,11 +313,26 @@ export class MonitoringAspect implements IAspect {
     }
   }
 
-  private monitorRds(node: IConstruct) {
-    const [isEnabled, props] = this.getMonitoringDetails(this.props.rds);
+  private monitorRdsCluster(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.rdsCluster ?? this.props.rds
+    );
     if (isEnabled && node instanceof rds.DatabaseCluster) {
       this.monitoringFacade.monitorRdsCluster({
         cluster: node,
+        alarmFriendlyName: node.node.path,
+        ...props,
+      });
+    }
+  }
+
+  private monitorRdsInstance(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.rdsInstance
+    );
+    if (isEnabled && node instanceof rds.DatabaseInstance) {
+      this.monitoringFacade.monitorRdsInstance({
+        instance: node,
         alarmFriendlyName: node.node.path,
         ...props,
       });

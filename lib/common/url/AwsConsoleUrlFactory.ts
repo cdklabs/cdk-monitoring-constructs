@@ -119,6 +119,12 @@ export class AwsConsoleUrlFactory {
     return this.getAwsConsoleUrl(destinationUrl);
   }
 
+  getRdsInstanceUrl(instanceId: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/rds/home?region=${region}#database:id=${instanceId};is-cluster=false;tab=monitoring`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
   getRedshiftClusterUrl(clusterId: string): string | undefined {
     const region = this.awsAccountRegion;
     const destinationUrl = `https://${region}.console.aws.amazon.com/redshiftv2/home?region=${region}#cluster-details?cluster=${clusterId}`;

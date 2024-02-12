@@ -86,6 +86,7 @@ You can browse the documentation at https://constructs.dev/packages/cdk-monitori
 | AWS Load Balancing (`.monitorNetworkLoadBalancer()`, `.monitorFargateApplicationLoadBalancer()`, `.monitorFargateNetworkLoadBalancer()`, `.monitorEc2ApplicationLoadBalancer()`, `.monitorEc2NetworkLoadBalancer()`) | System resources and task health | Unhealthy task count, running tasks count, (for Fargate/Ec2 apps) CPU/memory usage | Use for FargateService or Ec2Service backed by a NetworkLoadBalancer or ApplicationLoadBalancer |
 | AWS OpenSearch/Elasticsearch (`.monitorOpenSearchCluster()`, `.monitorElasticsearchCluster()`) | Indexing and search latency, disk/memory/CPU usage | Indexing and search latency, disk/memory/CPU usage, cluster status, KMS keys | |
 | AWS RDS (`.monitorRdsCluster()`) | Query duration, connections, latency, disk/CPU usage | Connections, disk and CPU usage | |
+| AWS RDS (`.monitorRdsInstance()`) | Query duration, connections, latency, disk/CPU usage | Connections, disk and CPU usage | |
 | AWS Redshift (`.monitorRedshiftCluster()`) | Query duration, connections, latency, disk/CPU usage | Query duration, connections, disk and CPU usage | |
 | AWS S3 Bucket (`.monitorS3Bucket()`) | Bucket size and number of objects | | |
 | AWS SecretsManager (`.monitorSecretsManager()`) | Max secret count, min secret sount, secret count change | Min/max secret count or change in secret count | |

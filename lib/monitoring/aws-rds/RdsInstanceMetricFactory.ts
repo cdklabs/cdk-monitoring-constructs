@@ -1,0 +1,141 @@
+import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
+import { IDatabaseInstance } from "aws-cdk-lib/aws-rds";
+
+import {
+  LatencyType,
+  MetricFactory,
+  MetricStatistic,
+  getLatencyTypeLabel,
+  getLatencyTypeStatistic,
+} from "../../common";
+
+const RdsNamespace = "AWS/RDS";
+
+export interface RdsInstanceMetricFactoryProps {
+  /**
+   * database instance
+   */
+  readonly instance: IDatabaseInstance;
+}
+
+export class RdsInstanceMetricFactory {
+  readonly instanceIdentifier: string;
+  readonly instance: IDatabaseInstance;
+  protected readonly metricFactory: MetricFactory;
+  protected readonly dimensionsMap: DimensionsMap;
+
+  constructor(
+    metricFactory: MetricFactory,
+    props: RdsInstanceMetricFactoryProps
+  ) {
+    this.metricFactory = metricFactory;
+    this.instance = props.instance;
+    this.instanceIdentifier = props.instance.instanceIdentifier;
+    this.dimensionsMap = {
+      DBInstanceIdentifier: this.instanceIdentifier,
+    };
+  }
+
+  metricTotalConnectionCount() {
+    return this.metricFactory.adaptMetric(
+      this.instance.metricDatabaseConnections({
+        statistic: MetricStatistic.SUM,
+        label: "Connections: Sum",
+      })
+    );
+  }
+
+  metricAverageCpuUsageInPercent() {
+    return this.metricFactory.adaptMetric(
+      this.instance.metricCPUUtilization({
+        statistic: MetricStatistic.AVERAGE,
+        label: "CPU Usage",
+      })
+    );
+  }
+
+  metricMaxFreeStorageSpace() {
+    return this.metricFactory.adaptMetric(
+      this.instance.metricFreeStorageSpace({
+        statistic: MetricStatistic.MAX,
+        label: "FreeStorageSpace: MAX",
+      })
+    );
+  }
+
+  metricAverageFreeableMemory() {
+    return this.metricFactory.adaptMetric(
+      this.instance.metricFreeableMemory({
+        statistic: MetricStatistic.AVERAGE,
+        label: "FreeStorageSpace: Average",
+      })
+    );
+  }
+
+  metricReadLatencyInMillis(latencyType: LatencyType) {
+    const label = "ReadLatency " + getLatencyTypeLabel(latencyType);
+    return this.metric(
+      "ReadLatency",
+      getLatencyTypeStatistic(latencyType),
+      label
+    );
+  }
+
+  metricReadThroughput() {
+    return this.metric(
+      "ReadThroughput",
+      MetricStatistic.AVERAGE,
+      "ReadThroughput: Average"
+    );
+  }
+
+  metricReadIops() {
+    return this.metricFactory.adaptMetric(
+      this.instance.metricReadIOPS({
+        statistic: MetricStatistic.AVERAGE,
+        label: "ReadIOPS: Average",
+      })
+    );
+  }
+
+  metricWriteLatencyInMillis(latencyType: LatencyType) {
+    const label = "WriteLatency " + getLatencyTypeLabel(latencyType);
+    return this.metric(
+      "WriteLatency",
+      getLatencyTypeStatistic(latencyType),
+      label
+    );
+  }
+
+  metricWriteThroughput() {
+    return this.metric(
+      "WriteThroughput",
+      MetricStatistic.AVERAGE,
+      "WriteThroughput: Average"
+    );
+  }
+
+  metricWriteIops() {
+    return this.metricFactory.adaptMetric(
+      this.instance.metricWriteIOPS({
+        statistic: MetricStatistic.AVERAGE,
+        label: "WriteIOPS: Average",
+      })
+    );
+  }
+
+  private metric(
+    metricName: string,
+    statistic: MetricStatistic,
+    label: string
+  ) {
+    return this.metricFactory.createMetric(
+      metricName,
+      statistic,
+      label,
+      this.dimensionsMap,
+      undefined,
+      RdsNamespace
+    );
+  }
+}
