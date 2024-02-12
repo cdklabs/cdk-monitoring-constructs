@@ -39,7 +39,7 @@
   "devDependencies": {
     "@aws-cdk/aws-redshift-alpha": "2.112.0-alpha.0",
     "@types/jest": "^27",
-    "@types/node": "^16",
+    "@types/node": "^16 <= 16.18.78",
     "@types/prettier": "2.6.0",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
@@ -58,7 +58,7 @@
     "jsii-pacmak": "^1.94.0",
     "jsii-rosetta": "1.x",
     "prettier": "^2.8.8",
-    "projen": "^0.79.6",
+    "projen": "^0.79.17",
     "standard-version": "^9",
     "ts-jest": "^27",
     "ts-node": "^10.9.2",
