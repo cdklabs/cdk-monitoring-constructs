@@ -314,7 +314,9 @@ export class MonitoringAspect implements IAspect {
   }
 
   private monitorRdsCluster(node: IConstruct) {
-    const [isEnabled, props] = this.getMonitoringDetails(this.props.rdsCluster);
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.rdsCluster ?? this.props.rds
+    );
     if (isEnabled && node instanceof rds.DatabaseCluster) {
       this.monitoringFacade.monitorRdsCluster({
         cluster: node,
