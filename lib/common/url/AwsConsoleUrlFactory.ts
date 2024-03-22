@@ -145,7 +145,7 @@ export class AwsConsoleUrlFactory {
 
   getSqsQueueUrl(queueUrl: string): string | undefined {
     const region = this.awsAccountRegion;
-    const destinationUrl = `https://${region}.console.aws.amazon.com/sqs/v2/home?region=${region}#/queues/${queueUrl}`;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/sqs/v3/home?region=${region}#/queues/${queueUrl}`;
     return this.getAwsConsoleUrl(destinationUrl);
   }
 

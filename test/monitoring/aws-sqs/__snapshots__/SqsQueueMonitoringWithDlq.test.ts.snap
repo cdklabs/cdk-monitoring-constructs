@@ -100,7 +100,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "Queue4A7E3555",
               },
@@ -187,7 +187,7 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"markdown\\":\\"### SQS Dead-Letter Queue **[DummyQueue-DLQ](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"markdown\\":\\"### SQS Dead-Letter Queue **[DummyQueue-DLQ](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "DeadLetterQueue9F481546",
               },
@@ -428,7 +428,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "Queue4A7E3555",
               },
@@ -580,7 +580,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "Queue4A7E3555",
               },
@@ -667,7 +667,7 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"markdown\\":\\"### SQS Dead-Letter Queue **[DummyQueue-DLQ](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"markdown\\":\\"### SQS Dead-Letter Queue **[DummyQueue-DLQ](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "DeadLetterQueue9F481546",
               },
@@ -713,7 +713,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "Queue4A7E3555",
               },

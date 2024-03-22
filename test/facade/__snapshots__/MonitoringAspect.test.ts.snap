@@ -8405,7 +8405,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              ".console.aws.amazon.com/sqs/v2/home?region=",
+              ".console.aws.amazon.com/sqs/v3/home?region=",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -8514,7 +8514,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              ".console.aws.amazon.com/sqs/v2/home?region=",
+              ".console.aws.amazon.com/sqs/v3/home?region=",
               Object {
                 "Ref": "AWS::Region",
               },
