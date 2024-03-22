@@ -17,6 +17,7 @@ import {
   DefaultLogWidgetHeight,
   DefaultSummaryWidgetHeight,
   FullWidth,
+  MaxUsageCountThreshold,
   MetricWithAlarmSupport,
   MinUsageCountThreshold,
   Monitoring,
@@ -55,6 +56,7 @@ export interface LogMonitoringProps
   readonly limit?: number;
 
   readonly addMinIncomingLogsAlarm?: Record<string, MinUsageCountThreshold>;
+  readonly addMaxIncomingLogsAlarm?: Record<string, MaxUsageCountThreshold>;
 }
 
 /**
@@ -108,6 +110,17 @@ export class LogMonitoring extends Monitoring {
     for (const disambiguator in props.addMinIncomingLogsAlarm) {
       const alarmProps = props.addMinIncomingLogsAlarm[disambiguator];
       const createdAlarm = this.usageAlarmFactory.addMinUsageCountAlarm(
+        this.incomingLogEventsMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.usageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addMaxIncomingLogsAlarm) {
+      const alarmProps = props.addMaxIncomingLogsAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMaxCountAlarm(
         this.incomingLogEventsMetric,
         alarmProps,
         disambiguator
