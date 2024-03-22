@@ -65,6 +65,11 @@ test("snapshot test: with alarms", () => {
         treatMissingDataOverride: TreatMissingData.BREACHING,
       },
     },
+    addMaxIncomingLogsAlarm: {
+      Critical: {
+        maxCount: 9001,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms) {
         numAlarmsCreated = alarms.length;
@@ -73,6 +78,6 @@ test("snapshot test: with alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(1);
+  expect(numAlarmsCreated).toStrictEqual(2);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

@@ -278,6 +278,17 @@ Object {
                   "Arn",
                 ],
               },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLogGroupMaxUsageCountCriticalD4E65812",
+                  "Arn",
+                ],
+              },
               "\\"]},\\"yAxis\\":{}}}]}",
             ],
           ],
@@ -299,12 +310,46 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Logs > 9001 for 3 datapoints within 15 minutes\\",\\"value\\":9001,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
       },
       "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyLogGroupMaxUsageCountCriticalD4E65812": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The count is too high.",
+        "AlarmName": "Test-DummyLogGroup-Max-Usage-Count-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Logs",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LogGroupName",
+                    "Value": "DummyLogGroup",
+                  },
+                ],
+                "MetricName": "IncomingLogEvents",
+                "Namespace": "AWS/Logs",
+              },
+              "Period": 300,
+              "Stat": "SampleCount",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 9001,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ScopeTestDummyLogGroupUsageCountWarningAE5FF03C": Object {
       "Properties": Object {
@@ -350,7 +395,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Logs > 9001 for 3 datapoints within 15 minutes\\",\\"value\\":9001,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

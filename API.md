@@ -25206,6 +25206,7 @@ const logMonitoringProps: LogMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.logGroupName">logGroupName</a></code> | <code>string</code> | Name of the log group to monitor. |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addMaxIncomingLogsAlarm">addMaxIncomingLogsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addMinIncomingLogsAlarm">addMinIncomingLogsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.limit">limit</a></code> | <code>number</code> | Maximum number of log messages to search for. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.pattern">pattern</a></code> | <code>string</code> | Pattern to search for, e.g. "ERROR". |
@@ -25320,6 +25321,16 @@ public readonly logGroupName: string;
 - *Type:* string
 
 Name of the log group to monitor.
+
+---
+
+##### `addMaxIncomingLogsAlarm`<sup>Optional</sup> <a name="addMaxIncomingLogsAlarm" id="cdk-monitoring-constructs.LogMonitoringProps.property.addMaxIncomingLogsAlarm"></a>
+
+```typescript
+public readonly addMaxIncomingLogsAlarm: {[ key: string ]: MaxUsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}
 
 ---
 
