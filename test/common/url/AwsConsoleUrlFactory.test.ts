@@ -78,7 +78,7 @@ test("getSqsQueueUrl", () => {
   const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });
 
   const expected =
-    "https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/DummyQueueUrl";
+    "https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/DummyQueueUrl";
 
   expect(stack.resolve(factory.getSqsQueueUrl("DummyQueueUrl"))).toEqual(
     expected

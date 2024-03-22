@@ -103,7 +103,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "Queue4A7E3555",
               },
@@ -490,7 +490,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "Queue4A7E3555",
               },
@@ -634,7 +634,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "Queue4A7E3555",
               },
@@ -734,7 +734,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
               Object {
                 "Ref": "Queue4A7E3555",
               },
@@ -878,7 +878,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueueRef](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/https://sqs.us-east-2.",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueueRef](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/https://sqs.us-east-2.",
               Object {
                 "Ref": "AWS::URLSuffix",
               },
@@ -915,7 +915,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueueRef](https://eu-west-1.console.aws.amazon.com/sqs/v2/home?region=eu-west-1#/queues/https://sqs.us-east-2.",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueueRef](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/https://sqs.us-east-2.",
               Object {
                 "Ref": "AWS::URLSuffix",
               },
