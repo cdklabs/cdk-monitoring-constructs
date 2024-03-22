@@ -20,6 +20,15 @@ export const PercentageAxisFromZeroToHundred: YAxisProps = {
 };
 
 /**
+ * Y-Axis showing percentage, ranged up to 100.
+ */
+export const PercentageAxisUpToHundred: YAxisProps = {
+  max: 100,
+  label: "%",
+  showUnits: false,
+};
+
+/**
  * Y-Axis showing time in milliseconds, ranged from 0.
  */
 export const TimeAxisMillisFromZero: YAxisProps = {
