@@ -6,6 +6,7 @@ import {
   MathExpression,
   Metric,
   Shading,
+  VerticalShading,
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
@@ -152,6 +153,14 @@ test("snapshot test", () => {
         ],
         horizontalRightAnnotations: [
           { label: "DummyAnnotation3", value: 20, fill: Shading.BELOW },
+        ],
+        verticalAnnotations: [
+          {
+            date: "2021-07-29T02:31:09.890Z",
+            color: "667788",
+            fill: VerticalShading.AFTER,
+            label: "this is a vertical annotation",
+          },
         ],
         graphWidgetLegend: LegendPosition.RIGHT,
       },

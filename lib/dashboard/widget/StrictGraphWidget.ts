@@ -4,6 +4,7 @@ import {
   HorizontalAnnotation,
   IMetric,
   LegendPosition,
+  VerticalAnnotation,
   YAxisProps,
 } from "aws-cdk-lib/aws-cloudwatch";
 
@@ -14,6 +15,7 @@ export interface SingleAxisGraphWidgetProps {
   readonly leftMetrics: IMetric[];
   readonly leftAxis: YAxisProps;
   readonly leftAnnotations?: HorizontalAnnotation[];
+  readonly verticalAnnotations?: VerticalAnnotation[];
 }
 
 /**
@@ -44,6 +46,7 @@ export class SingleAxisGraphWidget extends GraphWidget {
       left: props.leftMetrics,
       leftYAxis: props.leftAxis,
       leftAnnotations: props.leftAnnotations,
+      verticalAnnotations: props.verticalAnnotations,
       legendPosition,
     };
   }
@@ -59,6 +62,7 @@ export interface DoubleAxisGraphWidgetProps {
   readonly rightMetrics: IMetric[];
   readonly rightAxis: YAxisProps;
   readonly rightAnnotations?: HorizontalAnnotation[];
+  readonly verticalAnnotations?: VerticalAnnotation[];
 }
 
 /**
@@ -95,6 +99,7 @@ export class DoubleAxisGraphWidget extends GraphWidget {
       right: props.rightMetrics,
       rightYAxis: props.rightAxis,
       rightAnnotations: props.rightAnnotations,
+      verticalAnnotations: props.verticalAnnotations,
     };
   }
 }

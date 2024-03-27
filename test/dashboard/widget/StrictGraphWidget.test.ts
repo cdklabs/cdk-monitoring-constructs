@@ -1,6 +1,8 @@
 import {
   HorizontalAnnotation,
   Metric,
+  VerticalAnnotation,
+  VerticalShading,
   YAxisProps,
 } from "aws-cdk-lib/aws-cloudwatch";
 import { DoubleAxisGraphWidget, SingleAxisGraphWidget } from "../../../lib";
@@ -11,6 +13,12 @@ const DummyAxis1: YAxisProps = { min: 0, max: 1 };
 const DummyAxis2: YAxisProps = { min: 100, max: 200 };
 const DummyAnnotation1: HorizontalAnnotation = { value: 42 };
 const DummyAnnotation2: HorizontalAnnotation = { value: 66 };
+const DummyVerticalAnnotation: VerticalAnnotation = {
+  date: "2021-07-29T02:31:09.890Z",
+  color: "123456",
+  fill: VerticalShading.BEFORE,
+  label: "Custom vertical annotation",
+};
 
 test("single axis - single metric: snapshot test", () => {
   const widget = new SingleAxisGraphWidget({
@@ -33,6 +41,7 @@ test("single axis - two metrics: snapshot test", () => {
     leftMetrics: [DummyMetric1, DummyMetric2],
     leftAnnotations: [DummyAnnotation1],
     leftAxis: DummyAxis1,
+    verticalAnnotations: [DummyVerticalAnnotation],
   });
 
   expect(removeRegionToken(widget.toJson())).toMatchSnapshot();
@@ -49,6 +58,7 @@ test("double axis - two metrics: snapshot test", () => {
     rightMetrics: [DummyMetric1],
     rightAxis: DummyAxis2,
     rightAnnotations: [DummyAnnotation2],
+    verticalAnnotations: [DummyVerticalAnnotation],
   });
 
   expect(removeRegionToken(widget.toJson())).toMatchSnapshot();
