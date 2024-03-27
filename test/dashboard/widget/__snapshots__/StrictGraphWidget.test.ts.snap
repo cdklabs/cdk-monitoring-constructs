@@ -16,7 +16,14 @@ Array [
             "yAxis": "right",
           },
         ],
-        "vertical": undefined,
+        "vertical": Array [
+          Object {
+            "color": "123456",
+            "fill": "before",
+            "label": "Custom vertical annotation",
+            "value": "2021-07-29T02:31:09.890Z",
+          },
+        ],
       },
       "end": undefined,
       "legend": undefined,
@@ -125,7 +132,14 @@ Array [
             "yAxis": "left",
           },
         ],
-        "vertical": undefined,
+        "vertical": Array [
+          Object {
+            "color": "123456",
+            "fill": "before",
+            "label": "Custom vertical annotation",
+            "value": "2021-07-29T02:31:09.890Z",
+          },
+        ],
       },
       "end": undefined,
       "legend": undefined,
