@@ -584,6 +584,93 @@ test("addCompositeAlarm: snapshot for operator", () => {
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
+test("addCompositeAlarm: snapshot for suppressor alarm props", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: globalAlarmDefaultsWithDisambiguator,
+    localAlarmNamePrefix: "prefix",
+  });
+  const alarm1 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm1",
+    alarmDescription: "Testing alarm 1",
+    threshold: 1,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const alarm2 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm2",
+    alarmDescription: "Testing alarm 2",
+    threshold: 2,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const suppressorAlarm = factory.addCompositeAlarm([alarm1, alarm2], {
+    disambiguator: "SuppressorAlarm",
+    alarmNameSuffix: "SuppressorAlarm",
+  });
+  factory.addCompositeAlarm([alarm1, alarm2], {
+    disambiguator: "SuppressedAlarmDefault",
+    alarmNameSuffix: "SuppressedAlarmDefault",
+    actionsSuppressor: suppressorAlarm,
+  });
+  factory.addCompositeAlarm([alarm1, alarm2], {
+    disambiguator: "SuppressedAlarmTestExtensionPeriod",
+    alarmNameSuffix: "SuppressedAlarmTestExtensionPeriod",
+    actionsSuppressor: suppressorAlarm,
+    actionsSuppressorExtensionPeriod: Duration.seconds(100),
+  });
+  factory.addCompositeAlarm([alarm1, alarm2], {
+    disambiguator: "SuppressedAlarmTestWaitPeriod",
+    alarmNameSuffix: "SuppressedAlarmTestWaitPeriod",
+    actionsSuppressor: suppressorAlarm,
+    actionsSuppressorWaitPeriod: Duration.seconds(100),
+  });
+  factory.addCompositeAlarm([alarm1, alarm2], {
+    disambiguator: "SuppressedAlarmTestBothExtensionAndWaitPeriod",
+    alarmNameSuffix: "SuppressedAlarmTestBothExtensionAndWaitPeriod",
+    actionsSuppressor: suppressorAlarm,
+    actionsSuppressorExtensionPeriod: Duration.seconds(100),
+    actionsSuppressorWaitPeriod: Duration.seconds(100),
+  });
+
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("addCompositeAlarm: actions suppressor extension period specified but no actions suppressor throws error", () => {
+  expect(() => {
+    factory.addCompositeAlarm([], {
+      disambiguator: "CompositeAlarmExtensionPeriodSpecifiedNoSuppressorAlarm",
+      alarmNameSuffix:
+        "CompositeAlarmExtensionPeriodSpecifiedNoSuppressorAlarm",
+      actionsSuppressorExtensionPeriod: Duration.seconds(100),
+    });
+  }).toThrow(Error);
+});
+
+test("addCompositeAlarm: actions suppressor wait period specified but no actions suppressor throws error", () => {
+  expect(() => {
+    factory.addCompositeAlarm([], {
+      disambiguator: "CompositeAlarmWaitPeriodSpecifiedNoSuppressorAlarm",
+      alarmNameSuffix: "CompositeAlarmWaitPeriodSpecifiedNoSuppressorAlarm",
+      actionsSuppressorWaitPeriod: Duration.seconds(100),
+    });
+  }).toThrow(Error);
+});
+
+test("addCompositeAlarm: actions suppressor both extension and wait periods specified but no actions suppressor throws error", () => {
+  expect(() => {
+    factory.addCompositeAlarm([], {
+      disambiguator:
+        "CompositeAlarmBothExtensionAndWaitPeriodSpecifiedNoSuppressorAlarm",
+      alarmNameSuffix:
+        "CompositeAlarmBothExtensionAndWaitPeriodSpecifiedNoSuppressorAlarm",
+      actionsSuppressorExtensionPeriod: Duration.seconds(100),
+      actionsSuppressorWaitPeriod: Duration.seconds(100),
+    });
+  }).toThrow(Error);
+});
+
 test("addAlarm: original actionOverride with a different action gets preserved", () => {
   const originalActionOverride = new SnsAlarmActionStrategy({
     onAlarmTopic: new Topic(stack, "Dummy1"),

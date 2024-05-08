@@ -245,3 +245,272 @@ Object {
   },
 }
 `;
+
+exports[`addCompositeAlarm: snapshot for suppressor alarm props 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "DummyServiceAlarmsprefixAlarm1F4FCF957": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Testing alarm 1",
+        "AlarmName": "DummyServiceAlarms-prefix-Alarm1",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 6,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 6,
+        "MetricName": "DummyMetric1",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyServiceAlarmsprefixAlarm25ADF8B37": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Testing alarm 2",
+        "AlarmName": "DummyServiceAlarms-prefix-Alarm2",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 6,
+        "Dimensions": Array [
+          Object {
+            "Name": "CustomDimension",
+            "Value": "CustomDimensionValue",
+          },
+        ],
+        "EvaluationPeriods": 6,
+        "MetricName": "DummyMetric1",
+        "Namespace": "DummyCustomNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 2,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyServiceAlarmsprefixSuppressedAlarmDefault3397EEAA": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "ActionsSuppressor": Object {
+          "Fn::GetAtt": Array [
+            "DummyServiceAlarmsprefixSuppressorAlarm7A8145E7",
+            "Arn",
+          ],
+        },
+        "ActionsSuppressorExtensionPeriod": 60,
+        "ActionsSuppressorWaitPeriod": 60,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-SuppressedAlarmDefault",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm1F4FCF957",
+                  "Arn",
+                ],
+              },
+              "\\") OR ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm25ADF8B37",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+    "DummyServiceAlarmsprefixSuppressedAlarmTestBothExtensionAndWaitPeriodAD8EE66D": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "ActionsSuppressor": Object {
+          "Fn::GetAtt": Array [
+            "DummyServiceAlarmsprefixSuppressorAlarm7A8145E7",
+            "Arn",
+          ],
+        },
+        "ActionsSuppressorExtensionPeriod": 100,
+        "ActionsSuppressorWaitPeriod": 100,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-SuppressedAlarmTestBothExtensionAndWaitPeriod",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm1F4FCF957",
+                  "Arn",
+                ],
+              },
+              "\\") OR ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm25ADF8B37",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+    "DummyServiceAlarmsprefixSuppressedAlarmTestExtensionPeriodE8E43F86": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "ActionsSuppressor": Object {
+          "Fn::GetAtt": Array [
+            "DummyServiceAlarmsprefixSuppressorAlarm7A8145E7",
+            "Arn",
+          ],
+        },
+        "ActionsSuppressorExtensionPeriod": 100,
+        "ActionsSuppressorWaitPeriod": 60,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-SuppressedAlarmTestExtensionPeriod",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm1F4FCF957",
+                  "Arn",
+                ],
+              },
+              "\\") OR ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm25ADF8B37",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+    "DummyServiceAlarmsprefixSuppressedAlarmTestWaitPeriod09DC1879": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "ActionsSuppressor": Object {
+          "Fn::GetAtt": Array [
+            "DummyServiceAlarmsprefixSuppressorAlarm7A8145E7",
+            "Arn",
+          ],
+        },
+        "ActionsSuppressorExtensionPeriod": 60,
+        "ActionsSuppressorWaitPeriod": 100,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-SuppressedAlarmTestWaitPeriod",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm1F4FCF957",
+                  "Arn",
+                ],
+              },
+              "\\") OR ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm25ADF8B37",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+    "DummyServiceAlarmsprefixSuppressorAlarm7A8145E7": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-SuppressorAlarm",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm1F4FCF957",
+                  "Arn",
+                ],
+              },
+              "\\") OR ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm25ADF8B37",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
