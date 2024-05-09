@@ -12170,6 +12170,7 @@ const customMetricGroup: CustomMetricGroup = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis">graphWidgetRightAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional right axis. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetSetPeriodToTimeRange">graphWidgetSetPeriodToTimeRange</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetType">graphWidgetType</a></code> | <code><a href="#cdk-monitoring-constructs.GraphWidgetType">GraphWidgetType</a></code> | type of the widget. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetWidth">graphWidgetWidth</a></code> | <code>number</code> | Width of graph widget. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalAnnotations">horizontalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | Optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalRightAnnotations">horizontalRightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | Optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.important">important</a></code> | <code>boolean</code> | *No description.* |
@@ -12275,6 +12276,22 @@ public readonly graphWidgetType: GraphWidgetType;
 - *Default:* line
 
 type of the widget.
+
+---
+
+##### `graphWidgetWidth`<sup>Optional</sup> <a name="graphWidgetWidth" id="cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetWidth"></a>
+
+```typescript
+public readonly graphWidgetWidth: number;
+```
+
+- *Type:* number
+- *Default:* Automatically calculcated width, generally as wide as possible considering all metrics' widgets.
+
+Width of graph widget.
+
+Note that widgets will overflow into new rows if the summed width
+exceeds 24.
 
 ---
 
@@ -12704,7 +12721,7 @@ const customMonitoringProps: CustomMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.metricGroups">metricGroups</a></code> | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup">CustomMetricGroup</a>[]</code> | define metric groups and metrics inside them (each metric group represents a widget). |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.description">description</a></code> | <code>string</code> | optional description of the whole section, in markdown. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.descriptionWidgetHeight">descriptionWidgetHeight</a></code> | <code>number</code> | optional height of the description widget, so the content fits. |
-| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.height">height</a></code> | <code>number</code> | height override. |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.height">height</a></code> | <code>number</code> | Height override. |
 
 ---
 
@@ -12853,7 +12870,7 @@ public readonly height: number;
 - *Type:* number
 - *Default:* default height
 
-height override.
+Height override.
 
 ---
 

@@ -20,6 +20,7 @@ export const DefaultLogWidgetHeight = 7;
 /**
  * Suggests the best widget width, given the total number of widgets.
  * The main point is to make widgets as wide as possible, while saving vertical space and minimizing number of gaps.
+ *
  * @param numTotalWidgets total number of widgets to be placed
  */
 export function recommendedWidgetWidth(numTotalWidgets: number) {

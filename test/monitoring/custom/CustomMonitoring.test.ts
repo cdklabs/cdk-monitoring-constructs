@@ -39,6 +39,7 @@ test("snapshot test", () => {
       {
         title: "DummyGroup1",
         addToSummaryDashboard: true,
+        graphWidgetWidth: 6,
         metrics: [
           // regular metric
           new Metric({ metricName: "DummyMetric1", namespace, dimensionsMap }),
@@ -75,6 +76,7 @@ test("snapshot test", () => {
       {
         title: "DummyGroup2",
         graphWidgetType: GraphWidgetType.BAR,
+        graphWidgetWidth: 2,
         metrics: [
           // regular metric
           new Metric({ metricName: "DummyMetric10", namespace, dimensionsMap }),
