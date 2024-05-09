@@ -9,6 +9,7 @@ import {
   LegendPosition,
   Row,
   TextWidget,
+  VerticalAnnotation,
   YAxisProps,
 } from "aws-cdk-lib/aws-cloudwatch";
 
@@ -188,15 +189,19 @@ export interface CustomMetricGroup {
    */
   readonly metrics: CustomMetric[];
   /**
-   * optional custom horizontal annotations which will be displayed over the metrics on the left axis
-   * (if there are any alarms, any existing annotations will be merged together)
+   * Optional custom horizontal annotations which will be displayed over the metrics on the left axis
+   * (if there are any alarms, any existing annotations will be merged together).
    */
   readonly horizontalAnnotations?: HorizontalAnnotation[];
   /**
-   * optional custom horizontal annotations which will be displayed over the metrics on the right axis
-   * (if there are any alarms, any existing annotations will be merged together)
+   * Optional custom horizontal annotations which will be displayed over the metrics on the right axis
+   * (if there are any alarms, any existing annotations will be merged together).
    */
   readonly horizontalRightAnnotations?: HorizontalAnnotation[];
+  /**
+   * Optional custom vertical annotations which will be displayed over the metrics.
+   */
+  readonly verticalAnnotations?: VerticalAnnotation[];
 }
 
 export interface CustomMonitoringProps extends BaseMonitoringProps {
@@ -225,6 +230,7 @@ export interface CustomMetricGroupWithAnnotations {
   readonly metricGroup: CustomMetricGroup;
   readonly annotations: HorizontalAnnotation[];
   readonly rightAnnotations: HorizontalAnnotation[];
+  readonly verticalAnnotations: VerticalAnnotation[];
   readonly titleAddons: string[];
   readonly height?: number;
 }
@@ -270,6 +276,7 @@ export class CustomMonitoring extends Monitoring {
         metricGroup,
         annotations: [],
         rightAnnotations: [],
+        verticalAnnotations: [],
         titleAddons: [],
       };
 
@@ -281,6 +288,11 @@ export class CustomMonitoring extends Monitoring {
       if (metricGroup.horizontalRightAnnotations) {
         metricGroupWithAnnotation.rightAnnotations.push(
           ...metricGroup.horizontalRightAnnotations
+        );
+      }
+      if (metricGroup.verticalAnnotations) {
+        metricGroupWithAnnotation.verticalAnnotations.push(
+          ...metricGroup.verticalAnnotations
         );
       }
 
@@ -412,6 +424,7 @@ export class CustomMonitoring extends Monitoring {
         rightAnnotations: annotatedGroup.rightAnnotations,
         leftYAxis: annotatedGroup.metricGroup.graphWidgetAxis,
         rightYAxis: annotatedGroup.metricGroup.graphWidgetRightAxis,
+        verticalAnnotations: annotatedGroup.verticalAnnotations,
         legendPosition: annotatedGroup.metricGroup.graphWidgetLegend,
         setPeriodToTimeRange:
           annotatedGroup.metricGroup.graphWidgetSetPeriodToTimeRange,

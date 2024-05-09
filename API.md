@@ -12170,9 +12170,10 @@ const customMetricGroup: CustomMetricGroup = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetRightAxis">graphWidgetRightAxis</a></code> | <code>aws-cdk-lib.aws_cloudwatch.YAxisProps</code> | optional right axis. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetSetPeriodToTimeRange">graphWidgetSetPeriodToTimeRange</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.graphWidgetType">graphWidgetType</a></code> | <code><a href="#cdk-monitoring-constructs.GraphWidgetType">GraphWidgetType</a></code> | type of the widget. |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalAnnotations">horizontalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together). |
-| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalRightAnnotations">horizontalRightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together). |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalAnnotations">horizontalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | Optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together). |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.horizontalRightAnnotations">horizontalRightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | Optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.important">important</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroup.property.verticalAnnotations">verticalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.VerticalAnnotation[]</code> | Optional custom vertical annotations which will be displayed over the metrics. |
 
 ---
 
@@ -12285,7 +12286,7 @@ public readonly horizontalAnnotations: HorizontalAnnotation[];
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
-optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together).
+Optional custom horizontal annotations which will be displayed over the metrics on the left axis (if there are any alarms, any existing annotations will be merged together).
 
 ---
 
@@ -12297,7 +12298,7 @@ public readonly horizontalRightAnnotations: HorizontalAnnotation[];
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
-optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together).
+Optional custom horizontal annotations which will be displayed over the metrics on the right axis (if there are any alarms, any existing annotations will be merged together).
 
 ---
 
@@ -12312,6 +12313,18 @@ public readonly important: boolean;
 - *Type:* boolean
 
 > [addToSummaryDashboard](addToSummaryDashboard)
+
+---
+
+##### `verticalAnnotations`<sup>Optional</sup> <a name="verticalAnnotations" id="cdk-monitoring-constructs.CustomMetricGroup.property.verticalAnnotations"></a>
+
+```typescript
+public readonly verticalAnnotations: VerticalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.VerticalAnnotation[]
+
+Optional custom vertical annotations which will be displayed over the metrics.
 
 ---
 
@@ -12333,6 +12346,7 @@ const customMetricGroupWithAnnotations: CustomMetricGroupWithAnnotations = { ...
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.metricGroup">metricGroup</a></code> | <code><a href="#cdk-monitoring-constructs.CustomMetricGroup">CustomMetricGroup</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.rightAnnotations">rightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.titleAddons">titleAddons</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.verticalAnnotations">verticalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.VerticalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.height">height</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -12374,6 +12388,16 @@ public readonly titleAddons: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `verticalAnnotations`<sup>Required</sup> <a name="verticalAnnotations" id="cdk-monitoring-constructs.CustomMetricGroupWithAnnotations.property.verticalAnnotations"></a>
+
+```typescript
+public readonly verticalAnnotations: VerticalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.VerticalAnnotation[]
 
 ---
 
@@ -14413,6 +14437,7 @@ const doubleAxisGraphWidgetProps: DoubleAxisGraphWidgetProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.leftAnnotations">leftAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.rightAnnotations">rightAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.verticalAnnotations">verticalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.VerticalAnnotation[]</code> | *No description.* |
 
 ---
 
@@ -14503,6 +14528,16 @@ public readonly title: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `verticalAnnotations`<sup>Optional</sup> <a name="verticalAnnotations" id="cdk-monitoring-constructs.DoubleAxisGraphWidgetProps.property.verticalAnnotations"></a>
+
+```typescript
+public readonly verticalAnnotations: VerticalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.VerticalAnnotation[]
 
 ---
 
@@ -41752,6 +41787,7 @@ const singleAxisGraphWidgetProps: SingleAxisGraphWidgetProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.width">width</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.leftAnnotations">leftAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.verticalAnnotations">verticalAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.VerticalAnnotation[]</code> | *No description.* |
 
 ---
 
@@ -41812,6 +41848,16 @@ public readonly title: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `verticalAnnotations`<sup>Optional</sup> <a name="verticalAnnotations" id="cdk-monitoring-constructs.SingleAxisGraphWidgetProps.property.verticalAnnotations"></a>
+
+```typescript
+public readonly verticalAnnotations: VerticalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.VerticalAnnotation[]
 
 ---
 
