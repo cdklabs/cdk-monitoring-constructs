@@ -175,6 +175,13 @@ export interface CustomMetricGroup {
    */
   readonly graphWidgetSetPeriodToTimeRange?: boolean;
   /**
+   * Width of graph widget. Note that widgets will overflow into new rows if the summed width
+   * exceeds 24.
+   *
+   * @default - Automatically calculcated width, generally as wide as possible considering all metrics' widgets.
+   */
+  readonly graphWidgetWidth?: number;
+  /**
    * @deprecated use addToSummaryDashboard. addToSummaryDashboard will take precedence over important.
    * @see addToSummaryDashboard
    */
@@ -207,17 +214,20 @@ export interface CustomMetricGroup {
 export interface CustomMonitoringProps extends BaseMonitoringProps {
   /**
    * optional description of the whole section, in markdown
-   * @default no description
+   *
+   * @default - no description
    */
   readonly description?: string;
   /**
    * optional height of the description widget, so the content fits
-   * @default minimum height (should fit one or two lines of text)
+   *
+   * @default - minimum height (should fit one or two lines of text)
    */
   readonly descriptionWidgetHeight?: number;
   /**
-   * height override
-   * @default default height
+   * Height override.
+   *
+   * @default - default height
    */
   readonly height?: number;
   /**
@@ -380,9 +390,6 @@ export class CustomMonitoring extends Monitoring {
     summary: boolean
   ) {
     const widgets: IWidget[] = [];
-    const metricGroupWidgetWidth = recommendedWidgetWidth(
-      annotatedGroups.length
-    );
     const metricGroupWidgetHeightDefault = summary
       ? DefaultSummaryWidgetHeight
       : DefaultGraphWidgetHeight;
@@ -416,7 +423,9 @@ export class CustomMonitoring extends Monitoring {
 
       const graphWidgetProps: GraphWidgetProps = {
         title,
-        width: metricGroupWidgetWidth,
+        width:
+          annotatedGroup.metricGroup.graphWidgetWidth ??
+          recommendedWidgetWidth(annotatedGroups.length),
         height: metricGroupWidgetHeight,
         left,
         right,
