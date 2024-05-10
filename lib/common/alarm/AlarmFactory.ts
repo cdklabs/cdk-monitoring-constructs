@@ -398,7 +398,7 @@ export interface AddCompositeAlarmProps {
   readonly actionsSuppressor?: IAlarm;
 
   /**
-   * The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the ALARM state.
+   * The maximum duration that the composite alarm waits after suppressor alarm goes out of the ALARM state.
    * After this time, the composite alarm performs its actions.
    *
    * @default - 60 seconds
