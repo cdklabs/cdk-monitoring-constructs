@@ -6,6 +6,7 @@ import {
   ComparisonOperator,
   CompositeAlarm,
   HorizontalAnnotation,
+  IAlarm,
   IAlarmRule,
   IMetric,
   MathExpression,
@@ -388,6 +389,29 @@ export interface AddCompositeAlarmProps {
    * @default - OR
    */
   readonly compositeOperator?: CompositeAlarmOperator;
+
+  /**
+   * Actions will be suppressed if the suppressor alarm is in the ALARM state.
+   *
+   * @default - no suppressor alarm
+   */
+  readonly actionsSuppressor?: IAlarm;
+
+  /**
+   * The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the ALARM state.
+   * After this time, the composite alarm performs its actions.
+   *
+   * @default - 60 seconds
+   */
+  readonly actionsSuppressorExtensionPeriod?: Duration;
+
+  /**
+   * The maximum duration that the composite alarm waits for the suppressor alarm to go into the ALARM state.
+   * After this time, the composite alarm performs its actions.
+   *
+   * @default - 60 seconds
+   */
+  readonly actionsSuppressorWaitPeriod?: Duration;
 }
 
 /**
@@ -779,6 +803,9 @@ export class AlarmFactory {
       alarmDescription,
       alarmRule,
       actionsEnabled,
+      actionsSuppressor: props?.actionsSuppressor,
+      actionsSuppressorExtensionPeriod: props?.actionsSuppressorExtensionPeriod,
+      actionsSuppressorWaitPeriod: props?.actionsSuppressorWaitPeriod,
     });
 
     action.addAlarmActions({

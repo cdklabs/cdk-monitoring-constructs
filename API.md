@@ -2814,6 +2814,9 @@ const addCompositeAlarmProps: AddCompositeAlarmProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.disambiguator">disambiguator</a></code> | <code>string</code> | Disambiguator is a string that differentiates this alarm from other similar ones. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default action strategy. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.actionsSuppressor">actionsSuppressor</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarm</code> | Actions will be suppressed if the suppressor alarm is in the ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.actionsSuppressorExtensionPeriod">actionsSuppressorExtensionPeriod</a></code> | <code>aws-cdk-lib.Duration</code> | The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.actionsSuppressorWaitPeriod">actionsSuppressorWaitPeriod</a></code> | <code>aws-cdk-lib.Duration</code> | The maximum duration that the composite alarm waits for the suppressor alarm to go into the ALARM state. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | Alarm description is included in the ticket and therefore should describe what happened, with as much context as possible. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
@@ -2864,6 +2867,49 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `actionsSuppressor`<sup>Optional</sup> <a name="actionsSuppressor" id="cdk-monitoring-constructs.AddCompositeAlarmProps.property.actionsSuppressor"></a>
+
+```typescript
+public readonly actionsSuppressor: IAlarm;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarm
+- *Default:* no suppressor alarm
+
+Actions will be suppressed if the suppressor alarm is in the ALARM state.
+
+---
+
+##### `actionsSuppressorExtensionPeriod`<sup>Optional</sup> <a name="actionsSuppressorExtensionPeriod" id="cdk-monitoring-constructs.AddCompositeAlarmProps.property.actionsSuppressorExtensionPeriod"></a>
+
+```typescript
+public readonly actionsSuppressorExtensionPeriod: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* 60 seconds
+
+The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the ALARM state.
+
+After this time, the composite alarm performs its actions.
+
+---
+
+##### `actionsSuppressorWaitPeriod`<sup>Optional</sup> <a name="actionsSuppressorWaitPeriod" id="cdk-monitoring-constructs.AddCompositeAlarmProps.property.actionsSuppressorWaitPeriod"></a>
+
+```typescript
+public readonly actionsSuppressorWaitPeriod: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* 60 seconds
+
+The maximum duration that the composite alarm waits for the suppressor alarm to go into the ALARM state.
+
+After this time, the composite alarm performs its actions.
 
 ---
 
