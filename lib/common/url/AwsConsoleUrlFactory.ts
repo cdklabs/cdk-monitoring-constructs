@@ -73,10 +73,10 @@ export class AwsConsoleUrlFactory {
     const region = this.awsAccountRegion;
     switch (clusterType) {
       case ElastiCacheClusterType.MEMCACHED:
-        const destinationUrlMemcached = `https://${region}.console.aws.amazon.com/elasticache/home?region=${region}#memcached-nodes:id=${clusterId};nodes`;
+        const destinationUrlMemcached = `https://${region}.console.aws.amazon.com/elasticache/home?region=${region}#/memcached/${clusterId}`;
         return this.getAwsConsoleUrl(destinationUrlMemcached);
       case ElastiCacheClusterType.REDIS:
-        const destinationUrlRedis = `https://${region}.console.aws.amazon.com/elasticache/home?region=${region}#redis-shards:redis-id=${clusterId}`;
+        const destinationUrlRedis = `https://${region}.console.aws.amazon.com/elasticache/home?region=${region}#/redis/${clusterId}`;
         return this.getAwsConsoleUrl(destinationUrlRedis);
       default:
         throw new Error(`Invalid cache type: ${clusterType}`);
