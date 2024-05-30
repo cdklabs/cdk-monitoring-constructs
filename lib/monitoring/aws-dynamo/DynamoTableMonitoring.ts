@@ -5,6 +5,7 @@ import {
   IMetric,
   IWidget,
   LegendPosition,
+  TreatMissingData,
 } from "aws-cdk-lib/aws-cloudwatch";
 import {
   BillingMode,
@@ -36,12 +37,14 @@ import {
   LatencyThreshold,
   LatencyType,
   MetricWithAlarmSupport,
+  MinUsageCountThreshold,
   Monitoring,
   MonitoringScope,
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
   ThrottledEventsThreshold,
   TimeAxisMillisFromZero,
+  UsageAlarmFactory,
 } from "../../common";
 import {
   MonitoringHeaderWidget,
@@ -68,6 +71,10 @@ export interface DynamoTableMonitoringOptions extends BaseMonitoringProps {
   >;
 
   readonly addSystemErrorCountAlarm?: Record<string, ErrorCountThreshold>;
+  readonly addMinTimeToLiveDeletedItemCountAlarm?: Record<
+    string,
+    MinUsageCountThreshold
+  >;
 
   readonly addAverageSuccessfulGetRecordsLatencyAlarm?: Record<
     string,
@@ -120,6 +127,7 @@ export class DynamoTableMonitoring extends Monitoring {
   readonly errorAlarmFactory: ErrorAlarmFactory;
   readonly latencyAlarmFactory: LatencyAlarmFactory;
   readonly dynamoCapacityAlarmFactory: DynamoAlarmFactory;
+  readonly usageAlarmFactory: UsageAlarmFactory;
 
   readonly latencyAnnotations: HorizontalAnnotation[];
   readonly errorCountAnnotations: HorizontalAnnotation[];
@@ -134,6 +142,7 @@ export class DynamoTableMonitoring extends Monitoring {
   readonly readThrottleCountMetric: MetricWithAlarmSupport;
   readonly writeThrottleCountMetric: MetricWithAlarmSupport;
   readonly systemErrorMetric: MetricWithAlarmSupport;
+  readonly timeToLiveDeletedItemCountMetric: MetricWithAlarmSupport;
   readonly latencyAverageSearchMetrics: IMetric;
   // keys are Operation, but JSII doesn't like non-string types
   readonly averagePerOperationLatencyMetrics: Record<
@@ -166,6 +175,8 @@ export class DynamoTableMonitoring extends Monitoring {
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
     this.latencyAlarmFactory = new LatencyAlarmFactory(this.alarmFactory);
     this.dynamoCapacityAlarmFactory = new DynamoAlarmFactory(this.alarmFactory);
+    this.usageAlarmFactory = new UsageAlarmFactory(this.alarmFactory);
+
     this.errorCountAnnotations = [];
     this.latencyAnnotations = [];
     this.dynamoReadCapacityAnnotations = [];
@@ -189,6 +200,8 @@ export class DynamoTableMonitoring extends Monitoring {
     this.writeThrottleCountMetric =
       metricFactory.metricThrottledWriteRequestCount();
     this.systemErrorMetric = metricFactory.metricSystemErrorsCount();
+    this.timeToLiveDeletedItemCountMetric =
+      metricFactory.metricTimeToLiveDeletedItemCount();
     this.latencyAverageSearchMetrics =
       metricFactory.metricSearchAverageSuccessfulRequestLatencyInMillis();
     this.averagePerOperationLatencyMetrics = {
@@ -291,6 +304,19 @@ export class DynamoTableMonitoring extends Monitoring {
         disambiguator
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addMinTimeToLiveDeletedItemCountAlarm) {
+      const alarmProps = {
+        // Missing data is bad if we expect TTL to be enabled
+        treatMissingDataOverride: TreatMissingData.BREACHING,
+        ...props.addMinTimeToLiveDeletedItemCountAlarm[disambiguator],
+      };
+      const createdAlarm = this.usageAlarmFactory.addMinCountAlarm(
+        this.timeToLiveDeletedItemCountMetric,
+        alarmProps,
+        disambiguator
+      );
       this.addAlarm(createdAlarm);
     }
     this.forEachOperationLatencyAlarmDefinition(

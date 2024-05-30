@@ -4,13 +4,10 @@ import { BillingMode, ITable, Operation } from "aws-cdk-lib/aws-dynamodb";
 import { MetricFactory, MetricStatistic } from "../../common";
 
 const DynamoDbNamespace = "AWS/DynamoDB";
-const ProvisionedReadCapacityUnitsMetric = "ProvisionedReadCapacityUnits";
-const ProvisionedWriteCapacityUnitsMetric = "ProvisionedWriteCapacityUnits";
 const ProvisionedLabel = "Provisioned";
 const ConsumedLabel = "Consumed";
 const ReadThrottleEventsLabel = "Read";
 const WriteThrottleEventsLabel = "Write";
-const SystemErrorsLabel = "System Errors";
 
 export interface DynamoTableMetricFactoryProps {
   /**
@@ -39,7 +36,7 @@ export class DynamoTableMetricFactory {
 
   metricProvisionedReadCapacityUnits() {
     return this.metricFactory.adaptMetric(
-      this.table.metric(ProvisionedReadCapacityUnitsMetric, {
+      this.table.metric("ProvisionedReadCapacityUnits", {
         label: ProvisionedLabel,
         statistic: MetricStatistic.AVERAGE,
       })
@@ -48,7 +45,7 @@ export class DynamoTableMetricFactory {
 
   metricProvisionedWriteCapacityUnits() {
     return this.metricFactory.adaptMetric(
-      this.table.metric(ProvisionedWriteCapacityUnitsMetric, {
+      this.table.metric("ProvisionedWriteCapacityUnits", {
         label: ProvisionedLabel,
         statistic: MetricStatistic.AVERAGE,
       })
@@ -195,7 +192,16 @@ export class DynamoTableMetricFactory {
       // the metric is not emitted until error happens
       Object.keys(usingMetrics).join("+"),
       usingMetrics,
-      SystemErrorsLabel
+      "System Errors"
+    );
+  }
+
+  metricTimeToLiveDeletedItemCount() {
+    return this.metricFactory.adaptMetric(
+      this.table.metric("TimeToLiveDeletedItemCount", {
+        label: "TTL Deleted Item Count",
+        statistic: MetricStatistic.MAX,
+      })
     );
   }
 }

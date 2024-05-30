@@ -78,7 +78,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageGetRecordsWarning82DF1F20",
+                  "ScopeTestDummyTableMinUsageCountWarning9A39C286",
                   "Arn",
                 ],
               },
@@ -89,7 +89,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageQueryWarning49AF55CE",
+                  "ScopeTestDummyTableLatencyAverageGetRecordsWarning82DF1F20",
                   "Arn",
                 ],
               },
@@ -100,7 +100,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageScanWarning609C9E1C",
+                  "ScopeTestDummyTableLatencyAverageQueryWarning49AF55CE",
                   "Arn",
                 ],
               },
@@ -111,7 +111,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAveragePutItemWarningB14582BC",
+                  "ScopeTestDummyTableLatencyAverageScanWarning609C9E1C",
                   "Arn",
                 ],
               },
@@ -122,7 +122,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageGetItemWarningE365AEB3",
+                  "ScopeTestDummyTableLatencyAveragePutItemWarningB14582BC",
                   "Arn",
                 ],
               },
@@ -133,7 +133,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageUpdateItemWarning6A127C47",
+                  "ScopeTestDummyTableLatencyAverageGetItemWarningE365AEB3",
                   "Arn",
                 ],
               },
@@ -144,7 +144,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageDeleteItemWarning13699989",
+                  "ScopeTestDummyTableLatencyAverageUpdateItemWarning6A127C47",
                   "Arn",
                 ],
               },
@@ -155,11 +155,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageBatchGetItemWarning93533EB0",
+                  "ScopeTestDummyTableLatencyAverageDeleteItemWarning13699989",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageBatchGetItemWarning93533EB0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -635,6 +646,42 @@ Object {
         ],
         "Threshold": 505,
         "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableMinUsageCountWarning9A39C286": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The count is too low.",
+        "AlarmName": "Test-DummyTable-Min-Usage-Count-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TTL Deleted Item Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "TimeToLiveDeletedItemCount",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "breaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -1423,7 +1470,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageGetRecordsWarning82DF1F20",
+                  "ScopeTestDummyTableMinUsageCountWarning9A39C286",
                   "Arn",
                 ],
               },
@@ -1434,7 +1481,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageQueryWarning49AF55CE",
+                  "ScopeTestDummyTableLatencyAverageGetRecordsWarning82DF1F20",
                   "Arn",
                 ],
               },
@@ -1445,7 +1492,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageScanWarning609C9E1C",
+                  "ScopeTestDummyTableLatencyAverageQueryWarning49AF55CE",
                   "Arn",
                 ],
               },
@@ -1456,7 +1503,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAveragePutItemWarningB14582BC",
+                  "ScopeTestDummyTableLatencyAverageScanWarning609C9E1C",
                   "Arn",
                 ],
               },
@@ -1467,7 +1514,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageGetItemWarningE365AEB3",
+                  "ScopeTestDummyTableLatencyAveragePutItemWarningB14582BC",
                   "Arn",
                 ],
               },
@@ -1478,7 +1525,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageUpdateItemWarning6A127C47",
+                  "ScopeTestDummyTableLatencyAverageGetItemWarningE365AEB3",
                   "Arn",
                 ],
               },
@@ -1489,7 +1536,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageDeleteItemWarning13699989",
+                  "ScopeTestDummyTableLatencyAverageUpdateItemWarning6A127C47",
                   "Arn",
                 ],
               },
@@ -1500,11 +1547,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyTableLatencyAverageBatchGetItemWarning93533EB0",
+                  "ScopeTestDummyTableLatencyAverageDeleteItemWarning13699989",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyTableLatencyAverageBatchGetItemWarning93533EB0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1972,6 +2030,42 @@ Object {
         ],
         "Threshold": 505,
         "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyTableMinUsageCountWarning9A39C286": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The count is too low.",
+        "AlarmName": "Test-DummyTable-Min-Usage-Count-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "TTL Deleted Item Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TableName",
+                    "Value": Object {
+                      "Ref": "TableCD117FA1",
+                    },
+                  },
+                ],
+                "MetricName": "TimeToLiveDeletedItemCount",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
