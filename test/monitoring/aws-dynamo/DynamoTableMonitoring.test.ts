@@ -1,5 +1,6 @@
 import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
+import { TreatMissingData } from "aws-cdk-lib/aws-cloudwatch";
 import { AttributeType, BillingMode, Table } from "aws-cdk-lib/aws-dynamodb";
 
 import { AlarmWithAnnotation, DynamoTableMonitoring } from "../../../lib";
@@ -62,6 +63,11 @@ test("snapshot test: all alarms", () => {
         evaluationPeriods: 8,
       },
     },
+    addMinTimeToLiveDeletedItemCountAlarm: {
+      Warning: {
+        minCount: 5,
+      },
+    },
     addReadThrottledEventsCountAlarm: {
       Warning: {
         maxThrottledEventsThreshold: 5,
@@ -125,7 +131,7 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(14);
+  expect(numAlarmsCreated).toStrictEqual(15);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -187,6 +193,12 @@ test("snapshot test: pay-per-request, all alarms", () => {
         evaluationPeriods: 8,
       },
     },
+    addMinTimeToLiveDeletedItemCountAlarm: {
+      Warning: {
+        minCount: 5,
+        treatMissingDataOverride: TreatMissingData.MISSING,
+      },
+    },
     addReadThrottledEventsCountAlarm: {
       Warning: {
         maxThrottledEventsThreshold: 5,
@@ -250,6 +262,6 @@ test("snapshot test: pay-per-request, all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(14);
+  expect(numAlarmsCreated).toStrictEqual(15);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

@@ -15319,6 +15319,7 @@ const dynamoTableMonitoringOptions: DynamoTableMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addAverageSuccessfulUpdateItemLatencyAlarm">addAverageSuccessfulUpdateItemLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addConsumedReadCapacityAlarm">addConsumedReadCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addConsumedWriteCapacityAlarm">addConsumedWriteCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addMinTimeToLiveDeletedItemCountAlarm">addMinTimeToLiveDeletedItemCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addReadThrottledEventsCountAlarm">addReadThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addSystemErrorCountAlarm">addSystemErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addWriteThrottledEventsCountAlarm">addWriteThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
@@ -15533,6 +15534,16 @@ public readonly addConsumedWriteCapacityAlarm: {[ key: string ]: ConsumedCapacit
 
 ---
 
+##### `addMinTimeToLiveDeletedItemCountAlarm`<sup>Optional</sup> <a name="addMinTimeToLiveDeletedItemCountAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addMinTimeToLiveDeletedItemCountAlarm"></a>
+
+```typescript
+public readonly addMinTimeToLiveDeletedItemCountAlarm: {[ key: string ]: MinUsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}
+
+---
+
 ##### `addReadThrottledEventsCountAlarm`<sup>Optional</sup> <a name="addReadThrottledEventsCountAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addReadThrottledEventsCountAlarm"></a>
 
 ```typescript
@@ -15597,6 +15608,7 @@ const dynamoTableMonitoringProps: DynamoTableMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addAverageSuccessfulUpdateItemLatencyAlarm">addAverageSuccessfulUpdateItemLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addConsumedReadCapacityAlarm">addConsumedReadCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addConsumedWriteCapacityAlarm">addConsumedWriteCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addMinTimeToLiveDeletedItemCountAlarm">addMinTimeToLiveDeletedItemCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addReadThrottledEventsCountAlarm">addReadThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addSystemErrorCountAlarm">addSystemErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addWriteThrottledEventsCountAlarm">addWriteThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
@@ -15833,6 +15845,16 @@ public readonly addConsumedWriteCapacityAlarm: {[ key: string ]: ConsumedCapacit
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold">ConsumedCapacityThreshold</a>}
+
+---
+
+##### `addMinTimeToLiveDeletedItemCountAlarm`<sup>Optional</sup> <a name="addMinTimeToLiveDeletedItemCountAlarm" id="cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addMinTimeToLiveDeletedItemCountAlarm"></a>
+
+```typescript
+public readonly addMinTimeToLiveDeletedItemCountAlarm: {[ key: string ]: MinUsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}
 
 ---
 
@@ -53960,6 +53982,7 @@ new DynamoTableMetricFactory(metricFactory: MetricFactory, props: DynamoTableMet
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactory.metricSystemErrorsCount">metricSystemErrorsCount</a></code> | This represents the number of requests that resulted in a 500 (server error) error code. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactory.metricThrottledReadRequestCount">metricThrottledReadRequestCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactory.metricThrottledWriteRequestCount">metricThrottledWriteRequestCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactory.metricTimeToLiveDeletedItemCount">metricTimeToLiveDeletedItemCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactory.metricWriteCapacityUtilizationPercentage">metricWriteCapacityUtilizationPercentage</a></code> | *No description.* |
 
 ---
@@ -54035,6 +54058,12 @@ public metricThrottledReadRequestCount(): Metric | MathExpression
 
 ```typescript
 public metricThrottledWriteRequestCount(): Metric | MathExpression
+```
+
+##### `metricTimeToLiveDeletedItemCount` <a name="metricTimeToLiveDeletedItemCount" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricTimeToLiveDeletedItemCount"></a>
+
+```typescript
+public metricTimeToLiveDeletedItemCount(): Metric | MathExpression
 ```
 
 ##### `metricWriteCapacityUtilizationPercentage` <a name="metricWriteCapacityUtilizationPercentage" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricWriteCapacityUtilizationPercentage"></a>
@@ -54315,7 +54344,9 @@ public createWriteCapacityWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.systemErrorMetric">systemErrorMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.tableBillingMode">tableBillingMode</a></code> | <code>aws-cdk-lib.aws_dynamodb.BillingMode</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.throttledEventsAnnotations">throttledEventsAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.timeToLiveDeletedItemCountMetric">timeToLiveDeletedItemCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.writeCapacityUsageMetric">writeCapacityUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.writeThrottleCountMetric">writeThrottleCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoring.property.tableUrl">tableUrl</a></code> | <code>string</code> | *No description.* |
@@ -54512,6 +54543,16 @@ public readonly throttledEventsAnnotations: HorizontalAnnotation[];
 
 ---
 
+##### `timeToLiveDeletedItemCountMetric`<sup>Required</sup> <a name="timeToLiveDeletedItemCountMetric" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.timeToLiveDeletedItemCountMetric"></a>
+
+```typescript
+public readonly timeToLiveDeletedItemCountMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
 ##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.title"></a>
 
 ```typescript
@@ -54519,6 +54560,16 @@ public readonly title: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `usageAlarmFactory`<sup>Required</sup> <a name="usageAlarmFactory" id="cdk-monitoring-constructs.DynamoTableMonitoring.property.usageAlarmFactory"></a>
+
+```typescript
+public readonly usageAlarmFactory: UsageAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a>
 
 ---
 
