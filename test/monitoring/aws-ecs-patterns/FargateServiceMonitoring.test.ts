@@ -109,11 +109,6 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             minHealthyTaskPercent: 75,
           },
         },
-        addRunningTaskCountAlarm: {
-          Warning: {
-            maxRunningTasks: 5,
-          },
-        },
         addCpuUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
@@ -124,6 +119,16 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             maxUsagePercent: 80,
           },
         },
+        addRunningTaskCountAlarm: {
+          Warning: {
+            maxRunningTasks: 5,
+          },
+        },
+        addEphermalStorageUsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
+          },
+        },
         useCreatedAlarms: {
           consume(alarms: AlarmWithAnnotation[]) {
             numAlarmsCreated = alarms.length;
@@ -132,7 +137,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(6);
+      expect(numAlarmsCreated).toStrictEqual(7);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
 
@@ -217,11 +222,6 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             minHealthyTaskPercent: 75,
           },
         },
-        addRunningTaskCountAlarm: {
-          Warning: {
-            maxRunningTasks: 5,
-          },
-        },
         addCpuUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
@@ -230,6 +230,16 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
         addMemoryUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
+          },
+        },
+        addRunningTaskCountAlarm: {
+          Warning: {
+            maxRunningTasks: 5,
+          },
+        },
+        addEphermalStorageUsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
           },
         },
         addMinProcessedBytesAlarm: {
@@ -245,7 +255,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(7);
+      expect(numAlarmsCreated).toStrictEqual(8);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
 
@@ -330,11 +340,6 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             maxUnhealthyTasks: 3,
           },
         },
-        addRunningTaskCountAlarm: {
-          Warning: {
-            maxRunningTasks: 5,
-          },
-        },
         addCpuUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
@@ -343,6 +348,16 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
         addMemoryUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
+          },
+        },
+        addRunningTaskCountAlarm: {
+          Warning: {
+            maxRunningTasks: 5,
+          },
+        },
+        addEphermalStorageUsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
           },
         },
         addMinProcessedBytesAlarm: {
@@ -358,7 +373,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(7);
+      expect(numAlarmsCreated).toStrictEqual(8);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
 
@@ -432,11 +447,6 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       const monitoring = new FargateServiceMonitoring(scope, {
         fargateService,
         alarmFriendlyName: "DummyFargateService",
-        addRunningTaskCountAlarm: {
-          Warning: {
-            maxRunningTasks: 5,
-          },
-        },
         addCpuUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
@@ -447,6 +457,16 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             maxUsagePercent: 80,
           },
         },
+        addRunningTaskCountAlarm: {
+          Warning: {
+            maxRunningTasks: 5,
+          },
+        },
+        addEphermalStorageUsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
+          },
+        },
         useCreatedAlarms: {
           consume(alarms: AlarmWithAnnotation[]) {
             numAlarmsCreated = alarms.length;
@@ -455,7 +475,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(3);
+      expect(numAlarmsCreated).toStrictEqual(4);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
   }

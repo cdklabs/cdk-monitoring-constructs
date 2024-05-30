@@ -159,7 +159,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
+                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
                   "Arn",
                 ],
               },
@@ -170,7 +170,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
+                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
                   "Arn",
                 ],
               },
@@ -181,7 +181,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
+                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
                   "Arn",
                 ],
               },
@@ -1805,7 +1805,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
+                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
                   "Arn",
                 ],
               },
@@ -1816,7 +1816,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
+                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
                   "Arn",
                 ],
               },
@@ -1827,7 +1827,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
+                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
                   "Arn",
                 ],
               },
@@ -5026,7 +5026,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
                   "Arn",
                 ],
               },
@@ -5037,7 +5037,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
                   "Arn",
                 ],
               },
@@ -5048,7 +5048,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
                   "Arn",
                 ],
               },
@@ -7210,7 +7210,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
                   "Arn",
                 ],
               },
@@ -7221,7 +7221,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
                   "Arn",
                 ],
               },
@@ -7232,7 +7232,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
                   "Arn",
                 ],
               },

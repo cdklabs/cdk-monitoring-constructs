@@ -8707,10 +8707,11 @@ const baseEc2ServiceAlarms: BaseEc2ServiceAlarms = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 
 ---
 
@@ -8721,6 +8722,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.BaseEc2ServiceAlarms.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
 
 ---
 
@@ -8754,7 +8767,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -8766,7 +8779,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -8785,10 +8798,11 @@ const baseFargateServiceAlarms: BaseFargateServiceAlarms = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 
 ---
 
@@ -8799,6 +8813,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.BaseFargateServiceAlarms.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
 
 ---
 
@@ -8832,7 +8858,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -8844,7 +8870,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -11654,10 +11680,11 @@ const customEc2ServiceMonitoringProps: CustomEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.IBaseService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
@@ -11777,6 +11804,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -11807,7 +11846,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -11819,7 +11858,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -11934,10 +11973,11 @@ const customFargateServiceMonitoringProps: CustomFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.IBaseService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
@@ -12057,6 +12097,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -12087,7 +12139,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -12099,7 +12151,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -15893,10 +15945,11 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
@@ -16053,6 +16106,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -16083,7 +16148,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -16095,7 +16160,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -16540,10 +16605,11 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
@@ -16700,6 +16766,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -16730,7 +16808,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -16742,7 +16820,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -16839,10 +16917,11 @@ const ec2ServiceMonitoringProps: Ec2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service \| aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedEc2Service</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
@@ -16960,6 +17039,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -16990,7 +17081,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -17002,7 +17093,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -18297,10 +18388,11 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
@@ -18457,6 +18549,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -18487,7 +18591,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -18499,7 +18603,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -18599,10 +18703,11 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
@@ -18759,6 +18864,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -18789,7 +18906,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -18801,7 +18918,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -18898,10 +19015,11 @@ const fargateServiceMonitoringProps: FargateServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService \| aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addHealthyTaskCountAlarm">addHealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold">HealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addHealthyTaskPercentAlarm">addHealthyTaskPercentAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold">HealthyTaskPercentThreshold</a>}</code> | *No description.* |
@@ -19019,6 +19137,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -19049,7 +19179,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -19061,7 +19191,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -41462,10 +41592,11 @@ const simpleEc2ServiceMonitoringProps: SimpleEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
 
 ---
@@ -41578,6 +41709,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -41608,7 +41751,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -41620,7 +41763,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -41658,10 +41801,11 @@ const simpleFargateServiceMonitoringProps: SimpleFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.addEphermalStorageUsageAlarm">addEphermalStorageUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.addMemoryUsageAlarm">addMemoryUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.addRunningTaskCountAlarm">addRunningTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | Container Insights needs to be enabled for the cluster for this alarm. |
-| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | maximum number of tasks, as specified in your auto scaling config. |
-| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | minimum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
+| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
 
 ---
@@ -41774,6 +41918,18 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addEphermalStorageUsageAlarm`<sup>Optional</sup> <a name="addEphermalStorageUsageAlarm" id="cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.addEphermalStorageUsageAlarm"></a>
+
+```typescript
+public readonly addEphermalStorageUsageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Container Insights needs to be enabled for the cluster for this alarm.
+
+---
+
 ##### `addMemoryUsageAlarm`<sup>Optional</sup> <a name="addMemoryUsageAlarm" id="cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.addMemoryUsageAlarm"></a>
 
 ```typescript
@@ -41804,7 +41960,7 @@ public readonly maxAutoScalingTaskCount: number;
 
 - *Type:* number
 
-maximum number of tasks, as specified in your auto scaling config.
+Maximum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -41816,7 +41972,7 @@ public readonly minAutoScalingTaskCount: number;
 
 - *Type:* number
 
-minimum number of tasks, as specified in your auto scaling config.
+Minimum number of tasks, as specified in your auto scaling config.
 
 ---
 
@@ -50568,6 +50724,9 @@ new BaseServiceMetricFactory(metricFactory: MetricFactory, props: BaseServiceMet
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory.metricClusterCpuUtilisationInPercent">metricClusterCpuUtilisationInPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory.metricClusterMemoryUtilisationInPercent">metricClusterMemoryUtilisationInPercent</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory.metricEphemeralStorageReserved">metricEphemeralStorageReserved</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory.metricEphemeralStorageUsageInPercent">metricEphemeralStorageUsageInPercent</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory.metricEphemeralStorageUtilized">metricEphemeralStorageUtilized</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory.metricRunningTaskCount">metricRunningTaskCount</a></code> | *No description.* |
 
 ---
@@ -50582,6 +50741,24 @@ public metricClusterCpuUtilisationInPercent(): Metric | MathExpression
 
 ```typescript
 public metricClusterMemoryUtilisationInPercent(): Metric | MathExpression
+```
+
+##### `metricEphemeralStorageReserved` <a name="metricEphemeralStorageReserved" id="cdk-monitoring-constructs.BaseServiceMetricFactory.metricEphemeralStorageReserved"></a>
+
+```typescript
+public metricEphemeralStorageReserved(): Metric | MathExpression
+```
+
+##### `metricEphemeralStorageUsageInPercent` <a name="metricEphemeralStorageUsageInPercent" id="cdk-monitoring-constructs.BaseServiceMetricFactory.metricEphemeralStorageUsageInPercent"></a>
+
+```typescript
+public metricEphemeralStorageUsageInPercent(): Metric | MathExpression
+```
+
+##### `metricEphemeralStorageUtilized` <a name="metricEphemeralStorageUtilized" id="cdk-monitoring-constructs.BaseServiceMetricFactory.metricEphemeralStorageUtilized"></a>
+
+```typescript
+public metricEphemeralStorageUtilized(): Metric | MathExpression
 ```
 
 ##### `metricRunningTaskCount` <a name="metricRunningTaskCount" id="cdk-monitoring-constructs.BaseServiceMetricFactory.metricRunningTaskCount"></a>
@@ -55048,6 +55225,7 @@ new Ec2ServiceMonitoring(scope: MonitoringScope, props: CustomEc2ServiceMonitori
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createCpuWidget">createCpuWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createMemoryWidget">createMemoryWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createTaskHealthWidget">createTaskHealthWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createTcpFlowsWidget">createTcpFlowsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.createTpcFlowsWidget">createTpcFlowsWidget</a></code> | *No description.* |
 
@@ -55205,17 +55383,37 @@ public createTaskHealthWidget(width: number, height: number): GraphWidget
 
 ---
 
+##### `createTcpFlowsWidget` <a name="createTcpFlowsWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTcpFlowsWidget"></a>
+
+```typescript
+public createTcpFlowsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTcpFlowsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTcpFlowsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
 ##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTitleWidget"></a>
 
 ```typescript
 public createTitleWidget(): MonitoringHeaderWidget
 ```
 
-##### `createTpcFlowsWidget` <a name="createTpcFlowsWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTpcFlowsWidget"></a>
+##### ~~`createTpcFlowsWidget`~~ <a name="createTpcFlowsWidget" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTpcFlowsWidget"></a>
 
 ```typescript
 public createTpcFlowsWidget(width: number, height: number): GraphWidget
 ```
+
+> [createTcpFlowsWidget} instead.](createTcpFlowsWidget} instead.)
 
 ###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.createTpcFlowsWidget.parameter.width"></a>
 
@@ -55237,6 +55435,7 @@ public createTpcFlowsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.baseServiceMetricFactory">baseServiceMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory">BaseServiceMetricFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.cpuUsageAnnotations">cpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.cpuUtilisationMetric">cpuUtilisationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.ephemeralStorageUsageMetric">ephemeralStorageUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.memoryUtilisationMetric">memoryUtilisationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
@@ -55281,6 +55480,16 @@ public readonly cpuUsageAnnotations: HorizontalAnnotation[];
 
 ```typescript
 public readonly cpuUtilisationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `ephemeralStorageUsageMetric`<sup>Required</sup> <a name="ephemeralStorageUsageMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.ephemeralStorageUsageMetric"></a>
+
+```typescript
+public readonly ephemeralStorageUsageMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
@@ -56391,6 +56600,7 @@ new FargateServiceMonitoring(scope: MonitoringScope, props: CustomFargateService
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createCpuWidget">createCpuWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createMemoryWidget">createMemoryWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createTaskHealthWidget">createTaskHealthWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createTcpFlowsWidget">createTcpFlowsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.createTpcFlowsWidget">createTpcFlowsWidget</a></code> | *No description.* |
 
@@ -56548,17 +56758,37 @@ public createTaskHealthWidget(width: number, height: number): GraphWidget
 
 ---
 
+##### `createTcpFlowsWidget` <a name="createTcpFlowsWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTcpFlowsWidget"></a>
+
+```typescript
+public createTcpFlowsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTcpFlowsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTcpFlowsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
 ##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTitleWidget"></a>
 
 ```typescript
 public createTitleWidget(): MonitoringHeaderWidget
 ```
 
-##### `createTpcFlowsWidget` <a name="createTpcFlowsWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTpcFlowsWidget"></a>
+##### ~~`createTpcFlowsWidget`~~ <a name="createTpcFlowsWidget" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTpcFlowsWidget"></a>
 
 ```typescript
 public createTpcFlowsWidget(width: number, height: number): GraphWidget
 ```
+
+> [createTcpFlowsWidget} instead.](createTcpFlowsWidget} instead.)
 
 ###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.FargateServiceMonitoring.createTpcFlowsWidget.parameter.width"></a>
 
@@ -56580,6 +56810,7 @@ public createTpcFlowsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.baseServiceMetricFactory">baseServiceMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactory">BaseServiceMetricFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.cpuUsageAnnotations">cpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.cpuUtilisationMetric">cpuUtilisationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.ephemeralStorageUsageMetric">ephemeralStorageUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.memoryUtilisationMetric">memoryUtilisationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
@@ -56624,6 +56855,16 @@ public readonly cpuUsageAnnotations: HorizontalAnnotation[];
 
 ```typescript
 public readonly cpuUtilisationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `ephemeralStorageUsageMetric`<sup>Required</sup> <a name="ephemeralStorageUsageMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.ephemeralStorageUsageMetric"></a>
+
+```typescript
+public readonly ephemeralStorageUsageMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression

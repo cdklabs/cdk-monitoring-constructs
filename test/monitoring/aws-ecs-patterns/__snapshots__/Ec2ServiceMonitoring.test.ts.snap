@@ -86,7 +86,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
                   "Arn",
                 ],
               },
@@ -97,7 +97,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
                   "Arn",
                 ],
               },
@@ -108,11 +108,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1336,6 +1347,86 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
           },
         ],
         "Threshold": 80,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The disk usage is too high.",
+        "AlarmName": "Test-DummyEc2Service-Disk-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 * (used/total)",
+            "Id": "expr_1",
+            "Label": "Ephemeral Storage Usage",
+          },
+          Object {
+            "Id": "used",
+            "Label": "Ephemeral Storage Utilized",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageUtilized",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Ephemeral Storage Reserved",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageReserved",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 90,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -2417,7 +2508,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
                   "Arn",
                 ],
               },
@@ -2428,7 +2519,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
                   "Arn",
                 ],
               },
@@ -2439,11 +2530,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3671,6 +3773,86 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The disk usage is too high.",
+        "AlarmName": "Test-DummyEc2Service-Disk-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 * (used/total)",
+            "Id": "expr_1",
+            "Label": "Ephemeral Storage Usage",
+          },
+          Object {
+            "Id": "used",
+            "Label": "Ephemeral Storage Utilized",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageUtilized",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Ephemeral Storage Reserved",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageReserved",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 90,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyEc2ServiceHealthyTaskPercentWarning68582E14": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -4748,7 +4930,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
                   "Arn",
                 ],
               },
@@ -4759,7 +4941,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
                   "Arn",
                 ],
               },
@@ -4770,11 +4952,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5998,6 +6191,86 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
           },
         ],
         "Threshold": 80,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The disk usage is too high.",
+        "AlarmName": "Test-DummyEc2Service-Disk-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 * (used/total)",
+            "Id": "expr_1",
+            "Label": "Ephemeral Storage Usage",
+          },
+          Object {
+            "Id": "used",
+            "Label": "Ephemeral Storage Utilized",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageUtilized",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Ephemeral Storage Reserved",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageReserved",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 90,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -12232,7 +12505,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
                   "Arn",
                 ],
               },
@@ -12243,7 +12516,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
                   "Arn",
                 ],
               },
@@ -12254,11 +12527,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -13461,6 +13745,86 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
           },
         ],
         "Threshold": 80,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The disk usage is too high.",
+        "AlarmName": "Test-DummyEc2Service-Disk-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 * (used/total)",
+            "Id": "expr_1",
+            "Label": "Ephemeral Storage Usage",
+          },
+          Object {
+            "Id": "used",
+            "Label": "Ephemeral Storage Utilized",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageUtilized",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Ephemeral Storage Reserved",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageReserved",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 90,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -14473,7 +14837,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
                   "Arn",
                 ],
               },
@@ -14484,7 +14848,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
                   "Arn",
                 ],
               },
@@ -14495,11 +14859,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -15706,6 +16081,86 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The disk usage is too high.",
+        "AlarmName": "Test-DummyEc2Service-Disk-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 * (used/total)",
+            "Id": "expr_1",
+            "Label": "Ephemeral Storage Usage",
+          },
+          Object {
+            "Id": "used",
+            "Label": "Ephemeral Storage Utilized",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageUtilized",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Ephemeral Storage Reserved",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageReserved",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 90,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ScopeTestDummyEc2ServiceHealthyTaskPercentWarning68582E14": Object {
       "Properties": Object {
         "ActionsEnabled": true,
@@ -16714,7 +17169,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
+                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
                   "Arn",
                 ],
               },
@@ -16725,7 +17180,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceCPUUsageWarningC54EA81E",
+                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
                   "Arn",
                 ],
               },
@@ -16736,11 +17191,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyEc2ServiceMemoryUsageWarningA309958B",
+                  "ScopeTestDummyEc2ServiceRunningTasksHighWarning6685518B",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -17943,6 +18409,86 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
           },
         ],
         "Threshold": 80,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyEc2ServiceDiskUsageWarning289F214F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The disk usage is too high.",
+        "AlarmName": "Test-DummyEc2Service-Disk-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 * (used/total)",
+            "Id": "expr_1",
+            "Label": "Ephemeral Storage Usage",
+          },
+          Object {
+            "Id": "used",
+            "Label": "Ephemeral Storage Utilized",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageUtilized",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Ephemeral Storage Reserved",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ClusterName",
+                    "Value": Object {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                  },
+                  Object {
+                    "Name": "ServiceName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Service9571FDD8",
+                        "Name",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "EphemeralStorageReserved",
+                "Namespace": "ECS/ContainerInsights",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 90,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
