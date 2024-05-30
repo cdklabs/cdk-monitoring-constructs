@@ -54,19 +54,24 @@ import {
 
 export interface BaseEc2ServiceAlarms {
   /**
-   * minimum number of tasks, as specified in your auto scaling config
+   * Minimum number of tasks, as specified in your auto scaling config.
    */
   readonly minAutoScalingTaskCount?: number;
   /**
-   * maximum number of tasks, as specified in your auto scaling config
+   * Maximum number of tasks, as specified in your auto scaling config.
    */
   readonly maxAutoScalingTaskCount?: number;
-  /**
-   * Container Insights needs to be enabled for the cluster for this alarm
-   */
-  readonly addRunningTaskCountAlarm?: Record<string, RunningTaskCountThreshold>;
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
   readonly addMemoryUsageAlarm?: Record<string, UsageThreshold>;
+
+  /**
+   * Container Insights needs to be enabled for the cluster for this alarm.
+   */
+  readonly addRunningTaskCountAlarm?: Record<string, RunningTaskCountThreshold>;
+  /**
+   * Container Insights needs to be enabled for the cluster for this alarm.
+   */
+  readonly addEphermalStorageUsageAlarm?: Record<string, UsageThreshold>;
 }
 
 /**
@@ -170,9 +175,10 @@ export class Ec2ServiceMonitoring extends Monitoring {
   readonly healthyTaskCountMetric?: MetricWithAlarmSupport;
   readonly unhealthyTaskCountMetric?: MetricWithAlarmSupport;
   readonly healthyTaskPercentMetric?: MetricWithAlarmSupport;
-  readonly runningTaskCountMetric: MetricWithAlarmSupport;
   readonly cpuUtilisationMetric: MetricWithAlarmSupport;
   readonly memoryUtilisationMetric: MetricWithAlarmSupport;
+  readonly runningTaskCountMetric: MetricWithAlarmSupport;
+  readonly ephemeralStorageUsageMetric: MetricWithAlarmSupport;
   readonly activeTcpFlowCountMetric?: MetricWithAlarmSupport;
   readonly newTcpFlowCountMetric?: MetricWithAlarmSupport;
   readonly processedBytesMetric?: MetricWithAlarmSupport;
@@ -216,12 +222,14 @@ export class Ec2ServiceMonitoring extends Monitoring {
       this.processedBytesMetric =
         this.loadBalancerMetricFactory.metricProcessedBytesMin();
     }
-    this.runningTaskCountMetric =
-      this.baseServiceMetricFactory.metricRunningTaskCount();
     this.cpuUtilisationMetric =
       this.baseServiceMetricFactory.metricClusterCpuUtilisationInPercent();
     this.memoryUtilisationMetric =
       this.baseServiceMetricFactory.metricClusterMemoryUtilisationInPercent();
+    this.runningTaskCountMetric =
+      this.baseServiceMetricFactory.metricRunningTaskCount();
+    this.ephemeralStorageUsageMetric =
+      this.baseServiceMetricFactory.metricEphemeralStorageUsageInPercent();
 
     const alarmFactory = this.createAlarmFactory(
       namingStrategy.resolveAlarmFriendlyName()
@@ -288,17 +296,6 @@ export class Ec2ServiceMonitoring extends Monitoring {
         this.addAlarm(createdAlarm);
       }
     }
-
-    for (const disambiguator in props.addRunningTaskCountAlarm) {
-      const alarmProps = props.addRunningTaskCountAlarm[disambiguator];
-      const createdAlarm = this.taskHealthAlarmFactory.addRunningTaskCountAlarm(
-        this.runningTaskCountMetric,
-        alarmProps,
-        disambiguator
-      );
-      this.taskHealthAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
-    }
     for (const disambiguator in props.addCpuUsageAlarm) {
       const alarmProps = props.addCpuUsageAlarm[disambiguator];
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
@@ -317,6 +314,26 @@ export class Ec2ServiceMonitoring extends Monitoring {
         disambiguator
       );
       this.memoryUsageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addRunningTaskCountAlarm) {
+      const alarmProps = props.addRunningTaskCountAlarm[disambiguator];
+      const createdAlarm = this.taskHealthAlarmFactory.addRunningTaskCountAlarm(
+        this.runningTaskCountMetric,
+        alarmProps,
+        disambiguator
+      );
+      this.taskHealthAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addEphermalStorageUsageAlarm) {
+      const alarmProps = props.addEphermalStorageUsageAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMaxDiskUsagePercentAlarm(
+        this.ephemeralStorageUsageMetric,
+        alarmProps,
+        disambiguator
+      );
       this.addAlarm(createdAlarm);
     }
 
@@ -362,7 +379,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
 
     if (this.hasLoadBalancer) {
       return baseWidget.concat([
-        this.createTpcFlowsWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        this.createTcpFlowsWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createTaskHealthWidget(QuarterWidth, DefaultGraphWidgetHeight),
       ]);
     } else {
@@ -422,7 +439,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
     });
   }
 
-  createTpcFlowsWidget(width: number, height: number) {
+  createTcpFlowsWidget(width: number, height: number) {
     const left: IMetric[] = [];
     const right: IMetric[] = [];
 
@@ -447,5 +464,12 @@ export class Ec2ServiceMonitoring extends Monitoring {
       right,
       rightYAxis: SizeAxisBytesFromZero,
     });
+  }
+
+  /**
+   * @deprecated use {@see createTcpFlowsWidget} instead.
+   */
+  createTpcFlowsWidget(width: number, height: number) {
+    return this.createTcpFlowsWidget(width, height);
   }
 }

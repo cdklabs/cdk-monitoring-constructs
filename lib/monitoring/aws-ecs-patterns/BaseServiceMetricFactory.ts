@@ -68,4 +68,37 @@ export class BaseServiceMetricFactory {
       EcsContainerInsightsNamespace
     );
   }
+
+  metricEphemeralStorageReserved() {
+    return this.metricFactory.createMetric(
+      "EphemeralStorageReserved",
+      MetricStatistic.MAX,
+      "Ephemeral Storage Reserved",
+      this.dimensionsMap,
+      undefined,
+      EcsContainerInsightsNamespace
+    );
+  }
+
+  metricEphemeralStorageUtilized() {
+    return this.metricFactory.createMetric(
+      "EphemeralStorageUtilized",
+      MetricStatistic.MAX,
+      "Ephemeral Storage Utilized",
+      this.dimensionsMap,
+      undefined,
+      EcsContainerInsightsNamespace
+    );
+  }
+
+  metricEphemeralStorageUsageInPercent() {
+    const total = this.metricEphemeralStorageReserved();
+    const used = this.metricEphemeralStorageUtilized();
+
+    return this.metricFactory.createMetricMath(
+      "100 * (used/total)",
+      { used, total },
+      "Ephemeral Storage Usage"
+    );
+  }
 }

@@ -99,11 +99,6 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             minHealthyTaskPercent: 75,
           },
         },
-        addRunningTaskCountAlarm: {
-          Warning: {
-            maxRunningTasks: 5,
-          },
-        },
         addCpuUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
@@ -112,6 +107,16 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
         addMemoryUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
+          },
+        },
+        addRunningTaskCountAlarm: {
+          Warning: {
+            maxRunningTasks: 5,
+          },
+        },
+        addEphermalStorageUsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
           },
         },
         addMinProcessedBytesAlarm: {
@@ -129,7 +134,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(7);
+      expect(numAlarmsCreated).toStrictEqual(8);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
 
@@ -226,11 +231,6 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             maxUnhealthyTasks: 3,
           },
         },
-        addRunningTaskCountAlarm: {
-          Warning: {
-            maxRunningTasks: 5,
-          },
-        },
         addCpuUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
@@ -239,6 +239,16 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
         addMemoryUsageAlarm: {
           Warning: {
             maxUsagePercent: 80,
+          },
+        },
+        addRunningTaskCountAlarm: {
+          Warning: {
+            maxRunningTasks: 5,
+          },
+        },
+        addEphermalStorageUsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
           },
         },
         addMinProcessedBytesAlarm: {
@@ -256,7 +266,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(7);
+      expect(numAlarmsCreated).toStrictEqual(8);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
   }
