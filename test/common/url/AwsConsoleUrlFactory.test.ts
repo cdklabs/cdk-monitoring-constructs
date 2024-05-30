@@ -277,7 +277,7 @@ test("getElastiCacheClusterUrl (memcached)", () => {
   const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });
 
   const expected =
-    "https://eu-west-1.console.aws.amazon.com/elasticache/home?region=eu-west-1#memcached-nodes:id=DummyDomainName;nodes";
+    "https://eu-west-1.console.aws.amazon.com/elasticache/home?region=eu-west-1#/memcached/DummyDomainName";
 
   expect(
     stack.resolve(
@@ -303,7 +303,7 @@ test("getElastiCacheClusterUrl (redis)", () => {
   const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });
 
   const expected =
-    "https://eu-west-1.console.aws.amazon.com/elasticache/home?region=eu-west-1#redis-shards:redis-id=DummyDomainName";
+    "https://eu-west-1.console.aws.amazon.com/elasticache/home?region=eu-west-1#/redis/DummyDomainName";
 
   expect(
     stack.resolve(
