@@ -1,4 +1,3 @@
-import * as redshift from "@aws-cdk/aws-redshift-alpha";
 import { IAspect } from "aws-cdk-lib";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
 import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2";
@@ -17,6 +16,7 @@ import * as kinesisfirehose from "aws-cdk-lib/aws-kinesisfirehose";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as opensearch from "aws-cdk-lib/aws-opensearchservice";
 import * as rds from "aws-cdk-lib/aws-rds";
+import { CfnCluster } from "aws-cdk-lib/aws-redshift";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager";
 import * as sns from "aws-cdk-lib/aws-sns";
@@ -341,13 +341,22 @@ export class MonitoringAspect implements IAspect {
 
   private monitorRedshift(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(this.props.redshift);
-    if (isEnabled && node instanceof redshift.Cluster) {
+    if (isEnabled && this.isProbablyL2RedshiftCluster(node)) {
+      const cfnCluster = (node as any).cluster as CfnCluster;
       this.monitoringFacade.monitorRedshiftCluster({
-        clusterIdentifier: node.clusterName,
-        alarmFriendlyName: node.node.path,
+        clusterIdentifier: cfnCluster.ref,
+        alarmFriendlyName: cfnCluster.node.path,
         ...props,
       });
     }
+  }
+
+  private isProbablyL2RedshiftCluster(node: IConstruct): boolean {
+    return (
+      (node as any).cluster instanceof CfnCluster &&
+      !!(node as any).clusterName &&
+      !!(node as any).node?.path
+    );
   }
 
   private monitorS3(node: IConstruct) {

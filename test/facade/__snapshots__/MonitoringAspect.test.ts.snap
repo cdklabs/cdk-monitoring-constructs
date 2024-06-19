@@ -7457,7 +7457,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[Default/DummyCluster](https://",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[Default/DummyCluster/Resource](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7539,7 +7539,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[Default/DummyCluster](https://",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Redshift Cluster **[Default/DummyCluster/Resource](https://",
               Object {
                 "Ref": "AWS::Region",
               },

@@ -29,7 +29,6 @@ In your `package.json`:
     "cdk-monitoring-constructs": "^7.0.0",
 
     // peer dependencies of cdk-monitoring-constructs
-    "@aws-cdk/aws-redshift-alpha": "^2.112.0-alpha.0",
     "aws-cdk-lib": "^2.112.0",
     "constructs": "^10.0.5"
 
