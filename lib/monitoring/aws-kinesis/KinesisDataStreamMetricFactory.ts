@@ -1,25 +1,31 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const DataStreamNamespace = "AWS/Kinesis";
 
-export interface KinesisDataStreamMetricFactoryProps {
+export interface KinesisDataStreamMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly streamName: string;
 }
 
 /**
  * @see https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
  */
-export class KinesisDataStreamMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDataStreamMetricFactoryProps> {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: KinesisDataStreamMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensionsMap = {
       StreamName: props.streamName,
     };

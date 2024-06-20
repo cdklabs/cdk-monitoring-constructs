@@ -1,11 +1,16 @@
 import { DimensionHash } from "aws-cdk-lib/aws-cloudwatch";
 import { CfnWebACL } from "aws-cdk-lib/aws-wafv2";
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const MetricNamespace = "AWS/WAFV2";
 const AllRulesDimensionValue = "ALL";
 
-export interface WafV2MetricFactoryProps {
+export interface WafV2MetricFactoryProps extends BaseMetricFactoryProps {
   readonly acl: CfnWebACL;
 
   /**
@@ -17,12 +22,12 @@ export interface WafV2MetricFactoryProps {
 /**
  * https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html
  */
-export class WafV2MetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProps> {
   protected readonly dimensions: DimensionHash;
 
   constructor(metricFactory: MetricFactory, props: WafV2MetricFactoryProps) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensions = {
       Rule: AllRulesDimensionValue,
       WebACL: props.acl.name,

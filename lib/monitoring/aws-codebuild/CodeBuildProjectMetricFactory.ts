@@ -1,14 +1,19 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { IProject } from "aws-cdk-lib/aws-codebuild";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
-export interface CodeBuildProjectMetricFactoryProps {
+export interface CodeBuildProjectMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly project: IProject;
 }
 
-export class CodeBuildProjectMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildProjectMetricFactoryProps> {
   protected readonly dimensionsMap: DimensionsMap;
   protected readonly project: IProject;
 
@@ -16,7 +21,8 @@ export class CodeBuildProjectMetricFactory {
     metricFactory: MetricFactory,
     props: CodeBuildProjectMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.project = props.project;
     this.dimensionsMap = {
       ProjectName: props.project.projectName,

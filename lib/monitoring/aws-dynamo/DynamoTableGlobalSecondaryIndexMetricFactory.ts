@@ -1,17 +1,22 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { ITable } from "aws-cdk-lib/aws-dynamodb";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const DynamoDbNamespace = "AWS/DynamoDB";
 
-export interface DynamoTableGlobalSecondaryIndexMetricFactoryProps {
+export interface DynamoTableGlobalSecondaryIndexMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly table: ITable;
   readonly globalSecondaryIndexName: string;
 }
 
-export class DynamoTableGlobalSecondaryIndexMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFactory<DynamoTableGlobalSecondaryIndexMetricFactoryProps> {
   protected readonly table: ITable;
   protected readonly dimensionsMap: DimensionsMap;
 
@@ -19,7 +24,8 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory {
     metricFactory: MetricFactory,
     props: DynamoTableGlobalSecondaryIndexMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.table = props.table;
     this.dimensionsMap = {
       TableName: props.table.tableName,

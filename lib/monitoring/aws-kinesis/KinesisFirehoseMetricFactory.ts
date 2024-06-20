@@ -1,25 +1,31 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const FirehoseNamespace = "AWS/Firehose";
 
-export interface KinesisFirehoseMetricFactoryProps {
+export interface KinesisFirehoseMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly deliveryStreamName: string;
 }
 
 /**
  * @see https://docs.aws.amazon.com/firehose/latest/dev/monitoring-with-cloudwatch-metrics.html
  */
-export class KinesisFirehoseMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFirehoseMetricFactoryProps> {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: KinesisFirehoseMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensionsMap = {
       DeliveryStreamName: props.deliveryStreamName,
     };

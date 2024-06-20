@@ -1,6 +1,8 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { Canary } from "aws-cdk-lib/aws-synthetics";
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
@@ -8,7 +10,8 @@ import {
 
 const MetricNamespace = "CloudWatchSynthetics";
 
-export interface SyntheticsCanaryMetricFactoryProps {
+export interface SyntheticsCanaryMetricFactoryProps
+  extends BaseMetricFactoryProps {
   /**
    * CloudWatch Canary to monitor
    */
@@ -20,9 +23,8 @@ export interface SyntheticsCanaryMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class SyntheticsCanaryMetricFactory {
+export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsCanaryMetricFactoryProps> {
   protected readonly canary: Canary;
-  protected readonly metricFactory: MetricFactory;
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
 
@@ -30,8 +32,9 @@ export class SyntheticsCanaryMetricFactory {
     metricFactory: MetricFactory,
     props: SyntheticsCanaryMetricFactoryProps
   ) {
+    super(metricFactory, props);
+
     this.canary = props.canary;
-    this.metricFactory = metricFactory;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
     this.dimensionsMap = {

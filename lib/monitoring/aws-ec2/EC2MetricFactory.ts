@@ -1,7 +1,12 @@
 import { IAutoScalingGroup } from "aws-cdk-lib/aws-autoscaling";
 import { DimensionsMap, IMetric } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const EC2Namespace = "AWS/EC2";
 
@@ -123,7 +128,7 @@ function resolveStrategy(
   }
 }
 
-export interface EC2MetricFactoryProps {
+export interface EC2MetricFactoryProps extends BaseMetricFactoryProps {
   /**
    * Auto-Scaling Group to monitor.
    * @default - no Auto-Scaling Group filter
@@ -136,12 +141,12 @@ export interface EC2MetricFactoryProps {
   readonly instanceIds?: string[];
 }
 
-export class EC2MetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
   protected readonly strategy: IEC2MetricFactoryStrategy;
 
   constructor(metricFactory: MetricFactory, props: EC2MetricFactoryProps) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.strategy = resolveStrategy(props);
   }
 

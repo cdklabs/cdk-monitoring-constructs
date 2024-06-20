@@ -7,6 +7,7 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import { AnomalyDetectionMathExpression } from "./AnomalyDetectionMathExpression";
+import { BaseMetricFactoryProps } from "./BaseMetricFactory";
 import { MetricStatistic } from "./MetricStatistic";
 import { MetricWithAlarmSupport } from "./MetricWithAlarmSupport";
 import { RateComputationMethod } from "./RateComputationMethod";
@@ -19,7 +20,7 @@ export const DefaultMetricPeriod = Duration.minutes(5);
 /**
  * These are the globals used for each metric, unless there is some kind of override.
  */
-export interface MetricFactoryDefaults {
+export interface MetricFactoryDefaults extends BaseMetricFactoryProps {
   /**
    * Each metric exists in a namespace. AWS Services have their own namespace, but here you can specify your custom one.
    */

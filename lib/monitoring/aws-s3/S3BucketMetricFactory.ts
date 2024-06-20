@@ -1,6 +1,11 @@
 import { IBucket } from "aws-cdk-lib/aws-s3";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const Namespace = "AWS/S3";
 
@@ -23,17 +28,17 @@ export enum StorageType {
   STANDARD_STORAGE = "StandardStorage",
 }
 
-export interface S3BucketMetricFactoryProps {
+export interface S3BucketMetricFactoryProps extends BaseMetricFactoryProps {
   readonly bucket: IBucket;
   readonly storageType?: StorageType;
 }
 
-export class S3BucketMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class S3BucketMetricFactory extends BaseMetricFactory<S3BucketMetricFactoryProps> {
   protected readonly props: S3BucketMetricFactoryProps;
 
   constructor(metricFactory: MetricFactory, props: S3BucketMetricFactoryProps) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.props = props;
   }
 

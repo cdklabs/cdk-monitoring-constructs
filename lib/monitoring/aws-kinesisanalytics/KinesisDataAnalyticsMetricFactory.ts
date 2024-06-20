@@ -1,8 +1,14 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
-export interface KinesisDataAnalyticsMetricFactoryProps {
+export interface KinesisDataAnalyticsMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly application: string;
 }
 
@@ -18,15 +24,15 @@ interface MetricsSpec {
 /**
  * @see https://docs.aws.amazon.com/kinesisanalytics/latest/java/metrics-dimensions.html
  */
-export class KinesisDataAnalyticsMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<KinesisDataAnalyticsMetricFactoryProps> {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: KinesisDataAnalyticsMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensionsMap = {
       Application: props.application,
     };

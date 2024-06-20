@@ -5,12 +5,15 @@ import {
   OpenSearchBackportedMetrics,
 } from "./OpenSearchBackportedMetrics";
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
 } from "../../common";
 
-export interface OpenSearchClusterMetricFactoryProps {
+export interface OpenSearchClusterMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly domain: Domain;
   /**
    * @default - true
@@ -22,8 +25,7 @@ export interface OpenSearchClusterMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class OpenSearchClusterMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearchClusterMetricFactoryProps> {
   protected readonly domainMetrics: OpenSearchBackportedMetrics;
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
@@ -32,7 +34,8 @@ export class OpenSearchClusterMetricFactory {
     metricFactory: MetricFactory,
     props: OpenSearchClusterMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.domainMetrics = new OpenSearchBackportedMetrics(props.domain);
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =

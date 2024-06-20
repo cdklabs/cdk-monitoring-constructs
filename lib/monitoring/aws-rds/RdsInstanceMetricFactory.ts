@@ -2,6 +2,8 @@ import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { IDatabaseInstance } from "aws-cdk-lib/aws-rds";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   LatencyType,
   MetricFactory,
   MetricStatistic,
@@ -11,24 +13,24 @@ import {
 
 const RdsNamespace = "AWS/RDS";
 
-export interface RdsInstanceMetricFactoryProps {
+export interface RdsInstanceMetricFactoryProps extends BaseMetricFactoryProps {
   /**
    * database instance
    */
   readonly instance: IDatabaseInstance;
 }
 
-export class RdsInstanceMetricFactory {
+export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetricFactoryProps> {
   readonly instanceIdentifier: string;
   readonly instance: IDatabaseInstance;
-  protected readonly metricFactory: MetricFactory;
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: RdsInstanceMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.instance = props.instance;
     this.instanceIdentifier = props.instance.instanceIdentifier;
     this.dimensionsMap = {

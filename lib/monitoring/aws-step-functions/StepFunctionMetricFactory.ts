@@ -2,6 +2,8 @@ import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { IStateMachine } from "aws-cdk-lib/aws-stepfunctions";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
@@ -9,7 +11,7 @@ import {
 
 const Namespace = "AWS/States";
 
-export interface StepFunctionMetricFactoryProps {
+export interface StepFunctionMetricFactoryProps extends BaseMetricFactoryProps {
   readonly stateMachine: IStateMachine;
   /**
    * @default - average
@@ -17,8 +19,7 @@ export interface StepFunctionMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class StepFunctionMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMetricFactoryProps> {
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
 
@@ -26,7 +27,8 @@ export class StepFunctionMetricFactory {
     metricFactory: MetricFactory,
     props: StepFunctionMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.rateComputationMethod = RateComputationMethod.AVERAGE;
     this.dimensionsMap = {
       StateMachineArn: props.stateMachine.stateMachineArn,
