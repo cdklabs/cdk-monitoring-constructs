@@ -57,6 +57,8 @@ export class ApplicationLoadBalancerMetricFactory
         statistic: this.invertStatisticsOfTaskCountEnabled
           ? MetricStatistic.MAX
           : MetricStatistic.MIN,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -69,6 +71,8 @@ export class ApplicationLoadBalancerMetricFactory
         statistic: this.invertStatisticsOfTaskCountEnabled
           ? MetricStatistic.MIN
           : MetricStatistic.MAX,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -87,6 +91,8 @@ export class ApplicationLoadBalancerMetricFactory
     return this.metricFactory.adaptMetric(
       this.applicationLoadBalancer.metrics.activeConnectionCount({
         label: "Active",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -95,6 +101,8 @@ export class ApplicationLoadBalancerMetricFactory
     return this.metricFactory.adaptMetric(
       this.applicationLoadBalancer.metrics.newConnectionCount({
         label: "New",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -104,6 +112,8 @@ export class ApplicationLoadBalancerMetricFactory
       this.applicationLoadBalancer.metrics.processedBytes({
         statistic: MetricStatistic.MIN,
         label: "Processed Bytes (min)",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -114,6 +124,8 @@ export class ApplicationLoadBalancerMetricFactory
         "UnhealthyRoutingRequestCount",
         {
           statistic: MetricStatistic.SUM,
+          region: this.region,
+          account: this.account,
         },
       ),
     );

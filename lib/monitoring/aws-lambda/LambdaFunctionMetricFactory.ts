@@ -85,6 +85,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
     return this.metricFactory.adaptMetric(
       this.lambdaFunction.metricThrottles({
         label: "Throttles",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -103,6 +105,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
     return this.metricFactory.adaptMetric(
       this.lambdaFunction.metricErrors({
         label: "Faults",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -122,6 +126,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.lambdaFunction.metricDuration({
         statistic: getLatencyTypeStatistic(latencyType),
         label: getLatencyTypeLabel(latencyType),
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -152,6 +158,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.lambdaFunction.metric("ConcurrentExecutions", {
         statistic: MetricStatistic.MAX,
         label: "Concurrent",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -161,14 +169,15 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.lambdaFunction.metric("ProvisionedConcurrencySpilloverInvocations", {
         statistic: MetricStatistic.SUM,
         label: "Provisioned Concurrency Spillovers",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
 
   metricProvisionedConcurrencySpilloverRate() {
-    const metric = this.metricProvisionedConcurrencySpilloverInvocations();
     return this.metricFactory.toRate(
-      metric,
+      this.metricProvisionedConcurrencySpilloverInvocations(),
       this.rateComputationMethod,
       false,
       "pcsi",
@@ -180,6 +189,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.lambdaFunction.metric("IteratorAge", {
         statistic: MetricStatistic.MAX,
         label: "Iterator Age",
+        region: this.region,
+        account: this.account,
       }),
     );
   }

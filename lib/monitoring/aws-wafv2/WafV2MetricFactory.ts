@@ -11,12 +11,10 @@ const MetricNamespace = "AWS/WAFV2";
 const AllRulesDimensionValue = "ALL";
 
 export interface WafV2MetricFactoryProps extends BaseMetricFactoryProps {
-  readonly acl: CfnWebACL;
-
   /**
-   * Required if acl has a "REGIONAL" scope.
+   * Note that the "region" prop is required if this has a "REGIONAL" scope.
    */
-  readonly region?: string;
+  readonly acl: CfnWebACL;
 }
 
 /**
@@ -43,6 +41,9 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
       this.dimensions,
       undefined,
       MetricNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -54,6 +55,9 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
       this.dimensions,
       undefined,
       MetricNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 

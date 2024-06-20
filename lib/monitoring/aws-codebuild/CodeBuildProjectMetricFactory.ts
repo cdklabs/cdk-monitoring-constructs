@@ -30,15 +30,30 @@ export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildPr
   }
 
   metricBuildCount() {
-    return this.metricFactory.adaptMetric(this.project.metricBuilds());
+    return this.metricFactory.adaptMetric(
+      this.project.metricBuilds({
+        region: this.region,
+        account: this.account,
+      }),
+    );
   }
 
   metricSucceededBuildCount() {
-    return this.metricFactory.adaptMetric(this.project.metricSucceededBuilds());
+    return this.metricFactory.adaptMetric(
+      this.project.metricSucceededBuilds({
+        region: this.region,
+        account: this.account,
+      }),
+    );
   }
 
   metricFailedBuildCount() {
-    return this.metricFactory.adaptMetric(this.project.metricFailedBuilds());
+    return this.metricFactory.adaptMetric(
+      this.project.metricFailedBuilds({
+        region: this.region,
+        account: this.account,
+      }),
+    );
   }
 
   metricFailedBuildRate() {
@@ -52,6 +67,8 @@ export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildPr
       this.project.metricDuration({
         label: "P99",
         statistic: MetricStatistic.P99,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -61,6 +78,8 @@ export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildPr
       this.project.metricDuration({
         label: "P90",
         statistic: MetricStatistic.P90,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -70,6 +89,8 @@ export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildPr
       this.project.metricDuration({
         label: "P50",
         statistic: MetricStatistic.P50,
+        region: this.region,
+        account: this.account,
       }),
     );
   }

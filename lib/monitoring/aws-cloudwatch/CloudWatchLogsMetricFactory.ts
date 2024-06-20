@@ -39,6 +39,9 @@ export class CloudWatchLogsMetricFactory extends BaseMetricFactory<CloudWatchLog
       this.dimensionsMap,
       undefined,
       CloudWatchLogsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }
