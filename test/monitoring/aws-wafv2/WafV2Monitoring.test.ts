@@ -27,6 +27,26 @@ test("snapshot test: no alarms", () => {
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
+test("with REGIONAL ACL but no region prop, throws error", () => {
+  const stack = new Stack();
+  const acl = new CfnWebACL(stack, "DummyAcl", {
+    name: "DummyAclName",
+    defaultAction: { allow: {} },
+    scope: "REGIONAL",
+    visibilityConfig: {
+      sampledRequestsEnabled: true,
+      cloudWatchMetricsEnabled: true,
+      metricName: "DummyMetricName",
+    },
+  });
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  expect(() => new WafV2Monitoring(scope, { acl })).toThrow(
+    `region is required if CfnWebACL has "REGIONAL" scope`,
+  );
+});
+
 test("snapshot test: all alarms", () => {
   const stack = new Stack();
   const acl = new CfnWebACL(stack, "DummyAcl", {

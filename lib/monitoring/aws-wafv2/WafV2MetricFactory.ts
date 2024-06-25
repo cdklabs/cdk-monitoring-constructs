@@ -28,6 +28,10 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
   constructor(metricFactory: MetricFactory, props: WafV2MetricFactoryProps) {
     super(metricFactory, props);
 
+    if (props.acl.scope === "REGIONAL" && !props.region) {
+      throw new Error(`region is required if CfnWebACL has "REGIONAL" scope`);
+    }
+
     this.dimensions = {
       Rule: AllRulesDimensionValue,
       WebACL: props.acl.name,
