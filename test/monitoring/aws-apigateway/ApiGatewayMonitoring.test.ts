@@ -203,7 +203,7 @@ test("snapshot test: all alarms using interface", () => {
   const api: IRestApi = RestApi.fromRestApiId(
     stack,
     "ThisShouldBeTheApiName",
-    "thisIsNotUsed"
+    "thisIsNotUsed",
   );
 
   const scope = new TestMonitoringScope(stack, "Scope");

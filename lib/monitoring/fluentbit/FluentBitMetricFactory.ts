@@ -57,7 +57,7 @@ export class FluentBitMetricFactory {
         metricNamespace: this.namespace,
         metricName,
         metricValue: "$.value",
-      }
+      },
     );
     return metricFilter.metric({
       statistic: MetricStatistic.MAX,
@@ -76,7 +76,7 @@ export class FluentBitMetricFactory {
           metricNamespace: this.namespace,
           metricName,
           metricValue: `${valueString}`,
-        }
+        },
       );
       const metric = metricFilter.metric({
         statistic: MetricStatistic.MAX,
@@ -87,7 +87,7 @@ export class FluentBitMetricFactory {
 
   metricsWithoutWidgets(logGroup: ILogGroup) {
     Object.values(FluentBitMetricsWithoutWidget).forEach((metricName) =>
-      this.pluginMetric(logGroup, metricName)
+      this.pluginMetric(logGroup, metricName),
     );
   }
 }

@@ -29,12 +29,12 @@ export class Route53HealthCheckMetricAdjuster implements IMetricAdjuster {
   adjustMetric(
     metric: MetricWithAlarmSupport,
     alarmScope: Construct,
-    props: AddAlarmProps
+    props: AddAlarmProps,
   ): MetricWithAlarmSupport {
     // Route53 health checks do not support composite alarms
     if (props.minMetricSamplesToAlarm) {
       throw new Error(
-        "Alarms with 'minMetricSamplesToAlarm' are not supported."
+        "Alarms with 'minMetricSamplesToAlarm' are not supported.",
       );
     }
 
@@ -57,7 +57,7 @@ export class Route53HealthCheckMetricAdjuster implements IMetricAdjuster {
     // Route53 health checks only support a subset of statistics
     if (!SUPPORTED_STATS.has(statistic)) {
       throw new Error(
-        `Metrics with statistic '${statistic}' are not supported.`
+        `Metrics with statistic '${statistic}' are not supported.`,
       );
     }
 

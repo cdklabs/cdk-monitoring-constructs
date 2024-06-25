@@ -56,14 +56,14 @@ export class DocumentDbMonitoring extends Monitoring {
 
     const metricFactory = new DocumentDbMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.cpuUsageMetric = metricFactory.metricAverageCpuUsageInPercent();
     this.readLatencyMetric = metricFactory.metricReadLatencyInMillis(
-      LatencyType.P90
+      LatencyType.P90,
     );
     this.writeLatencyMetric = metricFactory.metricWriteLatencyInMillis(
-      LatencyType.P90
+      LatencyType.P90,
     );
     this.connectionsMetric = metricFactory.metricMaxConnectionCount();
     this.cursorsMetric = metricFactory.metricMaxCursorCount();
@@ -81,7 +81,7 @@ export class DocumentDbMonitoring extends Monitoring {
       .createAwsConsoleUrlFactory()
       .getDocumentDbClusterUrl(metricFactory.clusterIdentifier);
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
 
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
@@ -92,7 +92,7 @@ export class DocumentDbMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

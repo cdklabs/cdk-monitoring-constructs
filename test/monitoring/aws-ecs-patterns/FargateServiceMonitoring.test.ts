@@ -30,7 +30,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       const cluster = new Cluster(stack, "Cluster");
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
       const taskDefinition = new FargateTaskDefinition(stack, "TaskDef", {});
 
@@ -68,7 +68,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       const cluster = new Cluster(stack, "Cluster");
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
       const taskDefinition = new FargateTaskDefinition(stack, "TaskDef", {});
 
@@ -149,7 +149,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       const cluster = new Cluster(stack, "Cluster");
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
 
       const fargateService = new NetworkLoadBalancedFargateService(
@@ -162,7 +162,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             containerPort: 8080,
             image,
           },
-        }
+        },
       );
 
       const monitoring = new FargateServiceMonitoring(scope, {
@@ -184,7 +184,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       const cluster = new Cluster(stack, "Cluster");
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
 
       const fargateService = new NetworkLoadBalancedFargateService(
@@ -197,7 +197,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             containerPort: 8080,
             image,
           },
-        }
+        },
       );
 
       let numAlarmsCreated = 0;
@@ -267,7 +267,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       const cluster = new Cluster(stack, "Cluster");
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
 
       const fargateService = new ApplicationLoadBalancedFargateService(
@@ -280,7 +280,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             containerPort: 8080,
             image,
           },
-        }
+        },
       );
 
       const monitoring = new FargateServiceMonitoring(scope, {
@@ -302,7 +302,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       const cluster = new Cluster(stack, "Cluster");
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
 
       const fargateService = new ApplicationLoadBalancedFargateService(
@@ -315,7 +315,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             containerPort: 8080,
             image,
           },
-        }
+        },
       );
 
       let numAlarmsCreated = 0;
@@ -390,11 +390,11 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
         {
           cpu: 512,
           memoryLimitMiB: 1024,
-        }
+        },
       );
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
       taskDefinition.addContainer("DummyContainer", {
         image,
@@ -427,11 +427,11 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
         {
           cpu: 512,
           memoryLimitMiB: 1024,
-        }
+        },
       );
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
       taskDefinition.addContainer("DummyContainer", {
         image,
@@ -478,7 +478,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       expect(numAlarmsCreated).toStrictEqual(4);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
-  }
+  },
 );
 
 test("snapshot test: with imported service", () => {
@@ -491,10 +491,10 @@ test("snapshot test: with imported service", () => {
       cluster: Cluster.fromClusterArn(
         stack,
         "ImportedCluster",
-        "arn:aws:ecs:us-west-2:123456789012:cluster/DummyCluster"
+        "arn:aws:ecs:us-west-2:123456789012:cluster/DummyCluster",
       ),
       serviceName: "DummyService",
-    }
+    },
   );
 
   const scope = new TestMonitoringScope(stack, "Scope");
@@ -536,7 +536,7 @@ test("snapshot test: with imported NLB", () => {
       targetGroupArn:
         "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/TargetGroup/123",
       loadBalancerArns: networkLoadBalancer.loadBalancerArn,
-    }
+    },
   );
 
   const monitoring = new FargateServiceMonitoring(scope, {

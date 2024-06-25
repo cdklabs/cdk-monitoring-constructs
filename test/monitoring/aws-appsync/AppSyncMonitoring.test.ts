@@ -15,7 +15,7 @@ test("snapshot test: no alarms", () => {
   const dummyApi = new GraphqlApi(stack, "testHttpApi", {
     name: "DummyApi",
     schema: SchemaFile.fromAsset(
-      path.join(__dirname, "..", "..", "assets", "schema.graphql")
+      path.join(__dirname, "..", "..", "assets", "schema.graphql"),
     ),
   });
 
@@ -39,7 +39,7 @@ test("snapshot test: no alarms with imported IGraphqlApi", () => {
     "ImportedGraphQlApi",
     {
       graphqlApiId: "DummyApiFromElsewhere",
-    }
+    },
   );
 
   const monitoring = new AppSyncMonitoring(scope, {
@@ -62,7 +62,7 @@ test("snapshot test: all alarms", () => {
   const dummyApi = new GraphqlApi(stack, "testHttpApi", {
     name: "DummyApi",
     schema: SchemaFile.fromAsset(
-      path.join(__dirname, "..", "..", "assets", "schema.graphql")
+      path.join(__dirname, "..", "..", "assets", "schema.graphql"),
     ),
   });
 

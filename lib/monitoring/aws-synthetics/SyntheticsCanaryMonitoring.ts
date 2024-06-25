@@ -76,7 +76,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
     this.humanReadableName = namingStrategy.resolveHumanReadableName();
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.latencyAlarmFactory = new LatencyAlarmFactory(alarmFactory);
     this.errorAlarmFactory = new ErrorAlarmFactory(alarmFactory);
@@ -86,7 +86,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
 
     const metricFactory = new SyntheticsCanaryMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.averageLatencyMetric = metricFactory.metricLatencyAverageInMillis();
     this.errorCountMetric = metricFactory.metric4xxErrorCount();
@@ -100,7 +100,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
         this.averageLatencyMetric,
         LatencyType.AVERAGE,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -111,7 +111,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
         this.errorCountMetric,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -122,7 +122,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
         this.errorRateMetric,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -133,7 +133,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
         this.faultCountMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -144,7 +144,7 @@ export class SyntheticsCanaryMonitoring extends Monitoring {
         this.faultRateMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

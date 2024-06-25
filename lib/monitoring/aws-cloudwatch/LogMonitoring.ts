@@ -95,7 +95,7 @@ export class LogMonitoring extends Monitoring {
       fallbackConstructName: this.logGroupName,
     });
     this.alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.usageAlarmFactory = new UsageAlarmFactory(this.alarmFactory);
 
@@ -103,7 +103,7 @@ export class LogMonitoring extends Monitoring {
 
     const metricFactory = new CloudWatchLogsMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.incomingLogEventsMetric = metricFactory.metricIncomingLogEvents();
 
@@ -112,7 +112,7 @@ export class LogMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMinUsageCountAlarm(
         this.incomingLogEventsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -123,7 +123,7 @@ export class LogMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCountAlarm(
         this.incomingLogEventsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

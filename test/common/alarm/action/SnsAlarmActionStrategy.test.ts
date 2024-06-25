@@ -25,7 +25,7 @@ test("snapshot test: all actions", () => {
   const onOkTopic = new Topic(stack, "DummyOkTopic");
   const onInsufficientDataTopic = new Topic(
     stack,
-    "DummyInsufficientDataTopic"
+    "DummyInsufficientDataTopic",
   );
   const alarm = new Alarm(stack, "DummyAlarm", {
     evaluationPeriods: 1,

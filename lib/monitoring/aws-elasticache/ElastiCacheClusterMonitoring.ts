@@ -113,17 +113,17 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: ElastiCacheClusterMonitoringProps
+    props: ElastiCacheClusterMonitoringProps,
   ) {
     super(scope, props);
 
     this.clusterType = props.clusterType;
 
     const clusterType = capitalizeFirstLetterOnly(
-      ElastiCacheClusterType[props.clusterType]
+      ElastiCacheClusterType[props.clusterType],
     );
     const fallbackConstructName = [clusterType, props.clusterId ?? "ALL"].join(
-      "-"
+      "-",
     );
     const namingStrategy = new MonitoringNamingStrategy({
       ...props,
@@ -138,7 +138,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
 
     const metricFactory = new ElastiCacheClusterMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.connectionsMetric = metricFactory.metricAverageConnections();
     this.cpuUsageMetric = metricFactory.metricMaxCpuUtilizationInPercent();
@@ -160,7 +160,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
     this.memoryUsageAnnotations = [];
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
     this.elastiCacheAlarmFactory = new ElastiCacheAlarmFactory(alarmFactory);
@@ -170,7 +170,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.cpuUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -181,7 +181,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       props.clusterType !== ElastiCacheClusterType.REDIS
     ) {
       throw new Error(
-        "It is only possible to alarm on Redis Engine CPU Usage for Redis clusters"
+        "It is only possible to alarm on Redis Engine CPU Usage for Redis clusters",
       );
     }
 
@@ -192,7 +192,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
         alarmProps,
         disambiguator,
         undefined,
-        "RedisEngine"
+        "RedisEngine",
       );
       this.redisEngineCpuUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -203,7 +203,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       const createdAlarm = this.elastiCacheAlarmFactory.addMaxItemsCountAlarm(
         this.itemsCountMetrics,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.itemsCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -214,7 +214,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
         this.elastiCacheAlarmFactory.addMaxEvictedItemsCountAlarm(
           this.itemsEvictedMetrics,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.evictedItemsCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -225,7 +225,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
         this.elastiCacheAlarmFactory.addMinFreeableMemoryAlarm(
           this.freeableMemoryMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.memoryUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -236,7 +236,7 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
         this.elastiCacheAlarmFactory.addMaxUsedSwapMemoryAlarm(
           this.swapMemoryMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.memoryUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -261,12 +261,12 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
         new Column(
           this.createCpuUsageWidget(
             QuarterWidth,
-            DefaultTwoLinerGraphWidgetHalfHeight
+            DefaultTwoLinerGraphWidgetHalfHeight,
           ),
           this.createRedisEngineCpuUsageWidget(
             QuarterWidth,
-            DefaultTwoLinerGraphWidgetHalfHeight
-          )
+            DefaultTwoLinerGraphWidgetHalfHeight,
+          ),
         ),
         this.createMemoryUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createConnectionsWidget(QuarterWidth, DefaultGraphWidgetHeight),

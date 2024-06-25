@@ -48,7 +48,7 @@ test("no dashboards created", () => {
 
   factory.addSegment({
     segment: new SingleWidgetDashboardSegment(
-      new TextWidget({ markdown: "Hello world!" })
+      new TextWidget({ markdown: "Hello world!" }),
     ),
   });
 
@@ -66,6 +66,6 @@ test("throws error if an empty dashboardNamePrefix is passed but dashboard are t
       renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
     });
   }).toThrow(
-    "A non-empty dashboardNamePrefix is required if dashboards are being created"
+    "A non-empty dashboardNamePrefix is required if dashboards are being created",
   );
 });

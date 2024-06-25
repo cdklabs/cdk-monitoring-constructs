@@ -100,8 +100,8 @@ test("validation test: redisEngineCpuUsageAlarm added for non-redis cluster ", (
       new ElastiCacheClusterMonitoring(scope, {
         clusterType: ElastiCacheClusterType.MEMCACHED,
         addRedisEngineCpuUsageAlarm: { Warning: { maxUsagePercent: 10 } },
-      })
+      }),
   ).toThrowError(
-    "It is only possible to alarm on Redis Engine CPU Usage for Redis clusters"
+    "It is only possible to alarm on Redis Engine CPU Usage for Redis clusters",
   );
 });

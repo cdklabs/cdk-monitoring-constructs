@@ -77,7 +77,7 @@ export function getLatencyTypeStatistic(latencyType: LatencyType) {
       return MetricStatistic.MAX;
     default:
       throw new Error(
-        "Unsupported latency type (unknown statistic): " + latencyType
+        "Unsupported latency type (unknown statistic): " + latencyType,
       );
   }
 }
@@ -152,7 +152,7 @@ export class LatencyAlarmFactory {
     latencyType: LatencyType,
     props: LatencyThreshold,
     disambiguator?: string,
-    additionalAlarmNameSuffix: string | undefined = undefined
+    additionalAlarmNameSuffix: string | undefined = undefined,
   ) {
     const alarmNameSuffix = ["Latency", latencyType, additionalAlarmNameSuffix]
       .filter((i) => i !== undefined)
@@ -182,7 +182,7 @@ export class LatencyAlarmFactory {
     latencyType: LatencyType,
     props: LatencyThreshold,
     disambiguator?: string,
-    additionalAlarmNameSuffix: string | undefined = undefined
+    additionalAlarmNameSuffix: string | undefined = undefined,
   ) {
     const alarmNameSuffix = [
       "IntegrationLatency",
@@ -216,7 +216,7 @@ export class LatencyAlarmFactory {
     latencyType: LatencyType,
     props: DurationThreshold,
     disambiguator?: string,
-    additionalAlarmNameSuffix: string | undefined = undefined
+    additionalAlarmNameSuffix: string | undefined = undefined,
   ) {
     const alarmNameSuffix = ["Duration", latencyType, additionalAlarmNameSuffix]
       .filter((i) => i !== undefined)
@@ -246,7 +246,7 @@ export class LatencyAlarmFactory {
     latencyType: LatencyType,
     props: DurationThreshold,
     disambiguator?: string,
-    additionalAlarmNameSuffix: string | undefined = undefined
+    additionalAlarmNameSuffix: string | undefined = undefined,
   ) {
     const alarmNameSuffix = [
       "Garbage-Collection-Time",

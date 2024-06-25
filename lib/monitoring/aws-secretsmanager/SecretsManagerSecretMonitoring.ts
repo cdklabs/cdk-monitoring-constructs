@@ -72,7 +72,7 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: SecretsManagerSecretMonitoringProps
+    props: SecretsManagerSecretMonitoringProps,
   ) {
     super(scope);
 
@@ -91,14 +91,14 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
     );
     const metricFactory = new SecretsManagerSecretMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.daysSinceLastChangeMetric = metricFactory.metricDaysSinceLastChange();
     this.daysSinceLastRotationMetric =
       metricFactory.metricDaysSinceLastRotation();
 
     this.alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     const ageAlarmFactory = new AgeAlarmFactory(this.alarmFactory);
     this.daysSinceLastChangeAnnotations = [];
@@ -109,7 +109,7 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
       const createdAlarm = ageAlarmFactory.addDaysSinceUpdateAlarm(
         this.daysSinceLastChangeMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.daysSinceLastChangeAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -120,7 +120,7 @@ export class SecretsManagerSecretMonitoring extends Monitoring {
       const createdAlarm = ageAlarmFactory.addDaysSinceUpdateAlarm(
         this.daysSinceLastRotationMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.daysSinceLastRotationAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

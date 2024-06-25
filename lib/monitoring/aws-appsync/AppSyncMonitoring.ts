@@ -86,10 +86,10 @@ export class AppSyncMonitoring extends Monitoring {
     this.title = this.namingStrategy.resolveHumanReadableName();
     this.metricFactory = new AppSyncMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.alarmFactory = this.createAlarmFactory(
-      this.namingStrategy.resolveAlarmFriendlyName()
+      this.namingStrategy.resolveAlarmFriendlyName(),
     );
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
     this.latencyAlarmFactory = new LatencyAlarmFactory(this.alarmFactory);
@@ -115,7 +115,7 @@ export class AppSyncMonitoring extends Monitoring {
         this.p50LatencyMetric,
         LatencyType.P50,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -127,7 +127,7 @@ export class AppSyncMonitoring extends Monitoring {
         this.p90LatencyMetric,
         LatencyType.P90,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -139,7 +139,7 @@ export class AppSyncMonitoring extends Monitoring {
         this.p99LatencyMetric,
         LatencyType.P99,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -151,7 +151,7 @@ export class AppSyncMonitoring extends Monitoring {
         this.error4xxCountMetric,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -163,7 +163,7 @@ export class AppSyncMonitoring extends Monitoring {
         this.error4xxRateMetric,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -175,7 +175,7 @@ export class AppSyncMonitoring extends Monitoring {
         this.fault5xxCountMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -187,7 +187,7 @@ export class AppSyncMonitoring extends Monitoring {
         this.fault5xxRateMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -198,7 +198,7 @@ export class AppSyncMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMinTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -209,7 +209,7 @@ export class AppSyncMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMaxTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

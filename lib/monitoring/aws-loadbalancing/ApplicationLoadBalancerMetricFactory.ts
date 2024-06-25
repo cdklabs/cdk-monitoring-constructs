@@ -39,7 +39,7 @@ export class ApplicationLoadBalancerMetricFactory
 
   constructor(
     metricFactory: MetricFactory,
-    props: ApplicationLoadBalancerMetricFactoryProps
+    props: ApplicationLoadBalancerMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -57,7 +57,7 @@ export class ApplicationLoadBalancerMetricFactory
         statistic: this.invertStatisticsOfTaskCountEnabled
           ? MetricStatistic.MAX
           : MetricStatistic.MIN,
-      })
+      }),
     );
   }
 
@@ -69,7 +69,7 @@ export class ApplicationLoadBalancerMetricFactory
         statistic: this.invertStatisticsOfTaskCountEnabled
           ? MetricStatistic.MIN
           : MetricStatistic.MAX,
-      })
+      }),
     );
   }
 
@@ -79,7 +79,7 @@ export class ApplicationLoadBalancerMetricFactory
     return this.metricFactory.createMetricMath(
       "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
       { healthyTaskCount, unhealthyTaskCount },
-      "Healthy Task Percent (avg: ${AVG})"
+      "Healthy Task Percent (avg: ${AVG})",
     );
   }
 
@@ -87,7 +87,7 @@ export class ApplicationLoadBalancerMetricFactory
     return this.metricFactory.adaptMetric(
       this.applicationLoadBalancer.metrics.activeConnectionCount({
         label: "Active",
-      })
+      }),
     );
   }
 
@@ -95,7 +95,7 @@ export class ApplicationLoadBalancerMetricFactory
     return this.metricFactory.adaptMetric(
       this.applicationLoadBalancer.metrics.newConnectionCount({
         label: "New",
-      })
+      }),
     );
   }
 
@@ -104,7 +104,7 @@ export class ApplicationLoadBalancerMetricFactory
       this.applicationLoadBalancer.metrics.processedBytes({
         statistic: MetricStatistic.MIN,
         label: "Processed Bytes (min)",
-      })
+      }),
     );
   }
 
@@ -114,14 +114,14 @@ export class ApplicationLoadBalancerMetricFactory
         "UnhealthyRoutingRequestCount",
         {
           statistic: MetricStatistic.SUM,
-        }
-      )
+        },
+      ),
     );
 
     return this.metricFactory.createMetricMath(
       "FILL(unhealthyRoutingRequestCount, 0)",
       { unhealthyRoutingRequestCount },
-      "Unhealthy routing (fail open)"
+      "Unhealthy routing (fail open)",
     );
   }
 }

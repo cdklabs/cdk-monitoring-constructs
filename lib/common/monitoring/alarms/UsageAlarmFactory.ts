@@ -47,7 +47,7 @@ export class UsageAlarmFactory {
   addMaxCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxUsageCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -66,7 +66,7 @@ export class UsageAlarmFactory {
   addMinCountAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: MinUsageCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
@@ -88,7 +88,7 @@ export class UsageAlarmFactory {
   addMaxUsageCountAlarm(
     metric: MetricWithAlarmSupport,
     props: UsageCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -110,7 +110,7 @@ export class UsageAlarmFactory {
   addMinUsageCountAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: MinUsageCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
@@ -131,7 +131,7 @@ export class UsageAlarmFactory {
     props: UsageThreshold,
     disambiguator?: string,
     usageType?: UsageType,
-    additionalAlarmNameSuffix?: string
+    additionalAlarmNameSuffix?: string,
   ) {
     const alarmNameSuffix: string = [
       usageType,
@@ -157,7 +157,7 @@ export class UsageAlarmFactory {
   addMaxMasterCpuUsagePercentAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
@@ -176,13 +176,13 @@ export class UsageAlarmFactory {
   addMaxMemoryUsagePercentAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.addMemoryUsagePercentAlarm(
       percentMetric,
       props,
       UsageType.MAX,
-      disambiguator
+      disambiguator,
     );
   }
 
@@ -190,7 +190,7 @@ export class UsageAlarmFactory {
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
     usageType: UsageType,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     const alarmNameSuffix: string =
       usageType === UsageType.MAX
@@ -213,7 +213,7 @@ export class UsageAlarmFactory {
   addMaxMasterMemoryUsagePercentAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
@@ -232,7 +232,7 @@ export class UsageAlarmFactory {
   addMaxDiskUsagePercentAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
@@ -251,7 +251,7 @@ export class UsageAlarmFactory {
   addMaxHeapMemoryAfterGCUsagePercentAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
@@ -270,7 +270,7 @@ export class UsageAlarmFactory {
   addMaxFileDescriptorPercentAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:
@@ -289,7 +289,7 @@ export class UsageAlarmFactory {
   addMaxThreadCountUsageAlarm(
     percentMetric: MetricWithAlarmSupport,
     props: UsageCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(percentMetric, {
       treatMissingData:

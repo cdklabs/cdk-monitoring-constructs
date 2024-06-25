@@ -24,7 +24,7 @@ export class TpsAlarmFactory {
   addMinTpsAlarm(
     metric: MetricWithAlarmSupport,
     props: LowTpsThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -44,7 +44,7 @@ export class TpsAlarmFactory {
   addMaxTpsAlarm(
     metric: MetricWithAlarmSupport,
     props: HighTpsThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

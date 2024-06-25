@@ -22,7 +22,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
 
   constructor(
     metricFactory: MetricFactory,
-    props: DynamoTableGlobalSecondaryIndexMetricFactoryProps
+    props: DynamoTableGlobalSecondaryIndexMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -40,7 +40,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
       "Provisioned",
       this.dimensionsMap,
       undefined,
-      DynamoDbNamespace
+      DynamoDbNamespace,
     );
   }
 
@@ -51,7 +51,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
       "Provisioned",
       this.dimensionsMap,
       undefined,
-      DynamoDbNamespace
+      DynamoDbNamespace,
     );
   }
 
@@ -64,7 +64,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
           dimensionsMap: this.dimensionsMap,
         }),
       },
-      "Consumed"
+      "Consumed",
     );
   }
 
@@ -77,7 +77,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
           dimensionsMap: this.dimensionsMap,
         }),
       },
-      "Consumed"
+      "Consumed",
     );
   }
 
@@ -88,7 +88,7 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
       "Consumed by index",
       this.dimensionsMap,
       undefined,
-      DynamoDbNamespace
+      DynamoDbNamespace,
     );
   }
 
@@ -99,13 +99,13 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
       undefined,
       this.dimensionsMap,
       undefined,
-      DynamoDbNamespace
+      DynamoDbNamespace,
     );
 
     return this.metricFactory.createMetricMath(
       "FILL(readThrottles,0)",
       { readThrottles },
-      "Read"
+      "Read",
     );
   }
 
@@ -116,13 +116,13 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
       undefined,
       this.dimensionsMap,
       undefined,
-      DynamoDbNamespace
+      DynamoDbNamespace,
     );
 
     return this.metricFactory.createMetricMath(
       "FILL(writeThrottles,0)",
       { writeThrottles },
-      "Write"
+      "Write",
     );
   }
 
@@ -133,13 +133,13 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
       undefined,
       this.dimensionsMap,
       undefined,
-      DynamoDbNamespace
+      DynamoDbNamespace,
     );
 
     return this.metricFactory.createMetricMath(
       "FILL(indexThrottles,0)",
       { indexThrottles },
-      "Index"
+      "Index",
     );
   }
 }

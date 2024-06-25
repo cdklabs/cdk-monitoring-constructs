@@ -75,7 +75,7 @@ test("test: validation error if incoming traffic usage alarm threshold equal to 
       },
     });
   }).toThrow(
-    `safetyThresholdLimit must be in range [0.0, 1.0) for IncomingBytesExceedThresholdAlarm.`
+    `safetyThresholdLimit must be in range [0.0, 1.0) for IncomingBytesExceedThresholdAlarm.`,
   );
 });
 
@@ -95,6 +95,6 @@ test("test: validation error if incoming traffic usage alarm threshold less than
       },
     });
   }).toThrow(
-    `safetyThresholdLimit must be in range [0.0, 1.0) for IncomingRecordsExceedThresholdAlarm.`
+    `safetyThresholdLimit must be in range [0.0, 1.0) for IncomingRecordsExceedThresholdAlarm.`,
   );
 });

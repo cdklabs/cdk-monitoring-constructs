@@ -39,7 +39,7 @@ export class NetworkLoadBalancerMetricFactory
 
   constructor(
     metricFactory: MetricFactory,
-    props: NetworkLoadBalancerMetricFactoryProps
+    props: NetworkLoadBalancerMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -57,7 +57,7 @@ export class NetworkLoadBalancerMetricFactory
         statistic: this.invertStatisticsOfTaskCountEnabled
           ? MetricStatistic.MAX
           : MetricStatistic.MIN,
-      })
+      }),
     );
   }
 
@@ -69,7 +69,7 @@ export class NetworkLoadBalancerMetricFactory
         statistic: this.invertStatisticsOfTaskCountEnabled
           ? MetricStatistic.MIN
           : MetricStatistic.MAX,
-      })
+      }),
     );
   }
 
@@ -79,7 +79,7 @@ export class NetworkLoadBalancerMetricFactory
     return this.metricFactory.createMetricMath(
       "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
       { healthyTaskCount, unhealthyTaskCount },
-      "Healthy Task Percent (avg: ${AVG})"
+      "Healthy Task Percent (avg: ${AVG})",
     );
   }
 
@@ -87,7 +87,7 @@ export class NetworkLoadBalancerMetricFactory
     return this.metricFactory.adaptMetric(
       this.networkLoadBalancer.metrics.activeFlowCount({
         label: "Active",
-      })
+      }),
     );
   }
 
@@ -95,7 +95,7 @@ export class NetworkLoadBalancerMetricFactory
     return this.metricFactory.adaptMetric(
       this.networkLoadBalancer.metrics.newFlowCount({
         label: "New",
-      })
+      }),
     );
   }
 
@@ -104,7 +104,7 @@ export class NetworkLoadBalancerMetricFactory
       this.networkLoadBalancer.metrics.processedBytes({
         statistic: MetricStatistic.MIN,
         label: "Processed Bytes (min)",
-      })
+      }),
     );
   }
 
@@ -112,13 +112,13 @@ export class NetworkLoadBalancerMetricFactory
     const unhealthyRoutingFlowCount = this.metricFactory.adaptMetric(
       this.networkLoadBalancer.metrics.custom("UnhealthyRoutingFlowCount", {
         statistic: MetricStatistic.SUM,
-      })
+      }),
     );
 
     return this.metricFactory.createMetricMath(
       "FILL(unhealthyRoutingFlowCount, 0)",
       { unhealthyRoutingFlowCount },
-      "Unhealthy routing (fail open)"
+      "Unhealthy routing (fail open)",
     );
   }
 }

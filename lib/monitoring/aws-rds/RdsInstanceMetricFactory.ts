@@ -27,7 +27,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
 
   constructor(
     metricFactory: MetricFactory,
-    props: RdsInstanceMetricFactoryProps
+    props: RdsInstanceMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -43,7 +43,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricDatabaseConnections({
         statistic: MetricStatistic.SUM,
         label: "Connections: Sum",
-      })
+      }),
     );
   }
 
@@ -52,7 +52,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricCPUUtilization({
         statistic: MetricStatistic.AVERAGE,
         label: "CPU Usage",
-      })
+      }),
     );
   }
 
@@ -61,7 +61,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricFreeStorageSpace({
         statistic: MetricStatistic.MAX,
         label: "FreeStorageSpace: MAX",
-      })
+      }),
     );
   }
 
@@ -70,7 +70,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricFreeableMemory({
         statistic: MetricStatistic.AVERAGE,
         label: "FreeStorageSpace: Average",
-      })
+      }),
     );
   }
 
@@ -79,7 +79,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
     return this.metric(
       "ReadLatency",
       getLatencyTypeStatistic(latencyType),
-      label
+      label,
     );
   }
 
@@ -87,7 +87,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
     return this.metric(
       "ReadThroughput",
       MetricStatistic.AVERAGE,
-      "ReadThroughput: Average"
+      "ReadThroughput: Average",
     );
   }
 
@@ -96,7 +96,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricReadIOPS({
         statistic: MetricStatistic.AVERAGE,
         label: "ReadIOPS: Average",
-      })
+      }),
     );
   }
 
@@ -105,7 +105,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
     return this.metric(
       "WriteLatency",
       getLatencyTypeStatistic(latencyType),
-      label
+      label,
     );
   }
 
@@ -113,7 +113,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
     return this.metric(
       "WriteThroughput",
       MetricStatistic.AVERAGE,
-      "WriteThroughput: Average"
+      "WriteThroughput: Average",
     );
   }
 
@@ -122,14 +122,14 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricWriteIOPS({
         statistic: MetricStatistic.AVERAGE,
         label: "WriteIOPS: Average",
-      })
+      }),
     );
   }
 
   private metric(
     metricName: string,
     statistic: MetricStatistic,
-    label: string
+    label: string,
   ) {
     return this.metricFactory.createMetric(
       metricName,
@@ -137,7 +137,7 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       label,
       this.dimensionsMap,
       undefined,
-      RdsNamespace
+      RdsNamespace,
     );
   }
 }

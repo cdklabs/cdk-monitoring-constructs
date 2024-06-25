@@ -30,7 +30,7 @@ export class DynamoAlarmFactory {
     metric: MetricWithAlarmSupport,
     capacityType: CapacityType,
     props: ConsumedCapacityThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -52,7 +52,7 @@ export class DynamoAlarmFactory {
     metric: MetricWithAlarmSupport,
     capacityType: CapacityType,
     props: ThrottledEventsThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

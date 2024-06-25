@@ -17,7 +17,7 @@ export class LambdaFunctionEnhancedMetricFactory {
     return this.enhancedMetric(
       "cpu_total_time",
       MetricStatistic.MAX,
-      "CPUTotalTime.Max"
+      "CPUTotalTime.Max",
     );
   }
 
@@ -25,7 +25,7 @@ export class LambdaFunctionEnhancedMetricFactory {
     return this.enhancedMetric(
       "cpu_total_time",
       MetricStatistic.P90,
-      "CPUTotalTime.P90"
+      "CPUTotalTime.P90",
     );
   }
 
@@ -33,7 +33,7 @@ export class LambdaFunctionEnhancedMetricFactory {
     return this.enhancedMetric(
       "cpu_total_time",
       MetricStatistic.AVERAGE,
-      "CPUTotalTime.Avg"
+      "CPUTotalTime.Avg",
     );
   }
 
@@ -41,7 +41,7 @@ export class LambdaFunctionEnhancedMetricFactory {
     return this.enhancedMetric(
       "memory_utilization",
       MetricStatistic.MAX,
-      "MemoryUtilization.Max"
+      "MemoryUtilization.Max",
     );
   }
 
@@ -49,7 +49,7 @@ export class LambdaFunctionEnhancedMetricFactory {
     return this.enhancedMetric(
       "memory_utilization",
       MetricStatistic.P90,
-      "MemoryUtilization.P90"
+      "MemoryUtilization.P90",
     );
   }
 
@@ -57,7 +57,7 @@ export class LambdaFunctionEnhancedMetricFactory {
     return this.enhancedMetric(
       "memory_utilization",
       MetricStatistic.AVERAGE,
-      "MemoryUtilization.Avg"
+      "MemoryUtilization.Avg",
     );
   }
 
@@ -68,7 +68,7 @@ export class LambdaFunctionEnhancedMetricFactory {
         memory_utilization: this.enhancedMetricMaxMemoryUtilization(),
         duration: this.enhancedMetricFunctionDuration(),
       },
-      "Function Cost (avg: ${AVG}, max: ${MAX})"
+      "Function Cost (avg: ${AVG}, max: ${MAX})",
     );
   }
 
@@ -76,7 +76,7 @@ export class LambdaFunctionEnhancedMetricFactory {
     return this.metricFactory.adaptMetric(
       this.lambdaFunction.metricDuration({
         statistic: MetricStatistic.SUM,
-      })
+      }),
     );
   }
 
@@ -84,7 +84,7 @@ export class LambdaFunctionEnhancedMetricFactory {
     metricName: string,
     statistic: MetricStatistic,
     label: string,
-    color?: string
+    color?: string,
   ) {
     const [functionName, functionVersion] =
       this.lambdaFunction.functionName.split(":");
@@ -97,7 +97,7 @@ export class LambdaFunctionEnhancedMetricFactory {
         version: functionVersion,
       },
       color,
-      LambdaInsightsNamespace
+      LambdaInsightsNamespace,
     );
   }
 }

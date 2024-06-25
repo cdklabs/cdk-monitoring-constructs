@@ -153,7 +153,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: ApiGatewayV2HttpApiMonitoringProps
+    props: ApiGatewayV2HttpApiMonitoringProps,
   ) {
     super(scope, props);
 
@@ -179,7 +179,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
     this.title = namingStrategy.resolveHumanReadableName();
 
     this.alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
 
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
@@ -193,7 +193,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
 
     const metricFactory = new ApiGatewayV2HttpApiMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
 
     this.tpsMetric = metricFactory.metricTps();
@@ -264,7 +264,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
     });
 
     for (const [latencyType, alarmDefinition] of Object.entries(
-      latencyAlarmDefinitions
+      latencyAlarmDefinitions,
     )) {
       for (const disambiguator in alarmDefinition) {
         const alarmProps = alarmDefinition[disambiguator];
@@ -274,7 +274,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
           metric,
           latencyTypeEnum,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
         this.latencyAnnotations.push(createdAlarm.annotation);
         this.latencyTypesToRender.push(latencyTypeEnum);
@@ -283,7 +283,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
     }
 
     for (const [latencyType, alarmDefinition] of Object.entries(
-      integrationLatencyAlarmDefinitions
+      integrationLatencyAlarmDefinitions,
     )) {
       for (const disambiguator in alarmDefinition) {
         const alarmProps = alarmDefinition[disambiguator];
@@ -294,7 +294,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
             metric,
             latencyTypeEnum,
             alarmProps,
-            disambiguator
+            disambiguator,
           );
         this.latencyAnnotations.push(createdAlarm.annotation);
         this.latencyTypesToRender.push(latencyTypeEnum);
@@ -308,7 +308,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
         this.error4xxCountMetric,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -320,7 +320,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
         this.error4xxRateMetric,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -332,7 +332,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
         this.error5xxCountMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -344,7 +344,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
         this.error5xxRateMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -355,7 +355,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMinTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -366,7 +366,7 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMaxTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

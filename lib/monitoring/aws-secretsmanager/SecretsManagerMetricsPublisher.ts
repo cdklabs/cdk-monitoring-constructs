@@ -27,8 +27,8 @@ export class SecretsManagerMetricsPublisher extends Construct {
           "..",
           "..",
           "assets",
-          "SecretsManagerMetricsPublisher"
-        )
+          "SecretsManagerMetricsPublisher",
+        ),
       ),
       description:
         "Custom metrics publisher for SecretsManager Secrets (cdk-monitoring-constructs)",
@@ -44,7 +44,7 @@ export class SecretsManagerMetricsPublisher extends Construct {
         effect: Effect.ALLOW,
         actions: ["secretsmanager:DescribeSecret"],
         resources: ["*"],
-      })
+      }),
     );
 
     this.lambda.addToRolePolicy(
@@ -57,7 +57,7 @@ export class SecretsManagerMetricsPublisher extends Construct {
             "cloudwatch:namespace": SecretsManagerSecretMetricFactory.Namespace,
           },
         },
-      })
+      }),
     );
   }
 
@@ -85,7 +85,7 @@ export class SecretsManagerMetricsPublisher extends Construct {
         event: RuleTargetInput.fromObject({
           secretId: secret.secretArn,
         }),
-      })
+      }),
     );
   }
 }

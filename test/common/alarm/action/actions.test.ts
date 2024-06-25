@@ -47,7 +47,7 @@ test("test actions", () => {
                 actionOverride: notifySns(
                   onAlarmTopic,
                   onOkTopic,
-                  onNoDataTopic
+                  onNoDataTopic,
                 ),
                 threshold: 50,
                 comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,

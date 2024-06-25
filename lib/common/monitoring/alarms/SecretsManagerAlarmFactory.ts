@@ -33,7 +33,7 @@ export class SecretsManagerAlarmFactory {
   addMinSecretCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MinSecretCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -53,7 +53,7 @@ export class SecretsManagerAlarmFactory {
   addMaxSecretCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxSecretCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -73,7 +73,7 @@ export class SecretsManagerAlarmFactory {
   addChangeInSecretCountAlarm(
     metric: MetricWithAlarmSupport,
     props: ChangeInSecretCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       ...props,
@@ -97,7 +97,7 @@ export class SecretsManagerAlarmFactory {
       return "Secret count: Secret count has decreased.";
     } else {
       throw new Error(
-        "You need to alarm when the value has increased, decreased, or both."
+        "You need to alarm when the value has increased, decreased, or both.",
       );
     }
   }
@@ -111,7 +111,7 @@ export class SecretsManagerAlarmFactory {
       return ComparisonOperator.GREATER_THAN_THRESHOLD;
     } else {
       throw new Error(
-        "You need to alarm when the value has increased, decreased, or both."
+        "You need to alarm when the value has increased, decreased, or both.",
       );
     }
   }

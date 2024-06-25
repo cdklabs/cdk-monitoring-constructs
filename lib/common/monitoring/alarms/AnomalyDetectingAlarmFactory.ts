@@ -24,7 +24,7 @@ export class AnomalyDetectingAlarmFactory {
     metric: MetricWithAlarmSupport,
     alarmNameSuffix: string,
     disambiguator: string,
-    props: AnomalyDetectionThreshold
+    props: AnomalyDetectionThreshold,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       ...props,
@@ -50,7 +50,7 @@ export class AnomalyDetectingAlarmFactory {
       return "Anomaly detection: value is below the expected band.";
     } else {
       throw new Error(
-        "You need to alarm when the value is above or below the band, or both."
+        "You need to alarm when the value is above or below the band, or both.",
       );
     }
   }
@@ -64,7 +64,7 @@ export class AnomalyDetectingAlarmFactory {
       return ComparisonOperator.LESS_THAN_LOWER_THRESHOLD;
     } else {
       throw new Error(
-        "You need to alarm when the value is above or below the band, or both."
+        "You need to alarm when the value is above or below the band, or both.",
       );
     }
   }

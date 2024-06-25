@@ -97,7 +97,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
       .getKinesisDataStreamUrl(props.streamName);
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.kinesisAlarmFactory = new KinesisAlarmFactory(alarmFactory);
     this.provisionedCapacityAnnotations = [];
@@ -106,7 +106,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
 
     const metricFactory = new KinesisDataStreamMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.metricGetRecordSumBytes = metricFactory.metricGetRecordsSumBytes();
     this.metricGetRecordsIteratorAge =
@@ -148,7 +148,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
       const createdAlarm = this.kinesisAlarmFactory.addIteratorMaxAgeAlarm(
         this.metricGetRecordsIteratorAge,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.ageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -158,7 +158,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
       const createdAlarm = this.kinesisAlarmFactory.addPutRecordsThrottledAlarm(
         this.putRecordsThrottledRecordsCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.recordCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -168,7 +168,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
       const createdAlarm = this.kinesisAlarmFactory.addPutRecordsFailedAlarm(
         this.putRecordsFailedRecordsCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.recordCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -180,7 +180,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
         this.kinesisAlarmFactory.addProvisionedReadThroughputExceededAlarm(
           this.readProvisionedThroughputExceededMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.provisionedCapacityAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -192,7 +192,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
         this.kinesisAlarmFactory.addProvisionedWriteThroughputExceededAlarm(
           this.writeProvisionedThroughputExceededMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.provisionedCapacityAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -208,7 +208,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
         this.createIncomingDataWidget(QuarterWidth, DefaultSummaryWidgetHeight),
         this.createIteratorAgeWidget(QuarterWidth, DefaultSummaryWidgetHeight),
         this.createLatencyWidget(QuarterWidth, DefaultSummaryWidgetHeight),
-        this.createCapacityWidget(QuarterWidth, DefaultSummaryWidgetHeight)
+        this.createCapacityWidget(QuarterWidth, DefaultSummaryWidgetHeight),
       ),
     ];
   }
@@ -220,7 +220,7 @@ export class KinesisDataStreamMonitoring extends Monitoring {
         this.createIncomingDataWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createIteratorAgeWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
-        this.createCapacityWidget(QuarterWidth, DefaultGraphWidgetHeight)
+        this.createCapacityWidget(QuarterWidth, DefaultGraphWidgetHeight),
       ),
       this.createFirstAdditionalRow(),
       this.createSecondAdditionalRow(),
@@ -230,13 +230,13 @@ export class KinesisDataStreamMonitoring extends Monitoring {
   private createFirstAdditionalRow() {
     return new Row(
       this.createRecordSizeWidget(HalfWidth, DefaultGraphWidgetHeight),
-      this.createOperationWidget(HalfWidth, DefaultGraphWidgetHeight)
+      this.createOperationWidget(HalfWidth, DefaultGraphWidgetHeight),
     );
   }
 
   createSecondAdditionalRow() {
     return new Row(
-      this.createRecordNumberWidget(FullWidth, DefaultGraphWidgetHeight)
+      this.createRecordNumberWidget(FullWidth, DefaultGraphWidgetHeight),
     );
   }
 

@@ -46,7 +46,7 @@ describe("test of defaults", () => {
       {
         dashboardNamePrefix: "testPrefix",
         dashboardConfigs: [{ name: "Dynamic1" }, { name: "Dynamic2" }],
-      }
+      },
     );
     new MonitoringFacade(stack, "Test1", {
       dashboardFactory: dynamicDashboardFactory,
@@ -75,7 +75,7 @@ describe("test of defaults", () => {
         createDashboard: true,
         createAlarmDashboard: true,
         createSummaryDashboard: true,
-      }
+      },
     );
     const facade = new MonitoringFacade(stack, "Test", {
       dashboardFactory: dashboardFactory,
@@ -85,13 +85,13 @@ describe("test of defaults", () => {
     // direct exclusion from default dashboards
     facade.addSegment(
       new SingleWidgetDashboardSegment(
-        new TextWidget({ markdown: "Simple Dashboard Segment" })
+        new TextWidget({ markdown: "Simple Dashboard Segment" }),
       ),
       {
         addToAlarmDashboard: false,
         addToDetailDashboard: false,
         addToSummaryDashboard: false,
-      }
+      },
     );
 
     // verify that the generated dashboards do not include the SingleWidgetDashboardSegment

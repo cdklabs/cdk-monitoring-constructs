@@ -11,7 +11,7 @@ test("widget", () => {
     runtime: Runtime.NODEJS_18_X,
     // code loaded from "lambda" directory
     code: Code.fromInline(
-      'exports.handler = function(event, ctx, cb) { return cb(null, "Hello World!"); }'
+      'exports.handler = function(event, ctx, cb) { return cb(null, "Hello World!"); }',
     ),
     // file is "dummy", function is "handler"
     handler: "dummy.handler",

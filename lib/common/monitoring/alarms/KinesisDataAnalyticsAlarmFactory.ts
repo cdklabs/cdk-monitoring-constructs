@@ -24,7 +24,7 @@ export class KinesisDataAnalyticsAlarmFactory {
   addDowntimeAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxDowntimeThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -45,7 +45,7 @@ export class KinesisDataAnalyticsAlarmFactory {
   addFullRestartAlarm(
     metric: MetricWithAlarmSupport,
     props: FullRestartCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

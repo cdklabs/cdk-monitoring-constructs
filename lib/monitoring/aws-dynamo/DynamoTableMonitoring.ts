@@ -170,7 +170,7 @@ export class DynamoTableMonitoring extends Monitoring {
       props.billingMode ?? this.resolveTableBillingMode(props.table);
 
     this.alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
     this.latencyAlarmFactory = new LatencyAlarmFactory(this.alarmFactory);
@@ -185,7 +185,7 @@ export class DynamoTableMonitoring extends Monitoring {
 
     const metricFactory = new DynamoTableMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.provisionedReadUnitsMetric =
       metricFactory.metricProvisionedReadCapacityUnits();
@@ -207,39 +207,39 @@ export class DynamoTableMonitoring extends Monitoring {
     this.averagePerOperationLatencyMetrics = {
       [Operation.GET_RECORDS]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.GET_RECORDS
+          Operation.GET_RECORDS,
         ),
       [Operation.QUERY]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.QUERY
+          Operation.QUERY,
         ),
       [Operation.SCAN]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.SCAN
+          Operation.SCAN,
         ),
       [Operation.PUT_ITEM]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.PUT_ITEM
+          Operation.PUT_ITEM,
         ),
       [Operation.GET_ITEM]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.GET_ITEM
+          Operation.GET_ITEM,
         ),
       [Operation.UPDATE_ITEM]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.UPDATE_ITEM
+          Operation.UPDATE_ITEM,
         ),
       [Operation.DELETE_ITEM]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.DELETE_ITEM
+          Operation.DELETE_ITEM,
         ),
       [Operation.BATCH_GET_ITEM]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.BATCH_GET_ITEM
+          Operation.BATCH_GET_ITEM,
         ),
       [Operation.BATCH_WRITE_ITEM]:
         metricFactory.metricAverageSuccessfulRequestLatencyInMillis(
-          Operation.BATCH_WRITE_ITEM
+          Operation.BATCH_WRITE_ITEM,
         ),
     };
     this.readCapacityUsageMetric =
@@ -254,7 +254,7 @@ export class DynamoTableMonitoring extends Monitoring {
           this.consumedReadUnitsMetric,
           CapacityType.READ,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.dynamoReadCapacityAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -266,7 +266,7 @@ export class DynamoTableMonitoring extends Monitoring {
           this.consumedWriteUnitsMetric,
           CapacityType.WRITE,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.dynamoWriteCapacityAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -278,7 +278,7 @@ export class DynamoTableMonitoring extends Monitoring {
           this.readThrottleCountMetric,
           CapacityType.READ,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.throttledEventsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -290,7 +290,7 @@ export class DynamoTableMonitoring extends Monitoring {
           this.writeThrottleCountMetric,
           CapacityType.WRITE,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.throttledEventsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -301,7 +301,7 @@ export class DynamoTableMonitoring extends Monitoring {
         this.systemErrorMetric,
         ErrorType.SYSTEM_ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -315,52 +315,52 @@ export class DynamoTableMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMinCountAlarm(
         this.timeToLiveDeletedItemCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.addAlarm(createdAlarm);
     }
     this.forEachOperationLatencyAlarmDefinition(
       Operation.GET_RECORDS,
-      props.addAverageSuccessfulGetRecordsLatencyAlarm
+      props.addAverageSuccessfulGetRecordsLatencyAlarm,
     );
     this.forEachOperationLatencyAlarmDefinition(
       Operation.QUERY,
-      props.addAverageSuccessfulQueryLatencyAlarm
+      props.addAverageSuccessfulQueryLatencyAlarm,
     );
     this.forEachOperationLatencyAlarmDefinition(
       Operation.SCAN,
-      props.addAverageSuccessfulScanLatencyAlarm
+      props.addAverageSuccessfulScanLatencyAlarm,
     );
     this.forEachOperationLatencyAlarmDefinition(
       Operation.PUT_ITEM,
-      props.addAverageSuccessfulPutItemLatencyAlarm
+      props.addAverageSuccessfulPutItemLatencyAlarm,
     );
     this.forEachOperationLatencyAlarmDefinition(
       Operation.GET_ITEM,
-      props.addAverageSuccessfulGetItemLatencyAlarm
+      props.addAverageSuccessfulGetItemLatencyAlarm,
     );
     this.forEachOperationLatencyAlarmDefinition(
       Operation.UPDATE_ITEM,
-      props.addAverageSuccessfulUpdateItemLatencyAlarm
+      props.addAverageSuccessfulUpdateItemLatencyAlarm,
     );
     this.forEachOperationLatencyAlarmDefinition(
       Operation.DELETE_ITEM,
-      props.addAverageSuccessfulDeleteItemLatencyAlarm
+      props.addAverageSuccessfulDeleteItemLatencyAlarm,
     );
     this.forEachOperationLatencyAlarmDefinition(
       Operation.BATCH_GET_ITEM,
-      props.addAverageSuccessfulBatchGetItemLatencyAlarm
+      props.addAverageSuccessfulBatchGetItemLatencyAlarm,
     );
     this.forEachOperationLatencyAlarmDefinition(
       Operation.BATCH_WRITE_ITEM,
-      props.addAverageSuccessfulBatchWriteItemLatencyAlarm
+      props.addAverageSuccessfulBatchWriteItemLatencyAlarm,
     );
     props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
   protected forEachOperationLatencyAlarmDefinition(
     operation: Operation,
-    alarm?: Record<string, LatencyThreshold>
+    alarm?: Record<string, LatencyThreshold>,
   ) {
     for (const disambiguator in alarm) {
       const alarmProps = alarm[disambiguator];
@@ -370,7 +370,7 @@ export class DynamoTableMonitoring extends Monitoring {
         LatencyType.AVERAGE,
         alarmProps,
         disambiguator,
-        operation
+        operation,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -396,23 +396,23 @@ export class DynamoTableMonitoring extends Monitoring {
         // Read units
         this.createReadCapacityWidget(
           QuarterWidth,
-          DefaultTwoLinerGraphWidgetHalfHeight
+          DefaultTwoLinerGraphWidgetHalfHeight,
         ),
         // Write units
         this.createWriteCapacityWidget(
           QuarterWidth,
-          DefaultTwoLinerGraphWidgetHalfHeight
-        )
+          DefaultTwoLinerGraphWidgetHalfHeight,
+        ),
       ),
       // Latency
       this.createLatencyWidget(
         QuarterWidth + HalfQuarterWidth,
-        DefaultTwoLinerGraphWidgetHeight
+        DefaultTwoLinerGraphWidgetHeight,
       ),
       // Throttles
       this.createThrottlesWidget(
         HalfQuarterWidth,
-        DefaultTwoLinerGraphWidgetHeight
+        DefaultTwoLinerGraphWidgetHeight,
       ),
       // Errors
       this.createErrorsWidget(QuarterWidth, DefaultTwoLinerGraphWidgetHeight),

@@ -77,7 +77,7 @@ export class SnsTopicMonitoring extends Monitoring {
       .getSnsTopicUrl(props.topic.topicArn);
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.topicAlarmFactory = new TopicAlarmFactory(alarmFactory);
     this.failedDeliveryAnnotations = [];
@@ -85,7 +85,7 @@ export class SnsTopicMonitoring extends Monitoring {
 
     const metricFactory = new SnsTopicMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.incomingMessagesMetric = metricFactory.metricIncomingMessageCount();
     this.outgoingMessagesMetric = metricFactory.metricOutgoingMessageCount();
@@ -100,7 +100,7 @@ export class SnsTopicMonitoring extends Monitoring {
         this.topicAlarmFactory.addMessageNotificationsFailedAlarm(
           this.messagesFailedMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.failedDeliveryAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -112,7 +112,7 @@ export class SnsTopicMonitoring extends Monitoring {
       const createdAlarm = this.topicAlarmFactory.addMinMessagesPublishedAlarm(
         this.incomingMessagesMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.incomingMessagesAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -124,7 +124,7 @@ export class SnsTopicMonitoring extends Monitoring {
       const createdAlarm = this.topicAlarmFactory.addMaxMessagesPublishedAlarm(
         this.incomingMessagesMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.incomingMessagesAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

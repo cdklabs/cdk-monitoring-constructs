@@ -50,7 +50,7 @@ export class S3BucketMonitoring extends Monitoring {
 
     const metricFactory = new S3BucketMetricFactory(
       this.createMetricFactory(),
-      props
+      props,
     );
     this.bucketSizeBytesMetric = metricFactory.metricBucketSizeBytes();
     this.numberOfObjectsMetric = metricFactory.metricNumberOfObjects();

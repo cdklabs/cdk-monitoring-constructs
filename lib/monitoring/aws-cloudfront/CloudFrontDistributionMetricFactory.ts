@@ -49,7 +49,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
 
   constructor(
     metricFactory: MetricFactory,
-    props: CloudFrontDistributionMetricFactoryProps
+    props: CloudFrontDistributionMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -71,7 +71,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       undefined,
       CloudFrontNamespace,
       undefined,
-      CloudFrontDefaultMetricRegion
+      CloudFrontDefaultMetricRegion,
     );
   }
 
@@ -81,7 +81,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       this.rateComputationMethod,
       false,
       "requests",
-      this.fillTpsWithZeroes
+      this.fillTpsWithZeroes,
     );
   }
 
@@ -94,7 +94,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       RateComputationMethod.PER_SECOND,
       false,
       "requests",
-      this.fillTpsWithZeroes
+      this.fillTpsWithZeroes,
     );
   }
 
@@ -107,7 +107,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       undefined,
       CloudFrontNamespace,
       undefined,
-      CloudFrontDefaultMetricRegion
+      CloudFrontDefaultMetricRegion,
     );
   }
 
@@ -120,7 +120,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       undefined,
       CloudFrontNamespace,
       undefined,
-      CloudFrontDefaultMetricRegion
+      CloudFrontDefaultMetricRegion,
     );
   }
 
@@ -138,7 +138,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       undefined,
       CloudFrontNamespace,
       undefined,
-      CloudFrontDefaultMetricRegion
+      CloudFrontDefaultMetricRegion,
     );
   }
 
@@ -151,7 +151,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       undefined,
       CloudFrontNamespace,
       undefined,
-      CloudFrontDefaultMetricRegion
+      CloudFrontDefaultMetricRegion,
     );
   }
 
@@ -164,7 +164,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       undefined,
       CloudFrontNamespace,
       undefined,
-      CloudFrontDefaultMetricRegion
+      CloudFrontDefaultMetricRegion,
     );
   }
 
@@ -177,7 +177,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
       undefined,
       CloudFrontNamespace,
       undefined,
-      CloudFrontDefaultMetricRegion
+      CloudFrontDefaultMetricRegion,
     );
   }
 }

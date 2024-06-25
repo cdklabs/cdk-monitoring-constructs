@@ -132,7 +132,7 @@ describe("MonitoringAspect", () => {
     new appsync.GraphqlApi(stack, "DummyGraphqlApi", {
       name: "DummyGraphqlApi",
       schema: appsync.SchemaFile.fromAsset(
-        path.join(__dirname, "..", "assets", "schema.graphql")
+        path.join(__dirname, "..", "assets", "schema.graphql"),
       ),
     });
 
@@ -154,7 +154,7 @@ describe("MonitoringAspect", () => {
       vpc,
       instanceType: ec2.InstanceType.of(
         ec2.InstanceClass.M4,
-        ec2.InstanceSize.LARGE
+        ec2.InstanceSize.LARGE,
       ),
       machineImage: ec2.MachineImage.latestAmazonLinux(),
       minCapacity: 1,
@@ -231,7 +231,7 @@ describe("MonitoringAspect", () => {
       vpc: new Vpc(stack, "DummyVpc"),
       instanceType: ec2.InstanceType.of(
         ec2.InstanceClass.R6G,
-        ec2.InstanceSize.LARGE
+        ec2.InstanceSize.LARGE,
       ),
       masterUser: { username: "master" },
     });
@@ -269,7 +269,7 @@ describe("MonitoringAspect", () => {
       vpc,
       instanceType: ec2.InstanceType.of(
         ec2.InstanceClass.M4,
-        ec2.InstanceSize.LARGE
+        ec2.InstanceSize.LARGE,
       ),
       machineImage: ec2.MachineImage.latestAmazonLinux(),
     });

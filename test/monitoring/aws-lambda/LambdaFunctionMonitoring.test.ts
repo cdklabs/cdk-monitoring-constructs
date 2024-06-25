@@ -168,7 +168,7 @@ test("snapshot test: all alarms", () => {
       LayerVersion.fromLayerVersionArn(
         stack,
         "LambdaInsightsEnhancedMonitoring",
-        `arn:aws:lambda:us-west-1:580247275435:layer:LambdaInsightsExtension:14`
+        `arn:aws:lambda:us-west-1:580247275435:layer:LambdaInsightsExtension:14`,
       ),
     ],
   });

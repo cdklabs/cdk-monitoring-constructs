@@ -54,7 +54,7 @@ export class AnomalyDetectionMathExpression extends MathExpression {
         }
 
         cfnAlarm.addPropertyOverride(`Metrics.${index}.ReturnData`, returnData);
-      }
+      },
     );
 
     return alarm;

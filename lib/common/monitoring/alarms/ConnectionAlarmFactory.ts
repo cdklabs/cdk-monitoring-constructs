@@ -24,7 +24,7 @@ export class ConnectionAlarmFactory {
   addMinConnectionCountAlarm(
     metric: MetricWithAlarmSupport,
     props: LowConnectionCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -43,7 +43,7 @@ export class ConnectionAlarmFactory {
   addMaxConnectionCountAlarm(
     metric: MetricWithAlarmSupport,
     props: HighConnectionCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

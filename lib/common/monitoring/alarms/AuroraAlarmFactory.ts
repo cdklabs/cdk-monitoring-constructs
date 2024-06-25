@@ -21,7 +21,7 @@ export class AuroraAlarmFactory {
   addMaxServerlessDatabaseCapacity(
     metric: MetricWithAlarmSupport,
     props: HighServerlessDatabaseCapacityThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

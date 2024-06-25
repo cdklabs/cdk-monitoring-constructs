@@ -15,7 +15,7 @@ export class AlarmNamingStrategy implements IAlarmNamingStrategy {
   constructor(
     globalPrefix: string,
     localPrefix: string,
-    dedupeStringStrategy?: IAlarmDedupeStringProcessor
+    dedupeStringStrategy?: IAlarmDedupeStringProcessor,
   ) {
     this.globalPrefix = globalPrefix;
     this.localPrefix = localPrefix;
@@ -71,7 +71,7 @@ export class AlarmNamingStrategy implements IAlarmNamingStrategy {
   getDedupeString(props: AlarmNamingInput) {
     if (props.dedupeStringOverride) {
       return this.dedupeStringStrategy.processDedupeStringOverride(
-        props.dedupeStringOverride
+        props.dedupeStringOverride,
       );
     }
 

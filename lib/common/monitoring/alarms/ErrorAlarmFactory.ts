@@ -41,7 +41,7 @@ export class ErrorAlarmFactory {
     metric: MetricWithAlarmSupport,
     errorType: ErrorType,
     props: ErrorCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     const alarmNameSuffix = `${errorType}-Count`;
 
@@ -67,7 +67,7 @@ export class ErrorAlarmFactory {
     metric: MetricWithAlarmSupport,
     errorType: ErrorType,
     props: ErrorRateThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     const alarmNameSuffix = `${errorType}-Rate`;
 

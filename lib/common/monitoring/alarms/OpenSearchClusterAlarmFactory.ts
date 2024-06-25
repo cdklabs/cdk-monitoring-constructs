@@ -54,7 +54,7 @@ export class OpenSearchClusterAlarmFactory {
   addClusterStatusAlarm(
     metric: MetricWithAlarmSupport,
     props: OpenSearchClusterStatusCustomization,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -75,7 +75,7 @@ export class OpenSearchClusterAlarmFactory {
   addClusterIndexWritesBlockedAlarm(
     metric: MetricWithAlarmSupport,
     props: OpenSearchClusterIndexWritesBlockedThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -96,7 +96,7 @@ export class OpenSearchClusterAlarmFactory {
   addClusterNodeCountAlarm(
     metric: MetricWithAlarmSupport,
     props: OpenSearchClusterNodesThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -117,7 +117,7 @@ export class OpenSearchClusterAlarmFactory {
   addAutomatedSnapshotFailureAlarm(
     metric: MetricWithAlarmSupport,
     props: OpenSearchClusterAutomatedSnapshotFailureThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -138,7 +138,7 @@ export class OpenSearchClusterAlarmFactory {
   addKmsKeyErrorAlarm(
     metric: MetricWithAlarmSupport,
     props: OpenSearchKmsKeyErrorThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -159,7 +159,7 @@ export class OpenSearchClusterAlarmFactory {
   addKmsKeyInaccessibleAlarm(
     metric: MetricWithAlarmSupport,
     props: OpenSearchKmsKeyInaccessibleThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

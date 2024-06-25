@@ -14,23 +14,23 @@ import { MetricFactory, MetricWithAlarmSupport } from "../../common";
 // don't have distinguished fields that could be used to differentiate between both types, so we resort to using
 // checking for unique methods in their metrics interfaces.
 function isApplicationLoadBalancer(
-  loadBalancer: INetworkLoadBalancer | IApplicationLoadBalancer
+  loadBalancer: INetworkLoadBalancer | IApplicationLoadBalancer,
 ): loadBalancer is IApplicationLoadBalancer {
   return !!(loadBalancer.metrics as any).httpRedirectCount;
 }
 function isNetworkLoadBalancer(
-  loadBalancer: INetworkLoadBalancer | IApplicationLoadBalancer
+  loadBalancer: INetworkLoadBalancer | IApplicationLoadBalancer,
 ): loadBalancer is INetworkLoadBalancer {
   return !isApplicationLoadBalancer(loadBalancer);
 }
 
 function isApplicationTargetGroup(
-  targetGroup: INetworkTargetGroup | IApplicationTargetGroup
+  targetGroup: INetworkTargetGroup | IApplicationTargetGroup,
 ): targetGroup is IApplicationTargetGroup {
   return !!(targetGroup.metrics as any).httpCodeTarget;
 }
 function isNetworkTargetGroup(
-  targetGroup: INetworkTargetGroup | IApplicationTargetGroup
+  targetGroup: INetworkTargetGroup | IApplicationTargetGroup,
 ): targetGroup is INetworkTargetGroup {
   return !isApplicationTargetGroup(targetGroup);
 }
@@ -45,7 +45,7 @@ export function createLoadBalancerMetricFactory(
   metricFactory: MetricFactory,
   loadBalancer: INetworkLoadBalancer | IApplicationLoadBalancer,
   targetGroup: INetworkTargetGroup | IApplicationTargetGroup,
-  invertStatisticsOfTaskCountEnabled?: boolean
+  invertStatisticsOfTaskCountEnabled?: boolean,
 ): ILoadBalancerMetricFactory {
   if (
     isNetworkLoadBalancer(loadBalancer) &&
@@ -67,7 +67,7 @@ export function createLoadBalancerMetricFactory(
     });
   } else {
     throw new Error(
-      "Invalid type of load balancer or target group (only ALB and NLB are supported)."
+      "Invalid type of load balancer or target group (only ALB and NLB are supported).",
     );
   }
 }

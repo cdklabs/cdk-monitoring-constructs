@@ -98,7 +98,7 @@ export class DefaultDashboardFactory
 
     if (shouldCreateDashboards && !props.dashboardNamePrefix) {
       throw Error(
-        "A non-empty dashboardNamePrefix is required if dashboards are being created"
+        "A non-empty dashboardNamePrefix is required if dashboards are being created",
       );
     }
 
@@ -131,7 +131,7 @@ export class DefaultDashboardFactory
           start: summaryStart,
           periodOverride:
             props.summaryDashboardPeriodOverride ?? PeriodOverride.INHERIT,
-        }
+        },
       );
       this.dashboards[DefaultDashboards.SUMMARY] = this.summaryDashboard;
     }
@@ -145,7 +145,7 @@ export class DefaultDashboardFactory
           start: detailStart,
           periodOverride:
             props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
-        }
+        },
       );
       this.dashboards[DefaultDashboards.ALARMS] = this.alarmDashboard;
     }
@@ -173,20 +173,20 @@ export class DefaultDashboardFactory
 
   addDynamicSegment(segment: IDynamicDashboardSegment): void {
     this.dashboard?.addWidgets(
-      ...segment.widgetsForDashboard(DefaultDashboards.DETAIL)
+      ...segment.widgetsForDashboard(DefaultDashboards.DETAIL),
     );
     this.summaryDashboard?.addWidgets(
-      ...segment.widgetsForDashboard(DefaultDashboards.SUMMARY)
+      ...segment.widgetsForDashboard(DefaultDashboards.SUMMARY),
     );
     this.alarmDashboard?.addWidgets(
-      ...segment.widgetsForDashboard(DefaultDashboards.ALARMS)
+      ...segment.widgetsForDashboard(DefaultDashboards.ALARMS),
     );
   }
 
   protected createDashboard(
     renderingPreference: DashboardRenderingPreference,
     id: string,
-    props: DashboardProps
+    props: DashboardProps,
   ) {
     switch (renderingPreference) {
       case DashboardRenderingPreference.INTERACTIVE_ONLY:

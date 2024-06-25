@@ -88,7 +88,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
       .createAwsConsoleUrlFactory()
       .getRedshiftClusterUrl(props.clusterIdentifier);
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
     this.latencyAlarmFactory = new LatencyAlarmFactory(alarmFactory);
@@ -99,7 +99,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
 
     const metricFactory = new RedshiftClusterMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.connectionsMetric = metricFactory.metricTotalConnectionCount();
     this.diskSpaceUsageMetric =
@@ -120,7 +120,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxDiskUsagePercentAlarm(
         this.diskSpaceUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -131,7 +131,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -143,7 +143,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
         this.longQueryDurationMetric,
         LatencyType.P90,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.queryDurationAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -155,7 +155,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
         this.connectionAlarmFactory.addMinConnectionCountAlarm(
           this.connectionsMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -167,7 +167,7 @@ export class RedshiftClusterMonitoring extends Monitoring {
         this.connectionAlarmFactory.addMaxConnectionCountAlarm(
           this.connectionsMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

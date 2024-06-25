@@ -20,7 +20,7 @@ export class BitmapDashboard extends Dashboard {
     super(scope, id, props);
     this.bitmapRenderingSupport = new BitmapWidgetRenderingSupport(
       this,
-      "BitmapRenderingSupport"
+      "BitmapRenderingSupport",
     );
   }
 

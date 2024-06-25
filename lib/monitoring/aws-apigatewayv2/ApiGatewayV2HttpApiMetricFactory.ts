@@ -46,7 +46,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
 
   constructor(
     metricFactory: MetricFactory,
-    props: ApiGatewayV2HttpApiMetricFactoryProps
+    props: ApiGatewayV2HttpApiMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -69,7 +69,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       this.metricInvocationCount(),
       RateComputationMethod.PER_SECOND,
       false,
-      "requests"
+      "requests",
     );
   }
 
@@ -78,7 +78,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       this.metricInvocationCount(),
       this.rateComputationMethod,
       false,
-      "requests"
+      "requests",
     );
   }
 
@@ -89,7 +89,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       "Invocations",
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 
@@ -100,7 +100,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       "4xx",
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 
@@ -110,7 +110,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       metric,
       this.rateComputationMethod,
       false,
-      "errors"
+      "errors",
     );
   }
 
@@ -121,7 +121,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       "5xx",
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 
@@ -131,7 +131,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       metric,
       this.rateComputationMethod,
       false,
-      "faults"
+      "faults",
     );
   }
 
@@ -185,7 +185,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       label,
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 
@@ -197,7 +197,7 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
       label,
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 }

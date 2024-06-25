@@ -37,7 +37,7 @@ function importNlb() {
       "ImportedNLB",
       {
         loadBalancerArn: nlbArn,
-      }
+      },
     );
   const networkTargetGroup = NetworkTargetGroup.fromTargetGroupAttributes(
     stack,
@@ -45,7 +45,7 @@ function importNlb() {
     {
       loadBalancerArns: nlbArn,
       targetGroupArn: tgArn,
-    }
+    },
   );
   return { networkLoadBalancer, networkTargetGroup, stack };
 }
@@ -67,7 +67,7 @@ test.each([createNlb, importNlb])(
 
     addMonitoringDashboardsToStack(stack, monitoring);
     expect(Template.fromStack(stack)).toMatchSnapshot();
-  }
+  },
 );
 
 test.each([createNlb, importNlb])(
@@ -115,5 +115,5 @@ test.each([createNlb, importNlb])(
     addMonitoringDashboardsToStack(stack, monitoring);
     expect(numAlarmsCreated).toStrictEqual(4);
     expect(Template.fromStack(stack)).toMatchSnapshot();
-  }
+  },
 );

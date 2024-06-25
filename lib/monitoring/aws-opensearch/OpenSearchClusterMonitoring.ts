@@ -142,27 +142,27 @@ export class OpenSearchClusterMonitoring extends Monitoring {
     const clusterAlarmPrefix = `${alarmPrefix}-Cluster`;
 
     this.indexingLatencyAlarmFactory = new LatencyAlarmFactory(
-      this.createAlarmFactory(indexingAlarmPrefix)
+      this.createAlarmFactory(indexingAlarmPrefix),
     );
     this.indexingLatencyAnnotations = [];
     this.searchLatencyAlarmFactory = new LatencyAlarmFactory(
-      this.createAlarmFactory(searchAlarmPrefix)
+      this.createAlarmFactory(searchAlarmPrefix),
     );
     this.searchLatencyAnnotations = [];
     this.clusterAlarmFactory = new OpenSearchClusterAlarmFactory(
-      this.createAlarmFactory(clusterAlarmPrefix)
+      this.createAlarmFactory(clusterAlarmPrefix),
     );
     this.clusterAnnotations = [];
     this.nodeAnnotations = [];
     this.usageAlarmFactory = new UsageAlarmFactory(
-      this.createAlarmFactory(alarmPrefix)
+      this.createAlarmFactory(alarmPrefix),
     );
     this.usageAnnotations = [];
     this.masterUsageAnnotations = [];
 
     const metricFactory = new OpenSearchClusterMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.tpsMetric = metricFactory.metricTps();
     this.p50IndexingLatencyMetric =
@@ -199,7 +199,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.p50IndexingLatencyMetric,
         LatencyType.P50,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.indexingLatencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -210,7 +210,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.p90IndexingLatencyMetric,
         LatencyType.P90,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.indexingLatencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -221,7 +221,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.p99IndexingLatencyMetric,
         LatencyType.P99,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.indexingLatencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -232,7 +232,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.p50SearchLatencyMetric,
         LatencyType.P50,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.searchLatencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -243,7 +243,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.p90SearchLatencyMetric,
         LatencyType.P90,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.searchLatencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -254,7 +254,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.p99SearchLatencyMetric,
         LatencyType.P99,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.searchLatencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -267,14 +267,14 @@ export class OpenSearchClusterMonitoring extends Monitoring {
           createdAlarm = this.clusterAlarmFactory.addClusterStatusAlarm(
             this.clusterStatusRedMetric,
             alarmProps,
-            disambiguator
+            disambiguator,
           );
           break;
         case OpenSearchClusterStatus.YELLOW:
           createdAlarm = this.clusterAlarmFactory.addClusterStatusAlarm(
             this.clusterStatusYellowMetric,
             alarmProps,
-            disambiguator
+            disambiguator,
           );
           break;
         default:
@@ -287,7 +287,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxDiskUsagePercentAlarm(
         this.diskSpaceUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -297,7 +297,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -308,7 +308,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.usageAlarmFactory.addMaxMasterCpuUsagePercentAlarm(
           this.masterCpuUsageMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.masterUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -318,7 +318,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxMemoryUsagePercentAlarm(
         this.jvmMemoryPressureMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -329,7 +329,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.usageAlarmFactory.addMaxMasterMemoryUsagePercentAlarm(
           this.masterJvmMemoryPressureMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.masterUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -339,7 +339,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
       const createdAlarm = this.clusterAlarmFactory.addClusterNodeCountAlarm(
         this.nodesMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.nodeAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -350,7 +350,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.clusterAlarmFactory.addClusterIndexWritesBlockedAlarm(
           this.indexWriteBlockedMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.clusterAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -362,7 +362,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
         this.clusterAlarmFactory.addAutomatedSnapshotFailureAlarm(
           this.automatedSnapshotFailureMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.clusterAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -372,7 +372,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
       const createdAlarm = this.clusterAlarmFactory.addKmsKeyErrorAlarm(
         this.kmsKeyErrorMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.clusterAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -382,7 +382,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
       const createdAlarm = this.clusterAlarmFactory.addKmsKeyInaccessibleAlarm(
         this.kmsKeyInaccessibleMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.clusterAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -505,7 +505,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
           left: [this.nodesMetric],
           leftYAxis: CountAxisFromZero,
           leftAnnotations: this.nodeAnnotations,
-        })
+        }),
       ),
       new Row(
         // CPU, memory, and disk usage
@@ -543,7 +543,7 @@ export class OpenSearchClusterMonitoring extends Monitoring {
           ],
           leftYAxis: CountAxisFromZero,
           leftAnnotations: this.clusterAnnotations,
-        })
+        }),
       ),
     ];
   }

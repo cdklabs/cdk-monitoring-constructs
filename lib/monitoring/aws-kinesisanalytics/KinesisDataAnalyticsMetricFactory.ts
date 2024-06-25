@@ -29,7 +29,7 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
 
   constructor(
     metricFactory: MetricFactory,
-    props: KinesisDataAnalyticsMetricFactoryProps
+    props: KinesisDataAnalyticsMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -125,7 +125,7 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
       metricsSpec.description,
       this.dimensionsMap,
       undefined, // the hex color code of the metric on a graph
-      "AWS/KinesisAnalytics"
+      "AWS/KinesisAnalytics",
     );
   }
 }

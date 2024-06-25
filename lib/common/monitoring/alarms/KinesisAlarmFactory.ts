@@ -35,7 +35,7 @@ export class KinesisAlarmFactory {
   addIteratorMaxAgeAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxIteratorAgeThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -56,7 +56,7 @@ export class KinesisAlarmFactory {
   addPutRecordsThrottledAlarm(
     metric: MetricWithAlarmSupport,
     props: RecordsThrottledThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     const threshold = props.maxRecordsThrottledThreshold;
     return this.alarmFactory.addAlarm(metric, {
@@ -78,7 +78,7 @@ export class KinesisAlarmFactory {
   addPutRecordsFailedAlarm(
     metric: MetricWithAlarmSupport,
     props: RecordsFailedThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     const threshold = props.maxRecordsFailedThreshold;
     return this.alarmFactory.addAlarm(metric, {
@@ -102,12 +102,12 @@ export class KinesisAlarmFactory {
     metricName: string,
     quotaName: string,
     props: FirehoseStreamLimitThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     const threshold = props.safetyThresholdLimit;
     if (threshold < 0 || threshold >= 1) {
       throw new Error(
-        `safetyThresholdLimit must be in range [0.0, 1.0) for ${metricName}ExceedThresholdAlarm.`
+        `safetyThresholdLimit must be in range [0.0, 1.0) for ${metricName}ExceedThresholdAlarm.`,
       );
     }
 
@@ -130,7 +130,7 @@ export class KinesisAlarmFactory {
   addProvisionedReadThroughputExceededAlarm(
     metric: MetricWithAlarmSupport,
     props: RecordsThrottledThreshold,
-    disambiguator: string
+    disambiguator: string,
   ) {
     const threshold = props.maxRecordsThrottledThreshold;
     return this.alarmFactory.addAlarm(metric, {
@@ -150,7 +150,7 @@ export class KinesisAlarmFactory {
   addProvisionedWriteThroughputExceededAlarm(
     metric: MetricWithAlarmSupport,
     props: RecordsThrottledThreshold,
-    disambiguator: string
+    disambiguator: string,
   ) {
     const threshold = props.maxRecordsThrottledThreshold;
     return this.alarmFactory.addAlarm(metric, {

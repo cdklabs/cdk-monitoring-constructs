@@ -13,7 +13,7 @@ export class HeaderWidget extends TextWidget {
     text: string,
     level?: HeaderLevel,
     description?: string,
-    descriptionHeight?: number
+    descriptionHeight?: number,
   ) {
     super({
       width: FullWidth,
@@ -21,14 +21,14 @@ export class HeaderWidget extends TextWidget {
       markdown: HeaderWidget.toMarkdown(
         text,
         level ?? HeaderLevel.LARGE,
-        description
+        description,
       ),
     });
   }
 
   private static calculateHeight(
     description?: string,
-    descriptionHeight?: number
+    descriptionHeight?: number,
   ) {
     let result = 1;
     if (description) {
@@ -40,7 +40,7 @@ export class HeaderWidget extends TextWidget {
   private static toMarkdown(
     text: string,
     level: HeaderLevel,
-    description?: string
+    description?: string,
   ) {
     const parts = [this.toHeaderMarkdown(text, level)];
     if (description) {

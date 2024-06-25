@@ -24,7 +24,7 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
     return this.metricFactory.adaptMetric(
       this.queue.metricApproximateNumberOfMessagesVisible({
         label: "Visible",
-      })
+      }),
     );
   }
 
@@ -33,7 +33,7 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
       this.queue.metricNumberOfMessagesSent({
         statistic: MetricStatistic.SUM,
         label: "Incoming",
-      })
+      }),
     );
   }
 
@@ -42,7 +42,7 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
       this.queue.metricNumberOfMessagesDeleted({
         statistic: MetricStatistic.SUM,
         label: "Deleted",
-      })
+      }),
     );
   }
 
@@ -50,7 +50,7 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
     return this.metricFactory.adaptMetric(
       this.queue.metricApproximateAgeOfOldestMessage({
         label: "Age",
-      })
+      }),
     );
   }
 
@@ -58,7 +58,7 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
     return this.metricFactory.adaptMetric(
       this.queue.metricSentMessageSize({
         label: "Size",
-      })
+      }),
     );
   }
 
@@ -68,7 +68,7 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
       {
         productionVolume: this.metricIncomingMessageCount(),
       },
-      "Production TPS (avg: ${AVG}, max: ${MAX})"
+      "Production TPS (avg: ${AVG}, max: ${MAX})",
     );
   }
 
@@ -78,7 +78,7 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
       {
         consumptionVolume: this.metricDeletedMessageCount(),
       },
-      "Consumption TPS (avg: ${AVG}, max: ${MAX})"
+      "Consumption TPS (avg: ${AVG}, max: ${MAX})",
     );
   }
 
@@ -92,7 +92,7 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
         incomingVolume: this.metricIncomingMessageCount(),
         consumptionVolume: this.metricDeletedMessageCount(),
       },
-      "Time to Drain (seconds) (avg: ${AVG}, max: ${MAX})"
+      "Time to Drain (seconds) (avg: ${AVG}, max: ${MAX})",
     );
   }
 }

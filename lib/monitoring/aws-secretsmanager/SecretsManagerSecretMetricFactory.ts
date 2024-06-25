@@ -22,7 +22,7 @@ export class SecretsManagerSecretMetricFactory extends BaseMetricFactory<Secrets
 
   constructor(
     metricFactory: MetricFactory,
-    props: SecretsManagerSecretMetricFactoryProps
+    props: SecretsManagerSecretMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -39,7 +39,7 @@ export class SecretsManagerSecretMetricFactory extends BaseMetricFactory<Secrets
       "Days",
       this.dimensionsMap,
       undefined,
-      SecretsManagerSecretMetricFactory.Namespace
+      SecretsManagerSecretMetricFactory.Namespace,
     );
   }
 
@@ -50,7 +50,7 @@ export class SecretsManagerSecretMetricFactory extends BaseMetricFactory<Secrets
       "Days",
       this.dimensionsMap,
       undefined,
-      SecretsManagerSecretMetricFactory.Namespace
+      SecretsManagerSecretMetricFactory.Namespace,
     );
   }
 }

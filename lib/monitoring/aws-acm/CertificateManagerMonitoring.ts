@@ -41,7 +41,7 @@ export class CertificateManagerMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: CertificateManagerMonitoringProps
+    props: CertificateManagerMonitoringProps,
   ) {
     super(scope, props);
 
@@ -50,10 +50,10 @@ export class CertificateManagerMonitoring extends Monitoring {
 
     const metricFactory = new CertificateManagerMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     const ageAlarmFactory = new AgeAlarmFactory(alarmFactory);
     this.daysToExpiryAnnotations = [];
@@ -64,7 +64,7 @@ export class CertificateManagerMonitoring extends Monitoring {
       const createdAlarm = ageAlarmFactory.addDaysToExpiryAlarm(
         this.daysToExpiryMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.daysToExpiryAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

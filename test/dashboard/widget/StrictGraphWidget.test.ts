@@ -73,7 +73,7 @@ describe("failure test cases", () => {
           height: 4,
           leftAxis: DummyAxis1,
           leftMetrics: [],
-        })
+        }),
     ).toThrowError();
   });
 
@@ -87,7 +87,7 @@ describe("failure test cases", () => {
           leftMetrics: [],
           rightAxis: DummyAxis2,
           rightMetrics: [DummyMetric1],
-        })
+        }),
     ).toThrowError();
   });
 
@@ -101,7 +101,7 @@ describe("failure test cases", () => {
           leftMetrics: [DummyMetric1],
           rightAxis: DummyAxis2,
           rightMetrics: [],
-        })
+        }),
     ).toThrowError();
   });
 });

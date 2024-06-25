@@ -84,7 +84,7 @@ export class MetricFactory {
     namespace?: string,
     period?: Duration,
     region?: string,
-    account?: string
+    account?: string,
   ): MetricWithAlarmSupport {
     return new Metric({
       statistic,
@@ -119,7 +119,7 @@ export class MetricFactory {
     color?: string,
     period?: Duration,
     region?: string,
-    account?: string
+    account?: string,
   ): MetricWithAlarmSupport {
     return new MathExpression({
       label,
@@ -154,7 +154,7 @@ export class MetricFactory {
     label?: string,
     period?: Duration,
     region?: string,
-    account?: string
+    account?: string,
   ): IMetric {
     const finalPeriod =
       period ?? this.globalDefaults.period ?? DefaultMetricPeriod;
@@ -166,7 +166,7 @@ export class MetricFactory {
     const metricSchema = `{${namespacePlusDimensionKeys}}`;
 
     const dimensionKeysAndValues = Object.entries(
-      this.removeUndefinedEntries(dimensionsMap)
+      this.removeUndefinedEntries(dimensionsMap),
     )
       .map(([key, value]) => `${key}="${value}"`)
       .join(" ");
@@ -209,7 +209,7 @@ export class MetricFactory {
     expressionId?: string,
     period?: Duration,
     region?: string,
-    account?: string
+    account?: string,
   ): MetricWithAlarmSupport {
     const finalExpressionId = expressionId ?? "m1";
     const usingMetrics: Record<string, IMetric> = {};
@@ -244,7 +244,7 @@ export class MetricFactory {
    * @param metric metric to be adapted
    */
   adaptMetricPreservingPeriod(
-    metric: MetricWithAlarmSupport
+    metric: MetricWithAlarmSupport,
   ): MetricWithAlarmSupport {
     return metric;
   }
@@ -262,7 +262,7 @@ export class MetricFactory {
     metric: MetricWithAlarmSupport,
     multiplier: number,
     label: string,
-    expressionId?: string
+    expressionId?: string,
   ): MetricWithAlarmSupport {
     if (multiplier == 1) {
       return metric;
@@ -277,7 +277,7 @@ export class MetricFactory {
         usingMetrics,
         label,
         metric.color,
-        metric.period
+        metric.period,
       );
     }
   }
@@ -295,7 +295,7 @@ export class MetricFactory {
     metric: MetricWithAlarmSupport,
     divisor: number,
     label: string,
-    expressionId?: string
+    expressionId?: string,
   ): MetricWithAlarmSupport {
     if (divisor == 1) {
       return metric;
@@ -310,7 +310,7 @@ export class MetricFactory {
         usingMetrics,
         label,
         metric.color,
-        metric.period
+        metric.period,
       );
     }
   }
@@ -330,7 +330,7 @@ export class MetricFactory {
     method: RateComputationMethod,
     addStatsToLabel?: boolean,
     expressionId?: string,
-    fillWithZeroes?: boolean
+    fillWithZeroes?: boolean,
   ): MetricWithAlarmSupport {
     const finalExpressionId = expressionId ?? "m1";
     const labelPrefix = metric.label ?? "Rate";
@@ -365,7 +365,7 @@ export class MetricFactory {
             { [finalExpressionId]: avgMetric },
             avgLabel,
             avgMetric.color,
-            avgMetric.period
+            avgMetric.period,
           );
         }
         return avgMetric;
@@ -384,7 +384,7 @@ export class MetricFactory {
           { [finalExpressionId]: metric },
           perSecondLabel,
           metric.color,
-          metric.period
+          metric.period,
         );
       case RateComputationMethod.PER_MINUTE:
         return this.createMetricMath(
@@ -392,7 +392,7 @@ export class MetricFactory {
           { [finalExpressionId]: metric },
           `${labelPrefix}/m${labelAppendix}`,
           metric.color,
-          metric.period
+          metric.period,
         );
       case RateComputationMethod.PER_HOUR:
         return this.createMetricMath(
@@ -400,7 +400,7 @@ export class MetricFactory {
           { [finalExpressionId]: metric },
           `${labelPrefix}/h${labelAppendix}`,
           metric.color,
-          metric.period
+          metric.period,
         );
       case RateComputationMethod.PER_DAY:
         return this.createMetricMath(
@@ -408,7 +408,7 @@ export class MetricFactory {
           { [finalExpressionId]: metric },
           `${labelPrefix}/d${labelAppendix}`,
           metric.color,
-          metric.period
+          metric.period,
         );
     }
   }
@@ -422,7 +422,7 @@ export class MetricFactory {
     const namespace = value ?? this.globalDefaults.namespace;
     if (!namespace) {
       throw new Error(
-        "There is no custom namespace defined. Please specify it in your factory defaults."
+        "There is no custom namespace defined. Please specify it in your factory defaults.",
       );
     }
     return namespace;
@@ -446,7 +446,7 @@ export class MetricFactory {
    */
   addAdditionalDimensions(
     target: DimensionsMap,
-    additionalDimensions: DimensionsMap
+    additionalDimensions: DimensionsMap,
   ) {
     // Add additional dimensions in the search query
     Object.keys(additionalDimensions).forEach((key) => {

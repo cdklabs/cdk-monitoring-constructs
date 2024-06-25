@@ -545,26 +545,26 @@ export class AlarmFactory {
       new AlarmNamingStrategy(
         props.globalAlarmDefaults.alarmNamePrefix,
         props.localAlarmNamePrefix,
-        props.globalAlarmDefaults.dedupeStringProcessor
+        props.globalAlarmDefaults.dedupeStringProcessor,
       );
   }
 
   addAlarm(
     metric: MetricWithAlarmSupport,
-    props: AddAlarmProps
+    props: AddAlarmProps,
   ): AlarmWithAnnotation {
     // adjust the metric
 
     const metricAdjuster = props.metricAdjuster
       ? CompositeMetricAdjuster.of(
           props.metricAdjuster,
-          DefaultMetricAdjuster.INSTANCE
+          DefaultMetricAdjuster.INSTANCE,
         )
       : DefaultMetricAdjuster.INSTANCE;
     const adjustedMetric = metricAdjuster.adjustMetric(
       metric,
       this.alarmScope,
-      props
+      props,
     );
 
     // metric that will be ultimately used to create the alarm
@@ -574,11 +574,11 @@ export class AlarmFactory {
 
     const actionsEnabled = this.determineActionsEnabled(
       props.actionsEnabled,
-      props.disambiguator
+      props.disambiguator,
     );
     const action = this.determineAction(
       props.disambiguator,
-      props.actionOverride
+      props.actionOverride,
     );
     const alarmName = this.alarmNamingStrategy.getName(props);
     const alarmNameSuffix = props.alarmNameSuffix;
@@ -587,7 +587,7 @@ export class AlarmFactory {
       props.alarmDescription,
       props.alarmDescriptionOverride,
       props.runbookLink,
-      props.documentationLink
+      props.documentationLink,
     );
     const dedupeString = this.alarmNamingStrategy.getDedupeString(props);
     const evaluateLowSampleCountPercentile =
@@ -604,7 +604,7 @@ export class AlarmFactory {
 
     if (evaluationPeriods < datapointsToAlarm) {
       throw new Error(
-        `evaluationPeriods must be greater than or equal to datapointsToAlarm for ${alarmName}`
+        `evaluationPeriods must be greater than or equal to datapointsToAlarm for ${alarmName}`,
       );
     }
 
@@ -639,7 +639,7 @@ export class AlarmFactory {
           metricSampleCountId = props.sampleCountMetricId;
         } else {
           throw new Error(
-            "sampleCountMetricId must be specified when using minSampleCountToEvaluateDatapoint with a multiple-metric MathExpression"
+            "sampleCountMetricId must be specified when using minSampleCountToEvaluateDatapoint with a multiple-metric MathExpression",
           );
         }
       } else {
@@ -704,18 +704,18 @@ export class AlarmFactory {
           datapointsToAlarm: 1,
           evaluationPeriods: 1,
           actionsEnabled,
-        }
+        },
       );
       alarm = new CompositeAlarm(this.alarmScope, `${alarmName}-WithSamples`, {
         actionsEnabled,
         compositeAlarmName: `${alarmName}-WithSamples`,
         alarmDescription: this.joinDescriptionParts(
           alarmDescription,
-          `Min number of samples to alarm: ${props.minMetricSamplesToAlarm}`
+          `Min number of samples to alarm: ${props.minMetricSamplesToAlarm}`,
         ),
         alarmRule: AlarmRule.allOf(
           AlarmRule.fromAlarm(primaryAlarm, AlarmState.ALARM),
-          AlarmRule.not(AlarmRule.fromAlarm(noSamplesAlarm, AlarmState.ALARM))
+          AlarmRule.not(AlarmRule.fromAlarm(noSamplesAlarm, AlarmState.ALARM)),
         ),
       });
     }
@@ -769,7 +769,7 @@ export class AlarmFactory {
       alarmRuleWhenAlarming: AlarmRule.fromAlarm(alarm, AlarmState.ALARM),
       alarmRuleWhenInsufficientData: AlarmRule.fromAlarm(
         alarm,
-        AlarmState.INSUFFICIENT_DATA
+        AlarmState.INSUFFICIENT_DATA,
       ),
       dedupeString,
       annotation,
@@ -779,11 +779,11 @@ export class AlarmFactory {
 
   addCompositeAlarm(
     alarms: AlarmWithAnnotation[],
-    props: AddCompositeAlarmProps
+    props: AddCompositeAlarmProps,
   ): CompositeAlarm {
     const actionsEnabled = this.determineActionsEnabled(
       props?.actionsEnabled,
-      props?.disambiguator
+      props?.disambiguator,
     );
     const action =
       props.actionOverride ?? this.globalAlarmDefaults.action ?? noopAction();
@@ -793,7 +793,7 @@ export class AlarmFactory {
       props?.alarmDescription ?? "Composite alarm",
       props?.alarmDescriptionOverride,
       props?.runbookLink,
-      props?.documentationLink
+      props?.documentationLink,
     );
     const dedupeString = this.alarmNamingStrategy.getDedupeString(namingInput);
     const alarmRule = this.determineCompositeAlarmRule(alarms, props);
@@ -822,7 +822,7 @@ export class AlarmFactory {
 
   protected determineCompositeAlarmRule(
     alarms: AlarmWithAnnotation[],
-    props: AddCompositeAlarmProps
+    props: AddCompositeAlarmProps,
   ): IAlarmRule {
     const alarmRules = alarms.map((alarm) => alarm.alarmRuleWhenAlarming);
     const operator = props.compositeOperator ?? CompositeAlarmOperator.OR;
@@ -838,7 +838,7 @@ export class AlarmFactory {
 
   protected determineActionsEnabled(
     actionsEnabled?: boolean,
-    disambiguator?: string
+    disambiguator?: string,
   ): boolean {
     if (actionsEnabled !== undefined) {
       // alarm-specific override to true or false
@@ -857,7 +857,7 @@ export class AlarmFactory {
 
   protected determineAction(
     disambiguator?: string,
-    actionOverride?: IAlarmActionStrategy
+    actionOverride?: IAlarmActionStrategy,
   ): IAlarmActionStrategy {
     // Explicit override
     if (actionOverride) {
@@ -888,7 +888,7 @@ export class AlarmFactory {
     alarmDescription: string,
     alarmDescriptionOverride?: string,
     runbookLinkOverride?: string,
-    documentationLinkOverride?: string
+    documentationLinkOverride?: string,
   ) {
     const parts = [alarmDescriptionOverride ?? alarmDescription];
 

@@ -201,14 +201,14 @@ export class Ec2ServiceMonitoring extends Monitoring {
     this.metricFactory = scope.createMetricFactory();
     this.baseServiceMetricFactory = new BaseServiceMetricFactory(
       this.metricFactory,
-      { service: props.ec2Service }
+      { service: props.ec2Service },
     );
     if (this.hasLoadBalancer) {
       this.loadBalancerMetricFactory = createLoadBalancerMetricFactory(
         this.metricFactory,
         props.loadBalancer!,
         props.targetGroup!,
-        props.invertLoadBalancerTaskCountMetricsStatistics
+        props.invertLoadBalancerTaskCountMetricsStatistics,
       );
       this.healthyTaskCountMetric =
         this.loadBalancerMetricFactory.metricHealthyTaskCount();
@@ -235,7 +235,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
       this.baseServiceMetricFactory.metricEphemeralStorageUsageInPercent();
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.taskHealthAlarmFactory = new TaskHealthAlarmFactory(alarmFactory);
     this.throughputAlarmFactory = new ThroughputAlarmFactory(alarmFactory);
@@ -270,7 +270,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             this.healthyTaskCountMetric!,
             alarmProps,
-            disambiguator
+            disambiguator,
           );
         this.taskHealthAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -282,7 +282,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             this.unhealthyTaskCountMetric!,
             alarmProps,
-            disambiguator
+            disambiguator,
           );
         this.taskHealthAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -294,7 +294,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             this.healthyTaskPercentMetric!,
             alarmProps,
-            disambiguator
+            disambiguator,
           );
         this.addAlarm(createdAlarm);
       }
@@ -304,7 +304,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUtilisationMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.cpuUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -314,7 +314,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxMemoryUsagePercentAlarm(
         this.memoryUtilisationMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.memoryUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -325,7 +325,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
       const createdAlarm = this.taskHealthAlarmFactory.addRunningTaskCountAlarm(
         this.runningTaskCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.taskHealthAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -335,7 +335,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxDiskUsagePercentAlarm(
         this.ephemeralStorageUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.addAlarm(createdAlarm);
     }
@@ -348,7 +348,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             this.processedBytesMetric!,
             alarmProps,
-            disambiguator
+            disambiguator,
           );
         this.processedBytesAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -372,11 +372,11 @@ export class Ec2ServiceMonitoring extends Monitoring {
       this.createTitleWidget(),
       this.createCpuWidget(
         this.hasLoadBalancer ? QuarterWidth : ThirdWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
       this.createMemoryWidget(
         this.hasLoadBalancer ? QuarterWidth : ThirdWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
     ];
 
@@ -387,7 +387,7 @@ export class Ec2ServiceMonitoring extends Monitoring {
       ]);
     } else {
       return baseWidget.concat(
-        this.createTaskHealthWidget(ThirdWidth, DefaultGraphWidgetHeight)
+        this.createTaskHealthWidget(ThirdWidth, DefaultGraphWidgetHeight),
       );
     }
   }

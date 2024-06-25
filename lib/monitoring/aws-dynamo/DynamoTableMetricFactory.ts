@@ -32,7 +32,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
 
   constructor(
     metricFactory: MetricFactory,
-    props: DynamoTableMetricFactoryProps
+    props: DynamoTableMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -44,7 +44,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("ProvisionedReadCapacityUnits", {
         label: ProvisionedLabel,
         statistic: MetricStatistic.AVERAGE,
-      })
+      }),
     );
   }
 
@@ -53,7 +53,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("ProvisionedWriteCapacityUnits", {
         label: ProvisionedLabel,
         statistic: MetricStatistic.AVERAGE,
-      })
+      }),
     );
   }
 
@@ -65,7 +65,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
           statistic: MetricStatistic.SUM,
         }),
       },
-      ConsumedLabel
+      ConsumedLabel,
     );
   }
 
@@ -77,7 +77,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
           statistic: MetricStatistic.SUM,
         }),
       },
-      ConsumedLabel
+      ConsumedLabel,
     );
   }
 
@@ -88,7 +88,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
         consumed_read_cap: this.metricConsumedReadCapacityUnits(),
         provisioned_read_cap: this.metricProvisionedReadCapacityUnits(),
       },
-      "Utilization"
+      "Utilization",
     );
   }
 
@@ -99,7 +99,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
         consumed_write_cap: this.metricConsumedWriteCapacityUnits(),
         provisioned_write_cap: this.metricProvisionedWriteCapacityUnits(),
       },
-      "Utilization"
+      "Utilization",
     );
   }
 
@@ -112,7 +112,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
         Operation: undefined as unknown as string,
       },
       MetricStatistic.AVERAGE,
-      DynamoDbNamespace
+      DynamoDbNamespace,
     );
   }
 
@@ -125,7 +125,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
           TableName: this.table.tableName,
           Operation: operation,
         },
-      })
+      }),
     );
   }
 
@@ -134,13 +134,13 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("ReadThrottleEvents", {
         statistic: MetricStatistic.SUM,
         label: ReadThrottleEventsLabel,
-      })
+      }),
     );
 
     return this.metricFactory.createMetricMath(
       "FILL(readThrottles,0)",
       { readThrottles },
-      ReadThrottleEventsLabel
+      ReadThrottleEventsLabel,
     );
   }
 
@@ -149,13 +149,13 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("WriteThrottleEvents", {
         statistic: MetricStatistic.SUM,
         label: WriteThrottleEventsLabel,
-      })
+      }),
     );
 
     return this.metricFactory.createMetricMath(
       "FILL(writeThrottles,0)",
       { writeThrottles },
-      WriteThrottleEventsLabel
+      WriteThrottleEventsLabel,
     );
   }
 
@@ -197,7 +197,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       // the metric is not emitted until error happens
       Object.keys(usingMetrics).join("+"),
       usingMetrics,
-      "System Errors"
+      "System Errors",
     );
   }
 
@@ -206,7 +206,7 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("TimeToLiveDeletedItemCount", {
         label: "TTL Deleted Item Count",
         statistic: MetricStatistic.MAX,
-      })
+      }),
     );
   }
 }

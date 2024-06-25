@@ -53,7 +53,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       RateComputationMethod.PER_SECOND,
       true,
       "requests",
-      this.fillTpsWithZeroes
+      this.fillTpsWithZeroes,
     );
   }
 
@@ -63,7 +63,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       this.rateComputationMethod,
       true,
       "requests",
-      this.fillTpsWithZeroes
+      this.fillTpsWithZeroes,
     );
   }
 
@@ -74,7 +74,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       "Requests",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -85,7 +85,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       "P50",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -96,7 +96,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       "P90",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -107,7 +107,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       "P99",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -118,7 +118,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       "4XX Error",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -128,7 +128,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       metric,
       this.rateComputationMethod,
       false,
-      "errors"
+      "errors",
     );
   }
 
@@ -139,7 +139,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       "5XX Fault",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -149,7 +149,7 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       metric,
       this.rateComputationMethod,
       false,
-      "faults"
+      "faults",
     );
   }
 }

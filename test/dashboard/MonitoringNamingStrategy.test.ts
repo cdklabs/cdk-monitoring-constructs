@@ -9,19 +9,19 @@ test("empty string is not alarm friendly", () => {
 
 test("string with spaces is not alarm friendly", () => {
   expect(
-    MonitoringNamingStrategy.isAlarmFriendly("This is not valid")
+    MonitoringNamingStrategy.isAlarmFriendly("This is not valid"),
   ).toBeFalsy();
 });
 
 test("string with comma is not alarm friendly", () => {
   expect(
-    MonitoringNamingStrategy.isAlarmFriendly("This,Is,Not,Friendly")
+    MonitoringNamingStrategy.isAlarmFriendly("This,Is,Not,Friendly"),
   ).toBeFalsy();
 });
 
 test("this string is alarm friendly", () => {
   expect(
-    MonitoringNamingStrategy.isAlarmFriendly("This_is__Valid-Alarm-Name")
+    MonitoringNamingStrategy.isAlarmFriendly("This_is__Valid-Alarm-Name"),
   ).toBeTruthy();
 });
 
@@ -31,16 +31,16 @@ test("for empty naming strategy, all outputs are undefined", () => {
   const stack = new Stack();
 
   expect(() =>
-    stack.resolve(namingStrategy.resolveHumanReadableName())
+    stack.resolve(namingStrategy.resolveHumanReadableName()),
   ).toThrowError(
     "Resolution error: Insufficient information provided for naming the alarms and/or monitoring section: " +
-      "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback."
+      "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback.",
   );
   expect(() =>
-    stack.resolve(namingStrategy.resolveAlarmFriendlyName())
+    stack.resolve(namingStrategy.resolveAlarmFriendlyName()),
   ).toThrowError(
     "Insufficient information provided for naming the alarms and/or monitoring section: " +
-      "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback"
+      "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback",
   );
 });
 
@@ -52,10 +52,10 @@ test("fallback name only (alarm friendly)", () => {
   const stack = new Stack();
 
   expect(stack.resolve(namingStrategy.resolveHumanReadableName())).toEqual(
-    "FallbackName_AlarmFriendly"
+    "FallbackName_AlarmFriendly",
   );
   expect(stack.resolve(namingStrategy.resolveAlarmFriendlyName())).toEqual(
-    "FallbackName_AlarmFriendly"
+    "FallbackName_AlarmFriendly",
   );
 });
 
@@ -67,13 +67,13 @@ test("fallback name only (not alarm friendly)", () => {
   const stack = new Stack();
 
   expect(stack.resolve(namingStrategy.resolveHumanReadableName())).toEqual(
-    "--- not friendly ---"
+    "--- not friendly ---",
   );
   expect(() =>
-    stack.resolve(namingStrategy.resolveAlarmFriendlyName())
+    stack.resolve(namingStrategy.resolveAlarmFriendlyName()),
   ).toThrowError(
     "Insufficient information provided for naming the alarms and/or monitoring section: " +
-      "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback"
+      "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback",
   );
 });
 
@@ -85,10 +85,10 @@ test("fallback to construct (alarm friendly ID)", () => {
   const stack = new Stack();
 
   expect(stack.resolve(namingStrategy.resolveHumanReadableName())).toEqual(
-    "DummyConstructId"
+    "DummyConstructId",
   );
   expect(stack.resolve(namingStrategy.resolveAlarmFriendlyName())).toEqual(
-    "DummyConstructId"
+    "DummyConstructId",
   );
 });
 
@@ -100,13 +100,13 @@ test("fallback to construct (not alarm friendly ID)", () => {
   const stack = new Stack();
 
   expect(stack.resolve(namingStrategy.resolveHumanReadableName())).toEqual(
-    "Not Alarm Friendly!!!"
+    "Not Alarm Friendly!!!",
   );
   expect(() =>
-    stack.resolve(namingStrategy.resolveAlarmFriendlyName())
+    stack.resolve(namingStrategy.resolveAlarmFriendlyName()),
   ).toThrowError(
     "Insufficient information provided for naming the alarms and/or monitoring section: " +
-      "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback"
+      "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback",
   );
 });
 
@@ -120,10 +120,10 @@ test("should use node ID for non-named DDB", () => {
   });
 
   expect(stack.resolve(namingStrategy.resolveHumanReadableName())).toEqual(
-    "TableId"
+    "TableId",
   );
   expect(stack.resolve(namingStrategy.resolveAlarmFriendlyName())).toEqual(
-    "TableId"
+    "TableId",
   );
 });
 
@@ -138,10 +138,10 @@ test("should use node ID for named DDB", () => {
   });
 
   expect(stack.resolve(namingStrategy.resolveHumanReadableName())).toEqual(
-    "TableId"
+    "TableId",
   );
   expect(stack.resolve(namingStrategy.resolveAlarmFriendlyName())).toEqual(
-    "TableId"
+    "TableId",
   );
 });
 
@@ -159,9 +159,9 @@ test("should use table name for named DDB when defined as fallback", () => {
   });
 
   expect(stack.resolve(namingStrategy.resolveHumanReadableName())).toEqual(
-    "TableName"
+    "TableName",
   );
   expect(stack.resolve(namingStrategy.resolveAlarmFriendlyName())).toEqual(
-    "TableName"
+    "TableName",
   );
 });

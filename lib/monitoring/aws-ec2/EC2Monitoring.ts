@@ -51,7 +51,7 @@ export class EC2Monitoring extends Monitoring {
 
     const metricFactory = new EC2MetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.cpuUtilisationMetrics =
       metricFactory.metricAverageCpuUtilisationPercent();

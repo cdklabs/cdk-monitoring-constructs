@@ -77,11 +77,11 @@ export class GlueJobMonitoring extends Monitoring {
 
     const metricFactory = new GlueJobMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
 
     this.alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
 
@@ -114,7 +114,7 @@ export class GlueJobMonitoring extends Monitoring {
         this.failedTaskCountMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -126,7 +126,7 @@ export class GlueJobMonitoring extends Monitoring {
         this.failedTaskRateMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -138,7 +138,7 @@ export class GlueJobMonitoring extends Monitoring {
         this.killedTaskCountMetric,
         ErrorType.KILLED,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -150,7 +150,7 @@ export class GlueJobMonitoring extends Monitoring {
         this.killedTaskRateMetric,
         ErrorType.KILLED,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

@@ -14,7 +14,7 @@ export class MonitoringHeaderWidget extends HeaderWidget {
       MonitoringHeaderWidget.getText(props),
       HeaderLevel.SMALL,
       props.description,
-      props.descriptionHeight
+      props.descriptionHeight,
     );
   }
 

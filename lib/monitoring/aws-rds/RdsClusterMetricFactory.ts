@@ -29,7 +29,7 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
 
   constructor(
     metricFactory: MetricFactory,
-    props: RdsClusterMetricFactoryProps
+    props: RdsClusterMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -40,7 +40,7 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
   }
 
   private static resolveDbClusterIdentifier(
-    props: RdsClusterMetricFactoryProps
+    props: RdsClusterMetricFactoryProps,
   ): string {
     if (props.clusterIdentifier !== undefined && props.cluster === undefined) {
       return props.clusterIdentifier;
@@ -53,7 +53,7 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
       throw Error("Only one of `clusterIdentifier` and `cluster` is supported");
     } else {
       throw Error(
-        "At least one of `clusterIdentifier` or `cluster` is required"
+        "At least one of `clusterIdentifier` or `cluster` is required",
       );
     }
   }
@@ -66,7 +66,7 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
     return this.metric(
       "DatabaseConnections",
       MetricStatistic.AVERAGE,
-      "Connections"
+      "Connections",
     );
   }
 
@@ -84,7 +84,7 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
     return this.metricFactory.createMetricMath(
       "100 * (used/(used+free))",
       { used, free },
-      "Disk Usage"
+      "Disk Usage",
     );
   }
 
@@ -115,20 +115,20 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
   metricServerlessDatabaseCapacity() {
     if (!this.isServerlessCluster(this.cluster)) {
       throw Error(
-        "Cluster is not of type `ServerlessCluster`. Metric is not applicable"
+        "Cluster is not of type `ServerlessCluster`. Metric is not applicable",
       );
     }
     return this.metric(
       "ServerlessDatabaseCapacity",
       MetricStatistic.AVERAGE,
-      "Serverless Database Capacity"
+      "Serverless Database Capacity",
     );
   }
 
   private metric(
     metricName: string,
     statistic: MetricStatistic,
-    label: string
+    label: string,
   ) {
     return this.metricFactory.createMetric(
       metricName,
@@ -136,7 +136,7 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
       label,
       this.dimensionsMap,
       undefined,
-      RdsNamespace
+      RdsNamespace,
     );
   }
 }

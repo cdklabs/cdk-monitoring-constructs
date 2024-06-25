@@ -83,7 +83,7 @@ export class SqsQueueMonitoring extends Monitoring {
   constructor(
     scope: MonitoringScope,
     props: SqsQueueMonitoringProps,
-    invokedFromSuper?: boolean
+    invokedFromSuper?: boolean,
   ) {
     super(scope, props);
 
@@ -99,7 +99,7 @@ export class SqsQueueMonitoring extends Monitoring {
       .getSqsQueueUrl(props.queue.queueUrl);
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.queueAlarmFactory = new QueueAlarmFactory(alarmFactory);
     this.countAnnotations = [];
@@ -108,7 +108,7 @@ export class SqsQueueMonitoring extends Monitoring {
 
     const metricFactory = new SqsQueueMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.visibleMessagesMetric =
       metricFactory.metricApproximateVisibleMessageCount();
@@ -126,7 +126,7 @@ export class SqsQueueMonitoring extends Monitoring {
       const createdAlarm = this.queueAlarmFactory.addMinQueueMessageCountAlarm(
         this.visibleMessagesMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.countAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -136,7 +136,7 @@ export class SqsQueueMonitoring extends Monitoring {
       const createdAlarm = this.queueAlarmFactory.addMaxQueueMessageCountAlarm(
         this.visibleMessagesMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.countAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -146,7 +146,7 @@ export class SqsQueueMonitoring extends Monitoring {
       const createdAlarm = this.queueAlarmFactory.addMaxQueueMessageAgeAlarm(
         this.oldestMessageAgeMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.ageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -158,7 +158,7 @@ export class SqsQueueMonitoring extends Monitoring {
         this.queueAlarmFactory.addMaxQueueTimeToDrainMessagesAlarm(
           this.timeToDrainMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.timeToDrainAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -169,7 +169,7 @@ export class SqsQueueMonitoring extends Monitoring {
         this.queueAlarmFactory.addMinQueueIncomingMessagesCountAlarm(
           this.incomingMessagesMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.countAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -180,7 +180,7 @@ export class SqsQueueMonitoring extends Monitoring {
         this.queueAlarmFactory.addMaxQueueIncomingMessagesCountAlarm(
           this.incomingMessagesMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.countAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -198,13 +198,13 @@ export class SqsQueueMonitoring extends Monitoring {
       new Row(
         this.createProducerAndConsumerRateWidget(
           HalfWidth,
-          DefaultSummaryWidgetHeight
+          DefaultSummaryWidgetHeight,
         ),
-        this.createTimeToDrainWidget(HalfWidth, DefaultSummaryWidgetHeight)
+        this.createTimeToDrainWidget(HalfWidth, DefaultSummaryWidgetHeight),
       ),
       new Row(
         this.createMessageCountWidget(HalfWidth, DefaultSummaryWidgetHeight),
-        this.createMessageAgeWidget(HalfWidth, DefaultSummaryWidgetHeight)
+        this.createMessageAgeWidget(HalfWidth, DefaultSummaryWidgetHeight),
       ),
     ];
   }
@@ -215,14 +215,14 @@ export class SqsQueueMonitoring extends Monitoring {
       new Row(
         this.createMessageCountWidget(ThirdWidth, DefaultGraphWidgetHeight),
         this.createMessageAgeWidget(ThirdWidth, DefaultGraphWidgetHeight),
-        this.createMessageSizeWidget(ThirdWidth, DefaultGraphWidgetHeight)
+        this.createMessageSizeWidget(ThirdWidth, DefaultGraphWidgetHeight),
       ),
       new Row(
         this.createProducerAndConsumerRateWidget(
           HalfWidth,
-          DefaultGraphWidgetHeight
+          DefaultGraphWidgetHeight,
         ),
-        this.createTimeToDrainWidget(HalfWidth, DefaultGraphWidgetHeight)
+        this.createTimeToDrainWidget(HalfWidth, DefaultGraphWidgetHeight),
       ),
     ];
   }

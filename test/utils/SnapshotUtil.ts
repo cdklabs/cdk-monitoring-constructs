@@ -9,7 +9,7 @@ import { Monitoring } from "../../lib";
  */
 export function addMonitoringDashboardsToStack(
   stack: Stack,
-  monitoring: Monitoring
+  monitoring: Monitoring,
 ) {
   const summaryDashboard = new Dashboard(stack, "Summary");
   summaryDashboard.addWidgets(...monitoring.summaryWidgets());

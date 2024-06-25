@@ -22,7 +22,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
 
   constructor(
     metricFactory: MetricFactory,
-    props: KinesisDataStreamMetricFactoryProps
+    props: KinesisDataStreamMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -38,7 +38,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "GetRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -49,7 +49,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "Iterator Age",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -60,7 +60,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "GetRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -71,7 +71,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "GetRecords.Records",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -82,7 +82,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "GetRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -93,7 +93,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "Incoming Bytes",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -104,7 +104,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "Incoming Records",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -115,7 +115,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecord",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -126,7 +126,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecord",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -137,7 +137,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecord",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -148,7 +148,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -159,7 +159,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -170,7 +170,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -181,7 +181,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecords.SuccessfulRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -192,7 +192,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecords.TotalRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -203,7 +203,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecords.FailedRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -214,7 +214,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "PutRecords.ThrottledRecords",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -239,7 +239,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "Read",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 
@@ -250,7 +250,7 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       "Write",
       this.dimensionsMap,
       undefined,
-      DataStreamNamespace
+      DataStreamNamespace,
     );
   }
 }

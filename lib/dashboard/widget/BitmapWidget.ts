@@ -27,8 +27,8 @@ export class BitmapWidgetRenderingSupport extends Construct {
           "..",
           "..",
           "assets",
-          "BitmapWidgetRenderingSupport"
-        )
+          "BitmapWidgetRenderingSupport",
+        ),
       ),
       description:
         "Custom Widget Render for Bitmap Widgets (cdk-monitoring-constructs)",
@@ -44,7 +44,7 @@ export class BitmapWidgetRenderingSupport extends Construct {
         actions: ["cloudwatch:GetMetricWidgetImage"],
         effect: Effect.ALLOW,
         resources: ["*"],
-      })
+      }),
     );
 
     Tags.of(this.handler).add("cw-custom-widget", "describe:readOnly");
@@ -73,7 +73,7 @@ export class BitmapWidgetRenderingSupport extends Construct {
     const graphs = widget.toJson();
     if (graphs.length != 1) {
       throw new Error(
-        "Number of objects in the widget definition must be exactly one."
+        "Number of objects in the widget definition must be exactly one.",
       );
     }
     const graph = graphs[0];

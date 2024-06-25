@@ -30,7 +30,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
 function createAlb(
   stack: Stack,
   vpc: IVpc,
-  target: IApplicationLoadBalancerTarget
+  target: IApplicationLoadBalancerTarget,
 ) {
   const applicationLoadBalancer = new ApplicationLoadBalancer(stack, "ALB", {
     vpc: vpc,
@@ -53,7 +53,7 @@ function importAlb(stack: Stack) {
       {
         loadBalancerArn: albArn,
         securityGroupId: "sg-abcdefg",
-      }
+      },
     );
   const applicationTargetGroup =
     ApplicationTargetGroup.fromTargetGroupAttributes(
@@ -62,7 +62,7 @@ function importAlb(stack: Stack) {
       {
         loadBalancerArns: albArn,
         targetGroupArn: tgArn,
-      }
+      },
     );
   return { applicationLoadBalancer, applicationTargetGroup };
 }
@@ -77,7 +77,7 @@ test.each([createAlb, importAlb])(
     const cluster = new Cluster(stack, "Cluster");
     const image = new EcrImage(
       new Repository(stack, "Repository"),
-      "DummyImage"
+      "DummyImage",
     );
     const taskDefinition = new FargateTaskDefinition(stack, "TaskDef", {});
 
@@ -100,7 +100,7 @@ test.each([createAlb, importAlb])(
 
     addMonitoringDashboardsToStack(stack, monitoring);
     expect(Template.fromStack(stack)).toMatchSnapshot();
-  }
+  },
 );
 
 test.each([createAlb, importAlb])(
@@ -113,7 +113,7 @@ test.each([createAlb, importAlb])(
     const cluster = new Cluster(stack, "Cluster");
     const image = new EcrImage(
       new Repository(stack, "Repository"),
-      "DummyImage"
+      "DummyImage",
     );
     const taskDefinition = new FargateTaskDefinition(stack, "TaskDef", {});
 
@@ -179,7 +179,7 @@ test.each([createAlb, importAlb])(
     addMonitoringDashboardsToStack(stack, monitoring);
     expect(numAlarmsCreated).toStrictEqual(7);
     expect(Template.fromStack(stack)).toMatchSnapshot();
-  }
+  },
 );
 
 // EC2 SERVICE
@@ -196,7 +196,7 @@ test.each([createAlb, importAlb])(
 
     const image = new EcrImage(
       new Repository(stack, "Repository"),
-      "DummyImage"
+      "DummyImage",
     );
     const taskDefinition = new Ec2TaskDefinition(stack, "TaskDef", {});
 
@@ -222,7 +222,7 @@ test.each([createAlb, importAlb])(
 
     addMonitoringDashboardsToStack(stack, monitoring);
     expect(Template.fromStack(stack)).toMatchSnapshot();
-  }
+  },
 );
 
 test.each([createAlb, importAlb])(
@@ -235,7 +235,7 @@ test.each([createAlb, importAlb])(
     const cluster = new Cluster(stack, "Cluster");
     const image = new EcrImage(
       new Repository(stack, "Repository"),
-      "DummyImage"
+      "DummyImage",
     );
     const taskDefinition = new Ec2TaskDefinition(stack, "TaskDef", {});
 
@@ -304,5 +304,5 @@ test.each([createAlb, importAlb])(
     addMonitoringDashboardsToStack(stack, monitoring);
     expect(numAlarmsCreated).toStrictEqual(7);
     expect(Template.fromStack(stack)).toMatchSnapshot();
-  }
+  },
 );

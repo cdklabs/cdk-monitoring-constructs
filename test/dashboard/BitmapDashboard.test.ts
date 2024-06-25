@@ -17,7 +17,7 @@ test("check the bitmap dashboard is generated with rows/columns", () => {
           left: [
             new Metric({ metricName: "DummyMetric1", namespace: "Dummy" }),
           ],
-        })
+        }),
       ),
       new Column(
         new GraphWidget({
@@ -25,8 +25,8 @@ test("check the bitmap dashboard is generated with rows/columns", () => {
           left: [
             new Metric({ metricName: "DummyMetric2", namespace: "Dummy" }),
           ],
-        })
-      )
+        }),
+      ),
     ),
     new Row(
       new Column(
@@ -35,7 +35,7 @@ test("check the bitmap dashboard is generated with rows/columns", () => {
           left: [
             new Metric({ metricName: "DummyMetric3", namespace: "Dummy" }),
           ],
-        })
+        }),
       ),
       new Column(
         new GraphWidget({
@@ -43,9 +43,9 @@ test("check the bitmap dashboard is generated with rows/columns", () => {
           left: [
             new Metric({ metricName: "DummyMetric4", namespace: "Dummy" }),
           ],
-        })
-      )
-    )
+        }),
+      ),
+    ),
   );
 
   Template.fromStack(stack).resourceCountIs("AWS::CloudWatch::Dashboard", 1);

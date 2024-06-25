@@ -17,7 +17,7 @@ test("snapshot test", () => {
   });
   const action = new OpsItemAlarmActionStrategy(
     OpsItemSeverity.LOW,
-    OpsItemCategory.AVAILABILITY
+    OpsItemCategory.AVAILABILITY,
   );
   action.addAlarmActions({ alarm, action });
 

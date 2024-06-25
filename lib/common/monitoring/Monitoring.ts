@@ -66,7 +66,7 @@ export abstract class Monitoring
    */
   createAlarmFactory(alarmNamePrefix: string) {
     return this.scope.createAlarmFactory(
-      this.localAlarmNamePrefixOverride ?? alarmNamePrefix
+      this.localAlarmNamePrefixOverride ?? alarmNamePrefix,
     );
   }
 
@@ -90,7 +90,7 @@ export abstract class Monitoring
    */
   alarmWidgets(): IWidget[] {
     return this.createdAlarms().map((alarm) =>
-      this.createWidgetFactory().createAlarmDetailWidget(alarm)
+      this.createWidgetFactory().createAlarmDetailWidget(alarm),
     );
   }
 

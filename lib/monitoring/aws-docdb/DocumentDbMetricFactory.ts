@@ -26,7 +26,7 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
 
   constructor(
     metricFactory: MetricFactory,
-    props: DocumentDbMetricFactoryProps
+    props: DocumentDbMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -42,7 +42,7 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
     return this.metric(
       "DatabaseConnectionsMax",
       MetricStatistic.MAX,
-      "Connections"
+      "Connections",
     );
   }
 
@@ -54,7 +54,7 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
     return this.metric(
       "TransactionsOpenMax",
       MetricStatistic.MAX,
-      "Transactions"
+      "Transactions",
     );
   }
 
@@ -62,7 +62,7 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
     return this.metric(
       "LowMemNumOperationsThrottled",
       MetricStatistic.SUM,
-      "Operations throttled (low mem)"
+      "Operations throttled (low mem)",
     );
   }
 
@@ -71,7 +71,7 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
     return this.metric(
       "ReadLatency",
       getLatencyTypeStatistic(latencyType),
-      label
+      label,
     );
   }
 
@@ -80,14 +80,14 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
     return this.metric(
       "WriteLatency",
       getLatencyTypeStatistic(latencyType),
-      label
+      label,
     );
   }
 
   private metric(
     metricName: string,
     statistic: MetricStatistic,
-    label: string
+    label: string,
   ) {
     return this.metricFactory.createMetric(
       metricName,
@@ -95,7 +95,7 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
       label,
       this.dimensionsMap,
       undefined,
-      DocumentDbNamespace
+      DocumentDbNamespace,
     );
   }
 }

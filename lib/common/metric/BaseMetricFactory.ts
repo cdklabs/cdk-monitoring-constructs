@@ -5,7 +5,7 @@ export interface BaseMetricFactoryProps {
 }
 
 export abstract class BaseMetricFactory<
-  PropsType extends BaseMetricFactoryProps
+  PropsType extends BaseMetricFactoryProps,
 > {
   protected readonly metricFactory: MetricFactory;
 

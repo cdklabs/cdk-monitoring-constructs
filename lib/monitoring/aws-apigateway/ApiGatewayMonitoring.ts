@@ -135,7 +135,7 @@ export class ApiGatewayMonitoring extends Monitoring {
     this.title = namingStrategy.resolveHumanReadableName();
 
     this.alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
     this.tpsAlarmFactory = new TpsAlarmFactory(this.alarmFactory);
@@ -148,7 +148,7 @@ export class ApiGatewayMonitoring extends Monitoring {
 
     const metricFactory = new ApiGatewayMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
 
     this.tpsMetric = metricFactory.metricTps();
@@ -192,7 +192,7 @@ export class ApiGatewayMonitoring extends Monitoring {
     });
 
     for (const [latencyType, alarmDefinition] of Object.entries(
-      latencyAlarmDefinitions
+      latencyAlarmDefinitions,
     )) {
       for (const disambiguator in alarmDefinition) {
         const alarmProps = alarmDefinition[disambiguator];
@@ -202,7 +202,7 @@ export class ApiGatewayMonitoring extends Monitoring {
           metric,
           latencyTypeEnum,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
         this.latencyAnnotations.push(createdAlarm.annotation);
         this.latencyTypesToRender.push(latencyTypeEnum);
@@ -216,7 +216,7 @@ export class ApiGatewayMonitoring extends Monitoring {
         this.fault5XXCountMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -227,7 +227,7 @@ export class ApiGatewayMonitoring extends Monitoring {
         this.error4XXCountMetric,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -238,7 +238,7 @@ export class ApiGatewayMonitoring extends Monitoring {
         this.error4XXRateMetric,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -249,7 +249,7 @@ export class ApiGatewayMonitoring extends Monitoring {
         this.fault5XXRateMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -259,7 +259,7 @@ export class ApiGatewayMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMinTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -269,7 +269,7 @@ export class ApiGatewayMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMaxTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

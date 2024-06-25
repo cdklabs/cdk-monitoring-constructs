@@ -41,7 +41,7 @@ test("adjustMetric: with metric adjustments, applies metric adjustments in speci
       adjustMetric(metric) {
         return metric.with({ label: metric.label + "!" });
       },
-    }
+    },
   );
 
   const actual = metricAdjuster.adjustMetric(metric, alarmScope, props);

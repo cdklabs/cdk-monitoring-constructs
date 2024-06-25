@@ -23,7 +23,7 @@ export class ThroughputAlarmFactory {
   addMinProcessedBytesAlarm(
     metric: MetricWithAlarmSupport,
     props: MinProcessedBytesThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

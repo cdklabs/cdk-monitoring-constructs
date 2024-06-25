@@ -14,7 +14,7 @@ export interface IEC2MetricFactoryStrategy {
   createMetrics(
     metricFactory: MetricFactory,
     metricName: string,
-    statistic: MetricStatistic
+    statistic: MetricStatistic,
   ): IMetric[];
 }
 
@@ -31,7 +31,7 @@ class AutoScalingGroupStrategy implements IEC2MetricFactoryStrategy {
   createMetrics(
     metricFactory: MetricFactory,
     metricName: string,
-    statistic: MetricStatistic
+    statistic: MetricStatistic,
   ) {
     return [
       metricFactory.createMetric(
@@ -40,7 +40,7 @@ class AutoScalingGroupStrategy implements IEC2MetricFactoryStrategy {
         undefined,
         resolveDimensions(this.autoScalingGroup, undefined),
         undefined,
-        EC2Namespace
+        EC2Namespace,
       ),
     ];
   }
@@ -61,7 +61,7 @@ class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
   createMetrics(
     metricFactory: MetricFactory,
     metricName: string,
-    statistic: MetricStatistic
+    statistic: MetricStatistic,
   ) {
     return this.instanceIds.map((instanceId) => {
       return metricFactory.createMetric(
@@ -70,7 +70,7 @@ class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
         `${metricName} (${instanceId})`,
         resolveDimensions(this.autoScalingGroup, instanceId),
         undefined,
-        EC2Namespace
+        EC2Namespace,
       );
     });
   }
@@ -83,14 +83,14 @@ class AllInstancesStrategy implements IEC2MetricFactoryStrategy {
   createMetrics(
     metricFactory: MetricFactory,
     metricName: string,
-    statistic: MetricStatistic
+    statistic: MetricStatistic,
   ) {
     return [
       metricFactory.createMetricSearch(
         `MetricName="${metricName}"`,
         { InstanceId: undefined as unknown as string },
         statistic,
-        EC2Namespace
+        EC2Namespace,
       ),
     ];
   }
@@ -98,7 +98,7 @@ class AllInstancesStrategy implements IEC2MetricFactoryStrategy {
 
 function resolveDimensions(
   autoScalingGroup?: IAutoScalingGroup,
-  instanceId?: string
+  instanceId?: string,
 ): DimensionsMap {
   const dimensions: DimensionsMap = {};
   if (autoScalingGroup) {
@@ -111,13 +111,13 @@ function resolveDimensions(
 }
 
 function resolveStrategy(
-  props: EC2MetricFactoryProps
+  props: EC2MetricFactoryProps,
 ): IEC2MetricFactoryStrategy {
   if (props.instanceIds) {
     // instance filter + optional ASG
     return new SelectedInstancesStrategy(
       props.instanceIds,
-      props.autoScalingGroup
+      props.autoScalingGroup,
     );
   } else if (props.autoScalingGroup) {
     // ASG only
@@ -212,12 +212,12 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
     const classicMetrics = this.strategy.createMetrics(
       this.metricFactory,
       `Disk${metricName}`,
-      statistic
+      statistic,
     );
     const ebsMetrics = this.strategy.createMetrics(
       this.metricFactory,
       `EBS${metricName}`,
-      statistic
+      statistic,
     );
 
     return classicMetrics.map((classic, i) => {
@@ -230,7 +230,7 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
       return this.metricFactory.createMetricMath(
         `AVG(REMOVE_EMPTY([${classicId}, ${ebsId}]))`,
         usingMetrics,
-        `Disk${metricName}`
+        `Disk${metricName}`,
       );
     });
   }
@@ -239,7 +239,7 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
     return this.strategy.createMetrics(
       this.metricFactory,
       metricName,
-      statistic
+      statistic,
     );
   }
 }

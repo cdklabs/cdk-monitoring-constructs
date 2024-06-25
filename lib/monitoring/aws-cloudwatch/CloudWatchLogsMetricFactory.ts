@@ -22,7 +22,7 @@ export class CloudWatchLogsMetricFactory extends BaseMetricFactory<CloudWatchLog
 
   constructor(
     metricFactory: MetricFactory,
-    props: CloudWatchLogsMetricFactoryProps
+    props: CloudWatchLogsMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -38,7 +38,7 @@ export class CloudWatchLogsMetricFactory extends BaseMetricFactory<CloudWatchLog
       "Logs",
       this.dimensionsMap,
       undefined,
-      CloudWatchLogsNamespace
+      CloudWatchLogsNamespace,
     );
   }
 }

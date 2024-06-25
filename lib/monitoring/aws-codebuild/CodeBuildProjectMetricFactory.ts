@@ -19,7 +19,7 @@ export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildPr
 
   constructor(
     metricFactory: MetricFactory,
-    props: CodeBuildProjectMetricFactoryProps
+    props: CodeBuildProjectMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -52,7 +52,7 @@ export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildPr
       this.project.metricDuration({
         label: "P99",
         statistic: MetricStatistic.P99,
-      })
+      }),
     );
   }
 
@@ -61,7 +61,7 @@ export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildPr
       this.project.metricDuration({
         label: "P90",
         statistic: MetricStatistic.P90,
-      })
+      }),
     );
   }
 
@@ -70,7 +70,7 @@ export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildPr
       this.project.metricDuration({
         label: "P50",
         statistic: MetricStatistic.P50,
-      })
+      }),
     );
   }
 }

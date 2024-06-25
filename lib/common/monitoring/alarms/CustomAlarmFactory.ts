@@ -24,7 +24,7 @@ export class CustomAlarmFactory {
     metric: MetricWithAlarmSupport,
     alarmNameSuffix: string,
     disambiguator: string,
-    props: CustomThreshold
+    props: CustomThreshold,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       ...props,

@@ -42,7 +42,7 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
       "Allowed",
       this.dimensions,
       undefined,
-      MetricNamespace
+      MetricNamespace,
     );
   }
 
@@ -53,7 +53,7 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
       "Blocked",
       this.dimensions,
       undefined,
-      MetricNamespace
+      MetricNamespace,
     );
   }
 
@@ -64,7 +64,7 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
         allowed: this.metricAllowedRequests(),
         blocked: this.metricBlockedRequests(),
       },
-      "Blocked (rate)"
+      "Blocked (rate)",
     );
   }
 }
