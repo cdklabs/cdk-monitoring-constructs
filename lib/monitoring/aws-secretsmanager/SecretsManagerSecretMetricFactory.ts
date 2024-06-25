@@ -1,17 +1,22 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
-export interface SecretsManagerSecretMetricFactoryProps {
+export interface SecretsManagerSecretMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly secret: ISecret;
 }
 
-export class SecretsManagerSecretMetricFactory {
+export class SecretsManagerSecretMetricFactory extends BaseMetricFactory<SecretsManagerSecretMetricFactoryProps> {
   static readonly Namespace = "SecretsManager";
   static readonly MetricNameDaysSinceLastChange = "DaysSinceLastChange";
   static readonly MetricNameDaysSinceLastRotation = "DaysSinceLastRotation";
-  protected readonly metricFactory: MetricFactory;
   protected readonly dimensionsMap: DimensionsMap;
   protected readonly secret: ISecret;
 
@@ -19,7 +24,8 @@ export class SecretsManagerSecretMetricFactory {
     metricFactory: MetricFactory,
     props: SecretsManagerSecretMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.secret = props.secret;
     this.dimensionsMap = {
       SecretName: props.secret.secretName,

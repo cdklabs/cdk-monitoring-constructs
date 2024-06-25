@@ -1,11 +1,16 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { IDatabaseCluster, ServerlessCluster } from "aws-cdk-lib/aws-rds";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const RdsNamespace = "AWS/RDS";
 
-export interface RdsClusterMetricFactoryProps {
+export interface RdsClusterMetricFactoryProps extends BaseMetricFactoryProps {
   /**
    * database cluster identifier (either this or `cluster` need to be specified)
    * @deprecated please use `cluster` instead
@@ -17,17 +22,17 @@ export interface RdsClusterMetricFactoryProps {
   readonly cluster?: IDatabaseCluster | ServerlessCluster;
 }
 
-export class RdsClusterMetricFactory {
+export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricFactoryProps> {
   readonly clusterIdentifier: string;
   readonly cluster?: IDatabaseCluster | ServerlessCluster;
-  protected readonly metricFactory: MetricFactory;
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: RdsClusterMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.cluster = props.cluster;
     this.clusterIdentifier =
       RdsClusterMetricFactory.resolveDbClusterIdentifier(props);

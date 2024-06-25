@@ -1,6 +1,8 @@
 import { IFunction } from "aws-cdk-lib/aws-lambda";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   LatencyType,
   MetricFactory,
   MetricStatistic,
@@ -9,7 +11,8 @@ import {
   getLatencyTypeStatistic,
 } from "../../common";
 
-export interface LambdaFunctionMetricFactoryProps {
+export interface LambdaFunctionMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly lambdaFunction: IFunction;
   /**
    * @default - true
@@ -30,8 +33,7 @@ export interface LambdaFunctionMetricFactoryProps {
   readonly lambdaInsightsEnabled?: boolean;
 }
 
-export class LambdaFunctionMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctionMetricFactoryProps> {
   protected readonly lambdaFunction: IFunction;
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
@@ -40,7 +42,8 @@ export class LambdaFunctionMetricFactory {
     metricFactory: MetricFactory,
     props: LambdaFunctionMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.lambdaFunction = props.lambdaFunction;
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =

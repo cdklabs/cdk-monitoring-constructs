@@ -1,7 +1,12 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { IBaseService } from "aws-cdk-lib/aws-ecs";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const EcsNamespace = "AWS/ECS";
 const EcsContainerInsightsNamespace = "ECS/ContainerInsights";
@@ -9,15 +14,14 @@ const EcsContainerInsightsNamespace = "ECS/ContainerInsights";
 /**
  * Props to create BaseServiceMetricFactory.
  */
-export interface BaseServiceMetricFactoryProps {
+export interface BaseServiceMetricFactoryProps extends BaseMetricFactoryProps {
   readonly service: IBaseService;
 }
 
 /**
  * Metric factory for a base service (parent class for e.g. Fargate and EC2 services).
  */
-export class BaseServiceMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetricFactoryProps> {
   protected readonly dimensionsMap: DimensionsMap;
   /**
    * @deprecated This isn't required by cdk-monitoring-constructs anymore; use your own reference.
@@ -28,7 +32,8 @@ export class BaseServiceMetricFactory {
     metricFactory: MetricFactory,
     props: BaseServiceMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensionsMap = {
       ClusterName: props.service.cluster.clusterName,
       ServiceName: props.service.serviceName,

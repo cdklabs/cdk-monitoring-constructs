@@ -1,23 +1,29 @@
 import { IAutoScalingGroup } from "aws-cdk-lib/aws-autoscaling";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const AutoScalingNamespace = "AWS/AutoScaling";
 
-export interface AutoScalingGroupMetricFactoryProps {
+export interface AutoScalingGroupMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly autoScalingGroup: IAutoScalingGroup;
 }
 
-export class AutoScalingGroupMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScalingGroupMetricFactoryProps> {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: AutoScalingGroupMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensionsMap = {
       AutoScalingGroupName: props.autoScalingGroup.autoScalingGroupName,
     };

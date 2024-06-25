@@ -8,6 +8,8 @@ import {
   BaseLoadBalancerMetricFactoryProps,
 } from "./LoadBalancerMetricFactory";
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   HealthyMetricColor,
   MetricFactory,
   MetricStatistic,
@@ -18,7 +20,8 @@ import {
  * Props to create ApplicationLoadBalancerMetricFactory.
  */
 export interface ApplicationLoadBalancerMetricFactoryProps
-  extends BaseLoadBalancerMetricFactoryProps {
+  extends BaseLoadBalancerMetricFactoryProps,
+    BaseMetricFactoryProps {
   readonly applicationLoadBalancer: IApplicationLoadBalancer;
   readonly applicationTargetGroup: IApplicationTargetGroup;
 }
@@ -27,9 +30,9 @@ export interface ApplicationLoadBalancerMetricFactoryProps
  * Metric factory to create metrics for application load-balanced service.
  */
 export class ApplicationLoadBalancerMetricFactory
+  extends BaseMetricFactory<ApplicationLoadBalancerMetricFactoryProps>
   implements ILoadBalancerMetricFactory
 {
-  protected readonly metricFactory: MetricFactory;
   protected readonly applicationLoadBalancer: IApplicationLoadBalancer;
   protected readonly applicationTargetGroup: IApplicationTargetGroup;
   protected readonly invertStatisticsOfTaskCountEnabled: boolean;
@@ -38,7 +41,8 @@ export class ApplicationLoadBalancerMetricFactory
     metricFactory: MetricFactory,
     props: ApplicationLoadBalancerMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.applicationLoadBalancer = props.applicationLoadBalancer;
     this.applicationTargetGroup = props.applicationTargetGroup;
     this.invertStatisticsOfTaskCountEnabled =

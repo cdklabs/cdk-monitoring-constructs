@@ -1,17 +1,21 @@
 import { ITopic } from "aws-cdk-lib/aws-sns";
 
-import { MetricFactory } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+} from "../../common";
 
-export interface SnsTopicMetricFactoryProps {
+export interface SnsTopicMetricFactoryProps extends BaseMetricFactoryProps {
   readonly topic: ITopic;
 }
 
-export class SnsTopicMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class SnsTopicMetricFactory extends BaseMetricFactory<SnsTopicMetricFactoryProps> {
   protected readonly topic: ITopic;
 
   constructor(metricFactory: MetricFactory, props: SnsTopicMetricFactoryProps) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.topic = props.topic;
   }
 

@@ -1,25 +1,31 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const CloudWatchLogsNamespace = "AWS/Logs";
 
-export interface CloudWatchLogsMetricFactoryProps {
+export interface CloudWatchLogsMetricFactoryProps
+  extends BaseMetricFactoryProps {
   /**
    * Name of the log group to monitor.
    */
   readonly logGroupName: string;
 }
 
-export class CloudWatchLogsMetricFactory {
-  private readonly metricFactory: MetricFactory;
+export class CloudWatchLogsMetricFactory extends BaseMetricFactory<CloudWatchLogsMetricFactoryProps> {
   private readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: CloudWatchLogsMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensionsMap = {
       LogGroupName: props.logGroupName,
     };

@@ -2,6 +2,8 @@ import { IRestApi } from "aws-cdk-lib/aws-apigateway";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   getLatencyTypeLabel,
   getLatencyTypeStatistic,
   LatencyType,
@@ -12,7 +14,7 @@ import {
 
 const ApiGatewayNamespace = "AWS/ApiGateway";
 
-export interface ApiGatewayMetricFactoryProps {
+export interface ApiGatewayMetricFactoryProps extends BaseMetricFactoryProps {
   /**
    * API to monitor
    */
@@ -39,8 +41,7 @@ export interface ApiGatewayMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class ApiGatewayMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricFactoryProps> {
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
@@ -49,7 +50,8 @@ export class ApiGatewayMetricFactory {
     metricFactory: MetricFactory,
     props: ApiGatewayMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;

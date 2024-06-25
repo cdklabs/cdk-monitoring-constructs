@@ -2,6 +2,8 @@ import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import { IDatabaseCluster } from "aws-cdk-lib/aws-docdb";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   getLatencyTypeLabel,
   getLatencyTypeStatistic,
   LatencyType,
@@ -11,23 +13,23 @@ import {
 
 const DocumentDbNamespace = "AWS/DocDB";
 
-export interface DocumentDbMetricFactoryProps {
+export interface DocumentDbMetricFactoryProps extends BaseMetricFactoryProps {
   /**
    * database cluster
    */
   readonly cluster: IDatabaseCluster;
 }
 
-export class DocumentDbMetricFactory {
+export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricFactoryProps> {
   readonly clusterIdentifier: string;
-  protected readonly metricFactory: MetricFactory;
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: DocumentDbMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.clusterIdentifier = props.cluster.clusterIdentifier;
     this.dimensionsMap = { DBClusterIdentifier: this.clusterIdentifier };
   }

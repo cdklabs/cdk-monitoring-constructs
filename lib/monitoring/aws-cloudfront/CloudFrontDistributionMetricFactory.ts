@@ -2,6 +2,8 @@ import { IDistribution } from "aws-cdk-lib/aws-cloudfront";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
@@ -11,7 +13,8 @@ const CloudFrontNamespace = "AWS/CloudFront";
 const CloudFrontGlobalRegion = "Global";
 const CloudFrontDefaultMetricRegion = "us-east-1";
 
-export interface CloudFrontDistributionMetricFactoryProps {
+export interface CloudFrontDistributionMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly distribution: IDistribution;
 
   /**
@@ -39,8 +42,7 @@ export interface CloudFrontDistributionMetricFactoryProps {
  * To get the CloudFront metrics from the CloudWatch API, you must use the US East (N. Virginia) Region (us-east-1).
  * https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/programming-cloudwatch-metrics.html
  */
-export class CloudFrontDistributionMetricFactory {
-  private readonly metricFactory: MetricFactory;
+export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<CloudFrontDistributionMetricFactoryProps> {
   private readonly fillTpsWithZeroes: boolean;
   private readonly rateComputationMethod: RateComputationMethod;
   private readonly dimensionsMap: DimensionsMap;
@@ -49,7 +51,8 @@ export class CloudFrontDistributionMetricFactory {
     metricFactory: MetricFactory,
     props: CloudFrontDistributionMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;

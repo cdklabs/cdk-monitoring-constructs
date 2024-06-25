@@ -1,7 +1,12 @@
 import { IMetric } from "aws-cdk-lib/aws-cloudwatch";
 import { BillingMode, ITable, Operation } from "aws-cdk-lib/aws-dynamodb";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const DynamoDbNamespace = "AWS/DynamoDB";
 const ProvisionedLabel = "Provisioned";
@@ -9,7 +14,7 @@ const ConsumedLabel = "Consumed";
 const ReadThrottleEventsLabel = "Read";
 const WriteThrottleEventsLabel = "Write";
 
-export interface DynamoTableMetricFactoryProps {
+export interface DynamoTableMetricFactoryProps extends BaseMetricFactoryProps {
   /**
    * table to monitor
    */
@@ -22,15 +27,15 @@ export interface DynamoTableMetricFactoryProps {
   readonly billingMode?: BillingMode;
 }
 
-export class DynamoTableMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetricFactoryProps> {
   protected readonly table: ITable;
 
   constructor(
     metricFactory: MetricFactory,
     props: DynamoTableMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.table = props.table;
   }
 

@@ -1,24 +1,30 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const RedshiftNamespace = "AWS/Redshift";
 
 type QueryLatencyClass = "short" | "medium" | "long";
 
-export interface RedshiftClusterMetricFactoryProps {
+export interface RedshiftClusterMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly clusterIdentifier: string;
 }
 
-export class RedshiftClusterMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClusterMetricFactoryProps> {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: RedshiftClusterMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensionsMap = {
       ClusterIdentifier: props.clusterIdentifier,
     };

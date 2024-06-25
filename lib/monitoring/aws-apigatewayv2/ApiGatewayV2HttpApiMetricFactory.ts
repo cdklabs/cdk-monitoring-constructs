@@ -2,6 +2,8 @@ import { IHttpApi } from "aws-cdk-lib/aws-apigatewayv2";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   getLatencyTypeLabel,
   getLatencyTypeStatistic,
   LatencyType,
@@ -12,7 +14,8 @@ import {
 
 const ApiGatewayNamespace = "AWS/ApiGateway";
 
-export interface ApiGatewayV2HttpApiMetricFactoryProps {
+export interface ApiGatewayV2HttpApiMetricFactoryProps
+  extends BaseMetricFactoryProps {
   readonly api: IHttpApi;
   /**
    * @default - $default
@@ -36,8 +39,7 @@ export interface ApiGatewayV2HttpApiMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class ApiGatewayV2HttpApiMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatewayV2HttpApiMetricFactoryProps> {
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
@@ -46,7 +48,8 @@ export class ApiGatewayV2HttpApiMetricFactory {
     metricFactory: MetricFactory,
     props: ApiGatewayV2HttpApiMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;

@@ -8,6 +8,8 @@ import {
   BaseLoadBalancerMetricFactoryProps,
 } from "./LoadBalancerMetricFactory";
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   HealthyMetricColor,
   MetricFactory,
   MetricStatistic,
@@ -18,7 +20,8 @@ import {
  * Props to create NetworkLoadBalancerMetricFactory.
  */
 export interface NetworkLoadBalancerMetricFactoryProps
-  extends BaseLoadBalancerMetricFactoryProps {
+  extends BaseLoadBalancerMetricFactoryProps,
+    BaseMetricFactoryProps {
   readonly networkLoadBalancer: INetworkLoadBalancer;
   readonly networkTargetGroup: INetworkTargetGroup;
 }
@@ -27,9 +30,9 @@ export interface NetworkLoadBalancerMetricFactoryProps
  * Metric factory to create metrics for network load-balanced service.
  */
 export class NetworkLoadBalancerMetricFactory
+  extends BaseMetricFactory<NetworkLoadBalancerMetricFactoryProps>
   implements ILoadBalancerMetricFactory
 {
-  protected readonly metricFactory: MetricFactory;
   protected readonly networkLoadBalancer: INetworkLoadBalancer;
   protected readonly networkTargetGroup: INetworkTargetGroup;
   protected readonly invertStatisticsOfTaskCountEnabled: boolean;
@@ -38,7 +41,8 @@ export class NetworkLoadBalancerMetricFactory
     metricFactory: MetricFactory,
     props: NetworkLoadBalancerMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.networkLoadBalancer = props.networkLoadBalancer;
     this.networkTargetGroup = props.networkTargetGroup;
     this.invertStatisticsOfTaskCountEnabled =

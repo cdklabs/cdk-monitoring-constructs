@@ -9,6 +9,7 @@ import {
   UserProvidedNames,
 } from "../../dashboard";
 import { AlarmWithAnnotation } from "../alarm";
+import { BaseMetricFactoryProps } from "../metric";
 
 export interface IAlarmConsumer {
   consume(alarms: AlarmWithAnnotation[]): void;
@@ -19,7 +20,8 @@ export interface IAlarmConsumer {
  * It contains (mostly optional) properties to specify naming, placement, and so on.
  */
 export interface BaseMonitoringProps
-  extends UserProvidedNames,
+  extends BaseMetricFactoryProps,
+    UserProvidedNames,
     MonitoringDashboardsOverrideProps {
   /**
    * Calls provided function to process all alarms created.

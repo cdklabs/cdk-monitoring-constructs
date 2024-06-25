@@ -1,6 +1,11 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const Namespace = "AWS/ElastiCache";
 
@@ -9,7 +14,8 @@ export enum ElastiCacheClusterType {
   REDIS,
 }
 
-export interface ElastiCacheClusterMetricFactoryProps {
+export interface ElastiCacheClusterMetricFactoryProps
+  extends BaseMetricFactoryProps {
   /**
    * Cluster to monitor
    * @default - monitor all clusters
@@ -20,15 +26,15 @@ export interface ElastiCacheClusterMetricFactoryProps {
 /**
  * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheMetrics.html
  */
-export class ElastiCacheClusterMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCacheClusterMetricFactoryProps> {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
     metricFactory: MetricFactory,
     props: ElastiCacheClusterMetricFactoryProps
   ) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.dimensionsMap = {};
     if (props.clusterId) {
       this.dimensionsMap.CacheClusterId = props.clusterId;

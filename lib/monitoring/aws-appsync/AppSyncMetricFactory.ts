@@ -2,6 +2,8 @@ import { IGraphqlApi } from "aws-cdk-lib/aws-appsync";
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
@@ -9,7 +11,7 @@ import {
 
 const Namespace = "AWS/AppSync";
 
-export interface AppSyncMetricFactoryProps {
+export interface AppSyncMetricFactoryProps extends BaseMetricFactoryProps {
   /**
    * the GraphQL API to monitor
    */
@@ -26,14 +28,14 @@ export interface AppSyncMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class AppSyncMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactoryProps> {
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(metricFactory: MetricFactory, props: AppSyncMetricFactoryProps) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.fillTpsWithZeroes = props.fillTpsWithZeroes ?? true;
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;

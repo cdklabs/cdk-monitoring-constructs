@@ -1,6 +1,8 @@
 import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
   RateComputationMethod,
@@ -8,7 +10,7 @@ import {
 
 const GlueNamespace = "Glue";
 
-export interface GlueJobMetricFactoryProps {
+export interface GlueJobMetricFactoryProps extends BaseMetricFactoryProps {
   readonly jobName: string;
   /**
    * @default - average
@@ -16,14 +18,14 @@ export interface GlueJobMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class GlueJobMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactoryProps> {
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
   protected readonly typeCountDimensionsMap: DimensionsMap;
 
   constructor(metricFactory: MetricFactory, props: GlueJobMetricFactoryProps) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.rateComputationMethod =
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
     this.dimensionsMap = {

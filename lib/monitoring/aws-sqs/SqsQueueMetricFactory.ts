@@ -1,17 +1,22 @@
 import { IQueue } from "aws-cdk-lib/aws-sqs";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
-export interface SqsQueueMetricFactoryProps {
+export interface SqsQueueMetricFactoryProps extends BaseMetricFactoryProps {
   readonly queue: IQueue;
 }
 
-export class SqsQueueMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFactoryProps> {
   protected readonly queue: IQueue;
 
   constructor(metricFactory: MetricFactory, props: SqsQueueMetricFactoryProps) {
-    this.metricFactory = metricFactory;
+    super(metricFactory, props);
+
     this.queue = props.queue;
   }
 

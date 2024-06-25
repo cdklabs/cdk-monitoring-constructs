@@ -8913,6 +8913,17 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cl
 
 ---
 
+### BaseMetricFactoryProps <a name="BaseMetricFactoryProps" id="cdk-monitoring-constructs.BaseMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.BaseMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { BaseMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const baseMetricFactoryProps: BaseMetricFactoryProps = { ... }
+```
+
+
 ### BaseMonitoringProps <a name="BaseMonitoringProps" id="cdk-monitoring-constructs.BaseMonitoringProps"></a>
 
 Base class for properties passed to each monitoring construct.
@@ -50705,6 +50716,39 @@ public getStateMachineUrl(stateMachineArn: string): string
 - *Type:* string
 
 ---
+
+
+
+
+### BaseMetricFactory <a name="BaseMetricFactory" id="cdk-monitoring-constructs.BaseMetricFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.BaseMetricFactory.Initializer"></a>
+
+```typescript
+import { BaseMetricFactory } from 'cdk-monitoring-constructs'
+
+new BaseMetricFactory(metricFactory: MetricFactory, _props: BaseMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter._props">_props</a></code> | <code><a href="#cdk-monitoring-constructs.BaseMetricFactoryProps">BaseMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `_props`<sup>Required</sup> <a name="_props" id="cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter._props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.BaseMetricFactoryProps">BaseMetricFactoryProps</a>
+
+---
+
 
 
 
