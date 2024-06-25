@@ -80,10 +80,6 @@ _By submitting this pull request, I confirm that my contribution is made under t
 // Experimental modules
 ["@aws-cdk/aws-redshift-alpha"].forEach((dep) => {
   project.deps.addDependency(
-    `${dep}@^${CDK_VERSION}-alpha.0`,
-    DependencyType.PEER
-  );
-  project.deps.addDependency(
     `${dep}@${CDK_VERSION}-alpha.0`,
     DependencyType.DEVENV
   );
