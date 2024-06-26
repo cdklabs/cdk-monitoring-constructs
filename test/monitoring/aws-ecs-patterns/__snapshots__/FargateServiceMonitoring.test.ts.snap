@@ -590,7 +590,56 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -2486,7 +2535,56 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -4382,7 +4480,56 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -6183,7 +6330,56 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -7380,7 +7576,56 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -8577,7 +8822,56 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -9853,7 +10147,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -11656,7 +11957,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -13459,7 +13767,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -15167,7 +15482,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -16271,7 +16593,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -17375,7 +17704,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -18603,7 +18939,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -20316,7 +20659,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -22029,7 +22379,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -23658,7 +24015,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -24722,7 +25086,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -25786,7 +26157,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -32234,7 +32612,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

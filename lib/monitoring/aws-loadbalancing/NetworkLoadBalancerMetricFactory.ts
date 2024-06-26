@@ -107,4 +107,18 @@ export class NetworkLoadBalancerMetricFactory
       })
     );
   }
+
+  metricUnhealthyRoutingCount() {
+    const unhealthyRoutingFlowCount = this.metricFactory.adaptMetric(
+      this.networkLoadBalancer.metrics.custom("UnhealthyRoutingFlowCount", {
+        statistic: MetricStatistic.SUM,
+      })
+    );
+
+    return this.metricFactory.createMetricMath(
+      "FILL(unhealthyRoutingFlowCount, 0)",
+      { unhealthyRoutingFlowCount },
+      "Unhealthy routing (fail open)"
+    );
+  }
 }

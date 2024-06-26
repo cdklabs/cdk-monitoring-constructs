@@ -48951,6 +48951,7 @@ new ApplicationLoadBalancerMetricFactory(metricFactory: MetricFactory, props: Ap
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactory.metricHealthyTaskInPercent">metricHealthyTaskInPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactory.metricNewConnectionCount">metricNewConnectionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactory.metricProcessedBytesMin">metricProcessedBytesMin</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactory.metricUnhealthyRoutingCount">metricUnhealthyRoutingCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactory.metricUnhealthyTaskCount">metricUnhealthyTaskCount</a></code> | *No description.* |
 
 ---
@@ -48983,6 +48984,12 @@ public metricNewConnectionCount(): Metric | MathExpression
 
 ```typescript
 public metricProcessedBytesMin(): Metric | MathExpression
+```
+
+##### `metricUnhealthyRoutingCount` <a name="metricUnhealthyRoutingCount" id="cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactory.metricUnhealthyRoutingCount"></a>
+
+```typescript
+public metricUnhealthyRoutingCount(): Metric | MathExpression
 ```
 
 ##### `metricUnhealthyTaskCount` <a name="metricUnhealthyTaskCount" id="cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactory.metricUnhealthyTaskCount"></a>
@@ -55547,6 +55554,7 @@ public createTpcFlowsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.loadBalancerMetricFactory">loadBalancerMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory">ILoadBalancerMetricFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.newTcpFlowCountMetric">newTcpFlowCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.processedBytesMetric">processedBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.unhealthyRoutingFlowCountMetric">unhealthyRoutingFlowCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring.property.unhealthyTaskCountMetric">unhealthyTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 
 ---
@@ -55745,6 +55753,16 @@ public readonly newTcpFlowCountMetric: Metric | MathExpression;
 
 ```typescript
 public readonly processedBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `unhealthyRoutingFlowCountMetric`<sup>Optional</sup> <a name="unhealthyRoutingFlowCountMetric" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.property.unhealthyRoutingFlowCountMetric"></a>
+
+```typescript
+public readonly unhealthyRoutingFlowCountMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
@@ -56922,6 +56940,7 @@ public createTpcFlowsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.loadBalancerMetricFactory">loadBalancerMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory">ILoadBalancerMetricFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.newTcpFlowCountMetric">newTcpFlowCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.processedBytesMetric">processedBytesMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.unhealthyRoutingFlowCountMetric">unhealthyRoutingFlowCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoring.property.unhealthyTaskCountMetric">unhealthyTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 
 ---
@@ -57120,6 +57139,16 @@ public readonly newTcpFlowCountMetric: Metric | MathExpression;
 
 ```typescript
 public readonly processedBytesMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `unhealthyRoutingFlowCountMetric`<sup>Optional</sup> <a name="unhealthyRoutingFlowCountMetric" id="cdk-monitoring-constructs.FargateServiceMonitoring.property.unhealthyRoutingFlowCountMetric"></a>
+
+```typescript
+public readonly unhealthyRoutingFlowCountMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
@@ -63145,6 +63174,7 @@ new NetworkLoadBalancerMetricFactory(metricFactory: MetricFactory, props: Networ
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricHealthyTaskInPercent">metricHealthyTaskInPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricNewConnectionCount">metricNewConnectionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricProcessedBytesMin">metricProcessedBytesMin</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricUnhealthyRoutingCount">metricUnhealthyRoutingCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricUnhealthyTaskCount">metricUnhealthyTaskCount</a></code> | *No description.* |
 
 ---
@@ -63177,6 +63207,12 @@ public metricNewConnectionCount(): Metric | MathExpression
 
 ```typescript
 public metricProcessedBytesMin(): Metric | MathExpression
+```
+
+##### `metricUnhealthyRoutingCount` <a name="metricUnhealthyRoutingCount" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricUnhealthyRoutingCount"></a>
+
+```typescript
+public metricUnhealthyRoutingCount(): Metric | MathExpression
 ```
 
 ##### `metricUnhealthyTaskCount` <a name="metricUnhealthyTaskCount" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricUnhealthyTaskCount"></a>
@@ -73051,6 +73087,7 @@ Common interface for load-balancer based service metric factories.
 | <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory.metricHealthyTaskInPercent">metricHealthyTaskInPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory.metricNewConnectionCount">metricNewConnectionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory.metricProcessedBytesMin">metricProcessedBytesMin</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory.metricUnhealthyRoutingCount">metricUnhealthyRoutingCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ILoadBalancerMetricFactory.metricUnhealthyTaskCount">metricUnhealthyTaskCount</a></code> | *No description.* |
 
 ---
@@ -73083,6 +73120,12 @@ public metricNewConnectionCount(): Metric | MathExpression
 
 ```typescript
 public metricProcessedBytesMin(): Metric | MathExpression
+```
+
+##### `metricUnhealthyRoutingCount` <a name="metricUnhealthyRoutingCount" id="cdk-monitoring-constructs.ILoadBalancerMetricFactory.metricUnhealthyRoutingCount"></a>
+
+```typescript
+public metricUnhealthyRoutingCount(): Metric | MathExpression
 ```
 
 ##### `metricUnhealthyTaskCount` <a name="metricUnhealthyTaskCount" id="cdk-monitoring-constructs.ILoadBalancerMetricFactory.metricUnhealthyTaskCount"></a>

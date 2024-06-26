@@ -62,6 +62,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
   protected readonly healthyTaskPercentMetric: MetricWithAlarmSupport;
   protected readonly activeTcpFlowCountMetric: MetricWithAlarmSupport;
   protected readonly newTcpFlowCountMetric: MetricWithAlarmSupport;
+  protected readonly unhealthyRoutingFlowCountMetric: MetricWithAlarmSupport;
   protected readonly processedBytesMetric: MetricWithAlarmSupport;
 
   constructor(
@@ -89,6 +90,8 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
     this.activeTcpFlowCountMetric =
       this.metricFactory.metricActiveConnectionCount();
     this.newTcpFlowCountMetric = this.metricFactory.metricNewConnectionCount();
+    this.unhealthyRoutingFlowCountMetric =
+      this.metricFactory.metricUnhealthyRoutingCount();
     this.processedBytesMetric = this.metricFactory.metricProcessedBytesMin();
 
     const alarmFactory = this.createAlarmFactory(
@@ -184,7 +187,11 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
       width,
       height,
       title: "TCP Flows",
-      left: [this.activeTcpFlowCountMetric, this.newTcpFlowCountMetric],
+      left: [
+        this.activeTcpFlowCountMetric,
+        this.newTcpFlowCountMetric,
+        this.unhealthyRoutingFlowCountMetric,
+      ],
       leftYAxis: CountAxisFromZero,
       right: [this.processedBytesMetric],
       rightYAxis: SizeAxisBytesFromZero,

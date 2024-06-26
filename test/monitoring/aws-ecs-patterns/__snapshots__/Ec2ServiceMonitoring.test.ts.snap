@@ -1179,7 +1179,56 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -3601,7 +3650,56 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -6023,7 +6121,56 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -8350,7 +8497,56 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -10073,7 +10269,56 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -11796,7 +12041,56 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ServiceLBPublicListener46709EAA",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBPublicListenerECSGroup0CC8688C",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -13577,7 +13871,14 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -15909,7 +16210,14 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -18241,7 +18549,14 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -20478,7 +20793,14 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -22111,7 +22433,14 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -23744,7 +24073,14 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceLBE9A1ADBC",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
