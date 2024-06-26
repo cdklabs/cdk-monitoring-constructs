@@ -656,7 +656,56 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ALBAEE750D2",
@@ -2288,7 +2337,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3501,7 +3550,56 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ALBAEE750D2",
@@ -4525,7 +4623,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6108,7 +6206,56 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ALBAEE750D2",
@@ -8257,7 +8404,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -10020,7 +10167,56 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  2,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  3,
+                  Object {
+                    "Fn::Split": Array [
+                      "/",
+                      Object {
+                        "Ref": "ALBListener3B99FF85",
+                      },
+                    ],
+                  },
+                ],
+              },
+              "\\",\\"TargetGroup\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ALBListenerTargetGroupD5D64FBA",
+                  "TargetGroupFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ALBAEE750D2",
@@ -11549,7 +11745,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

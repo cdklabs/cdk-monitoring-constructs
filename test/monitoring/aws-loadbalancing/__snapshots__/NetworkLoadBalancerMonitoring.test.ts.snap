@@ -140,7 +140,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -669,7 +676,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -1284,7 +1298,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1481,7 +1495,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1612,7 +1626,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -1752,7 +1773,14 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "NLB55158F82",
+                  "LoadBalancerFullName",
+                ],
+              },
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -2316,7 +2344,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2337,7 +2365,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

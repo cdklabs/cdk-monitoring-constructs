@@ -104,5 +104,7 @@ export interface ILoadBalancerMetricFactory {
 
   metricNewConnectionCount(): MetricWithAlarmSupport;
 
+  metricUnhealthyRoutingCount(): MetricWithAlarmSupport;
+
   metricProcessedBytesMin(): MetricWithAlarmSupport;
 }

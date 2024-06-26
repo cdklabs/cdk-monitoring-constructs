@@ -181,6 +181,7 @@ export class FargateServiceMonitoring extends Monitoring {
   readonly ephemeralStorageUsageMetric: MetricWithAlarmSupport;
   readonly activeTcpFlowCountMetric?: MetricWithAlarmSupport;
   readonly newTcpFlowCountMetric?: MetricWithAlarmSupport;
+  readonly unhealthyRoutingFlowCountMetric?: MetricWithAlarmSupport;
   readonly processedBytesMetric?: MetricWithAlarmSupport;
 
   private hasLoadBalancer: boolean;
@@ -222,6 +223,8 @@ export class FargateServiceMonitoring extends Monitoring {
         this.loadBalancerMetricFactory.metricActiveConnectionCount();
       this.newTcpFlowCountMetric =
         this.loadBalancerMetricFactory.metricNewConnectionCount();
+      this.unhealthyRoutingFlowCountMetric =
+        this.loadBalancerMetricFactory.metricUnhealthyRoutingCount();
       this.processedBytesMetric =
         this.loadBalancerMetricFactory.metricProcessedBytesMin();
     }
@@ -453,6 +456,10 @@ export class FargateServiceMonitoring extends Monitoring {
 
     if (this.newTcpFlowCountMetric) {
       left.push(this.newTcpFlowCountMetric);
+    }
+
+    if (this.unhealthyRoutingFlowCountMetric) {
+      left.push(this.unhealthyRoutingFlowCountMetric);
     }
 
     if (this.processedBytesMetric) {

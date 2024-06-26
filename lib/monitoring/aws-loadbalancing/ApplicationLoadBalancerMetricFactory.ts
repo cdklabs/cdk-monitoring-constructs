@@ -107,4 +107,21 @@ export class ApplicationLoadBalancerMetricFactory
       })
     );
   }
+
+  metricUnhealthyRoutingCount() {
+    const unhealthyRoutingRequestCount = this.metricFactory.adaptMetric(
+      this.applicationTargetGroup.metrics.custom(
+        "UnhealthyRoutingRequestCount",
+        {
+          statistic: MetricStatistic.SUM,
+        }
+      )
+    );
+
+    return this.metricFactory.createMetricMath(
+      "FILL(unhealthyRoutingRequestCount, 0)",
+      { unhealthyRoutingRequestCount },
+      "Unhealthy routing (fail open)"
+    );
+  }
 }
