@@ -98,6 +98,8 @@ export class QueueAlarmFactory {
       threshold: props.maxAgeInSeconds,
       alarmNameSuffix: "Queue-Message-Age-Max",
       alarmDescription: `Age of the oldest message in the queue is too high.`,
+      // we will dedupe any kind of message age issue to the same ticket
+      alarmDedupeStringSuffix: "AnyQueueMessageAge",
     });
   }
 
@@ -136,6 +138,8 @@ export class QueueAlarmFactory {
       threshold: props.minIncomingMessagesCount,
       alarmNameSuffix: "Queue-Incoming-Messages-Count-Min",
       alarmDescription: `Number of incoming messages into the queue is too low.`,
+      // we will dedupe any kind of min message issues to the same ticket
+      alarmDedupeStringSuffix: "AnyQueueMinIncomingMessages",
     });
   }
 
