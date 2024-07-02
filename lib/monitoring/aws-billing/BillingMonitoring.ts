@@ -55,10 +55,10 @@ export class BillingMonitoring extends Monitoring {
     });
     this.title = namingStrategy.resolveHumanReadableName();
     this.alarmFactory = scope.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.anomalyDetectingAlarmFactory = new AnomalyDetectingAlarmFactory(
-      this.alarmFactory
+      this.alarmFactory,
     );
     const metricFactory = new BillingMetricFactory();
     this.costByServiceMetric =
@@ -72,7 +72,7 @@ export class BillingMonitoring extends Monitoring {
           this.totalCostMetric,
           "Cost-Anomaly",
           disambiguator,
-          alarmProps
+          alarmProps,
         );
       this.addAlarm(createdAlarm);
     }
@@ -92,7 +92,7 @@ export class BillingMonitoring extends Monitoring {
       this.createTitleWidget(),
       this.createChargesByServiceWidget(
         ThreeQuartersWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
       this.createTotalChargesWidget(QuarterWidth, DefaultGraphWidgetHeight),
     ];

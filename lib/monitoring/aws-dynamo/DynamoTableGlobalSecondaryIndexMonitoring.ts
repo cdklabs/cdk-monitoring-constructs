@@ -57,7 +57,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: DynamoTableGlobalSecondaryIndexMonitoringProps
+    props: DynamoTableGlobalSecondaryIndexMonitoringProps,
   ) {
     super(scope);
 
@@ -73,7 +73,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
 
     const metricFactory = new DynamoTableGlobalSecondaryIndexMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.provisionedReadUnitsMetric =
       metricFactory.metricProvisionedReadCapacityUnits();
@@ -93,7 +93,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
       metricFactory.metricThrottledIndexRequestCount();
 
     const alarmFactory = scope.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.gsiAlarmFactory = new DynamoAlarmFactory(alarmFactory);
     this.throttledEventsAnnotations = [];
@@ -104,7 +104,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
         this.readThrottleCountMetric,
         CapacityType.READ,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.throttledEventsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -115,7 +115,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
         this.writeThrottleCountMetric,
         CapacityType.WRITE,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.throttledEventsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

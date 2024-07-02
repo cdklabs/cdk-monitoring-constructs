@@ -17,7 +17,7 @@ test("snapshot test - title and description, with custom height", () => {
     "text",
     HeaderLevel.LARGE,
     "very long description",
-    5
+    5,
   );
 
   expect(widget.toJson()).toMatchSnapshot();

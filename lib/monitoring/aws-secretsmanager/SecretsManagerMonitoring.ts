@@ -55,15 +55,15 @@ export class SecretsManagerMonitoring extends Monitoring {
     this.title = namingStrategy.resolveHumanReadableName();
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.secretsManagerAlarmFactory = new SecretsManagerAlarmFactory(
-      alarmFactory
+      alarmFactory,
     );
     this.secretsCountAnnotation = [];
 
     const metricFactory = new SecretsManagerMetricFactory(
-      scope.createMetricFactory()
+      scope.createMetricFactory(),
     );
     this.secretsCountMetric = metricFactory.metricSecretCount();
 
@@ -73,7 +73,7 @@ export class SecretsManagerMonitoring extends Monitoring {
         this.secretsManagerAlarmFactory.addMaxSecretCountAlarm(
           this.secretsCountMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.secretsCountAnnotation.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -85,7 +85,7 @@ export class SecretsManagerMonitoring extends Monitoring {
         this.secretsManagerAlarmFactory.addMinSecretCountAlarm(
           this.secretsCountMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.secretsCountAnnotation.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -97,7 +97,7 @@ export class SecretsManagerMonitoring extends Monitoring {
         this.secretsManagerAlarmFactory.addChangeInSecretCountAlarm(
           this.secretsCountMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.secretsCountAnnotation.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

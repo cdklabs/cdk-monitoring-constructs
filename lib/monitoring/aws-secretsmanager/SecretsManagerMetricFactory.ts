@@ -31,7 +31,7 @@ export class SecretsManagerMetricFactory {
       dimensionsMap,
       undefined,
       NAMESPACE,
-      DEFAULT_METRIC_PERIOD
+      DEFAULT_METRIC_PERIOD,
     );
   }
 }

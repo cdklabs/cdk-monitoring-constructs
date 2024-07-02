@@ -31,7 +31,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
 
   constructor(
     metricFactory: MetricFactory,
-    props: ElastiCacheClusterMetricFactoryProps
+    props: ElastiCacheClusterMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -48,7 +48,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Count",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -59,7 +59,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Evictions",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -70,7 +70,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Freeable",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -81,7 +81,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Unused",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -92,7 +92,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Items",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -103,7 +103,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Swap",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -114,7 +114,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Cluster CPU Utilization",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -133,7 +133,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Cluster Engine CPU Utilization",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -144,7 +144,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Current",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -155,7 +155,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Bytes In",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -166,7 +166,7 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       "Bytes Out",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 }

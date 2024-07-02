@@ -9,7 +9,7 @@ import {
 export function notifySns(
   onAlarmTopic: ITopic,
   onOkTopic?: ITopic,
-  onInsufficientDataTopic?: ITopic
+  onInsufficientDataTopic?: ITopic,
 ): IAlarmActionStrategy {
   return new SnsAlarmActionStrategy({
     onAlarmTopic,
@@ -62,7 +62,7 @@ export class SnsAlarmActionStrategy implements IAlarmActionStrategy {
 
     if (this.onInsufficientDataTopic) {
       props.alarm.addInsufficientDataAction(
-        new SnsAction(this.onInsufficientDataTopic)
+        new SnsAction(this.onInsufficientDataTopic),
       );
     }
   }

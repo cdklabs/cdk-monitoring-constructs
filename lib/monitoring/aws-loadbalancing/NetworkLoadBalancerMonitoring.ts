@@ -67,7 +67,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: NetworkLoadBalancerMonitoringProps
+    props: NetworkLoadBalancerMonitoringProps,
   ) {
     super(scope, props);
 
@@ -80,7 +80,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
 
     this.metricFactory = new NetworkLoadBalancerMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.healthyTaskCountMetric = this.metricFactory.metricHealthyTaskCount();
     this.unhealthyTaskCountMetric =
@@ -95,7 +95,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
     this.processedBytesMetric = this.metricFactory.metricProcessedBytesMin();
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.taskHealthAlarmFactory = new TaskHealthAlarmFactory(alarmFactory);
     this.throughputAlarmFactory = new ThroughputAlarmFactory(alarmFactory);
@@ -107,7 +107,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
       const createdAlarm = this.taskHealthAlarmFactory.addHealthyTaskCountAlarm(
         this.healthyTaskCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.taskHealthAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -118,7 +118,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
         this.taskHealthAlarmFactory.addUnhealthyTaskCountAlarm(
           this.unhealthyTaskCountMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.taskHealthAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -129,7 +129,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
         this.taskHealthAlarmFactory.addHealthyTaskPercentAlarm(
           this.healthyTaskPercentMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.addAlarm(createdAlarm);
     }
@@ -139,7 +139,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
         this.throughputAlarmFactory.addMinProcessedBytesAlarm(
           this.processedBytesMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.processedBytesAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

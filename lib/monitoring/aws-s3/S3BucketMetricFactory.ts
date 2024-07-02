@@ -52,7 +52,7 @@ export class S3BucketMetricFactory extends BaseMetricFactory<S3BucketMetricFacto
         StorageType: this.props.storageType ?? StorageType.STANDARD_STORAGE,
       },
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -66,7 +66,7 @@ export class S3BucketMetricFactory extends BaseMetricFactory<S3BucketMetricFacto
         StorageType: "AllStorageTypes",
       },
       undefined,
-      Namespace
+      Namespace,
     );
   }
 }

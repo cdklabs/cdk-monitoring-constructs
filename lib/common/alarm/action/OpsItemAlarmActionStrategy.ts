@@ -52,7 +52,7 @@ export function createLowSeverityOpsItem(category?: OpsItemCategory) {
  */
 export function createOpsItem(
   severity: OpsItemSeverity,
-  category?: OpsItemCategory
+  category?: OpsItemCategory,
 ) {
   return new OpsItemAlarmActionStrategy(severity, category);
 }

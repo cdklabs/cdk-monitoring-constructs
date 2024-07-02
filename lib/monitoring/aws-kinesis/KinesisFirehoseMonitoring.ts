@@ -82,10 +82,10 @@ export class KinesisFirehoseMonitoring extends Monitoring {
 
     const metricFactory = new KinesisFirehoseMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.kinesisAlarmFactory = new KinesisAlarmFactory(alarmFactory);
     this.recordCountAnnotations = [];
@@ -112,7 +112,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
       const createdAlarm = this.kinesisAlarmFactory.addPutRecordsThrottledAlarm(
         this.throttledRecordsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.recordCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -127,7 +127,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
           "IncomingBytes",
           "BytesPerSecondLimit",
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.incomingLimitAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -142,7 +142,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
           "IncomingRecords",
           "RecordsPerSecondLimit",
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.incomingLimitAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -157,7 +157,7 @@ export class KinesisFirehoseMonitoring extends Monitoring {
           "IncomingPutRequests",
           "PutRequestsPerSecondLimit",
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.incomingLimitAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

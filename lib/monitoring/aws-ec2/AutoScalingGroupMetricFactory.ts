@@ -20,7 +20,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
 
   constructor(
     metricFactory: MetricFactory,
-    props: AutoScalingGroupMetricFactoryProps
+    props: AutoScalingGroupMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -50,7 +50,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
     return this.createMetric(
       "GroupDesiredCapacity",
       "Desired",
-      MetricStatistic.AVERAGE
+      MetricStatistic.AVERAGE,
     );
   }
 
@@ -63,7 +63,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
     return this.createMetric(
       "GroupInServiceInstances",
       "InService",
-      MetricStatistic.AVERAGE
+      MetricStatistic.AVERAGE,
     );
   }
 
@@ -75,7 +75,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
     return this.createMetric(
       "GroupPendingInstances",
       "Pending",
-      MetricStatistic.AVERAGE
+      MetricStatistic.AVERAGE,
     );
   }
 
@@ -87,7 +87,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
     return this.createMetric(
       "GroupStandbyInstances",
       "Standby",
-      MetricStatistic.AVERAGE
+      MetricStatistic.AVERAGE,
     );
   }
 
@@ -99,7 +99,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
     return this.createMetric(
       "GroupTerminatingInstances",
       "Terminating",
-      MetricStatistic.AVERAGE
+      MetricStatistic.AVERAGE,
     );
   }
 
@@ -111,14 +111,14 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
     return this.createMetric(
       "GroupTotalInstances",
       "Total",
-      MetricStatistic.AVERAGE
+      MetricStatistic.AVERAGE,
     );
   }
 
   private createMetric(
     metricName: string,
     label: string,
-    statistic: MetricStatistic
+    statistic: MetricStatistic,
   ) {
     return this.metricFactory.createMetric(
       metricName,
@@ -126,7 +126,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
       label,
       this.dimensionsMap,
       undefined,
-      AutoScalingNamespace
+      AutoScalingNamespace,
     );
   }
 }

@@ -30,7 +30,7 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
 
   constructor(
     metricFactory: MetricFactory,
-    props: SyntheticsCanaryMetricFactoryProps
+    props: SyntheticsCanaryMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -47,7 +47,7 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       this.canary.metricDuration({
         label: "Average",
         statistic: MetricStatistic.AVERAGE,
-      })
+      }),
     );
   }
 
@@ -56,7 +56,7 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       this.canary.metricSuccessPercent({
         label: "Success Rate",
         statistic: MetricStatistic.AVERAGE,
-      })
+      }),
     );
   }
 
@@ -67,7 +67,7 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       "4xx",
       this.dimensionsMap,
       undefined,
-      MetricNamespace
+      MetricNamespace,
     );
   }
 
@@ -77,7 +77,7 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       metric,
       this.rateComputationMethod,
       false,
-      "errors"
+      "errors",
     );
   }
 
@@ -88,7 +88,7 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       "5xx",
       this.dimensionsMap,
       undefined,
-      MetricNamespace
+      MetricNamespace,
     );
   }
 
@@ -98,7 +98,7 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       metric,
       this.rateComputationMethod,
       false,
-      "faults"
+      "faults",
     );
   }
 }

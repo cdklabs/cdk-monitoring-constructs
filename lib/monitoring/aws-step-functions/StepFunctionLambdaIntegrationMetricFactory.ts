@@ -26,7 +26,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
 
   constructor(
     metricFactory: MetricFactory,
-    props: StepFunctionLambdaIntegrationMetricFactoryProps
+    props: StepFunctionLambdaIntegrationMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -43,7 +43,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P99",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -54,7 +54,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P90",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -65,7 +65,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P50",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -76,7 +76,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P99",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -87,7 +87,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P90",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -98,7 +98,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P50",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -109,7 +109,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P99",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -120,7 +120,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P90",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -131,7 +131,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "P50",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -142,7 +142,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "Failed",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -152,7 +152,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       metric,
       this.rateComputationMethod,
       false,
-      "faults"
+      "faults",
     );
   }
 
@@ -163,7 +163,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "Scheduled",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -174,7 +174,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "Started",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -185,7 +185,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "Succeeded",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -196,7 +196,7 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
       "Timeout",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 }

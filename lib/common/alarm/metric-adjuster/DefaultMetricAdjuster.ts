@@ -15,7 +15,7 @@ export class DefaultMetricAdjuster implements IMetricAdjuster {
   adjustMetric(
     metric: MetricWithAlarmSupport,
     _: Construct,
-    props: AddAlarmProps
+    props: AddAlarmProps,
   ): MetricWithAlarmSupport {
     let adjustedMetric = metric;
     if (props.period) {

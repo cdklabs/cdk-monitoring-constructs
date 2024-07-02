@@ -68,7 +68,7 @@ export class AwsConsoleUrlFactory {
 
   getElastiCacheClusterUrl(
     clusterId: string,
-    clusterType: ElastiCacheClusterType
+    clusterType: ElastiCacheClusterType,
   ): string | undefined {
     const region = this.awsAccountRegion;
     switch (clusterType) {
@@ -163,7 +163,7 @@ export class AwsConsoleUrlFactory {
    */
   protected getResolvedDestinationUrl(
     context: IResolveContext,
-    destinationUrl: string
+    destinationUrl: string,
   ): string {
     let resolvedDestination = context.resolve(destinationUrl);
 

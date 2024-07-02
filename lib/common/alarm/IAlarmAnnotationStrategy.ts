@@ -59,11 +59,11 @@ export abstract class FillingAlarmAnnotationStrategy
   }
 
   protected abstract createAnnotationToFill(
-    props: AlarmAnnotationStrategyProps
+    props: AlarmAnnotationStrategyProps,
   ): HorizontalAnnotation;
 
   protected getAlarmingRangeShade(
-    props: AlarmAnnotationStrategyProps
+    props: AlarmAnnotationStrategyProps,
   ): Shading | undefined {
     switch (props.comparisonOperator) {
       case ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD:
@@ -87,7 +87,7 @@ export abstract class FillingAlarmAnnotationStrategy
  */
 export class DefaultAlarmAnnotationStrategy extends FillingAlarmAnnotationStrategy {
   protected createAnnotationToFill(
-    props: AlarmAnnotationStrategyProps
+    props: AlarmAnnotationStrategyProps,
   ): HorizontalAnnotation {
     return props.alarm.toAnnotation();
   }

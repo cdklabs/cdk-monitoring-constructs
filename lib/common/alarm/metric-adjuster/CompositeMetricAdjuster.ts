@@ -17,7 +17,7 @@ export class CompositeMetricAdjuster implements IMetricAdjuster {
   adjustMetric(
     metric: MetricWithAlarmSupport,
     alarmScope: Construct,
-    props: AddAlarmProps
+    props: AddAlarmProps,
   ): MetricWithAlarmSupport {
     let adjustedMetric = metric;
     for (const adjuster of this.adjusters) {

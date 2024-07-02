@@ -46,7 +46,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       "Read (S3)",
       this.dimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
   }
 
@@ -57,7 +57,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       "Write (S3)",
       this.dimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
   }
 
@@ -69,7 +69,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       label,
       this.dimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
     return this.metricFactory.multiplyMetric(metric, 100, label, "cpu");
   }
@@ -82,7 +82,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       label,
       this.dimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
     return this.metricFactory.multiplyMetric(metric, 100, label, "heap");
   }
@@ -94,7 +94,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       "Active Executors",
       this.dimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
   }
 
@@ -105,7 +105,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       "Completed Stages",
       this.typeCountDimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
   }
 
@@ -116,7 +116,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       "Completed Tasks",
       this.typeCountDimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
   }
 
@@ -127,7 +127,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       "Failed Tasks",
       this.typeCountDimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
   }
 
@@ -137,7 +137,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.rateComputationMethod,
       true,
       "failed",
-      false
+      false,
     );
   }
 
@@ -148,7 +148,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       "Killed Tasks",
       this.typeCountDimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
   }
 
@@ -158,7 +158,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.rateComputationMethod,
       true,
       "killed",
-      false
+      false,
     );
   }
 
@@ -169,7 +169,7 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       "Maximum Needed Executors",
       this.dimensionsMap,
       undefined,
-      GlueNamespace
+      GlueNamespace,
     );
   }
 }

@@ -22,7 +22,7 @@ export enum GraphWidgetType {
  */
 export function createGraphWidget(
   type: GraphWidgetType,
-  props: GraphWidgetProps
+  props: GraphWidgetProps,
 ): IWidget {
   switch (type) {
     case GraphWidgetType.BAR:

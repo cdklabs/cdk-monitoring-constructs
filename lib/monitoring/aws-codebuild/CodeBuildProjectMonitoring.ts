@@ -81,7 +81,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
       .getCodeBuildProjectUrl(props.project.projectName);
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.durationAlarmFactory = new LatencyAlarmFactory(alarmFactory);
     this.errorAlarmFactory = new ErrorAlarmFactory(alarmFactory);
@@ -92,7 +92,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
 
     const metricFactory = new CodeBuildProjectMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.buildCountMetric = metricFactory.metricBuildCount();
     this.succeededBuildCountMetric = metricFactory.metricSucceededBuildCount();
@@ -111,7 +111,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
         this.durationP99InSecondsMetric,
         LatencyType.P99,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
 
       this.durationAnnotations.push(createdAlarm.annotation);
@@ -124,7 +124,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
         this.durationP90InSecondsMetric,
         LatencyType.P90,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
 
       this.durationAnnotations.push(createdAlarm.annotation);
@@ -137,7 +137,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
         this.durationP50InSecondsMetric,
         LatencyType.P50,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
 
       this.durationAnnotations.push(createdAlarm.annotation);
@@ -150,7 +150,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
         this.failedBuildCountMetric,
         ErrorType.FAILURE,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
 
       this.errorCountAnnotations.push(createdAlarm.annotation);
@@ -163,7 +163,7 @@ export class CodeBuildProjectMonitoring extends Monitoring {
         this.failedBuildRateMetric,
         ErrorType.FAILURE,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
 
       this.errorRateAnnotations.push(createdAlarm.annotation);

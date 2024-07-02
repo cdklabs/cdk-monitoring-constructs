@@ -274,11 +274,11 @@ export class CustomMonitoring extends Monitoring {
     this.addToSummaryDashboard = props.addToSummaryDashboard ?? false;
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.customAlarmFactory = new CustomAlarmFactory(alarmFactory);
     this.anomalyDetectingAlarmFactory = new AnomalyDetectingAlarmFactory(
-      alarmFactory
+      alarmFactory,
     );
 
     this.metricGroups = props.metricGroups.map((metricGroup) => {
@@ -292,24 +292,24 @@ export class CustomMonitoring extends Monitoring {
 
       if (metricGroup.horizontalAnnotations) {
         metricGroupWithAnnotation.annotations.push(
-          ...metricGroup.horizontalAnnotations
+          ...metricGroup.horizontalAnnotations,
         );
       }
       if (metricGroup.horizontalRightAnnotations) {
         metricGroupWithAnnotation.rightAnnotations.push(
-          ...metricGroup.horizontalRightAnnotations
+          ...metricGroup.horizontalRightAnnotations,
         );
       }
       if (metricGroup.verticalAnnotations) {
         metricGroupWithAnnotation.verticalAnnotations.push(
-          ...metricGroup.verticalAnnotations
+          ...metricGroup.verticalAnnotations,
         );
       }
 
       metricGroup.metrics.forEach((metric) => {
         if (this.hasAlarm(metric) && this.hasAnomalyDetection(metric)) {
           throw new Error(
-            "Adding both a regular alarm and an anomaly detection alarm at the same time is not supported"
+            "Adding both a regular alarm and an anomaly detection alarm at the same time is not supported",
           );
         }
 
@@ -340,7 +340,7 @@ export class CustomMonitoring extends Monitoring {
           (group) =>
             group.metricGroup.addToSummaryDashboard ??
             group.metricGroup.important ??
-            this.addToSummaryDashboard
+            this.addToSummaryDashboard,
         )
       : this.metricGroups;
 
@@ -358,17 +358,17 @@ export class CustomMonitoring extends Monitoring {
         new Row(
           this.createDescriptionWidget(
             this.description,
-            this.descriptionWidgetHeight
-          )
-        )
+            this.descriptionWidgetHeight,
+          ),
+        ),
       );
     }
 
     // graphs
     rows.push(
       new Row(
-        ...this.createCustomMetricGroupWidgets(filteredMetricGroups, summary)
-      )
+        ...this.createCustomMetricGroupWidgets(filteredMetricGroups, summary),
+      ),
     );
 
     return rows;
@@ -376,7 +376,7 @@ export class CustomMonitoring extends Monitoring {
 
   private createDescriptionWidget(
     markdown: string,
-    descriptionWidgetHeight?: number
+    descriptionWidgetHeight?: number,
   ) {
     return new TextWidget({
       markdown,
@@ -387,7 +387,7 @@ export class CustomMonitoring extends Monitoring {
 
   private createCustomMetricGroupWidgets(
     annotatedGroups: CustomMetricGroupWithAnnotations[],
-    summary: boolean
+    summary: boolean,
   ) {
     const widgets: IWidget[] = [];
     const metricGroupWidgetHeightDefault = summary
@@ -401,15 +401,16 @@ export class CustomMonitoring extends Monitoring {
       const left = this.toMetrics(
         metrics.filter(
           (metric) =>
-            ((metric as any).position ?? AxisPosition.LEFT) == AxisPosition.LEFT
-        )
+            ((metric as any).position ?? AxisPosition.LEFT) ==
+            AxisPosition.LEFT,
+        ),
       );
       const right = this.toMetrics(
         metrics.filter(
           (metric) =>
             ((metric as any).position ?? AxisPosition.LEFT) ==
-            AxisPosition.RIGHT
-        )
+            AxisPosition.RIGHT,
+        ),
       );
       const hasOneMetricOnly = metrics.length === 1;
       const hasAnomalyDetection =
@@ -443,7 +444,7 @@ export class CustomMonitoring extends Monitoring {
         ? new AnomalyDetectionGraphWidget(graphWidgetProps)
         : createGraphWidget(
             annotatedGroup.metricGroup.graphWidgetType ?? GraphWidgetType.LINE,
-            graphWidgetProps
+            graphWidgetProps,
           );
 
       widgets.push(widget);
@@ -470,7 +471,7 @@ export class CustomMonitoring extends Monitoring {
           AnomalyDetectionMetricIdPrefix +
             getHashForMetricExpressionId(metric.alarmFriendlyName),
           // preserve the most specific metric period
-          metric.period ?? metric.metric.period
+          metric.period ?? metric.metric.period,
         );
       } else if (this.isSearch(metric)) {
         // metric search
@@ -480,7 +481,7 @@ export class CustomMonitoring extends Monitoring {
           metric.statistic,
           metric.namespace,
           metric.label,
-          metric.period
+          metric.period,
         );
       } else {
         // general metric
@@ -495,7 +496,7 @@ export class CustomMonitoring extends Monitoring {
   }
 
   private hasAnomalyDetection(
-    metric: CustomMetric
+    metric: CustomMetric,
   ): metric is CustomMetricWithAnomalyDetection {
     // type guard
     return (
@@ -511,11 +512,11 @@ export class CustomMonitoring extends Monitoring {
 
   private setupAlarm(
     metricGroup: CustomMetricGroupWithAnnotations,
-    metric: CustomMetricWithAlarm
+    metric: CustomMetricWithAlarm,
   ) {
     if (this.isSearch(metric)) {
       throw new Error(
-        "Alarming on search queries is not supported by CloudWatch"
+        "Alarming on search queries is not supported by CloudWatch",
       );
     }
 
@@ -525,7 +526,7 @@ export class CustomMonitoring extends Monitoring {
         metric.metric,
         metric.alarmFriendlyName,
         disambiguator,
-        alarmProps
+        alarmProps,
       );
       const targetAnnotations =
         (metric.position ?? AxisPosition.LEFT) == AxisPosition.LEFT
@@ -538,11 +539,11 @@ export class CustomMonitoring extends Monitoring {
 
   private setupAnomalyDetectionAlarm(
     metricGroup: CustomMetricGroupWithAnnotations,
-    metric: CustomMetricWithAnomalyDetection
+    metric: CustomMetricWithAnomalyDetection,
   ) {
     if (this.isSearch(metric)) {
       throw new Error(
-        "Alarming on search queries is not supported by CloudWatch"
+        "Alarming on search queries is not supported by CloudWatch",
       );
     }
 
@@ -565,10 +566,10 @@ export class CustomMonitoring extends Monitoring {
           // expression ID needs to be unique across the whole widget; needs to start with a lowercase letter
           AnomalyDetectionAlarmIdPrefix +
             getHashForMetricExpressionId(
-              metric.alarmFriendlyName + "_" + disambiguator
+              metric.alarmFriendlyName + "_" + disambiguator,
             ),
           // preserve the most-specific metric period
-          metric.period ?? metric.metric.period
+          metric.period ?? metric.metric.period,
         );
 
         const createdAlarm =
@@ -576,7 +577,7 @@ export class CustomMonitoring extends Monitoring {
             anomalyMetric,
             metric.alarmFriendlyName,
             disambiguator,
-            alarmProps
+            alarmProps,
           );
 
         // no need to add annotation since the bands are rendered automatically
@@ -611,13 +612,13 @@ class AnomalyDetectionGraphWidget extends GraphWidget {
     const json = super.toJson();
     if (json.length !== 1 || !json?.[0]?.properties?.metrics) {
       throw new Error(
-        "The JSON is expected to have exactly one element with properties.metrics property."
+        "The JSON is expected to have exactly one element with properties.metrics property.",
       );
     }
     const metrics: any[] = json[0].properties.metrics;
     if (metrics.length < 2) {
       throw new Error(
-        "The number of metrics must be at least two (metric + anomaly detection math)."
+        "The number of metrics must be at least two (metric + anomaly detection math).",
       );
     }
     const anomalyDetectionMetricPart: any[] = metrics[0]?.value;

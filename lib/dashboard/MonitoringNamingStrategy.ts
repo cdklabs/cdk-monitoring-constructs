@@ -69,7 +69,7 @@ export class MonitoringNamingStrategy {
     if (this.input.fallbackConstructName) {
       if (
         MonitoringNamingStrategy.isAlarmFriendly(
-          this.input.fallbackConstructName
+          this.input.fallbackConstructName,
         )
       ) {
         return this.input.fallbackConstructName;
@@ -86,7 +86,7 @@ export class MonitoringNamingStrategy {
 
     throw new Error(
       "Insufficient information provided for naming the alarms and/or monitoring section: " +
-        "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback"
+        "Please provide alarmFriendlyName, humanReadableName, or namedConstruct as a fallback",
     );
   }
 
@@ -94,7 +94,7 @@ export class MonitoringNamingStrategy {
     return Lazy.uncachedString({
       produce: (context) => {
         const resolvedName: any = context.resolve(
-          this.input.fallbackConstructName
+          this.input.fallbackConstructName,
         );
         if (
           typeof resolvedName === "string" &&

@@ -76,19 +76,19 @@ export class RdsInstanceMonitoring extends Monitoring {
 
     const metricFactory = new RdsInstanceMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.connectionsMetric = metricFactory.metricTotalConnectionCount();
     this.freeStorageSpaceMetric = metricFactory.metricMaxFreeStorageSpace();
     this.freeableMemoryMetric = metricFactory.metricAverageFreeableMemory();
     this.cpuUsageMetric = metricFactory.metricAverageCpuUsageInPercent();
     this.readLatencyMetric = metricFactory.metricReadLatencyInMillis(
-      LatencyType.P90
+      LatencyType.P90,
     );
     this.readThroughputMetric = metricFactory.metricReadThroughput();
     this.readIopsMetric = metricFactory.metricReadIops();
     this.writeLatencyMetric = metricFactory.metricWriteLatencyInMillis(
-      LatencyType.P90
+      LatencyType.P90,
     );
     this.writeThroughputMetric = metricFactory.metricWriteThroughput();
     this.writeIopsMetric = metricFactory.metricWriteIops();
@@ -103,7 +103,7 @@ export class RdsInstanceMonitoring extends Monitoring {
       .createAwsConsoleUrlFactory()
       .getRdsInstanceUrl(metricFactory.instanceIdentifier);
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
     this.connectionAlarmFactory = new ConnectionAlarmFactory(alarmFactory);
@@ -116,7 +116,7 @@ export class RdsInstanceMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMinCountAlarm(
         this.freeStorageSpaceMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -127,7 +127,7 @@ export class RdsInstanceMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -139,7 +139,7 @@ export class RdsInstanceMonitoring extends Monitoring {
         this.connectionAlarmFactory.addMinConnectionCountAlarm(
           this.connectionsMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -151,7 +151,7 @@ export class RdsInstanceMonitoring extends Monitoring {
         this.connectionAlarmFactory.addMaxConnectionCountAlarm(
           this.connectionsMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

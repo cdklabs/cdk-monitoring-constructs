@@ -180,7 +180,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       .getLambdaFunctionUrl(props.lambdaFunction.functionName);
 
     this.alarmFactory = this.createAlarmFactory(
-      this.namingStrategy.resolveAlarmFriendlyName()
+      this.namingStrategy.resolveAlarmFriendlyName(),
     );
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
     this.latencyAlarmFactory = new LatencyAlarmFactory(this.alarmFactory);
@@ -201,20 +201,20 @@ export class LambdaFunctionMonitoring extends Monitoring {
 
     this.metricFactory = new LambdaFunctionMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.tpsMetric = this.metricFactory.metricTps();
     this.p50LatencyMetric = this.metricFactory.metricLatencyInMillis(
-      LatencyType.P50
+      LatencyType.P50,
     );
     this.p90LatencyMetric = this.metricFactory.metricLatencyInMillis(
-      LatencyType.P90
+      LatencyType.P90,
     );
     this.p99LatencyMetric = this.metricFactory.metricLatencyInMillis(
-      LatencyType.P99
+      LatencyType.P99,
     );
     this.maxLatencyMetric = this.metricFactory.metricLatencyInMillis(
-      LatencyType.MAX
+      LatencyType.MAX,
     );
     this.faultCountMetric = this.metricFactory.metricFaultCount();
     this.faultRateMetric = this.metricFactory.metricFaultRate();
@@ -234,7 +234,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     if (props.lambdaInsightsEnabled) {
       this.enhancedMetricFactory = new LambdaFunctionEnhancedMetricFactory(
         scope.createMetricFactory(),
-        props.lambdaFunction
+        props.lambdaFunction,
       );
       this.enhancedMonitoringMaxCpuTotalTimeMetric =
         this.enhancedMetricFactory.enhancedMetricMaxCpuTotalTime();
@@ -260,7 +260,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
           /* eslint-enable @typescript-eslint/no-non-null-assertion */
           LatencyType.P100,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
         this.cpuTotalTimeAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -274,7 +274,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
           /* eslint-enable @typescript-eslint/no-non-null-assertion */
           LatencyType.P90,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
         this.cpuTotalTimeAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -288,7 +288,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
           /* eslint-enable @typescript-eslint/no-non-null-assertion */
           LatencyType.AVERAGE,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
         this.cpuTotalTimeAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -302,7 +302,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
             this.enhancedMonitoringMaxMemoryUtilizationMetric!,
             /* eslint-enable @typescript-eslint/no-non-null-assertion */
             alarmProps,
-            disambiguator
+            disambiguator,
           );
         this.memoryUsageAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -316,7 +316,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
           /* eslint-enable @typescript-eslint/no-non-null-assertion */
           alarmProps,
           UsageType.P90,
-          disambiguator
+          disambiguator,
         );
         this.memoryUsageAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -330,7 +330,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
           /* eslint-enable @typescript-eslint/no-non-null-assertion */
           alarmProps,
           UsageType.AVERAGE,
-          disambiguator
+          disambiguator,
         );
         this.memoryUsageAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
@@ -343,7 +343,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.p50LatencyMetric,
         LatencyType.P50,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -354,7 +354,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.p90LatencyMetric,
         LatencyType.P90,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -365,7 +365,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.p99LatencyMetric,
         LatencyType.P99,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -376,7 +376,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.maxLatencyMetric,
         LatencyType.MAX,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -388,7 +388,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.faultCountMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -399,7 +399,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.faultRateMetric,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -409,7 +409,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMinTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -419,7 +419,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMaxTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -430,7 +430,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.throttlesCountMetric,
         ErrorType.THROTTLED,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.invocationCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -441,7 +441,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.throttlesRateMetric,
         ErrorType.THROTTLED,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.invocationRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -451,7 +451,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMinUsageCountAlarm(
         this.invocationCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.invocationCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -461,7 +461,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.taskHealthAlarmFactory.addRunningTaskCountAlarm(
         this.concurrentExecutionsCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.invocationCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -474,7 +474,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.taskHealthAlarmFactory.addRunningTaskCountAlarm(
         this.provisionedConcurrencySpilloverInvocationsCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.invocationCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -487,7 +487,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.taskHealthAlarmFactory.addRunningTaskRateAlarm(
         this.provisionedConcurrencySpilloverInvocationsRateMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.invocationRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -497,7 +497,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.ageAlarmFactory.addIteratorMaxAgeAlarm(
         this.maxIteratorAgeMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.maxIteratorAgeAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -522,12 +522,12 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.createTpsWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createErrorRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
-        this.createRateWidget(QuarterWidth, DefaultGraphWidgetHeight)
+        this.createRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
       ),
       new Row(
         this.createInvocationWidget(ThirdWidth, DefaultGraphWidgetHeight),
         this.createIteratorAgeWidget(ThirdWidth, DefaultGraphWidgetHeight),
-        this.createErrorCountWidget(ThirdWidth, DefaultGraphWidgetHeight)
+        this.createErrorCountWidget(ThirdWidth, DefaultGraphWidgetHeight),
       ),
     ];
 
@@ -536,17 +536,17 @@ export class LambdaFunctionMonitoring extends Monitoring {
         new Row(
           this.createLambdaInsightsCpuWidget(
             ThirdWidth,
-            DefaultGraphWidgetHeight
+            DefaultGraphWidgetHeight,
           ),
           this.createLambdaInsightsMemoryWidget(
             ThirdWidth,
-            DefaultGraphWidgetHeight
+            DefaultGraphWidgetHeight,
           ),
           this.createLambdaInsightsFunctionCostWidget(
             ThirdWidth,
-            DefaultGraphWidgetHeight
-          )
-        )
+            DefaultGraphWidgetHeight,
+          ),
+        ),
       );
     }
 

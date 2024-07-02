@@ -231,7 +231,7 @@ export class MonitoringFacade extends MonitoringScope {
    */
   addSegment(
     segment: IDashboardSegment,
-    overrideProps?: MonitoringDashboardsOverrideProps
+    overrideProps?: MonitoringDashboardsOverrideProps,
   ): this {
     const adaptedSegment = new StaticSegmentDynamicAdapter({
       segment,
@@ -275,7 +275,7 @@ export class MonitoringFacade extends MonitoringScope {
    */
   createdAlarms(): AlarmWithAnnotation[] {
     return this.createdMonitorings().flatMap((monitoring) =>
-      monitoring.createdAlarms()
+      monitoring.createdAlarms(),
     );
   }
 
@@ -286,7 +286,7 @@ export class MonitoringFacade extends MonitoringScope {
    */
   createdAlarmsWithTag(customTag: string): AlarmWithAnnotation[] {
     return this.createdAlarms().filter((alarm) =>
-      alarm.customTags?.includes(customTag)
+      alarm.customTags?.includes(customTag),
     );
   }
 
@@ -297,7 +297,7 @@ export class MonitoringFacade extends MonitoringScope {
    */
   createdAlarmsWithDisambiguator(disambiguator: string): AlarmWithAnnotation[] {
     return this.createdAlarms().filter(
-      (alarm) => alarm.disambiguator === disambiguator
+      (alarm) => alarm.disambiguator === disambiguator,
     );
   }
 
@@ -323,7 +323,7 @@ export class MonitoringFacade extends MonitoringScope {
    */
   createCompositeAlarmUsingTag(
     customTag: string,
-    props?: AddCompositeAlarmProps
+    props?: AddCompositeAlarmProps,
   ): CompositeAlarm | undefined {
     const alarms = this.createdAlarmsWithTag(customTag);
     if (alarms.length > 0) {
@@ -347,7 +347,7 @@ export class MonitoringFacade extends MonitoringScope {
    */
   createCompositeAlarmUsingDisambiguator(
     alarmDisambiguator: string,
-    props?: AddCompositeAlarmProps
+    props?: AddCompositeAlarmProps,
   ): CompositeAlarm | undefined {
     const alarms = this.createdAlarmsWithDisambiguator(alarmDisambiguator);
     if (alarms.length > 0) {
@@ -367,12 +367,12 @@ export class MonitoringFacade extends MonitoringScope {
   addLargeHeader(
     text: string,
     addToSummary?: boolean,
-    addToAlarm?: boolean
+    addToAlarm?: boolean,
   ): this {
     this.addWidget(
       new HeaderWidget(text, HeaderLevel.LARGE),
       addToSummary ?? false,
-      addToAlarm ?? false
+      addToAlarm ?? false,
     );
     return this;
   }
@@ -380,12 +380,12 @@ export class MonitoringFacade extends MonitoringScope {
   addMediumHeader(
     text: string,
     addToSummary?: boolean,
-    addToAlarm?: boolean
+    addToAlarm?: boolean,
   ): this {
     this.addWidget(
       new HeaderWidget(text, HeaderLevel.MEDIUM),
       addToSummary ?? false,
-      addToAlarm ?? false
+      addToAlarm ?? false,
     );
     return this;
   }
@@ -393,12 +393,12 @@ export class MonitoringFacade extends MonitoringScope {
   addSmallHeader(
     text: string,
     addToSummary?: boolean,
-    addToAlarm?: boolean
+    addToAlarm?: boolean,
   ): this {
     this.addWidget(
       new HeaderWidget(text, HeaderLevel.SMALL),
       addToSummary ?? false,
-      addToAlarm ?? false
+      addToAlarm ?? false,
     );
     return this;
   }
@@ -406,7 +406,7 @@ export class MonitoringFacade extends MonitoringScope {
   addWidget(
     widget: IWidget,
     addToSummary?: boolean,
-    addToAlarm?: boolean
+    addToAlarm?: boolean,
   ): this {
     this.addSegment(new SingleWidgetDashboardSegment(widget), {
       addToAlarmDashboard: addToAlarm ?? true,
@@ -464,7 +464,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorCloudFrontDistribution(
-    props: CloudFrontDistributionMonitoringProps
+    props: CloudFrontDistributionMonitoringProps,
   ): this {
     const segment = new CloudFrontDistributionMonitoring(this, props);
     this.addSegment(segment, props);
@@ -490,7 +490,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorDynamoTableGlobalSecondaryIndex(
-    props: DynamoTableGlobalSecondaryIndexMonitoringProps
+    props: DynamoTableGlobalSecondaryIndexMonitoringProps,
   ) {
     const segment = new DynamoTableGlobalSecondaryIndexMonitoring(this, props);
     this.addSegment(segment, props);
@@ -539,7 +539,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorSimpleFargateService(
-    props: SimpleFargateServiceMonitoringProps
+    props: SimpleFargateServiceMonitoringProps,
   ): this {
     const segment = new FargateServiceMonitoring(this, {
       ...props,
@@ -550,7 +550,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorFargateNetworkLoadBalancer(
-    props: FargateNetworkLoadBalancerMonitoringProps
+    props: FargateNetworkLoadBalancerMonitoringProps,
   ): this {
     const segment = new FargateServiceMonitoring(this, {
       ...props,
@@ -563,7 +563,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorFargateApplicationLoadBalancer(
-    props: FargateApplicationLoadBalancerMonitoringProps
+    props: FargateApplicationLoadBalancerMonitoringProps,
   ): this {
     const segment = new FargateServiceMonitoring(this, {
       ...props,
@@ -596,7 +596,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorEc2NetworkLoadBalancer(
-    props: Ec2NetworkLoadBalancerMonitoringProps
+    props: Ec2NetworkLoadBalancerMonitoringProps,
   ): this {
     const segment = new Ec2ServiceMonitoring(this, {
       ...props,
@@ -609,7 +609,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorEc2ApplicationLoadBalancer(
-    props: Ec2ApplicationLoadBalancerMonitoringProps
+    props: Ec2ApplicationLoadBalancerMonitoringProps,
   ): this {
     const segment = new Ec2ServiceMonitoring(this, {
       ...props,
@@ -622,19 +622,19 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorQueueProcessingFargateService(
-    props: QueueProcessingFargateServiceMonitoringProps
+    props: QueueProcessingFargateServiceMonitoringProps,
   ): this {
     getQueueProcessingFargateServiceMonitoring(this, props).forEach((segment) =>
-      this.addSegment(segment)
+      this.addSegment(segment),
     );
     return this;
   }
 
   monitorQueueProcessingEc2Service(
-    props: QueueProcessingEc2ServiceMonitoringProps
+    props: QueueProcessingEc2ServiceMonitoringProps,
   ): this {
     getQueueProcessingEc2ServiceMonitoring(this, props).forEach((segment) =>
-      this.addSegment(segment)
+      this.addSegment(segment),
     );
     return this;
   }
@@ -658,7 +658,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorKinesisDataAnalytics(
-    props: KinesisDataAnalyticsMonitoringProps
+    props: KinesisDataAnalyticsMonitoringProps,
   ): this {
     const segment = new KinesisDataAnalyticsMonitoring(this, props);
     this.addSegment(segment, props);
@@ -702,7 +702,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorSecretsManagerSecret(
-    props: SecretsManagerSecretMonitoringProps
+    props: SecretsManagerSecretMonitoringProps,
   ): this {
     const segment = new SecretsManagerSecretMonitoring(this, props);
     this.addSegment(segment, props);
@@ -734,7 +734,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorStepFunctionActivity(
-    props: StepFunctionActivityMonitoringProps
+    props: StepFunctionActivityMonitoringProps,
   ): this {
     const segment = new StepFunctionActivityMonitoring(this, props);
     this.addSegment(segment, props);
@@ -742,7 +742,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorStepFunctionLambdaIntegration(
-    props: StepFunctionLambdaIntegrationMonitoringProps
+    props: StepFunctionLambdaIntegrationMonitoringProps,
   ): this {
     const segment = new StepFunctionLambdaIntegrationMonitoring(this, props);
     this.addSegment(segment, props);
@@ -750,7 +750,7 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   monitorStepFunctionServiceIntegration(
-    props: StepFunctionServiceIntegrationMonitoringProps
+    props: StepFunctionServiceIntegrationMonitoringProps,
   ): this {
     const segment = new StepFunctionServiceIntegrationMonitoring(this, props);
     this.addSegment(segment, props);

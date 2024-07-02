@@ -28,7 +28,7 @@ export class ElastiCacheAlarmFactory {
   addMaxItemsCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxItemsCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -47,7 +47,7 @@ export class ElastiCacheAlarmFactory {
   addMaxEvictedItemsCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxItemsCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -66,7 +66,7 @@ export class ElastiCacheAlarmFactory {
   addMinFreeableMemoryAlarm(
     metric: MetricWithAlarmSupport,
     props: MinFreeableMemoryThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -85,7 +85,7 @@ export class ElastiCacheAlarmFactory {
   addMaxUsedSwapMemoryAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxUsedSwapMemoryThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

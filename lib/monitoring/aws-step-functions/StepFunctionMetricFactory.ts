@@ -25,7 +25,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
 
   constructor(
     metricFactory: MetricFactory,
-    props: StepFunctionMetricFactoryProps
+    props: StepFunctionMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -42,7 +42,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "P99",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -53,7 +53,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "P90",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -64,7 +64,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "P50",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -75,7 +75,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "Failed",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -85,7 +85,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       metric,
       this.rateComputationMethod,
       false,
-      "faults"
+      "faults",
     );
   }
 
@@ -96,7 +96,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "Timeout",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -107,7 +107,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "Throttled",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -118,7 +118,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "Aborted",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -129,7 +129,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "Started",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 
@@ -140,7 +140,7 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       "Succeeded",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 }

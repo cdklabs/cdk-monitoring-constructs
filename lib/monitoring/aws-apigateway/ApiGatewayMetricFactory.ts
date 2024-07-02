@@ -48,7 +48,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
 
   constructor(
     metricFactory: MetricFactory,
-    props: ApiGatewayMetricFactoryProps
+    props: ApiGatewayMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -72,7 +72,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       RateComputationMethod.PER_SECOND,
       false,
       "requests",
-      this.fillTpsWithZeroes
+      this.fillTpsWithZeroes,
     );
   }
 
@@ -82,7 +82,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       this.rateComputationMethod,
       false,
       "requests",
-      this.fillTpsWithZeroes
+      this.fillTpsWithZeroes,
     );
   }
 
@@ -93,7 +93,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       "Count",
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 
@@ -104,7 +104,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       "4XX Error",
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 
@@ -114,7 +114,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       metric,
       this.rateComputationMethod,
       false,
-      "errors"
+      "errors",
     );
   }
 
@@ -125,7 +125,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       "5XX Fault",
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 
@@ -135,7 +135,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       metric,
       this.rateComputationMethod,
       false,
-      "faults"
+      "faults",
     );
   }
 
@@ -168,7 +168,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       label,
       this.dimensionsMap,
       undefined,
-      ApiGatewayNamespace
+      ApiGatewayNamespace,
     );
   }
 }

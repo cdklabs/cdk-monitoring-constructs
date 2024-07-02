@@ -77,13 +77,13 @@ export class AuroraClusterMonitoring extends Monitoring {
 
     if (!this.isServerlessCluster(props.cluster)) {
       throw Error(
-        "Cluster is not of type `ServerlessCluster`. Monitoring is not applicable."
+        "Cluster is not of type `ServerlessCluster`. Monitoring is not applicable.",
       );
     }
 
     const metricFactory = new RdsClusterMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.connectionsMetric = metricFactory.metricTotalConnectionCount();
     this.serverlessDatabaseCapacityMetric =
@@ -105,7 +105,7 @@ export class AuroraClusterMonitoring extends Monitoring {
       .createAwsConsoleUrlFactory()
       .getRdsClusterUrl(metricFactory.clusterIdentifier);
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
     this.connectionAlarmFactory = new ConnectionAlarmFactory(alarmFactory);
@@ -119,7 +119,7 @@ export class AuroraClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -131,7 +131,7 @@ export class AuroraClusterMonitoring extends Monitoring {
         this.connectionAlarmFactory.addMinConnectionCountAlarm(
           this.connectionsMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -143,7 +143,7 @@ export class AuroraClusterMonitoring extends Monitoring {
         this.connectionAlarmFactory.addMaxConnectionCountAlarm(
           this.connectionsMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -155,7 +155,7 @@ export class AuroraClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxUsageCountAlarm(
         this.serverlessDatabaseCapacityMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.serverlessCapacityAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -176,7 +176,7 @@ export class AuroraClusterMonitoring extends Monitoring {
       this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
       this.createServerlessDatabaseCapacityWidget(
         QuarterWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
     ];
   }
@@ -189,7 +189,7 @@ export class AuroraClusterMonitoring extends Monitoring {
       this.createLatencyWidget(HalfWidth, DefaultGraphWidgetHeight),
       this.createServerlessDatabaseCapacityWidget(
         HalfWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
     ];
   }

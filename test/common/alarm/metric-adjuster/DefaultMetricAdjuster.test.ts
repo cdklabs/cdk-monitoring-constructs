@@ -22,7 +22,7 @@ test("adjustMetric: applies default adjustments", () => {
       comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
       treatMissingData: TreatMissingData.MISSING,
       period: Duration.minutes(5),
-    }
+    },
   );
 
   expect(actual.period).toEqual(Duration.minutes(5));

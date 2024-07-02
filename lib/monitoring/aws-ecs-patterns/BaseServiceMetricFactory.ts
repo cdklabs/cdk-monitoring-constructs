@@ -30,7 +30,7 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
 
   constructor(
     metricFactory: MetricFactory,
-    props: BaseServiceMetricFactoryProps
+    props: BaseServiceMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -48,7 +48,7 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       "Cluster CPU Utilization",
       this.dimensionsMap,
       undefined,
-      EcsNamespace
+      EcsNamespace,
     );
   }
 
@@ -59,7 +59,7 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       "Cluster Memory Utilization",
       this.dimensionsMap,
       undefined,
-      EcsNamespace
+      EcsNamespace,
     );
   }
 
@@ -70,7 +70,7 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       "Running Tasks",
       this.dimensionsMap,
       undefined,
-      EcsContainerInsightsNamespace
+      EcsContainerInsightsNamespace,
     );
   }
 
@@ -81,7 +81,7 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       "Ephemeral Storage Reserved",
       this.dimensionsMap,
       undefined,
-      EcsContainerInsightsNamespace
+      EcsContainerInsightsNamespace,
     );
   }
 
@@ -92,7 +92,7 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       "Ephemeral Storage Utilized",
       this.dimensionsMap,
       undefined,
-      EcsContainerInsightsNamespace
+      EcsContainerInsightsNamespace,
     );
   }
 
@@ -103,7 +103,7 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
     return this.metricFactory.createMetricMath(
       "100 * (used/total)",
       { used, total },
-      "Ephemeral Storage Usage"
+      "Ephemeral Storage Usage",
     );
   }
 }

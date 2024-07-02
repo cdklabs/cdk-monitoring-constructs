@@ -28,7 +28,7 @@ export class TopicAlarmFactory {
   addMinMessagesPublishedAlarm(
     metric: MetricWithAlarmSupport,
     props: LowMessagesPublishedThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -47,7 +47,7 @@ export class TopicAlarmFactory {
   addMaxMessagesPublishedAlarm(
     metric: MetricWithAlarmSupport,
     props: HighMessagesPublishedThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -66,7 +66,7 @@ export class TopicAlarmFactory {
   addMessageNotificationsFailedAlarm(
     metric: MetricWithAlarmSupport,
     props: NotificationsFailedThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     const threshold = props.maxNotificationsFailedCount;
     return this.alarmFactory.addAlarm(metric, {

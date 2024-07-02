@@ -14,7 +14,7 @@ export function forceStableAssetKeys(stack: Stack) {
           case "AWS::Lambda::Function":
             node.defaultChild.addPropertyOverride(
               "Code.S3Key",
-              "Fixed key that does not depend on asset changes"
+              "Fixed key that does not depend on asset changes",
             );
             break;
         }

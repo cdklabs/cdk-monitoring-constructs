@@ -40,7 +40,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
 
   constructor(
     metricFactory: MetricFactory,
-    props: LambdaFunctionMetricFactoryProps
+    props: LambdaFunctionMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -59,7 +59,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       RateComputationMethod.PER_SECOND,
       false,
       "requests",
-      this.fillTpsWithZeroes
+      this.fillTpsWithZeroes,
     );
   }
 
@@ -69,7 +69,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.rateComputationMethod,
       false,
       "requests",
-      this.fillTpsWithZeroes
+      this.fillTpsWithZeroes,
     );
   }
 
@@ -77,7 +77,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
     return this.metricFactory.adaptMetric(
       this.lambdaFunction.metricInvocations({
         label: "Invocations",
-      })
+      }),
     );
   }
 
@@ -85,7 +85,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
     return this.metricFactory.adaptMetric(
       this.lambdaFunction.metricThrottles({
         label: "Throttles",
-      })
+      }),
     );
   }
 
@@ -95,7 +95,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       metric,
       this.rateComputationMethod,
       false,
-      "throttles"
+      "throttles",
     );
   }
 
@@ -103,7 +103,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
     return this.metricFactory.adaptMetric(
       this.lambdaFunction.metricErrors({
         label: "Faults",
-      })
+      }),
     );
   }
 
@@ -113,7 +113,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       metric,
       this.rateComputationMethod,
       false,
-      "faults"
+      "faults",
     );
   }
 
@@ -122,7 +122,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.lambdaFunction.metricDuration({
         statistic: getLatencyTypeStatistic(latencyType),
         label: getLatencyTypeLabel(latencyType),
-      })
+      }),
     );
   }
 
@@ -152,7 +152,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.lambdaFunction.metric("ConcurrentExecutions", {
         statistic: MetricStatistic.MAX,
         label: "Concurrent",
-      })
+      }),
     );
   }
 
@@ -161,7 +161,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.lambdaFunction.metric("ProvisionedConcurrencySpilloverInvocations", {
         statistic: MetricStatistic.SUM,
         label: "Provisioned Concurrency Spillovers",
-      })
+      }),
     );
   }
 
@@ -171,7 +171,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       metric,
       this.rateComputationMethod,
       false,
-      "pcsi"
+      "pcsi",
     );
   }
 
@@ -180,7 +180,7 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       this.lambdaFunction.metric("IteratorAge", {
         statistic: MetricStatistic.MAX,
         label: "Iterator Age",
-      })
+      }),
     );
   }
 }

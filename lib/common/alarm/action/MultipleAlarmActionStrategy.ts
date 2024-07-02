@@ -8,7 +8,7 @@ export function multipleActions(...actions: IAlarmActionStrategy[]) {
 }
 
 export function isMultipleAlarmActionStrategy(
-  obj?: any
+  obj?: any,
 ): obj is MultipleAlarmActionStrategy {
   return !!(obj && obj instanceof MultipleAlarmActionStrategy);
 }

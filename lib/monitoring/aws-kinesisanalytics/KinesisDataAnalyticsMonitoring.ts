@@ -61,7 +61,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: KinesisDataAnalyticsMonitoringProps
+    props: KinesisDataAnalyticsMonitoringProps,
   ) {
     super(scope, props);
 
@@ -75,7 +75,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
       .getKinesisAnalyticsUrl(props.application);
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.kdaAlarmFactory = new KinesisDataAnalyticsAlarmFactory(alarmFactory);
     this.downtimeAnnotations = [];
@@ -83,7 +83,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
 
     const metricFactory = new KinesisDataAnalyticsMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
 
     this.cpuUtilizationPercentMetric =
@@ -109,7 +109,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
       const createdAlarm = this.kdaAlarmFactory.addDowntimeAlarm(
         this.downtimeMsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.downtimeAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -120,7 +120,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
       const createdAlarm = this.kdaAlarmFactory.addFullRestartAlarm(
         this.fullRestartsCountMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.fullRestartAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -257,22 +257,22 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
       // Checkpointing
       this.createNumberOfFailedCheckpointsWidget(
         QuarterWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
       // Checkpoint Duration
       this.createLastCheckpointDurationWidget(
         QuarterWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
       // Checkpoint Size
       this.createLastCheckpointSizeWidget(
         QuarterWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
       // Garbage Collection
       this.createGarbageCollectionWidget(
         QuarterWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
     ];
   }

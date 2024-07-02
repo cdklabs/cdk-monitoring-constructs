@@ -79,7 +79,7 @@ test("RDS passed into Aurora Cluster", () => {
 
   expect(testGuard).toThrow(Error);
   expect(testGuard).toThrow(
-    "Cluster is not of type `ServerlessCluster`. Monitoring is not applicable."
+    "Cluster is not of type `ServerlessCluster`. Monitoring is not applicable.",
   );
 });
 

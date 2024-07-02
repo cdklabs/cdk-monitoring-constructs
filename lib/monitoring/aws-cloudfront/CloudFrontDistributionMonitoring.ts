@@ -70,7 +70,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: CloudFrontDistributionMonitoringProps
+    props: CloudFrontDistributionMonitoringProps,
   ) {
     super(scope);
 
@@ -88,7 +88,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
       .getCloudFrontDistributionUrl(namedConstruct.distributionId);
 
     this.alarmFactory = this.createAlarmFactory(
-      this.namingStrategy.resolveAlarmFriendlyName()
+      this.namingStrategy.resolveAlarmFriendlyName(),
     );
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
     this.tpsAlarmFactory = new TpsAlarmFactory(this.alarmFactory);
@@ -98,7 +98,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
 
     const metricFactory = new CloudFrontDistributionMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.tpsMetric = metricFactory.metricRequestTps();
     this.downloadedBytesMetric = metricFactory.metricTotalBytesDownloaded();
@@ -116,7 +116,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMinTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -126,7 +126,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
       const createdAlarm = this.tpsAlarmFactory.addMaxTpsAlarm(
         this.tpsMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.tpsAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -137,7 +137,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
         this.error4xxRate,
         ErrorType.ERROR,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -148,7 +148,7 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
         this.error5xxRate,
         ErrorType.FAULT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

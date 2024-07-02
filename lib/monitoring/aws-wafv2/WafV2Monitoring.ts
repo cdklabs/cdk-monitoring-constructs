@@ -65,7 +65,7 @@ export class WafV2Monitoring extends Monitoring {
     this.humanReadableName = namingStrategy.resolveHumanReadableName();
 
     this.alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
 
     this.errorAlarmFactory = new ErrorAlarmFactory(this.alarmFactory);
@@ -75,7 +75,7 @@ export class WafV2Monitoring extends Monitoring {
 
     const metricFactory = new WafV2MetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
 
     this.allowedRequestsMetric = metricFactory.metricAllowedRequests();
@@ -88,7 +88,7 @@ export class WafV2Monitoring extends Monitoring {
         this.blockedRequestsMetric,
         ErrorType.BLOCKED,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -99,7 +99,7 @@ export class WafV2Monitoring extends Monitoring {
         this.blockedRequestsRateMetric,
         ErrorType.BLOCKED,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -115,7 +115,7 @@ export class WafV2Monitoring extends Monitoring {
       this.createBlockedRequestsWidget(ThirdWidth, DefaultSummaryWidgetHeight),
       this.createBlockedRequestsRateWidget(
         ThirdWidth,
-        DefaultSummaryWidgetHeight
+        DefaultSummaryWidgetHeight,
       ),
     ];
   }
@@ -127,7 +127,7 @@ export class WafV2Monitoring extends Monitoring {
       this.createBlockedRequestsWidget(ThirdWidth, DefaultGraphWidgetHeight),
       this.createBlockedRequestsRateWidget(
         ThirdWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
     ];
   }

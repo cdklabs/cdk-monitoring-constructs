@@ -26,7 +26,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
 
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
 
       const ec2Service = new NetworkLoadBalancedEc2Service(stack, "Service", {
@@ -64,7 +64,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
 
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
 
       const ec2Service = new NetworkLoadBalancedEc2Service(stack, "Service", {
@@ -150,7 +150,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
 
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
 
       const ec2Service = new ApplicationLoadBalancedEc2Service(
@@ -164,7 +164,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             containerPort: 8080,
             image,
           },
-        }
+        },
       );
 
       const monitoring = new Ec2ServiceMonitoring(scope, {
@@ -192,7 +192,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
 
       const image = new EcrImage(
         new Repository(stack, "Repository"),
-        "DummyImage"
+        "DummyImage",
       );
 
       const ec2Service = new ApplicationLoadBalancedEc2Service(
@@ -206,7 +206,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             containerPort: 8080,
             image,
           },
-        }
+        },
       );
 
       let numAlarmsCreated = 0;
@@ -269,7 +269,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       expect(numAlarmsCreated).toStrictEqual(8);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
-  }
+  },
 );
 
 test("snapshot test: with imported service", () => {
@@ -282,10 +282,10 @@ test("snapshot test: with imported service", () => {
       cluster: Cluster.fromClusterArn(
         stack,
         "ImportedCluster",
-        "arn:aws:ecs:us-west-2:123456789012:cluster/DummyCluster"
+        "arn:aws:ecs:us-west-2:123456789012:cluster/DummyCluster",
       ),
       serviceName: "DummyService",
-    }
+    },
   );
 
   const scope = new TestMonitoringScope(stack, "Scope");

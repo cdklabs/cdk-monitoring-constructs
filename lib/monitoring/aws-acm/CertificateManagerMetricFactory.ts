@@ -21,7 +21,7 @@ export class CertificateManagerMetricFactory extends BaseMetricFactory<Certifica
 
   constructor(
     metricFactory: MetricFactory,
-    props: CertificateManagerMetricFactoryProps
+    props: CertificateManagerMetricFactoryProps,
   ) {
     super(metricFactory, props);
 
@@ -37,7 +37,7 @@ export class CertificateManagerMetricFactory extends BaseMetricFactory<Certifica
       "Days to expiry",
       this.dimensionsMap,
       undefined,
-      Namespace
+      Namespace,
     );
   }
 }

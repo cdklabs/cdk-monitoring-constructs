@@ -87,7 +87,7 @@ export class SqsQueueMonitoringWithDlq extends SqsQueueMonitoring {
       {
         ...props,
         queue: props.deadLetterQueue,
-      }
+      },
     );
 
     const namingStrategy = new MonitoringNamingStrategy({
@@ -104,13 +104,13 @@ export class SqsQueueMonitoringWithDlq extends SqsQueueMonitoring {
       props.addDeadLetterQueueToSummaryDashboard ?? false;
 
     const deadLetterAlarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName() + "-DLQ"
+      namingStrategy.resolveAlarmFriendlyName() + "-DLQ",
     );
     this.deadLetterCountAnnotations = [];
     this.deadLetterAgeAnnotations = [];
 
     this.deadLetterQueueAlarmFactory = new QueueAlarmFactory(
-      deadLetterAlarmFactory
+      deadLetterAlarmFactory,
     );
     this.deadLetterQueueVisibleMessagesMetric =
       deadLetterMetricFactory.metricApproximateVisibleMessageCount();
@@ -125,7 +125,7 @@ export class SqsQueueMonitoringWithDlq extends SqsQueueMonitoring {
         this.deadLetterQueueAlarmFactory.addMaxQueueMessageCountAlarm(
           this.deadLetterQueueVisibleMessagesMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.deadLetterCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -137,7 +137,7 @@ export class SqsQueueMonitoringWithDlq extends SqsQueueMonitoring {
         this.deadLetterQueueAlarmFactory.addMaxQueueMessageAgeAlarm(
           this.deadLetterQueueOldestMessageAgeMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.deadLetterAgeAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -149,7 +149,7 @@ export class SqsQueueMonitoringWithDlq extends SqsQueueMonitoring {
         this.deadLetterQueueAlarmFactory.addMaxQueueIncomingMessagesCountAlarm(
           this.deadLetterQueueIncomingMessagesMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.addAlarm(createdAlarm);
     }
@@ -169,11 +169,11 @@ export class SqsQueueMonitoringWithDlq extends SqsQueueMonitoring {
       ...super.summaryWidgets(),
       this.createDeadLetterMessageCountWidget(
         HalfWidth,
-        DefaultSummaryWidgetHeight
+        DefaultSummaryWidgetHeight,
       ),
       this.createDeadLetterMessageAgeWidget(
         HalfWidth,
-        DefaultSummaryWidgetHeight
+        DefaultSummaryWidgetHeight,
       ),
     ];
   }
@@ -184,11 +184,11 @@ export class SqsQueueMonitoringWithDlq extends SqsQueueMonitoring {
       this.createDeadLetterTitleWidget(),
       this.createDeadLetterMessageCountWidget(
         HalfWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
       this.createDeadLetterMessageAgeWidget(
         HalfWidth,
-        DefaultGraphWidgetHeight
+        DefaultGraphWidgetHeight,
       ),
     ];
   }

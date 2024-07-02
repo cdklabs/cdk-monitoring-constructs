@@ -43,7 +43,7 @@ test("adjustMetric: with minMetricSamplesToAlarm, throws error", () => {
     Route53HealthCheckMetricAdjuster.INSTANCE.adjustMetric(metric, alarmScope, {
       ...props,
       minMetricSamplesToAlarm: 1,
-    })
+    }),
   ).toThrow("Alarms with 'minMetricSamplesToAlarm' are not supported.");
 });
 
@@ -52,8 +52,8 @@ test("adjustMetric: with MathExpression, throws error", () => {
     Route53HealthCheckMetricAdjuster.INSTANCE.adjustMetric(
       new MathExpression({ expression: "expr" }),
       alarmScope,
-      props
-    )
+      props,
+    ),
   ).toThrow("The specified metric must be a Metric instance.");
 });
 
@@ -62,8 +62,8 @@ test("adjustMetric: with cross-account metric, throws error", () => {
     Route53HealthCheckMetricAdjuster.INSTANCE.adjustMetric(
       metric.with({ account: "MyOtherAccount" }),
       alarmScope,
-      props
-    )
+      props,
+    ),
   ).toThrow("Cross-account metrics are not supported.");
 });
 
@@ -72,8 +72,8 @@ test("adjustMetric: with unsupported statistic, throws error", () => {
     Route53HealthCheckMetricAdjuster.INSTANCE.adjustMetric(
       metric.with({ statistic: MetricStatistic.P99 }),
       alarmScope,
-      props
-    )
+      props,
+    ),
   ).toThrow("Metrics with statistic 'p99' are not supported.");
 });
 
@@ -81,7 +81,7 @@ test("adjustMetric: removes label so alarms created from it don't have metrics p
   const actual = Route53HealthCheckMetricAdjuster.INSTANCE.adjustMetric(
     metric,
     alarmScope,
-    props
+    props,
   ) as Metric;
 
   expect(actual).not.toBe(metric);

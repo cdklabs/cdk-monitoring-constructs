@@ -39,7 +39,7 @@ test("removeBracketsWithDynamicLabels: string with single removal", () => {
 
 test("removeBracketsWithDynamicLabels: string with multiple removals", () => {
   expect(removeBracketsWithDynamicLabels("a (b: ${c}) (d: ${e}) f")).toEqual(
-    "a f"
+    "a f",
   );
 });
 
@@ -49,6 +49,6 @@ test("getMetricExpressionIdUsingHash: empty string", () => {
 
 test("getMetricExpressionIdUsingHash: plain string", () => {
   expect(getHashForMetricExpressionId("Hello world!")).toStrictEqual(
-    "ff4e5fadf3425"
+    "ff4e5fadf3425",
   );
 });

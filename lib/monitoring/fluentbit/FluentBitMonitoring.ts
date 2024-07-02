@@ -79,33 +79,33 @@ export class FluentBitMonitoring extends Monitoring {
   private inputMetricsWidget() {
     return this.createMetricWidget(
       [...Object.values(this.inputMetrics)],
-      "Input Metrics"
+      "Input Metrics",
     );
   }
   private outputMetricsWidget() {
     return this.createMetricWidget(
       [...Object.values(this.outputMetrics)],
-      "Output Metrics"
+      "Output Metrics",
     );
   }
 
   private filterMetricsWidget() {
     return this.createMetricWidget(
       [...Object.values(this.filterMetrics)],
-      "Filter Metrics"
+      "Filter Metrics",
     );
   }
 
   private storageMetricsWidget() {
     return this.createMetricWidget(
       [...Object.values(this.storageMetrics)],
-      "Storage Metrics"
+      "Storage Metrics",
     );
   }
 
   private createMetricWidget(
     metrics: MetricWithAlarmSupport[],
-    title: string
+    title: string,
   ): GraphWidget {
     return new GraphWidget({
       width: HalfWidth,

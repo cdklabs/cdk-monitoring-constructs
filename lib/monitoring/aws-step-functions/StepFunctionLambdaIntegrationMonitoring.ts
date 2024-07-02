@@ -68,7 +68,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: StepFunctionLambdaIntegrationMonitoringProps
+    props: StepFunctionLambdaIntegrationMonitoringProps,
   ) {
     super(scope, props);
 
@@ -83,7 +83,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
       .getLambdaFunctionUrl(props.lambdaFunction.functionName);
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.errorAlarmFactory = new ErrorAlarmFactory(alarmFactory);
     this.durationAlarmFactory = new LatencyAlarmFactory(alarmFactory);
@@ -94,7 +94,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
 
     const metricFactory = new StepFunctionLambdaIntegrationMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.p50DurationMetric = metricFactory.metricFunctionRunTimeP50InMillis();
     this.p90DurationMetric = metricFactory.metricFunctionRunTimeP90InMillis();
@@ -112,7 +112,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
         this.p50DurationMetric,
         LatencyType.P50,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.durationAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -123,7 +123,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
         this.p90DurationMetric,
         LatencyType.P90,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.durationAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -134,7 +134,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
         this.p99DurationMetric,
         LatencyType.P99,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.durationAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -145,7 +145,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
         this.failedFunctionsMetric,
         ErrorType.FAILURE,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -156,7 +156,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
         this.failedFunctionRateMetric,
         ErrorType.FAILURE,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -167,7 +167,7 @@ export class StepFunctionLambdaIntegrationMonitoring extends Monitoring {
         this.timedOutFunctionsMetrics,
         ErrorType.TIMED_OUT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

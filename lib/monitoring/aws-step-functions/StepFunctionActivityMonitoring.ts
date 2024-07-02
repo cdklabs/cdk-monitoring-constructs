@@ -70,7 +70,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
 
   constructor(
     scope: MonitoringScope,
-    props: StepFunctionActivityMonitoringProps
+    props: StepFunctionActivityMonitoringProps,
   ) {
     super(scope, props);
 
@@ -82,7 +82,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
     this.title = namingStrategy.resolveHumanReadableName();
 
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.errorAlarmFactory = new ErrorAlarmFactory(alarmFactory);
     this.durationAlarmFactory = new LatencyAlarmFactory(alarmFactory);
@@ -93,7 +93,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
 
     const metricFactory = new StepFunctionActivityMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.p50DurationMetric = metricFactory.metricActivityRunTimeP50InMillis();
     this.p90DurationMetric = metricFactory.metricActivityRunTimeP90InMillis();
@@ -114,7 +114,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
         this.p50DurationMetric,
         LatencyType.P50,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.durationAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -125,7 +125,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
         this.p90DurationMetric,
         LatencyType.P90,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.durationAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -136,7 +136,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
         this.p99DurationMetric,
         LatencyType.P99,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.durationAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -147,7 +147,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
         this.failedActivitiesMetric,
         ErrorType.FAILURE,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -158,7 +158,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
         this.failedActivitiesRateMetric,
         ErrorType.FAILURE,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -169,7 +169,7 @@ export class StepFunctionActivityMonitoring extends Monitoring {
         this.timedOutActivitiesMetrics,
         ErrorType.TIMED_OUT,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.errorCountAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

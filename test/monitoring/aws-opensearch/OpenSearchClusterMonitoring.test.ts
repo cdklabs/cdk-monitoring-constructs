@@ -30,7 +30,7 @@ const stack = new Stack();
   test(`snapshot test: no alarms for ${domain.node.id}`, () => {
     const scope = new TestMonitoringScope(
       stack,
-      "Scope-NoAlarms-" + domain.node.id
+      "Scope-NoAlarms-" + domain.node.id,
     );
 
     new OpenSearchClusterMonitoring(scope, {
@@ -43,7 +43,7 @@ const stack = new Stack();
   test(`snapshot test: all alarms for ${domain.node.id}`, () => {
     const scope = new TestMonitoringScope(
       stack,
-      "Scope-AllAlarms-" + domain.node.id
+      "Scope-AllAlarms-" + domain.node.id,
     );
 
     let numAlarmsCreated = 0;

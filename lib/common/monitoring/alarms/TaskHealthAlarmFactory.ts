@@ -44,7 +44,7 @@ export class TaskHealthAlarmFactory {
   addHealthyTaskCountAlarm(
     metric: MetricWithAlarmSupport,
     props: HealthyTaskCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -63,7 +63,7 @@ export class TaskHealthAlarmFactory {
   addUnhealthyTaskCountAlarm(
     metric: MetricWithAlarmSupport,
     props: UnhealthyTaskCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -82,7 +82,7 @@ export class TaskHealthAlarmFactory {
   addHealthyTaskPercentAlarm(
     metric: MetricWithAlarmSupport,
     props: HealthyTaskPercentThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -101,7 +101,7 @@ export class TaskHealthAlarmFactory {
   addRunningTaskCountAlarm(
     metric: MetricWithAlarmSupport,
     props: RunningTaskCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -120,7 +120,7 @@ export class TaskHealthAlarmFactory {
   addRunningTaskRateAlarm(
     metric: MetricWithAlarmSupport,
     props: RunningTaskRateThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     const alarmNameSuffix = "Task-Rate";
 
@@ -145,7 +145,7 @@ export class TaskHealthAlarmFactory {
   addMinRunningTaskCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MinRunningTaskCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -164,7 +164,7 @@ export class TaskHealthAlarmFactory {
   addAvailabilityAlarm(
     metric: MetricWithAlarmSupport,
     props: AvailabilityThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

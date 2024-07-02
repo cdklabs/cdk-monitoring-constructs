@@ -24,7 +24,7 @@ test("snapshot test: no alarms", () => {
     topic: Topic.fromTopicArn(
       stack,
       "DummyTopicRef",
-      "arn:aws:sns:us-east-2:123456789012:DummyTopicRef"
+      "arn:aws:sns:us-east-2:123456789012:DummyTopicRef",
     ),
   });
 

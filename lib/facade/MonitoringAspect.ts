@@ -44,7 +44,7 @@ export class MonitoringAspect implements IAspect {
 
   constructor(
     private readonly monitoringFacade: MonitoringFacade,
-    private readonly props: MonitoringAspectProps = {}
+    private readonly props: MonitoringAspectProps = {},
   ) {}
 
   public visit(node: IConstruct): void {
@@ -85,7 +85,7 @@ export class MonitoringAspect implements IAspect {
   }
 
   private getMonitoringDetails<T>(
-    aspectOptions?: MonitoringAspectType<T>
+    aspectOptions?: MonitoringAspectType<T>,
   ): [boolean, T?] {
     const isEnabled = aspectOptions?.enabled ?? true;
     const props = aspectOptions?.props;
@@ -116,7 +116,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorApiGatewayV2(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.apiGatewayV2
+      this.props.apiGatewayV2,
     );
     if (isEnabled && node instanceof apigwv2.HttpApi) {
       this.monitoringFacade.monitorApiGatewayV2HttpApi({
@@ -139,7 +139,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorAuroraCluster(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.auroraCluster
+      this.props.auroraCluster,
     );
     if (isEnabled && node instanceof rds.ServerlessCluster) {
       this.monitoringFacade.monitorAuroraCluster({
@@ -152,7 +152,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorAutoScalingGroup(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.autoScalingGroup
+      this.props.autoScalingGroup,
     );
     if (isEnabled && node instanceof autoscaling.AutoScalingGroup) {
       this.monitoringFacade.monitorAutoScalingGroup({
@@ -224,7 +224,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorElasticCache() {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.elasticCache
+      this.props.elasticCache,
     );
     if (isEnabled) {
       this.monitoringFacade.monitorElastiCacheCluster({
@@ -250,7 +250,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorKinesisAnalytics(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.kinesisDataAnalytics
+      this.props.kinesisDataAnalytics,
     );
     if (isEnabled && node instanceof kinesisanalytics.CfnApplication) {
       this.monitoringFacade.monitorKinesisDataAnalytics({
@@ -263,7 +263,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorKinesisDataStream(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.kinesisDataStream
+      this.props.kinesisDataStream,
     );
     if (isEnabled && node instanceof kinesis.CfnStream) {
       this.monitoringFacade.monitorKinesisDataStream({
@@ -276,7 +276,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorKinesisFirehose(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.kinesisFirehose
+      this.props.kinesisFirehose,
     );
     if (isEnabled && node instanceof kinesisfirehose.CfnDeliveryStream) {
       this.monitoringFacade.monitorKinesisFirehose({
@@ -315,7 +315,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorRdsCluster(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.rdsCluster ?? this.props.rds
+      this.props.rdsCluster ?? this.props.rds,
     );
     if (isEnabled && node instanceof rds.DatabaseCluster) {
       this.monitoringFacade.monitorRdsCluster({
@@ -328,7 +328,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorRdsInstance(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.rdsInstance
+      this.props.rdsInstance,
     );
     if (isEnabled && node instanceof rds.DatabaseInstance) {
       this.monitoringFacade.monitorRdsInstance({
@@ -371,7 +371,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorSecretsManager(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.secretsManager
+      this.props.secretsManager,
     );
     if (isEnabled && node instanceof secretsmanager.Secret) {
       this.monitoringFacade.monitorSecretsManagerSecret({
@@ -403,7 +403,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorStepFunctions(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.stepFunctions
+      this.props.stepFunctions,
     );
     if (isEnabled && node instanceof stepfunctions.StateMachine) {
       this.monitoringFacade.monitorStepFunction({
@@ -415,7 +415,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorSyntheticsCanaries(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.syntheticsCanaries
+      this.props.syntheticsCanaries,
     );
     if (isEnabled && node instanceof synthetics.Canary) {
       this.monitoringFacade.monitorSyntheticsCanary({
@@ -427,7 +427,7 @@ export class MonitoringAspect implements IAspect {
 
   private monitorWebApplicationFirewallV2Acls(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(
-      this.props.webApplicationFirewallAclV2
+      this.props.webApplicationFirewallAclV2,
     );
     if (isEnabled && node instanceof wafv2.CfnWebACL) {
       this.monitoringFacade.monitorWebApplicationFirewallAclV2({

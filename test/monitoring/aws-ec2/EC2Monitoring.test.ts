@@ -29,7 +29,7 @@ test("snapshot test: ASG, no alarms", () => {
     autoScalingGroup: AutoScalingGroup.fromAutoScalingGroupName(
       stack,
       "DummyASG",
-      "DummyASG"
+      "DummyASG",
     ),
   });
 
@@ -62,7 +62,7 @@ test("snapshot test: instance filter + ASG, no alarms", () => {
     autoScalingGroup: AutoScalingGroup.fromAutoScalingGroupName(
       stack,
       "DummyASG",
-      "DummyASG"
+      "DummyASG",
     ),
   });
 

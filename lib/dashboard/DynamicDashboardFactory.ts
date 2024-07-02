@@ -65,14 +65,14 @@ export class DynamicDashboardFactory
   constructor(
     scope: Construct,
     id: string,
-    props: MonitoringDynamicDashboardsProps
+    props: MonitoringDynamicDashboardsProps,
   ) {
     super(scope, id);
 
     props.dashboardConfigs.forEach((dashboardConfig) => {
       if (this.dashboards[dashboardConfig.name]) {
         throw new Error(
-          `Duplicate dashboard name found: ${dashboardConfig.name}`
+          `Duplicate dashboard name found: ${dashboardConfig.name}`,
         );
       }
 
@@ -80,7 +80,7 @@ export class DynamicDashboardFactory
         Object.values<string>(DefaultDashboards).includes(dashboardConfig.name)
       ) {
         throw new Error(
-          `${dashboardConfig.name} is a reserved name and cannot be used`
+          `${dashboardConfig.name} is a reserved name and cannot be used`,
         );
       }
 
@@ -100,7 +100,7 @@ export class DynamicDashboardFactory
           start,
           periodOverride:
             dashboardConfig.periodOverride ?? PeriodOverride.INHERIT,
-        }
+        },
       );
 
       this.dashboards[dashboardConfig.name] = dashboard;
@@ -110,7 +110,7 @@ export class DynamicDashboardFactory
   protected createDashboard(
     renderingPreference: DashboardRenderingPreference,
     id: string,
-    props: DashboardProps
+    props: DashboardProps,
   ) {
     switch (renderingPreference) {
       case DashboardRenderingPreference.INTERACTIVE_ONLY:

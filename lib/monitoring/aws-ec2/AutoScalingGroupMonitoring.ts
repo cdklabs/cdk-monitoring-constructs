@@ -52,7 +52,7 @@ export class AutoScalingGroupMonitoring extends Monitoring {
 
     const metricFactory = new AutoScalingGroupMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.groupMinSizeMetric = metricFactory.metricGroupMinSize();
     this.groupMaxSizeMetric = metricFactory.metricGroupMaxSize();

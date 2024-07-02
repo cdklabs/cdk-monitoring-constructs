@@ -475,9 +475,9 @@ test("addAlarm: should throw Error when minSampleCountToEvaluateDatapoint is use
       comparisonOperator: ComparisonOperator.LESS_THAN_THRESHOLD,
       minSampleCountToEvaluateDatapoint: 42,
       period: Duration.minutes(15),
-    })
+    }),
   ).toThrow(
-    "sampleCountMetricId must be specified when using minSampleCountToEvaluateDatapoint with a multiple-metric MathExpression"
+    "sampleCountMetricId must be specified when using minSampleCountToEvaluateDatapoint with a multiple-metric MathExpression",
   );
 });
 
@@ -761,7 +761,7 @@ test("addAlarm: custom metric adjuster, applies it and DefaultMetricAdjuster aft
   });
 
   expect(actual.annotation.label).toEqual(
-    "MyLabel < 10 for 10 datapoints within 100 minutes"
+    "MyLabel < 10 for 10 datapoints within 100 minutes",
   );
   const cfnAlarm = actual.alarm.node.defaultChild as CfnAlarm;
   expect(cfnAlarm.metrics).toHaveLength(1);
@@ -769,6 +769,6 @@ test("addAlarm: custom metric adjuster, applies it and DefaultMetricAdjuster aft
     (
       (cfnAlarm.metrics as CfnAlarm.MetricDataQueryProperty[])?.[0]
         ?.metricStat as CfnAlarm.MetricStatProperty
-    )?.period
+    )?.period,
   ).toEqual(Duration.minutes(10).toSeconds());
 });

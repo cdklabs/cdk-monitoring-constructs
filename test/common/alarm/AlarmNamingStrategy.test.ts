@@ -47,95 +47,97 @@ const DummyTicketingAlarmPropsWithNameOverride: AddAlarmProps = {
 
 test("no dedupe: getName returns expected value", () => {
   expect(
-    new AlarmNamingStrategy("first", "second").getName(DummyTicketingAlarmProps)
+    new AlarmNamingStrategy("first", "second").getName(
+      DummyTicketingAlarmProps,
+    ),
   ).toBe("first-second-CustomAlarmSuffix");
 });
 
 test("no dedupe: getDedupeString returns undefined", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getDedupeString(
-      DummyTicketingAlarmProps
-    )
+      DummyTicketingAlarmProps,
+    ),
   ).toBeUndefined();
 });
 
 test("no dedupe: getWidgetLabel returns expected value", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getWidgetLabel(
-      DummyTicketingAlarmProps
-    )
+      DummyTicketingAlarmProps,
+    ),
   ).toBe("second CustomAlarmSuffix");
 });
 
 test("dedupe: getName returns expected value", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getName(
-      DummyTicketingAlarmPropsWithDedupe
-    )
+      DummyTicketingAlarmPropsWithDedupe,
+    ),
   ).toBe("first-second-CustomAlarmSuffix");
 });
 
 test("dedupe: getDedupeString returns expected value", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getDedupeString(
-      DummyTicketingAlarmPropsWithDedupe
-    )
+      DummyTicketingAlarmPropsWithDedupe,
+    ),
   ).toBe("first-second-TestingDedupe");
 });
 
 test("dedupe: getWidgetLabel returns expected value", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getWidgetLabel(
-      DummyTicketingAlarmPropsWithDedupe
-    )
+      DummyTicketingAlarmPropsWithDedupe,
+    ),
   ).toBe("second CustomAlarmSuffix");
 });
 
 test("dedupe: getDedupeString returns expected value with override", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getDedupeString(
-      DummyTicketingAlarmPropsWithDedupeOverride
-    )
+      DummyTicketingAlarmPropsWithDedupeOverride,
+    ),
   ).toBe("DedupeOverride");
 });
 
 test("dedupe: getDedupeString returns expected value with override and disambiguator", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getDedupeString(
-      DummyTicketingAlarmPropsWithDedupeOverrideAndDisambiguator
-    )
+      DummyTicketingAlarmPropsWithDedupeOverrideAndDisambiguator,
+    ),
   ).toBe("DedupeOverride");
 });
 
 test("dedupe and disambiguator: getName returns expected value", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getName(
-      DummyTicketingAlarmPropsWithDedupeAndDisambiguator
-    )
+      DummyTicketingAlarmPropsWithDedupeAndDisambiguator,
+    ),
   ).toBe("first-second-CustomAlarmSuffix-TestingDisambiguator");
 });
 
 test("alarm name override: getName returns expected value", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getName(
-      DummyTicketingAlarmPropsWithNameOverride
-    )
+      DummyTicketingAlarmPropsWithNameOverride,
+    ),
   ).toBe("AlarmNameOverride");
 });
 
 test("dedupe and disambiguator: getDedupeString returns expected value", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getDedupeString(
-      DummyTicketingAlarmPropsWithDedupeAndDisambiguator
-    )
+      DummyTicketingAlarmPropsWithDedupeAndDisambiguator,
+    ),
   ).toBe("first-second-TestingDedupe");
 });
 
 test("dedupe and disambiguator: getWidgetLabel returns expected value", () => {
   expect(
     new AlarmNamingStrategy("first", "second").getWidgetLabel(
-      DummyTicketingAlarmPropsWithDedupeAndDisambiguator
-    )
+      DummyTicketingAlarmPropsWithDedupeAndDisambiguator,
+    ),
   ).toBe("second CustomAlarmSuffix TestingDisambiguator");
 });
 
@@ -154,22 +156,22 @@ test("dedupe string gets processed: override", () => {
     new AlarmNamingStrategy(
       "first",
       "second",
-      new CustomStrategy()
+      new CustomStrategy(),
     ).getDedupeString({
       alarmNameSuffix: "FirstAlarm",
       alarmDedupeStringSuffix: "First",
-    })
+    }),
   ).toBe("processed: first-second-First");
 
   expect(
     new AlarmNamingStrategy(
       "first",
       "second",
-      new CustomStrategy()
+      new CustomStrategy(),
     ).getDedupeString({
       alarmNameSuffix: "SecondAlarm",
       alarmDedupeStringSuffix: "Second",
       dedupeStringOverride: "Dedupe",
-    })
+    }),
   ).toBe("processed as override: Dedupe");
 });

@@ -5,6 +5,7 @@ import {
   DependencyType,
   ReleasableCommits,
 } from "projen";
+import { TrailingComma } from "projen/lib/javascript";
 
 const CDK_VERSION = "2.112.0";
 
@@ -75,13 +76,18 @@ _By submitting this pull request, I confirm that my contribution is made under t
 
   // Code linting config
   prettier: true,
+  prettierOptions: {
+    settings: {
+      trailingComma: TrailingComma.ALL,
+    },
+  },
 });
 
 // Experimental modules
 ["@aws-cdk/aws-redshift-alpha"].forEach((dep) => {
   project.deps.addDependency(
     `${dep}@${CDK_VERSION}-alpha.0`,
-    DependencyType.DEVENV
+    DependencyType.DEVENV,
   );
 });
 // https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/60310

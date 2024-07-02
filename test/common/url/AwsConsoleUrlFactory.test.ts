@@ -10,11 +10,11 @@ test("getAwsConsoleUrl in Conduit", () => {
   const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });
 
   expect(stack.resolve(factory.getAwsConsoleUrl())).toEqual(
-    "https://eu-west-1.console.aws.amazon.com"
+    "https://eu-west-1.console.aws.amazon.com",
   );
 
   expect(stack.resolve(factory.getAwsConsoleUrl("http://amazon.com"))).toEqual(
-    "http://amazon.com"
+    "http://amazon.com",
   );
 });
 
@@ -26,14 +26,14 @@ test("getCloudWatchLogGroupUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/cloudwatch/home?region=eu-west-1#logsV2:log-groups/log-group/DummyLogGroup";
 
   expect(
-    stack.resolve(factory.getCloudWatchLogGroupUrl("DummyLogGroup"))
+    stack.resolve(factory.getCloudWatchLogGroupUrl("DummyLogGroup")),
   ).toEqual(expected);
   expect(
     stack.resolve(
       factory.getCloudWatchLogGroupUrl(
-        Lazy.string({ produce: () => "DummyLogGroup" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyLogGroup" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -45,14 +45,14 @@ test("getCodeBuildProjectUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/codebuild/home?region=eu-west-1#/projects/DummyProjectName";
 
   expect(
-    stack.resolve(factory.getCodeBuildProjectUrl("DummyProjectName"))
+    stack.resolve(factory.getCodeBuildProjectUrl("DummyProjectName")),
   ).toEqual(expected);
   expect(
     stack.resolve(
       factory.getCodeBuildProjectUrl(
-        Lazy.string({ produce: () => "DummyProjectName" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyProjectName" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -64,12 +64,12 @@ test("getSnsTopicUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/sns/v3/home?region=eu-west-1#/topic/DummyTopicArn";
 
   expect(stack.resolve(factory.getSnsTopicUrl("DummyTopicArn"))).toEqual(
-    expected
+    expected,
   );
   expect(
     stack.resolve(
-      factory.getSnsTopicUrl(Lazy.string({ produce: () => "DummyTopicArn" }))
-    )
+      factory.getSnsTopicUrl(Lazy.string({ produce: () => "DummyTopicArn" })),
+    ),
   ).toEqual(expected);
 });
 
@@ -81,12 +81,12 @@ test("getSqsQueueUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/DummyQueueUrl";
 
   expect(stack.resolve(factory.getSqsQueueUrl("DummyQueueUrl"))).toEqual(
-    expected
+    expected,
   );
   expect(
     stack.resolve(
-      factory.getSqsQueueUrl(Lazy.string({ produce: () => "DummyQueueUrl" }))
-    )
+      factory.getSqsQueueUrl(Lazy.string({ produce: () => "DummyQueueUrl" })),
+    ),
   ).toEqual(expected);
 });
 
@@ -98,14 +98,14 @@ test("getDynamoTableUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=DummyTableName";
 
   expect(stack.resolve(factory.getDynamoTableUrl("DummyTableName"))).toEqual(
-    expected
+    expected,
   );
   expect(
     stack.resolve(
       factory.getDynamoTableUrl(
-        Lazy.string({ produce: () => "DummyTableName" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyTableName" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -117,14 +117,14 @@ test("getLambdaFunctionUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/DummyFunctionName";
 
   expect(
-    stack.resolve(factory.getLambdaFunctionUrl("DummyFunctionName"))
+    stack.resolve(factory.getLambdaFunctionUrl("DummyFunctionName")),
   ).toEqual(expected);
   expect(
     stack.resolve(
       factory.getLambdaFunctionUrl(
-        Lazy.string({ produce: () => "DummyFunctionName" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyFunctionName" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -136,12 +136,12 @@ test("getStateMachineUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/states/home?region=eu-west-1#/statemachines/view/DummyArn";
 
   expect(stack.resolve(factory.getStateMachineUrl("DummyArn"))).toEqual(
-    expected
+    expected,
   );
   expect(
     stack.resolve(
-      factory.getStateMachineUrl(Lazy.string({ produce: () => "DummyArn" }))
-    )
+      factory.getStateMachineUrl(Lazy.string({ produce: () => "DummyArn" })),
+    ),
   ).toEqual(expected);
 });
 
@@ -153,14 +153,14 @@ test("getKinesisDataStreamUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/kinesis/home?region=eu-west-1#/streams/details/DummyStream/monitoring";
 
   expect(stack.resolve(factory.getKinesisDataStreamUrl("DummyStream"))).toEqual(
-    expected
+    expected,
   );
   expect(
     stack.resolve(
       factory.getKinesisDataStreamUrl(
-        Lazy.string({ produce: () => "DummyStream" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyStream" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -172,14 +172,14 @@ test("getKinesisFirehoseDeliveryStreamUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/firehose/home?region=eu-west-1#/details/DummyStream/monitoring";
 
   expect(
-    stack.resolve(factory.getKinesisFirehoseDeliveryStreamUrl("DummyStream"))
+    stack.resolve(factory.getKinesisFirehoseDeliveryStreamUrl("DummyStream")),
   ).toEqual(expected);
   expect(
     stack.resolve(
       factory.getKinesisFirehoseDeliveryStreamUrl(
-        Lazy.string({ produce: () => "DummyStream" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyStream" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -191,12 +191,12 @@ test("getS3BucketUrl", () => {
     "https://s3.console.aws.amazon.com/s3/buckets/DummyBucket?region=eu-west-1&tab=metrics";
 
   expect(stack.resolve(factory.getS3BucketUrl("DummyBucket"))).toEqual(
-    expected
+    expected,
   );
   expect(
     stack.resolve(
-      factory.getS3BucketUrl(Lazy.string({ produce: () => "DummyBucket" }))
-    )
+      factory.getS3BucketUrl(Lazy.string({ produce: () => "DummyBucket" })),
+    ),
   ).toEqual(expected);
 });
 
@@ -208,12 +208,12 @@ test("getApiGatewayUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/apigateway/home?region=eu-west-1#/apis/DummyApiId/dashboard";
 
   expect(stack.resolve(factory.getApiGatewayUrl("DummyApiId"))).toEqual(
-    expected
+    expected,
   );
   expect(
     stack.resolve(
-      factory.getApiGatewayUrl(Lazy.string({ produce: () => "DummyApiId" }))
-    )
+      factory.getApiGatewayUrl(Lazy.string({ produce: () => "DummyApiId" })),
+    ),
   ).toEqual(expected);
 });
 
@@ -225,12 +225,14 @@ test("getRdsClusterUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=DummyClusterId;is-cluster=true;tab=monitoring";
 
   expect(stack.resolve(factory.getRdsClusterUrl("DummyClusterId"))).toEqual(
-    expected
+    expected,
   );
   expect(
     stack.resolve(
-      factory.getRdsClusterUrl(Lazy.string({ produce: () => "DummyClusterId" }))
-    )
+      factory.getRdsClusterUrl(
+        Lazy.string({ produce: () => "DummyClusterId" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -242,14 +244,14 @@ test("getRedshiftClusterUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/redshiftv2/home?region=eu-west-1#cluster-details?cluster=DummyClusterId";
 
   expect(
-    stack.resolve(factory.getRedshiftClusterUrl("DummyClusterId"))
+    stack.resolve(factory.getRedshiftClusterUrl("DummyClusterId")),
   ).toEqual(expected);
   expect(
     stack.resolve(
       factory.getRedshiftClusterUrl(
-        Lazy.string({ produce: () => "DummyClusterId" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyClusterId" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -261,14 +263,14 @@ test("getOpenSearchClusterUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/es/home?region=eu-west-1#domain:resource=DummyDomainName;action=dashboard;tab=TAB_CLUSTER_HEALTH_ID_V2";
 
   expect(
-    stack.resolve(factory.getOpenSearchClusterUrl("DummyDomainName"))
+    stack.resolve(factory.getOpenSearchClusterUrl("DummyDomainName")),
   ).toEqual(expected);
   expect(
     stack.resolve(
       factory.getOpenSearchClusterUrl(
-        Lazy.string({ produce: () => "DummyDomainName" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyDomainName" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -283,18 +285,18 @@ test("getElastiCacheClusterUrl (memcached)", () => {
     stack.resolve(
       factory.getElastiCacheClusterUrl(
         "DummyDomainName",
-        ElastiCacheClusterType.MEMCACHED
-      )
-    )
+        ElastiCacheClusterType.MEMCACHED,
+      ),
+    ),
   ).toEqual(expected);
   const lazyClusterId = Lazy.string({ produce: () => "DummyDomainName" });
   expect(
     stack.resolve(
       factory.getElastiCacheClusterUrl(
         lazyClusterId,
-        ElastiCacheClusterType.MEMCACHED
-      )
-    )
+        ElastiCacheClusterType.MEMCACHED,
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -309,18 +311,18 @@ test("getElastiCacheClusterUrl (redis)", () => {
     stack.resolve(
       factory.getElastiCacheClusterUrl(
         "DummyDomainName",
-        ElastiCacheClusterType.REDIS
-      )
-    )
+        ElastiCacheClusterType.REDIS,
+      ),
+    ),
   ).toEqual(expected);
   const lazyClusterId = Lazy.string({ produce: () => "DummyDomainName" });
   expect(
     stack.resolve(
       factory.getElastiCacheClusterUrl(
         lazyClusterId,
-        ElastiCacheClusterType.REDIS
-      )
-    )
+        ElastiCacheClusterType.REDIS,
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -332,14 +334,14 @@ test("getCloudFrontDistributionUrl", () => {
     "https://console.aws.amazon.com/cloudfront/v2/home#/monitoring/DummyDistributionId";
 
   expect(
-    stack.resolve(factory.getCloudFrontDistributionUrl("DummyDistributionId"))
+    stack.resolve(factory.getCloudFrontDistributionUrl("DummyDistributionId")),
   ).toEqual(expected);
   expect(
     stack.resolve(
       factory.getCloudFrontDistributionUrl(
-        Lazy.string({ produce: () => "DummyDistributionId" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyDistributionId" }),
+      ),
+    ),
   ).toEqual(expected);
 });
 
@@ -351,13 +353,13 @@ test("getDocumentDbClusterUrl", () => {
     "https://eu-west-1.console.aws.amazon.com/docdb/home?region=eu-west-1#cluster-details/DummyDocDbClusterId";
 
   expect(
-    stack.resolve(factory.getDocumentDbClusterUrl("DummyDocDbClusterId"))
+    stack.resolve(factory.getDocumentDbClusterUrl("DummyDocDbClusterId")),
   ).toEqual(expected);
   expect(
     stack.resolve(
       factory.getDocumentDbClusterUrl(
-        Lazy.string({ produce: () => "DummyDocDbClusterId" })
-      )
-    )
+        Lazy.string({ produce: () => "DummyDocDbClusterId" }),
+      ),
+    ),
   ).toEqual(expected);
 });

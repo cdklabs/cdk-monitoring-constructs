@@ -36,7 +36,7 @@ export interface QueueProcessingEc2ServiceMonitoringProps
 
 export function getQueueProcessingFargateServiceMonitoring(
   facade: MonitoringScope,
-  props: QueueProcessingFargateServiceMonitoringProps
+  props: QueueProcessingFargateServiceMonitoringProps,
 ) {
   return [
     new FargateServiceMonitoring(facade, {
@@ -48,14 +48,14 @@ export function getQueueProcessingFargateServiceMonitoring(
       facade,
       props,
       props.fargateService.sqsQueue,
-      props.fargateService.deadLetterQueue
+      props.fargateService.deadLetterQueue,
     ),
   ];
 }
 
 export function getQueueProcessingEc2ServiceMonitoring(
   facade: MonitoringScope,
-  props: QueueProcessingEc2ServiceMonitoringProps
+  props: QueueProcessingEc2ServiceMonitoringProps,
 ) {
   return [
     new Ec2ServiceMonitoring(facade, {
@@ -67,7 +67,7 @@ export function getQueueProcessingEc2ServiceMonitoring(
       facade,
       props,
       props.ec2Service.sqsQueue,
-      props.ec2Service.deadLetterQueue
+      props.ec2Service.deadLetterQueue,
     ),
   ];
 }
@@ -76,7 +76,7 @@ function getCommonQueueProcessingMonitoring(
   scope: MonitoringScope,
   props: BaseQueueProcessingServiceMonitoringProps,
   queue: IQueue,
-  deadLetterQueue?: IQueue
+  deadLetterQueue?: IQueue,
 ) {
   if (deadLetterQueue) {
     return new SqsQueueMonitoringWithDlq(scope, {

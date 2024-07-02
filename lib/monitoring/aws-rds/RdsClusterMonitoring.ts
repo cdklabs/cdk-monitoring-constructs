@@ -72,7 +72,7 @@ export class RdsClusterMonitoring extends Monitoring {
 
     const metricFactory = new RdsClusterMetricFactory(
       scope.createMetricFactory(),
-      props
+      props,
     );
     this.connectionsMetric = metricFactory.metricTotalConnectionCount();
     this.diskSpaceUsageMetric = metricFactory.metricDiskSpaceUsageInPercent();
@@ -93,7 +93,7 @@ export class RdsClusterMonitoring extends Monitoring {
       .createAwsConsoleUrlFactory()
       .getRdsClusterUrl(metricFactory.clusterIdentifier);
     const alarmFactory = this.createAlarmFactory(
-      namingStrategy.resolveAlarmFriendlyName()
+      namingStrategy.resolveAlarmFriendlyName(),
     );
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
     this.connectionAlarmFactory = new ConnectionAlarmFactory(alarmFactory);
@@ -106,7 +106,7 @@ export class RdsClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxDiskUsagePercentAlarm(
         this.diskSpaceUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -117,7 +117,7 @@ export class RdsClusterMonitoring extends Monitoring {
       const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
         this.cpuUsageMetric,
         alarmProps,
-        disambiguator
+        disambiguator,
       );
       this.usageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -129,7 +129,7 @@ export class RdsClusterMonitoring extends Monitoring {
         this.connectionAlarmFactory.addMinConnectionCountAlarm(
           this.connectionsMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
@@ -141,7 +141,7 @@ export class RdsClusterMonitoring extends Monitoring {
         this.connectionAlarmFactory.addMaxConnectionCountAlarm(
           this.connectionsMetric,
           alarmProps,
-          disambiguator
+          disambiguator,
         );
       this.connectionAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);

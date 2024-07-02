@@ -43,7 +43,7 @@ export class QueueAlarmFactory {
   addMinQueueMessageCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MinMessageCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -64,7 +64,7 @@ export class QueueAlarmFactory {
   addMaxQueueMessageCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxMessageCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -85,7 +85,7 @@ export class QueueAlarmFactory {
   addMaxQueueMessageAgeAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxMessageAgeThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -106,7 +106,7 @@ export class QueueAlarmFactory {
   addMaxQueueTimeToDrainMessagesAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxTimeToDrainThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -125,7 +125,7 @@ export class QueueAlarmFactory {
   addMinQueueIncomingMessagesCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MinIncomingMessagesCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -146,7 +146,7 @@ export class QueueAlarmFactory {
   addMaxQueueIncomingMessagesCountAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxIncomingMessagesCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

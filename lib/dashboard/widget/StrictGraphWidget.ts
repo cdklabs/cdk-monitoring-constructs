@@ -30,7 +30,7 @@ export class SingleAxisGraphWidget extends GraphWidget {
   }
 
   private static transformProps(
-    props: SingleAxisGraphWidgetProps
+    props: SingleAxisGraphWidgetProps,
   ): GraphWidgetProps {
     if (props.leftMetrics.length < 1) {
       throw new Error("No metrics defined. Please define at least one metric.");
@@ -76,16 +76,16 @@ export class DoubleAxisGraphWidget extends GraphWidget {
   }
 
   private static transformProps(
-    props: DoubleAxisGraphWidgetProps
+    props: DoubleAxisGraphWidgetProps,
   ): GraphWidgetProps {
     if (props.leftMetrics.length < 1) {
       throw new Error(
-        "No left metrics defined. Please define at least one metric."
+        "No left metrics defined. Please define at least one metric.",
       );
     }
     if (props.rightMetrics.length < 1) {
       throw new Error(
-        "No right metrics defined. Please define at least one metric."
+        "No right metrics defined. Please define at least one metric.",
       );
     }
 

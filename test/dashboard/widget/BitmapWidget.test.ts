@@ -27,7 +27,7 @@ test("widget", () => {
       title: "Dummy Title",
       left: [],
       leftAnnotations: [{ label: "Dummy Annotation", value: 10 }],
-    })
+    }),
   );
 
   expect(widget.toJson()).toEqual([

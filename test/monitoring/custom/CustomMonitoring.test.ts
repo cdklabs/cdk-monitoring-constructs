@@ -270,7 +270,7 @@ test("anomaly detection", () => {
               2,
               "AnomalyLabel",
               "blue",
-              "expression"
+              "expression",
             ),
             alarmFriendlyName: "Metric1",
             addAlarm: {
@@ -492,7 +492,7 @@ test("throws error if attempting to add alarm on a search query", () => {
             ],
           },
         ],
-      })
+      }),
   ).toThrow("Alarming on search queries is not supported by CloudWatch");
 });
 
@@ -538,8 +538,8 @@ test("throws error if attempting to add both a regular alarm and an anomoly dete
             ],
           },
         ],
-      })
+      }),
   ).toThrow(
-    "Adding both a regular alarm and an anomaly detection alarm at the same time is not supported"
+    "Adding both a regular alarm and an anomaly detection alarm at the same time is not supported",
   );
 });

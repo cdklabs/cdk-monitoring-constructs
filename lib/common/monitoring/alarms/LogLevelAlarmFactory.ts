@@ -33,7 +33,7 @@ export class LogLevelAlarmFactory {
     metric: MetricWithAlarmSupport,
     logLevel: LogLevel,
     props: LogLevelCountThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:

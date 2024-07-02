@@ -28,7 +28,7 @@ export class AgeAlarmFactory {
   addDaysToExpiryAlarm(
     metric: MetricWithAlarmSupport,
     props: DaysToExpiryThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -47,7 +47,7 @@ export class AgeAlarmFactory {
   addIteratorMaxAgeAlarm(
     metric: MetricWithAlarmSupport,
     props: MaxAgeThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
@@ -66,7 +66,7 @@ export class AgeAlarmFactory {
   addDaysSinceUpdateAlarm(
     metric: MetricWithAlarmSupport,
     props: DaysSinceUpdateThreshold,
-    disambiguator?: string
+    disambiguator?: string,
   ) {
     return this.alarmFactory.addAlarm(metric, {
       treatMissingData:
