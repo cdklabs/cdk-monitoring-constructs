@@ -6,9 +6,14 @@ import {
   FluentBitOutputMetricTag,
   FluentBitStorageMetricTag,
 } from "./FluentBitConstants";
-import { MetricFactory, MetricStatistic, MonitoringScope } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricStatistic,
+  MonitoringScope,
+} from "../../common";
 
-export interface FluentBitMetricFactoryProps {
+export interface FluentBitMetricFactoryProps extends BaseMetricFactoryProps {
   /**
    * Namespace that metrics will be emitted to.
    * @default metric factory default
@@ -16,14 +21,14 @@ export interface FluentBitMetricFactoryProps {
   readonly namespace?: string;
 }
 
-export class FluentBitMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export class FluentBitMetricFactory extends BaseMetricFactory<FluentBitMetricFactoryProps> {
   protected readonly namespace: string;
   protected readonly scope: MonitoringScope;
 
   constructor(scope: MonitoringScope, props: FluentBitMetricFactoryProps) {
+    super(scope.createMetricFactory(), props);
+
     this.scope = scope;
-    this.metricFactory = scope.createMetricFactory();
     this.namespace =
       props.namespace ??
       this.metricFactory.getNamespaceWithFallback(props.namespace);
@@ -78,10 +83,9 @@ export class FluentBitMetricFactory {
           metricValue: `${valueString}`,
         },
       );
-      const metric = metricFilter.metric({
+      return metricFilter.metric({
         statistic: MetricStatistic.MAX,
       });
-      return metric;
     });
   }
 

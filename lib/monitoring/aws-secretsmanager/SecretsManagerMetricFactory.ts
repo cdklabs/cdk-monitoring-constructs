@@ -1,5 +1,10 @@
 import { Duration } from "aws-cdk-lib";
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const CLASS = "None";
 const DEFAULT_METRIC_PERIOD = Duration.hours(1);
@@ -9,11 +14,14 @@ const RESOURCE = "SecretCount";
 const SERVICE = "Secrets Manager";
 const TYPE = "Resource";
 
-export class SecretsManagerMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export type SecretsManagerMetricFactoryProps = BaseMetricFactoryProps;
 
-  constructor(metricFactory: MetricFactory) {
-    this.metricFactory = metricFactory;
+export class SecretsManagerMetricFactory extends BaseMetricFactory<SecretsManagerMetricFactoryProps> {
+  constructor(
+    metricFactory: MetricFactory,
+    props: SecretsManagerMetricFactoryProps,
+  ) {
+    super(metricFactory, props);
   }
 
   metricSecretCount() {

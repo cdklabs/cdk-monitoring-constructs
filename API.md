@@ -23898,6 +23898,34 @@ public readonly addRecordsThrottledAlarm: {[ key: string ]: RecordsThrottledThre
 
 ---
 
+### LambdaFunctionEnhancedMetricFactoryProps <a name="LambdaFunctionEnhancedMetricFactoryProps" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { LambdaFunctionEnhancedMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const lambdaFunctionEnhancedMetricFactoryProps: LambdaFunctionEnhancedMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+---
+
 ### LambdaFunctionMetricFactoryProps <a name="LambdaFunctionMetricFactoryProps" id="cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.Initializer"></a>
@@ -60452,13 +60480,13 @@ public readonly streamUrl: string;
 ```typescript
 import { LambdaFunctionEnhancedMetricFactory } from 'cdk-monitoring-constructs'
 
-new LambdaFunctionEnhancedMetricFactory(metricFactory: MetricFactory, lambdaFunction: IFunction)
+new LambdaFunctionEnhancedMetricFactory(metricFactory: MetricFactory, props: LambdaFunctionEnhancedMetricFactoryProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps">LambdaFunctionEnhancedMetricFactoryProps</a></code> | *No description.* |
 
 ---
 
@@ -60468,9 +60496,9 @@ new LambdaFunctionEnhancedMetricFactory(metricFactory: MetricFactory, lambdaFunc
 
 ---
 
-##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.lambdaFunction"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer.parameter.props"></a>
 
-- *Type:* aws-cdk-lib.aws_lambda.IFunction
+- *Type:* <a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps">LambdaFunctionEnhancedMetricFactoryProps</a>
 
 ---
 
@@ -66835,18 +66863,25 @@ public addMinSecretCountAlarm(metric: Metric | MathExpression, props: MinSecretC
 ```typescript
 import { SecretsManagerMetricFactory } from 'cdk-monitoring-constructs'
 
-new SecretsManagerMetricFactory(metricFactory: MetricFactory)
+new SecretsManagerMetricFactory(metricFactory: MetricFactory, props: BaseMetricFactoryProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.BaseMetricFactoryProps">BaseMetricFactoryProps</a></code> | *No description.* |
 
 ---
 
 ##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.SecretsManagerMetricFactory.Initializer.parameter.metricFactory"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.SecretsManagerMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.BaseMetricFactoryProps">BaseMetricFactoryProps</a>
 
 ---
 

@@ -157,7 +157,7 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
    * CloudWatch when the instance is not allocated a full processor core.
    */
   metricAverageCpuUtilisationPercent() {
-    return this.createMetrics("CPUUtilization", MetricStatistic.AVERAGE);
+    return this.metric("CPUUtilization", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -197,7 +197,7 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
    * This metric identifies the volume of incoming network traffic to a single instance.
    */
   metricAverageNetworkInRateBytes() {
-    return this.createMetrics("NetworkIn", MetricStatistic.AVERAGE);
+    return this.metric("NetworkIn", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -205,7 +205,7 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
    * This metric identifies the volume of outgoing network traffic from a single instance.
    */
   metricAverageNetworkOutRateBytes() {
-    return this.createMetrics("NetworkOut", MetricStatistic.AVERAGE);
+    return this.metric("NetworkOut", MetricStatistic.AVERAGE);
   }
 
   private createDiskMetrics(metricName: string, statistic: MetricStatistic) {
@@ -235,7 +235,7 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
     });
   }
 
-  private createMetrics(metricName: string, statistic: MetricStatistic) {
+  private metric(metricName: string, statistic: MetricStatistic) {
     return this.strategy.createMetrics(
       this.metricFactory,
       metricName,

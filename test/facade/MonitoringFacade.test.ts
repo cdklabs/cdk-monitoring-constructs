@@ -1,11 +1,14 @@
-import { Stack } from "aws-cdk-lib";
+import { Duration, Stack } from "aws-cdk-lib";
 import { Capture, Template } from "aws-cdk-lib/assertions";
 import { TextWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { Table } from "aws-cdk-lib/aws-dynamodb";
+import { Topic } from "aws-cdk-lib/aws-sns";
 import {
   DefaultDashboardFactory,
   DynamicDashboardFactory,
   MonitoringFacade,
   SingleWidgetDashboardSegment,
+  notifySns,
 } from "../../lib";
 
 describe("test of defaults", () => {
@@ -62,6 +65,34 @@ describe("test of defaults", () => {
     result.hasResourceProperties("AWS::CloudWatch::Dashboard", {
       DashboardName: "testPrefix-Dynamic2",
     });
+  });
+
+  test("typical usage", () => {
+    const stack = new Stack();
+    const onAlarmTopic = new Topic(stack, "OnAlarmTopic", {
+      topicName: "Alarm",
+    });
+    const facade = new MonitoringFacade(stack, "MyAppFacade", {
+      metricFactoryDefaults: {
+        region: "us-east-1",
+        account: "09876543210",
+      },
+      alarmFactoryDefaults: {
+        alarmNamePrefix: "MyApp",
+        actionsEnabled: true,
+        action: notifySns(onAlarmTopic),
+      },
+    });
+    facade.addLargeHeader("My App Dashboard").monitorDynamoTable({
+      table: Table.fromTableName(stack, "ImportedTable", "MyTableName"),
+      addAverageSuccessfulGetItemLatencyAlarm: {
+        Critical: {
+          maxLatency: Duration.seconds(10),
+        },
+      },
+    });
+
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
   test("SingleWidgetDashboardSegment is not displayed if addSegment overrides set to false", () => {
