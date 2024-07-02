@@ -39,6 +39,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -50,6 +53,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -61,6 +67,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -72,6 +81,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -83,6 +95,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -94,6 +109,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -105,6 +123,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -116,6 +137,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -127,6 +151,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -138,6 +165,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -149,6 +179,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -160,6 +193,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -171,6 +207,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -182,6 +221,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -193,6 +235,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -204,6 +249,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -215,6 +263,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -240,6 +291,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -251,6 +305,9 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
       this.dimensionsMap,
       undefined,
       DataStreamNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

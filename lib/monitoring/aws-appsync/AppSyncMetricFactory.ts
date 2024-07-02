@@ -75,6 +75,9 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -86,6 +89,9 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -97,6 +103,9 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -108,6 +117,9 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -119,6 +131,9 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -140,6 +155,9 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 

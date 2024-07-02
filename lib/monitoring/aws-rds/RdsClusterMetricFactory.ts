@@ -137,6 +137,9 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
       this.dimensionsMap,
       undefined,
       RdsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

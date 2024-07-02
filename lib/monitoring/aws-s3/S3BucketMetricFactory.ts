@@ -53,6 +53,9 @@ export class S3BucketMetricFactory extends BaseMetricFactory<S3BucketMetricFacto
       },
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -67,6 +70,9 @@ export class S3BucketMetricFactory extends BaseMetricFactory<S3BucketMetricFacto
       },
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

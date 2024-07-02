@@ -43,6 +43,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -54,6 +57,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -65,6 +71,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -76,6 +85,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -97,6 +109,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -108,6 +123,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -119,6 +137,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -130,6 +151,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -141,6 +165,9 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

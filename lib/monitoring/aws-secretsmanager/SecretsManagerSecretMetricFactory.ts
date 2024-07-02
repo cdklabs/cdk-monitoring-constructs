@@ -40,6 +40,9 @@ export class SecretsManagerSecretMetricFactory extends BaseMetricFactory<Secrets
       this.dimensionsMap,
       undefined,
       SecretsManagerSecretMetricFactory.Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -51,6 +54,9 @@ export class SecretsManagerSecretMetricFactory extends BaseMetricFactory<Secrets
       this.dimensionsMap,
       undefined,
       SecretsManagerSecretMetricFactory.Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

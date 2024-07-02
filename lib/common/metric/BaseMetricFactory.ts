@@ -1,15 +1,33 @@
 import { MetricFactory } from "./MetricFactory";
 
 export interface BaseMetricFactoryProps {
-  // TODO: this will eventually include other common things like account/region
+  /**
+   * Region where the metrics exist.
+   *
+   * @default The region configured by the construct holding the Monitoring construct
+   * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html
+   */
+  readonly region?: string;
+
+  /**
+   * Account where the metrics exist.
+   *
+   * @default The account configured by the construct holding the Monitoring construct
+   * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html
+   */
+  readonly account?: string;
 }
 
 export abstract class BaseMetricFactory<
   PropsType extends BaseMetricFactoryProps,
 > {
   protected readonly metricFactory: MetricFactory;
+  protected readonly account?: string;
+  protected readonly region?: string;
 
-  constructor(metricFactory: MetricFactory, _props: PropsType) {
+  constructor(metricFactory: MetricFactory, props: PropsType) {
     this.metricFactory = metricFactory;
+    this.account = props.account;
+    this.region = props.region;
   }
 }

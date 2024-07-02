@@ -96,6 +96,9 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
       this.dimensionsMap,
       undefined,
       DocumentDbNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

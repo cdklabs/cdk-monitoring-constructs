@@ -24,6 +24,8 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
     return this.metricFactory.adaptMetric(
       this.queue.metricApproximateNumberOfMessagesVisible({
         label: "Visible",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -33,6 +35,8 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
       this.queue.metricNumberOfMessagesSent({
         statistic: MetricStatistic.SUM,
         label: "Incoming",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -42,6 +46,8 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
       this.queue.metricNumberOfMessagesDeleted({
         statistic: MetricStatistic.SUM,
         label: "Deleted",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -50,6 +56,8 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
     return this.metricFactory.adaptMetric(
       this.queue.metricApproximateAgeOfOldestMessage({
         label: "Age",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -58,6 +66,8 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
     return this.metricFactory.adaptMetric(
       this.queue.metricSentMessageSize({
         label: "Size",
+        region: this.region,
+        account: this.account,
       }),
     );
   }

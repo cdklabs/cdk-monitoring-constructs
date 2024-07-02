@@ -44,6 +44,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("ProvisionedReadCapacityUnits", {
         label: ProvisionedLabel,
         statistic: MetricStatistic.AVERAGE,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -53,6 +55,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("ProvisionedWriteCapacityUnits", {
         label: ProvisionedLabel,
         statistic: MetricStatistic.AVERAGE,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -63,6 +67,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       {
         consumed_rcu_sum: this.table.metricConsumedReadCapacityUnits({
           statistic: MetricStatistic.SUM,
+          region: this.region,
+          account: this.account,
         }),
       },
       ConsumedLabel,
@@ -75,6 +81,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       {
         consumed_wcu_sum: this.table.metricConsumedWriteCapacityUnits({
           statistic: MetricStatistic.SUM,
+          region: this.region,
+          account: this.account,
         }),
       },
       ConsumedLabel,
@@ -125,6 +133,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
           TableName: this.table.tableName,
           Operation: operation,
         },
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -134,6 +144,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("ReadThrottleEvents", {
         statistic: MetricStatistic.SUM,
         label: ReadThrottleEventsLabel,
+        region: this.region,
+        account: this.account,
       }),
     );
 
@@ -149,6 +161,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("WriteThrottleEvents", {
         statistic: MetricStatistic.SUM,
         label: WriteThrottleEventsLabel,
+        region: this.region,
+        account: this.account,
       }),
     );
 
@@ -187,6 +201,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
           Operation: operation,
         },
         statistic: MetricStatistic.SUM,
+        region: this.region,
+        account: this.account,
       });
 
       const metricId = "systemError" + operation;
@@ -206,6 +222,8 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
       this.table.metric("TimeToLiveDeletedItemCount", {
         label: "TTL Deleted Item Count",
         statistic: MetricStatistic.MAX,
+        region: this.region,
+        account: this.account,
       }),
     );
   }

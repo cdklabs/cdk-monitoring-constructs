@@ -286,15 +286,15 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -311,15 +311,15 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
