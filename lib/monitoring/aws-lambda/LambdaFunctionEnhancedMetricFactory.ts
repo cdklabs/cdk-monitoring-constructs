@@ -1,16 +1,29 @@
 import { IFunction } from "aws-cdk-lib/aws-lambda";
 
-import { MetricFactory, MetricStatistic } from "../../common";
+import {
+  BaseMetricFactory,
+  BaseMetricFactoryProps,
+  MetricFactory,
+  MetricStatistic,
+} from "../../common";
 
 const LambdaInsightsNamespace = "LambdaInsights";
 
-export class LambdaFunctionEnhancedMetricFactory {
-  protected readonly metricFactory: MetricFactory;
+export interface LambdaFunctionEnhancedMetricFactoryProps
+  extends BaseMetricFactoryProps {
+  readonly lambdaFunction: IFunction;
+}
+
+export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory<LambdaFunctionEnhancedMetricFactoryProps> {
   protected readonly lambdaFunction: IFunction;
 
-  constructor(metricFactory: MetricFactory, lambdaFunction: IFunction) {
-    this.metricFactory = metricFactory;
-    this.lambdaFunction = lambdaFunction;
+  constructor(
+    metricFactory: MetricFactory,
+    props: LambdaFunctionEnhancedMetricFactoryProps,
+  ) {
+    super(metricFactory, props);
+
+    this.lambdaFunction = props.lambdaFunction;
   }
 
   enhancedMetricMaxCpuTotalTime() {
