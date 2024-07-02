@@ -9212,15 +9212,31 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -9238,15 +9254,31 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
