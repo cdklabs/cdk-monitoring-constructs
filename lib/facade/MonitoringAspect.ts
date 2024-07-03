@@ -1,4 +1,4 @@
-import { IAspect } from "aws-cdk-lib";
+import { IAspect, Stack } from "aws-cdk-lib";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
 import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2";
 import * as appsync from "aws-cdk-lib/aws-appsync";
@@ -430,8 +430,14 @@ export class MonitoringAspect implements IAspect {
       this.props.webApplicationFirewallAclV2,
     );
     if (isEnabled && node instanceof wafv2.CfnWebACL) {
+      const regionProps: Record<string, string> = {};
+      if (node.scope === "REGIONAL") {
+        regionProps.region = Stack.of(node).region;
+      }
+
       this.monitoringFacade.monitorWebApplicationFirewallAclV2({
         acl: node,
+        ...regionProps,
         ...props,
       });
     }
