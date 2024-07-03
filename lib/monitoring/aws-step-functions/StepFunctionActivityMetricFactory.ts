@@ -44,6 +44,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -55,6 +58,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -66,6 +72,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -77,6 +86,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -88,6 +100,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -99,6 +114,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -110,6 +128,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -121,6 +142,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -132,6 +156,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -143,6 +170,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -164,6 +194,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -175,6 +208,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -186,6 +222,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -197,6 +236,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -208,6 +250,9 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

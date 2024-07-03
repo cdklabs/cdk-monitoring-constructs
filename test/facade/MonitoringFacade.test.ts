@@ -28,15 +28,24 @@ describe("test of defaults", () => {
     const stack = new Stack();
     new MonitoringFacade(stack, "Test1");
     new MonitoringFacade(stack, "Test2");
+    new MonitoringFacade(stack, "Test3", {
+      metricFactoryDefaults: {
+        region: "us-west-2",
+        account: "01234567890",
+      },
+    });
     const result = Template.fromStack(stack);
 
-    result.resourceCountIs("AWS::CloudWatch::Dashboard", 2);
+    result.resourceCountIs("AWS::CloudWatch::Dashboard", 3);
 
     result.hasResourceProperties("AWS::CloudWatch::Dashboard", {
       DashboardName: "Test1",
     });
     result.hasResourceProperties("AWS::CloudWatch::Dashboard", {
       DashboardName: "Test2",
+    });
+    result.hasResourceProperties("AWS::CloudWatch::Dashboard", {
+      DashboardName: "Test3",
     });
   });
 
@@ -83,14 +92,30 @@ describe("test of defaults", () => {
         action: notifySns(onAlarmTopic),
       },
     });
-    facade.addLargeHeader("My App Dashboard").monitorDynamoTable({
-      table: Table.fromTableName(stack, "ImportedTable", "MyTableName"),
-      addAverageSuccessfulGetItemLatencyAlarm: {
-        Critical: {
-          maxLatency: Duration.seconds(10),
+    facade
+      .addLargeHeader("My App Dashboard")
+      .monitorDynamoTable({
+        table: Table.fromTableName(stack, "ImportedTable", "MyTableName"),
+        addAverageSuccessfulGetItemLatencyAlarm: {
+          Critical: {
+            maxLatency: Duration.seconds(10),
+          },
         },
-      },
-    });
+      })
+      .monitorDynamoTable({
+        table: Table.fromTableArn(
+          stack,
+          "XaXrImportedTable",
+          "arn:aws:dynamodb:us-west-2:01234567890:table/my-other-table",
+        ),
+        region: "us-west-2",
+        account: "01234567890",
+        addAverageSuccessfulGetItemLatencyAlarm: {
+          Critical: {
+            maxLatency: Duration.seconds(10),
+          },
+        },
+      });
 
     expect(Template.fromStack(stack)).toMatchSnapshot();
   });

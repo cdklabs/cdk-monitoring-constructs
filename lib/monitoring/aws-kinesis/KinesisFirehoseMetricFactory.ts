@@ -39,6 +39,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -50,6 +53,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -61,6 +67,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -72,6 +81,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -83,6 +95,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -94,6 +109,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -105,6 +123,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -116,6 +137,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -160,6 +184,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -171,6 +198,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -182,6 +212,9 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
       this.dimensionsMap,
       undefined,
       FirehoseNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

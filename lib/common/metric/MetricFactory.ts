@@ -31,21 +31,6 @@ export interface MetricFactoryDefaults extends BaseMetricFactoryProps {
    * @default - DefaultMetricPeriod
    */
   readonly period?: Duration;
-
-  /**
-   * Region where the metrics exist.
-   *
-   * @default The region configured by the construct holding the Monitoring construct
-   * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html
-   */
-  readonly region?: string;
-  /**
-   * Account where the metrics exist.
-   *
-   * @default The account configured by the construct holding the Monitoring construct
-   * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html
-   */
-  readonly account?: string;
 }
 
 export interface MetricFactoryProps {

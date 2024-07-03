@@ -4524,12 +4524,44 @@ const apiGatewayMetricFactoryProps: ApiGatewayMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.IRestApi</code> | API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -4616,6 +4648,8 @@ const apiGatewayMonitoringOptions: ApiGatewayMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -4650,6 +4684,36 @@ const apiGatewayMonitoringOptions: ApiGatewayMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLatencyTM99OutlierAlarm">addLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ApiGatewayMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -5044,6 +5108,8 @@ const apiGatewayMonitoringProps: ApiGatewayMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.IRestApi</code> | API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
@@ -5084,6 +5150,36 @@ const apiGatewayMonitoringProps: ApiGatewayMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLatencyTM99OutlierAlarm">addLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ApiGatewayMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -5547,12 +5643,44 @@ const apiGatewayV2HttpApiMetricFactoryProps: ApiGatewayV2HttpApiMetricFactoryPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigatewayv2.IHttpApi</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.apiStage">apiStage</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -5637,6 +5765,8 @@ const apiGatewayV2HttpApiMonitoringProps: ApiGatewayV2HttpApiMonitoringProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigatewayv2.IHttpApi</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.apiMethod">apiMethod</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.apiResource">apiResource</a></code> | <code>string</code> | On undefined value is not set in dimensions. |
@@ -5697,6 +5827,36 @@ const apiGatewayV2HttpApiMonitoringProps: ApiGatewayV2HttpApiMonitoringProps = {
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLatencyTM99OutlierAlarm">addLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -6358,6 +6518,8 @@ const apiGatewayV2MonitoringOptions: ApiGatewayV2MonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -6412,6 +6574,36 @@ const apiGatewayV2MonitoringOptions: ApiGatewayV2MonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLatencyTM99OutlierAlarm">addLatencyTM99OutlierAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -7009,6 +7201,8 @@ const applicationLoadBalancerMetricFactoryProps: ApplicationLoadBalancerMetricFa
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 
@@ -7030,6 +7224,36 @@ When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `Health
 
 `invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ApplicationLoadBalancerMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -7067,9 +7291,41 @@ const appSyncMetricFactoryProps: AppSyncMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_appsync.IGraphqlApi</code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.AppSyncMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -7125,6 +7381,8 @@ const appSyncMonitoringOptions: AppSyncMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -7141,6 +7399,36 @@ const appSyncMonitoringOptions: AppSyncMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.AppSyncMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -7346,6 +7634,8 @@ const appSyncMonitoringProps: AppSyncMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -7365,6 +7655,36 @@ const appSyncMonitoringProps: AppSyncMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_appsync.IGraphqlApi</code> | the GraphQL API to monitor. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | whether the TPS should be filled with zeroes. |
 | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | method to compute TPS. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.AppSyncMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -7608,6 +7928,8 @@ const auroraClusterMonitoringOptions: AuroraClusterMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -7619,6 +7941,36 @@ const auroraClusterMonitoringOptions: AuroraClusterMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMaxServerlessDatabaseCapacityAlarm">addMaxServerlessDatabaseCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -7774,6 +8126,8 @@ const auroraClusterMonitoringProps: AuroraClusterMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster \| aws-cdk-lib.aws_rds.ServerlessCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -7787,6 +8141,36 @@ const auroraClusterMonitoringProps: AuroraClusterMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMaxServerlessDatabaseCapacityAlarm">addMaxServerlessDatabaseCapacityAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageCountThreshold">UsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.AuroraClusterMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -7968,7 +8352,39 @@ const autoScalingGroupMetricFactoryProps: AutoScalingGroupMetricFactoryProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.AutoScalingGroupMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -7996,6 +8412,8 @@ const autoScalingGroupMonitoringOptions: AutoScalingGroupMonitoringOptions = { .
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -8003,6 +8421,36 @@ const autoScalingGroupMonitoringOptions: AutoScalingGroupMonitoringOptions = { .
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -8118,6 +8566,8 @@ const autoScalingGroupMonitoringProps: AutoScalingGroupMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -8126,6 +8576,36 @@ const autoScalingGroupMonitoringProps: AutoScalingGroupMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.AutoScalingGroupMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -8923,6 +9403,44 @@ import { BaseMetricFactoryProps } from 'cdk-monitoring-constructs'
 const baseMetricFactoryProps: BaseMetricFactoryProps = { ... }
 ```
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BaseMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.BaseMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.BaseMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.BaseMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
 
 ### BaseMonitoringProps <a name="BaseMonitoringProps" id="cdk-monitoring-constructs.BaseMonitoringProps"></a>
 
@@ -8942,6 +9460,8 @@ const baseMonitoringProps: BaseMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -8949,6 +9469,36 @@ const baseMonitoringProps: BaseMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BaseMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.BaseMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.BaseMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -9066,7 +9616,39 @@ const baseServiceMetricFactoryProps: BaseServiceMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.service">service</a></code> | <code>aws-cdk-lib.aws_ecs.IBaseService</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.BaseServiceMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -9177,6 +9759,8 @@ const billingMonitoringOptions: BillingMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -9185,6 +9769,36 @@ const billingMonitoringOptions: BillingMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions.property.addTotalCostAnomalyAlarm">addTotalCostAnomalyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold">AnomalyDetectionThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.BillingMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -9310,6 +9924,8 @@ const billingMonitoringProps: BillingMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -9318,6 +9934,36 @@ const billingMonitoringProps: BillingMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.BillingMonitoringProps.property.addTotalCostAnomalyAlarm">addTotalCostAnomalyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold">AnomalyDetectionThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.BillingMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.BillingMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -9443,7 +10089,39 @@ const certificateManagerMetricFactoryProps: CertificateManagerMetricFactoryProps
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMetricFactoryProps.property.certificate">certificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CertificateManagerMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CertificateManagerMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -9471,6 +10149,8 @@ const certificateManagerMonitoringOptions: CertificateManagerMonitoringOptions =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -9479,6 +10159,36 @@ const certificateManagerMonitoringOptions: CertificateManagerMonitoringOptions =
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.addDaysToExpiryAlarm">addDaysToExpiryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysToExpiryThreshold">DaysToExpiryThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CertificateManagerMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -9604,6 +10314,8 @@ const certificateManagerMonitoringProps: CertificateManagerMonitoringProps = { .
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -9613,6 +10325,36 @@ const certificateManagerMonitoringProps: CertificateManagerMonitoringProps = { .
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.addDaysToExpiryAlarm">addDaysToExpiryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysToExpiryThreshold">DaysToExpiryThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.certificate">certificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CertificateManagerMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -10140,10 +10882,42 @@ const cloudFrontDistributionMetricFactoryProps: CloudFrontDistributionMetricFact
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.IDistribution</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.additionalMetricsEnabled">additionalMetricsEnabled</a></code> | <code>boolean</code> | Generate dashboard charts for additional CloudFront distribution metrics. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -10209,6 +10983,8 @@ const cloudFrontDistributionMonitoringOptions: CloudFrontDistributionMonitoringO
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -10216,6 +10992,36 @@ const cloudFrontDistributionMonitoringOptions: CloudFrontDistributionMonitoringO
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -10331,6 +11137,8 @@ const cloudFrontDistributionMonitoringProps: CloudFrontDistributionMonitoringPro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.IDistribution</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.additionalMetricsEnabled">additionalMetricsEnabled</a></code> | <code>boolean</code> | Generate dashboard charts for additional CloudFront distribution metrics. |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
@@ -10346,6 +11154,36 @@ const cloudFrontDistributionMonitoringProps: CloudFrontDistributionMonitoringPro
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addFault5xxRate">addFault5xxRate</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -10549,7 +11387,39 @@ const cloudWatchLogsMetricFactoryProps: CloudWatchLogsMetricFactoryProps = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps.property.logGroupName">logGroupName</a></code> | <code>string</code> | Name of the log group to monitor. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CloudWatchLogsMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -10579,7 +11449,39 @@ const codeBuildProjectMetricFactoryProps: CodeBuildProjectMetricFactoryProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps.property.project">project</a></code> | <code>aws-cdk-lib.aws_codebuild.IProject</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CodeBuildProjectMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -10607,6 +11509,8 @@ const codeBuildProjectMonitoringOptions: CodeBuildProjectMonitoringOptions = { .
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -10619,6 +11523,36 @@ const codeBuildProjectMonitoringOptions: CodeBuildProjectMonitoringOptions = { .
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addDurationP99Alarm">addDurationP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addFailedBuildCountAlarm">addFailedBuildCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.addFailedBuildRateAlarm">addFailedBuildRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -10786,6 +11720,8 @@ const codeBuildProjectMonitoringProps: CodeBuildProjectMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.project">project</a></code> | <code>aws-cdk-lib.aws_codebuild.IProject</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -10799,6 +11735,36 @@ const codeBuildProjectMonitoringProps: CodeBuildProjectMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.addDurationP99Alarm">addDurationP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.addFailedBuildCountAlarm">addFailedBuildCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.addFailedBuildRateAlarm">addFailedBuildRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CodeBuildProjectMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -11683,6 +12649,8 @@ const customEc2ServiceMonitoringProps: CustomEc2ServiceMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -11704,6 +12672,36 @@ const customEc2ServiceMonitoringProps: CustomEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CustomEc2ServiceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -11976,6 +12974,8 @@ const customFargateServiceMonitoringProps: CustomFargateServiceMonitoringProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -11997,6 +12997,36 @@ const customFargateServiceMonitoringProps: CustomFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup \| aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CustomFargateServiceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -12820,6 +13850,8 @@ const customMonitoringProps: CustomMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -12831,6 +13863,36 @@ const customMonitoringProps: CustomMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.description">description</a></code> | <code>string</code> | optional description of the whole section, in markdown. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.descriptionWidgetHeight">descriptionWidgetHeight</a></code> | <code>number</code> | optional height of the description widget, so the content fits. |
 | <code><a href="#cdk-monitoring-constructs.CustomMonitoringProps.property.height">height</a></code> | <code>number</code> | Height override. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CustomMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CustomMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -14245,7 +15307,39 @@ const documentDbMetricFactoryProps: DocumentDbMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_docdb.IDatabaseCluster</code> | database cluster. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.DocumentDbMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -14275,6 +15369,8 @@ const documentDbMonitoringOptions: DocumentDbMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -14283,6 +15379,36 @@ const documentDbMonitoringOptions: DocumentDbMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.DocumentDbMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -14408,6 +15534,8 @@ const documentDbMonitoringProps: DocumentDbMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_docdb.IDatabaseCluster</code> | database cluster. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -14417,6 +15545,36 @@ const documentDbMonitoringProps: DocumentDbMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.DocumentDbMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.DocumentDbMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -15115,8 +16273,40 @@ const dynamoTableGlobalSecondaryIndexMetricFactoryProps: DynamoTableGlobalSecond
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.globalSecondaryIndexName">globalSecondaryIndexName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -15154,6 +16344,8 @@ const dynamoTableGlobalSecondaryIndexMonitoringProps: DynamoTableGlobalSecondary
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.globalSecondaryIndexName">globalSecondaryIndexName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -15165,6 +16357,36 @@ const dynamoTableGlobalSecondaryIndexMonitoringProps: DynamoTableGlobalSecondary
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.addReadThrottledEventsCountAlarm">addReadThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.addWriteThrottledEventsCountAlarm">addWriteThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -15320,8 +16542,40 @@ const dynamoTableMetricFactoryProps: DynamoTableMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | table to monitor. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.billingMode">billingMode</a></code> | <code>aws-cdk-lib.aws_dynamodb.BillingMode</code> | table billing mode. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.DynamoTableMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -15364,6 +16618,8 @@ const dynamoTableMonitoringOptions: DynamoTableMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -15386,6 +16642,36 @@ const dynamoTableMonitoringOptions: DynamoTableMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addReadThrottledEventsCountAlarm">addReadThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addSystemErrorCountAlarm">addSystemErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.addWriteThrottledEventsCountAlarm">addWriteThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.DynamoTableMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -15651,6 +16937,8 @@ const dynamoTableMonitoringProps: DynamoTableMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | table to monitor. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.billingMode">billingMode</a></code> | <code>aws-cdk-lib.aws_dynamodb.BillingMode</code> | table billing mode. |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -15675,6 +16963,36 @@ const dynamoTableMonitoringProps: DynamoTableMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addReadThrottledEventsCountAlarm">addReadThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addSystemErrorCountAlarm">addSystemErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringProps.property.addWriteThrottledEventsCountAlarm">addWriteThrottledEventsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ThrottledEventsThreshold">ThrottledEventsThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.DynamoTableMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.DynamoTableMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -15968,6 +17286,8 @@ const ec2ApplicationLoadBalancerMonitoringProps: Ec2ApplicationLoadBalancerMonit
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -16008,6 +17328,36 @@ When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `Health
 
 `invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.Ec2ApplicationLoadBalancerMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -16280,8 +17630,40 @@ const eC2MetricFactoryProps: EC2MetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.EC2MetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.EC2MetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -16325,6 +17707,8 @@ const eC2MonitoringOptions: EC2MonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -16334,6 +17718,36 @@ const eC2MonitoringOptions: EC2MonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -16475,6 +17889,8 @@ const eC2MonitoringProps: EC2MonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -16484,6 +17900,36 @@ const eC2MonitoringProps: EC2MonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.EC2MonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.EC2MonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -16628,6 +18074,8 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -16668,6 +18116,36 @@ When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `Health
 
 `invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -16942,6 +18420,8 @@ const ec2ServiceMonitoringProps: Ec2ServiceMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -16961,6 +18441,36 @@ const ec2ServiceMonitoringProps: Ec2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.Ec2ServiceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -17213,7 +18723,39 @@ const elastiCacheClusterMetricFactoryProps: ElastiCacheClusterMetricFactoryProps
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactoryProps.property.clusterId">clusterId</a></code> | <code>string</code> | Cluster to monitor. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ElastiCacheClusterMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ElastiCacheClusterMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -17244,6 +18786,8 @@ const elastiCacheClusterMonitoringOptions: ElastiCacheClusterMonitoringOptions =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -17258,6 +18802,36 @@ const elastiCacheClusterMonitoringOptions: ElastiCacheClusterMonitoringOptions =
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold">MaxUsedSwapMemoryThreshold</a>}</code> | Add alarm on amount of used swap memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}</code> | Add alarm on amount of freeable memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addRedisEngineCpuUsageAlarm">addRedisEngineCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add Redis engine CPU usage alarm. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -17460,6 +19034,8 @@ const elastiCacheClusterMonitoringProps: ElastiCacheClusterMonitoringProps = { .
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.clusterId">clusterId</a></code> | <code>string</code> | Cluster to monitor. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -17475,6 +19051,36 @@ const elastiCacheClusterMonitoringProps: ElastiCacheClusterMonitoringProps = { .
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold">MaxUsedSwapMemoryThreshold</a>}</code> | Add alarm on amount of used swap memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}</code> | Add alarm on amount of freeable memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addRedisEngineCpuUsageAlarm">addRedisEngineCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add Redis engine CPU usage alarm. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -18411,6 +20017,8 @@ const fargateApplicationLoadBalancerMonitoringProps: FargateApplicationLoadBalan
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationLoadBalancer">applicationLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.applicationTargetGroup">applicationTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -18451,6 +20059,36 @@ When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `Health
 
 `invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.FargateApplicationLoadBalancerMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -18726,6 +20364,8 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -18766,6 +20406,36 @@ When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `Health
 
 `invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -19040,6 +20710,8 @@ const fargateServiceMonitoringProps: FargateServiceMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -19059,6 +20731,36 @@ const fargateServiceMonitoringProps: FargateServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addMinProcessedBytesAlarm">addMinProcessedBytesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold">MinProcessedBytesThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.addUnhealthyTaskCountAlarm">addUnhealthyTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateServiceMonitoringProps.property.invertLoadBalancerTaskCountMetricsStatistics">invertLoadBalancerTaskCountMetricsStatistics</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.FargateServiceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -19672,7 +21374,39 @@ const fluentBitMetricFactoryProps: FluentBitMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMetricFactoryProps.property.namespace">namespace</a></code> | <code>string</code> | Namespace that metrics will be emitted to. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.FluentBitMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.FluentBitMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -19703,6 +21437,8 @@ const fluentBitMonitoringProps: FluentBitMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.namespace">namespace</a></code> | <code>string</code> | Namespace that metrics will be emitted to. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -19713,6 +21449,36 @@ const fluentBitMonitoringProps: FluentBitMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Log group that contains FluentBit metric logs. |
 | <code><a href="#cdk-monitoring-constructs.FluentBitMonitoringProps.property.createOptionalMetricFilters">createOptionalMetricFilters</a></code> | <code>boolean</code> | Metrics for input bytes total, output bytes total and output records total are not shown on default dashboard. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.FluentBitMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -20227,8 +21993,40 @@ const glueJobMetricFactoryProps: GlueJobMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.GlueJobMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -20267,6 +22065,8 @@ const glueJobMonitoringOptions: GlueJobMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -20280,6 +22080,36 @@ const glueJobMonitoringOptions: GlueJobMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addFailedTaskRateAlarm">addFailedTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskCountAlarm">addKilledTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskRateAlarm">addKilledTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -20456,6 +22286,8 @@ const glueJobMonitoringProps: GlueJobMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -20469,6 +22301,36 @@ const glueJobMonitoringProps: GlueJobMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addFailedTaskRateAlarm">addFailedTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskCountAlarm">addKilledTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskRateAlarm">addKilledTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -22799,7 +24661,39 @@ const kinesisDataAnalyticsMetricFactoryProps: KinesisDataAnalyticsMetricFactoryP
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps.property.application">application</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -22827,6 +24721,8 @@ const kinesisDataAnalyticsMonitoringOptions: KinesisDataAnalyticsMonitoringOptio
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -22836,6 +24732,36 @@ const kinesisDataAnalyticsMonitoringOptions: KinesisDataAnalyticsMonitoringOptio
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addDowntimeAlarm">addDowntimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxDowntimeThreshold">MaxDowntimeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addFullRestartCountAlarm">addFullRestartCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -22971,6 +24897,8 @@ const kinesisDataAnalyticsMonitoringProps: KinesisDataAnalyticsMonitoringProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.application">application</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -22981,6 +24909,36 @@ const kinesisDataAnalyticsMonitoringProps: KinesisDataAnalyticsMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addDowntimeAlarm">addDowntimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxDowntimeThreshold">MaxDowntimeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addFullRestartCountAlarm">addFullRestartCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -23126,7 +25084,39 @@ const kinesisDataStreamMetricFactoryProps: KinesisDataStreamMetricFactoryProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMetricFactoryProps.property.streamName">streamName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisDataStreamMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -23154,6 +25144,8 @@ const kinesisDataStreamMonitoringOptions: KinesisDataStreamMonitoringOptions = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -23167,6 +25159,36 @@ const kinesisDataStreamMonitoringOptions: KinesisDataStreamMonitoringOptions = {
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addReadProvisionedThroughputExceededAlarm">addReadProvisionedThroughputExceededAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addThrottledRecordsAlarm">addThrottledRecordsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.addWriteProvisionedThroughputExceededAlarm">addWriteProvisionedThroughputExceededAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -23342,6 +25364,8 @@ const kinesisDataStreamMonitoringProps: KinesisDataStreamMonitoringProps = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.streamName">streamName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -23356,6 +25380,36 @@ const kinesisDataStreamMonitoringProps: KinesisDataStreamMonitoringProps = { ...
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addReadProvisionedThroughputExceededAlarm">addReadProvisionedThroughputExceededAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addThrottledRecordsAlarm">addThrottledRecordsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.addWriteProvisionedThroughputExceededAlarm">addWriteProvisionedThroughputExceededAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisDataStreamMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -23541,7 +25595,39 @@ const kinesisFirehoseMetricFactoryProps: KinesisFirehoseMetricFactoryProps = { .
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps.property.deliveryStreamName">deliveryStreamName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -23569,6 +25655,8 @@ const kinesisFirehoseMonitoringOptions: KinesisFirehoseMonitoringOptions = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -23580,6 +25668,36 @@ const kinesisFirehoseMonitoringOptions: KinesisFirehoseMonitoringOptions = { ...
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingPutRequestsExceedThresholdAlarm">addIncomingPutRequestsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingRecordsExceedThresholdAlarm">addIncomingRecordsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addRecordsThrottledAlarm">addRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -23735,6 +25853,8 @@ const kinesisFirehoseMonitoringProps: KinesisFirehoseMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.deliveryStreamName">deliveryStreamName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -23747,6 +25867,36 @@ const kinesisFirehoseMonitoringProps: KinesisFirehoseMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingPutRequestsExceedThresholdAlarm">addIncomingPutRequestsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingRecordsExceedThresholdAlarm">addIncomingRecordsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addRecordsThrottledAlarm">addRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -23912,7 +26062,39 @@ const lambdaFunctionEnhancedMetricFactoryProps: LambdaFunctionEnhancedMetricFact
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -23940,10 +26122,42 @@ const lambdaFunctionMetricFactoryProps: LambdaFunctionMetricFactoryProps = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.lambdaInsightsEnabled">lambdaInsightsEnabled</a></code> | <code>boolean</code> | Generate dashboard charts for Lambda Insights metrics. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.LambdaFunctionMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -24009,6 +26223,8 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -24037,6 +26253,36 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -24362,6 +26608,8 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.lambdaInsightsEnabled">lambdaInsightsEnabled</a></code> | <code>boolean</code> | Generate dashboard charts for Lambda Insights metrics. |
@@ -24394,6 +26642,36 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -25487,6 +27765,8 @@ const logMonitoringProps: LogMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -25500,6 +27780,36 @@ const logMonitoringProps: LogMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.limit">limit</a></code> | <code>number</code> | Maximum number of log messages to search for. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.pattern">pattern</a></code> | <code>string</code> | Pattern to search for, e.g. "ERROR". |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.title">title</a></code> | <code>string</code> | Widget title. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.LogMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.LogMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -30714,9 +33024,9 @@ const metricFactoryDefaults: MetricFactoryDefaults = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.namespace">namespace</a></code> | <code>string</code> | Each metric exists in a namespace. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Metric period. |
-| <code><a href="#cdk-monitoring-constructs.MetricFactoryDefaults.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 
 ---
 
@@ -30730,6 +33040,21 @@ public readonly account: string;
 - *Default:* The account configured by the construct holding the Monitoring construct
 
 Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricFactoryDefaults.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
 
 > [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
@@ -30761,21 +33086,6 @@ public readonly period: Duration;
 Metric period.
 
 Default value is used if not defined.
-
----
-
-##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricFactoryDefaults.property.region"></a>
-
-```typescript
-public readonly region: string;
-```
-
-- *Type:* string
-- *Default:* The region configured by the construct holding the Monitoring construct
-
-Region where the metrics exist.
-
-> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -34220,6 +36530,8 @@ const networkLoadBalancerMetricFactoryProps: NetworkLoadBalancerMetricFactoryPro
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 
@@ -34241,6 +36553,36 @@ When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `Health
 
 `invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -34279,6 +36621,8 @@ const networkLoadBalancerMonitoringProps: NetworkLoadBalancerMonitoringProps = {
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.invertStatisticsOfTaskCountEnabled">invertStatisticsOfTaskCountEnabled</a></code> | <code>boolean</code> | Invert the statistics of `HealthyHostCount` and `UnHealthyHostCount`. |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -34311,6 +36655,36 @@ When `invertStatisticsOfTaskCountEnabled` is set to true, the maximum of `Health
 
 `invertStatisticsOfTaskCountEnabled` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -35563,9 +37937,41 @@ const openSearchClusterMetricFactoryProps: OpenSearchClusterMetricFactoryProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_elasticsearch.IDomain \| aws-cdk-lib.aws_elasticsearch.CfnDomain \| aws-cdk-lib.aws_opensearchservice.IDomain \| aws-cdk-lib.aws_opensearchservice.CfnDomain</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -35615,6 +38021,8 @@ const openSearchClusterMonitoringOptions: OpenSearchClusterMonitoringOptions = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -35639,6 +38047,36 @@ const openSearchClusterMonitoringOptions: OpenSearchClusterMonitoringOptions = {
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP50Alarm">addSearchLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP90Alarm">addSearchLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.addSearchLatencyP99Alarm">addSearchLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -35924,6 +38362,8 @@ const openSearchClusterMonitoringProps: OpenSearchClusterMonitoringProps = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_elasticsearch.IDomain \| aws-cdk-lib.aws_elasticsearch.CfnDomain \| aws-cdk-lib.aws_opensearchservice.IDomain \| aws-cdk-lib.aws_opensearchservice.CfnDomain</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.fillTpsWithZeroes">fillTpsWithZeroes</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
@@ -35951,6 +38391,36 @@ const openSearchClusterMonitoringProps: OpenSearchClusterMonitoringProps = { ...
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.addSearchLatencyP50Alarm">addSearchLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.addSearchLatencyP90Alarm">addSearchLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.addSearchLatencyP99Alarm">addSearchLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.OpenSearchClusterMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -37704,6 +40174,8 @@ const queueProcessingEc2ServiceMonitoringProps: QueueProcessingEc2ServiceMonitor
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -37715,6 +40187,36 @@ const queueProcessingEc2ServiceMonitoringProps: QueueProcessingEc2ServiceMonitor
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.addDeadLetterQueueAlarms">addDeadLetterQueueAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseDlqAlarms">BaseDlqAlarms</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.addQueueAlarms">addQueueAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseSqsQueueAlarms">BaseSqsQueueAlarms</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.addServiceAlarms">addServiceAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms">BaseFargateServiceAlarms</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -37870,6 +40372,8 @@ const queueProcessingFargateServiceMonitoringProps: QueueProcessingFargateServic
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -37881,6 +40385,36 @@ const queueProcessingFargateServiceMonitoringProps: QueueProcessingFargateServic
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.addDeadLetterQueueAlarms">addDeadLetterQueueAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseDlqAlarms">BaseDlqAlarms</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.addQueueAlarms">addQueueAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseSqsQueueAlarms">BaseSqsQueueAlarms</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.addServiceAlarms">addServiceAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.BaseFargateServiceAlarms">BaseFargateServiceAlarms</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.QueueProcessingFargateServiceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -38036,8 +40570,40 @@ const rdsClusterMetricFactoryProps: RdsClusterMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster \| aws-cdk-lib.aws_rds.ServerlessCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RdsClusterMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -38081,6 +40647,8 @@ const rdsClusterMonitoringOptions: RdsClusterMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -38092,6 +40660,36 @@ const rdsClusterMonitoringOptions: RdsClusterMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -38247,6 +40845,8 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster \| aws-cdk-lib.aws_rds.ServerlessCluster</code> | database cluster (either this or `clusterIdentifier` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | database cluster identifier (either this or `cluster` need to be specified). |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -38260,6 +40860,36 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -38441,7 +41071,39 @@ const rdsInstanceMetricFactoryProps: RdsInstanceMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.instance">instance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | database instance. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -38471,6 +41133,8 @@ const rdsInstanceMonitoringOptions: RdsInstanceMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -38482,6 +41146,36 @@ const rdsInstanceMonitoringOptions: RdsInstanceMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addFreeStorageSpaceAlarm">addFreeStorageSpaceAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RdsInstanceMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -38637,6 +41331,8 @@ const rdsInstanceMonitoringProps: RdsInstanceMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.instance">instance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | database instance. |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -38649,6 +41345,36 @@ const rdsInstanceMonitoringProps: RdsInstanceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addFreeStorageSpaceAlarm">addFreeStorageSpaceAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RdsInstanceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -39534,7 +42260,39 @@ const redshiftClusterMetricFactoryProps: RedshiftClusterMetricFactoryProps = { .
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMetricFactoryProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RedshiftClusterMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RedshiftClusterMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -39562,6 +42320,8 @@ const redshiftClusterMonitoringOptions: RedshiftClusterMonitoringOptions = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -39574,6 +42334,36 @@ const redshiftClusterMonitoringOptions: RedshiftClusterMonitoringOptions = { ...
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMaxLongQueryDurationAlarm">addMaxLongQueryDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RedshiftClusterMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -39739,6 +42529,8 @@ const redshiftClusterMonitoringProps: RedshiftClusterMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -39752,6 +42544,36 @@ const redshiftClusterMonitoringProps: RedshiftClusterMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMaxLongQueryDurationAlarm">addMaxLongQueryDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.RedshiftClusterMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -40645,8 +43467,40 @@ const s3BucketMetricFactoryProps: S3BucketMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.storageType">storageType</a></code> | <code><a href="#cdk-monitoring-constructs.StorageType">StorageType</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.S3BucketMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -40684,6 +43538,8 @@ const s3BucketMonitoringOptions: S3BucketMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -40691,6 +43547,36 @@ const s3BucketMonitoringOptions: S3BucketMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.S3BucketMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -40806,6 +43692,8 @@ const s3BucketMonitoringProps: S3BucketMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.storageType">storageType</a></code> | <code><a href="#cdk-monitoring-constructs.StorageType">StorageType</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -40815,6 +43703,36 @@ const s3BucketMonitoringProps: S3BucketMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.S3BucketMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.S3BucketMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -40950,6 +43868,8 @@ const secretsManagerMonitoringOptions: SecretsManagerMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -40960,6 +43880,36 @@ const secretsManagerMonitoringOptions: SecretsManagerMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addChangeInSecretsAlarm">addChangeInSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold">ChangeInSecretCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addMaxNumberSecretsAlarm">addMaxNumberSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxSecretCountThreshold">MaxSecretCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.addMinNumberSecretsAlarm">addMinNumberSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinSecretCountThreshold">MinSecretCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SecretsManagerMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -41105,6 +44055,8 @@ const secretsManagerMonitoringProps: SecretsManagerMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -41115,6 +44067,36 @@ const secretsManagerMonitoringProps: SecretsManagerMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addChangeInSecretsAlarm">addChangeInSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold">ChangeInSecretCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addMaxNumberSecretsAlarm">addMaxNumberSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxSecretCountThreshold">MaxSecretCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.addMinNumberSecretsAlarm">addMinNumberSecretsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinSecretCountThreshold">MinSecretCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SecretsManagerMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -41260,7 +44242,39 @@ const secretsManagerSecretMetricFactoryProps: SecretsManagerSecretMetricFactoryP
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMetricFactoryProps.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SecretsManagerSecretMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SecretsManagerSecretMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -41288,6 +44302,8 @@ const secretsManagerSecretMonitoringOptions: SecretsManagerSecretMonitoringOptio
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -41299,6 +44315,36 @@ const secretsManagerSecretMonitoringOptions: SecretsManagerSecretMonitoringOptio
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.addDaysSinceLastRotationAlarm">addDaysSinceLastRotationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.showLastRotationWidget">showLastRotationWidget</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.usePublisher">usePublisher</a></code> | <code><a href="#cdk-monitoring-constructs.IPublisherConsumer">IPublisherConsumer</a></code> | Provides access to the underlying metrics publisher Lambda function. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -41461,6 +44507,8 @@ const secretsManagerSecretMonitoringProps: SecretsManagerSecretMonitoringProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -41473,6 +44521,36 @@ const secretsManagerSecretMonitoringProps: SecretsManagerSecretMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.addDaysSinceLastRotationAlarm">addDaysSinceLastRotationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold">DaysSinceUpdateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.showLastRotationWidget">showLastRotationWidget</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.usePublisher">usePublisher</a></code> | <code><a href="#cdk-monitoring-constructs.IPublisherConsumer">IPublisherConsumer</a></code> | Provides access to the underlying metrics publisher Lambda function. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -41645,6 +44723,8 @@ const simpleEc2ServiceMonitoringProps: SimpleEc2ServiceMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -41659,6 +44739,36 @@ const simpleEc2ServiceMonitoringProps: SimpleEc2ServiceMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.ec2Service">ec2Service</a></code> | <code>aws-cdk-lib.aws_ecs.Ec2Service</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SimpleEc2ServiceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -41854,6 +44964,8 @@ const simpleFargateServiceMonitoringProps: SimpleFargateServiceMonitoringProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -41868,6 +44980,36 @@ const simpleFargateServiceMonitoringProps: SimpleFargateServiceMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.maxAutoScalingTaskCount">maxAutoScalingTaskCount</a></code> | <code>number</code> | Maximum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.minAutoScalingTaskCount">minAutoScalingTaskCount</a></code> | <code>number</code> | Minimum number of tasks, as specified in your auto scaling config. |
 | <code><a href="#cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.fargateService">fargateService</a></code> | <code>aws-cdk-lib.aws_ecs.FargateService</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SimpleFargateServiceMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -42213,7 +45355,39 @@ const snsTopicMetricFactoryProps: SnsTopicMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMetricFactoryProps.property.topic">topic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SnsTopicMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SnsTopicMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -42241,6 +45415,8 @@ const snsTopicMonitoringOptions: SnsTopicMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -42251,6 +45427,36 @@ const snsTopicMonitoringOptions: SnsTopicMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMaxNumberOfMessagesPublishedAlarm">addMaxNumberOfMessagesPublishedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold">HighMessagesPublishedThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMessageNotificationsFailedAlarm">addMessageNotificationsFailedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.NotificationsFailedThreshold">NotificationsFailedThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.addMinNumberOfMessagesPublishedAlarm">addMinNumberOfMessagesPublishedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold">LowMessagesPublishedThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SnsTopicMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -42396,6 +45602,8 @@ const snsTopicMonitoringProps: SnsTopicMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.topic">topic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -42407,6 +45615,36 @@ const snsTopicMonitoringProps: SnsTopicMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.addMaxNumberOfMessagesPublishedAlarm">addMaxNumberOfMessagesPublishedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold">HighMessagesPublishedThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.addMessageNotificationsFailedAlarm">addMessageNotificationsFailedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.NotificationsFailedThreshold">NotificationsFailedThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringProps.property.addMinNumberOfMessagesPublishedAlarm">addMinNumberOfMessagesPublishedAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold">LowMessagesPublishedThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SnsTopicMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SnsTopicMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -42562,7 +45800,39 @@ const sqsQueueMetricFactoryProps: SqsQueueMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMetricFactoryProps.property.queue">queue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SqsQueueMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SqsQueueMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -42596,6 +45866,8 @@ const sqsQueueMonitoringOptions: SqsQueueMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMaxTimeToDrainMessagesAlarm">addQueueMaxTimeToDrainMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold">MaxTimeToDrainThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMinIncomingMessagesAlarm">addQueueMinIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold">MinIncomingMessagesCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.addQueueMinSizeAlarm">addQueueMinSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -42663,6 +45935,36 @@ public readonly addQueueMinSizeAlarm: {[ key: string ]: MinMessageCountThreshold
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SqsQueueMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -42778,6 +46080,8 @@ const sqsQueueMonitoringProps: SqsQueueMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.queue">queue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
@@ -42792,6 +46096,36 @@ const sqsQueueMonitoringProps: SqsQueueMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SqsQueueMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -42977,6 +46311,8 @@ const sqsQueueMonitoringWithDlqProps: SqsQueueMonitoringWithDlqProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.queue">queue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxIncomingMessagesAlarm">addQueueMaxIncomingMessagesAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold">MaxIncomingMessagesCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addQueueMaxMessageAgeAlarm">addQueueMaxMessageAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold">MaxMessageAgeThreshold</a>}</code> | *No description.* |
@@ -42996,6 +46332,36 @@ const sqsQueueMonitoringWithDlqProps: SqsQueueMonitoringWithDlqProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueMaxSizeAlarm">addDeadLetterQueueMaxSizeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxMessageCountThreshold">MaxMessageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.deadLetterQueue">deadLetterQueue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.addDeadLetterQueueToSummaryDashboard">addDeadLetterQueueToSummaryDashboard</a></code> | <code>boolean</code> | Indicates whether the DLQ monitoring should be added to summary dashboard. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlqProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -43241,8 +46607,40 @@ const stepFunctionActivityMetricFactoryProps: StepFunctionActivityMetricFactoryP
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.activity">activity</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IActivity</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionActivityMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -43281,6 +46679,8 @@ const stepFunctionActivityMonitoringProps: StepFunctionActivityMonitoringProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.activity">activity</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IActivity</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -43296,6 +46696,36 @@ const stepFunctionActivityMonitoringProps: StepFunctionActivityMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.addFailedActivitiesCountAlarm">addFailedActivitiesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.addFailedActivitiesRateAlarm">addFailedActivitiesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.addTimedOutActivitiesCountAlarm">addTimedOutActivitiesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionActivityMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -43492,8 +46922,40 @@ const stepFunctionLambdaIntegrationMetricFactoryProps: StepFunctionLambdaIntegra
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -43532,6 +46994,8 @@ const stepFunctionLambdaIntegrationMonitoringProps: StepFunctionLambdaIntegratio
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -43547,6 +47011,36 @@ const stepFunctionLambdaIntegrationMonitoringProps: StepFunctionLambdaIntegratio
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.addFailedFunctionsCountAlarm">addFailedFunctionsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.addFailedFunctionsRateAlarm">addFailedFunctionsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.addTimedOutFunctionsCountAlarm">addTimedOutFunctionsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -43743,8 +47237,40 @@ const stepFunctionMetricFactoryProps: StepFunctionMetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -43783,6 +47309,8 @@ const stepFunctionMonitoringOptions: StepFunctionMonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -43799,6 +47327,36 @@ const stepFunctionMonitoringOptions: StepFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addMinStartedExecutionCountAlarm">addMinStartedExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold">MinRunningTaskCountThreshold</a>}</code> | Add minimum started execution count alarm for the stepfunctions. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addThrottledExecutionCountAlarm">addThrottledExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.addTimedOutExecutionCountAlarm">addTimedOutExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -44006,6 +47564,8 @@ const stepFunctionMonitoringProps: StepFunctionMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -44024,6 +47584,36 @@ const stepFunctionMonitoringProps: StepFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.addMinStartedExecutionCountAlarm">addMinStartedExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold">MinRunningTaskCountThreshold</a>}</code> | Add minimum started execution count alarm for the stepfunctions. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.addThrottledExecutionCountAlarm">addThrottledExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringProps.property.addTimedOutExecutionCountAlarm">addTimedOutExecutionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -44252,8 +47842,40 @@ const stepFunctionServiceIntegrationMetricFactoryProps: StepFunctionServiceInteg
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMetricFactoryProps.property.serviceIntegrationResourceArn">serviceIntegrationResourceArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -44292,6 +47914,8 @@ const stepFunctionServiceIntegrationMonitoringProps: StepFunctionServiceIntegrat
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.serviceIntegrationResourceArn">serviceIntegrationResourceArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -44307,6 +47931,36 @@ const stepFunctionServiceIntegrationMonitoringProps: StepFunctionServiceIntegrat
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.addFailedServiceIntegrationsCountAlarm">addFailedServiceIntegrationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.addFailedServiceIntegrationsRateAlarm">addFailedServiceIntegrationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.addTimedOutServiceIntegrationsCountAlarm">addTimedOutServiceIntegrationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -44503,8 +48157,40 @@ const syntheticsCanaryMetricFactoryProps: SyntheticsCanaryMetricFactoryProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.canary">canary</a></code> | <code>aws-cdk-lib.aws_synthetics.Canary</code> | CloudWatch Canary to monitor. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | Method used to calculate relative rates. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SyntheticsCanaryMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -44547,6 +48233,8 @@ const syntheticsCanaryMonitoringOptions: SyntheticsCanaryMonitoringOptions = { .
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -44559,6 +48247,36 @@ const syntheticsCanaryMonitoringOptions: SyntheticsCanaryMonitoringOptions = { .
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add5xxFaultCountAlarm">add5xxFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.add5xxFaultRateAlarm">add5xxFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.addAverageLatencyAlarm">addAverageLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -44724,6 +48442,8 @@ const syntheticsCanaryMonitoringProps: SyntheticsCanaryMonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.canary">canary</a></code> | <code>aws-cdk-lib.aws_synthetics.Canary</code> | CloudWatch Canary to monitor. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | Method used to calculate relative rates. |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
@@ -44738,6 +48458,36 @@ const syntheticsCanaryMonitoringProps: SyntheticsCanaryMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add5xxFaultCountAlarm">add5xxFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.add5xxFaultRateAlarm">add5xxFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.addAverageLatencyAlarm">addAverageLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -46475,8 +50225,39 @@ const wafV2MetricFactoryProps: WafV2MetricFactoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | Required if acl has a "REGIONAL" scope. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MetricFactoryProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | Note that the "region" prop is required if this has a "REGIONAL" scope. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.WafV2MetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -46488,17 +50269,7 @@ public readonly acl: CfnWebACL;
 
 - *Type:* aws-cdk-lib.aws_wafv2.CfnWebACL
 
----
-
-##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.WafV2MetricFactoryProps.property.region"></a>
-
-```typescript
-public readonly region: string;
-```
-
-- *Type:* string
-
-Required if acl has a "REGIONAL" scope.
+Note that the "region" prop is required if this has a "REGIONAL" scope.
 
 ---
 
@@ -46516,6 +50287,8 @@ const wafV2MonitoringOptions: WafV2MonitoringOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -46523,6 +50296,36 @@ const wafV2MonitoringOptions: WafV2MonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.WafV2MonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -46638,8 +50441,9 @@ const wafV2MonitoringProps: WafV2MonitoringProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.region">region</a></code> | <code>string</code> | Required if acl has a "REGIONAL" scope. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.acl">acl</a></code> | <code>aws-cdk-lib.aws_wafv2.CfnWebACL</code> | Note that the "region" prop is required if this has a "REGIONAL" scope. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -46652,13 +50456,18 @@ const wafV2MonitoringProps: WafV2MonitoringProps = { ... }
 
 ---
 
-##### `acl`<sup>Required</sup> <a name="acl" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.acl"></a>
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.account"></a>
 
 ```typescript
-public readonly acl: CfnWebACL;
+public readonly account: string;
 ```
 
-- *Type:* aws-cdk-lib.aws_wafv2.CfnWebACL
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
 
 ---
 
@@ -46669,8 +50478,23 @@ public readonly region: string;
 ```
 
 - *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
 
-Required if acl has a "REGIONAL" scope.
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `acl`<sup>Required</sup> <a name="acl" id="cdk-monitoring-constructs.WafV2MonitoringProps.property.acl"></a>
+
+```typescript
+public readonly acl: CfnWebACL;
+```
+
+- *Type:* aws-cdk-lib.aws_wafv2.CfnWebACL
+
+Note that the "region" prop is required if this has a "REGIONAL" scope.
 
 ---
 
@@ -50762,13 +54586,13 @@ public getStateMachineUrl(stateMachineArn: string): string
 ```typescript
 import { BaseMetricFactory } from 'cdk-monitoring-constructs'
 
-new BaseMetricFactory(metricFactory: MetricFactory, _props: BaseMetricFactoryProps)
+new BaseMetricFactory(metricFactory: MetricFactory, props: BaseMetricFactoryProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter._props">_props</a></code> | <code><a href="#cdk-monitoring-constructs.BaseMetricFactoryProps">BaseMetricFactoryProps</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.BaseMetricFactoryProps">BaseMetricFactoryProps</a></code> | *No description.* |
 
 ---
 
@@ -50778,7 +54602,7 @@ new BaseMetricFactory(metricFactory: MetricFactory, _props: BaseMetricFactoryPro
 
 ---
 
-##### `_props`<sup>Required</sup> <a name="_props" id="cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter._props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.BaseMetricFactory.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.BaseMetricFactoryProps">BaseMetricFactoryProps</a>
 
@@ -73085,7 +76909,7 @@ name of dashboard for which widgets are generated.
 ##### `createMetrics` <a name="createMetrics" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics"></a>
 
 ```typescript
-public createMetrics(metricFactory: MetricFactory, metricName: string, statistic: MetricStatistic): IMetric[]
+public createMetrics(metricFactory: MetricFactory, metricName: string, statistic: MetricStatistic, region?: string, account?: string): IMetric[]
 ```
 
 ###### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.metricFactory"></a>
@@ -73103,6 +76927,18 @@ public createMetrics(metricFactory: MetricFactory, metricName: string, statistic
 ###### `statistic`<sup>Required</sup> <a name="statistic" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.statistic"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a>
+
+---
+
+###### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.region"></a>
+
+- *Type:* string
+
+---
+
+###### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.account"></a>
+
+- *Type:* string
 
 ---
 

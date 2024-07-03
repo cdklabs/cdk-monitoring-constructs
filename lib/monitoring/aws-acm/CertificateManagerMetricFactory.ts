@@ -38,6 +38,9 @@ export class CertificateManagerMetricFactory extends BaseMetricFactory<Certifica
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

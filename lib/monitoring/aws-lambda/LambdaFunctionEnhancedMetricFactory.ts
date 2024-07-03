@@ -111,6 +111,9 @@ export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory<Lambd
       },
       color,
       LambdaInsightsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

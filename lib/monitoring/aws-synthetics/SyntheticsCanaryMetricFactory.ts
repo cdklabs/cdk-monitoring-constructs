@@ -47,6 +47,8 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       this.canary.metricDuration({
         label: "Average",
         statistic: MetricStatistic.AVERAGE,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -56,6 +58,8 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       this.canary.metricSuccessPercent({
         label: "Success Rate",
         statistic: MetricStatistic.AVERAGE,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -68,6 +72,9 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       this.dimensionsMap,
       undefined,
       MetricNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -89,6 +96,9 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
       this.dimensionsMap,
       undefined,
       MetricNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 

@@ -33,21 +33,21 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
    * The minimum size of the Auto Scaling group.
    */
   metricGroupMinSize() {
-    return this.createMetric("GroupMinSize", "Min", MetricStatistic.AVERAGE);
+    return this.metric("GroupMinSize", "Min", MetricStatistic.AVERAGE);
   }
 
   /**
    * The maximum size of the Auto Scaling group.
    */
   metricGroupMaxSize() {
-    return this.createMetric("GroupMaxSize", "Max", MetricStatistic.AVERAGE);
+    return this.metric("GroupMaxSize", "Max", MetricStatistic.AVERAGE);
   }
 
   /**
    * The number of instances that the Auto Scaling group attempts to maintain.
    */
   metricGroupDesiredCapacity() {
-    return this.createMetric(
+    return this.metric(
       "GroupDesiredCapacity",
       "Desired",
       MetricStatistic.AVERAGE,
@@ -60,7 +60,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
      This metric does not include instances that are pending or terminating.
      */
   metricGroupInServiceInstances() {
-    return this.createMetric(
+    return this.metric(
       "GroupInServiceInstances",
       "InService",
       MetricStatistic.AVERAGE,
@@ -72,7 +72,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
    * This metric does not include instances that are in service or terminating.
    */
   metricGroupPendingInstances() {
-    return this.createMetric(
+    return this.metric(
       "GroupPendingInstances",
       "Pending",
       MetricStatistic.AVERAGE,
@@ -84,7 +84,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
    * Instances in this state are still running but are not actively in service.
    */
   metricGroupStandbyInstances() {
-    return this.createMetric(
+    return this.metric(
       "GroupStandbyInstances",
       "Standby",
       MetricStatistic.AVERAGE,
@@ -96,7 +96,7 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
    * This metric does not include instances that are in service or pending.
    */
   metricGroupTerminatingInstances() {
-    return this.createMetric(
+    return this.metric(
       "GroupTerminatingInstances",
       "Terminating",
       MetricStatistic.AVERAGE,
@@ -108,14 +108,10 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
    * This metric identifies the number of instances that are in service, pending, and terminating.
    */
   metricGroupTotalInstances() {
-    return this.createMetric(
-      "GroupTotalInstances",
-      "Total",
-      MetricStatistic.AVERAGE,
-    );
+    return this.metric("GroupTotalInstances", "Total", MetricStatistic.AVERAGE);
   }
 
-  private createMetric(
+  private metric(
     metricName: string,
     label: string,
     statistic: MetricStatistic,
@@ -127,6 +123,9 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
       this.dimensionsMap,
       undefined,
       AutoScalingNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

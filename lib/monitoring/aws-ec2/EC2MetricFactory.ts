@@ -15,6 +15,8 @@ export interface IEC2MetricFactoryStrategy {
     metricFactory: MetricFactory,
     metricName: string,
     statistic: MetricStatistic,
+    region?: string,
+    account?: string,
   ): IMetric[];
 }
 
@@ -32,6 +34,8 @@ class AutoScalingGroupStrategy implements IEC2MetricFactoryStrategy {
     metricFactory: MetricFactory,
     metricName: string,
     statistic: MetricStatistic,
+    region?: string,
+    account?: string,
   ) {
     return [
       metricFactory.createMetric(
@@ -41,6 +45,9 @@ class AutoScalingGroupStrategy implements IEC2MetricFactoryStrategy {
         resolveDimensions(this.autoScalingGroup, undefined),
         undefined,
         EC2Namespace,
+        undefined,
+        region,
+        account,
       ),
     ];
   }
@@ -62,6 +69,8 @@ class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
     metricFactory: MetricFactory,
     metricName: string,
     statistic: MetricStatistic,
+    region?: string,
+    account?: string,
   ) {
     return this.instanceIds.map((instanceId) => {
       return metricFactory.createMetric(
@@ -71,6 +80,9 @@ class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
         resolveDimensions(this.autoScalingGroup, instanceId),
         undefined,
         EC2Namespace,
+        undefined,
+        region,
+        account,
       );
     });
   }
@@ -84,6 +96,8 @@ class AllInstancesStrategy implements IEC2MetricFactoryStrategy {
     metricFactory: MetricFactory,
     metricName: string,
     statistic: MetricStatistic,
+    region?: string,
+    account?: string,
   ) {
     return [
       metricFactory.createMetricSearch(
@@ -91,6 +105,10 @@ class AllInstancesStrategy implements IEC2MetricFactoryStrategy {
         { InstanceId: undefined as unknown as string },
         statistic,
         EC2Namespace,
+        undefined,
+        undefined,
+        region,
+        account,
       ),
     ];
   }

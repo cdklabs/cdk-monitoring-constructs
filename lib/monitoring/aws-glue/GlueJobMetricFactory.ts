@@ -47,6 +47,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.dimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -58,6 +61,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.dimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -70,6 +76,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.dimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
     return this.metricFactory.multiplyMetric(metric, 100, label, "cpu");
   }
@@ -83,6 +92,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.dimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
     return this.metricFactory.multiplyMetric(metric, 100, label, "heap");
   }
@@ -95,6 +107,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.dimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -106,6 +121,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.typeCountDimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -117,6 +135,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.typeCountDimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -128,6 +149,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.typeCountDimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -149,6 +173,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.typeCountDimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -170,6 +197,9 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
       this.dimensionsMap,
       undefined,
       GlueNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }
