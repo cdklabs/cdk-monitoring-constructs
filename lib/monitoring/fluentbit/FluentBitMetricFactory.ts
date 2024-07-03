@@ -66,6 +66,8 @@ export class FluentBitMetricFactory extends BaseMetricFactory<FluentBitMetricFac
     );
     return metricFilter.metric({
       statistic: MetricStatistic.MAX,
+      region: this.region,
+      account: this.account,
     });
   }
 
@@ -85,6 +87,8 @@ export class FluentBitMetricFactory extends BaseMetricFactory<FluentBitMetricFac
       );
       return metricFilter.metric({
         statistic: MetricStatistic.MAX,
+        region: this.region,
+        account: this.account,
       });
     });
   }

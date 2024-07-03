@@ -43,6 +43,8 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricDatabaseConnections({
         statistic: MetricStatistic.SUM,
         label: "Connections: Sum",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -52,6 +54,8 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricCPUUtilization({
         statistic: MetricStatistic.AVERAGE,
         label: "CPU Usage",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -61,6 +65,8 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricFreeStorageSpace({
         statistic: MetricStatistic.MAX,
         label: "FreeStorageSpace: MAX",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -70,6 +76,8 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricFreeableMemory({
         statistic: MetricStatistic.AVERAGE,
         label: "FreeStorageSpace: Average",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -96,6 +104,8 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricReadIOPS({
         statistic: MetricStatistic.AVERAGE,
         label: "ReadIOPS: Average",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -122,6 +132,8 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.instance.metricWriteIOPS({
         statistic: MetricStatistic.AVERAGE,
         label: "WriteIOPS: Average",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -138,6 +150,9 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
       this.dimensionsMap,
       undefined,
       RdsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

@@ -40,6 +40,8 @@ export class SecretsManagerMetricFactory extends BaseMetricFactory<SecretsManage
       undefined,
       NAMESPACE,
       DEFAULT_METRIC_PERIOD,
+      this.region,
+      this.account,
     );
   }
 }

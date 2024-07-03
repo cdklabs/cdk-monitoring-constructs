@@ -94,6 +94,9 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       this.dimensionsMap,
       undefined,
       ApiGatewayNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -105,6 +108,9 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       this.dimensionsMap,
       undefined,
       ApiGatewayNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -126,6 +132,9 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       this.dimensionsMap,
       undefined,
       ApiGatewayNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -169,6 +178,9 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       this.dimensionsMap,
       undefined,
       ApiGatewayNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

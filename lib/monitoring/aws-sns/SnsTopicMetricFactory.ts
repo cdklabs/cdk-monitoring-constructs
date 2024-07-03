@@ -23,6 +23,8 @@ export class SnsTopicMetricFactory extends BaseMetricFactory<SnsTopicMetricFacto
     return this.metricFactory.adaptMetric(
       this.topic.metricNumberOfMessagesPublished({
         label: "Incoming",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -31,6 +33,8 @@ export class SnsTopicMetricFactory extends BaseMetricFactory<SnsTopicMetricFacto
     return this.metricFactory.adaptMetric(
       this.topic.metricNumberOfNotificationsDelivered({
         label: "Outgoing",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -39,6 +43,8 @@ export class SnsTopicMetricFactory extends BaseMetricFactory<SnsTopicMetricFacto
     return this.metricFactory.adaptMetric(
       this.topic.metricPublishSize({
         label: "Size",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -47,6 +53,8 @@ export class SnsTopicMetricFactory extends BaseMetricFactory<SnsTopicMetricFacto
     return this.metricFactory.adaptMetric(
       this.topic.metricNumberOfNotificationsFailed({
         label: "Failed",
+        region: this.region,
+        account: this.account,
       }),
     );
   }

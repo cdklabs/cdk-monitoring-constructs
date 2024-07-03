@@ -57,6 +57,8 @@ export class NetworkLoadBalancerMetricFactory
         statistic: this.invertStatisticsOfTaskCountEnabled
           ? MetricStatistic.MAX
           : MetricStatistic.MIN,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -69,6 +71,8 @@ export class NetworkLoadBalancerMetricFactory
         statistic: this.invertStatisticsOfTaskCountEnabled
           ? MetricStatistic.MIN
           : MetricStatistic.MAX,
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -87,6 +91,8 @@ export class NetworkLoadBalancerMetricFactory
     return this.metricFactory.adaptMetric(
       this.networkLoadBalancer.metrics.activeFlowCount({
         label: "Active",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -95,6 +101,8 @@ export class NetworkLoadBalancerMetricFactory
     return this.metricFactory.adaptMetric(
       this.networkLoadBalancer.metrics.newFlowCount({
         label: "New",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -104,6 +112,8 @@ export class NetworkLoadBalancerMetricFactory
       this.networkLoadBalancer.metrics.processedBytes({
         statistic: MetricStatistic.MIN,
         label: "Processed Bytes (min)",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -112,6 +122,8 @@ export class NetworkLoadBalancerMetricFactory
     const unhealthyRoutingFlowCount = this.metricFactory.adaptMetric(
       this.networkLoadBalancer.metrics.custom("UnhealthyRoutingFlowCount", {
         statistic: MetricStatistic.SUM,
+        region: this.region,
+        account: this.account,
       }),
     );
 

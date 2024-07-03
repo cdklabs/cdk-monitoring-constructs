@@ -45,6 +45,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
   metricSearchCount() {
     return this.domainMetrics.metric("SearchRate", {
       statistic: Stats.SUM,
+      region: this.region,
+      account: this.account,
     });
   }
 
@@ -76,6 +78,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
       this.domainMetrics.metricIndexingLatency({
         statistic: MetricStatistic.P50,
         label: "P50",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -85,6 +89,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
       this.domainMetrics.metricIndexingLatency({
         statistic: MetricStatistic.P90,
         label: "P90",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -94,6 +100,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
       this.domainMetrics.metricIndexingLatency({
         statistic: MetricStatistic.P99,
         label: "P99",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -103,6 +111,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
       this.domainMetrics.metricSearchLatency({
         statistic: MetricStatistic.P50,
         label: "P50",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -112,6 +122,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
       this.domainMetrics.metricSearchLatency({
         statistic: MetricStatistic.P90,
         label: "P90",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -121,6 +133,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
       this.domainMetrics.metricSearchLatency({
         statistic: MetricStatistic.P99,
         label: "P99",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -129,6 +143,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricClusterStatusRed({
         label: "Red",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -137,6 +153,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricClusterStatusYellow({
         label: "Yellow",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -144,9 +162,13 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
   metricDiskSpaceUsageInPercent() {
     const used = this.domainMetrics.metric("ClusterUsedSpace", {
       statistic: Stats.SUM,
+      region: this.region,
+      account: this.account,
     });
     const free = this.domainMetrics.metric("FreeStorageSpace", {
       statistic: Stats.SUM,
+      region: this.region,
+      account: this.account,
     });
     return this.metricFactory.createMetricMath(
       "100 * (used/(used+free))",
@@ -159,6 +181,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricCPUUtilization({
         label: "CPU Usage",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -167,6 +191,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricMasterCPUUtilization({
         label: "Master CPU Usage",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -175,6 +201,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricJVMMemoryPressure({
         label: "JVM Memory Pressure",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -183,6 +211,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricMasterJVMMemoryPressure({
         label: "Master JVM Memory Pressure",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -191,6 +221,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricClusterIndexWritesBlocked({
         label: "Index Writes Blocked",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -206,6 +238,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricNodes({
         label: "Nodes",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -214,6 +248,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricAutomatedSnapshotFailure({
         label: "Automated Snapshot Failures",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -222,6 +258,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricKMSKeyError({
         label: "KMS Key Error",
+        region: this.region,
+        account: this.account,
       }),
     );
   }
@@ -230,6 +268,8 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     return this.metricFactory.adaptMetric(
       this.domainMetrics.metricKMSKeyInaccessible({
         label: "KMS Key Inaccessible",
+        region: this.region,
+        account: this.account,
       }),
     );
   }

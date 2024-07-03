@@ -417,6 +417,48 @@ Now, this widget will be added to both dashboards and will show different conten
 * Dashboard Name: "ExampleDashboards-Infrastructure"
   * Content: "This shows metrics for the AWS Infrastructure supporting your hosted service"
 
+### Cross-account cross-Region Dashboards
+
+Facades can be configured for different regions/accounts as a whole:
+
+```ts
+new MonitoringFacade(stack, "Monitoring", {
+  metricFactoryDefaults: {
+    // Different region/account than what you're deploying to
+    region: "us-west-2",
+    account: "01234567890",
+  }
+});
+```
+
+Or at a more granular level:
+
+```ts
+monitoring
+  .monitorDynamoTable({
+    // Table from the same account/region
+    table: Table.fromTableName(stack, "ImportedTable", "MyTableName"),
+  })
+  .monitorDynamoTable({
+    // Table from another account/region
+    table: Table.fromTableArn(
+      stack,
+      "XaXrImportedTable",
+      "arn:aws:dynamodb:us-west-2:01234567890:table/my-other-table",
+    ),
+    region: "us-west-2",
+    account: "01234567890",
+  });
+```
+
+The order of precedence of the region/account values is:
+
+1. The individual metric factory's props (e.g. via the `monitorDynamoTable` props).
+1. The facade's `metricFactoryDefaults` props.
+1. The region/account that the stack is deployed to.
+
+Note that certain metrics are based on [math expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html) and cannot be alarmed upon in a cross-account cross-Region context, and you will see an error at synthesis time.
+
 ### Monitoring scopes
 
 You can monitor complete CDK construct scopes using an aspect. It will automatically discover all monitorable resources within the scope recursively and add them to your dashboard.

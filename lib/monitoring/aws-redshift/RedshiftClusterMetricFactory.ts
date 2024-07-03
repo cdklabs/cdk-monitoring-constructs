@@ -133,6 +133,9 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
       dimensions,
       undefined,
       RedshiftNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -148,6 +151,9 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
       this.dimensionsMap,
       undefined,
       RedshiftNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

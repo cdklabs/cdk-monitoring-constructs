@@ -49,6 +49,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -60,6 +63,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -71,6 +77,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -82,6 +91,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -93,6 +105,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -104,6 +119,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -115,6 +133,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -134,6 +155,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -145,6 +169,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -156,6 +183,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -167,6 +197,9 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

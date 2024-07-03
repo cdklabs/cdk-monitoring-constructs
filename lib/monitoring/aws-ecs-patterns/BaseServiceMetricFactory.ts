@@ -49,6 +49,9 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       this.dimensionsMap,
       undefined,
       EcsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -60,6 +63,9 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       this.dimensionsMap,
       undefined,
       EcsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -71,6 +77,9 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       this.dimensionsMap,
       undefined,
       EcsContainerInsightsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -82,6 +91,9 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       this.dimensionsMap,
       undefined,
       EcsContainerInsightsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -93,6 +105,9 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
       this.dimensionsMap,
       undefined,
       EcsContainerInsightsNamespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 

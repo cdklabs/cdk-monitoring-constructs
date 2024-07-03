@@ -126,6 +126,9 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
       this.dimensionsMap,
       undefined,
       "AWS/KinesisAnalytics",
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }
