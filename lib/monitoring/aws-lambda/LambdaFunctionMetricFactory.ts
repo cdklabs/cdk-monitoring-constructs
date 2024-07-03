@@ -166,9 +166,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
   }
 
   metricProvisionedConcurrencySpilloverRate() {
-    const metric = this.metricProvisionedConcurrencySpilloverInvocations();
     return this.metricFactory.toRate(
-      metric,
+      this.metricProvisionedConcurrencySpilloverInvocations(),
       this.rateComputationMethod,
       false,
       "pcsi",

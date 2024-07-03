@@ -39,35 +39,35 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
   }
 
   metricKPUsCount() {
-    return this.generateMetric({
+    return this.metric({
       name: "KPUs",
       description: "Kinesis Processing Units",
     });
   }
 
   metricDowntimeMs() {
-    return this.generateMetric({
+    return this.metric({
       name: "downtime",
       description: "Downtime",
     });
   }
 
   metricUptimeMs() {
-    return this.generateMetric({
+    return this.metric({
       name: "uptime",
       description: "Uptime",
     });
   }
 
   metricFullRestartsCount() {
-    return this.generateMetric({
+    return this.metric({
       name: "fullRestarts",
       description: "Restarts",
     });
   }
 
   metricNumberOfFailedCheckpointsCount() {
-    return this.generateMetric({
+    return this.metric({
       name: "numberOfFailedCheckpoints",
       description: "Failed Checkpoints",
       metricStatistic: MetricStatistic.SUM,
@@ -75,14 +75,14 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
   }
 
   metricLastCheckpointDurationMs() {
-    return this.generateMetric({
+    return this.metric({
       name: "lastCheckpointDuration",
       description: "Last Checkpoint Duration",
     });
   }
 
   metricLastCheckpointSizeBytes() {
-    return this.generateMetric({
+    return this.metric({
       name: "lastCheckpointSize",
       description: "Last Checkpoint Size",
       metricStatistic: MetricStatistic.SUM,
@@ -90,41 +90,41 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
   }
 
   metricCpuUtilizationPercent() {
-    return this.generateMetric({
+    return this.metric({
       name: "cpuUtilization",
       description: "CPU Utilization",
     });
   }
 
   metricHeapMemoryUtilizationPercent() {
-    return this.generateMetric({
+    return this.metric({
       name: "heapMemoryUtilization",
       description: "Heap Memory Utilization",
     });
   }
 
   metricOldGenerationGCTimeMs() {
-    return this.generateMetric({
+    return this.metric({
       name: "oldGenerationGCTime",
       description: "GC Time",
     });
   }
 
   metricOldGenerationGCCount() {
-    return this.generateMetric({
+    return this.metric({
       name: "oldGenerationGCCount",
       metricStatistic: MetricStatistic.N,
       description: "GC Count",
     });
   }
 
-  private generateMetric(metricsSpec: MetricsSpec) {
+  private metric(metricsSpec: MetricsSpec) {
     return this.metricFactory.createMetric(
       metricsSpec.name,
-      metricsSpec.metricStatistic || MetricStatistic.AVERAGE,
+      metricsSpec.metricStatistic ?? MetricStatistic.AVERAGE,
       metricsSpec.description,
       this.dimensionsMap,
-      undefined, // the hex color code of the metric on a graph
+      undefined,
       "AWS/KinesisAnalytics",
     );
   }
