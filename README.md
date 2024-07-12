@@ -457,7 +457,7 @@ The order of precedence of the region/account values is:
 1. The facade's `metricFactoryDefaults` props.
 1. The region/account that the stack is deployed to.
 
-Note that certain metrics are based on [math expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html) and cannot be alarmed upon in a cross-account cross-Region context, and you will see an error at synthesis time.
+Note that while this allows for cross-account cross-Region dashboarding, cross-Region alarming is not supported by CloudWatch.
 
 ### Monitoring scopes
 

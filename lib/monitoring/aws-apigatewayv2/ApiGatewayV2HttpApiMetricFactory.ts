@@ -108,9 +108,8 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
   }
 
   metric4xxRate() {
-    const metric = this.metric4xxCount();
     return this.metricFactory.toRate(
-      metric,
+      this.metric4xxCount(),
       this.rateComputationMethod,
       false,
       "errors",
@@ -132,9 +131,8 @@ export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatew
   }
 
   metric5xxRate() {
-    const metric = this.metric5xxCount();
     return this.metricFactory.toRate(
-      metric,
+      this.metric5xxCount(),
       this.rateComputationMethod,
       false,
       "faults",

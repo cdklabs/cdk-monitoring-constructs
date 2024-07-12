@@ -173,9 +173,8 @@ export class StepFunctionServiceIntegrationMetricFactory extends BaseMetricFacto
   }
 
   metricServiceIntegrationsFailedRate() {
-    const metric = this.metricServiceIntegrationsFailed();
     return this.metricFactory.toRate(
-      metric,
+      this.metricServiceIntegrationsFailed(),
       this.rateComputationMethod,
       false,
       "faults",

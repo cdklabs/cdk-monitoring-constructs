@@ -138,9 +138,8 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
   }
 
   metric4XXErrorRate() {
-    const metric = this.metric4XXErrorCount();
     return this.metricFactory.toRate(
-      metric,
+      this.metric4XXErrorCount(),
       this.rateComputationMethod,
       false,
       "errors",
@@ -162,9 +161,8 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
   }
 
   metric5XXFaultRate() {
-    const metric = this.metric5XXFaultCount();
     return this.metricFactory.toRate(
-      metric,
+      this.metric5XXFaultCount(),
       this.rateComputationMethod,
       false,
       "faults",

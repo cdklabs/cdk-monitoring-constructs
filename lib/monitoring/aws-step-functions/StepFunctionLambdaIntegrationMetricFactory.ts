@@ -177,9 +177,8 @@ export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactor
   }
 
   metricFunctionsFailedRate() {
-    const metric = this.metricFunctionsFailed();
     return this.metricFactory.toRate(
-      metric,
+      this.metricFunctionsFailed(),
       this.rateComputationMethod,
       false,
       "faults",
