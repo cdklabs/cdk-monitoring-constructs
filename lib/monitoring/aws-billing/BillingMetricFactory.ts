@@ -32,7 +32,6 @@ export class BillingMetricFactory {
 
   metricTotalCostInUsd(): MetricWithAlarmSupport {
     // not using metric factory because we customize everything
-
     return new Metric({
       namespace: BillingNamespace,
       metricName: BillingMetric,

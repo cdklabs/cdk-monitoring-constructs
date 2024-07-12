@@ -79,9 +79,8 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
   }
 
   metric4xxErrorRate() {
-    const metric = this.metric4xxErrorCount();
     return this.metricFactory.toRate(
-      metric,
+      this.metric4xxErrorCount(),
       this.rateComputationMethod,
       false,
       "errors",
@@ -103,9 +102,8 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
   }
 
   metric5xxFaultRate() {
-    const metric = this.metric5xxFaultCount();
     return this.metricFactory.toRate(
-      metric,
+      this.metric5xxFaultCount(),
       this.rateComputationMethod,
       false,
       "faults",

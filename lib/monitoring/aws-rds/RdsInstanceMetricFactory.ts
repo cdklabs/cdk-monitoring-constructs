@@ -83,11 +83,10 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
   }
 
   metricReadLatencyInMillis(latencyType: LatencyType) {
-    const label = "ReadLatency " + getLatencyTypeLabel(latencyType);
     return this.metric(
       "ReadLatency",
       getLatencyTypeStatistic(latencyType),
-      label,
+      `ReadLatency ${getLatencyTypeLabel(latencyType)}`,
     );
   }
 
@@ -111,11 +110,10 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
   }
 
   metricWriteLatencyInMillis(latencyType: LatencyType) {
-    const label = "WriteLatency " + getLatencyTypeLabel(latencyType);
     return this.metric(
       "WriteLatency",
       getLatencyTypeStatistic(latencyType),
-      label,
+      `WriteLatency ${getLatencyTypeLabel(latencyType)}`,
     );
   }
 

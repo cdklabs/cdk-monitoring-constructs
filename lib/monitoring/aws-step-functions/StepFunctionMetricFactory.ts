@@ -92,9 +92,8 @@ export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMet
   }
 
   metricExecutionsFailedRate() {
-    const metric = this.metricExecutionsFailed();
     return this.metricFactory.toRate(
-      metric,
+      this.metricExecutionsFailed(),
       this.rateComputationMethod,
       false,
       "faults",

@@ -79,11 +79,12 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
   }
 
   metricDiskSpaceUsageInPercent() {
-    const used = this.metricUsedStorageInBytes();
-    const free = this.metricFreeStorageInBytes();
     return this.metricFactory.createMetricMath(
       "100 * (used/(used+free))",
-      { used, free },
+      {
+        used: this.metricUsedStorageInBytes(),
+        free: this.metricFreeStorageInBytes(),
+      },
       "Disk Usage",
     );
   }
@@ -118,6 +119,7 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
         "Cluster is not of type `ServerlessCluster`. Metric is not applicable",
       );
     }
+
     return this.metric(
       "ServerlessDatabaseCapacity",
       MetricStatistic.AVERAGE,

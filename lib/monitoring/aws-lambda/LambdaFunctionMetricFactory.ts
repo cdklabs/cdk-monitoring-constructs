@@ -92,9 +92,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
   }
 
   metricThrottlesRate() {
-    const metric = this.metricThrottlesCount();
     return this.metricFactory.toRate(
-      metric,
+      this.metricThrottlesCount(),
       this.rateComputationMethod,
       false,
       "throttles",
@@ -112,9 +111,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
   }
 
   metricFaultRate() {
-    const metric = this.metricFaultCount();
     return this.metricFactory.toRate(
-      metric,
+      this.metricFaultCount(),
       this.rateComputationMethod,
       false,
       "faults",

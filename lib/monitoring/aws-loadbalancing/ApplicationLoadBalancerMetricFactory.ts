@@ -78,11 +78,12 @@ export class ApplicationLoadBalancerMetricFactory
   }
 
   metricHealthyTaskInPercent() {
-    const healthyTaskCount = this.metricHealthyTaskCount();
-    const unhealthyTaskCount = this.metricUnhealthyTaskCount();
     return this.metricFactory.createMetricMath(
       "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
-      { healthyTaskCount, unhealthyTaskCount },
+      {
+        healthyTaskCount: this.metricHealthyTaskCount(),
+        unhealthyTaskCount: this.metricUnhealthyTaskCount(),
+      },
       "Healthy Task Percent (avg: ${AVG})",
     );
   }

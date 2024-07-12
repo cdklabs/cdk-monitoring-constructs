@@ -67,20 +67,18 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
   }
 
   metricReadLatencyInMillis(latencyType: LatencyType) {
-    const label = "Read " + getLatencyTypeLabel(latencyType);
     return this.metric(
       "ReadLatency",
       getLatencyTypeStatistic(latencyType),
-      label,
+      `Read ${getLatencyTypeLabel(latencyType)}`,
     );
   }
 
   metricWriteLatencyInMillis(latencyType: LatencyType) {
-    const label = "Write " + getLatencyTypeLabel(latencyType);
     return this.metric(
       "WriteLatency",
       getLatencyTypeStatistic(latencyType),
-      label,
+      `Write ${getLatencyTypeLabel(latencyType)}`,
     );
   }
 

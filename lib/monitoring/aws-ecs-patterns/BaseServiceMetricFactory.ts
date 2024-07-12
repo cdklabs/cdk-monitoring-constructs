@@ -112,12 +112,12 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
   }
 
   metricEphemeralStorageUsageInPercent() {
-    const total = this.metricEphemeralStorageReserved();
-    const used = this.metricEphemeralStorageUtilized();
-
     return this.metricFactory.createMetricMath(
       "100 * (used/total)",
-      { used, total },
+      {
+        used: this.metricEphemeralStorageUtilized(),
+        total: this.metricEphemeralStorageReserved(),
+      },
       "Ephemeral Storage Usage",
     );
   }
