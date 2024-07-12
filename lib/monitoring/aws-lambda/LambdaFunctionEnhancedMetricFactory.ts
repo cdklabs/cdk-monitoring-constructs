@@ -89,6 +89,8 @@ export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory<Lambd
     return this.metricFactory.adaptMetric(
       this.lambdaFunction.metricDuration({
         statistic: MetricStatistic.SUM,
+        region: this.region,
+        account: this.account,
       }),
     );
   }

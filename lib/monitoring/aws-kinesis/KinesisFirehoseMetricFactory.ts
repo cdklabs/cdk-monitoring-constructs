@@ -151,6 +151,10 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
         bytes_max: this.metricBytesPerSecondLimit(),
       },
       "Incoming Bytes / Limit",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -162,6 +166,10 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
         records_max: this.metricRecordsPerSecondLimit(),
       },
       "Incoming Records / Limit",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -173,6 +181,10 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
         requests_max: this.metricPutRequestsPerSecondLimit(),
       },
       "Incoming PutRequests / Limit",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 

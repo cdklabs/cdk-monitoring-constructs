@@ -169,6 +169,9 @@ export class StepFunctionServiceIntegrationMetricFactory extends BaseMetricFacto
       this.dimensionsMap,
       undefined,
       Namespace,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 

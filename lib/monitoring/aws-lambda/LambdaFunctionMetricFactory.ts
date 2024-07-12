@@ -77,6 +77,8 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
     return this.metricFactory.adaptMetric(
       this.lambdaFunction.metricInvocations({
         label: "Invocations",
+        region: this.region,
+        account: this.account,
       }),
     );
   }

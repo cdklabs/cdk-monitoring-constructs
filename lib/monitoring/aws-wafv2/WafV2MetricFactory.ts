@@ -73,6 +73,10 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
         blocked: this.metricBlockedRequests(),
       },
       "Blocked (rate)",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

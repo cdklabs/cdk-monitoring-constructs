@@ -946,8 +946,8 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": undefined,
-  "searchRegion": undefined,
+  "searchAccount": "01234567890",
+  "searchRegion": "eu-west-1",
   "usingMetrics": Object {
     "m1": Metric {
       "account": "01234567890",
@@ -986,8 +986,8 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": undefined,
-  "searchRegion": undefined,
+  "searchAccount": "01234567890",
+  "searchRegion": "eu-west-1",
   "usingMetrics": Object {
     "m1": Metric {
       "account": "01234567890",
@@ -1026,8 +1026,8 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": undefined,
-  "searchRegion": undefined,
+  "searchAccount": "01234567890",
+  "searchRegion": "eu-west-1",
   "usingMetrics": Object {
     "m1": Metric {
       "account": "01234567890",
@@ -1066,8 +1066,8 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": undefined,
-  "searchRegion": undefined,
+  "searchAccount": "01234567890",
+  "searchRegion": "eu-west-1",
   "usingMetrics": Object {
     "m1": Metric {
       "account": "01234567890",

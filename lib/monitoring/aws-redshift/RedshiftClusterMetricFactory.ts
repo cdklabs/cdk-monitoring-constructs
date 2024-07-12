@@ -60,6 +60,10 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
       "sQueryLatency90 / 1000",
       { sQueryLatency90 },
       "Short P90",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -73,6 +77,10 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
       "mQueryLatency90 / 1000",
       { mQueryLatency90 },
       "Medium P90",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -86,6 +94,10 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
       "lQueryLatency90 / 1000",
       { lQueryLatency90 },
       "Long P90",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -104,6 +116,10 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
       "readLatency * 1000",
       { readLatency },
       "Read P90",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -118,6 +134,10 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
       "writeLatency * 1000",
       { writeLatency },
       "Write P90",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 

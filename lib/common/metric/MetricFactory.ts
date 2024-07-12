@@ -273,6 +273,8 @@ export class MetricFactory {
         label,
         metric.color,
         metric.period,
+        this.getRegion(metric),
+        this.getAccount(metric),
       );
     }
   }
@@ -306,6 +308,8 @@ export class MetricFactory {
         label,
         metric.color,
         metric.period,
+        this.getRegion(metric),
+        this.getAccount(metric),
       );
     }
   }
@@ -361,6 +365,8 @@ export class MetricFactory {
             avgLabel,
             avgMetric.color,
             avgMetric.period,
+            this.getRegion(avgMetric),
+            this.getAccount(avgMetric),
           );
         }
         return avgMetric;
@@ -380,6 +386,8 @@ export class MetricFactory {
           perSecondLabel,
           metric.color,
           metric.period,
+          this.getRegion(metric),
+          this.getAccount(metric),
         );
       case RateComputationMethod.PER_MINUTE:
         return this.createMetricMath(
@@ -388,6 +396,8 @@ export class MetricFactory {
           `${labelPrefix}/m${labelAppendix}`,
           metric.color,
           metric.period,
+          this.getRegion(metric),
+          this.getAccount(metric),
         );
       case RateComputationMethod.PER_HOUR:
         return this.createMetricMath(
@@ -396,6 +406,8 @@ export class MetricFactory {
           `${labelPrefix}/h${labelAppendix}`,
           metric.color,
           metric.period,
+          this.getRegion(metric),
+          this.getAccount(metric),
         );
       case RateComputationMethod.PER_DAY:
         return this.createMetricMath(
@@ -404,6 +416,8 @@ export class MetricFactory {
           `${labelPrefix}/d${labelAppendix}`,
           metric.color,
           metric.period,
+          this.getRegion(metric),
+          this.getAccount(metric),
         );
     }
   }
@@ -480,6 +494,16 @@ export class MetricFactory {
 
     return;
   }
+  private getAccount(metric: MetricWithAlarmSupport): string | undefined {
+    let metricAccount: string | undefined;
+    if (metric instanceof MathExpression) {
+      metricAccount = metric.searchAccount;
+    } else {
+      metricAccount = metric.account;
+    }
+
+    return this.resolveAccount(metricAccount);
+  }
 
   /**
    * Attempts to get the region from the metric if it differs from the scope.
@@ -495,5 +519,15 @@ export class MetricFactory {
     }
 
     return;
+  }
+  private getRegion(metric: MetricWithAlarmSupport): string | undefined {
+    let metricRegion: string | undefined;
+    if (metric instanceof MathExpression) {
+      metricRegion = metric.searchRegion;
+    } else {
+      metricRegion = metric.region;
+    }
+
+    return this.resolveRegion(metricRegion);
   }
 }
