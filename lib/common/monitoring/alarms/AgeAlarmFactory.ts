@@ -60,6 +60,8 @@ export class AgeAlarmFactory {
       threshold: props.maxAgeInMillis,
       alarmNameSuffix: "Iterator-Age-Max",
       alarmDescription: "Iterator Max Age is too high.",
+      // Dedupe all iterator max age to the same ticket
+      alarmDedupeStringSuffix: "AnyIteratorMaxAge",
     });
   }
 
