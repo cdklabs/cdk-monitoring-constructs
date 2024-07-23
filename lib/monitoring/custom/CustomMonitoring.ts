@@ -127,6 +127,22 @@ export interface CustomMetricSearch {
    * default: AxisPosition.LEFT
    */
   readonly position?: AxisPosition;
+
+  /**
+   * Account which this metric comes from.
+   * Note that alarms cannot be created for cross-account metrics.
+   *
+   * @default - Deployment account.
+   */
+  readonly account?: string;
+
+  /**
+   * Region which this metric comes from.
+   * Note that alarms cannot be created for cross-region metrics.
+   *
+   * @default - Deployment region.
+   */
+  readonly region?: string;
 }
 
 /**
@@ -482,6 +498,8 @@ export class CustomMonitoring extends Monitoring {
           metric.namespace,
           metric.label,
           metric.period,
+          metric.region,
+          metric.account,
         );
       } else {
         // general metric

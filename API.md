@@ -13586,10 +13586,12 @@ const customMetricSearch: CustomMetricSearch = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.dimensionsMap">dimensionsMap</a></code> | <code>{[ key: string ]: string}</code> | search dimensions (can be empty). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.searchQuery">searchQuery</a></code> | <code>string</code> | search query (can be empty). |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.statistic">statistic</a></code> | <code><a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a></code> | metric statistic. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.account">account</a></code> | <code>string</code> | Account which this metric comes from. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.label">label</a></code> | <code>string</code> | custom label for the metrics. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.namespace">namespace</a></code> | <code>string</code> | metric namespace. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | metric period. |
 | <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.position">position</a></code> | <code><a href="#cdk-monitoring-constructs.AxisPosition">AxisPosition</a></code> | axis (right or left) on which to graph metric default: AxisPosition.LEFT. |
+| <code><a href="#cdk-monitoring-constructs.CustomMetricSearch.property.region">region</a></code> | <code>string</code> | Region which this metric comes from. |
 
 ---
 
@@ -13626,6 +13628,21 @@ public readonly statistic: MetricStatistic;
 - *Type:* <a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a>
 
 metric statistic.
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.CustomMetricSearch.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* Deployment account.
+
+Account which this metric comes from.
+
+Note that alarms cannot be created for cross-account metrics.
 
 ---
 
@@ -13677,6 +13694,21 @@ public readonly position: AxisPosition;
 - *Type:* <a href="#cdk-monitoring-constructs.AxisPosition">AxisPosition</a>
 
 axis (right or left) on which to graph metric default: AxisPosition.LEFT.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.CustomMetricSearch.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* Deployment region.
+
+Region which this metric comes from.
+
+Note that alarms cannot be created for cross-region metrics.
 
 ---
 
