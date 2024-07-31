@@ -1,5 +1,5 @@
-import { Duration } from "aws-cdk-lib";
-import { Metric } from "aws-cdk-lib/aws-cloudwatch";
+import { Duration, Stack } from "aws-cdk-lib";
+import { Color, Metric } from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   MetricFactory,
@@ -167,16 +167,26 @@ test("snapshot test: createMetricMath", () => {
 });
 
 test("snapshot test: toRate with detail", () => {
-  const metricFactory = new MetricFactory({
-    globalDefaults: {
-      namespace: "DummyNamespace",
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(
+    {
+      globalDefaults: {
+        namespace: "DummyNamespace",
+      },
     },
-  });
+    stack,
+  );
 
   const metric = metricFactory.createMetric(
     "Metric",
     MetricStatistic.SUM,
     "Label",
+    undefined,
+    Color.ORANGE,
+    "Namespace",
+    undefined,
+    "eu-west-1",
+    "01234567890",
   );
 
   const metricAverage = metricFactory.toRate(
@@ -185,6 +195,13 @@ test("snapshot test: toRate with detail", () => {
     true,
   );
   expect(metricAverage).toMatchSnapshot();
+
+  const metricAverageWithAccount = metricFactory.toRate(
+    metric.with({ account: "1111111111" }),
+    RateComputationMethod.AVERAGE,
+    true,
+  );
+  expect(metricAverageWithAccount).toMatchSnapshot();
 
   const metricPerSecond = metricFactory.toRate(
     metric,

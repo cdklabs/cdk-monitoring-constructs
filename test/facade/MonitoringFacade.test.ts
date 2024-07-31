@@ -2,6 +2,7 @@ import { Duration, Stack } from "aws-cdk-lib";
 import { Capture, Template } from "aws-cdk-lib/assertions";
 import { TextWidget } from "aws-cdk-lib/aws-cloudwatch";
 import { Table } from "aws-cdk-lib/aws-dynamodb";
+import { Function } from "aws-cdk-lib/aws-lambda";
 import { Topic } from "aws-cdk-lib/aws-sns";
 import {
   DefaultDashboardFactory,
@@ -92,6 +93,7 @@ describe("test of defaults", () => {
         action: notifySns(onAlarmTopic),
       },
     });
+
     facade
       .addLargeHeader("My App Dashboard")
       .monitorDynamoTable({
@@ -110,11 +112,18 @@ describe("test of defaults", () => {
         ),
         region: "us-west-2",
         account: "01234567890",
-        addAverageSuccessfulGetItemLatencyAlarm: {
-          Critical: {
-            maxLatency: Duration.seconds(10),
+      })
+      .monitorLambdaFunction({
+        account: "01234567890",
+        region: "us-west-2",
+        lambdaFunction: Function.fromFunctionAttributes(
+          stack,
+          "XaXrImportedFunction",
+          {
+            functionArn: `arn:aws:lambda:us-west-2:01234567890:function:MyFunction`,
+            sameEnvironment: false,
           },
-        },
+        ),
       });
 
     expect(Template.fromStack(stack)).toMatchSnapshot();

@@ -244,11 +244,14 @@ test("addToSummaryDashboard attribute takes value from CustomMonitoringProps if 
 
 test("anomaly detection", () => {
   const stack = new Stack();
-  const metricFactory = new MetricFactory({
-    globalDefaults: {
-      namespace: "AnomalyNamespace",
+  const metricFactory = new MetricFactory(
+    {
+      globalDefaults: {
+        namespace: "AnomalyNamespace",
+      },
     },
-  });
+    stack,
+  );
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
