@@ -889,12 +889,12 @@ Object {
 
 exports[`snapshot test: toRate with detail 1`] = `
 Metric {
-  "account": undefined,
-  "color": undefined,
+  "account": "01234567890",
+  "color": "#ff7f0e",
   "dimensions": undefined,
   "label": "Label (avg) (min: \${MIN}, max: \${MAX})",
   "metricName": "Metric",
-  "namespace": "DummyNamespace",
+  "namespace": "Namespace",
   "period": Duration {
     "amount": 5,
     "unit": TimeUnit {
@@ -903,7 +903,7 @@ Metric {
       "label": "minutes",
     },
   },
-  "region": undefined,
+  "region": "eu-west-1",
   "statistic": "Average",
   "unit": undefined,
   "warnings": undefined,
@@ -911,8 +911,31 @@ Metric {
 `;
 
 exports[`snapshot test: toRate with detail 2`] = `
+Metric {
+  "account": "1111111111",
+  "color": "#ff7f0e",
+  "dimensions": undefined,
+  "label": "Label (avg) (min: \${MIN}, max: \${MAX})",
+  "metricName": "Metric",
+  "namespace": "Namespace",
+  "period": Duration {
+    "amount": 5,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "region": "eu-west-1",
+  "statistic": "Average",
+  "unit": undefined,
+  "warnings": undefined,
+}
+`;
+
+exports[`snapshot test: toRate with detail 3`] = `
 MathExpression {
-  "color": undefined,
+  "color": "#ff7f0e",
   "expression": "m1 / PERIOD(m1)",
   "label": "Label/s (min: \${MIN}, max: \${MAX}, avg: \${AVG})",
   "period": Duration {
@@ -923,16 +946,16 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": undefined,
-  "searchRegion": undefined,
+  "searchAccount": "01234567890",
+  "searchRegion": "eu-west-1",
   "usingMetrics": Object {
     "m1": Metric {
-      "account": undefined,
-      "color": undefined,
+      "account": "01234567890",
+      "color": "#ff7f0e",
       "dimensions": undefined,
       "label": "Label",
       "metricName": "Metric",
-      "namespace": "DummyNamespace",
+      "namespace": "Namespace",
       "period": Duration {
         "amount": 5,
         "unit": TimeUnit {
@@ -941,47 +964,7 @@ MathExpression {
           "label": "minutes",
         },
       },
-      "region": undefined,
-      "statistic": "Sum",
-      "unit": undefined,
-      "warnings": undefined,
-    },
-  },
-}
-`;
-
-exports[`snapshot test: toRate with detail 3`] = `
-MathExpression {
-  "color": undefined,
-  "expression": "(60 * m1) / PERIOD(m1)",
-  "label": "Label/m (min: \${MIN}, max: \${MAX}, avg: \${AVG})",
-  "period": Duration {
-    "amount": 5,
-    "unit": TimeUnit {
-      "inMillis": 60000,
-      "isoLabel": "M",
-      "label": "minutes",
-    },
-  },
-  "searchAccount": undefined,
-  "searchRegion": undefined,
-  "usingMetrics": Object {
-    "m1": Metric {
-      "account": undefined,
-      "color": undefined,
-      "dimensions": undefined,
-      "label": "Label",
-      "metricName": "Metric",
-      "namespace": "DummyNamespace",
-      "period": Duration {
-        "amount": 5,
-        "unit": TimeUnit {
-          "inMillis": 60000,
-          "isoLabel": "M",
-          "label": "minutes",
-        },
-      },
-      "region": undefined,
+      "region": "eu-west-1",
       "statistic": "Sum",
       "unit": undefined,
       "warnings": undefined,
@@ -992,9 +975,9 @@ MathExpression {
 
 exports[`snapshot test: toRate with detail 4`] = `
 MathExpression {
-  "color": undefined,
-  "expression": "(3600 * m1) / PERIOD(m1)",
-  "label": "Label/h (min: \${MIN}, max: \${MAX}, avg: \${AVG})",
+  "color": "#ff7f0e",
+  "expression": "(60 * m1) / PERIOD(m1)",
+  "label": "Label/m (min: \${MIN}, max: \${MAX}, avg: \${AVG})",
   "period": Duration {
     "amount": 5,
     "unit": TimeUnit {
@@ -1003,16 +986,16 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": undefined,
-  "searchRegion": undefined,
+  "searchAccount": "01234567890",
+  "searchRegion": "eu-west-1",
   "usingMetrics": Object {
     "m1": Metric {
-      "account": undefined,
-      "color": undefined,
+      "account": "01234567890",
+      "color": "#ff7f0e",
       "dimensions": undefined,
       "label": "Label",
       "metricName": "Metric",
-      "namespace": "DummyNamespace",
+      "namespace": "Namespace",
       "period": Duration {
         "amount": 5,
         "unit": TimeUnit {
@@ -1021,7 +1004,7 @@ MathExpression {
           "label": "minutes",
         },
       },
-      "region": undefined,
+      "region": "eu-west-1",
       "statistic": "Sum",
       "unit": undefined,
       "warnings": undefined,
@@ -1032,7 +1015,47 @@ MathExpression {
 
 exports[`snapshot test: toRate with detail 5`] = `
 MathExpression {
-  "color": undefined,
+  "color": "#ff7f0e",
+  "expression": "(3600 * m1) / PERIOD(m1)",
+  "label": "Label/h (min: \${MIN}, max: \${MAX}, avg: \${AVG})",
+  "period": Duration {
+    "amount": 5,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "searchAccount": "01234567890",
+  "searchRegion": "eu-west-1",
+  "usingMetrics": Object {
+    "m1": Metric {
+      "account": "01234567890",
+      "color": "#ff7f0e",
+      "dimensions": undefined,
+      "label": "Label",
+      "metricName": "Metric",
+      "namespace": "Namespace",
+      "period": Duration {
+        "amount": 5,
+        "unit": TimeUnit {
+          "inMillis": 60000,
+          "isoLabel": "M",
+          "label": "minutes",
+        },
+      },
+      "region": "eu-west-1",
+      "statistic": "Sum",
+      "unit": undefined,
+      "warnings": undefined,
+    },
+  },
+}
+`;
+
+exports[`snapshot test: toRate with detail 6`] = `
+MathExpression {
+  "color": "#ff7f0e",
   "expression": "(86400 * m1) / PERIOD(m1)",
   "label": "Label/d (min: \${MIN}, max: \${MAX}, avg: \${AVG})",
   "period": Duration {
@@ -1043,16 +1066,16 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": undefined,
-  "searchRegion": undefined,
+  "searchAccount": "01234567890",
+  "searchRegion": "eu-west-1",
   "usingMetrics": Object {
     "m1": Metric {
-      "account": undefined,
-      "color": undefined,
+      "account": "01234567890",
+      "color": "#ff7f0e",
       "dimensions": undefined,
       "label": "Label",
       "metricName": "Metric",
-      "namespace": "DummyNamespace",
+      "namespace": "Namespace",
       "period": Duration {
         "amount": 5,
         "unit": TimeUnit {
@@ -1061,7 +1084,7 @@ MathExpression {
           "label": "minutes",
         },
       },
-      "region": undefined,
+      "region": "eu-west-1",
       "statistic": "Sum",
       "unit": undefined,
       "warnings": undefined,

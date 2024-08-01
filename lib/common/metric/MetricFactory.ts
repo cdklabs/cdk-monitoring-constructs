@@ -1,10 +1,11 @@
-import { Duration } from "aws-cdk-lib";
+import { Duration, Stack } from "aws-cdk-lib";
 import {
   DimensionsMap,
   IMetric,
   MathExpression,
   Metric,
 } from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 import { AnomalyDetectionMathExpression } from "./AnomalyDetectionMathExpression";
 import { BaseMetricFactoryProps } from "./BaseMetricFactory";
@@ -42,9 +43,12 @@ export interface MetricFactoryProps {
 
 export class MetricFactory {
   protected readonly globalDefaults: MetricFactoryDefaults;
+  protected readonly scope: Construct | undefined;
 
-  constructor(props?: MetricFactoryProps) {
+  // TODO: make scope required and first. This is for backwards compatability for now.
+  constructor(props?: MetricFactoryProps, scope?: Construct) {
     this.globalDefaults = props?.globalDefaults ?? {};
+    this.scope = scope;
   }
 
   /**
@@ -81,8 +85,8 @@ export class MetricFactory {
         : undefined,
       namespace: this.getNamespaceWithFallback(namespace),
       period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
-      region: region ?? this.globalDefaults.region,
-      account: account ?? this.globalDefaults.account,
+      region: this.resolveRegion(region ?? this.globalDefaults.region),
+      account: this.resolveAccount(account ?? this.globalDefaults.account),
     });
   }
 
@@ -112,8 +116,10 @@ export class MetricFactory {
       expression,
       usingMetrics,
       period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
-      searchRegion: region ?? this.globalDefaults.region,
-      searchAccount: account ?? this.globalDefaults.account,
+      searchRegion: this.resolveRegion(region ?? this.globalDefaults.region),
+      searchAccount: this.resolveAccount(
+        account ?? this.globalDefaults.account,
+      ),
     });
   }
 
@@ -165,8 +171,10 @@ export class MetricFactory {
       // cannot be an empty string and undefined is no good either
       label: label ?? " ",
       period: finalPeriod,
-      searchRegion: region ?? this.globalDefaults.region,
-      searchAccount: account ?? this.globalDefaults.account,
+      searchRegion: this.resolveRegion(region ?? this.globalDefaults.region),
+      searchAccount: this.resolveAccount(
+        account ?? this.globalDefaults.account,
+      ),
     });
   }
 
@@ -205,8 +213,10 @@ export class MetricFactory {
       usingMetrics,
       expression: `ANOMALY_DETECTION_BAND(${finalExpressionId},${stdev})`,
       period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
-      searchRegion: region ?? this.globalDefaults.region,
-      searchAccount: account ?? this.globalDefaults.account,
+      searchRegion: this.resolveRegion(region ?? this.globalDefaults.region),
+      searchAccount: this.resolveAccount(
+        account ?? this.globalDefaults.account,
+      ),
     });
   }
 
@@ -263,6 +273,8 @@ export class MetricFactory {
         label,
         metric.color,
         metric.period,
+        this.getRegion(metric),
+        this.getAccount(metric),
       );
     }
   }
@@ -296,6 +308,8 @@ export class MetricFactory {
         label,
         metric.color,
         metric.period,
+        this.getRegion(metric),
+        this.getAccount(metric),
       );
     }
   }
@@ -351,6 +365,8 @@ export class MetricFactory {
             avgLabel,
             avgMetric.color,
             avgMetric.period,
+            this.getRegion(avgMetric),
+            this.getAccount(avgMetric),
           );
         }
         return avgMetric;
@@ -370,6 +386,8 @@ export class MetricFactory {
           perSecondLabel,
           metric.color,
           metric.period,
+          this.getRegion(metric),
+          this.getAccount(metric),
         );
       case RateComputationMethod.PER_MINUTE:
         return this.createMetricMath(
@@ -378,6 +396,8 @@ export class MetricFactory {
           `${labelPrefix}/m${labelAppendix}`,
           metric.color,
           metric.period,
+          this.getRegion(metric),
+          this.getAccount(metric),
         );
       case RateComputationMethod.PER_HOUR:
         return this.createMetricMath(
@@ -386,6 +406,8 @@ export class MetricFactory {
           `${labelPrefix}/h${labelAppendix}`,
           metric.color,
           metric.period,
+          this.getRegion(metric),
+          this.getAccount(metric),
         );
       case RateComputationMethod.PER_DAY:
         return this.createMetricMath(
@@ -394,6 +416,8 @@ export class MetricFactory {
           `${labelPrefix}/d${labelAppendix}`,
           metric.color,
           metric.period,
+          this.getRegion(metric),
+          this.getAccount(metric),
         );
     }
   }
@@ -451,5 +475,59 @@ export class MetricFactory {
       .forEach(([key, value]) => (copy[key] = value));
 
     return copy;
+  }
+
+  /**
+   * Attempts to get the account from the metric if it differs from the scope.
+   */
+  private resolveAccount(
+    metricAccount: string | undefined,
+  ): string | undefined {
+    if (!this.scope) {
+      return metricAccount;
+    }
+
+    const { account } = Stack.of(this.scope);
+    if (metricAccount !== account) {
+      return metricAccount;
+    }
+
+    return;
+  }
+  private getAccount(metric: MetricWithAlarmSupport): string | undefined {
+    let metricAccount: string | undefined;
+    if (metric instanceof MathExpression) {
+      metricAccount = metric.searchAccount;
+    } else {
+      metricAccount = metric.account;
+    }
+
+    return this.resolveAccount(metricAccount);
+  }
+
+  /**
+   * Attempts to get the region from the metric if it differs from the scope.
+   */
+  private resolveRegion(metricRegion: string | undefined): string | undefined {
+    if (!this.scope) {
+      return metricRegion;
+    }
+
+    const { region } = Stack.of(this.scope);
+    if (metricRegion !== region) {
+      return metricRegion;
+    }
+
+    return;
+  }
+  private getRegion(metric: MetricWithAlarmSupport): string | undefined {
+    let metricRegion: string | undefined;
+    if (metric instanceof MathExpression) {
+      metricRegion = metric.searchRegion;
+    } else {
+      metricRegion = metric.region;
+    }
+
+    return this.resolveRegion(metricRegion);
   }
 }

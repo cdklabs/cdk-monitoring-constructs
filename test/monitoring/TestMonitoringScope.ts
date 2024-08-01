@@ -64,7 +64,10 @@ export class TestMonitoringScope extends MonitoringScope {
   }
 
   createMetricFactory(): MetricFactory {
-    return new MetricFactory({ globalDefaults: DummyGlobalMetricDefaults });
+    return new MetricFactory(
+      { globalDefaults: DummyGlobalMetricDefaults },
+      this,
+    );
   }
 
   createWidgetFactory(): IWidgetFactory {

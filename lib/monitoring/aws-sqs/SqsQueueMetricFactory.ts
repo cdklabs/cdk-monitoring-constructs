@@ -79,6 +79,10 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
         productionVolume: this.metricIncomingMessageCount(),
       },
       "Production TPS (avg: ${AVG}, max: ${MAX})",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -89,6 +93,10 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
         consumptionVolume: this.metricDeletedMessageCount(),
       },
       "Consumption TPS (avg: ${AVG}, max: ${MAX})",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
@@ -103,6 +111,10 @@ export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFacto
         consumptionVolume: this.metricDeletedMessageCount(),
       },
       "Time to Drain (seconds) (avg: ${AVG}, max: ${MAX})",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 }

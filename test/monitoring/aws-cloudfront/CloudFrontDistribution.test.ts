@@ -33,7 +33,11 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
   });
 
   test(`snapshot test: all alarms with additionalMetricsEnabled=${additionalMetricsEnabled}`, () => {
-    const stack = new Stack();
+    const stack = new Stack(undefined, undefined, {
+      env: {
+        region: "us-east-1",
+      },
+    });
     const bucket = new Bucket(stack, "Bucket");
     const distribution = new Distribution(stack, "Distribution", {
       defaultBehavior: {

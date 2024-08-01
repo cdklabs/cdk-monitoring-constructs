@@ -68,6 +68,8 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
         consumed_rcu_sum: this.table.metricConsumedReadCapacityUnits({
           statistic: MetricStatistic.SUM,
           dimensionsMap: this.dimensionsMap,
+          region: this.region,
+          account: this.account,
         }),
       },
       "Consumed",
@@ -81,6 +83,8 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
         consumed_wcu_sum: this.table.metricConsumedWriteCapacityUnits({
           statistic: MetricStatistic.SUM,
           dimensionsMap: this.dimensionsMap,
+          region: this.region,
+          account: this.account,
         }),
       },
       "Consumed",
