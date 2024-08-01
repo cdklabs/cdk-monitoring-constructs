@@ -44,7 +44,13 @@ test("snapshot test", () => {
           // regular metric
           new Metric({ metricName: "DummyMetric1", namespace, dimensionsMap }),
           // metric with alarm
-          new Metric({ metricName: "DummyMetric2", namespace, dimensionsMap }),
+          new Metric({
+            metricName: "DummyMetric2",
+            namespace,
+            dimensionsMap,
+            account: "01234567890",
+            region: "us-west-2",
+          }),
           {
             metric: new Metric({
               metricName: "DummyMetric3",
@@ -70,6 +76,14 @@ test("snapshot test", () => {
             namespace,
             dimensionsMap,
             statistic: MetricStatistic.SUM,
+          },
+          {
+            searchQuery: "DummyMetric5-",
+            namespace,
+            dimensionsMap,
+            statistic: MetricStatistic.SUM,
+            account: "01234567890",
+            region: "us-west-2",
           },
         ],
       },
