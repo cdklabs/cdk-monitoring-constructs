@@ -87,31 +87,27 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
   }
 
   metricInvocationCount() {
-    return this.metricFactory.createMetric(
-      "Count",
-      MetricStatistic.SUM,
-      "Count",
-      this.dimensionsMap,
-      undefined,
-      ApiGatewayNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "Count",
+      statistic: MetricStatistic.SUM,
+      label: "Count",
+      dimensionsMap: this.dimensionsMap,
+      namespace: ApiGatewayNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metric4XXErrorCount() {
-    return this.metricFactory.createMetric(
-      "4XXError",
-      MetricStatistic.SUM,
-      "4XX Error",
-      this.dimensionsMap,
-      undefined,
-      ApiGatewayNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "4XXError",
+      statistic: MetricStatistic.SUM,
+      label: "4XX Error",
+      dimensionsMap: this.dimensionsMap,
+      namespace: ApiGatewayNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metric4XXErrorRate() {
@@ -124,17 +120,15 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
   }
 
   metric5XXFaultCount() {
-    return this.metricFactory.createMetric(
-      "5XXError",
-      MetricStatistic.SUM,
-      "5XX Fault",
-      this.dimensionsMap,
-      undefined,
-      ApiGatewayNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "5XXError",
+      statistic: MetricStatistic.SUM,
+      label: "5XX Fault",
+      dimensionsMap: this.dimensionsMap,
+      namespace: ApiGatewayNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metric5XXFaultRate() {
@@ -169,16 +163,14 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
 
   metricLatencyInMillis(latencyType: LatencyType) {
     const label = getLatencyTypeLabel(latencyType);
-    return this.metricFactory.createMetric(
-      "Latency",
-      getLatencyTypeStatistic(latencyType),
-      label,
-      this.dimensionsMap,
-      undefined,
-      ApiGatewayNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "Latency",
+      statistic: getLatencyTypeStatistic(latencyType),
+      label: label,
+      dimensionsMap: this.dimensionsMap,
+      namespace: ApiGatewayNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

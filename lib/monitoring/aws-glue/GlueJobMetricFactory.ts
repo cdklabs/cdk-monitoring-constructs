@@ -40,119 +40,104 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
   }
 
   metricTotalReadBytesFromS3() {
-    return this.metricFactory.createMetric(
-      "glue.ALL.s3.filesystem.read_bytes",
-      MetricStatistic.SUM,
-      "Read (S3)",
-      this.dimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "glue.ALL.s3.filesystem.read_bytes",
+      statistic: MetricStatistic.SUM,
+      label: "Read (S3)",
+      dimensionsMap: this.dimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricTotalWrittenBytesToS3() {
-    return this.metricFactory.createMetric(
-      "glue.ALL.s3.filesystem.write_bytes",
-      MetricStatistic.SUM,
-      "Write (S3)",
-      this.dimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "glue.ALL.s3.filesystem.write_bytes",
+      statistic: MetricStatistic.SUM,
+      label: "Write (S3)",
+      dimensionsMap: this.dimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricAverageExecutorCpuUsagePercentage() {
     const label = "CPU Usage (executor average)";
-    const metric = this.metricFactory.createMetric(
-      "glue.ALL.system.cpuSystemLoad",
-      MetricStatistic.AVERAGE,
-      label,
-      this.dimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    const metric = this.metricFactory.metric({
+      metricName: "glue.ALL.system.cpuSystemLoad",
+      statistic: MetricStatistic.AVERAGE,
+      label: label,
+      dimensionsMap: this.dimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
     return this.metricFactory.multiplyMetric(metric, 100, label, "cpu");
   }
 
   metricAverageExecutorMemoryUsagePercentage() {
     const label = "JVM Heap usage (executor average)";
-    const metric = this.metricFactory.createMetric(
-      "glue.ALL.jvm.heap.usage",
-      MetricStatistic.AVERAGE,
-      label,
-      this.dimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    const metric = this.metricFactory.metric({
+      metricName: "glue.ALL.jvm.heap.usage",
+      statistic: MetricStatistic.AVERAGE,
+      label: label,
+      dimensionsMap: this.dimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
     return this.metricFactory.multiplyMetric(metric, 100, label, "heap");
   }
 
   metricActiveExecutorsAverage() {
-    return this.metricFactory.createMetric(
-      "glue.driver.ExecutorAllocationManager.executors.numberAllExecutors",
-      MetricStatistic.AVERAGE,
-      "Active Executors",
-      this.dimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName:
+        "glue.driver.ExecutorAllocationManager.executors.numberAllExecutors",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Active Executors",
+      dimensionsMap: this.dimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricCompletedStagesSum() {
-    return this.metricFactory.createMetric(
-      "glue.driver.aggregate.numCompletedStages",
-      MetricStatistic.SUM,
-      "Completed Stages",
-      this.typeCountDimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "glue.driver.aggregate.numCompletedStages",
+      statistic: MetricStatistic.SUM,
+      label: "Completed Stages",
+      dimensionsMap: this.typeCountDimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricCompletedTasksSum() {
-    return this.metricFactory.createMetric(
-      "glue.driver.aggregate.numCompletedTasks",
-      MetricStatistic.SUM,
-      "Completed Tasks",
-      this.typeCountDimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "glue.driver.aggregate.numCompletedTasks",
+      statistic: MetricStatistic.SUM,
+      label: "Completed Tasks",
+      dimensionsMap: this.typeCountDimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricFailedTasksSum() {
-    return this.metricFactory.createMetric(
-      "glue.driver.aggregate.numFailedTasks",
-      MetricStatistic.SUM,
-      "Failed Tasks",
-      this.typeCountDimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "glue.driver.aggregate.numFailedTasks",
+      statistic: MetricStatistic.SUM,
+      label: "Failed Tasks",
+      dimensionsMap: this.typeCountDimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricFailedTasksRate() {
@@ -166,17 +151,15 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
   }
 
   metricKilledTasksSum() {
-    return this.metricFactory.createMetric(
-      "glue.driver.aggregate.numKilledTasks",
-      MetricStatistic.SUM,
-      "Killed Tasks",
-      this.typeCountDimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "glue.driver.aggregate.numKilledTasks",
+      statistic: MetricStatistic.SUM,
+      label: "Killed Tasks",
+      dimensionsMap: this.typeCountDimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricKilledTasksRate() {
@@ -190,16 +173,15 @@ export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactory
   }
 
   metricMaximumNeededExecutors() {
-    return this.metricFactory.createMetric(
-      "glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors",
-      MetricStatistic.MAX,
-      "Maximum Needed Executors",
-      this.dimensionsMap,
-      undefined,
-      GlueNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName:
+        "glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors",
+      statistic: MetricStatistic.MAX,
+      label: "Maximum Needed Executors",
+      dimensionsMap: this.dimensionsMap,
+      namespace: GlueNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

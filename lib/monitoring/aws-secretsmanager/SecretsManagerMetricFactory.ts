@@ -6,13 +6,7 @@ import {
   MetricStatistic,
 } from "../../common";
 
-const CLASS = "None";
-const DEFAULT_METRIC_PERIOD = Duration.hours(1);
-const METRICNAMESECRETCOUNT = "ResourceCount";
 const NAMESPACE = "AWS/SecretsManager";
-const RESOURCE = "SecretCount";
-const SERVICE = "Secrets Manager";
-const TYPE = "Resource";
 
 export type SecretsManagerMetricFactoryProps = BaseMetricFactoryProps;
 
@@ -25,23 +19,20 @@ export class SecretsManagerMetricFactory extends BaseMetricFactory<SecretsManage
   }
 
   metricSecretCount() {
-    const dimensionsMap = {
-      Class: CLASS,
-      Resource: RESOURCE,
-      Service: SERVICE,
-      Type: TYPE,
-    };
-
-    return this.metricFactory.createMetric(
-      METRICNAMESECRETCOUNT,
-      MetricStatistic.AVERAGE,
-      "Count",
-      dimensionsMap,
-      undefined,
-      NAMESPACE,
-      DEFAULT_METRIC_PERIOD,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ResourceCount",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Count",
+      dimensionsMap: {
+        Class: "None",
+        Resource: "SecretCount",
+        Service: "Secrets Manager",
+        Type: "Resource",
+      },
+      namespace: NAMESPACE,
+      period: Duration.hours(1),
+      region: this.region,
+      account: this.account,
+    });
   }
 }

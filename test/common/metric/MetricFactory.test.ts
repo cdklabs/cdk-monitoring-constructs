@@ -10,14 +10,55 @@ import {
 
 const DummyColor = "#abcdef";
 
+test("deprecated createMetric method creates equivalent metrics", () => {
+  const metricFactory = new MetricFactory({
+    globalDefaults: {
+      namespace: "GlobalNamespace",
+    },
+  });
+
+  expect(
+    metricFactory.createMetric(
+      "Name",
+      MetricStatistic.AVERAGE,
+      "Label",
+      { foo: "bar" },
+      "Color",
+      "Namespace",
+      Duration.hours(6),
+      "us-west-2",
+      "1234",
+    ),
+  ).toEqual(
+    metricFactory.metric({
+      metricName: "Name",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Label",
+      dimensionsMap: { foo: "bar" },
+      color: "Color",
+      namespace: "Namespace",
+      period: Duration.hours(6),
+      region: "us-west-2",
+      account: "1234",
+    }),
+  );
+
+  expect(metricFactory.createMetric("Name", MetricStatistic.AVERAGE)).toEqual(
+    metricFactory.metric({
+      metricName: "Name",
+      statistic: MetricStatistic.AVERAGE,
+    }),
+  );
+});
+
 test("createMetric without global namespace throws an error", () => {
   const metricFactory = new MetricFactory();
 
   expect(() =>
-    metricFactory.createMetric(
-      "DummyMetricName-NoOptionalParams",
-      MetricStatistic.P90,
-    ),
+    metricFactory.metric({
+      metricName: "DummyMetricName-NoOptionalParams",
+      statistic: MetricStatistic.P90,
+    }),
   ).toThrowError();
 });
 
@@ -30,10 +71,10 @@ describe("snapshot test: global defaults", () => {
       },
     });
 
-    const metric = metricFactory.createMetric(
-      "DummyMetricName",
-      MetricStatistic.P90,
-    );
+    const metric = metricFactory.metric({
+      metricName: "DummyMetricName",
+      statistic: MetricStatistic.P90,
+    });
     const metricMath = metricFactory.createMetricMath(
       "DummyExpression",
       {},
@@ -102,38 +143,38 @@ test("snapshot test: createMetric", () => {
     },
   });
 
-  const metricWithNoOptionalParams = metricFactory.createMetric(
-    "DummyMetricName-NoOptionalParams",
-    MetricStatistic.P90,
-  );
+  const metricWithNoOptionalParams = metricFactory.metric({
+    metricName: "DummyMetricName-NoOptionalParams",
+    statistic: MetricStatistic.P90,
+  });
 
   expect(metricWithNoOptionalParams).toMatchSnapshot();
 
-  const metricWithAllOptionalParams = metricFactory.createMetric(
-    "DummyMetricName-AllOptionalParams",
-    MetricStatistic.P90,
-    "DummyLabel",
-    { DummyDimension: "DummyDimensionValue" },
-    DummyColor,
-    "DummyNamespaceOverride",
-  );
+  const metricWithAllOptionalParams = metricFactory.metric({
+    metricName: "DummyMetricName-AllOptionalParams",
+    statistic: MetricStatistic.P90,
+    label: "DummyLabel",
+    dimensionsMap: { DummyDimension: "DummyDimensionValue" },
+    color: DummyColor,
+    namespace: "DummyNamespaceOverride",
+  });
 
   expect(metricWithAllOptionalParams).toMatchSnapshot();
 
-  const metricWithUndefinedDimensions = metricFactory.createMetric(
-    "DummyMetricName-AllOptionalParams",
-    MetricStatistic.P90,
-    "DummyLabel",
-    {
+  const metricWithUndefinedDimensions = metricFactory.metric({
+    metricName: "DummyMetricName-AllOptionalParams",
+    statistic: MetricStatistic.P90,
+    label: "DummyLabel",
+    dimensionsMap: {
       DummyDimension: undefined as unknown as string,
       AnotherDummyDimension: undefined as unknown as string,
     },
-    DummyColor,
-    "DummyNamespaceOverride",
-    Duration.minutes(15),
-    "us-west-2",
-    "123456789",
-  );
+    color: DummyColor,
+    namespace: "DummyNamespaceOverride",
+    period: Duration.minutes(15),
+    region: "us-west-2",
+    account: "123456789",
+  });
 
   expect(metricWithUndefinedDimensions).toMatchSnapshot();
 });
@@ -145,8 +186,14 @@ test("snapshot test: createMetricMath", () => {
     },
   });
 
-  const a = metricFactory.createMetric("a", MetricStatistic.SUM);
-  const b = metricFactory.createMetric("b", MetricStatistic.SUM);
+  const a = metricFactory.metric({
+    metricName: "a",
+    statistic: MetricStatistic.SUM,
+  });
+  const b = metricFactory.metric({
+    metricName: "b",
+    statistic: MetricStatistic.SUM,
+  });
 
   const metricWithNoOptionalParams = metricFactory.createMetricMath(
     "a+b",
@@ -177,17 +224,15 @@ test("snapshot test: toRate with detail", () => {
     stack,
   );
 
-  const metric = metricFactory.createMetric(
-    "Metric",
-    MetricStatistic.SUM,
-    "Label",
-    undefined,
-    Color.ORANGE,
-    "Namespace",
-    undefined,
-    "eu-west-1",
-    "01234567890",
-  );
+  const metric = metricFactory.metric({
+    metricName: "Metric",
+    statistic: MetricStatistic.SUM,
+    label: "Label",
+    color: Color.ORANGE,
+    namespace: "Namespace",
+    region: "eu-west-1",
+    account: "01234567890",
+  });
 
   const metricAverage = metricFactory.toRate(
     metric,
@@ -239,11 +284,11 @@ test("snapshot test: toRate without detail", () => {
     },
   });
 
-  const metric = metricFactory.createMetric(
-    "Metric",
-    MetricStatistic.SUM,
-    "Label",
-  );
+  const metric = metricFactory.metric({
+    metricName: "Metric",
+    statistic: MetricStatistic.SUM,
+    label: "Label",
+  });
 
   const metricAverage = metricFactory.toRate(
     metric,

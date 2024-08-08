@@ -32,115 +32,99 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
   }
 
   metricSuccessfulConversionCount() {
-    return this.metricFactory.createMetric(
-      "SucceedConversion.Records",
-      MetricStatistic.SUM,
-      "Succeed",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "SucceedConversion.Records",
+      statistic: MetricStatistic.SUM,
+      label: "Succeed",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricFailedConversionCount() {
-    return this.metricFactory.createMetric(
-      "FailedConversion.Records",
-      MetricStatistic.SUM,
-      "Failed",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "FailedConversion.Records",
+      statistic: MetricStatistic.SUM,
+      label: "Failed",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricIncomingBytes() {
-    return this.metricFactory.createMetric(
-      "IncomingBytes",
-      MetricStatistic.SUM,
-      "Incoming (bytes)",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "IncomingBytes",
+      statistic: MetricStatistic.SUM,
+      label: "Incoming (bytes)",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricIncomingPutRequests() {
-    return this.metricFactory.createMetric(
-      "IncomingPutRequests",
-      MetricStatistic.SUM,
-      "Incoming (PutRequest)",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "IncomingPutRequests",
+      statistic: MetricStatistic.SUM,
+      label: "Incoming (PutRequest)",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricIncomingRecordCount() {
-    return this.metricFactory.createMetric(
-      "IncomingRecords",
-      MetricStatistic.SUM,
-      "Incoming (Records)",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "IncomingRecords",
+      statistic: MetricStatistic.SUM,
+      label: "Incoming (Records)",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricThrottledRecordCount() {
-    return this.metricFactory.createMetric(
-      "ThrottledRecords",
-      MetricStatistic.SUM,
-      "Throttled",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ThrottledRecords",
+      statistic: MetricStatistic.SUM,
+      label: "Throttled",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordLatencyP90InMillis() {
-    return this.metricFactory.createMetric(
-      "PutRecord.Latency",
-      MetricStatistic.P90,
-      "PutRecord P90",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecord.Latency",
+      statistic: MetricStatistic.P90,
+      label: "PutRecord P90",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordBatchLatencyP90InMillis() {
-    return this.metricFactory.createMetric(
-      "PutRecordBatch.Latency",
-      MetricStatistic.P90,
-      "PutRecordBatch P90",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecordBatch.Latency",
+      statistic: MetricStatistic.P90,
+      label: "PutRecordBatch P90",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricIncomingBytesToLimitRate() {
@@ -189,44 +173,38 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
   }
 
   metricBytesPerSecondLimit() {
-    return this.metricFactory.createMetric(
-      "BytesPerSecondLimit",
-      MetricStatistic.AVERAGE,
-      "Incoming Bytes/s Limit",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "BytesPerSecondLimit",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Incoming Bytes/s Limit",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricRecordsPerSecondLimit() {
-    return this.metricFactory.createMetric(
-      "RecordsPerSecondLimit",
-      MetricStatistic.AVERAGE,
-      "Records/s Limit",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "RecordsPerSecondLimit",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Records/s Limit",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRequestsPerSecondLimit() {
-    return this.metricFactory.createMetric(
-      "PutRequestsPerSecondLimit",
-      MetricStatistic.AVERAGE,
-      "PutRequests/s Limit",
-      this.dimensionsMap,
-      undefined,
-      FirehoseNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRequestsPerSecondLimit",
+      statistic: MetricStatistic.AVERAGE,
+      label: "PutRequests/s Limit",
+      dimensionsMap: this.dimensionsMap,
+      namespace: FirehoseNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

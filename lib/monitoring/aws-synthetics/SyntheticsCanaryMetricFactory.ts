@@ -65,17 +65,15 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
   }
 
   metric4xxErrorCount() {
-    return this.metricFactory.createMetric(
-      "4xx",
-      MetricStatistic.SUM,
-      "4xx",
-      this.dimensionsMap,
-      undefined,
-      MetricNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "4xx",
+      statistic: MetricStatistic.SUM,
+      label: "4xx",
+      dimensionsMap: this.dimensionsMap,
+      namespace: MetricNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metric4xxErrorRate() {
@@ -88,17 +86,15 @@ export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsC
   }
 
   metric5xxFaultCount() {
-    return this.metricFactory.createMetric(
-      "5xx",
-      MetricStatistic.SUM,
-      "5xx",
-      this.dimensionsMap,
-      undefined,
-      MetricNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "5xx",
+      statistic: MetricStatistic.SUM,
+      label: "5xx",
+      dimensionsMap: this.dimensionsMap,
+      namespace: MetricNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metric5xxFaultRate() {

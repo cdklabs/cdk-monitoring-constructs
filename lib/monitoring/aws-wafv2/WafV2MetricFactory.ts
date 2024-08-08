@@ -38,31 +38,27 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
   }
 
   metricAllowedRequests() {
-    return this.metricFactory.createMetric(
-      "AllowedRequests",
-      MetricStatistic.SUM,
-      "Allowed",
-      this.dimensions,
-      undefined,
-      MetricNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "AllowedRequests",
+      statistic: MetricStatistic.SUM,
+      label: "Allowed",
+      dimensionsMap: this.dimensions,
+      namespace: MetricNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricBlockedRequests() {
-    return this.metricFactory.createMetric(
-      "BlockedRequests",
-      MetricStatistic.SUM,
-      "Blocked",
-      this.dimensions,
-      undefined,
-      MetricNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "BlockedRequests",
+      statistic: MetricStatistic.SUM,
+      label: "Blocked",
+      dimensionsMap: this.dimensions,
+      namespace: MetricNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricBlockedRequestsRate() {

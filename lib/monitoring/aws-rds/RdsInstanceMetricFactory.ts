@@ -141,16 +141,14 @@ export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetri
     statistic: MetricStatistic,
     label: string,
   ) {
-    return this.metricFactory.createMetric(
+    return this.metricFactory.metric({
       metricName,
       statistic,
       label,
-      this.dimensionsMap,
-      undefined,
-      RdsNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+      dimensionsMap: this.dimensionsMap,
+      namespace: RdsNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

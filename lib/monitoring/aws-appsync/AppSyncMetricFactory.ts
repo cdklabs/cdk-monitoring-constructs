@@ -68,73 +68,63 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
   }
 
   metricRequestCount() {
-    return this.metricFactory.createMetric(
-      "Latency",
-      MetricStatistic.N,
-      "Requests",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "Latency",
+      statistic: MetricStatistic.N,
+      label: "Requests",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricLatencyP50InMillis() {
-    return this.metricFactory.createMetric(
-      "Latency",
-      MetricStatistic.P50,
-      "P50",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "Latency",
+      statistic: MetricStatistic.P50,
+      label: "P50",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricLatencyP90InMillis() {
-    return this.metricFactory.createMetric(
-      "Latency",
-      MetricStatistic.P90,
-      "P90",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "Latency",
+      statistic: MetricStatistic.P90,
+      label: "P90",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricLatencyP99InMillis() {
-    return this.metricFactory.createMetric(
-      "Latency",
-      MetricStatistic.P99,
-      "P99",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "Latency",
+      statistic: MetricStatistic.P99,
+      label: "P99",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metric4XXErrorCount() {
-    return this.metricFactory.createMetric(
-      "4XXError",
-      MetricStatistic.SUM,
-      "4XX Error",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "4XXError",
+      statistic: MetricStatistic.SUM,
+      label: "4XX Error",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metric4XXErrorRate() {
@@ -147,17 +137,15 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
   }
 
   metric5XXFaultCount() {
-    return this.metricFactory.createMetric(
-      "5XXError",
-      MetricStatistic.SUM,
-      "5XX Fault",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "5XXError",
+      statistic: MetricStatistic.SUM,
+      label: "5XX Fault",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metric5XXFaultRate() {

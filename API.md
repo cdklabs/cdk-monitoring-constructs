@@ -33151,6 +33151,146 @@ Allows you to specify the global defaults, which can be overridden in the indivi
 
 ---
 
+### MetricProps <a name="MetricProps" id="cdk-monitoring-constructs.MetricProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MetricProps.Initializer"></a>
+
+```typescript
+import { MetricProps } from 'cdk-monitoring-constructs'
+
+const metricProps: MetricProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.metricName">metricName</a></code> | <code>string</code> | Metric name. |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.statistic">statistic</a></code> | <code><a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a></code> | Aggregation statistic to use. |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.account">account</a></code> | <code>string</code> | Custom account. |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.color">color</a></code> | <code>string</code> | Metric color. |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.dimensionsMap">dimensionsMap</a></code> | <code>{[ key: string ]: string}</code> | Additional dimensions to be added. |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.label">label</a></code> | <code>string</code> | Metric label. |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.namespace">namespace</a></code> | <code>string</code> | Custom namespace. |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Custom period. |
+| <code><a href="#cdk-monitoring-constructs.MetricProps.property.region">region</a></code> | <code>string</code> | SCustom region. |
+
+---
+
+##### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-monitoring-constructs.MetricProps.property.metricName"></a>
+
+```typescript
+public readonly metricName: string;
+```
+
+- *Type:* string
+
+Metric name.
+
+---
+
+##### `statistic`<sup>Required</sup> <a name="statistic" id="cdk-monitoring-constructs.MetricProps.property.statistic"></a>
+
+```typescript
+public readonly statistic: MetricStatistic;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a>
+
+Aggregation statistic to use.
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.MetricProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* Global default.
+
+Custom account.
+
+---
+
+##### `color`<sup>Optional</sup> <a name="color" id="cdk-monitoring-constructs.MetricProps.property.color"></a>
+
+```typescript
+public readonly color: string;
+```
+
+- *Type:* string
+- *Default:* CloudWatch provided color (preferred).
+
+Metric color.
+
+---
+
+##### `dimensionsMap`<sup>Optional</sup> <a name="dimensionsMap" id="cdk-monitoring-constructs.MetricProps.property.dimensionsMap"></a>
+
+```typescript
+public readonly dimensionsMap: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Additional dimensions to be added.
+
+---
+
+##### `label`<sup>Optional</sup> <a name="label" id="cdk-monitoring-constructs.MetricProps.property.label"></a>
+
+```typescript
+public readonly label: string;
+```
+
+- *Type:* string
+- *Default:* Metric name is used by CloudWatch.
+
+Metric label.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-monitoring-constructs.MetricProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+- *Default:* Global default.
+
+Custom namespace.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MetricProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Global default.
+
+Custom period.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* Global default.
+
+SCustom region.
+
+---
+
 ### MinFreeableMemoryThreshold <a name="MinFreeableMemoryThreshold" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.Initializer"></a>
@@ -65953,6 +66093,7 @@ new MetricFactory(props?: MetricFactoryProps, scope?: Construct)
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.createMetricSearch">createMetricSearch</a></code> | Factory method that creates a metric search query. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.divideMetric">divideMetric</a></code> | Creates a metric math expression that divides the given metric by given coefficient. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.getNamespaceWithFallback">getNamespaceWithFallback</a></code> | Returns the given namespace (if defined) or the global namespace as a fallback. |
+| <code><a href="#cdk-monitoring-constructs.MetricFactory.metric">metric</a></code> | Factory method that creates a metric. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.multiplyMetric">multiplyMetric</a></code> | Creates a metric math expression that multiplies the given metric by given coefficient. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.sanitizeMetricExpressionIdSuffix">sanitizeMetricExpressionIdSuffix</a></code> | Helper method that helps to sanitize the given expression ID and removes all invalid characters. |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.toRate">toRate</a></code> | Creates a metric math expression that computes a rate from a regular metric. |
@@ -66021,7 +66162,7 @@ additional dimensions.
 
 ---
 
-##### `createMetric` <a name="createMetric" id="cdk-monitoring-constructs.MetricFactory.createMetric"></a>
+##### ~~`createMetric`~~ <a name="createMetric" id="cdk-monitoring-constructs.MetricFactory.createMetric"></a>
 
 ```typescript
 public createMetric(metricName: string, statistic: MetricStatistic, label?: string, dimensionsMap?: {[ key: string ]: string}, color?: string, namespace?: string, period?: Duration, region?: string, account?: string): Metric | MathExpression
@@ -66031,11 +66172,11 @@ Factory method that creates a metric.
 
 The metric properties will already be updated to comply with the global defaults.
 
+> [MetricProps.account}](MetricProps.account})
+
 ###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.metricName"></a>
 
 - *Type:* string
-
-metric name.
 
 ---
 
@@ -66043,17 +66184,11 @@ metric name.
 
 - *Type:* <a href="#cdk-monitoring-constructs.MetricStatistic">MetricStatistic</a>
 
-aggregation statistic to use.
-
 ---
 
 ###### `label`<sup>Optional</sup> <a name="label" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.label"></a>
 
 - *Type:* string
-
-metric label;
-
-if undefined, metric name is used by CloudWatch
 
 ---
 
@@ -66061,17 +66196,11 @@ if undefined, metric name is used by CloudWatch
 
 - *Type:* {[ key: string ]: string}
 
-additional dimensions to be added.
-
 ---
 
 ###### `color`<sup>Optional</sup> <a name="color" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.color"></a>
 
 - *Type:* string
-
-metric color;
-
-if undefined, uses a CloudWatch provided color (preferred)
 
 ---
 
@@ -66079,19 +66208,11 @@ if undefined, uses a CloudWatch provided color (preferred)
 
 - *Type:* string
 
-specify a custom namespace;
-
-if undefined, uses the global default
-
 ---
 
 ###### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.period"></a>
 
 - *Type:* aws-cdk-lib.Duration
-
-specify a custom period;
-
-if undefined, uses the global default
 
 ---
 
@@ -66099,19 +66220,11 @@ if undefined, uses the global default
 
 - *Type:* string
 
-specify a custom region;
-
-if undefined, uses the global default
-
 ---
 
 ###### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.MetricFactory.createMetric.parameter.account"></a>
 
 - *Type:* string
-
-specify a custom account;
-
-if undefined, uses the global default
 
 ---
 
@@ -66424,6 +66537,22 @@ If there is no namespace to fallback to (neither the custom or the default one),
 - *Type:* string
 
 custom namespace.
+
+---
+
+##### `metric` <a name="metric" id="cdk-monitoring-constructs.MetricFactory.metric"></a>
+
+```typescript
+public metric(props: MetricProps): Metric | MathExpression
+```
+
+Factory method that creates a metric.
+
+The metric properties will already be updated to comply with the global defaults.
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MetricFactory.metric.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricProps">MetricProps</a>
 
 ---
 

@@ -191,7 +191,7 @@ const m1 = new Metric(/* ... */);
 const metricFactory = monitoringFacade.createMetricFactory();
 
 // create metrics using metric factory
-const m1 = metricFactory.createMetric(/* ... */);
+const m1 = metricFactory.metric(/* ... */);
 ```
 
 #### Example: metric with anomaly detection

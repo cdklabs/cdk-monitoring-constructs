@@ -42,73 +42,63 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
   }
 
   metricClusterCpuUtilisationInPercent() {
-    return this.metricFactory.createMetric(
-      "CPUUtilization",
-      MetricStatistic.AVERAGE,
-      "Cluster CPU Utilization",
-      this.dimensionsMap,
-      undefined,
-      EcsNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "CPUUtilization",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Cluster CPU Utilization",
+      dimensionsMap: this.dimensionsMap,
+      namespace: EcsNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricClusterMemoryUtilisationInPercent() {
-    return this.metricFactory.createMetric(
-      "MemoryUtilization",
-      MetricStatistic.AVERAGE,
-      "Cluster Memory Utilization",
-      this.dimensionsMap,
-      undefined,
-      EcsNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "MemoryUtilization",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Cluster Memory Utilization",
+      dimensionsMap: this.dimensionsMap,
+      namespace: EcsNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricRunningTaskCount() {
-    return this.metricFactory.createMetric(
-      "RunningTaskCount",
-      MetricStatistic.AVERAGE,
-      "Running Tasks",
-      this.dimensionsMap,
-      undefined,
-      EcsContainerInsightsNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "RunningTaskCount",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Running Tasks",
+      dimensionsMap: this.dimensionsMap,
+      namespace: EcsContainerInsightsNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricEphemeralStorageReserved() {
-    return this.metricFactory.createMetric(
-      "EphemeralStorageReserved",
-      MetricStatistic.MAX,
-      "Ephemeral Storage Reserved",
-      this.dimensionsMap,
-      undefined,
-      EcsContainerInsightsNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "EphemeralStorageReserved",
+      statistic: MetricStatistic.MAX,
+      label: "Ephemeral Storage Reserved",
+      dimensionsMap: this.dimensionsMap,
+      namespace: EcsContainerInsightsNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricEphemeralStorageUtilized() {
-    return this.metricFactory.createMetric(
-      "EphemeralStorageUtilized",
-      MetricStatistic.MAX,
-      "Ephemeral Storage Utilized",
-      this.dimensionsMap,
-      undefined,
-      EcsContainerInsightsNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "EphemeralStorageUtilized",
+      statistic: MetricStatistic.MAX,
+      label: "Ephemeral Storage Utilized",
+      dimensionsMap: this.dimensionsMap,
+      namespace: EcsContainerInsightsNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricEphemeralStorageUsageInPercent() {
