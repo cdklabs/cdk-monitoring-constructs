@@ -119,16 +119,14 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
   }
 
   private metric(metricsSpec: MetricsSpec) {
-    return this.metricFactory.createMetric(
-      metricsSpec.name,
-      metricsSpec.metricStatistic ?? MetricStatistic.AVERAGE,
-      metricsSpec.description,
-      this.dimensionsMap,
-      undefined,
-      "AWS/KinesisAnalytics",
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: metricsSpec.name,
+      statistic: metricsSpec.metricStatistic ?? MetricStatistic.AVERAGE,
+      label: metricsSpec.description,
+      dimensionsMap: this.dimensionsMap,
+      namespace: "AWS/KinesisAnalytics",
+      region: this.region,
+      account: this.account,
+    });
   }
 }

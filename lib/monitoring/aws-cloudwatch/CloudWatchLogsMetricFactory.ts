@@ -32,16 +32,14 @@ export class CloudWatchLogsMetricFactory extends BaseMetricFactory<CloudWatchLog
   }
 
   metricIncomingLogEvents() {
-    return this.metricFactory.createMetric(
-      "IncomingLogEvents",
-      MetricStatistic.N,
-      "Logs",
-      this.dimensionsMap,
-      undefined,
-      CloudWatchLogsNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "IncomingLogEvents",
+      statistic: MetricStatistic.N,
+      label: "Logs",
+      dimensionsMap: this.dimensionsMap,
+      namespace: CloudWatchLogsNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

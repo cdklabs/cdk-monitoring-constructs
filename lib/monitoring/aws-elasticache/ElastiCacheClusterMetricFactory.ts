@@ -42,101 +42,87 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
   }
 
   metricMaxItemCount() {
-    return this.metricFactory.createMetric(
-      "CurrItems",
-      MetricStatistic.MAX,
-      "Count",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "CurrItems",
+      statistic: MetricStatistic.MAX,
+      label: "Count",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricEvictions() {
-    return this.metricFactory.createMetric(
-      "Evictions",
-      MetricStatistic.SUM,
-      "Evictions",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "Evictions",
+      statistic: MetricStatistic.SUM,
+      label: "Evictions",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricAverageFreeableMemoryInBytes() {
-    return this.metricFactory.createMetric(
-      "FreeableMemory",
-      MetricStatistic.AVERAGE,
-      "Freeable",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "FreeableMemory",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Freeable",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricAverageUnusedMemoryInBytes() {
-    return this.metricFactory.createMetric(
-      "UnusedMemory",
-      MetricStatistic.AVERAGE,
-      "Unused",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "UnusedMemory",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Unused",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricAverageCachedItemsSizeInBytes() {
-    return this.metricFactory.createMetric(
-      "BytesUsedForCacheItems",
-      MetricStatistic.AVERAGE,
-      "Items",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "BytesUsedForCacheItems",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Items",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricAverageSwapUsageInBytes() {
-    return this.metricFactory.createMetric(
-      "SwapUsage",
-      MetricStatistic.AVERAGE,
-      "Swap",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "SwapUsage",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Swap",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricMaxCpuUtilizationInPercent() {
-    return this.metricFactory.createMetric(
-      "CPUUtilization",
-      MetricStatistic.MAX,
-      "Cluster CPU Utilization",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "CPUUtilization",
+      statistic: MetricStatistic.MAX,
+      label: "Cluster CPU Utilization",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   /**
@@ -148,58 +134,50 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCac
    * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html
    */
   metricMaxRedisEngineCpuUtilizationInPercent() {
-    return this.metricFactory.createMetric(
-      "EngineCPUUtilization",
-      MetricStatistic.MAX,
-      "Cluster Engine CPU Utilization",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "EngineCPUUtilization",
+      statistic: MetricStatistic.MAX,
+      label: "Cluster Engine CPU Utilization",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricAverageConnections() {
-    return this.metricFactory.createMetric(
-      "CurrConnections",
-      MetricStatistic.AVERAGE,
-      "Current",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "CurrConnections",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Current",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricNetworkBytesIn() {
-    return this.metricFactory.createMetric(
-      "NetworkBytesIn",
-      MetricStatistic.SUM,
-      "Bytes In",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "NetworkBytesIn",
+      statistic: MetricStatistic.SUM,
+      label: "Bytes In",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricNetworkBytesOut() {
-    return this.metricFactory.createMetric(
-      "NetworkBytesOut",
-      MetricStatistic.SUM,
-      "Bytes Out",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "NetworkBytesOut",
+      statistic: MetricStatistic.SUM,
+      label: "Bytes Out",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

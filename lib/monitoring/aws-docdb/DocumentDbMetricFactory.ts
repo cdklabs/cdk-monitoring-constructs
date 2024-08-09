@@ -87,16 +87,14 @@ export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricF
     statistic: MetricStatistic,
     label: string,
   ) {
-    return this.metricFactory.createMetric(
+    return this.metricFactory.metric({
       metricName,
       statistic,
       label,
-      this.dimensionsMap,
-      undefined,
-      DocumentDbNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+      dimensionsMap: this.dimensionsMap,
+      namespace: DocumentDbNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

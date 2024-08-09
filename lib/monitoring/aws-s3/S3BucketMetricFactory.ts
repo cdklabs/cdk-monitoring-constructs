@@ -43,36 +43,32 @@ export class S3BucketMetricFactory extends BaseMetricFactory<S3BucketMetricFacto
   }
 
   metricBucketSizeBytes() {
-    return this.metricFactory.createMetric(
-      "BucketSizeBytes",
-      MetricStatistic.AVERAGE,
-      "BucketSizeBytes",
-      {
+    return this.metricFactory.metric({
+      metricName: "BucketSizeBytes",
+      statistic: MetricStatistic.AVERAGE,
+      label: "BucketSizeBytes",
+      dimensionsMap: {
         BucketName: this.props.bucket.bucketName,
         StorageType: this.props.storageType ?? StorageType.STANDARD_STORAGE,
       },
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricNumberOfObjects() {
-    return this.metricFactory.createMetric(
-      "NumberOfObjects",
-      MetricStatistic.AVERAGE,
-      "NumberOfObjects",
-      {
+    return this.metricFactory.metric({
+      metricName: "NumberOfObjects",
+      statistic: MetricStatistic.AVERAGE,
+      label: "NumberOfObjects",
+      dimensionsMap: {
         BucketName: this.props.bucket.bucketName,
         StorageType: "AllStorageTypes",
       },
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

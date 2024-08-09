@@ -34,31 +34,27 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
   }
 
   metricProvisionedReadCapacityUnits() {
-    return this.metricFactory.createMetric(
-      "ProvisionedReadCapacityUnits",
-      MetricStatistic.SUM,
-      "Provisioned",
-      this.dimensionsMap,
-      undefined,
-      DynamoDbNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ProvisionedReadCapacityUnits",
+      statistic: MetricStatistic.SUM,
+      label: "Provisioned",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DynamoDbNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricProvisionedWriteCapacityUnits() {
-    return this.metricFactory.createMetric(
-      "ProvisionedWriteCapacityUnits",
-      MetricStatistic.SUM,
-      "Provisioned",
-      this.dimensionsMap,
-      undefined,
-      DynamoDbNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ProvisionedWriteCapacityUnits",
+      statistic: MetricStatistic.SUM,
+      label: "Provisioned",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DynamoDbNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricConsumedReadCapacityUnits() {
@@ -92,31 +88,26 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
   }
 
   metricIndexConsumedWriteUnitsMetric() {
-    return this.metricFactory.createMetric(
-      "OnlineIndexConsumedWriteCapacity",
-      MetricStatistic.SUM,
-      "Consumed by index",
-      this.dimensionsMap,
-      undefined,
-      DynamoDbNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "OnlineIndexConsumedWriteCapacity",
+      statistic: MetricStatistic.SUM,
+      label: "Consumed by index",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DynamoDbNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricThrottledReadRequestCount() {
-    const readThrottles = this.metricFactory.createMetric(
-      "ReadThrottleEvents",
-      MetricStatistic.SUM,
-      undefined,
-      this.dimensionsMap,
-      undefined,
-      DynamoDbNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    const readThrottles = this.metricFactory.metric({
+      metricName: "ReadThrottleEvents",
+      statistic: MetricStatistic.SUM,
+      dimensionsMap: this.dimensionsMap,
+      namespace: DynamoDbNamespace,
+      region: this.region,
+      account: this.account,
+    });
 
     return this.metricFactory.createMetricMath(
       "FILL(readThrottles,0)",
@@ -126,17 +117,14 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
   }
 
   metricThrottledWriteRequestCount() {
-    const writeThrottles = this.metricFactory.createMetric(
-      "WriteThrottleEvents",
-      MetricStatistic.SUM,
-      undefined,
-      this.dimensionsMap,
-      undefined,
-      DynamoDbNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    const writeThrottles = this.metricFactory.metric({
+      metricName: "WriteThrottleEvents",
+      statistic: MetricStatistic.SUM,
+      dimensionsMap: this.dimensionsMap,
+      namespace: DynamoDbNamespace,
+      region: this.region,
+      account: this.account,
+    });
 
     return this.metricFactory.createMetricMath(
       "FILL(writeThrottles,0)",
@@ -146,17 +134,14 @@ export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFact
   }
 
   metricThrottledIndexRequestCount() {
-    const indexThrottles = this.metricFactory.createMetric(
-      "OnlineIndexThrottleEvents",
-      MetricStatistic.SUM,
-      undefined,
-      this.dimensionsMap,
-      undefined,
-      DynamoDbNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    const indexThrottles = this.metricFactory.metric({
+      metricName: "OnlineIndexThrottleEvents",
+      statistic: MetricStatistic.SUM,
+      dimensionsMap: this.dimensionsMap,
+      namespace: DynamoDbNamespace,
+      region: this.region,
+      account: this.account,
+    });
 
     return this.metricFactory.createMetricMath(
       "FILL(indexThrottles,0)",

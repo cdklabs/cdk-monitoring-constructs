@@ -63,17 +63,15 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
   }
 
   metricRequestCount() {
-    return this.metricFactory.createMetric(
-      "Requests",
-      MetricStatistic.SUM,
-      "Uploaded",
-      this.dimensionsMap,
-      undefined,
-      CloudFrontNamespace,
-      undefined,
-      CloudFrontDefaultMetricRegion,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "Requests",
+      statistic: MetricStatistic.SUM,
+      label: "Uploaded",
+      dimensionsMap: this.dimensionsMap,
+      namespace: CloudFrontNamespace,
+      region: CloudFrontDefaultMetricRegion,
+      account: this.account,
+    });
   }
 
   metricRequestRate() {
@@ -100,31 +98,27 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
   }
 
   metricTotalBytesUploaded() {
-    return this.metricFactory.createMetric(
-      "BytesUploaded",
-      MetricStatistic.SUM,
-      "Uploaded",
-      this.dimensionsMap,
-      undefined,
-      CloudFrontNamespace,
-      undefined,
-      CloudFrontDefaultMetricRegion,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "BytesUploaded",
+      statistic: MetricStatistic.SUM,
+      label: "Uploaded",
+      dimensionsMap: this.dimensionsMap,
+      namespace: CloudFrontNamespace,
+      region: CloudFrontDefaultMetricRegion,
+      account: this.account,
+    });
   }
 
   metricTotalBytesDownloaded() {
-    return this.metricFactory.createMetric(
-      "BytesDownloaded",
-      MetricStatistic.SUM,
-      "Downloaded",
-      this.dimensionsMap,
-      undefined,
-      CloudFrontNamespace,
-      undefined,
-      CloudFrontDefaultMetricRegion,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "BytesDownloaded",
+      statistic: MetricStatistic.SUM,
+      label: "Downloaded",
+      dimensionsMap: this.dimensionsMap,
+      namespace: CloudFrontNamespace,
+      region: CloudFrontDefaultMetricRegion,
+      account: this.account,
+    });
   }
 
   /**
@@ -133,58 +127,50 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
    * @see https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional
    */
   metricCacheHitRateAverageInPercent() {
-    return this.metricFactory.createMetric(
-      "CacheHitRate",
-      MetricStatistic.AVERAGE,
-      "Hit Rate",
-      this.dimensionsMap,
-      undefined,
-      CloudFrontNamespace,
-      undefined,
-      CloudFrontDefaultMetricRegion,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "CacheHitRate",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Hit Rate",
+      dimensionsMap: this.dimensionsMap,
+      namespace: CloudFrontNamespace,
+      region: CloudFrontDefaultMetricRegion,
+      account: this.account,
+    });
   }
 
   metric4xxErrorRateAverage() {
-    return this.metricFactory.createMetric(
-      "4xxErrorRate",
-      MetricStatistic.AVERAGE,
-      "4XX",
-      this.dimensionsMap,
-      undefined,
-      CloudFrontNamespace,
-      undefined,
-      CloudFrontDefaultMetricRegion,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "4xxErrorRate",
+      statistic: MetricStatistic.AVERAGE,
+      label: "4XX",
+      dimensionsMap: this.dimensionsMap,
+      namespace: CloudFrontNamespace,
+      region: CloudFrontDefaultMetricRegion,
+      account: this.account,
+    });
   }
 
   metric5xxErrorRateAverage() {
-    return this.metricFactory.createMetric(
-      "5xxErrorRate",
-      MetricStatistic.AVERAGE,
-      "5XX",
-      this.dimensionsMap,
-      undefined,
-      CloudFrontNamespace,
-      undefined,
-      CloudFrontDefaultMetricRegion,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "5xxErrorRate",
+      statistic: MetricStatistic.AVERAGE,
+      label: "5XX",
+      dimensionsMap: this.dimensionsMap,
+      namespace: CloudFrontNamespace,
+      region: CloudFrontDefaultMetricRegion,
+      account: this.account,
+    });
   }
 
   metricTotalErrorRateAverage() {
-    return this.metricFactory.createMetric(
-      "TotalErrorRate",
-      MetricStatistic.AVERAGE,
-      "Total",
-      this.dimensionsMap,
-      undefined,
-      CloudFrontNamespace,
-      undefined,
-      CloudFrontDefaultMetricRegion,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "TotalErrorRate",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Total",
+      dimensionsMap: this.dimensionsMap,
+      namespace: CloudFrontNamespace,
+      region: CloudFrontDefaultMetricRegion,
+      account: this.account,
+    });
   }
 }

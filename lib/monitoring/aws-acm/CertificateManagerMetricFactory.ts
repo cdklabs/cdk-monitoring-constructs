@@ -31,16 +31,14 @@ export class CertificateManagerMetricFactory extends BaseMetricFactory<Certifica
   }
 
   metricDaysToExpiry(): MetricWithAlarmSupport {
-    return this.metricFactory.createMetric(
-      "DaysToExpiry",
-      MetricStatistic.MIN,
-      "Days to expiry",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "DaysToExpiry",
+      statistic: MetricStatistic.MIN,
+      label: "Days to expiry",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }
