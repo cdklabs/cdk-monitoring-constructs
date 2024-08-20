@@ -18,3 +18,15 @@ export const ErrorColor = "#d13212";
  * color to indicate neutral information
  */
 export const NeutralColor = "#999999";
+/**
+ * color to indicate throttled state
+ */
+export const ThrottledColor = "#5928ed";
+/**
+ * color to indicate a started state (e.g. Step Function executions)
+ */
+export const StartedColor = "#0073e6";
+/**
+ * color to indicate a timed out state
+ */
+export const TimedOutColor = "#333333";
