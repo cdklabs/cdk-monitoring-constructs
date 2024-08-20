@@ -37,143 +37,123 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
   }
 
   metricActivityRunTimeP99InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityRunTime",
-      MetricStatistic.P99,
-      "P99",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityRunTime",
+      statistic: MetricStatistic.P99,
+      label: "P99",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivityRunTimeP90InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityRunTime",
-      MetricStatistic.P90,
-      "P90",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityRunTime",
+      statistic: MetricStatistic.P90,
+      label: "P90",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivityRunTimeP50InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityRunTime",
-      MetricStatistic.P50,
-      "P50",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityRunTime",
+      statistic: MetricStatistic.P50,
+      label: "P50",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivityScheduleTimeP99InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityScheduleTime",
-      MetricStatistic.P99,
-      "P99",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityScheduleTime",
+      statistic: MetricStatistic.P99,
+      label: "P99",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivityScheduleTimeP90InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityScheduleTime",
-      MetricStatistic.P90,
-      "P90",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityScheduleTime",
+      statistic: MetricStatistic.P90,
+      label: "P90",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivityScheduleTimeP50InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityScheduleTime",
-      MetricStatistic.P50,
-      "P50",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityScheduleTime",
+      statistic: MetricStatistic.P50,
+      label: "P50",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivityTimeP99InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityTime",
-      MetricStatistic.P99,
-      "P99",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityTime",
+      statistic: MetricStatistic.P99,
+      label: "P99",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivityTimeP90InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityTime",
-      MetricStatistic.P90,
-      "P90",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityTime",
+      statistic: MetricStatistic.P90,
+      label: "P90",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivityTimeP50InMillis() {
-    return this.metricFactory.createMetric(
-      "ActivityTime",
-      MetricStatistic.P50,
-      "P50",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivityTime",
+      statistic: MetricStatistic.P50,
+      label: "P50",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivitiesFailed() {
-    return this.metricFactory.createMetric(
-      "ActivitiesFailed",
-      MetricStatistic.SUM,
-      "Failed",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivitiesFailed",
+      statistic: MetricStatistic.SUM,
+      label: "Failed",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivitiesFailedRate() {
@@ -187,72 +167,62 @@ export class StepFunctionActivityMetricFactory extends BaseMetricFactory<StepFun
   }
 
   metricActivitiesHeartbeatTimedOut() {
-    return this.metricFactory.createMetric(
-      "ActivitiesHeartbeatTimedOut",
-      MetricStatistic.SUM,
-      "HeartbeatTimedOut",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivitiesHeartbeatTimedOut",
+      statistic: MetricStatistic.SUM,
+      label: "HeartbeatTimedOut",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivitiesScheduled() {
-    return this.metricFactory.createMetric(
-      "ActivitiesScheduled",
-      MetricStatistic.SUM,
-      "Scheduled",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivitiesScheduled",
+      statistic: MetricStatistic.SUM,
+      label: "Scheduled",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivitiesStarted() {
-    return this.metricFactory.createMetric(
-      "ActivitiesStarted",
-      MetricStatistic.SUM,
-      "Started",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivitiesStarted",
+      statistic: MetricStatistic.SUM,
+      label: "Started",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivitiesSucceeded() {
-    return this.metricFactory.createMetric(
-      "ActivitiesSucceeded",
-      MetricStatistic.SUM,
-      "Succeeded",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivitiesSucceeded",
+      statistic: MetricStatistic.SUM,
+      label: "Succeeded",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricActivitiesTimedOut() {
-    return this.metricFactory.createMetric(
-      "ActivitiesTimedOut",
-      MetricStatistic.SUM,
-      "Timeout",
-      this.dimensionsMap,
-      undefined,
-      Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ActivitiesTimedOut",
+      statistic: MetricStatistic.SUM,
+      label: "Timeout",
+      dimensionsMap: this.dimensionsMap,
+      namespace: Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

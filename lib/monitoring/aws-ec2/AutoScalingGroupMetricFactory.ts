@@ -116,16 +116,14 @@ export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScaling
     label: string,
     statistic: MetricStatistic,
   ) {
-    return this.metricFactory.createMetric(
+    return this.metricFactory.metric({
       metricName,
       statistic,
       label,
-      this.dimensionsMap,
-      undefined,
-      AutoScalingNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+      dimensionsMap: this.dimensionsMap,
+      namespace: AutoScalingNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

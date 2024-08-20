@@ -32,241 +32,207 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
   }
 
   metricGetRecordsSumBytes() {
-    return this.metricFactory.createMetric(
-      "GetRecords.Bytes",
-      MetricStatistic.SUM,
-      "GetRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "GetRecords.Bytes",
+      statistic: MetricStatistic.SUM,
+      label: "GetRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricGetRecordsIteratorAgeMaxMs() {
-    return this.metricFactory.createMetric(
-      "GetRecords.IteratorAgeMilliseconds",
-      MetricStatistic.MAX,
-      "Iterator Age",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "GetRecords.IteratorAgeMilliseconds",
+      statistic: MetricStatistic.MAX,
+      label: "Iterator Age",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricGetRecordsLatencyAverageMs() {
-    return this.metricFactory.createMetric(
-      "GetRecords.Latency",
-      MetricStatistic.AVERAGE,
-      "GetRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "GetRecords.Latency",
+      statistic: MetricStatistic.AVERAGE,
+      label: "GetRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricGetRecordsSumCount() {
-    return this.metricFactory.createMetric(
-      "GetRecords.Records",
-      MetricStatistic.SUM,
-      "GetRecords.Records",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "GetRecords.Records",
+      statistic: MetricStatistic.SUM,
+      label: "GetRecords.Records",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricGetRecordsSuccessCount() {
-    return this.metricFactory.createMetric(
-      "GetRecords.Success",
-      MetricStatistic.SUM,
-      "GetRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "GetRecords.Success",
+      statistic: MetricStatistic.SUM,
+      label: "GetRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricIncomingDataSumBytes() {
-    return this.metricFactory.createMetric(
-      "IncomingBytes",
-      MetricStatistic.SUM,
-      "Incoming Bytes",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "IncomingBytes",
+      statistic: MetricStatistic.SUM,
+      label: "Incoming Bytes",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricIncomingDataSumCount() {
-    return this.metricFactory.createMetric(
-      "IncomingRecords",
-      MetricStatistic.SUM,
-      "Incoming Records",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "IncomingRecords",
+      statistic: MetricStatistic.SUM,
+      label: "Incoming Records",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordSumBytes() {
-    return this.metricFactory.createMetric(
-      "PutRecord.Bytes",
-      MetricStatistic.SUM,
-      "PutRecord",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecord.Bytes",
+      statistic: MetricStatistic.SUM,
+      label: "PutRecord",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordLatencyAverageMs() {
-    return this.metricFactory.createMetric(
-      "PutRecord.Latency",
-      MetricStatistic.AVERAGE,
-      "PutRecord",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecord.Latency",
+      statistic: MetricStatistic.AVERAGE,
+      label: "PutRecord",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordSuccessCount() {
-    return this.metricFactory.createMetric(
-      "PutRecord.Success",
-      MetricStatistic.SUM,
-      "PutRecord",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecord.Success",
+      statistic: MetricStatistic.SUM,
+      label: "PutRecord",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordsSumBytes() {
-    return this.metricFactory.createMetric(
-      "PutRecords.Bytes",
-      MetricStatistic.SUM,
-      "PutRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecords.Bytes",
+      statistic: MetricStatistic.SUM,
+      label: "PutRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordsLatencyAverageMs() {
-    return this.metricFactory.createMetric(
-      "PutRecords.Latency",
-      MetricStatistic.AVERAGE,
-      "PutRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecords.Latency",
+      statistic: MetricStatistic.AVERAGE,
+      label: "PutRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordsSuccessCount() {
-    return this.metricFactory.createMetric(
-      "PutRecords.Success",
-      MetricStatistic.SUM,
-      "PutRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecords.Success",
+      statistic: MetricStatistic.SUM,
+      label: "PutRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordsSuccessfulRecordsCount() {
-    return this.metricFactory.createMetric(
-      "PutRecords.SuccessfulRecords",
-      MetricStatistic.SUM,
-      "PutRecords.SuccessfulRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecords.SuccessfulRecords",
+      statistic: MetricStatistic.SUM,
+      label: "PutRecords.SuccessfulRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordsTotalRecordsCount() {
-    return this.metricFactory.createMetric(
-      "PutRecords.TotalRecords",
-      MetricStatistic.SUM,
-      "PutRecords.TotalRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecords.TotalRecords",
+      statistic: MetricStatistic.SUM,
+      label: "PutRecords.TotalRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordsFailedRecordsCount() {
-    return this.metricFactory.createMetric(
-      "PutRecords.FailedRecords",
-      MetricStatistic.SUM,
-      "PutRecords.FailedRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecords.FailedRecords",
+      statistic: MetricStatistic.SUM,
+      label: "PutRecords.FailedRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricPutRecordsThrottledRecordsCount() {
-    return this.metricFactory.createMetric(
-      "PutRecords.ThrottledRecords",
-      MetricStatistic.SUM,
-      "PutRecords.ThrottledRecords",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "PutRecords.ThrottledRecords",
+      statistic: MetricStatistic.SUM,
+      label: "PutRecords.ThrottledRecords",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   /**
@@ -284,30 +250,26 @@ export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDat
   }
 
   metricReadProvisionedThroughputExceeded() {
-    return this.metricFactory.createMetric(
-      "ReadProvisionedThroughputExceeded",
-      MetricStatistic.AVERAGE,
-      "Read",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "ReadProvisionedThroughputExceeded",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Read",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricWriteProvisionedThroughputExceeded() {
-    return this.metricFactory.createMetric(
-      "WriteProvisionedThroughputExceeded",
-      MetricStatistic.AVERAGE,
-      "Write",
-      this.dimensionsMap,
-      undefined,
-      DataStreamNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName: "WriteProvisionedThroughputExceeded",
+      statistic: MetricStatistic.AVERAGE,
+      label: "Write",
+      dimensionsMap: this.dimensionsMap,
+      namespace: DataStreamNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

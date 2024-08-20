@@ -99,23 +99,20 @@ export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory<Lambd
     metricName: string,
     statistic: MetricStatistic,
     label: string,
-    color?: string,
   ) {
     const [functionName, functionVersion] =
       this.lambdaFunction.functionName.split(":");
-    return this.metricFactory.createMetric(
+    return this.metricFactory.metric({
       metricName,
       statistic,
       label,
-      {
+      dimensionsMap: {
         function_name: functionName,
         version: functionVersion,
       },
-      color,
-      LambdaInsightsNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+      namespace: LambdaInsightsNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

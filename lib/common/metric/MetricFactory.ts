@@ -41,6 +41,57 @@ export interface MetricFactoryProps {
   readonly globalDefaults?: MetricFactoryDefaults;
 }
 
+export interface MetricProps {
+  /**
+   * Metric name.
+   */
+  readonly metricName: string;
+  /**
+   * Aggregation statistic to use.
+   */
+  readonly statistic: MetricStatistic;
+  /**
+   * Metric label.
+   *
+   * @default - Metric name is used by CloudWatch.
+   */
+  readonly label?: string;
+  /**
+   * Additional dimensions to be added.
+   */
+  readonly dimensionsMap?: DimensionsMap;
+  /**
+   * Metric color.
+   *
+   * @default - CloudWatch provided color (preferred).
+   */
+  readonly color?: string;
+  /**
+   * Custom namespace.
+   *
+   * @default - Global default.
+   */
+  readonly namespace?: string;
+  /**
+   * Custom period.
+   *
+   * @default - Global default.
+   */
+  readonly period?: Duration;
+  /**
+   * SCustom region.
+   *
+   * @default - Global default.
+   */
+  readonly region?: string;
+  /**
+   * Custom account.
+   *
+   * @default - Global default.
+   */
+  readonly account?: string;
+}
+
 export class MetricFactory {
   protected readonly globalDefaults: MetricFactoryDefaults;
   protected readonly scope: Construct | undefined;
@@ -49,20 +100,49 @@ export class MetricFactory {
   constructor(props?: MetricFactoryProps, scope?: Construct) {
     this.globalDefaults = props?.globalDefaults ?? {};
     this.scope = scope;
+
+    if (!scope) {
+      console.warn(
+        "MetricFactory: the scope argument will become required in a future version.",
+      );
+    }
+  }
+
+  /**
+   * Factory method that creates a metric. The metric properties will already be updated to comply with the global defaults.
+   */
+  metric(props: MetricProps): MetricWithAlarmSupport {
+    return new Metric({
+      statistic: props.statistic,
+      metricName: props.metricName,
+      label: props.label,
+      color: props.color,
+      dimensionsMap: props.dimensionsMap
+        ? this.removeUndefinedEntries(props.dimensionsMap)
+        : undefined,
+      namespace: this.getNamespaceWithFallback(props.namespace),
+      period: props.period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
+      region: this.resolveRegion(props.region ?? this.globalDefaults.region),
+      account: this.resolveAccount(
+        props.account ?? this.globalDefaults.account,
+      ),
+    });
   }
 
   /**
    * Factory method that creates a metric. The metric properties will already be updated to comply with the global defaults.
    *
-   * @param metricName metric name
-   * @param statistic aggregation statistic to use
-   * @param label metric label; if undefined, metric name is used by CloudWatch
-   * @param dimensionsMap additional dimensions to be added
-   * @param color metric color; if undefined, uses a CloudWatch provided color (preferred)
-   * @param namespace specify a custom namespace; if undefined, uses the global default
-   * @param period specify a custom period; if undefined, uses the global default
-   * @param region specify a custom region; if undefined, uses the global default
-   * @param account specify a custom account; if undefined, uses the global default
+   * @deprecated Use {@link metric} instead.
+   *
+   * @param metricName {@see MetricProps.metricName}
+   * @param statistic {@see MetricProps.statistic}
+   * @param label {@see MetricProps.label}
+   * @param dimensionsMap {@see MetricProps.dimensionsMap}
+   * @param color {@see MetricProps.color}
+   * @param namespace {@see MetricProps.namespace}
+   * @param period {@see MetricProps.period}
+   * @param region {@see MetricProps.region}
+   * @param account {@see MetricProps.account}
    */
   createMetric(
     metricName: string,
@@ -75,18 +155,16 @@ export class MetricFactory {
     region?: string,
     account?: string,
   ): MetricWithAlarmSupport {
-    return new Metric({
-      statistic,
+    return this.metric({
       metricName,
+      statistic,
       label,
+      dimensionsMap,
       color,
-      dimensionsMap: dimensionsMap
-        ? this.removeUndefinedEntries(dimensionsMap)
-        : undefined,
-      namespace: this.getNamespaceWithFallback(namespace),
-      period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
-      region: this.resolveRegion(region ?? this.globalDefaults.region),
-      account: this.resolveAccount(account ?? this.globalDefaults.account),
+      namespace,
+      period,
+      region,
+      account,
     });
   }
 

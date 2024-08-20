@@ -146,17 +146,15 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
     statistic: MetricStatistic,
   ) {
     const dimensions = { ...this.dimensionsMap, latency };
-    return this.metricFactory.createMetric(
-      "QueryDuration",
+    return this.metricFactory.metric({
+      metricName: "QueryDuration",
       statistic,
-      latency,
-      dimensions,
-      undefined,
-      RedshiftNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+      label: latency,
+      dimensionsMap: dimensions,
+      namespace: RedshiftNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   private metric(
@@ -164,16 +162,14 @@ export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClus
     statistic: MetricStatistic,
     label: string,
   ) {
-    return this.metricFactory.createMetric(
+    return this.metricFactory.metric({
       metricName,
       statistic,
       label,
-      this.dimensionsMap,
-      undefined,
-      RedshiftNamespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+      dimensionsMap: this.dimensionsMap,
+      namespace: RedshiftNamespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }

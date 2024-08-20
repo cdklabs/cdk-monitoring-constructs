@@ -38,17 +38,14 @@ class AutoScalingGroupStrategy implements IEC2MetricFactoryStrategy {
     account?: string,
   ) {
     return [
-      metricFactory.createMetric(
+      metricFactory.metric({
         metricName,
         statistic,
-        undefined,
-        resolveDimensions(this.autoScalingGroup, undefined),
-        undefined,
-        EC2Namespace,
-        undefined,
+        dimensionsMap: resolveDimensions(this.autoScalingGroup, undefined),
+        namespace: EC2Namespace,
         region,
         account,
-      ),
+      }),
     ];
   }
 }
@@ -73,17 +70,15 @@ class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
     account?: string,
   ) {
     return this.instanceIds.map((instanceId) => {
-      return metricFactory.createMetric(
+      return metricFactory.metric({
         metricName,
         statistic,
-        `${metricName} (${instanceId})`,
-        resolveDimensions(this.autoScalingGroup, instanceId),
-        undefined,
-        EC2Namespace,
-        undefined,
+        label: `${metricName} (${instanceId})`,
+        dimensionsMap: resolveDimensions(this.autoScalingGroup, instanceId),
+        namespace: EC2Namespace,
         region,
         account,
-      );
+      });
     });
   }
 }

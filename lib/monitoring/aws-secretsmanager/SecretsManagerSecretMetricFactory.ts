@@ -33,30 +33,28 @@ export class SecretsManagerSecretMetricFactory extends BaseMetricFactory<Secrets
   }
 
   metricDaysSinceLastChange() {
-    return this.metricFactory.createMetric(
-      SecretsManagerSecretMetricFactory.MetricNameDaysSinceLastChange,
-      MetricStatistic.MAX,
-      "Days",
-      this.dimensionsMap,
-      undefined,
-      SecretsManagerSecretMetricFactory.Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName:
+        SecretsManagerSecretMetricFactory.MetricNameDaysSinceLastChange,
+      statistic: MetricStatistic.MAX,
+      label: "Days",
+      dimensionsMap: this.dimensionsMap,
+      namespace: SecretsManagerSecretMetricFactory.Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 
   metricDaysSinceLastRotation() {
-    return this.metricFactory.createMetric(
-      SecretsManagerSecretMetricFactory.MetricNameDaysSinceLastRotation,
-      MetricStatistic.MAX,
-      "Days",
-      this.dimensionsMap,
-      undefined,
-      SecretsManagerSecretMetricFactory.Namespace,
-      undefined,
-      this.region,
-      this.account,
-    );
+    return this.metricFactory.metric({
+      metricName:
+        SecretsManagerSecretMetricFactory.MetricNameDaysSinceLastRotation,
+      statistic: MetricStatistic.MAX,
+      label: "Days",
+      dimensionsMap: this.dimensionsMap,
+      namespace: SecretsManagerSecretMetricFactory.Namespace,
+      region: this.region,
+      account: this.account,
+    });
   }
 }
