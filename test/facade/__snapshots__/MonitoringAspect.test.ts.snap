@@ -9006,27 +9006,27 @@ Object {
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#0073e6\\",\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#d13212\\",\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#ff9900\\",\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#5928ed\\",\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",{\\"color\\":\\"#333333\\",\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -9034,7 +9034,7 @@ Object {
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Failed (avg)\\"}]],\\"yAxis\\":{}}}]}",
+              "\\",{\\"color\\":\\"#d13212\\",\\"label\\":\\"Failed (avg)\\"}]],\\"yAxis\\":{}}}]}",
             ],
           ],
         },
@@ -9084,27 +9084,27 @@ Object {
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#0073e6\\",\\"label\\":\\"Started\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsSucceeded\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#2ca02c\\",\\"label\\":\\"Succeeded\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsFailed\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#d13212\\",\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsAborted\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#ff9900\\",\\"label\\":\\"Aborted\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionThrottled\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
+              "\\",{\\"color\\":\\"#5928ed\\",\\"label\\":\\"Throttled\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/States\\",\\"ExecutionsTimedOut\\",\\"StateMachineArn\\",\\"",
               Object {
                 "Ref": "DummyStateMachine912BDB94",
               },
-              "\\",{\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"color\\":\\"#333333\\",\\"label\\":\\"Timeout\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
