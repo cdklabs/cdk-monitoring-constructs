@@ -65,7 +65,7 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
   metricTotalConnectionCount() {
     return this.metric(
       "DatabaseConnections",
-      MetricStatistic.AVERAGE,
+      MetricStatistic.N,
       "Connections",
     );
   }
