@@ -1,3 +1,4 @@
+import { Duration } from "aws-cdk-lib";
 import { IFunction } from "aws-cdk-lib/aws-lambda";
 
 import {
@@ -11,9 +12,13 @@ import {
   getLatencyTypeStatistic,
 } from "../../common";
 
+export interface IMonitoringFunction extends IFunction {
+  readonly timeout?: Duration;
+}
+
 export interface LambdaFunctionMetricFactoryProps
   extends BaseMetricFactoryProps {
-  readonly lambdaFunction: IFunction;
+  readonly lambdaFunction: IMonitoringFunction;
   /**
    * @default - true
    */
@@ -34,7 +39,7 @@ export interface LambdaFunctionMetricFactoryProps
 }
 
 export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctionMetricFactoryProps> {
-  protected readonly lambdaFunction: IFunction;
+  protected readonly lambdaFunction: IMonitoringFunction;
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
 
