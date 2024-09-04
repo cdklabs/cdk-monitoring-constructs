@@ -1,3 +1,4 @@
+import { Duration } from "aws-cdk-lib";
 import {
   GraphWidget,
   HorizontalAnnotation,
@@ -8,6 +9,7 @@ import { CfnFunction, IFunction } from "aws-cdk-lib/aws-lambda";
 
 import { LambdaFunctionEnhancedMetricFactory } from "./LambdaFunctionEnhancedMetricFactory";
 import {
+  IMonitoringFunction,
   LambdaFunctionMetricFactory,
   LambdaFunctionMetricFactoryProps,
 } from "./LambdaFunctionMetricFactory";
@@ -16,6 +18,7 @@ import {
   AlarmFactory,
   BaseMonitoringProps,
   CountAxisFromZero,
+  CustomAlarmThreshold,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
   DurationThreshold,
@@ -52,11 +55,19 @@ import {
   MonitoringNamingStrategy,
 } from "../../dashboard";
 
+export interface LambdaLatencyThresholdPercentage extends CustomAlarmThreshold {
+  readonly maxLatencyPercentage: number;
+}
+
+export type LambdaLatencyThreshold =
+  | LambdaLatencyThresholdPercentage
+  | LatencyThreshold;
+
 export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
-  readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
-  readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
-  readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
-  readonly addMaxLatencyAlarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP50Alarm?: Record<string, LambdaLatencyThreshold>;
+  readonly addLatencyP90Alarm?: Record<string, LambdaLatencyThreshold>;
+  readonly addLatencyP99Alarm?: Record<string, LambdaLatencyThreshold>;
+  readonly addMaxLatencyAlarm?: Record<string, LambdaLatencyThreshold>;
 
   readonly addFaultCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFaultRateAlarm?: Record<string, ErrorRateThreshold>;
@@ -115,6 +126,31 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
 export interface LambdaFunctionMonitoringProps
   extends LambdaFunctionMetricFactoryProps,
     LambdaFunctionMonitoringOptions {}
+
+function isLatencyThreshold(
+  props: LambdaLatencyThreshold,
+): props is LatencyThreshold {
+  return typeof (props as LatencyThreshold).maxLatency === "number";
+}
+
+function extractLatencyThreshold(
+  props: LambdaLatencyThreshold,
+  lambdaFunction: IMonitoringFunction,
+): LatencyThreshold {
+  if (isLatencyThreshold(props)) {
+    return props as LatencyThreshold;
+  }
+  const { maxLatencyPercentage, ...rest } = props;
+  return {
+    maxLatency: Duration.seconds(
+      Math.floor(
+        (lambdaFunction.timeout?.toSeconds() ?? 0) *
+          (maxLatencyPercentage / 100),
+      ),
+    ),
+    ...rest,
+  };
+}
 
 export class LambdaFunctionMonitoring extends Monitoring {
   readonly title: string;
@@ -342,7 +378,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
         this.p50LatencyMetric,
         LatencyType.P50,
-        alarmProps,
+        extractLatencyThreshold(alarmProps, props.lambdaFunction),
         disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
@@ -353,7 +389,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
         this.p90LatencyMetric,
         LatencyType.P90,
-        alarmProps,
+        extractLatencyThreshold(alarmProps, props.lambdaFunction),
         disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
@@ -364,7 +400,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
         this.p99LatencyMetric,
         LatencyType.P99,
-        alarmProps,
+        extractLatencyThreshold(alarmProps, props.lambdaFunction),
         disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
@@ -375,7 +411,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
         this.maxLatencyMetric,
         LatencyType.MAX,
-        alarmProps,
+        extractLatencyThreshold(alarmProps, props.lambdaFunction),
         disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
