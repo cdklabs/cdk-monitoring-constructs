@@ -26285,6 +26285,7 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.isIterator">isIterator</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm. |
 
 ---
 
@@ -26626,6 +26627,19 @@ public readonly addThrottlesRateAlarm: {[ key: string ]: ErrorRateThreshold};
 
 ---
 
+##### `isIterator`<sup>Optional</sup> <a name="isIterator" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.isIterator"></a>
+
+```typescript
+public readonly isIterator: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm.
+
+---
+
 ### LambdaFunctionMonitoringProps <a name="LambdaFunctionMonitoringProps" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.Initializer"></a>
@@ -26674,6 +26688,7 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.isIterator">isIterator</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm. |
 
 ---
 
@@ -27060,6 +27075,19 @@ public readonly addThrottlesRateAlarm: {[ key: string ]: ErrorRateThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `isIterator`<sup>Optional</sup> <a name="isIterator" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.isIterator"></a>
+
+```typescript
+public readonly isIterator: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm.
 
 ---
 
@@ -64924,6 +64952,7 @@ public createTpsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountAnnotations">invocationCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountMetric">invocationCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationRateAnnotations">invocationRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.isIterator">isIterator</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.lambdaInsightsEnabled">lambdaInsightsEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
@@ -65075,6 +65104,16 @@ public readonly invocationRateAnnotations: HorizontalAnnotation[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `isIterator`<sup>Required</sup> <a name="isIterator" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.isIterator"></a>
+
+```typescript
+public readonly isIterator: boolean;
+```
+
+- *Type:* boolean
 
 ---
 

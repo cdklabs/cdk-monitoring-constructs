@@ -3530,7 +3530,7 @@ Object {
 }
 `;
 
-exports[`snapshot test: no alarms 1`] = `
+exports[`snapshot test: default iterator and no alarms 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -3540,6 +3540,12 @@ Object {
     },
   },
   "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
     "Function76856677": Object {
       "DependsOn": Array [
         "FunctionServiceRole675BB04A",
@@ -3590,6 +3596,388 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles (avg)\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: non-iterator and no alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Function76856677": Object {
+      "DependsOn": Array [
+        "FunctionServiceRole675BB04A",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "{}",
+        },
+        "FunctionName": "DummyLambda",
+        "Handler": "Dummy::handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "FunctionServiceRole675BB04A",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "FunctionServiceRole675BB04A": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles (avg)\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Dummy Lambda for testing](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/",
+              Object {
+                "Ref": "Function76856677",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
     },
   },
   "Rules": Object {
