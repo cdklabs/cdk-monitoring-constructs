@@ -12,7 +12,7 @@ import { AlarmWithAnnotation, LambdaFunctionMonitoring } from "../../../lib";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
-test("snapshot test: no alarms", () => {
+test("snapshot test: default iterator and no alarms", () => {
   const stack = new Stack();
 
   const scope = new TestMonitoringScope(stack, "Scope");
@@ -24,14 +24,14 @@ test("snapshot test: no alarms", () => {
     handler: "Dummy::handler",
   });
 
-  new LambdaFunctionMonitoring(scope, {
+  const monitoring = new LambdaFunctionMonitoring(scope, {
     lambdaFunction,
     humanReadableName: "Dummy Lambda for testing",
     alarmFriendlyName: "DummyLambda",
   });
+  addMonitoringDashboardsToStack(stack, monitoring);
 
   // alternative: use reference
-
   new LambdaFunctionMonitoring(scope, {
     lambdaFunction: Function.fromFunctionAttributes(stack, "DummyFunctionRef", {
       functionArn:
@@ -39,6 +39,29 @@ test("snapshot test: no alarms", () => {
     }),
   });
 
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: non-iterator and no alarms", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const lambdaFunction = new Function(stack, "Function", {
+    functionName: "DummyLambda",
+    runtime: Runtime.NODEJS_18_X,
+    code: InlineCode.fromInline("{}"),
+    handler: "Dummy::handler",
+  });
+
+  const monitoring = new LambdaFunctionMonitoring(scope, {
+    lambdaFunction,
+    humanReadableName: "Dummy Lambda for testing",
+    alarmFriendlyName: "DummyLambda",
+    isIterator: false,
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -481,6 +504,36 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
   addMonitoringDashboardsToStack(stack, monitoring);
   expect(numAlarmsCreated).toStrictEqual(20);
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("throws error if attempting to create iterator age alarm if not an iterator", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const lambdaFunction = new Function(stack, "Function", {
+    functionName: "DummyLambda",
+    runtime: Runtime.NODEJS_18_X,
+    code: InlineCode.fromInline("{}"),
+    handler: "Dummy::handler",
+  });
+
+  expect(
+    () =>
+      new LambdaFunctionMonitoring(scope, {
+        lambdaFunction,
+        humanReadableName: "Dummy Lambda for testing",
+        alarmFriendlyName: "DummyLambda",
+        isIterator: false,
+        addMaxIteratorAgeAlarm: {
+          Warning: {
+            maxAgeInMillis: 1_000_000,
+          },
+        },
+      }),
+  ).toThrow(
+    "addMaxIteratorAgeAlarm is not applicable if isIterator is not true",
+  );
 });
 
 test("doesn't create alarms for enhanced Lambda Insights metrics if not enabled", () => {

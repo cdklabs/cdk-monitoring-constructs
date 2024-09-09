@@ -23,6 +23,7 @@ import {
   ErrorCountThreshold,
   ErrorRateThreshold,
   ErrorType,
+  HalfWidth,
   HighTpsThreshold,
   LatencyAlarmFactory,
   LatencyThreshold,
@@ -53,6 +54,14 @@ import {
 } from "../../dashboard";
 
 export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
+  /**
+   * Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream).
+   * This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm.
+   *
+   * @default - true
+   */
+  readonly isIterator?: boolean;
+
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
@@ -153,6 +162,8 @@ export class LambdaFunctionMonitoring extends Monitoring {
   readonly concurrentExecutionsCountMetric: MetricWithAlarmSupport;
   readonly provisionedConcurrencySpilloverInvocationsCountMetric: MetricWithAlarmSupport;
   readonly provisionedConcurrencySpilloverInvocationsRateMetric: MetricWithAlarmSupport;
+
+  readonly isIterator: boolean;
   readonly maxIteratorAgeMetric: MetricWithAlarmSupport;
 
   readonly lambdaInsightsEnabled: boolean;
@@ -227,6 +238,8 @@ export class LambdaFunctionMonitoring extends Monitoring {
       this.metricFactory.metricProvisionedConcurrencySpilloverInvocations();
     this.provisionedConcurrencySpilloverInvocationsRateMetric =
       this.metricFactory.metricProvisionedConcurrencySpilloverRate();
+
+    this.isIterator = props.isIterator ?? true;
     this.maxIteratorAgeMetric =
       this.metricFactory.metricMaxIteratorAgeInMillis();
 
@@ -493,6 +506,12 @@ export class LambdaFunctionMonitoring extends Monitoring {
       this.addAlarm(createdAlarm);
     }
     for (const disambiguator in props.addMaxIteratorAgeAlarm) {
+      if (!this.isIterator) {
+        throw new Error(
+          "addMaxIteratorAgeAlarm is not applicable if isIterator is not true",
+        );
+      }
+
       const alarmProps = props.addMaxIteratorAgeAlarm[disambiguator];
       const createdAlarm = this.ageAlarmFactory.addIteratorMaxAgeAlarm(
         this.maxIteratorAgeMetric,
@@ -524,12 +543,24 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.createErrorRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createRateWidget(QuarterWidth, DefaultGraphWidgetHeight),
       ),
-      new Row(
-        this.createInvocationWidget(ThirdWidth, DefaultGraphWidgetHeight),
-        this.createIteratorAgeWidget(ThirdWidth, DefaultGraphWidgetHeight),
-        this.createErrorCountWidget(ThirdWidth, DefaultGraphWidgetHeight),
-      ),
     ];
+
+    if (this.isIterator) {
+      widgets.push(
+        new Row(
+          this.createInvocationWidget(ThirdWidth, DefaultGraphWidgetHeight),
+          this.createIteratorAgeWidget(ThirdWidth, DefaultGraphWidgetHeight),
+          this.createErrorCountWidget(ThirdWidth, DefaultGraphWidgetHeight),
+        ),
+      );
+    } else {
+      widgets.push(
+        new Row(
+          this.createInvocationWidget(HalfWidth, DefaultGraphWidgetHeight),
+          this.createErrorCountWidget(HalfWidth, DefaultGraphWidgetHeight),
+        ),
+      );
+    }
 
     if (this.lambdaInsightsEnabled) {
       widgets.push(
