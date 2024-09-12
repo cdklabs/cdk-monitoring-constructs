@@ -2833,7 +2833,7 @@ Object {
 }
 `;
 
-exports[`snapshot test: no alarms 1`] = `
+exports[`snapshot test: no alarms with explicit API name 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -2855,7 +2855,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **Dummy API Gateway for testing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **testHttpApiName $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2928,7 +2928,306 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **Dummy API Gateway for testing**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **testHttpApiName $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"requests / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "testHttpApiC57B300F": Object {
+      "Properties": Object {
+        "Name": "testHttpApiName",
+        "ProtocolType": "HTTP",
+      },
+      "Type": "AWS::ApiGatewayV2::Api",
+    },
+    "testHttpApiDefaultStageBA851B68": Object {
+      "Properties": Object {
+        "ApiId": Object {
+          "Ref": "testHttpApiC57B300F",
+        },
+        "AutoDeploy": true,
+        "StageName": "$default",
+      },
+      "Type": "AWS::ApiGatewayV2::Stage",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms with imported IHttpApi 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **imported-id $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"requests / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **imported-id $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"requests / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"imported-id\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms with no explicit API name 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **testHttpApi $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"requests / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/ApiGateway\\",\\"IntegrationLatency\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"4xx (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5xx\\",\\"ApiId\\",\\"",
+              Object {
+                "Ref": "testHttpApiC57B300F",
+              },
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"5xx (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **testHttpApi $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

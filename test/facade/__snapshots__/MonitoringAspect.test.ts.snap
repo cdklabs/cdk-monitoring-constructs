@@ -457,11 +457,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              " $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **DummyHttpApi $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -535,11 +531,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **",
-              Object {
-                "Ref": "DummyHttpApi8EEBCC85",
-              },
-              " $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### API Gateway V2 HTTP Endpoint **DummyHttpApi $default**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
