@@ -100,7 +100,7 @@ Add a variable to the dashboard.
 ##### `addWidgets` <a name="addWidgets" id="cdk-monitoring-constructs.BitmapDashboard.addWidgets"></a>
 
 ```typescript
-public addWidgets(widgets: IWidget): void
+public addWidgets(widgets: ...IWidget[]): void
 ```
 
 Add a widget to the dashboard.
@@ -113,7 +113,7 @@ to each other.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.BitmapDashboard.addWidgets.parameter.widgets"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IWidget[]
 
 ---
 
@@ -477,7 +477,7 @@ Add a variable to the dashboard.
 ##### `addWidgets` <a name="addWidgets" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets"></a>
 
 ```typescript
-public addWidgets(widgets: IWidget): void
+public addWidgets(widgets: ...IWidget[]): void
 ```
 
 Add a widget to the dashboard.
@@ -490,7 +490,7 @@ to each other.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets.parameter.widgets"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IWidget
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IWidget[]
 
 ---
 
@@ -56357,12 +56357,12 @@ Adjusts a metric.
 ```typescript
 import { CompositeMetricAdjuster } from 'cdk-monitoring-constructs'
 
-CompositeMetricAdjuster.of(adjusters: IMetricAdjuster)
+CompositeMetricAdjuster.of(adjusters: ...IMetricAdjuster[])
 ```
 
 ###### `adjusters`<sup>Required</sup> <a name="adjusters" id="cdk-monitoring-constructs.CompositeMetricAdjuster.of.parameter.adjusters"></a>
 
-- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Type:* ...<a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>[]
 
 ---
 
