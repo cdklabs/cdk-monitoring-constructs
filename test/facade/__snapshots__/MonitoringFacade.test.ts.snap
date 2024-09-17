@@ -72,19 +72,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Throttles (avg)\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":21,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Invocations\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Throttles\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Concurrent\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":21,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Iterator Age\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":21,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Faults\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Throttles (avg)\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

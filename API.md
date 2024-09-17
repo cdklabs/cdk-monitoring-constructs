@@ -26280,12 +26280,14 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxOffsetLagAlarm">addMaxOffsetLagAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold">MaxOffsetLagThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMinInvocationsCountAlarm">addMinInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.isIterator">isIterator</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.isOffsetLag">isOffsetLag</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source which uses offsets for records (e.g. Kafka streams). This impacts what widgets are shown, as well as validates the ability to use addMaxOffsetLagAlarm. |
 
 ---
 
@@ -26577,6 +26579,16 @@ public readonly addMaxLatencyAlarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addMaxOffsetLagAlarm`<sup>Optional</sup> <a name="addMaxOffsetLagAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxOffsetLagAlarm"></a>
+
+```typescript
+public readonly addMaxOffsetLagAlarm: {[ key: string ]: MaxOffsetLagThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold">MaxOffsetLagThreshold</a>}
+
+---
+
 ##### `addMinInvocationsCountAlarm`<sup>Optional</sup> <a name="addMinInvocationsCountAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMinInvocationsCountAlarm"></a>
 
 ```typescript
@@ -26640,6 +26652,19 @@ Indicates that the Lambda function handles an event source (e.g. DynamoDB event 
 
 ---
 
+##### `isOffsetLag`<sup>Optional</sup> <a name="isOffsetLag" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.isOffsetLag"></a>
+
+```typescript
+public readonly isOffsetLag: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates that the Lambda function handles an event source which uses offsets for records (e.g. Kafka streams). This impacts what widgets are shown, as well as validates the ability to use addMaxOffsetLagAlarm.
+
+---
+
 ### LambdaFunctionMonitoringProps <a name="LambdaFunctionMonitoringProps" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.Initializer"></a>
@@ -26683,12 +26708,14 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxOffsetLagAlarm">addMaxOffsetLagAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold">MaxOffsetLagThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMinInvocationsCountAlarm">addMinInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsRateAlarm">addProvisionedConcurrencySpilloverInvocationsRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskRateThreshold">RunningTaskRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesCountAlarm">addThrottlesCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.isIterator">isIterator</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.isOffsetLag">isOffsetLag</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source which uses offsets for records (e.g. Kafka streams). This impacts what widgets are shown, as well as validates the ability to use addMaxOffsetLagAlarm. |
 
 ---
 
@@ -27028,6 +27055,16 @@ public readonly addMaxLatencyAlarm: {[ key: string ]: LatencyThreshold};
 
 ---
 
+##### `addMaxOffsetLagAlarm`<sup>Optional</sup> <a name="addMaxOffsetLagAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxOffsetLagAlarm"></a>
+
+```typescript
+public readonly addMaxOffsetLagAlarm: {[ key: string ]: MaxOffsetLagThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold">MaxOffsetLagThreshold</a>}
+
+---
+
 ##### `addMinInvocationsCountAlarm`<sup>Optional</sup> <a name="addMinInvocationsCountAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMinInvocationsCountAlarm"></a>
 
 ```typescript
@@ -27088,6 +27125,19 @@ public readonly isIterator: boolean;
 - *Default:* true
 
 Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm.
+
+---
+
+##### `isOffsetLag`<sup>Optional</sup> <a name="isOffsetLag" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.isOffsetLag"></a>
+
+```typescript
+public readonly isOffsetLag: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates that the Lambda function handles an event source which uses offsets for records (e.g. Kafka streams). This impacts what widgets are shown, as well as validates the ability to use addMaxOffsetLagAlarm.
 
 ---
 
@@ -31625,6 +31675,365 @@ Behaviour in case the metric data is missing.
 
 ```typescript
 public readonly maxMessageCount: number;
+```
+
+- *Type:* number
+
+---
+
+### MaxOffsetLagThreshold <a name="MaxOffsetLagThreshold" id="cdk-monitoring-constructs.MaxOffsetLagThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.Initializer"></a>
+
+```typescript
+import { MaxOffsetLagThreshold } from 'cdk-monitoring-constructs'
+
+const maxOffsetLagThreshold: MaxOffsetLagThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.maxOffsetLag">maxOffsetLag</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxOffsetLag`<sup>Required</sup> <a name="maxOffsetLag" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.maxOffsetLag"></a>
+
+```typescript
+public readonly maxOffsetLag: number;
 ```
 
 - *Type:* number
@@ -50889,6 +51298,7 @@ new AgeAlarmFactory(alarmFactory: AlarmFactory)
 | <code><a href="#cdk-monitoring-constructs.AgeAlarmFactory.addDaysSinceUpdateAlarm">addDaysSinceUpdateAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AgeAlarmFactory.addDaysToExpiryAlarm">addDaysToExpiryAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AgeAlarmFactory.addIteratorMaxAgeAlarm">addIteratorMaxAgeAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AgeAlarmFactory.addMaxOffsetLagAlarm">addMaxOffsetLagAlarm</a></code> | *No description.* |
 
 ---
 
@@ -50959,6 +51369,30 @@ public addIteratorMaxAgeAlarm(metric: Metric | MathExpression, props: MaxAgeThre
 ---
 
 ###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.AgeAlarmFactory.addIteratorMaxAgeAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addMaxOffsetLagAlarm` <a name="addMaxOffsetLagAlarm" id="cdk-monitoring-constructs.AgeAlarmFactory.addMaxOffsetLagAlarm"></a>
+
+```typescript
+public addMaxOffsetLagAlarm(metric: Metric | MathExpression, props: MaxOffsetLagThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.AgeAlarmFactory.addMaxOffsetLagAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AgeAlarmFactory.addMaxOffsetLagAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold">MaxOffsetLagThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.AgeAlarmFactory.addMaxOffsetLagAlarm.parameter.disambiguator"></a>
 
 - *Type:* string
 
@@ -64488,6 +64922,7 @@ new LambdaFunctionMetricFactory(metricFactory: MetricFactory, props: LambdaFunct
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP90InMillis">metricLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyP99InMillis">metricLatencyP99InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricMaxIteratorAgeInMillis">metricMaxIteratorAgeInMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricMaxOffsetLagInNumberOfRecords">metricMaxOffsetLagInNumberOfRecords</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricProvisionedConcurrencySpilloverInvocations">metricProvisionedConcurrencySpilloverInvocations</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricProvisionedConcurrencySpilloverRate">metricProvisionedConcurrencySpilloverRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricThrottlesCount">metricThrottlesCount</a></code> | *No description.* |
@@ -64560,6 +64995,12 @@ public metricLatencyP99InMillis(): Metric | MathExpression
 
 ```typescript
 public metricMaxIteratorAgeInMillis(): Metric | MathExpression
+```
+
+##### `metricMaxOffsetLagInNumberOfRecords` <a name="metricMaxOffsetLagInNumberOfRecords" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricMaxOffsetLagInNumberOfRecords"></a>
+
+```typescript
+public metricMaxOffsetLagInNumberOfRecords(): Metric | MathExpression
 ```
 
 ##### `metricProvisionedConcurrencySpilloverInvocations` <a name="metricProvisionedConcurrencySpilloverInvocations" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricProvisionedConcurrencySpilloverInvocations"></a>
@@ -64645,6 +65086,7 @@ new LambdaFunctionMonitoring(scope: MonitoringScope, props: LambdaFunctionMonito
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsFunctionCostWidget">createLambdaInsightsFunctionCostWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsMemoryWidget">createLambdaInsightsMemoryWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createOffsetLagWidget">createOffsetLagWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createRateWidget">createRateWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createTpsWidget">createTpsWidget</a></code> | *No description.* |
@@ -64893,6 +65335,24 @@ public createLatencyWidget(width: number, height: number): GraphWidget
 
 ---
 
+##### `createOffsetLagWidget` <a name="createOffsetLagWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createOffsetLagWidget"></a>
+
+```typescript
+public createOffsetLagWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createOffsetLagWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createOffsetLagWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
 ##### `createRateWidget` <a name="createRateWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createRateWidget"></a>
 
 ```typescript
@@ -64953,12 +65413,15 @@ public createTpsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountMetric">invocationCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationRateAnnotations">invocationRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.isIterator">isIterator</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.isOffsetLag">isOffsetLag</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.lambdaInsightsEnabled">lambdaInsightsEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeAnnotations">maxIteratorAgeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeMetric">maxIteratorAgeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxLatencyMetric">maxLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxOffsetLagAnnotations">maxOffsetLagAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxOffsetLagMetric">maxOffsetLagMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMetricFactory">LambdaFunctionMetricFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.namingStrategy">namingStrategy</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringNamingStrategy">MonitoringNamingStrategy</a></code> | *No description.* |
@@ -65117,6 +65580,16 @@ public readonly isIterator: boolean;
 
 ---
 
+##### `isOffsetLag`<sup>Required</sup> <a name="isOffsetLag" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.isOffsetLag"></a>
+
+```typescript
+public readonly isOffsetLag: boolean;
+```
+
+- *Type:* boolean
+
+---
+
 ##### `lambdaInsightsEnabled`<sup>Required</sup> <a name="lambdaInsightsEnabled" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.lambdaInsightsEnabled"></a>
 
 ```typescript
@@ -65171,6 +65644,26 @@ public readonly maxIteratorAgeMetric: Metric | MathExpression;
 
 ```typescript
 public readonly maxLatencyMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `maxOffsetLagAnnotations`<sup>Required</sup> <a name="maxOffsetLagAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxOffsetLagAnnotations"></a>
+
+```typescript
+public readonly maxOffsetLagAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `maxOffsetLagMetric`<sup>Required</sup> <a name="maxOffsetLagMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxOffsetLagMetric"></a>
+
+```typescript
+public readonly maxOffsetLagMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression

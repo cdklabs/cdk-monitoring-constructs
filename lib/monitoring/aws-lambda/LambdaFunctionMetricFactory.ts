@@ -194,4 +194,15 @@ export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctio
       }),
     );
   }
+
+  metricMaxOffsetLagInNumberOfRecords() {
+    return this.metricFactory.adaptMetric(
+      this.lambdaFunction.metric("OffsetLag", {
+        statistic: MetricStatistic.MAX,
+        label: "Offset Lag",
+        region: this.region,
+        account: this.account,
+      }),
+    );
+  }
 }
