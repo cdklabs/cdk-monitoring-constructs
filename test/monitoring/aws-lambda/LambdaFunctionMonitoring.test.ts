@@ -83,6 +83,7 @@ test("snapshot test: all alarms", () => {
     lambdaFunction,
     humanReadableName: "Dummy Lambda for testing",
     alarmFriendlyName: "DummyLambda",
+    isOffsetLag: true,
     addFaultRateAlarm: {
       Warning: {
         maxErrorRate: 1,
@@ -165,6 +166,11 @@ test("snapshot test: all alarms", () => {
         maxAgeInMillis: 1_000_000,
       },
     },
+    addMaxOffsetLagAlarm: {
+      Warning: {
+        maxOffsetLag: 100,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms: AlarmWithAnnotation[]) {
         numAlarmsCreated = alarms.length;
@@ -173,7 +179,7 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(14);
+  expect(numAlarmsCreated).toStrictEqual(15);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -533,6 +539,35 @@ test("throws error if attempting to create iterator age alarm if not an iterator
       }),
   ).toThrow(
     "addMaxIteratorAgeAlarm is not applicable if isIterator is not true",
+  );
+});
+
+test("throws error if attempting to create offsetLag alarm if not an offsetLag Lambda", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const lambdaFunction = new Function(stack, "Function", {
+    functionName: "DummyLambda",
+    runtime: Runtime.NODEJS_18_X,
+    code: InlineCode.fromInline("{}"),
+    handler: "Dummy::handler",
+  });
+
+  expect(
+    () =>
+      new LambdaFunctionMonitoring(scope, {
+        lambdaFunction,
+        humanReadableName: "Dummy Lambda for testing",
+        alarmFriendlyName: "DummyLambda",
+        addMaxOffsetLagAlarm: {
+          Warning: {
+            maxOffsetLag: 100,
+          },
+        },
+      }),
+  ).toThrow(
+    "addMaxOffsetLagAlarm is not applicable if isOffsetLag is not true",
   );
 });
 

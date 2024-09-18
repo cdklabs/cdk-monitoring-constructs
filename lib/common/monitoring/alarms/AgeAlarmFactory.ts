@@ -14,6 +14,10 @@ export interface MaxAgeThreshold extends CustomAlarmThreshold {
   readonly maxAgeInMillis: number;
 }
 
+export interface MaxOffsetLagThreshold extends CustomAlarmThreshold {
+  readonly maxOffsetLag: number;
+}
+
 export interface DaysSinceUpdateThreshold extends CustomAlarmThreshold {
   readonly maxDaysSinceUpdate: number;
 }
@@ -62,6 +66,27 @@ export class AgeAlarmFactory {
       alarmDescription: "Iterator Max Age is too high.",
       // Dedupe all iterator max age to the same ticket
       alarmDedupeStringSuffix: "AnyIteratorMaxAge",
+    });
+  }
+
+  addMaxOffsetLagAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MaxOffsetLagThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxOffsetLag,
+      alarmNameSuffix: "Offset-Lag-Max",
+      alarmDescription: "Max Offset Lag is too high.",
+      // Dedupe all iterator max age to the same ticket
+      alarmDedupeStringSuffix: "AnyMaxOffsetLag",
     });
   }
 

@@ -30,6 +30,7 @@ import {
   LatencyType,
   LowTpsThreshold,
   MaxAgeThreshold,
+  MaxOffsetLagThreshold,
   MegabyteMillisecondAxisFromZero,
   MetricWithAlarmSupport,
   MinUsageCountThreshold,
@@ -61,6 +62,13 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
    * @default - true
    */
   readonly isIterator?: boolean;
+  /**
+   * Indicates that the Lambda function handles an event source which uses offsets for records (e.g. Kafka streams).
+   * This impacts what widgets are shown, as well as validates the ability to use addMaxOffsetLagAlarm.
+   *
+   * @default - false
+   */
+  readonly isOffsetLag?: boolean;
 
   readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
   readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
@@ -91,6 +99,8 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
     RunningTaskRateThreshold
   >;
   readonly addMaxIteratorAgeAlarm?: Record<string, MaxAgeThreshold>;
+
+  readonly addMaxOffsetLagAlarm?: Record<string, MaxOffsetLagThreshold>;
 
   // Enhanced CPU metrics that are all time-based and not percent based
   readonly addEnhancedMonitoringMaxCpuTotalTimeAlarm?: Record<
@@ -148,6 +158,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
   readonly cpuTotalTimeAnnotations: HorizontalAnnotation[];
   readonly memoryUsageAnnotations: HorizontalAnnotation[];
   readonly maxIteratorAgeAnnotations: HorizontalAnnotation[];
+  readonly maxOffsetLagAnnotations: HorizontalAnnotation[];
 
   readonly tpsMetric: MetricWithAlarmSupport;
   readonly p50LatencyMetric: MetricWithAlarmSupport;
@@ -165,6 +176,8 @@ export class LambdaFunctionMonitoring extends Monitoring {
 
   readonly isIterator: boolean;
   readonly maxIteratorAgeMetric: MetricWithAlarmSupport;
+  readonly isOffsetLag: boolean;
+  readonly maxOffsetLagMetric: MetricWithAlarmSupport;
 
   readonly lambdaInsightsEnabled: boolean;
   readonly enhancedMetricFactory?: LambdaFunctionEnhancedMetricFactory;
@@ -209,6 +222,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     this.cpuTotalTimeAnnotations = [];
     this.memoryUsageAnnotations = [];
     this.maxIteratorAgeAnnotations = [];
+    this.maxOffsetLagAnnotations = [];
 
     this.metricFactory = new LambdaFunctionMetricFactory(
       scope.createMetricFactory(),
@@ -242,6 +256,9 @@ export class LambdaFunctionMonitoring extends Monitoring {
     this.isIterator = props.isIterator ?? true;
     this.maxIteratorAgeMetric =
       this.metricFactory.metricMaxIteratorAgeInMillis();
+    this.isOffsetLag = props.isOffsetLag ?? false;
+    this.maxOffsetLagMetric =
+      this.metricFactory.metricMaxOffsetLagInNumberOfRecords();
 
     this.lambdaInsightsEnabled = props.lambdaInsightsEnabled ?? false;
     if (props.lambdaInsightsEnabled) {
@@ -521,6 +538,22 @@ export class LambdaFunctionMonitoring extends Monitoring {
       this.maxIteratorAgeAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
+    for (const disambiguator in props.addMaxOffsetLagAlarm) {
+      if (!this.isOffsetLag) {
+        throw new Error(
+          "addMaxOffsetLagAlarm is not applicable if isOffsetLag is not true",
+        );
+      }
+
+      const alarmProps = props.addMaxOffsetLagAlarm[disambiguator];
+      const createdAlarm = this.ageAlarmFactory.addMaxOffsetLagAlarm(
+        this.maxOffsetLagMetric,
+        alarmProps,
+        disambiguator,
+      );
+      this.maxOffsetLagAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
 
     props.useCreatedAlarms?.consume(this.createdAlarms());
   }
@@ -545,19 +578,37 @@ export class LambdaFunctionMonitoring extends Monitoring {
       ),
     ];
 
+    let secondRowWidgetWidth: number;
+    if (this.isIterator && this.isOffsetLag) {
+      secondRowWidgetWidth = QuarterWidth;
+    } else if (this.isIterator || this.isOffsetLag) {
+      secondRowWidgetWidth = ThirdWidth;
+    } else {
+      secondRowWidgetWidth = HalfWidth;
+    }
+    const secondRow: Row = new Row(
+      this.createInvocationWidget(
+        secondRowWidgetWidth,
+        DefaultGraphWidgetHeight,
+      ),
+      this.createErrorCountWidget(
+        secondRowWidgetWidth,
+        DefaultGraphWidgetHeight,
+      ),
+    );
     if (this.isIterator) {
-      widgets.push(
-        new Row(
-          this.createInvocationWidget(ThirdWidth, DefaultGraphWidgetHeight),
-          this.createIteratorAgeWidget(ThirdWidth, DefaultGraphWidgetHeight),
-          this.createErrorCountWidget(ThirdWidth, DefaultGraphWidgetHeight),
+      secondRow.addWidget(
+        this.createIteratorAgeWidget(
+          secondRowWidgetWidth,
+          DefaultGraphWidgetHeight,
         ),
       );
-    } else {
-      widgets.push(
-        new Row(
-          this.createInvocationWidget(HalfWidth, DefaultGraphWidgetHeight),
-          this.createErrorCountWidget(HalfWidth, DefaultGraphWidgetHeight),
+    }
+    if (this.isOffsetLag) {
+      secondRow.addWidget(
+        this.createOffsetLagWidget(
+          secondRowWidgetWidth,
+          DefaultGraphWidgetHeight,
         ),
       );
     }
@@ -678,6 +729,17 @@ export class LambdaFunctionMonitoring extends Monitoring {
       left: [this.maxIteratorAgeMetric],
       leftYAxis: TimeAxisMillisFromZero,
       leftAnnotations: this.maxIteratorAgeAnnotations,
+    });
+  }
+
+  createOffsetLagWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "OffsetLag",
+      left: [this.maxOffsetLagMetric],
+      leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.maxOffsetLagAnnotations,
     });
   }
 

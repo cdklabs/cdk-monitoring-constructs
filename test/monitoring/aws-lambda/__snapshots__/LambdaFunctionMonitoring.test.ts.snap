@@ -170,6 +170,17 @@ Object {
                   "Arn",
                 ],
               },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyLambdaOffsetLagMaxWarning0F49F0E0",
+                  "Arn",
+                ],
+              },
               "\\"]},\\"yAxis\\":{}}}]}",
             ],
           ],
@@ -282,43 +293,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Invocations < 5 for 30 datapoints within 150 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Concurrent > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Provisioned Concurrency Spillovers > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Iterator Age > 1000000 for 3 datapoints within 15 minutes\\",\\"value\\":1000000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -655,6 +630,42 @@ Object {
           },
         ],
         "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyLambdaOffsetLagMaxWarning0F49F0E0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Max Offset Lag is too high.",
+        "AlarmName": "Test-DummyLambda-Offset-Lag-Max-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Offset Lag",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": Object {
+                      "Ref": "Function76856677",
+                    },
+                  },
+                ],
+                "MetricName": "OffsetLag",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1388,43 +1399,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Invocations < 5 for 30 datapoints within 150 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Concurrent > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Provisioned Concurrency Spillovers > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Iterator Age > 1000000 for 3 datapoints within 15 minutes\\",\\"value\\":1000000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Custom annotation label\\",\\"value\\":2,\\"color\\":\\"#8c564b\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Total Time\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Total Time\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1440,7 +1415,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"CPUTotalTime.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"CPUTotalTime.Max > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.P90 > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.Avg > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"CPUTotalTime.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"CPUTotalTime.Max > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.P90 > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.Avg > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1456,7 +1431,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"MemoryUtilization.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"MemoryUtilization.Max > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.P90 > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.Avg > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Function Cost\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"MemoryUtilization.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"MemoryUtilization.Max > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.P90 > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.Avg > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Function Cost\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2633,43 +2608,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Invocations < 5 for 30 datapoints within 150 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Concurrent > 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Provisioned Concurrency Spillovers > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Iterator Age > 1000000 for 3 datapoints within 15 minutes\\",\\"value\\":1000000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults > 2 for 20 datapoints within 100 minutes\\",\\"value\\":2,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Total Time\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throttles (avg) > 1 for 10 datapoints within 50 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Total Time\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2685,7 +2624,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"CPUTotalTime.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"CPUTotalTime.Max > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.P90 > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.Avg > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"CPUTotalTime.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"CPUTotalTime.Max > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.P90 > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPUTotalTime.Avg > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2701,7 +2640,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"MemoryUtilization.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"MemoryUtilization.Max > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.P90 > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.Avg > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Function Cost\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"MemoryUtilization.Avg\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"MemoryUtilization.Max > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.P90 > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"MemoryUtilization.Avg > 50 for 3 datapoints within 15 minutes\\",\\"value\\":50,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Function Cost\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3651,43 +3590,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -3895,35 +3798,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
-              Object {
-                "Ref": "Function76856677",
-              },
-              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
