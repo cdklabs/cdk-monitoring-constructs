@@ -612,6 +612,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
         ),
       );
     }
+    widgets.push(secondRow);
 
     if (this.lambdaInsightsEnabled) {
       widgets.push(
