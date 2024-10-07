@@ -156,7 +156,7 @@ describe("MonitoringAspect", () => {
         ec2.InstanceClass.M4,
         ec2.InstanceSize.LARGE,
       ),
-      machineImage: ec2.MachineImage.latestAmazonLinux(),
+      machineImage: ec2.MachineImage.latestAmazonLinux2023(),
       minCapacity: 1,
       maxCapacity: 10,
       desiredCapacity: 5,
@@ -271,7 +271,7 @@ describe("MonitoringAspect", () => {
         ec2.InstanceClass.M4,
         ec2.InstanceSize.LARGE,
       ),
-      machineImage: ec2.MachineImage.latestAmazonLinux(),
+      machineImage: ec2.MachineImage.latestAmazonLinux2023(),
     });
 
     // WHEN
@@ -465,7 +465,7 @@ describe("MonitoringAspect", () => {
     new redshift.Cluster(stack, "DummyCluster", {
       masterUser: {
         masterUsername: "admin",
-        masterPassword: SecretValue.plainText("password"),
+        masterPassword: SecretValue.unsafePlainText("password"),
       },
       vpc,
     });
