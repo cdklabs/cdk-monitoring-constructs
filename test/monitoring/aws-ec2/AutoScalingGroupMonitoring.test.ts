@@ -24,7 +24,7 @@ test("snapshot test", () => {
     autoScalingGroupName: "DummyASG",
     vpc,
     instanceType: InstanceType.of(InstanceClass.M4, InstanceSize.LARGE),
-    machineImage: MachineImage.latestAmazonLinux(),
+    machineImage: MachineImage.latestAmazonLinux2023(),
     minCapacity: 1,
     maxCapacity: 10,
     desiredCapacity: 5,
