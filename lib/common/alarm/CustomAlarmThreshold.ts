@@ -52,6 +52,20 @@ export interface CustomAlarmThreshold {
   readonly minSampleCountToEvaluateDatapoint?: number;
 
   /**
+   * This property is required in the following situation:
+   * <ol>
+   *     <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>
+   *     <li>the metric used for the alarm is a <code>MathExpression</code></li>
+   *     <li>the <code>MathExpression</code> is composed of more than one metric</li>
+   * </ol>
+   *
+   * In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+   * property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+   * for <code>minSampleCountToEvaluateDatapoint</code>.
+   */
+  readonly sampleCountMetricId?: string;
+
+  /**
    * Specifies how many samples (N) of the metric is needed to trigger the alarm.
    * If this property is specified, a composite alarm is created of the following:
    * <ul>
