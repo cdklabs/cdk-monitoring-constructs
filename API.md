@@ -4153,6 +4153,7 @@ const anomalyDetectionThreshold: AnomalyDetectionThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmWhenAboveTheBand">alarmWhenAboveTheBand</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmWhenBelowTheBand">alarmWhenBelowTheBand</a></code> | <code>boolean</code> | *No description.* |
@@ -4454,6 +4455,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -8752,6 +8769,7 @@ const availabilityThreshold: AvailabilityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.minAvailabilityPercent">minAvailabilityPercent</a></code> | <code>number</code> | *No description.* |
 
@@ -9050,6 +9068,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.AvailabilityThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -10511,6 +10545,7 @@ const changeInSecretCountThreshold: ChangeInSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmWhenDecreased">alarmWhenDecreased</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmWhenIncreased">alarmWhenIncreased</a></code> | <code>boolean</code> | *No description.* |
@@ -10812,6 +10847,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -11961,6 +12012,7 @@ const consumedCapacityThreshold: ConsumedCapacityThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.maxConsumedCapacityUnits">maxConsumedCapacityUnits</a></code> | <code>number</code> | *No description.* |
 
@@ -12262,6 +12314,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -12322,6 +12390,7 @@ const customAlarmThreshold: CustomAlarmThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 
 ---
@@ -12619,6 +12688,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -14112,6 +14197,7 @@ const customThreshold: CustomThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.threshold">threshold</a></code> | <code>number</code> | *No description.* |
@@ -14416,6 +14502,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.CustomThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.CustomThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -14642,6 +14744,7 @@ const daysSinceUpdateThreshold: DaysSinceUpdateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.maxDaysSinceUpdate">maxDaysSinceUpdate</a></code> | <code>number</code> | *No description.* |
 
@@ -14943,6 +15046,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -15001,6 +15120,7 @@ const daysToExpiryThreshold: DaysToExpiryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.minDaysToExpiry">minDaysToExpiry</a></code> | <code>number</code> | *No description.* |
 
@@ -15299,6 +15419,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -15892,6 +16028,7 @@ const durationThreshold: DurationThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.maxDuration">maxDuration</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
 
@@ -16190,6 +16327,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.DurationThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -19349,6 +19502,7 @@ const errorCountThreshold: ErrorCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.maxErrorCount">maxErrorCount</a></code> | <code>number</code> | *No description.* |
 
@@ -19650,6 +19804,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.ErrorCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.ErrorCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -19708,6 +19878,7 @@ const errorRateThreshold: ErrorRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.maxErrorRate">maxErrorRate</a></code> | <code>number</code> | *No description.* |
 
@@ -20006,6 +20177,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.ErrorRateThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -21066,6 +21253,7 @@ const firehoseStreamLimitThreshold: FirehoseStreamLimitThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.safetyThresholdLimit">safetyThresholdLimit</a></code> | <code>number</code> | Threshold value between [0.0, 1.0) for when the alarm should be triggered. |
 
@@ -21364,6 +21552,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -21687,6 +21891,7 @@ const fullRestartCountThreshold: FullRestartCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.maxFullRestartCount">maxFullRestartCount</a></code> | <code>number</code> | *No description.* |
 
@@ -21985,6 +22190,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -22560,6 +22781,7 @@ const healthyTaskCountThreshold: HealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.minHealthyTasks">minHealthyTasks</a></code> | <code>number</code> | *No description.* |
 
@@ -22861,6 +23083,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -22919,6 +23157,7 @@ const healthyTaskPercentThreshold: HealthyTaskPercentThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.minHealthyTaskPercent">minHealthyTaskPercent</a></code> | <code>number</code> | *No description.* |
 
@@ -23220,6 +23459,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -23278,6 +23533,7 @@ const highConnectionCountThreshold: HighConnectionCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.maxConnectionCount">maxConnectionCount</a></code> | <code>number</code> | *No description.* |
 
@@ -23579,6 +23835,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -23637,6 +23909,7 @@ const highMessagesPublishedThreshold: HighMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.maxMessagesPublishedCount">maxMessagesPublishedCount</a></code> | <code>number</code> | *No description.* |
 
@@ -23938,6 +24211,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -23996,6 +24285,7 @@ const highServerlessDatabaseCapacityThreshold: HighServerlessDatabaseCapacityThr
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.maxServerlessDatabaseCapacity">maxServerlessDatabaseCapacity</a></code> | <code>number</code> | *No description.* |
 
@@ -24297,6 +24587,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -24355,6 +24661,7 @@ const highTpsThreshold: HighTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.maxTps">maxTps</a></code> | <code>number</code> | *No description.* |
 
@@ -24653,6 +24960,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.HighTpsThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -27176,6 +27499,7 @@ const latencyThreshold: LatencyThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.maxLatency">maxLatency</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
 
@@ -27477,6 +27801,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.LatencyThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.LatencyThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -27535,6 +27875,7 @@ const logLevelCountThreshold: LogLevelCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.maxLogCount">maxLogCount</a></code> | <code>number</code> | Threshold for the number of logs to alarm on. |
 
@@ -27836,6 +28177,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -28126,6 +28483,7 @@ const lowConnectionCountThreshold: LowConnectionCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.minConnectionCount">minConnectionCount</a></code> | <code>number</code> | *No description.* |
 
@@ -28427,6 +28785,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -28485,6 +28859,7 @@ const lowMessagesPublishedThreshold: LowMessagesPublishedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.minMessagesPublishedCount">minMessagesPublishedCount</a></code> | <code>number</code> | *No description.* |
 
@@ -28786,6 +29161,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -28844,6 +29235,7 @@ const lowTpsThreshold: LowTpsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.minTps">minTps</a></code> | <code>number</code> | *No description.* |
 
@@ -29145,6 +29537,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.LowTpsThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.LowTpsThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -29203,6 +29611,7 @@ const maxAgeThreshold: MaxAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.maxAgeInMillis">maxAgeInMillis</a></code> | <code>number</code> | *No description.* |
 
@@ -29504,6 +29913,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxAgeThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxAgeThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -29562,6 +29987,7 @@ const maxDowntimeThreshold: MaxDowntimeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.maxDowntimeInMillis">maxDowntimeInMillis</a></code> | <code>number</code> | *No description.* |
 
@@ -29863,6 +30289,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -29921,6 +30363,7 @@ const maxIncomingMessagesCountThreshold: MaxIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.maxIncomingMessagesCount">maxIncomingMessagesCount</a></code> | <code>number</code> | *No description.* |
 
@@ -30222,6 +30665,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -30280,6 +30739,7 @@ const maxItemsCountThreshold: MaxItemsCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.maxItemsCount">maxItemsCount</a></code> | <code>number</code> | *No description.* |
 
@@ -30581,6 +31041,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -30639,6 +31115,7 @@ const maxIteratorAgeThreshold: MaxIteratorAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.maxAgeInMillis">maxAgeInMillis</a></code> | <code>number</code> | *No description.* |
 
@@ -30940,6 +31417,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -30998,6 +31491,7 @@ const maxMessageAgeThreshold: MaxMessageAgeThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.maxAgeInSeconds">maxAgeInSeconds</a></code> | <code>number</code> | *No description.* |
 
@@ -31299,6 +31793,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -31357,6 +31867,7 @@ const maxMessageCountThreshold: MaxMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.maxMessageCount">maxMessageCount</a></code> | <code>number</code> | *No description.* |
 
@@ -31658,6 +32169,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -31716,6 +32243,7 @@ const maxOffsetLagThreshold: MaxOffsetLagThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.maxOffsetLag">maxOffsetLag</a></code> | <code>number</code> | *No description.* |
 
@@ -32017,6 +32545,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -32075,6 +32619,7 @@ const maxSecretCountThreshold: MaxSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.maxSecretCount">maxSecretCount</a></code> | <code>number</code> | *No description.* |
 
@@ -32376,6 +32921,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -32434,6 +32995,7 @@ const maxTimeToDrainThreshold: MaxTimeToDrainThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.maxTimeToDrain">maxTimeToDrain</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
 
@@ -32735,6 +33297,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -32793,6 +33371,7 @@ const maxUsageCountThreshold: MaxUsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.maxCount">maxCount</a></code> | <code>number</code> | *No description.* |
 
@@ -33094,6 +33673,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -33152,6 +33747,7 @@ const maxUsedSwapMemoryThreshold: MaxUsedSwapMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.maxUsedSwapMemoryInBytes">maxUsedSwapMemoryInBytes</a></code> | <code>number</code> | *No description.* |
 
@@ -33453,6 +34049,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -33623,6 +34235,7 @@ const minFreeableMemoryThreshold: MinFreeableMemoryThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.minFreeableMemoryInBytes">minFreeableMemoryInBytes</a></code> | <code>number</code> | *No description.* |
 
@@ -33924,6 +34537,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -33982,6 +34611,7 @@ const minIncomingMessagesCountThreshold: MinIncomingMessagesCountThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.minIncomingMessagesCount">minIncomingMessagesCount</a></code> | <code>number</code> | *No description.* |
 
@@ -34283,6 +34913,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -34341,6 +34987,7 @@ const minMessageCountThreshold: MinMessageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.minMessageCount">minMessageCount</a></code> | <code>number</code> | *No description.* |
 
@@ -34642,6 +35289,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -34700,6 +35363,7 @@ const minProcessedBytesThreshold: MinProcessedBytesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.minProcessedBytes">minProcessedBytes</a></code> | <code>number</code> | Threshold for the least number of bytes processed. |
 
@@ -35001,6 +35665,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -35061,6 +35741,7 @@ const minRunningTaskCountThreshold: MinRunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.minRunningTasks">minRunningTasks</a></code> | <code>number</code> | *No description.* |
 
@@ -35362,6 +36043,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -35420,6 +36117,7 @@ const minSecretCountThreshold: MinSecretCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.minSecretCount">minSecretCount</a></code> | <code>number</code> | *No description.* |
 
@@ -35721,6 +36419,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -35779,6 +36493,7 @@ const minUsageCountThreshold: MinUsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.minCount">minCount</a></code> | <code>number</code> | *No description.* |
 
@@ -36077,6 +36792,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -37350,6 +38081,7 @@ const notificationsFailedThreshold: NotificationsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.maxNotificationsFailedCount">maxNotificationsFailedCount</a></code> | <code>number</code> | *No description.* |
 
@@ -37651,6 +38383,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -37709,6 +38457,7 @@ const openSearchClusterAutomatedSnapshotFailureThreshold: OpenSearchClusterAutom
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.maxFailures">maxFailures</a></code> | <code>number</code> | *No description.* |
 
@@ -38010,6 +38759,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -38068,6 +38833,7 @@ const openSearchClusterIndexWritesBlockedThreshold: OpenSearchClusterIndexWrites
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.maxBlockedWrites">maxBlockedWrites</a></code> | <code>number</code> | *No description.* |
 
@@ -38366,6 +39132,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -39228,6 +40010,7 @@ const openSearchClusterNodesThreshold: OpenSearchClusterNodesThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.minNodes">minNodes</a></code> | <code>number</code> | *No description.* |
 
@@ -39529,6 +40312,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -39587,6 +40386,7 @@ const openSearchClusterStatusCustomization: OpenSearchClusterStatusCustomization
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.status">status</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatus">OpenSearchClusterStatus</a> \| <a href="#cdk-monitoring-constructs.ElasticsearchClusterStatus">ElasticsearchClusterStatus</a></code> | *No description.* |
 
@@ -39888,6 +40688,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -39946,6 +40762,7 @@ const openSearchKmsKeyErrorThreshold: OpenSearchKmsKeyErrorThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.maxErrors">maxErrors</a></code> | <code>number</code> | *No description.* |
 
@@ -40247,6 +41064,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -40305,6 +41138,7 @@ const openSearchKmsKeyInaccessibleThreshold: OpenSearchKmsKeyInaccessibleThresho
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.maxAccessAttempts">maxAccessAttempts</a></code> | <code>number</code> | *No description.* |
 
@@ -40603,6 +41437,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -42032,6 +42882,7 @@ const recordsFailedThreshold: RecordsFailedThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.maxRecordsFailedThreshold">maxRecordsFailedThreshold</a></code> | <code>number</code> | *No description.* |
 
@@ -42333,6 +43184,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -42391,6 +43258,7 @@ const recordsThrottledThreshold: RecordsThrottledThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.maxRecordsThrottledThreshold">maxRecordsThrottledThreshold</a></code> | <code>number</code> | *No description.* |
 
@@ -42689,6 +43557,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -43239,6 +44123,7 @@ const runningTaskCountThreshold: RunningTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.maxRunningTasks">maxRunningTasks</a></code> | <code>number</code> | *No description.* |
 
@@ -43540,6 +44425,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -43598,6 +44499,7 @@ const runningTaskRateThreshold: RunningTaskRateThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.maxRunningTaskRate">maxRunningTaskRate</a></code> | <code>number</code> | *No description.* |
 
@@ -43896,6 +44798,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
@@ -49168,6 +50086,7 @@ const throttledEventsThreshold: ThrottledEventsThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.maxThrottledEventsThreshold">maxThrottledEventsThreshold</a></code> | <code>number</code> | *No description.* |
 
@@ -49469,6 +50388,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -49527,6 +50462,7 @@ const unhealthyTaskCountThreshold: UnhealthyTaskCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.maxUnhealthyTasks">maxUnhealthyTasks</a></code> | <code>number</code> | *No description.* |
 
@@ -49828,6 +50764,22 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.treatMissingDataOverride"></a>
 
 ```typescript
@@ -49886,6 +50838,7 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.maxUsageCount">maxUsageCount</a></code> | <code>number</code> | *No description.* |
 
@@ -50227,6 +51180,24 @@ An optional link included in the generated ticket description body.
 
 ---
 
+##### ~~`sampleCountMetricId`~~<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.UsageCountThreshold.property.sampleCountMetricId"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
 ##### ~~`treatMissingDataOverride`~~<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.UsageCountThreshold.property.treatMissingDataOverride"></a>
 
 - *Deprecated:* Use MaxUsageCountThreshold instead.
@@ -50289,6 +51260,7 @@ const usageThreshold: UsageThreshold = { ... }
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.maxUsagePercent">maxUsagePercent</a></code> | <code>number</code> | *No description.* |
 
@@ -50587,6 +51559,22 @@ public readonly runbookLink: string;
 - *Default:* no additional link will be added
 
 An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.UsageThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
 
 ---
 
