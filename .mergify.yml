@@ -11,17 +11,17 @@ queue_rules:
       - status-success=package-java
       - status-success=package-python
       - status-success=package-dotnet
+    merge_method: squash
+    commit_message_template: |-
+      {{ title }} (#{{ number }})
+
+      {{ body }}
 pull_request_rules:
   - name: Automatic merge on approval and successful build
     actions:
       delete_head_branch: {}
       queue:
-        method: squash
         name: default
-        commit_message_template: |-
-          {{ title }} (#{{ number }})
-
-          {{ body }}
     conditions:
       - "#approved-reviews-by>=1"
       - -label~=(do-not-merge)
