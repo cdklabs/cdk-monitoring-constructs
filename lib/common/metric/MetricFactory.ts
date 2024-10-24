@@ -146,7 +146,7 @@ export class MetricFactory {
     period?: Duration,
     region?: string,
     account?: string,
-  ): IMetric {
+  ): MathExpression {
     const finalPeriod =
       period ?? this.globalDefaults.period ?? DefaultMetricPeriod;
     const searchNamespace = this.getNamespaceWithFallback(namespace);
