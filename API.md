@@ -59594,7 +59594,7 @@ public metricReadCapacityUtilizationPercentage(): Metric | MathExpression
 ##### `metricSearchAverageSuccessfulRequestLatencyInMillis` <a name="metricSearchAverageSuccessfulRequestLatencyInMillis" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricSearchAverageSuccessfulRequestLatencyInMillis"></a>
 
 ```typescript
-public metricSearchAverageSuccessfulRequestLatencyInMillis(): IMetric
+public metricSearchAverageSuccessfulRequestLatencyInMillis(): MathExpression
 ```
 
 ##### `metricSystemErrorsCount` <a name="metricSystemErrorsCount" id="cdk-monitoring-constructs.DynamoTableMetricFactory.metricSystemErrorsCount"></a>
@@ -67800,7 +67800,7 @@ if undefined, uses the global default
 ##### `createMetricSearch` <a name="createMetricSearch" id="cdk-monitoring-constructs.MetricFactory.createMetricSearch"></a>
 
 ```typescript
-public createMetricSearch(query: string, dimensionsMap: {[ key: string ]: string}, statistic: MetricStatistic, namespace?: string, label?: string, period?: Duration, region?: string, account?: string): IMetric
+public createMetricSearch(query: string, dimensionsMap: {[ key: string ]: string}, statistic: MetricStatistic, namespace?: string, label?: string, period?: Duration, region?: string, account?: string): MathExpression
 ```
 
 Factory method that creates a metric search query.

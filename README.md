@@ -202,7 +202,7 @@ Multiple metrics cannot be rendered with anomaly detection in a single widget du
 ```ts
 monitorCustom({
   title: "Metric with anomaly detection",
-  metrics: [
+  metricGroups: [
     {
       metric: m1,
       anomalyDetectionStandardDeviationToRender: 3
@@ -216,7 +216,7 @@ Adding an alarm:
 ```ts
 monitorCustom({
   title: "Metric with anomaly detection and alarm",
-  metrics: [
+  metricGroups: [
     {
       metric: m1,
       alarmFriendlyName: "MetricWithAnomalyDetectionAlarm",
@@ -238,7 +238,7 @@ monitorCustom({
 ```ts
 monitorCustom({
   title: "Metric search",
-  metrics: [
+  metricGroups: [
     {
       searchQuery: "My.Prefix.",
       dimensionsMap: {
