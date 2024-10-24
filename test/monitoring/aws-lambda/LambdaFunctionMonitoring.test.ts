@@ -209,7 +209,7 @@ test("snapshot test: all alarms", () => {
     lambdaInsightsEnabled: true,
   });
 
-  const lambdaFunctionAlias = lambdaFunction.currentVersion.addAlias("live", {
+  const lambdaFunctionAlias = lambdaFunction.addAlias("live", {
     provisionedConcurrentExecutions: 1,
   });
 

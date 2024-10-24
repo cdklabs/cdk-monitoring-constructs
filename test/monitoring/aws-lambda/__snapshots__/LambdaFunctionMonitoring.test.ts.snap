@@ -1007,15 +1007,7 @@ Object {
       },
       "Type": "AWS::Lambda::Function",
     },
-    "FunctionCurrentVersion4E2B22612881a8e13ea008f06ac95a40e1387c5c": Object {
-      "Properties": Object {
-        "FunctionName": Object {
-          "Ref": "Function76856677",
-        },
-      },
-      "Type": "AWS::Lambda::Version",
-    },
-    "FunctionCurrentVersionAliaslive2D187DC4": Object {
+    "FunctionAliasliveD531BB47": Object {
       "Properties": Object {
         "FunctionName": Object {
           "Ref": "Function76856677",
@@ -1032,6 +1024,14 @@ Object {
         },
       },
       "Type": "AWS::Lambda::Alias",
+    },
+    "FunctionCurrentVersion4E2B22612881a8e13ea008f06ac95a40e1387c5c": Object {
+      "Properties": Object {
+        "FunctionName": Object {
+          "Ref": "Function76856677",
+        },
+      },
+      "Type": "AWS::Lambda::Version",
     },
     "FunctionServiceRole675BB04A": Object {
       "Properties": Object {

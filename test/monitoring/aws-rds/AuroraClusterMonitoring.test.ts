@@ -40,7 +40,7 @@ test("RDS passed into Aurora Cluster", () => {
     });
     const rdsCluster = new DatabaseCluster(scope, "DummyRdsCluster", {
       engine: DatabaseClusterEngine.auroraMysql({
-        version: AuroraMysqlEngineVersion.VER_2_07_5,
+        version: AuroraMysqlEngineVersion.VER_2_07_10,
       }),
       instanceProps: {
         instanceType: new InstanceType("t3.small"),
