@@ -166,7 +166,7 @@ export class LatencyAlarmFactory {
         ComparisonOperator.GREATER_THAN_THRESHOLD,
       ...props,
       disambiguator,
-      threshold: props.maxLatency.toMilliseconds(),
+      threshold: props.maxLatency.toMilliseconds({ integral: false }),
       alarmNameSuffix,
       // we will dedupe any kind of latency issue to the same ticket
       alarmDedupeStringSuffix: this.alarmFactory
@@ -200,7 +200,7 @@ export class LatencyAlarmFactory {
         ComparisonOperator.GREATER_THAN_THRESHOLD,
       ...props,
       disambiguator,
-      threshold: props.maxLatency.toMilliseconds(),
+      threshold: props.maxLatency.toMilliseconds({ integral: false }),
       alarmNameSuffix,
       // we will dedupe any kind of latency issue to the same alarm
       alarmDedupeStringSuffix: this.alarmFactory
@@ -230,7 +230,7 @@ export class LatencyAlarmFactory {
         ComparisonOperator.GREATER_THAN_THRESHOLD,
       ...props,
       disambiguator,
-      threshold: props.maxDuration.toMilliseconds(),
+      threshold: props.maxDuration.toMilliseconds({ integral: false }),
       alarmNameSuffix,
       // we will dedupe any kind of latency issue to the same ticket
       alarmDedupeStringSuffix: this.alarmFactory
@@ -264,7 +264,7 @@ export class LatencyAlarmFactory {
         ComparisonOperator.GREATER_THAN_THRESHOLD,
       ...props,
       disambiguator,
-      threshold: props.maxDuration.toMilliseconds(),
+      threshold: props.maxDuration.toMilliseconds({ integral: false }),
       alarmNameSuffix,
       // we will dedupe any kind of latency issue to the same ticket
       alarmDedupeStringSuffix: this.alarmFactory
