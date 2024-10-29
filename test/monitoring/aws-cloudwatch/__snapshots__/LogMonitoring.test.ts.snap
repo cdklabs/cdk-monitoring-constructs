@@ -30,7 +30,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -47,7 +47,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -115,7 +115,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -132,7 +132,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -196,7 +196,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -213,7 +213,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -310,7 +310,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Logs > 9001 for 3 datapoints within 15 minutes\\",\\"value\\":9001,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Logs > 9001 for 3 datapoints within 15 minutes\\",\\"value\\":9001,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -341,7 +341,7 @@ Object {
                 "Namespace": "AWS/Logs",
               },
               "Period": 300,
-              "Stat": "SampleCount",
+              "Stat": "Sum",
             },
             "ReturnData": true,
           },
@@ -375,7 +375,7 @@ Object {
                 "Namespace": "AWS/Logs",
               },
               "Period": 300,
-              "Stat": "SampleCount",
+              "Stat": "Sum",
             },
             "ReturnData": true,
           },
@@ -395,7 +395,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Logs > 9001 for 3 datapoints within 15 minutes\\",\\"value\\":9001,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/Logs\\",\\"IncomingLogEvents\\",\\"LogGroupName\\",\\"DummyLogGroup\\",{\\"label\\":\\"Logs\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Logs < 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Logs > 9001 for 3 datapoints within 15 minutes\\",\\"value\\":9001,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
