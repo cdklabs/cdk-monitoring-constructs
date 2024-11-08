@@ -150,16 +150,19 @@ export class MetricFactory {
     const finalPeriod =
       period ?? this.globalDefaults.period ?? DefaultMetricPeriod;
     const searchNamespace = this.getNamespaceWithFallback(namespace);
+    const keysWithQuotations = Object.keys(dimensionsMap).map(
+      (key) => `"${key}"`,
+    );
     const namespacePlusDimensionKeys = [
-      searchNamespace,
-      ...Object.keys(dimensionsMap),
+      `"${searchNamespace}"`,
+      ...keysWithQuotations,
     ].join(",");
     const metricSchema = `{${namespacePlusDimensionKeys}}`;
 
     const dimensionKeysAndValues = Object.entries(
       this.removeUndefinedEntries(dimensionsMap),
     )
-      .map(([key, value]) => `${key}="${value}"`)
+      .map(([key, value]) => `"${key}"="${value}"`)
       .join(" ");
 
     const expression = `SEARCH('${metricSchema} ${dimensionKeysAndValues} ${query}', '${statistic}', ${finalPeriod.toSeconds()})`;
