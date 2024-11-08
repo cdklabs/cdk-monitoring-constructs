@@ -34,7 +34,7 @@ export class CloudWatchLogsMetricFactory extends BaseMetricFactory<CloudWatchLog
   metricIncomingLogEvents() {
     return this.metricFactory.createMetric(
       "IncomingLogEvents",
-      MetricStatistic.N,
+      MetricStatistic.SUM,
       "Logs",
       this.dimensionsMap,
       undefined,
