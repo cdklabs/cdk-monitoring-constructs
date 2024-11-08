@@ -226,7 +226,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/DynamoDB,TableName,Operation} TableName=\\\\\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/DynamoDB\\\\\\",\\\\\\"TableName\\\\\\",\\\\\\"Operation\\\\\\"} \\\\\\"TableName\\\\\\"=\\\\\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -1233,7 +1233,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/DynamoDB,TableName,Operation} TableName=\\\\\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/DynamoDB\\\\\\",\\\\\\"TableName\\\\\\",\\\\\\"Operation\\\\\\"} \\\\\\"TableName\\\\\\"=\\\\\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -1610,7 +1610,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/DynamoDB,TableName,Operation} TableName=\\\\\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/DynamoDB\\\\\\",\\\\\\"TableName\\\\\\",\\\\\\"Operation\\\\\\"} \\\\\\"TableName\\\\\\"=\\\\\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -2598,7 +2598,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/DynamoDB,TableName,Operation} TableName=\\\\\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/DynamoDB\\\\\\",\\\\\\"TableName\\\\\\",\\\\\\"Operation\\\\\\"} \\\\\\"TableName\\\\\\"=\\\\\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },

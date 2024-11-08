@@ -28,7 +28,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/DynamoDB,TableName,Operation} TableName=\\\\\\"MyTableName\\\\\\" MetricName=\\\\\\"SuccessfulRequestLatency\\\\\\"', 'Average', 300)\\",\\"accountId\\":\\"09876543210\\",\\"region\\":\\"us-east-1\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"GetItem > 10000 for 3 datapoints within 15 minutes\\",\\"value\\":10000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":6,\\"x\\":15,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/DynamoDB\\\\\\",\\\\\\"TableName\\\\\\",\\\\\\"Operation\\\\\\"} \\\\\\"TableName\\\\\\"=\\\\\\"MyTableName\\\\\\" MetricName=\\\\\\"SuccessfulRequestLatency\\\\\\"', 'Average', 300)\\",\\"accountId\\":\\"09876543210\\",\\"region\\":\\"us-east-1\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"GetItem > 10000 for 3 datapoints within 15 minutes\\",\\"value\\":10000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":6,\\"x\\":15,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -48,7 +48,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{AWS/DynamoDB,TableName,Operation} TableName=\\\\\\"my-other-table\\\\\\" MetricName=\\\\\\"SuccessfulRequestLatency\\\\\\"', 'Average', 300)\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":6,\\"x\\":15,\\"y\\":9,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/DynamoDB\\\\\\",\\\\\\"TableName\\\\\\",\\\\\\"Operation\\\\\\"} \\\\\\"TableName\\\\\\"=\\\\\\"my-other-table\\\\\\" MetricName=\\\\\\"SuccessfulRequestLatency\\\\\\"', 'Average', 300)\\",\\"accountId\\":\\"01234567890\\",\\"region\\":\\"us-west-2\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":6,\\"x\\":15,\\"y\\":9,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

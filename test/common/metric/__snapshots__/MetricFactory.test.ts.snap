@@ -314,7 +314,7 @@ MathExpression {
 exports[`snapshot test: createMetricSearch 1`] = `
 MathExpression {
   "color": undefined,
-  "expression": "SEARCH('{DummyNamespace,DummyDimension} DummyDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)",
+  "expression": "SEARCH('{\\"DummyNamespace\\",\\"DummyDimension\\"} \\"DummyDimension\\"=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)",
   "label": " ",
   "period": Duration {
     "amount": 5,
@@ -333,7 +333,7 @@ MathExpression {
 exports[`snapshot test: createMetricSearch 2`] = `
 MathExpression {
   "color": undefined,
-  "expression": "SEARCH('{DummyNamespaceOverride,DummyDimension} DummyDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)",
+  "expression": "SEARCH('{\\"DummyNamespaceOverride\\",\\"DummyDimension\\"} \\"DummyDimension\\"=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)",
   "label": " ",
   "period": Duration {
     "amount": 5,
@@ -352,7 +352,7 @@ MathExpression {
 exports[`snapshot test: createMetricSearch 3`] = `
 MathExpression {
   "color": undefined,
-  "expression": "SEARCH('{DummyNamespaceOverride,DummyUndefinedDimension,DummyDefinedDimension} DummyDefinedDimension=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)",
+  "expression": "SEARCH('{\\"DummyNamespaceOverride\\",\\"DummyUndefinedDimension\\",\\"DummyDefinedDimension\\"} \\"DummyDefinedDimension\\"=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)",
   "label": " ",
   "period": Duration {
     "amount": 5,
@@ -371,7 +371,7 @@ MathExpression {
 exports[`snapshot test: createMetricSearch 4`] = `
 MathExpression {
   "color": undefined,
-  "expression": "SEARCH('{DummyNamespaceOverride}  MyMetricPrefix-', 'Sum', 300)",
+  "expression": "SEARCH('{\\"DummyNamespaceOverride\\"}  MyMetricPrefix-', 'Sum', 300)",
   "label": " ",
   "period": Duration {
     "amount": 5,
@@ -470,7 +470,7 @@ Object {
   },
   "metricSearch": MathExpression {
     "color": undefined,
-    "expression": "SEARCH('{DummyNamespace}  DummyQuery', 'p90', 300)",
+    "expression": "SEARCH('{\\"DummyNamespace\\"}  DummyQuery', 'p90', 300)",
     "label": " ",
     "period": Duration {
       "amount": 5,
@@ -570,7 +570,7 @@ Object {
   },
   "metricSearch": MathExpression {
     "color": undefined,
-    "expression": "SEARCH('{CustomTestNamespace}  DummyQuery', 'p90', 900)",
+    "expression": "SEARCH('{\\"CustomTestNamespace\\"}  DummyQuery', 'p90', 900)",
     "label": " ",
     "period": Duration {
       "amount": 15,
@@ -670,7 +670,7 @@ Object {
   },
   "metricSearch": MathExpression {
     "color": undefined,
-    "expression": "SEARCH('{CustomTestNamespace}  DummyQuery', 'p90', 300)",
+    "expression": "SEARCH('{\\"CustomTestNamespace\\"}  DummyQuery', 'p90', 300)",
     "label": " ",
     "period": Duration {
       "amount": 5,
@@ -770,7 +770,7 @@ Object {
   },
   "metricSearch": MathExpression {
     "color": undefined,
-    "expression": "SEARCH('{DummyNamespace}  DummyQuery', 'p90', 900)",
+    "expression": "SEARCH('{\\"DummyNamespace\\"}  DummyQuery', 'p90', 900)",
     "label": " ",
     "period": Duration {
       "amount": 15,
@@ -870,7 +870,7 @@ Object {
   },
   "metricSearch": MathExpression {
     "color": undefined,
-    "expression": "SEARCH('{DummyNamespace}  DummyQuery', 'p90', 300)",
+    "expression": "SEARCH('{\\"DummyNamespace\\"}  DummyQuery', 'p90', 300)",
     "label": " ",
     "period": Duration {
       "amount": 5,
