@@ -21,7 +21,7 @@ test("string with comma is not alarm friendly", () => {
 
 test("this string is alarm friendly", () => {
   expect(
-    MonitoringNamingStrategy.isAlarmFriendly("This_is__Valid-Alarm-Name"),
+    MonitoringNamingStrategy.isAlarmFriendly("This_is__Valid-Alarm.Name"),
   ).toBeTruthy();
 });
 
