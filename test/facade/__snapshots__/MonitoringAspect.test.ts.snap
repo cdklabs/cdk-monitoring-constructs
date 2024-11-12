@@ -2591,6 +2591,7 @@ Object {
 
 exports[`MonitoringAspect DocumentDB 1`] = `
 Object {
+  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -3380,7 +3381,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
@@ -5008,6 +5017,7 @@ Object {
       "Type": "AWS::CloudWatch::Dashboard",
     },
     "DummyStreamBB06E5F7": Object {
+      "DeletionPolicy": "Retain",
       "Properties": Object {
         "RetentionPeriodHours": 24,
         "ShardCount": 1,
@@ -5025,6 +5035,7 @@ Object {
         },
       },
       "Type": "AWS::Kinesis::Stream",
+      "UpdateReplacePolicy": "Retain",
     },
   },
   "Rules": Object {
@@ -8840,115 +8851,6 @@ Object {
 
 exports[`MonitoringAspect StepFunctions 1`] = `
 Object {
-  "Mappings": Object {
-    "ServiceprincipalMap": Object {
-      "af-south-1": Object {
-        "states": "states.af-south-1.amazonaws.com",
-      },
-      "ap-east-1": Object {
-        "states": "states.ap-east-1.amazonaws.com",
-      },
-      "ap-northeast-1": Object {
-        "states": "states.ap-northeast-1.amazonaws.com",
-      },
-      "ap-northeast-2": Object {
-        "states": "states.ap-northeast-2.amazonaws.com",
-      },
-      "ap-northeast-3": Object {
-        "states": "states.ap-northeast-3.amazonaws.com",
-      },
-      "ap-south-1": Object {
-        "states": "states.ap-south-1.amazonaws.com",
-      },
-      "ap-south-2": Object {
-        "states": "states.ap-south-2.amazonaws.com",
-      },
-      "ap-southeast-1": Object {
-        "states": "states.ap-southeast-1.amazonaws.com",
-      },
-      "ap-southeast-2": Object {
-        "states": "states.ap-southeast-2.amazonaws.com",
-      },
-      "ap-southeast-3": Object {
-        "states": "states.ap-southeast-3.amazonaws.com",
-      },
-      "ap-southeast-4": Object {
-        "states": "states.ap-southeast-4.amazonaws.com",
-      },
-      "ca-central-1": Object {
-        "states": "states.ca-central-1.amazonaws.com",
-      },
-      "cn-north-1": Object {
-        "states": "states.cn-north-1.amazonaws.com",
-      },
-      "cn-northwest-1": Object {
-        "states": "states.cn-northwest-1.amazonaws.com",
-      },
-      "eu-central-1": Object {
-        "states": "states.eu-central-1.amazonaws.com",
-      },
-      "eu-central-2": Object {
-        "states": "states.eu-central-2.amazonaws.com",
-      },
-      "eu-north-1": Object {
-        "states": "states.eu-north-1.amazonaws.com",
-      },
-      "eu-south-1": Object {
-        "states": "states.eu-south-1.amazonaws.com",
-      },
-      "eu-south-2": Object {
-        "states": "states.eu-south-2.amazonaws.com",
-      },
-      "eu-west-1": Object {
-        "states": "states.eu-west-1.amazonaws.com",
-      },
-      "eu-west-2": Object {
-        "states": "states.eu-west-2.amazonaws.com",
-      },
-      "eu-west-3": Object {
-        "states": "states.eu-west-3.amazonaws.com",
-      },
-      "il-central-1": Object {
-        "states": "states.il-central-1.amazonaws.com",
-      },
-      "me-central-1": Object {
-        "states": "states.me-central-1.amazonaws.com",
-      },
-      "me-south-1": Object {
-        "states": "states.me-south-1.amazonaws.com",
-      },
-      "sa-east-1": Object {
-        "states": "states.sa-east-1.amazonaws.com",
-      },
-      "us-east-1": Object {
-        "states": "states.us-east-1.amazonaws.com",
-      },
-      "us-east-2": Object {
-        "states": "states.us-east-2.amazonaws.com",
-      },
-      "us-gov-east-1": Object {
-        "states": "states.us-gov-east-1.amazonaws.com",
-      },
-      "us-gov-west-1": Object {
-        "states": "states.us-gov-west-1.amazonaws.com",
-      },
-      "us-iso-east-1": Object {
-        "states": "states.amazonaws.com",
-      },
-      "us-iso-west-1": Object {
-        "states": "states.amazonaws.com",
-      },
-      "us-isob-east-1": Object {
-        "states": "states.amazonaws.com",
-      },
-      "us-west-1": Object {
-        "states": "states.us-west-1.amazonaws.com",
-      },
-      "us-west-2": Object {
-        "states": "states.us-west-2.amazonaws.com",
-      },
-    },
-  },
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -9137,15 +9039,7 @@ Object {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
               "Principal": Object {
-                "Service": Object {
-                  "Fn::FindInMap": Array [
-                    "ServiceprincipalMap",
-                    Object {
-                      "Ref": "AWS::Region",
-                    },
-                    "states",
-                  ],
-                },
+                "Service": "states.amazonaws.com",
               },
             },
           ],

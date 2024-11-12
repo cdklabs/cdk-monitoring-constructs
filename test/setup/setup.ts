@@ -7,3 +7,9 @@ expect.addSnapshotSerializer({
       "[HASH REMOVED].zip",
     )}"`,
 });
+
+expect.addSnapshotSerializer({
+  test: (val) =>
+    val && Object.prototype.hasOwnProperty.call(val, "LatestNodeRuntimeMap"),
+  print: (_val) => "[MAPPING REMOVED]",
+});

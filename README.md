@@ -26,10 +26,10 @@ In your `package.json`:
 ```json
 {
   "dependencies": {
-    "cdk-monitoring-constructs": "^7.0.0",
+    "cdk-monitoring-constructs": "^9.0.0",
 
     // peer dependencies of cdk-monitoring-constructs
-    "aws-cdk-lib": "^2.112.0",
+    "aws-cdk-lib": "^2.160.0",
     "constructs": "^10.0.5"
 
     // ...your other dependencies...
