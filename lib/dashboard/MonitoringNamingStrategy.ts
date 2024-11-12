@@ -62,7 +62,7 @@ export class MonitoringNamingStrategy {
   static isAlarmFriendly(str: string) {
     // we do not know the exact pattern yet, but this is a safe approximation
     // also, tokens are not allowed in alarm names
-    return str && !Token.isUnresolved(str) && /^[a-zA-Z0-9\-_]+$/.test(str);
+    return str && !Token.isUnresolved(str) && /^[a-zA-Z0-9\-_\.]+$/.test(str);
   }
 
   private getFallbackAlarmFriendlyName() {
