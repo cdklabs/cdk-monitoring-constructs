@@ -3,7 +3,6 @@ import {
   HorizontalAnnotation,
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
-import { ServerlessCluster } from "aws-cdk-lib/aws-rds";
 
 import {
   RdsClusterMetricFactory,
@@ -74,12 +73,6 @@ export class AuroraClusterMonitoring extends Monitoring {
 
   constructor(scope: MonitoringScope, props: AuroraClusterMonitoringProps) {
     super(scope, props);
-
-    if (!this.isServerlessCluster(props.cluster)) {
-      throw Error(
-        "Cluster is not of type `ServerlessCluster`. Monitoring is not applicable.",
-      );
-    }
 
     const metricFactory = new RdsClusterMetricFactory(
       scope.createMetricFactory(),
@@ -162,10 +155,6 @@ export class AuroraClusterMonitoring extends Monitoring {
     }
 
     props.useCreatedAlarms?.consume(this.createdAlarms());
-  }
-
-  private isServerlessCluster(obj: any): obj is ServerlessCluster {
-    return (obj as any).clusterArn !== undefined;
   }
 
   summaryWidgets(): IWidget[] {

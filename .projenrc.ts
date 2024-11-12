@@ -7,7 +7,7 @@ import {
 } from "projen";
 import { TrailingComma } from "projen/lib/javascript";
 
-const CDK_VERSION = "2.112.0";
+const CDK_VERSION = "2.160.0";
 
 const project = new awscdk.AwsCdkConstructLibrary({
   name: "cdk-monitoring-constructs",
@@ -18,7 +18,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ["cloudwatch", "monitoring"],
 
   defaultReleaseBranch: "main",
-  majorVersion: 8,
+  majorVersion: 9,
   stability: "experimental",
 
   cdkVersion: CDK_VERSION,

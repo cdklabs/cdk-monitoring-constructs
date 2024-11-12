@@ -102,7 +102,7 @@
     },
     {
       "name": "@aws-cdk/aws-redshift-alpha",
-      "version": "2.112.0-alpha.0",
+      "version": "2.160.0-alpha.0",
       "type": "devenv"
     },
     {
@@ -117,7 +117,7 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.112.0",
+      "version": "^2.160.0",
       "type": "peer"
     },
     {
