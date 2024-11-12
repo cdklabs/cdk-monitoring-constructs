@@ -40,7 +40,6 @@
     "@aws-cdk/aws-redshift-alpha": "2.112.0-alpha.0",
     "@types/jest": "^27",
     "@types/node": "^16 <= 16.18.78",
-    "@types/prettier": "2.6.0",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk-lib": "2.112.0",
