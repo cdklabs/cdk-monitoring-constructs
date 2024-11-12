@@ -202,12 +202,9 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   createMetricFactory(): MetricFactory {
-    return new MetricFactory(
-      {
-        globalDefaults: this.metricFactoryDefaults,
-      },
-      this,
-    );
+    return new MetricFactory(this, {
+      globalDefaults: this.metricFactoryDefaults,
+    });
   }
 
   createWidgetFactory(): IWidgetFactory {

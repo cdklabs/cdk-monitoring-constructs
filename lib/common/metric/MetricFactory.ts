@@ -45,8 +45,7 @@ export class MetricFactory {
   protected readonly globalDefaults: MetricFactoryDefaults;
   protected readonly scope: Construct | undefined;
 
-  // TODO: make scope required and first. This is for backwards compatability for now.
-  constructor(props?: MetricFactoryProps, scope?: Construct) {
+  constructor(scope: Construct, props?: MetricFactoryProps) {
     this.globalDefaults = props?.globalDefaults ?? {};
     this.scope = scope;
   }

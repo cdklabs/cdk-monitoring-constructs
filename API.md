@@ -67438,25 +67438,25 @@ public readonly title: string;
 ```typescript
 import { MetricFactory } from 'cdk-monitoring-constructs'
 
-new MetricFactory(props?: MetricFactoryProps, scope?: Construct)
+new MetricFactory(scope: Construct, props?: MetricFactoryProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactoryProps">MetricFactoryProps</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MetricFactory.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactoryProps">MetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.MetricFactory.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
 
 ---
 
 ##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.MetricFactory.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.MetricFactoryProps">MetricFactoryProps</a>
-
----
-
-##### `scope`<sup>Optional</sup> <a name="scope" id="cdk-monitoring-constructs.MetricFactory.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
 
 ---
 

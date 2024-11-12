@@ -11,7 +11,8 @@ import {
 const DummyColor = "#abcdef";
 
 test("createMetric without global namespace throws an error", () => {
-  const metricFactory = new MetricFactory();
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(stack);
 
   expect(() =>
     metricFactory.createMetric(
@@ -23,7 +24,8 @@ test("createMetric without global namespace throws an error", () => {
 
 describe("snapshot test: global defaults", () => {
   function testMetric(props: MetricFactoryDefaults) {
-    const metricFactory = new MetricFactory({
+    const stack = new Stack();
+    const metricFactory = new MetricFactory(stack, {
       globalDefaults: {
         namespace: "DummyNamespace",
         ...props,
@@ -96,7 +98,8 @@ describe("snapshot test: global defaults", () => {
 });
 
 test("snapshot test: createMetric", () => {
-  const metricFactory = new MetricFactory({
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(stack, {
     globalDefaults: {
       namespace: "DummyNamespace",
     },
@@ -139,7 +142,8 @@ test("snapshot test: createMetric", () => {
 });
 
 test("snapshot test: createMetricMath", () => {
-  const metricFactory = new MetricFactory({
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(stack, {
     globalDefaults: {
       namespace: "DummyNamespace",
     },
@@ -168,14 +172,11 @@ test("snapshot test: createMetricMath", () => {
 
 test("snapshot test: toRate with detail", () => {
   const stack = new Stack();
-  const metricFactory = new MetricFactory(
-    {
-      globalDefaults: {
-        namespace: "DummyNamespace",
-      },
+  const metricFactory = new MetricFactory(stack, {
+    globalDefaults: {
+      namespace: "DummyNamespace",
     },
-    stack,
-  );
+  });
 
   const metric = metricFactory.createMetric(
     "Metric",
@@ -233,7 +234,8 @@ test("snapshot test: toRate with detail", () => {
 });
 
 test("snapshot test: toRate without detail", () => {
-  const metricFactory = new MetricFactory({
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(stack, {
     globalDefaults: {
       namespace: "DummyNamespace",
     },
@@ -282,7 +284,8 @@ test("snapshot test: toRate without detail", () => {
 });
 
 test("snapshot test: createMetricSearch", () => {
-  const metricFactory = new MetricFactory({
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(stack, {
     globalDefaults: {
       namespace: "DummyNamespace",
     },
@@ -328,7 +331,8 @@ test("snapshot test: createMetricSearch", () => {
 });
 
 test("snapshot test: createMetricAnomalyDetection", () => {
-  const metricFactory = new MetricFactory({
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(stack, {
     globalDefaults: {
       namespace: "DummyNamespace",
     },
@@ -349,7 +353,8 @@ test("snapshot test: createMetricAnomalyDetection", () => {
 });
 
 test("multiply/divide metric produces expected result", () => {
-  const metricFactory = new MetricFactory({
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(stack, {
     globalDefaults: {
       namespace: "DummyNamespace",
     },
@@ -381,7 +386,8 @@ test("multiply/divide metric produces expected result", () => {
 });
 
 test("sanitizeMetricExpressionIdSuffix removes unwanted characters", () => {
-  const metricFactory = new MetricFactory({
+  const stack = new Stack();
+  const metricFactory = new MetricFactory(stack, {
     globalDefaults: {
       namespace: "DummyNamespace",
     },
