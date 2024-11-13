@@ -1,0 +1,422 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: Lambda alias 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "DummyAlarm234203A9": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "alarmLambdaAliasaliasName41B27313",
+          },
+        ],
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 1,
+        "MetricName": "Dummy",
+        "Namespace": "Dummy",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "alarmLambda131DB691": Object {
+      "DependsOn": Array [
+        "alarmLambdaServiceRoleCDAABB9D",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "{}",
+        },
+        "FunctionName": "DummyLambda",
+        "Handler": "Dummy::handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "alarmLambdaServiceRoleCDAABB9D",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "alarmLambdaAliasaliasName41B27313": Object {
+      "Properties": Object {
+        "FunctionName": Object {
+          "Ref": "alarmLambda131DB691",
+        },
+        "FunctionVersion": Object {
+          "Fn::GetAtt": Array [
+            "alarmLambdaCurrentVersionBDCE825C8cbdd693b2754df9b113fa5d7cbd1972",
+            "Version",
+          ],
+        },
+        "Name": "aliasName",
+      },
+      "Type": "AWS::Lambda::Alias",
+    },
+    "alarmLambdaAliasaliasNameAlarmPermission64A91652": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Ref": "alarmLambdaAliasaliasName41B27313",
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": Object {
+          "Ref": "AWS::AccountId",
+        },
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "DummyAlarm234203A9",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "alarmLambdaCurrentVersionBDCE825C8cbdd693b2754df9b113fa5d7cbd1972": Object {
+      "Properties": Object {
+        "FunctionName": Object {
+          "Ref": "alarmLambda131DB691",
+        },
+      },
+      "Type": "AWS::Lambda::Version",
+    },
+    "alarmLambdaServiceRoleCDAABB9D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: Lambda function 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "DummyAlarm234203A9": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "alarmLambda131DB691",
+              "Arn",
+            ],
+          },
+        ],
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 1,
+        "MetricName": "Dummy",
+        "Namespace": "Dummy",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "alarmLambda131DB691": Object {
+      "DependsOn": Array [
+        "alarmLambdaServiceRoleCDAABB9D",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "{}",
+        },
+        "FunctionName": "DummyLambda",
+        "Handler": "Dummy::handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "alarmLambdaServiceRoleCDAABB9D",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "alarmLambdaAlarmPermission43E41C89": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "alarmLambda131DB691",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": Object {
+          "Ref": "AWS::AccountId",
+        },
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "DummyAlarm234203A9",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "alarmLambdaServiceRoleCDAABB9D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: Lambda version 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "DummyAlarm234203A9": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "alarmLambdaCurrentVersionBDCE825C8cbdd693b2754df9b113fa5d7cbd1972",
+          },
+        ],
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 1,
+        "MetricName": "Dummy",
+        "Namespace": "Dummy",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "alarmLambda131DB691": Object {
+      "DependsOn": Array [
+        "alarmLambdaServiceRoleCDAABB9D",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "{}",
+        },
+        "FunctionName": "DummyLambda",
+        "Handler": "Dummy::handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "alarmLambdaServiceRoleCDAABB9D",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "alarmLambdaCurrentVersionAlarmPermissionFEBD056F": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Ref": "alarmLambdaCurrentVersionBDCE825C8cbdd693b2754df9b113fa5d7cbd1972",
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": Object {
+          "Ref": "AWS::AccountId",
+        },
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "DummyAlarm234203A9",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "alarmLambdaCurrentVersionBDCE825C8cbdd693b2754df9b113fa5d7cbd1972": Object {
+      "Properties": Object {
+        "FunctionName": Object {
+          "Ref": "alarmLambda131DB691",
+        },
+      },
+      "Type": "AWS::Lambda::Version",
+    },
+    "alarmLambdaServiceRoleCDAABB9D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
