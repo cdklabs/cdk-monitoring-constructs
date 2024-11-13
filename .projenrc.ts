@@ -74,6 +74,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
 _By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license_`,
   ],
 
+  jestOptions: {
+    jestConfig: {
+      setupFilesAfterEnv: ["./test/setup/setup.ts"],
+    },
+  },
+
   // Code linting config
   prettier: true,
   prettierOptions: {

@@ -3371,7 +3371,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "4e26bf2d0a26f2097fb2b261f22bb51e3f6b4b52635777b1e54edbd8e2d58c35.zip",
+          "S3Key": "[HASH REMOVED].zip",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -3450,7 +3450,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "d06eb8bb6deb3dba48c714538958f2ea17e2418a079ef471cb5b7b9de6a29d18.zip",
+          "S3Key": "[HASH REMOVED].zip",
         },
         "Description": "Custom metrics publisher for SecretsManager Secrets (cdk-monitoring-constructs)",
         "Handler": "index.handler",

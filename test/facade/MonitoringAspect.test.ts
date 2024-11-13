@@ -37,7 +37,6 @@ import {
   MonitoringFacade,
   MonitoringAspectProps,
 } from "../../lib";
-import { forceStableAssetKeys } from "../utils/StableTestKeys";
 
 function createDummyMonitoringFacade(stack: Stack): MonitoringFacade {
   return new MonitoringFacade(stack, "MonitoringFacade", {
@@ -450,8 +449,6 @@ describe("MonitoringAspect", () => {
     // WHEN
     facade.monitorScope(stack, defaultAspectProps);
 
-    forceStableAssetKeys(stack);
-
     // THEN
     expect(Template.fromStack(stack)).toMatchSnapshot();
   });
@@ -501,8 +498,6 @@ describe("MonitoringAspect", () => {
 
     // WHEN
     facade.monitorScope(stack, defaultAspectProps);
-
-    forceStableAssetKeys(stack);
 
     // THEN
     expect(Template.fromStack(stack)).toMatchSnapshot();
