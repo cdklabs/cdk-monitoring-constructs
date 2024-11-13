@@ -143,7 +143,7 @@ project.release?.addJobs({
       },
       {
         name: "Send notification",
-        uses: "slackapi/slack-github-action@v1.24.0",
+        uses: "slackapi/slack-github-action@v1.27.0",
         with: {
           payload: `{"html_url": "\${{ steps.get_release.outputs.html_url }}", "tag_name": "\${{ steps.get_release.outputs.tag_name }}"}`,
         },
