@@ -3,14 +3,11 @@ import { Template } from "aws-cdk-lib/assertions";
 import { GraphWidget } from "aws-cdk-lib/aws-cloudwatch";
 
 import { BitmapWidgetRenderingSupport } from "../../../lib";
-import { forceStableAssetKeys } from "../../utils/StableTestKeys";
 
 test("support", () => {
   const stack = new Stack();
 
   new BitmapWidgetRenderingSupport(stack, "Support");
-
-  forceStableAssetKeys(stack);
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });

@@ -85,6 +85,9 @@
   "version": "0.0.0",
   "jest": {
     "coverageProvider": "v8",
+    "setupFilesAfterEnv": [
+      "./test/setup/setup.ts"
+    ],
     "testMatch": [
       "<rootDir>/@(lib|test)/**/*(*.)@(spec|test).ts?(x)",
       "<rootDir>/@(lib|test)/**/__tests__/**/*.ts?(x)",

@@ -8,7 +8,6 @@ import {
   SecretsManagerMetricsPublisher,
   SecretsManagerSecretMonitoring,
 } from "../../../lib";
-import { forceStableAssetKeys } from "../../utils/StableTestKeys";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
 beforeEach(() => {
@@ -104,8 +103,6 @@ test("snapshot test", () => {
   expect(lambdaFunction1!).toBe(lambdaFunction2!);
   expect(lambdaFunction2!).toBe(lambdaFunction3!);
 
-  forceStableAssetKeys(stack);
-
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -123,8 +120,6 @@ test("each stack in an app gets its own publisher instance", () => {
         secret: new Secret(stack, "Secret2"),
       });
     }
-
-    forceStableAssetKeys(stack);
 
     expect(Template.fromStack(stack)).toMatchSnapshot();
   }
