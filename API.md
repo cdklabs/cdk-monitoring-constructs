@@ -65597,6 +65597,55 @@ public readonly streamUrl: string;
 ---
 
 
+### LambdaAlarmActionStrategy <a name="LambdaAlarmActionStrategy" id="cdk-monitoring-constructs.LambdaAlarmActionStrategy"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+
+Alarm action strategy that triggers a Lambda function.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.LambdaAlarmActionStrategy.Initializer"></a>
+
+```typescript
+import { LambdaAlarmActionStrategy } from 'cdk-monitoring-constructs'
+
+new LambdaAlarmActionStrategy(lambdaFunction: IAlias | IFunction | IVersion)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaAlarmActionStrategy.Initializer.parameter.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IAlias \| aws-cdk-lib.aws_lambda.IFunction \| aws-cdk-lib.aws_lambda.IVersion</code> | *No description.* |
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="cdk-monitoring-constructs.LambdaAlarmActionStrategy.Initializer.parameter.lambdaFunction"></a>
+
+- *Type:* aws-cdk-lib.aws_lambda.IAlias | aws-cdk-lib.aws_lambda.IFunction | aws-cdk-lib.aws_lambda.IVersion
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaAlarmActionStrategy.addAlarmActions">addAlarmActions</a></code> | *No description.* |
+
+---
+
+##### `addAlarmActions` <a name="addAlarmActions" id="cdk-monitoring-constructs.LambdaAlarmActionStrategy.addAlarmActions"></a>
+
+```typescript
+public addAlarmActions(props: AlarmActionStrategyProps): void
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.LambdaAlarmActionStrategy.addAlarmActions.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmActionStrategyProps">AlarmActionStrategyProps</a>
+
+---
+
+
+
+
 ### LambdaFunctionEnhancedMetricFactory <a name="LambdaFunctionEnhancedMetricFactory" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.Initializer"></a>
@@ -77818,7 +77867,7 @@ public readonly humanReadableName: string;
 
 ### IAlarmActionStrategy <a name="IAlarmActionStrategy" id="cdk-monitoring-constructs.IAlarmActionStrategy"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy">MultipleAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.NoopAlarmActionStrategy">NoopAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.OpsItemAlarmActionStrategy">OpsItemAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.SnsAlarmActionStrategy">SnsAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.LambdaAlarmActionStrategy">LambdaAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.MultipleAlarmActionStrategy">MultipleAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.NoopAlarmActionStrategy">NoopAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.OpsItemAlarmActionStrategy">OpsItemAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.SnsAlarmActionStrategy">SnsAlarmActionStrategy</a>, <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
 
 An object that appends actions to alarms.
 
