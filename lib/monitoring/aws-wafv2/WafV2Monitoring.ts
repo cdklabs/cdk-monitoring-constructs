@@ -28,14 +28,14 @@ import {
   MonitoringNamingStrategy,
 } from "../../dashboard";
 
-export interface WafV2MonitoringOptions extends BaseMonitoringProps {}
-
-export interface WafV2MonitoringProps
-  extends WafV2MetricFactoryProps,
-    WafV2MonitoringOptions {
+export interface WafV2MonitoringOptions extends BaseMonitoringProps {
   readonly addBlockedRequestsCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addBlockedRequestsRateAlarm?: Record<string, ErrorRateThreshold>;
 }
+
+export interface WafV2MonitoringProps
+  extends WafV2MetricFactoryProps,
+    WafV2MonitoringOptions {}
 
 /**
  * Monitoring for AWS Web Application Firewall.

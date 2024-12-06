@@ -196,7 +196,18 @@ describe("MonitoringAspect", () => {
     });
 
     // WHEN
-    facade.monitorScope(stack, defaultAspectProps);
+    facade.monitorScope(stack, {
+      ...defaultAspectProps,
+      cloudFront: {
+        props: {
+          addError4xxRate: {
+            Warning: {
+              maxErrorRate: 0.1,
+            },
+          },
+        },
+      },
+    });
 
     // THEN
     expect(Template.fromStack(stack)).toMatchSnapshot();
@@ -402,7 +413,7 @@ describe("MonitoringAspect", () => {
     new lambda.Function(stack, "DummyFunction", {
       code: lambda.Code.fromInline("lambda"),
       handler: "index.handler",
-      runtime: lambda.Runtime.NODEJS_18_X,
+      runtime: lambda.Runtime.NODEJS_LATEST,
     });
 
     // WHEN
@@ -419,7 +430,7 @@ describe("MonitoringAspect", () => {
 
     new opensearch.Domain(stack, "DummyOSDomain", {
       domainName: "dummy-os-domain",
-      version: opensearch.EngineVersion.ELASTICSEARCH_7_10,
+      version: opensearch.EngineVersion.OPENSEARCH_2_15,
     });
     new elasticsearch.Domain(stack, "DummyESDomain", {
       version: elasticsearch.ElasticsearchVersion.V7_10,
@@ -558,11 +569,22 @@ describe("MonitoringAspect", () => {
         code: synthetics.Code.fromInline("/* nothing */"),
         handler: "index.handler",
       }),
-      runtime: synthetics.Runtime.SYNTHETICS_NODEJS_PUPPETEER_5_1,
+      runtime: synthetics.Runtime.SYNTHETICS_NODEJS_PUPPETEER_9_0,
     });
 
     // WHEN
-    facade.monitorScope(stack, defaultAspectProps);
+    facade.monitorScope(stack, {
+      ...defaultAspectProps,
+      syntheticsCanaries: {
+        props: {
+          add4xxErrorCountAlarm: {
+            Warning: {
+              maxErrorCount: 0,
+            },
+          },
+        },
+      },
+    });
 
     // THEN
     expect(Template.fromStack(stack)).toMatchSnapshot();
@@ -584,7 +606,18 @@ describe("MonitoringAspect", () => {
     });
 
     // WHEN
-    facade.monitorScope(stack, defaultAspectProps);
+    facade.monitorScope(stack, {
+      ...defaultAspectProps,
+      webApplicationFirewallAclV2: {
+        props: {
+          addBlockedRequestsCountAlarm: {
+            Warning: {
+              maxErrorCount: 0,
+            },
+          },
+        },
+      },
+    });
 
     // THEN
     expect(Template.fromStack(stack)).toMatchSnapshot();
