@@ -1631,7 +1631,7 @@ Object {
           ],
         },
         "Name": "canary",
-        "RuntimeVersion": "syn-nodejs-puppeteer-5.1",
+        "RuntimeVersion": "syn-nodejs-puppeteer-9.0",
         "Schedule": Object {
           "DurationInSeconds": "0",
           "Expression": "rate(5 minutes)",
@@ -1803,7 +1803,25 @@ Object {
     },
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Canary Error-Count Warning\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "MonitoringFacadeDummyMonitoringCanaryErrorCountWarningD27BFCF7",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -1834,7 +1852,7 @@ Object {
               Object {
                 "Ref": "Canary11957FE2",
               },
-              "\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4xx > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1896,7 +1914,7 @@ Object {
               Object {
                 "Ref": "Canary11957FE2",
               },
-              "\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"5xx\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4xx > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1939,6 +1957,42 @@ Object {
         "DashboardName": "DummyDashboard-Summary",
       },
       "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "MonitoringFacadeDummyMonitoringCanaryErrorCountWarningD27BFCF7": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Error count is too high.",
+        "AlarmName": "DummyMonitoring-Canary-Error-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "4xx",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "CanaryName",
+                    "Value": Object {
+                      "Ref": "Canary11957FE2",
+                    },
+                  },
+                ],
+                "MetricName": "4xx",
+                "Namespace": "CloudWatchSynthetics",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
   },
   "Rules": Object {
@@ -2027,7 +2081,25 @@ Object {
     },
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Distribution Error-Rate Warning\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "MonitoringFacadeDummyMonitoringDistributionErrorRateWarning8714796D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -2106,7 +2178,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"5XX\\",\\"region\\":\\"us-east-1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"5XX\\",\\"region\\":\\"us-east-1\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4XX > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -2168,7 +2240,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"5XX\\",\\"region\\":\\"us-east-1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"5XX\\",\\"region\\":\\"us-east-1\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"4XX > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -2223,6 +2295,46 @@ Object {
         },
       },
       "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+    },
+    "MonitoringFacadeDummyMonitoringDistributionErrorRateWarning8714796D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Error rate is too high.",
+        "AlarmName": "DummyMonitoring-Distribution-Error-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "4XX",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DistributionId",
+                    "Value": Object {
+                      "Ref": "Distribution830FAC52",
+                    },
+                  },
+                  Object {
+                    "Name": "Region",
+                    "Value": "Global",
+                  },
+                ],
+                "MetricName": "4xxErrorRate",
+                "Namespace": "AWS/CloudFront",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
   },
   "Rules": Object {
@@ -6549,7 +6661,7 @@ Object {
         "EncryptionAtRestOptions": Object {
           "Enabled": false,
         },
-        "EngineVersion": "Elasticsearch_7.10",
+        "EngineVersion": "OpenSearch_2.15",
         "LogPublishingOptions": Object {},
         "NodeToNodeEncryptionOptions": Object {
           "Enabled": false,
@@ -9091,7 +9203,25 @@ Object {
   "Resources": Object {
     "DashboardFactoryAlarmDashboard6286FAD3": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DummyAcl Blocked-Count Warning\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "MonitoringFacadeDummyMonitoringDummyAclBlockedCountWarning271BD25D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
         "DashboardName": "DummyDashboard-Alarms",
       },
       "Type": "AWS::CloudWatch::Dashboard",
@@ -9118,7 +9248,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Blocked > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -9160,7 +9290,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Blocked > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -9193,6 +9323,46 @@ Object {
         },
       },
       "Type": "AWS::WAFv2::WebACL",
+    },
+    "MonitoringFacadeDummyMonitoringDummyAclBlockedCountWarning271BD25D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Blocked count is too high.",
+        "AlarmName": "DummyMonitoring-DummyAcl-Blocked-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Blocked",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Region",
+                    "Value": Object {
+                      "Ref": "AWS::Region",
+                    },
+                  },
+                  Object {
+                    "Name": "Rule",
+                    "Value": "ALL",
+                  },
+                ],
+                "MetricName": "BlockedRequests",
+                "Namespace": "AWS/WAFV2",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
   },
   "Rules": Object {

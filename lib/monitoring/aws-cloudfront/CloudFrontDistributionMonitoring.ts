@@ -35,17 +35,17 @@ import {
 } from "../../dashboard";
 
 export interface CloudFrontDistributionMonitoringOptions
-  extends BaseMonitoringProps {}
-
-export interface CloudFrontDistributionMonitoringProps
-  extends CloudFrontDistributionMetricFactoryProps,
-    CloudFrontDistributionMonitoringOptions {
+  extends BaseMonitoringProps {
   readonly addError4xxRate?: Record<string, ErrorRateThreshold>;
   readonly addFault5xxRate?: Record<string, ErrorRateThreshold>;
 
   readonly addLowTpsAlarm?: Record<string, LowTpsThreshold>;
   readonly addHighTpsAlarm?: Record<string, HighTpsThreshold>;
 }
+
+export interface CloudFrontDistributionMonitoringProps
+  extends CloudFrontDistributionMetricFactoryProps,
+    CloudFrontDistributionMonitoringOptions {}
 
 export class CloudFrontDistributionMonitoring extends Monitoring {
   readonly title: string;
