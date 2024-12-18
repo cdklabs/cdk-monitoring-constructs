@@ -229,6 +229,14 @@ export class MetricFactory {
    * @param metric metric to be adapted
    */
   adaptMetric(metric: MetricWithAlarmSupport): MetricWithAlarmSupport {
+    if (this.globalDefaults.region) {
+      metric = metric.with({ region: this.globalDefaults.region })
+    }
+
+    if (this.globalDefaults.account) {
+        metric = metric.with({ account: this.globalDefaults.account })
+    }
+
     return metric.with({
       period: this.globalDefaults.period ?? DefaultMetricPeriod,
     });
