@@ -22,6 +22,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   stability: "experimental",
 
   cdkVersion: CDK_VERSION,
+  // TODO: upgrade to 5.x
+  jsiiVersion: "1.x",
 
   srcdir: "lib",
   testdir: "test",
