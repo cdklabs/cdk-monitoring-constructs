@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test 1`] = `
+Array [
+  Object {
+    "height": 3,
+    "properties": Object {
+      "background": undefined,
+      "markdown": "| name| has
+|---|---
+| John Wick| a dog",
+    },
+    "type": "text",
+    "width": 24,
+    "x": undefined,
+    "y": undefined,
+  },
+]
+`;

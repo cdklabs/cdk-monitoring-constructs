@@ -1,27 +1,10 @@
-import { TextWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { KeyValueTableWidgetV2 } from "./KeyValueTableWidgetV2";
 
-import { FullWidth } from "../../common/widget";
-
-export class KeyValueTableWidget extends TextWidget {
+/**
+ * @deprecated Use {@link KeyValueTableWidgetV2} instead.
+ */
+export class KeyValueTableWidget extends KeyValueTableWidgetV2 {
   constructor(data: [string, string][]) {
-    super({
-      width: FullWidth,
-      height: 3,
-      markdown: KeyValueTableWidget.toMarkdown(data),
-    });
-  }
-
-  private static toMarkdown(data: [string, string][]) {
-    let headerRow = "";
-    let subHeaderRow = "";
-    let valueRow = "";
-
-    data.forEach(([key, value]) => {
-      headerRow += "| " + key;
-      subHeaderRow += "|---";
-      valueRow += "| " + value;
-    });
-
-    return `${headerRow}\n${subHeaderRow}\n${valueRow}`;
+    super(data.map(([key, value]) => ({ key, value })));
   }
 }
