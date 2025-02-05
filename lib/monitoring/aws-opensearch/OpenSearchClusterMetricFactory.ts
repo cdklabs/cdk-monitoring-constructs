@@ -50,10 +50,10 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
     });
   }
 
-  metricSearchRate() {
+  metricSearchRate(rateComputationMethod?: RateComputationMethod) {
     return this.metricFactory.toRate(
       this.metricSearchCount(),
-      this.rateComputationMethod,
+      rateComputationMethod ?? this.rateComputationMethod,
       false,
       "requests",
       this.fillTpsWithZeroes,
@@ -64,13 +64,7 @@ export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearch
    * @deprecated use metricSearchRate
    */
   metricTps() {
-    return this.metricFactory.toRate(
-      this.metricSearchCount(),
-      RateComputationMethod.PER_SECOND,
-      false,
-      "requests",
-      this.fillTpsWithZeroes,
-    );
+    return this.metricSearchRate(RateComputationMethod.PER_SECOND);
   }
 
   metricIndexingLatencyP50InMillis() {
