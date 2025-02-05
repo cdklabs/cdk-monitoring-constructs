@@ -31,6 +31,7 @@ import {
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
   RateAxisFromZero,
+  RateComputationMethod,
   ThirdWidth,
   TimeAxisMillisFromZero,
   UsageAlarmFactory,
@@ -164,7 +165,9 @@ export class OpenSearchClusterMonitoring extends Monitoring {
       scope.createMetricFactory(),
       props,
     );
-    this.tpsMetric = metricFactory.metricTps();
+    this.tpsMetric = metricFactory.metricSearchRate(
+      RateComputationMethod.PER_SECOND,
+    );
     this.p50IndexingLatencyMetric =
       metricFactory.metricIndexingLatencyP50InMillis();
     this.p90IndexingLatencyMetric =

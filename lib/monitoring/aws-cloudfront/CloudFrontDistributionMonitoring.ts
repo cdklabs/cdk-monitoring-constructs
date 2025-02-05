@@ -25,6 +25,7 @@ import {
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
   RateAxisFromZero,
+  RateComputationMethod,
   SizeAxisBytesFromZero,
   ThirdWidth,
   TpsAlarmFactory,
@@ -100,7 +101,9 @@ export class CloudFrontDistributionMonitoring extends Monitoring {
       scope.createMetricFactory(),
       props,
     );
-    this.tpsMetric = metricFactory.metricRequestTps();
+    this.tpsMetric = metricFactory.metricRequestRate(
+      RateComputationMethod.PER_SECOND,
+    );
     this.downloadedBytesMetric = metricFactory.metricTotalBytesDownloaded();
     this.uploadedBytesMetric = metricFactory.metricTotalBytesUploaded();
     this.error4xxRate = metricFactory.metric4xxErrorRateAverage();

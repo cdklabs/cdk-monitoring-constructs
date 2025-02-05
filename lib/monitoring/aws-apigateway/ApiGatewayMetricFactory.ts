@@ -67,19 +67,13 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
    * @deprecated use metricInvocationRate
    */
   metricTps() {
-    return this.metricFactory.toRate(
-      this.metricInvocationCount(),
-      RateComputationMethod.PER_SECOND,
-      false,
-      "requests",
-      this.fillTpsWithZeroes,
-    );
+    return this.metricInvocationRate(RateComputationMethod.PER_SECOND);
   }
 
-  metricInvocationRate() {
+  metricInvocationRate(rateComputationMethod?: RateComputationMethod) {
     return this.metricFactory.toRate(
       this.metricInvocationCount(),
-      this.rateComputationMethod,
+      rateComputationMethod ?? this.rateComputationMethod,
       false,
       "requests",
       this.fillTpsWithZeroes,

@@ -28,6 +28,7 @@ import {
   MonitoringScope,
   QuarterWidth,
   RateAxisFromZero,
+  RateComputationMethod,
   ThirdWidth,
   TimeAxisMillisFromZero,
   TpsAlarmFactory,
@@ -100,7 +101,9 @@ export class AppSyncMonitoring extends Monitoring {
     this.errorCountAnnotations = [];
     this.errorRateAnnotations = [];
 
-    this.tpsMetric = this.metricFactory.metricTps();
+    this.tpsMetric = this.metricFactory.metricRequestRate(
+      RateComputationMethod.PER_SECOND,
+    );
     this.p50LatencyMetric = this.metricFactory.metricLatencyP50InMillis();
     this.p90LatencyMetric = this.metricFactory.metricLatencyP90InMillis();
     this.p99LatencyMetric = this.metricFactory.metricLatencyP99InMillis();
