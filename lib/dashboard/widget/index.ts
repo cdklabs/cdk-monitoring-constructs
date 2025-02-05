@@ -3,6 +3,7 @@ export * from "./BitmapWidget";
 export * from "./CustomWidget";
 export * from "./HeaderWidget";
 export * from "./KeyValueTableWidget";
+export * from "./KeyValueTableWidgetV2";
 export * from "./MonitoringHeaderWidget";
 export * from "./StrictGraphWidget";
 export * from "./UnofficialWidgets";

@@ -25046,6 +25046,45 @@ public readonly maxTps: number;
 
 ---
 
+### KeyValue <a name="KeyValue" id="cdk-monitoring-constructs.KeyValue"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KeyValue.Initializer"></a>
+
+```typescript
+import { KeyValue } from 'cdk-monitoring-constructs'
+
+const keyValue: KeyValue = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KeyValue.property.key">key</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KeyValue.property.value">value</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="cdk-monitoring-constructs.KeyValue.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-monitoring-constructs.KeyValue.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+---
+
 ### KinesisDataAnalyticsMetricFactoryProps <a name="KinesisDataAnalyticsMetricFactoryProps" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps.Initializer"></a>
@@ -63403,7 +63442,7 @@ new KeyValueTableWidget(data: object[])
 
 ---
 
-##### `position` <a name="position" id="cdk-monitoring-constructs.KeyValueTableWidget.position"></a>
+##### ~~`position`~~ <a name="position" id="cdk-monitoring-constructs.KeyValueTableWidget.position"></a>
 
 ```typescript
 public position(x: number, y: number): void
@@ -63423,7 +63462,7 @@ Place the widget at a given position.
 
 ---
 
-##### `toJson` <a name="toJson" id="cdk-monitoring-constructs.KeyValueTableWidget.toJson"></a>
+##### ~~`toJson`~~ <a name="toJson" id="cdk-monitoring-constructs.KeyValueTableWidget.toJson"></a>
 
 ```typescript
 public toJson(): any[]
@@ -63443,7 +63482,9 @@ Return the widget JSON for use in the dashboard.
 
 ---
 
-##### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KeyValueTableWidget.property.height"></a>
+##### ~~`height`~~<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KeyValueTableWidget.property.height"></a>
+
+- *Deprecated:* Use {@link KeyValueTableWidgetV2} instead.
 
 ```typescript
 public readonly height: number;
@@ -63455,7 +63496,9 @@ The amount of vertical grid units the widget will take up.
 
 ---
 
-##### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KeyValueTableWidget.property.width"></a>
+##### ~~`width`~~<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KeyValueTableWidget.property.width"></a>
+
+- *Deprecated:* Use {@link KeyValueTableWidgetV2} instead.
 
 ```typescript
 public readonly width: number;
@@ -63467,7 +63510,9 @@ The amount of horizontal grid units the widget will take up.
 
 ---
 
-##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.KeyValueTableWidget.property.warnings"></a>
+##### ~~`warnings`~~<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.KeyValueTableWidget.property.warnings"></a>
+
+- *Deprecated:* Use {@link KeyValueTableWidgetV2} instead.
 
 ```typescript
 public readonly warnings: string[];
@@ -63479,7 +63524,129 @@ Any warnings that are produced as a result of putting together this widget.
 
 ---
 
-##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.KeyValueTableWidget.property.warningsV2"></a>
+##### ~~`warningsV2`~~<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.KeyValueTableWidget.property.warningsV2"></a>
+
+- *Deprecated:* Use {@link KeyValueTableWidgetV2} instead.
+
+```typescript
+public readonly warningsV2: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+
+### KeyValueTableWidgetV2 <a name="KeyValueTableWidgetV2" id="cdk-monitoring-constructs.KeyValueTableWidgetV2"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.Initializer"></a>
+
+```typescript
+import { KeyValueTableWidgetV2 } from 'cdk-monitoring-constructs'
+
+new KeyValueTableWidgetV2(data: KeyValue[])
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidgetV2.Initializer.parameter.data">data</a></code> | <code><a href="#cdk-monitoring-constructs.KeyValue">KeyValue</a>[]</code> | *No description.* |
+
+---
+
+##### `data`<sup>Required</sup> <a name="data" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.Initializer.parameter.data"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.KeyValue">KeyValue</a>[]
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidgetV2.position">position</a></code> | Place the widget at a given position. |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidgetV2.toJson">toJson</a></code> | Return the widget JSON for use in the dashboard. |
+
+---
+
+##### `position` <a name="position" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.position"></a>
+
+```typescript
+public position(x: number, y: number): void
+```
+
+Place the widget at a given position.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.position.parameter.x"></a>
+
+- *Type:* number
+
+---
+
+###### `y`<sup>Required</sup> <a name="y" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.position.parameter.y"></a>
+
+- *Type:* number
+
+---
+
+##### `toJson` <a name="toJson" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.toJson"></a>
+
+```typescript
+public toJson(): any[]
+```
+
+Return the widget JSON for use in the dashboard.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidgetV2.property.height">height</a></code> | <code>number</code> | The amount of vertical grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidgetV2.property.width">width</a></code> | <code>number</code> | The amount of horizontal grid units the widget will take up. |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidgetV2.property.warnings">warnings</a></code> | <code>string[]</code> | Any warnings that are produced as a result of putting together this widget. |
+| <code><a href="#cdk-monitoring-constructs.KeyValueTableWidgetV2.property.warningsV2">warningsV2</a></code> | <code>{[ key: string ]: string}</code> | Any warnings that are produced as a result of putting together this widget. |
+
+---
+
+##### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.property.height"></a>
+
+```typescript
+public readonly height: number;
+```
+
+- *Type:* number
+
+The amount of vertical grid units the widget will take up.
+
+---
+
+##### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.property.width"></a>
+
+```typescript
+public readonly width: number;
+```
+
+- *Type:* number
+
+The amount of horizontal grid units the widget will take up.
+
+---
+
+##### `warnings`<sup>Optional</sup> <a name="warnings" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.property.warnings"></a>
+
+```typescript
+public readonly warnings: string[];
+```
+
+- *Type:* string[]
+
+Any warnings that are produced as a result of putting together this widget.
+
+---
+
+##### `warningsV2`<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.KeyValueTableWidgetV2.property.warningsV2"></a>
 
 ```typescript
 public readonly warningsV2: {[ key: string ]: string};
