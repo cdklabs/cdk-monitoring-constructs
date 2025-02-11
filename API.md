@@ -27003,12 +27003,12 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addFaultCountAlarm">addFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addFaultRateAlarm">addFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxOffsetLagAlarm">addMaxOffsetLagAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold">MaxOffsetLagThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMinInvocationsCountAlarm">addMinInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
@@ -27251,30 +27251,30 @@ public readonly addHighTpsAlarm: {[ key: string ]: HighTpsThreshold};
 ##### `addLatencyP50Alarm`<sup>Optional</sup> <a name="addLatencyP50Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP50Alarm"></a>
 
 ```typescript
-public readonly addLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+public readonly addLatencyP50Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
 
 ---
 
 ##### `addLatencyP90Alarm`<sup>Optional</sup> <a name="addLatencyP90Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP90Alarm"></a>
 
 ```typescript
-public readonly addLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+public readonly addLatencyP90Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
 
 ---
 
 ##### `addLatencyP99Alarm`<sup>Optional</sup> <a name="addLatencyP99Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP99Alarm"></a>
 
 ```typescript
-public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
 
 ---
 
@@ -27301,10 +27301,10 @@ public readonly addMaxIteratorAgeAlarm: {[ key: string ]: MaxAgeThreshold};
 ##### `addMaxLatencyAlarm`<sup>Optional</sup> <a name="addMaxLatencyAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxLatencyAlarm"></a>
 
 ```typescript
-public readonly addMaxLatencyAlarm: {[ key: string ]: LatencyThreshold};
+public readonly addMaxLatencyAlarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
 
 ---
 
@@ -27431,12 +27431,12 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addFaultCountAlarm">addFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addFaultRateAlarm">addFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addHighTpsAlarm">addHighTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighTpsThreshold">HighTpsThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxOffsetLagAlarm">addMaxOffsetLagAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold">MaxOffsetLagThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMinInvocationsCountAlarm">addMinInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addProvisionedConcurrencySpilloverInvocationsCountAlarm">addProvisionedConcurrencySpilloverInvocationsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
@@ -27727,30 +27727,30 @@ public readonly addHighTpsAlarm: {[ key: string ]: HighTpsThreshold};
 ##### `addLatencyP50Alarm`<sup>Optional</sup> <a name="addLatencyP50Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP50Alarm"></a>
 
 ```typescript
-public readonly addLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+public readonly addLatencyP50Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
 
 ---
 
 ##### `addLatencyP90Alarm`<sup>Optional</sup> <a name="addLatencyP90Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP90Alarm"></a>
 
 ```typescript
-public readonly addLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+public readonly addLatencyP90Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
 
 ---
 
 ##### `addLatencyP99Alarm`<sup>Optional</sup> <a name="addLatencyP99Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP99Alarm"></a>
 
 ```typescript
-public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
 
 ---
 
@@ -27777,10 +27777,10 @@ public readonly addMaxIteratorAgeAlarm: {[ key: string ]: MaxAgeThreshold};
 ##### `addMaxLatencyAlarm`<sup>Optional</sup> <a name="addMaxLatencyAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxLatencyAlarm"></a>
 
 ```typescript
-public readonly addMaxLatencyAlarm: {[ key: string ]: LatencyThreshold};
+public readonly addMaxLatencyAlarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
 
 ---
 
@@ -28260,6 +28260,382 @@ public readonly maxLatency: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+---
+
+### LatencyTimeoutPercentageThreshold <a name="LatencyTimeoutPercentageThreshold" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.Initializer"></a>
+
+```typescript
+import { LatencyTimeoutPercentageThreshold } from 'cdk-monitoring-constructs'
+
+const latencyTimeoutPercentageThreshold: LatencyTimeoutPercentageThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.maxLatencyPercentage">maxLatencyPercentage</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxLatencyPercentage`<sup>Required</sup> <a name="maxLatencyPercentage" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.maxLatencyPercentage"></a>
+
+```typescript
+public readonly maxLatencyPercentage: number;
+```
+
+- *Type:* number
 
 ---
 
