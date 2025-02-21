@@ -40,6 +40,15 @@ export interface CustomAlarmThreshold {
   readonly alarmDescriptionOverride?: string;
 
   /**
+   * If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+   * This allows you to specify the same dedupe string for a family of alarms.
+   * Cannot be defined at the same time as dedupeStringOverride.
+   *
+   * @default - undefined (no suffix)
+   */
+  readonly alarmDedupeStringSuffix?: string;
+
+  /**
    * Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
    * If this property is specified, your metric will be subject to MathExpression that will add an IF condition
    * to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
