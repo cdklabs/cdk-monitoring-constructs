@@ -3765,6 +3765,7 @@ const alarmNamingInput: AlarmNamingInput = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AlarmNamingInput.property.alarmNameSuffix">alarmNameSuffix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmNamingInput.property.action">action</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmNamingInput.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmNamingInput.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmNamingInput.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | *No description.* |
@@ -3779,6 +3780,16 @@ public readonly alarmNameSuffix: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `action`<sup>Optional</sup> <a name="action" id="cdk-monitoring-constructs.AlarmNamingInput.property.action"></a>
+
+```typescript
+public readonly action: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
 
 ---
 

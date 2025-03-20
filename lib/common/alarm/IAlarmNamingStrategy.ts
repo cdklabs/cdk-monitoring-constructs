@@ -1,4 +1,8 @@
+import { IAlarmActionStrategy } from "./action";
+
 export interface AlarmNamingInput {
+  // TODO: make this required
+  readonly action?: IAlarmActionStrategy;
   readonly alarmNameSuffix: string;
   readonly alarmNameOverride?: string;
   readonly alarmDedupeStringSuffix?: string;
