@@ -349,7 +349,7 @@ export interface AddCompositeAlarmProps {
   /**
    * If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
    * This allows you to specify the same dedupe string for a family of alarms.
-   * Cannot be defined at the same time as alarmDedupeStringOverride.
+   * Cannot be defined at the same time as dedupeStringOverride.
    *
    * @default - undefined (no suffix)
    */

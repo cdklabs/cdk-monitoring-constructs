@@ -338,6 +338,11 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
         addUnhealthyTaskCountAlarm: {
           Warning: {
             maxUnhealthyTasks: 3,
+            alarmDedupeStringSuffix: "Unhealthy-Task-Count",
+          },
+          Critical: {
+            maxUnhealthyTasks: 5,
+            alarmDedupeStringSuffix: "Unhealthy-Task-Count",
           },
         },
         addCpuUsageAlarm: {
@@ -373,7 +378,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(8);
+      expect(numAlarmsCreated).toStrictEqual(9);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
 

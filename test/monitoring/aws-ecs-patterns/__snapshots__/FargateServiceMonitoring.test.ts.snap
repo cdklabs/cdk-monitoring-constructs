@@ -71,7 +71,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceHealthyTaskPercentWarningAC596FDA",
+                  "ScopeTestDummyFargateServiceUnhealthyTasksCriticalCBA22DF8",
                   "Arn",
                 ],
               },
@@ -82,7 +82,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
+                  "ScopeTestDummyFargateServiceHealthyTaskPercentWarningAC596FDA",
                   "Arn",
                 ],
               },
@@ -93,7 +93,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
+                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
                   "Arn",
                 ],
               },
@@ -104,7 +104,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
+                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
                   "Arn",
                 ],
               },
@@ -115,11 +115,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceDiskUsageWarningE3E05290",
+                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceDiskUsageWarningE3E05290",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -759,7 +770,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -1271,6 +1282,96 @@ Object {
               },
               "Period": 300,
               "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyFargateServiceUnhealthyTasksCriticalCBA22DF8": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of unhealthy tasks is too high.",
+        "AlarmName": "Test-DummyFargateService-Unhealthy-Tasks-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Unhealthy Tasks",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LoadBalancer",
+                    "Value": Object {
+                      "Fn::Join": Array [
+                        "",
+                        Array [
+                          Object {
+                            "Fn::Select": Array [
+                              1,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          "/",
+                          Object {
+                            "Fn::Select": Array [
+                              2,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          "/",
+                          Object {
+                            "Fn::Select": Array [
+                              3,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      ],
+                    },
+                  },
+                  Object {
+                    "Name": "TargetGroup",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "ServiceLBPublicListenerECSGroup0CC8688C",
+                        "TargetGroupFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "UnHealthyHostCount",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
             },
             "ReturnData": true,
           },
@@ -1907,7 +2008,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -2016,7 +2117,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceHealthyTaskPercentWarningAC596FDA",
+                  "ScopeTestDummyFargateServiceUnhealthyTasksCriticalCBA22DF8",
                   "Arn",
                 ],
               },
@@ -2027,7 +2128,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
+                  "ScopeTestDummyFargateServiceHealthyTaskPercentWarningAC596FDA",
                   "Arn",
                 ],
               },
@@ -2038,7 +2139,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
+                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
                   "Arn",
                 ],
               },
@@ -2049,7 +2150,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
+                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
                   "Arn",
                 ],
               },
@@ -2060,11 +2161,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceDiskUsageWarningE3E05290",
+                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceDiskUsageWarningE3E05290",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2704,7 +2816,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -3216,6 +3328,96 @@ Object {
               },
               "Period": 300,
               "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyFargateServiceUnhealthyTasksCriticalCBA22DF8": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of unhealthy tasks is too high.",
+        "AlarmName": "Test-DummyFargateService-Unhealthy-Tasks-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Unhealthy Tasks",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LoadBalancer",
+                    "Value": Object {
+                      "Fn::Join": Array [
+                        "",
+                        Array [
+                          Object {
+                            "Fn::Select": Array [
+                              1,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          "/",
+                          Object {
+                            "Fn::Select": Array [
+                              2,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          "/",
+                          Object {
+                            "Fn::Select": Array [
+                              3,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      ],
+                    },
+                  },
+                  Object {
+                    "Name": "TargetGroup",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "ServiceLBPublicListenerECSGroup0CC8688C",
+                        "TargetGroupFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "UnHealthyHostCount",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
             },
             "ReturnData": true,
           },
@@ -3852,7 +4054,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -3961,7 +4163,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceHealthyTaskPercentWarningAC596FDA",
+                  "ScopeTestDummyFargateServiceUnhealthyTasksCriticalCBA22DF8",
                   "Arn",
                 ],
               },
@@ -3972,7 +4174,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
+                  "ScopeTestDummyFargateServiceHealthyTaskPercentWarningAC596FDA",
                   "Arn",
                 ],
               },
@@ -3983,7 +4185,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
+                  "ScopeTestDummyFargateServiceCPUUsageWarning2A347919",
                   "Arn",
                 ],
               },
@@ -3994,7 +4196,7 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
+                  "ScopeTestDummyFargateServiceMemoryUsageWarningD6B91C34",
                   "Arn",
                 ],
               },
@@ -4005,11 +4207,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyFargateServiceDiskUsageWarningE3E05290",
+                  "ScopeTestDummyFargateServiceRunningTasksHighWarning41BB7FB8",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFargateServiceDiskUsageWarningE3E05290",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4649,7 +4862,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -5161,6 +5374,96 @@ Object {
               },
               "Period": 300,
               "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyFargateServiceUnhealthyTasksCriticalCBA22DF8": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Number of unhealthy tasks is too high.",
+        "AlarmName": "Test-DummyFargateService-Unhealthy-Tasks-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Unhealthy Tasks",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "LoadBalancer",
+                    "Value": Object {
+                      "Fn::Join": Array [
+                        "",
+                        Array [
+                          Object {
+                            "Fn::Select": Array [
+                              1,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          "/",
+                          Object {
+                            "Fn::Select": Array [
+                              2,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          "/",
+                          Object {
+                            "Fn::Select": Array [
+                              3,
+                              Object {
+                                "Fn::Split": Array [
+                                  "/",
+                                  Object {
+                                    "Ref": "ServiceLBPublicListener46709EAA",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      ],
+                    },
+                  },
+                  Object {
+                    "Name": "TargetGroup",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "ServiceLBPublicListenerECSGroup0CC8688C",
+                        "TargetGroupFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "UnHealthyHostCount",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
             },
             "ReturnData": true,
           },
@@ -5797,7 +6100,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"color\\":\\"#d62728\\",\\"label\\":\\"Unhealthy Tasks\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Healthy Tasks < 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 3 for 3 datapoints within 15 minutes\\",\\"value\\":3,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Unhealthy Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Running Tasks > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

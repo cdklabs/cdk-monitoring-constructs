@@ -2925,7 +2925,7 @@ public readonly alarmDedupeStringSuffix: string;
 If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
 
 This allows you to specify the same dedupe string for a family of alarms.
-Cannot be defined at the same time as alarmDedupeStringOverride.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -4134,6 +4134,7 @@ const anomalyDetectionThreshold: AnomalyDetectionThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -4185,6 +4186,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.AnomalyDetectionThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -8750,6 +8767,7 @@ const availabilityThreshold: AvailabilityThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.AvailabilityThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -8798,6 +8816,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.AvailabilityThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -10526,6 +10560,7 @@ const changeInSecretCountThreshold: ChangeInSecretCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -10577,6 +10612,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.ChangeInSecretCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -12037,6 +12088,7 @@ const consumedCapacityThreshold: ConsumedCapacityThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.ConsumedCapacityThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -12085,6 +12137,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.ConsumedCapacityThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -12415,6 +12483,7 @@ const customAlarmThreshold: CustomAlarmThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.CustomAlarmThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -12462,6 +12531,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.CustomAlarmThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -14222,6 +14307,7 @@ const customThreshold: CustomThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.CustomThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -14273,6 +14359,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.CustomThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -14769,6 +14871,7 @@ const daysSinceUpdateThreshold: DaysSinceUpdateThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -14817,6 +14920,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.DaysSinceUpdateThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -15145,6 +15264,7 @@ const daysToExpiryThreshold: DaysToExpiryThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.DaysToExpiryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -15193,6 +15313,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.DaysToExpiryThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -16053,6 +16189,7 @@ const durationThreshold: DurationThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.DurationThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -16101,6 +16238,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.DurationThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -19527,6 +19680,7 @@ const errorCountThreshold: ErrorCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.ErrorCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -19575,6 +19729,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.ErrorCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -19903,6 +20073,7 @@ const errorRateThreshold: ErrorRateThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.ErrorRateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -19951,6 +20122,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.ErrorRateThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -21278,6 +21465,7 @@ const firehoseStreamLimitThreshold: FirehoseStreamLimitThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -21326,6 +21514,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.FirehoseStreamLimitThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -21916,6 +22120,7 @@ const fullRestartCountThreshold: FullRestartCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.FullRestartCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -21964,6 +22169,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.FullRestartCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -22806,6 +23027,7 @@ const healthyTaskCountThreshold: HealthyTaskCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -22854,6 +23076,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.HealthyTaskCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -23182,6 +23420,7 @@ const healthyTaskPercentThreshold: HealthyTaskPercentThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -23230,6 +23469,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.HealthyTaskPercentThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -23558,6 +23813,7 @@ const highConnectionCountThreshold: HighConnectionCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.HighConnectionCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -23606,6 +23862,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.HighConnectionCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -23934,6 +24206,7 @@ const highMessagesPublishedThreshold: HighMessagesPublishedThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -23982,6 +24255,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.HighMessagesPublishedThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -24310,6 +24599,7 @@ const highServerlessDatabaseCapacityThreshold: HighServerlessDatabaseCapacityThr
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -24358,6 +24648,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.HighServerlessDatabaseCapacityThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -24686,6 +24992,7 @@ const highTpsThreshold: HighTpsThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.HighTpsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -24734,6 +25041,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.HighTpsThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -27563,6 +27886,7 @@ const latencyThreshold: LatencyThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.LatencyThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -27611,6 +27935,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.LatencyThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -27939,6 +28279,7 @@ const logLevelCountThreshold: LogLevelCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.LogLevelCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -27987,6 +28328,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.LogLevelCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -28547,6 +28904,7 @@ const lowConnectionCountThreshold: LowConnectionCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.LowConnectionCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -28595,6 +28953,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.LowConnectionCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -28923,6 +29297,7 @@ const lowMessagesPublishedThreshold: LowMessagesPublishedThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -28971,6 +29346,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.LowMessagesPublishedThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -29299,6 +29690,7 @@ const lowTpsThreshold: LowTpsThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.LowTpsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -29347,6 +29739,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.LowTpsThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -29675,6 +30083,7 @@ const maxAgeThreshold: MaxAgeThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -29723,6 +30132,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxAgeThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -30051,6 +30476,7 @@ const maxDowntimeThreshold: MaxDowntimeThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxDowntimeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -30099,6 +30525,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxDowntimeThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -30427,6 +30869,7 @@ const maxIncomingMessagesCountThreshold: MaxIncomingMessagesCountThreshold = { .
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -30475,6 +30918,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxIncomingMessagesCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -30803,6 +31262,7 @@ const maxItemsCountThreshold: MaxItemsCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxItemsCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -30851,6 +31311,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxItemsCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -31179,6 +31655,7 @@ const maxIteratorAgeThreshold: MaxIteratorAgeThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -31227,6 +31704,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxIteratorAgeThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -31555,6 +32048,7 @@ const maxMessageAgeThreshold: MaxMessageAgeThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageAgeThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -31603,6 +32097,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxMessageAgeThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -31931,6 +32441,7 @@ const maxMessageCountThreshold: MaxMessageCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxMessageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -31979,6 +32490,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxMessageCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -32307,6 +32834,7 @@ const maxOffsetLagThreshold: MaxOffsetLagThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxOffsetLagThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -32355,6 +32883,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxOffsetLagThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -32683,6 +33227,7 @@ const maxSecretCountThreshold: MaxSecretCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxSecretCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -32731,6 +33276,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxSecretCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -33059,6 +33620,7 @@ const maxTimeToDrainThreshold: MaxTimeToDrainThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -33107,6 +33669,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -33435,6 +34013,7 @@ const maxUsageCountThreshold: MaxUsageCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -33483,6 +34062,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxUsageCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -33811,6 +34406,7 @@ const maxUsedSwapMemoryThreshold: MaxUsedSwapMemoryThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -33859,6 +34455,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -34299,6 +34911,7 @@ const minFreeableMemoryThreshold: MinFreeableMemoryThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -34347,6 +34960,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MinFreeableMemoryThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -34675,6 +35304,7 @@ const minIncomingMessagesCountThreshold: MinIncomingMessagesCountThreshold = { .
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -34723,6 +35353,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MinIncomingMessagesCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -35051,6 +35697,7 @@ const minMessageCountThreshold: MinMessageCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MinMessageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -35099,6 +35746,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MinMessageCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -35427,6 +36090,7 @@ const minProcessedBytesThreshold: MinProcessedBytesThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MinProcessedBytesThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -35475,6 +36139,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MinProcessedBytesThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -35805,6 +36485,7 @@ const minRunningTaskCountThreshold: MinRunningTaskCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -35853,6 +36534,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MinRunningTaskCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -36181,6 +36878,7 @@ const minSecretCountThreshold: MinSecretCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MinSecretCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -36229,6 +36927,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MinSecretCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -36557,6 +37271,7 @@ const minUsageCountThreshold: MinUsageCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.MinUsageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -36605,6 +37320,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MinUsageCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -38145,6 +38876,7 @@ const notificationsFailedThreshold: NotificationsFailedThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.NotificationsFailedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -38193,6 +38925,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.NotificationsFailedThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -38521,6 +39269,7 @@ const openSearchClusterAutomatedSnapshotFailureThreshold: OpenSearchClusterAutom
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -38569,6 +39318,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.OpenSearchClusterAutomatedSnapshotFailureThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -38897,6 +39662,7 @@ const openSearchClusterIndexWritesBlockedThreshold: OpenSearchClusterIndexWrites
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -38945,6 +39711,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.OpenSearchClusterIndexWritesBlockedThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -40074,6 +40856,7 @@ const openSearchClusterNodesThreshold: OpenSearchClusterNodesThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -40122,6 +40905,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.OpenSearchClusterNodesThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -40450,6 +41249,7 @@ const openSearchClusterStatusCustomization: OpenSearchClusterStatusCustomization
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -40498,6 +41298,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.OpenSearchClusterStatusCustomization.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -40826,6 +41642,7 @@ const openSearchKmsKeyErrorThreshold: OpenSearchKmsKeyErrorThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -40874,6 +41691,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.OpenSearchKmsKeyErrorThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -41202,6 +42035,7 @@ const openSearchKmsKeyInaccessibleThreshold: OpenSearchKmsKeyInaccessibleThresho
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -41250,6 +42084,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.OpenSearchKmsKeyInaccessibleThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -42946,6 +43796,7 @@ const recordsFailedThreshold: RecordsFailedThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.RecordsFailedThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -42994,6 +43845,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.RecordsFailedThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -43322,6 +44189,7 @@ const recordsThrottledThreshold: RecordsThrottledThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.RecordsThrottledThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -43370,6 +44238,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.RecordsThrottledThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -44187,6 +45071,7 @@ const runningTaskCountThreshold: RunningTaskCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -44235,6 +45120,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.RunningTaskCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -44563,6 +45464,7 @@ const runningTaskRateThreshold: RunningTaskRateThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.RunningTaskRateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -44611,6 +45513,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.RunningTaskRateThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -50150,6 +51068,7 @@ const throttledEventsThreshold: ThrottledEventsThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.ThrottledEventsThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -50198,6 +51117,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.ThrottledEventsThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -50526,6 +51461,7 @@ const unhealthyTaskCountThreshold: UnhealthyTaskCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -50574,6 +51510,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.UnhealthyTaskCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -50902,6 +51854,7 @@ const usageCountThreshold: UsageCountThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.UsageCountThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -50954,6 +51907,24 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### ~~`alarmDedupeStringSuffix`~~<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.UsageCountThreshold.property.alarmDedupeStringSuffix"></a>
+
+- *Deprecated:* Use MaxUsageCountThreshold instead.
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -51324,6 +52295,7 @@ const usageThreshold: UsageThreshold = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.UsageThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -51372,6 +52344,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.UsageThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
