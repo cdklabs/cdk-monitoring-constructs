@@ -48,19 +48,13 @@ export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactory
    * @deprecated use metricRequestRate
    */
   metricTps() {
-    return this.metricFactory.toRate(
-      this.metricRequestCount(),
-      RateComputationMethod.PER_SECOND,
-      true,
-      "requests",
-      this.fillTpsWithZeroes,
-    );
+    return this.metricRequestRate(RateComputationMethod.PER_SECOND);
   }
 
-  metricRequestRate() {
+  metricRequestRate(rateComputationMethod?: RateComputationMethod) {
     return this.metricFactory.toRate(
       this.metricRequestCount(),
-      this.rateComputationMethod,
+      rateComputationMethod ?? this.rateComputationMethod,
       true,
       "requests",
       this.fillTpsWithZeroes,

@@ -54134,8 +54134,14 @@ public metricInvocationCount(): Metric | MathExpression
 ##### `metricInvocationRate` <a name="metricInvocationRate" id="cdk-monitoring-constructs.ApiGatewayMetricFactory.metricInvocationRate"></a>
 
 ```typescript
-public metricInvocationRate(): Metric | MathExpression
+public metricInvocationRate(rateComputationMethod?: RateComputationMethod): Metric | MathExpression
 ```
+
+###### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.ApiGatewayMetricFactory.metricInvocationRate.parameter.rateComputationMethod"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+
+---
 
 ##### `metricLatencyInMillis` <a name="metricLatencyInMillis" id="cdk-monitoring-constructs.ApiGatewayMetricFactory.metricLatencyInMillis"></a>
 
@@ -54701,8 +54707,14 @@ public metricInvocationCount(): Metric | MathExpression
 ##### `metricInvocationRate` <a name="metricInvocationRate" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricInvocationRate"></a>
 
 ```typescript
-public metricInvocationRate(): Metric | MathExpression
+public metricInvocationRate(rateComputationMethod?: RateComputationMethod): Metric | MathExpression
 ```
+
+###### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricInvocationRate.parameter.rateComputationMethod"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+
+---
 
 ##### `metricLatencyInMillis` <a name="metricLatencyInMillis" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMetricFactory.metricLatencyInMillis"></a>
 
@@ -55354,8 +55366,14 @@ public metricRequestCount(): Metric | MathExpression
 ##### `metricRequestRate` <a name="metricRequestRate" id="cdk-monitoring-constructs.AppSyncMetricFactory.metricRequestRate"></a>
 
 ```typescript
-public metricRequestRate(): Metric | MathExpression
+public metricRequestRate(rateComputationMethod?: RateComputationMethod): Metric | MathExpression
 ```
+
+###### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.AppSyncMetricFactory.metricRequestRate.parameter.rateComputationMethod"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+
+---
 
 ##### ~~`metricTps`~~ <a name="metricTps" id="cdk-monitoring-constructs.AppSyncMetricFactory.metricTps"></a>
 
@@ -57730,8 +57748,14 @@ public metricRequestCount(): Metric | MathExpression
 ##### `metricRequestRate` <a name="metricRequestRate" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestRate"></a>
 
 ```typescript
-public metricRequestRate(): Metric | MathExpression
+public metricRequestRate(rateComputationMethod?: RateComputationMethod): Metric | MathExpression
 ```
+
+###### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestRate.parameter.rateComputationMethod"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+
+---
 
 ##### ~~`metricRequestTps`~~ <a name="metricRequestTps" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactory.metricRequestTps"></a>
 
@@ -67045,8 +67069,14 @@ public metricInvocationCount(): Metric | MathExpression
 ##### `metricInvocationRate` <a name="metricInvocationRate" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricInvocationRate"></a>
 
 ```typescript
-public metricInvocationRate(): Metric | MathExpression
+public metricInvocationRate(rateComputationMethod?: RateComputationMethod): Metric | MathExpression
 ```
+
+###### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricInvocationRate.parameter.rateComputationMethod"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+
+---
 
 ##### `metricLatencyInMillis` <a name="metricLatencyInMillis" id="cdk-monitoring-constructs.LambdaFunctionMetricFactory.metricLatencyInMillis"></a>
 
@@ -70582,8 +70612,14 @@ public metricSearchLatencyP99InMillis(): Metric | MathExpression
 ##### `metricSearchRate` <a name="metricSearchRate" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchRate"></a>
 
 ```typescript
-public metricSearchRate(): Metric | MathExpression
+public metricSearchRate(rateComputationMethod?: RateComputationMethod): Metric | MathExpression
 ```
+
+###### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricSearchRate.parameter.rateComputationMethod"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+
+---
 
 ##### ~~`metricTps`~~ <a name="metricTps" id="cdk-monitoring-constructs.OpenSearchClusterMetricFactory.metricTps"></a>
 

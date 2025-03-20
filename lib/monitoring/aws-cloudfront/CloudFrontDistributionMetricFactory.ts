@@ -76,10 +76,10 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
     );
   }
 
-  metricRequestRate() {
+  metricRequestRate(rateComputationMethod?: RateComputationMethod) {
     return this.metricFactory.toRate(
       this.metricRequestCount(),
-      this.rateComputationMethod,
+      rateComputationMethod ?? this.rateComputationMethod,
       false,
       "requests",
       this.fillTpsWithZeroes,
@@ -90,13 +90,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
    * @deprecated use metricRequestRate
    */
   metricRequestTps() {
-    return this.metricFactory.toRate(
-      this.metricRequestCount(),
-      RateComputationMethod.PER_SECOND,
-      false,
-      "requests",
-      this.fillTpsWithZeroes,
-    );
+    return this.metricRequestRate(RateComputationMethod.PER_SECOND);
   }
 
   metricTotalBytesUploaded() {
