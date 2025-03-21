@@ -14,10 +14,12 @@ import { Construct } from "constructs";
 
 import {
   AddAlarmProps,
+  AlarmActionStrategyProps,
   AlarmFactory,
   AlarmFactoryDefaults,
   AlarmNamingInput,
   CompositeAlarmOperator,
+  IAlarmActionStrategy,
   IAlarmNamingStrategy,
   MetricFactoryDefaults,
   MetricStatistic,
@@ -32,6 +34,16 @@ const construct = new Construct(stack, "SampleConstruct");
 const snsAction = new SnsAlarmActionStrategy({
   onAlarmTopic: new Topic(stack, "Dummy2"),
 });
+
+class SampleAlarmActionStrategy implements IAlarmActionStrategy {
+  readonly prop = "Sample";
+
+  addAlarmActions(_props: AlarmActionStrategyProps): void {
+    // No-op
+  }
+}
+const sampleAction = new SampleAlarmActionStrategy();
+
 const globalMetricDefaults: MetricFactoryDefaults = {
   namespace: "DummyNamespace",
 };
@@ -722,11 +734,18 @@ test("addAlarm: custom alarm naming strategy", () => {
   const disambiguator = "Critical";
   const stack = new Stack();
   const customNamingStrategy: IAlarmNamingStrategy = {
-    getName: (props: AlarmNamingInput) => `${alarmName}-${props.disambiguator}`,
+    getName: (props: AlarmNamingInput) =>
+      `${alarmName}-${props.disambiguator}-${
+        (props.action as SampleAlarmActionStrategy).prop
+      }`,
     getWidgetLabel: (props: AlarmNamingInput) =>
-      `${alarmLabel}-${props.disambiguator}`,
+      `${alarmLabel}-${props.disambiguator}-${
+        (props.action as SampleAlarmActionStrategy).prop
+      }`,
     getDedupeString: (props: AlarmNamingInput) =>
-      `${alarmDedupe}-${props.disambiguator}`,
+      `${alarmDedupe}-${props.disambiguator}-${
+        (props.action as SampleAlarmActionStrategy).prop
+      }`,
   };
   const factory = new AlarmFactory(stack, {
     globalMetricDefaults,
@@ -736,13 +755,15 @@ test("addAlarm: custom alarm naming strategy", () => {
     },
     localAlarmNamePrefix: "prefix",
   });
+  const action = sampleAction;
   const alarm = factory.addAlarm(metric, {
     ...props,
     disambiguator,
+    actionOverride: action,
   });
-  expect(alarm.alarmName).toBe(`${alarmName}-${disambiguator}`);
-  expect(alarm.alarmLabel).toBe(`${alarmLabel}-${disambiguator}`);
-  expect(alarm.dedupeString).toBe(`${alarmDedupe}-${disambiguator}`);
+  expect(alarm.alarmName).toBe(`${alarmName}-${disambiguator}-Sample`);
+  expect(alarm.alarmLabel).toBe(`${alarmLabel}-${disambiguator}-Sample`);
+  expect(alarm.dedupeString).toBe(`${alarmDedupe}-${disambiguator}-Sample`);
 });
 
 test("addAlarm: custom metric adjuster, applies it and DefaultMetricAdjuster after it", () => {
