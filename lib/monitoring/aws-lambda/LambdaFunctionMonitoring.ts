@@ -402,7 +402,6 @@ export class LambdaFunctionMonitoring extends Monitoring {
       this.latencyAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
-    (props.lambdaFunction as Function).timeout;
     for (const disambiguator in props.addLatencyP99Alarm) {
       const alarmProps = props.addLatencyP99Alarm[disambiguator];
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
@@ -579,13 +578,14 @@ export class LambdaFunctionMonitoring extends Monitoring {
     if ("maxLatency" in latencyProps) {
       return latencyProps;
     }
-    const { maxLatencyPercentage, ...rest } = latencyProps;
-    const timeout =
-      (lambdaFunction as Function).timeout ?? Duration.seconds(30);
+    const { maxLatencyPercentageOfTimeout, ...rest } = latencyProps;
+    const timeout = (lambdaFunction as Function).timeout ?? Duration.seconds(3);
     return {
       ...rest,
       maxLatency: Duration.millis(
-        Math.floor((timeout.toMilliseconds() * maxLatencyPercentage) / 100),
+        Math.floor(
+          (timeout.toMilliseconds() * maxLatencyPercentageOfTimeout) / 100,
+        ),
       ),
     };
   }

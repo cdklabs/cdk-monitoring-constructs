@@ -138,7 +138,7 @@ export interface LatencyThreshold extends CustomAlarmThreshold {
 
 export interface LatencyTimeoutPercentageThreshold
   extends CustomAlarmThreshold {
-  readonly maxLatencyPercentage: number;
+  readonly maxLatencyPercentageOfTimeout: number;
 }
 
 export interface DurationThreshold extends CustomAlarmThreshold {
