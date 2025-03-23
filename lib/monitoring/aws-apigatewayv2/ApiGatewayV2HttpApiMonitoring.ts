@@ -29,6 +29,7 @@ import {
   MonitoringScope,
   QuarterWidth,
   RateAxisFromZero,
+  RateComputationMethod,
   ThirdWidth,
   TimeAxisMillisFromZero,
   TpsAlarmFactory,
@@ -196,7 +197,9 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
       props,
     );
 
-    this.tpsMetric = metricFactory.metricTps();
+    this.tpsMetric = metricFactory.metricInvocationRate(
+      RateComputationMethod.PER_SECOND,
+    );
 
     this.latencyMetrics = {};
     this.integrationLatencyMetrics = {};

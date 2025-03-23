@@ -41,6 +41,7 @@ import {
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
   RateAxisFromZero,
+  RateComputationMethod,
   RunningTaskCountThreshold,
   RunningTaskRateThreshold,
   TaskHealthAlarmFactory,
@@ -242,7 +243,9 @@ export class LambdaFunctionMonitoring extends Monitoring {
       scope.createMetricFactory(),
       props,
     );
-    this.tpsMetric = this.metricFactory.metricTps();
+    this.tpsMetric = this.metricFactory.metricInvocationRate(
+      RateComputationMethod.PER_SECOND,
+    );
     this.p50LatencyMetric = this.metricFactory.metricLatencyInMillis(
       LatencyType.P50,
     );

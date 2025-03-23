@@ -23,7 +23,7 @@ import {
   IAlarmAnnotationStrategy,
 } from "./IAlarmAnnotationStrategy";
 import { IAlarmDedupeStringProcessor } from "./IAlarmDedupeStringProcessor";
-import { IAlarmNamingStrategy } from "./IAlarmNamingStrategy";
+import { AlarmNamingInput, IAlarmNamingStrategy } from "./IAlarmNamingStrategy";
 import {
   CompositeMetricAdjuster,
   DefaultMetricAdjuster,
@@ -580,16 +580,22 @@ export class AlarmFactory {
       props.disambiguator,
       props.actionOverride,
     );
-    const alarmName = this.alarmNamingStrategy.getName(props);
+    const alarmNamingInput: AlarmNamingInput = {
+      ...props,
+      action,
+    };
+    const alarmName = this.alarmNamingStrategy.getName(alarmNamingInput);
     const alarmNameSuffix = props.alarmNameSuffix;
-    const alarmLabel = this.alarmNamingStrategy.getWidgetLabel(props);
+    const alarmLabel =
+      this.alarmNamingStrategy.getWidgetLabel(alarmNamingInput);
     const alarmDescription = this.generateDescription(
       props.alarmDescription,
       props.alarmDescriptionOverride,
       props.runbookLink,
       props.documentationLink,
     );
-    const dedupeString = this.alarmNamingStrategy.getDedupeString(props);
+    const dedupeString =
+      this.alarmNamingStrategy.getDedupeString(alarmNamingInput);
     const evaluateLowSampleCountPercentile =
       props.evaluateLowSampleCountPercentile ?? true;
 
