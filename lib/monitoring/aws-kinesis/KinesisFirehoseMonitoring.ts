@@ -23,6 +23,8 @@ import {
   RecordsThrottledThreshold,
   FirehoseStreamLimitThreshold,
   TimeAxisMillisFromZero,
+  FullWidth,
+  ThirdWidth,
 } from "../../common";
 import {
   MonitoringHeaderWidget,
@@ -30,6 +32,14 @@ import {
 } from "../../dashboard";
 
 export interface KinesisFirehoseMonitoringOptions extends BaseMonitoringProps {
+  /**
+   * Indicates that the Kinesis Firehose has record format conversion enabled.
+   * This impacts what widgets are shown.
+   *
+   * @default - true
+   * @see https://docs.aws.amazon.com/firehose/latest/dev/enable-record-format-conversion.html
+   */
+  readonly isDataFormatConversionEnabled?: boolean;
   readonly addRecordsThrottledAlarm?: Record<string, RecordsThrottledThreshold>;
   readonly addIncomingBytesExceedThresholdAlarm?: Record<
     string,
@@ -60,8 +70,11 @@ export class KinesisFirehoseMonitoring extends Monitoring {
   readonly incomingBytesMetric: MetricWithAlarmSupport;
   readonly incomingRecordsMetric: MetricWithAlarmSupport;
   readonly throttledRecordsMetric: MetricWithAlarmSupport;
+
+  readonly isDataFormatConversionEnabled: boolean;
   readonly successfulConversionMetric: MetricWithAlarmSupport;
   readonly failedConversionMetric: MetricWithAlarmSupport;
+
   readonly putRecordLatency: MetricWithAlarmSupport;
   readonly putRecordBatchLatency: MetricWithAlarmSupport;
   readonly incomingBytesToLimitRate: MetricWithAlarmSupport;
@@ -94,6 +107,9 @@ export class KinesisFirehoseMonitoring extends Monitoring {
     this.incomingBytesMetric = metricFactory.metricIncomingBytes();
     this.incomingRecordsMetric = metricFactory.metricIncomingRecordCount();
     this.throttledRecordsMetric = metricFactory.metricThrottledRecordCount();
+
+    this.isDataFormatConversionEnabled =
+      props.isDataFormatConversionEnabled ?? true;
     this.successfulConversionMetric =
       metricFactory.metricSuccessfulConversionCount();
     this.failedConversionMetric = metricFactory.metricFailedConversionCount();
@@ -167,21 +183,37 @@ export class KinesisFirehoseMonitoring extends Monitoring {
   }
 
   summaryWidgets(): IWidget[] {
-    return [
+    const widgetWidth = this.isDataFormatConversionEnabled
+      ? HalfWidth
+      : FullWidth;
+    const widgets = [
       this.createTitleWidget(),
-      this.createIncomingRecordWidget(HalfWidth, DefaultSummaryWidgetHeight),
-      this.createConversionWidget(HalfWidth, DefaultSummaryWidgetHeight),
+      this.createIncomingRecordWidget(widgetWidth, DefaultSummaryWidgetHeight),
     ];
+    if (this.isDataFormatConversionEnabled) {
+      widgets.push(
+        this.createConversionWidget(widgetWidth, DefaultSummaryWidgetHeight),
+      );
+    }
+    return widgets;
   }
 
   widgets(): IWidget[] {
-    return [
+    const widgetWidth = this.isDataFormatConversionEnabled
+      ? QuarterWidth
+      : ThirdWidth;
+    let widgets = [
       this.createTitleWidget(),
-      this.createIncomingRecordWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createConversionWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createLimitWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createIncomingRecordWidget(widgetWidth, DefaultGraphWidgetHeight),
+      this.createLatencyWidget(widgetWidth, DefaultGraphWidgetHeight),
     ];
+    if (this.isDataFormatConversionEnabled) {
+      widgets.push(
+        this.createConversionWidget(widgetWidth, DefaultGraphWidgetHeight),
+      );
+    }
+    widgets.push(this.createLimitWidget(widgetWidth, DefaultGraphWidgetHeight));
+    return widgets;
   }
 
   createTitleWidget() {
