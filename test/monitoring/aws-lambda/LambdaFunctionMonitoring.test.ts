@@ -635,12 +635,7 @@ test("snapshot test: latency alarms with percentage of timeout with default valu
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  const lambdaFunction = new Function(stack, "Function", {
-    functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_18_X,
-    code: InlineCode.fromInline("{}"),
-    handler: "Dummy::handler",
-  });
+  const lambdaFunction = Function.fromFunctionArn(stack, "Function", "arn:aws:lambda:us-west-2:123456789012:function:DummyLambda");
 
   let numAlarmsCreated = 0;
 
