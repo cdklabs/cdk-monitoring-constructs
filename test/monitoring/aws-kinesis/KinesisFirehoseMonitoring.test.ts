@@ -59,6 +59,20 @@ test("snapshot test: all alarms", () => {
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
+test("snapshot test: data format conversion disabled", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new KinesisFirehoseMonitoring(scope, {
+    deliveryStreamName: "my-firehose-delivery-stream",
+    isDataFormatConversionEnabled: false,
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
 test("test: validation error if incoming traffic usage alarm threshold equal to 1", () => {
   const stack = new Stack();
 
