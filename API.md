@@ -28326,6 +28326,7 @@ const latencyTimeoutPercentageThreshold: LatencyTimeoutPercentageThreshold = { .
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
 | <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
 | <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
@@ -28347,7 +28348,7 @@ const latencyTimeoutPercentageThreshold: LatencyTimeoutPercentageThreshold = { .
 | <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
 | <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
 | <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
-| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.maxLatencyPercentage">maxLatencyPercentage</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.maxLatencyPercentageOfTimeout">maxLatencyPercentageOfTimeout</a></code> | <code>number</code> | *No description.* |
 
 ---
 
@@ -28374,6 +28375,22 @@ public readonly actionsEnabled: boolean;
 - *Default:* the same as monitoring facade default
 
 Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
 
 ---
 
@@ -28676,10 +28693,10 @@ Behaviour in case the metric data is missing.
 
 ---
 
-##### `maxLatencyPercentage`<sup>Required</sup> <a name="maxLatencyPercentage" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.maxLatencyPercentage"></a>
+##### `maxLatencyPercentageOfTimeout`<sup>Required</sup> <a name="maxLatencyPercentageOfTimeout" id="cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold.property.maxLatencyPercentageOfTimeout"></a>
 
 ```typescript
-public readonly maxLatencyPercentage: number;
+public readonly maxLatencyPercentageOfTimeout: number;
 ```
 
 - *Type:* number
