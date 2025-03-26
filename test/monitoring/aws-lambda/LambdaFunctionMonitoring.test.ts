@@ -629,3 +629,109 @@ test("doesn't create alarms for enhanced Lambda Insights metrics if not enabled"
 
   expect(numAlarmsCreated).toStrictEqual(0);
 });
+
+test("snapshot test: latency alarms with percentage of timeout with default value", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const lambdaFunction = Function.fromFunctionArn(
+    stack,
+    "Function",
+    "arn:aws:lambda:us-west-2:123456789012:function:DummyLambda",
+  );
+
+  let numAlarmsCreated = 0;
+
+  const monitoring = new LambdaFunctionMonitoring(scope, {
+    lambdaFunction,
+    humanReadableName: "Dummy Lambda for testing",
+    alarmFriendlyName: "DummyLambda",
+    addLatencyP50Alarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 50,
+        datapointsToAlarm: 11,
+      },
+    },
+    addLatencyP90Alarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 90,
+        datapointsToAlarm: 22,
+      },
+    },
+    addLatencyP99Alarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 99,
+        datapointsToAlarm: 33,
+      },
+    },
+    addMaxLatencyAlarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 80,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms: AlarmWithAnnotation[]) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(numAlarmsCreated).toStrictEqual(4);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: latency alarms with percentage of timeout with specific timeout", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const lambdaFunction = new Function(stack, "Function", {
+    functionName: "DummyLambda",
+    runtime: Runtime.NODEJS_18_X,
+    code: InlineCode.fromInline("{}"),
+    handler: "Dummy::handler",
+    timeout: Duration.seconds(100),
+  });
+
+  let numAlarmsCreated = 0;
+
+  const monitoring = new LambdaFunctionMonitoring(scope, {
+    lambdaFunction,
+    humanReadableName: "Dummy Lambda for testing",
+    alarmFriendlyName: "DummyLambda",
+    addLatencyP50Alarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 50,
+        datapointsToAlarm: 11,
+      },
+    },
+    addLatencyP90Alarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 90,
+        datapointsToAlarm: 22,
+      },
+    },
+    addLatencyP99Alarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 99,
+        datapointsToAlarm: 33,
+      },
+    },
+    addMaxLatencyAlarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 80,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms: AlarmWithAnnotation[]) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(numAlarmsCreated).toStrictEqual(4);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
