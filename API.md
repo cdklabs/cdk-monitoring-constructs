@@ -26440,6 +26440,7 @@ const kinesisFirehoseMonitoringOptions: KinesisFirehoseMonitoringOptions = { ...
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingPutRequestsExceedThresholdAlarm">addIncomingPutRequestsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addIncomingRecordsExceedThresholdAlarm">addIncomingRecordsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.addRecordsThrottledAlarm">addRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.isDataFormatConversionEnabled">isDataFormatConversionEnabled</a></code> | <code>boolean</code> | Indicates that the Kinesis Firehose has record format conversion enabled. |
 
 ---
 
@@ -26611,6 +26612,23 @@ public readonly addRecordsThrottledAlarm: {[ key: string ]: RecordsThrottledThre
 
 ---
 
+##### `isDataFormatConversionEnabled`<sup>Optional</sup> <a name="isDataFormatConversionEnabled" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions.property.isDataFormatConversionEnabled"></a>
+
+```typescript
+public readonly isDataFormatConversionEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates that the Kinesis Firehose has record format conversion enabled.
+
+This impacts what widgets are shown.
+
+> [https://docs.aws.amazon.com/firehose/latest/dev/enable-record-format-conversion.html](https://docs.aws.amazon.com/firehose/latest/dev/enable-record-format-conversion.html)
+
+---
+
 ### KinesisFirehoseMonitoringProps <a name="KinesisFirehoseMonitoringProps" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.Initializer"></a>
@@ -26639,6 +26657,7 @@ const kinesisFirehoseMonitoringProps: KinesisFirehoseMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingPutRequestsExceedThresholdAlarm">addIncomingPutRequestsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addIncomingRecordsExceedThresholdAlarm">addIncomingRecordsExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FirehoseStreamLimitThreshold">FirehoseStreamLimitThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.addRecordsThrottledAlarm">addRecordsThrottledAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.isDataFormatConversionEnabled">isDataFormatConversionEnabled</a></code> | <code>boolean</code> | Indicates that the Kinesis Firehose has record format conversion enabled. |
 
 ---
 
@@ -26817,6 +26836,23 @@ public readonly addRecordsThrottledAlarm: {[ key: string ]: RecordsThrottledThre
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.RecordsThrottledThreshold">RecordsThrottledThreshold</a>}
+
+---
+
+##### `isDataFormatConversionEnabled`<sup>Optional</sup> <a name="isDataFormatConversionEnabled" id="cdk-monitoring-constructs.KinesisFirehoseMonitoringProps.property.isDataFormatConversionEnabled"></a>
+
+```typescript
+public readonly isDataFormatConversionEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates that the Kinesis Firehose has record format conversion enabled.
+
+This impacts what widgets are shown.
+
+> [https://docs.aws.amazon.com/firehose/latest/dev/enable-record-format-conversion.html](https://docs.aws.amazon.com/firehose/latest/dev/enable-record-format-conversion.html)
 
 ---
 
@@ -67067,6 +67103,7 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingPutRequestsToLimitRate">incomingPutRequestsToLimitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingRecordsMetric">incomingRecordsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.incomingRecordsToLimitRate">incomingRecordsToLimitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.isDataFormatConversionEnabled">isDataFormatConversionEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.kinesisAlarmFactory">kinesisAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisAlarmFactory">KinesisAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.putRecordBatchLatency">putRecordBatchLatency</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.putRecordLatency">putRecordLatency</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
@@ -67145,6 +67182,16 @@ public readonly incomingRecordsToLimitRate: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `isDataFormatConversionEnabled`<sup>Required</sup> <a name="isDataFormatConversionEnabled" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.property.isDataFormatConversionEnabled"></a>
+
+```typescript
+public readonly isDataFormatConversionEnabled: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
