@@ -78,3 +78,63 @@ test("snapshot test: all alarms", () => {
   expect(numAlarmsCreated).toStrictEqual(2);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
+
+test("test: localAlarmNamePrefixOverride is properly applied", () => {
+  const stack = new Stack();
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const table = new Table(stack, "Table", {
+    tableName: "DummyTable",
+    partitionKey: {
+      name: "id",
+      type: AttributeType.STRING,
+    },
+  });
+
+  const customPrefix = "CustomPrefix";
+  const indexName = "non-existing-index";
+  const monitoring = new DynamoTableGlobalSecondaryIndexMonitoring(scope, {
+    table,
+    globalSecondaryIndexName: indexName,
+    localAlarmNamePrefixOverride: customPrefix,
+    addReadThrottledEventsCountAlarm: {
+      Warning: {
+        maxThrottledEventsThreshold: 5,
+      },
+    },
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+
+  const template = Template.fromStack(stack);
+  const alarms = template.findResources("AWS::CloudWatch::Alarm");
+  const alarmLogicalIds = Object.keys(alarms);
+
+  expect(alarmLogicalIds.length).toStrictEqual(1);
+
+  const alarmNames = alarmLogicalIds.map(
+    (id) => alarms[id].Properties.AlarmName,
+  );
+
+  const alarmNameHasCustomPrefix = alarmNames.every((name) =>
+    name.includes(customPrefix),
+  );
+
+  const alarmIdHasCustomPrefix = alarmLogicalIds.every((id) =>
+    id.includes(customPrefix),
+  );
+
+  const alarmNameHasDefaultPrefix = alarmNames.some((name) =>
+    name.includes(indexName),
+  );
+
+  const alarmIdHasDefaultPrefix = alarmLogicalIds.some((id) =>
+    id.includes(indexName),
+  );
+
+  expect(alarmNameHasCustomPrefix).toBe(true);
+  expect(alarmIdHasCustomPrefix).toBe(true);
+  expect(alarmNameHasDefaultPrefix).toBe(false);
+  expect(alarmIdHasDefaultPrefix).toBe(false);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});

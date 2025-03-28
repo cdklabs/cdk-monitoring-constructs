@@ -59,7 +59,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
     scope: MonitoringScope,
     props: DynamoTableGlobalSecondaryIndexMonitoringProps,
   ) {
-    super(scope);
+    super(scope, props);
 
     const namingStrategy = new MonitoringNamingStrategy({
       ...props,
@@ -92,7 +92,7 @@ export class DynamoTableGlobalSecondaryIndexMonitoring extends Monitoring {
     this.indexThrottleCountMetric =
       metricFactory.metricThrottledIndexRequestCount();
 
-    const alarmFactory = scope.createAlarmFactory(
+    const alarmFactory = this.createAlarmFactory(
       namingStrategy.resolveAlarmFriendlyName(),
     );
     this.gsiAlarmFactory = new DynamoAlarmFactory(alarmFactory);
