@@ -1,10 +1,11 @@
+import { Duration } from "aws-cdk-lib";
 import {
   GraphWidget,
   HorizontalAnnotation,
   IWidget,
   Row,
 } from "aws-cdk-lib/aws-cloudwatch";
-import { CfnFunction, IFunction } from "aws-cdk-lib/aws-lambda";
+import { CfnFunction, Function, IFunction } from "aws-cdk-lib/aws-lambda";
 
 import { LambdaFunctionEnhancedMetricFactory } from "./LambdaFunctionEnhancedMetricFactory";
 import {
@@ -27,6 +28,7 @@ import {
   HighTpsThreshold,
   LatencyAlarmFactory,
   LatencyThreshold,
+  LatencyTimeoutPercentageThreshold,
   LatencyType,
   LowTpsThreshold,
   MaxAgeThreshold,
@@ -71,10 +73,22 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
    */
   readonly isOffsetLag?: boolean;
 
-  readonly addLatencyP50Alarm?: Record<string, LatencyThreshold>;
-  readonly addLatencyP90Alarm?: Record<string, LatencyThreshold>;
-  readonly addLatencyP99Alarm?: Record<string, LatencyThreshold>;
-  readonly addMaxLatencyAlarm?: Record<string, LatencyThreshold>;
+  readonly addLatencyP50Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addLatencyP90Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addLatencyP99Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addMaxLatencyAlarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
 
   readonly addFaultCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFaultRateAlarm?: Record<string, ErrorRateThreshold>;
@@ -369,13 +383,12 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.addAlarm(createdAlarm);
       }
     }
-
     for (const disambiguator in props.addLatencyP50Alarm) {
       const alarmProps = props.addLatencyP50Alarm[disambiguator];
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
         this.p50LatencyMetric,
         LatencyType.P50,
-        alarmProps,
+        this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
         disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
@@ -386,7 +399,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
         this.p90LatencyMetric,
         LatencyType.P90,
-        alarmProps,
+        this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
         disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
@@ -397,7 +410,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
         this.p99LatencyMetric,
         LatencyType.P99,
-        alarmProps,
+        this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
         disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
@@ -408,7 +421,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
       const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
         this.maxLatencyMetric,
         LatencyType.MAX,
-        alarmProps,
+        this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
         disambiguator,
       );
       this.latencyAnnotations.push(createdAlarm.annotation);
@@ -559,6 +572,25 @@ export class LambdaFunctionMonitoring extends Monitoring {
     }
 
     props.useCreatedAlarms?.consume(this.createdAlarms());
+  }
+
+  private convertToLatencyThreshold(
+    latencyProps: LatencyThreshold | LatencyTimeoutPercentageThreshold,
+    lambdaFunction: IFunction,
+  ): LatencyThreshold {
+    if ("maxLatency" in latencyProps) {
+      return latencyProps;
+    }
+    const { maxLatencyPercentageOfTimeout, ...rest } = latencyProps;
+    const timeout = (lambdaFunction as Function).timeout ?? Duration.seconds(3);
+    return {
+      ...rest,
+      maxLatency: Duration.millis(
+        Math.floor(
+          (timeout.toMilliseconds() * maxLatencyPercentageOfTimeout) / 100,
+        ),
+      ),
+    };
   }
 
   summaryWidgets(): IWidget[] {
