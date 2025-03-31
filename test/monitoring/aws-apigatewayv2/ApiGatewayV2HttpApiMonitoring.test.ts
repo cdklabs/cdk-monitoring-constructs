@@ -9,19 +9,43 @@ import {
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
-test("snapshot test: no alarms", () => {
+test("snapshot test: no alarms with explicit API name", () => {
   const stack = new Stack();
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  const testHttpApi = new HttpApi(stack, "testHttpApi", {
-    apiName: "testHttpApi",
+  const monitoring = new ApiGatewayV2HttpApiMonitoring(scope, {
+    api: new HttpApi(stack, "testHttpApi", {
+      apiName: "testHttpApiName",
+    }),
   });
 
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: no alarms with no explicit API name", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
   const monitoring = new ApiGatewayV2HttpApiMonitoring(scope, {
-    api: testHttpApi,
-    humanReadableName: "Dummy API Gateway for testing",
-    alarmFriendlyName: "DummyApi",
+    api: new HttpApi(stack, "testHttpApi"),
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: no alarms with imported IHttpApi", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new ApiGatewayV2HttpApiMonitoring(scope, {
+    api: HttpApi.fromHttpApiAttributes(scope, "Imported", {
+      httpApiId: "imported-id",
+    }),
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
