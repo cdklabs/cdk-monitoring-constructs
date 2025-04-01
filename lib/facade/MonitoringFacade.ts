@@ -5,6 +5,7 @@ import { Construct } from "constructs";
 import { MonitoringAspectProps } from "./IMonitoringAspect";
 import { MonitoringAspect } from "./MonitoringAspect";
 import {
+  AddAlarmProps,
   AddCompositeAlarmProps,
   AlarmFactory,
   AlarmFactoryDefaults,
@@ -126,6 +127,18 @@ import {
   WafV2MonitoringProps,
 } from "../monitoring";
 
+/**
+ * A function that, when given an alarm, returns modified inputs that
+ * can be used to create additional alarms, slightly adjusted from the original one.
+ * The function can be used to clone alarms.
+ *
+ * Implementers of this function can use the original alarm configuration to specify a new alarm,
+ * or they can return undefined to skip the creation of an alarm.
+ */
+export interface AlarmCloneFunction {
+  (alarm: AlarmWithAnnotation): AddAlarmProps | undefined;
+}
+
 export interface MonitoringFacadeProps {
   /**
    * Defaults for metric factory.
@@ -165,6 +178,8 @@ export class MonitoringFacade extends MonitoringScope {
     | IDashboardSegment
     | IDynamicDashboardSegment
   )[];
+  protected readonly createdComposites: CompositeAlarm[];
+  protected readonly createdClones: AlarmWithAnnotation[];
 
   constructor(scope: Construct, id: string, props?: MonitoringFacadeProps) {
     super(scope, id);
@@ -181,6 +196,8 @@ export class MonitoringFacade extends MonitoringScope {
       });
 
     this.createdSegments = [];
+    this.createdComposites = [];
+    this.createdClones = [];
   }
 
   // FACTORIES
@@ -276,9 +293,10 @@ export class MonitoringFacade extends MonitoringScope {
    * added up until now.
    */
   createdAlarms(): AlarmWithAnnotation[] {
-    return this.createdMonitorings().flatMap((monitoring) =>
+    const monitoringAlarms = this.createdMonitorings().flatMap((monitoring) =>
       monitoring.createdAlarms(),
     );
+    return monitoringAlarms.concat(this.createdClones);
   }
 
   /**
@@ -304,12 +322,26 @@ export class MonitoringFacade extends MonitoringScope {
   }
 
   /**
+   * Returns the added composite alarms.
+   */
+  createdCompositeAlarms(): CompositeAlarm[] {
+    return this.createdComposites;
+  }
+
+  /**
    * Returns the added segments that subclass {@link Monitoring}.
    */
   createdMonitorings(): Monitoring[] {
     return this.createdSegments
       .filter((s) => s instanceof Monitoring)
       .map((s) => s as Monitoring);
+  }
+
+  /**
+   * Returns all the added segments.
+   */
+  createdDashboardSegments(): (IDashboardSegment | IDynamicDashboardSegment)[] {
+    return Array.from(this.createdSegments);
   }
 
   // COMPOSITE ALARM CREATORS
@@ -331,10 +363,12 @@ export class MonitoringFacade extends MonitoringScope {
     if (alarms.length > 0) {
       const disambiguator = props?.disambiguator ?? customTag;
       const alarmFactory = this.createAlarmFactory("Composite");
-      return alarmFactory.addCompositeAlarm(alarms, {
+      const composite = alarmFactory.addCompositeAlarm(alarms, {
         ...(props ?? {}),
         disambiguator,
       });
+      this.createdComposites.push(composite);
+      return composite;
     }
     return undefined;
   }
@@ -355,12 +389,45 @@ export class MonitoringFacade extends MonitoringScope {
     if (alarms.length > 0) {
       const disambiguator = props?.disambiguator ?? alarmDisambiguator;
       const alarmFactory = this.createAlarmFactory("Composite");
-      return alarmFactory.addCompositeAlarm(alarms, {
+      const composite = alarmFactory.addCompositeAlarm(alarms, {
         ...(props ?? {}),
         disambiguator,
       });
+      this.createdComposites.push(composite);
+      return composite;
     }
     return undefined;
+  }
+
+  // CLONE ALARMS
+  // ============
+
+  /**
+   * Applies a cloning function to each of the given alarms, creating a new collection of alarms
+   * that are adjusted by the function.
+   *
+   * @param sourceAlarms The alarms that should be used as sources for the clones.
+   * @param cloneFunction A function that will accept a source alarm and determine whether and how a new alarm should be cloned from it.
+   * @returns The list of clone alarms.
+   */
+  cloneAlarms(
+    sourceAlarms: AlarmWithAnnotation[],
+    cloneFunction: AlarmCloneFunction,
+  ): AlarmWithAnnotation[] {
+    const cloned: AlarmWithAnnotation[] = [];
+    sourceAlarms.forEach((alarm) => {
+      const cloneAlarmProps = cloneFunction(alarm);
+      if (cloneAlarmProps) {
+        cloned.push(
+          alarm.alarmDefinition.alarmFactory.addAlarm(
+            alarm.alarmDefinition.metric,
+            cloneAlarmProps,
+          ),
+        );
+      }
+    });
+    this.createdClones.push(...cloned);
+    return cloned;
   }
 
   // BASIC WIDGETS

@@ -495,6 +495,56 @@ monitoring.monitorScope(stack, {
 });
 ```
 
+### Cloning alarms
+
+You can also create alarms by cloning other alarms and applying a modification function.
+When given a list of alarms created using `MonitoringFacade`, the facade can apply a
+user-supplied function on each, generating new alarms with customizations from the
+function.
+
+```ts
+// Clone alarms using a cloning-function
+const criticalAlarms = monitoring.createdAlarmsWithDisambiguator("Critical");
+const clones = monitoring.cloneAlarms(criticalAlarms, (a) => {
+   // Define a new alarm that has values inspired by the original alarm
+   // Adjust some of those values using arbitrary, user-provided logic
+   return {
+      ...a.alarmDefinition.addAlarmProps,
+      actionsEnabled: false,
+      disambiguator: "ClonedCritical",
+      alarmDescription: "Cloned alarm of " + a.alarmDescription,
+      // Bump the threshold a bit
+      threshold: a.alarmDefinition.addAlarmProps.threshold * 1.1,
+      // Tighten the number of datapoints a bit
+      datapointsToAlarm: a.alarmDefinition.datapointsToAlarm - 1,
+      // Keep the same number of evaluation periods
+      evaluationPeriods: a.alarmDefinition.evaluationPeriods,
+   }
+});
+```
+
+This technique is particularly useful when you are using alarms for multiple purposes.
+For instance, you may want to ensure regressions that result in an SLA-breach are
+automatically rolled back *before* a ticketing action takes effect. This scheme uses
+pairs of alarms for each metric: a conservative ticketing alarm and an aggressive
+rollback alarm.
+
+Rather that specifying both alarms throughout your application, you can automatically
+create the companion alarms by cloning with a scaling function. This library provides a
+`ScaleFunction` implementation that can be configured with multiplication factors for
+`threshold`, `datapointsToAlarm`, and `evaluationPeriods`; scaling factors between 0.0
+and 1.0 will generate more aggressive alarms.
+
+```ts
+// Clone critical alarms using a tighting scaling function
+const criticalAlarms = monitoring.createdAlarmsWithDisambiguator("Critical");
+const rollbackAlarms = monitoring.cloneAlarms(criticalAlarms, ScaleAlarms({
+   disambiguator: "Rollback",
+   thresholdMultiplier: 0.8,
+   datapointsToAlarmMultiplier: 0.3,
+   evaluationPeriodsMultiplier: 0.5,
+}));
+```
 
 ## Contributing
 

@@ -1054,13 +1054,16 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addSegment">addSegment</a></code> | Adds a dashboard segment to go on one of the {@link DefaultDashboards}. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addSmallHeader">addSmallHeader</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.addWidget">addWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.cloneAlarms">cloneAlarms</a></code> | Applies a cloning function to each of the given alarms, creating a new collection of alarms that are adjusted by the function. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator">createCompositeAlarmUsingDisambiguator</a></code> | Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag">createCompositeAlarmUsingTag</a></code> | Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmDashboard">createdAlarmDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarms">createdAlarms</a></code> | Returns the created alarms across all added segments that subclass {@link Monitoring} added up until now. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithDisambiguator">createdAlarmsWithDisambiguator</a></code> | Returns a subset of created alarms that are marked by a specific disambiguator. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithTag">createdAlarmsWithTag</a></code> | Returns a subset of created alarms that are marked by a specific custom tag. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarms">createdCompositeAlarms</a></code> | Returns the added composite alarms. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdDashboard">createdDashboard</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdDashboardSegments">createdDashboardSegments</a></code> | Returns all the added segments. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdMonitorings">createdMonitorings</a></code> | Returns the added segments that subclass {@link Monitoring}. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdSummaryDashboard">createdSummaryDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorApiGateway">monitorApiGateway</a></code> | *No description.* |
@@ -1301,6 +1304,30 @@ public addWidget(widget: IWidget, addToSummary?: boolean, addToAlarm?: boolean):
 
 ---
 
+##### `cloneAlarms` <a name="cloneAlarms" id="cdk-monitoring-constructs.MonitoringFacade.cloneAlarms"></a>
+
+```typescript
+public cloneAlarms(sourceAlarms: AlarmWithAnnotation[], cloneFunction: AlarmCloneFunction): AlarmWithAnnotation[]
+```
+
+Applies a cloning function to each of the given alarms, creating a new collection of alarms that are adjusted by the function.
+
+###### `sourceAlarms`<sup>Required</sup> <a name="sourceAlarms" id="cdk-monitoring-constructs.MonitoringFacade.cloneAlarms.parameter.sourceAlarms"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>[]
+
+The alarms that should be used as sources for the clones.
+
+---
+
+###### `cloneFunction`<sup>Required</sup> <a name="cloneFunction" id="cdk-monitoring-constructs.MonitoringFacade.cloneAlarms.parameter.cloneFunction"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmCloneFunction">AlarmCloneFunction</a>
+
+A function that will accept a source alarm and determine whether and how a new alarm should be cloned from it.
+
+---
+
 ##### `createCompositeAlarmUsingDisambiguator` <a name="createCompositeAlarmUsingDisambiguator" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator"></a>
 
 ```typescript
@@ -1401,11 +1428,27 @@ tag to filter alarms by.
 
 ---
 
+##### `createdCompositeAlarms` <a name="createdCompositeAlarms" id="cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarms"></a>
+
+```typescript
+public createdCompositeAlarms(): CompositeAlarm[]
+```
+
+Returns the added composite alarms.
+
 ##### ~~`createdDashboard`~~ <a name="createdDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdDashboard"></a>
 
 ```typescript
 public createdDashboard(): Dashboard
 ```
+
+##### `createdDashboardSegments` <a name="createdDashboardSegments" id="cdk-monitoring-constructs.MonitoringFacade.createdDashboardSegments"></a>
+
+```typescript
+public createdDashboardSegments(): IDashboardSegment | IDynamicDashboardSegment[]
+```
+
+Returns all the added segments.
 
 ##### `createdMonitorings` <a name="createdMonitorings" id="cdk-monitoring-constructs.MonitoringFacade.createdMonitorings"></a>
 
@@ -3366,6 +3409,108 @@ public readonly overrideAnnotationVisibility: boolean;
 
 ---
 
+### AlarmCloneFunction <a name="AlarmCloneFunction" id="cdk-monitoring-constructs.AlarmCloneFunction"></a>
+
+A function that, when given an alarm, returns modified inputs that can be used to create additional alarms, slightly adjusted from the original one.
+
+The function can be used to clone alarms.
+
+Implementers of this function can use the original alarm configuration to specify a new alarm,
+or they can return undefined to skip the creation of an alarm.
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AlarmCloneFunction.Initializer"></a>
+
+```typescript
+import { AlarmCloneFunction } from 'cdk-monitoring-constructs'
+
+const alarmCloneFunction: AlarmCloneFunction = { ... }
+```
+
+
+### AlarmCreateDefinition <a name="AlarmCreateDefinition" id="cdk-monitoring-constructs.AlarmCreateDefinition"></a>
+
+Describes the inputs to a single alarm's creation and configuration.
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AlarmCreateDefinition.Initializer"></a>
+
+```typescript
+import { AlarmCreateDefinition } from 'cdk-monitoring-constructs'
+
+const alarmCreateDefinition: AlarmCreateDefinition = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AlarmCreateDefinition.property.addAlarmProps">addAlarmProps</a></code> | <code><a href="#cdk-monitoring-constructs.AddAlarmProps">AddAlarmProps</a></code> | The requested configuration for the alarm. |
+| <code><a href="#cdk-monitoring-constructs.AlarmCreateDefinition.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | The alarm factory that created the alarm. |
+| <code><a href="#cdk-monitoring-constructs.AlarmCreateDefinition.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.AlarmCreateDefinition.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.AlarmCreateDefinition.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | The original, unadjusted metric on which the alarm was created. |
+
+---
+
+##### `addAlarmProps`<sup>Required</sup> <a name="addAlarmProps" id="cdk-monitoring-constructs.AlarmCreateDefinition.property.addAlarmProps"></a>
+
+```typescript
+public readonly addAlarmProps: AddAlarmProps;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AddAlarmProps">AddAlarmProps</a>
+
+The requested configuration for the alarm.
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.AlarmCreateDefinition.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+The alarm factory that created the alarm.
+
+---
+
+##### `datapointsToAlarm`<sup>Required</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.AlarmCreateDefinition.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `evaluationPeriods`<sup>Required</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.AlarmCreateDefinition.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.AlarmCreateDefinition.property.metric"></a>
+
+```typescript
+public readonly metric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+The original, unadjusted metric on which the alarm was created.
+
+---
+
 ### AlarmFactoryDefaults <a name="AlarmFactoryDefaults" id="cdk-monitoring-constructs.AlarmFactoryDefaults"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AlarmFactoryDefaults.Initializer"></a>
@@ -3978,6 +4123,7 @@ const alarmWithAnnotation: AlarmWithAnnotation = { ... }
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.dedupeString">dedupeString</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.disambiguator">disambiguator</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarm">alarm</a></code> | <code>aws-cdk-lib.aws_cloudwatch.AlarmBase</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmDefinition">alarmDefinition</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmCreateDefinition">AlarmCreateDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmLabel">alarmLabel</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmName">alarmName</a></code> | <code>string</code> | *No description.* |
@@ -4046,6 +4192,16 @@ public readonly alarm: AlarmBase;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.AlarmBase
+
+---
+
+##### `alarmDefinition`<sup>Required</sup> <a name="alarmDefinition" id="cdk-monitoring-constructs.AlarmWithAnnotation.property.alarmDefinition"></a>
+
+```typescript
+public readonly alarmDefinition: AlarmCreateDefinition;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmCreateDefinition">AlarmCreateDefinition</a>
 
 ---
 
@@ -46679,6 +46835,88 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+### ScaleAlarmsProps <a name="ScaleAlarmsProps" id="cdk-monitoring-constructs.ScaleAlarmsProps"></a>
+
+Properties for configuring a function that clones alarms to be scaled by multiplication factors.
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ScaleAlarmsProps.Initializer"></a>
+
+```typescript
+import { ScaleAlarmsProps } from 'cdk-monitoring-constructs'
+
+const scaleAlarmsProps: ScaleAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ScaleAlarmsProps.property.disambiguator">disambiguator</a></code> | <code>string</code> | The disambiguator to assign to the alarms cloned by the function. |
+| <code><a href="#cdk-monitoring-constructs.ScaleAlarmsProps.property.datapointsToAlarmMultiplier">datapointsToAlarmMultiplier</a></code> | <code>number</code> | A multiplication factor to apply to the datapointsToAlarm property of the cloned alarms. |
+| <code><a href="#cdk-monitoring-constructs.ScaleAlarmsProps.property.evaluationPeriodsMultiplier">evaluationPeriodsMultiplier</a></code> | <code>number</code> | A multiplication factor to apply to the `evaluationPeriods` property of the cloned alarms. |
+| <code><a href="#cdk-monitoring-constructs.ScaleAlarmsProps.property.thresholdMultiplier">thresholdMultiplier</a></code> | <code>number</code> | A multiplication factor to apply to the threshold of the cloned alarms. |
+
+---
+
+##### `disambiguator`<sup>Required</sup> <a name="disambiguator" id="cdk-monitoring-constructs.ScaleAlarmsProps.property.disambiguator"></a>
+
+```typescript
+public readonly disambiguator: string;
+```
+
+- *Type:* string
+
+The disambiguator to assign to the alarms cloned by the function.
+
+---
+
+##### `datapointsToAlarmMultiplier`<sup>Optional</sup> <a name="datapointsToAlarmMultiplier" id="cdk-monitoring-constructs.ScaleAlarmsProps.property.datapointsToAlarmMultiplier"></a>
+
+```typescript
+public readonly datapointsToAlarmMultiplier: number;
+```
+
+- *Type:* number
+- *Default:* 1.0
+
+A multiplication factor to apply to the datapointsToAlarm property of the cloned alarms.
+
+When configured with a value less that 1.0, the cloned alarm *may* use a metric with a more
+granular period so that the result will use a reasonable number of datapoints. In this case,
+the `datapointsToAlarm` and `evaluationPeriods` are increased by the same factor that the
+period is decreased. It will also scale `threshold` for metrics using the SUM or SAMPLE_COUNT
+stats.
+
+---
+
+##### `evaluationPeriodsMultiplier`<sup>Optional</sup> <a name="evaluationPeriodsMultiplier" id="cdk-monitoring-constructs.ScaleAlarmsProps.property.evaluationPeriodsMultiplier"></a>
+
+```typescript
+public readonly evaluationPeriodsMultiplier: number;
+```
+
+- *Type:* number
+- *Default:* Same as datapointsToAlarmMultiplier.
+
+A multiplication factor to apply to the `evaluationPeriods` property of the cloned alarms.
+
+---
+
+##### `thresholdMultiplier`<sup>Optional</sup> <a name="thresholdMultiplier" id="cdk-monitoring-constructs.ScaleAlarmsProps.property.thresholdMultiplier"></a>
+
+```typescript
+public readonly thresholdMultiplier: number;
+```
+
+- *Type:* number
+- *Default:* 1.0
+
+A multiplication factor to apply to the threshold of the cloned alarms.
+
+Threshold scaling does not apply to thresholds on anomaly detection alarms.
 
 ---
 
