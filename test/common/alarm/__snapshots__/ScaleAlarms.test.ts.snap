@@ -1,0 +1,2871 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given all inputs, creates cloned monitors with more aggressive properties. 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "MonitoringFacadeMonitoringFacadeDashboardsDashboardBE67AB47": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"# My App Dashboard\\"}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **ImportedRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Count/s < 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Count/s > 1000 for 2 datapoints within 120 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P90 > 750 for 5 datapoints within 25 minutes\\",\\"value\\":750,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"5XX Fault > 10 for 5 datapoints within 25 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Redis-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CPUUtilization\\",{\\"label\\":\\"Cluster CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Engine CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"EngineCPUUtilization\\",{\\"label\\":\\"Cluster Engine CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Engine CPU Utilization > 0.85 for 5 datapoints within 25 minutes\\",\\"value\\":0.85,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Cluster Engine CPU Utilization > 0.7 for 5 datapoints within 25 minutes\\",\\"value\\":0.7,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"FreeableMemory\\",{\\"label\\":\\"Freeable\\"}],[\\"AWS/ElastiCache\\",\\"UnusedMemory\\",{\\"label\\":\\"Unused\\"}],[\\"AWS/ElastiCache\\",\\"SwapUsage\\",{\\"label\\":\\"Swap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrConnections\\",{\\"label\\":\\"Current\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Items\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrItems\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ElastiCache\\",\\"Evictions\\",{\\"label\\":\\"Evictions\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Evictions > 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "MonitoringFacade",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountCriticalC1971DC4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountRollback155ED76E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 13,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1.6,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90CriticalDA6F10BC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 750,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90RollbackD3CE89CE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 13,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 600,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSCritical49F44A12": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 2,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 3600,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSRollback7F44299D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 4,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 900,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 800,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSCriticalF6FF9D38": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Critical",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSRollbackF6B051A7": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Rollback",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 13,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 125,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineCritical4D8650C6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.85,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineRollback83AD3009": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 13,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 60,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.68,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineWarningCA7F3F65": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.7,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLItemsEvictedWarning3BF10FA1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The number of items evicted by the cache is too high.",
+        "AlarmName": "MyApp-Redis-ALL-Items-Evicted-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Evictions",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Evictions",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OnCriticalTopic29118B55": Object {
+      "Properties": Object {
+        "TopicName": "Criticals",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+    "OnWarningTopic4697DA2F": Object {
+      "Properties": Object {
+        "TopicName": "Warnings",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`Given datapointsToAlarm and evaluationPeriods multiplier, creates cloned monitors with more aggressive datapoints to alarm and evaluation periods. 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "MonitoringFacadeMonitoringFacadeDashboardsDashboardBE67AB47": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"# My App Dashboard\\"}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **ImportedRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Count/s < 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Count/s > 1000 for 2 datapoints within 120 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P90 > 750 for 5 datapoints within 25 minutes\\",\\"value\\":750,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"5XX Fault > 10 for 5 datapoints within 25 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Redis-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CPUUtilization\\",{\\"label\\":\\"Cluster CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Engine CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"EngineCPUUtilization\\",{\\"label\\":\\"Cluster Engine CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Engine CPU Utilization > 0.85 for 5 datapoints within 25 minutes\\",\\"value\\":0.85,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Cluster Engine CPU Utilization > 0.7 for 5 datapoints within 25 minutes\\",\\"value\\":0.7,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"FreeableMemory\\",{\\"label\\":\\"Freeable\\"}],[\\"AWS/ElastiCache\\",\\"UnusedMemory\\",{\\"label\\":\\"Unused\\"}],[\\"AWS/ElastiCache\\",\\"SwapUsage\\",{\\"label\\":\\"Swap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrConnections\\",{\\"label\\":\\"Current\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Items\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrItems\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ElastiCache\\",\\"Evictions\\",{\\"label\\":\\"Evictions\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Evictions > 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "MonitoringFacade",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountCriticalC1971DC4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountRollback155ED76E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 13,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90CriticalDA6F10BC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 750,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90RollbackD3CE89CE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 13,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 750,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSCritical49F44A12": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 2,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 3600,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSRollback7F44299D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 4,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 900,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSCriticalF6FF9D38": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Critical",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSRollbackF6B051A7": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Rollback",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 13,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineCritical4D8650C6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.85,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineRollback83AD3009": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 13,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 60,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.85,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineWarningCA7F3F65": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.7,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLItemsEvictedWarning3BF10FA1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The number of items evicted by the cache is too high.",
+        "AlarmName": "MyApp-Redis-ALL-Items-Evicted-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Evictions",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Evictions",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OnCriticalTopic29118B55": Object {
+      "Properties": Object {
+        "TopicName": "Criticals",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+    "OnWarningTopic4697DA2F": Object {
+      "Properties": Object {
+        "TopicName": "Warnings",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`Given datapointsToAlarm multiplier, creates cloned monitors with more aggressive datapoints to alarm and evaluation periods. 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "MonitoringFacadeMonitoringFacadeDashboardsDashboardBE67AB47": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"# My App Dashboard\\"}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **ImportedRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Count/s < 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Count/s > 1000 for 2 datapoints within 120 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P90 > 750 for 5 datapoints within 25 minutes\\",\\"value\\":750,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"5XX Fault > 10 for 5 datapoints within 25 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Redis-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CPUUtilization\\",{\\"label\\":\\"Cluster CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Engine CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"EngineCPUUtilization\\",{\\"label\\":\\"Cluster Engine CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Engine CPU Utilization > 0.85 for 5 datapoints within 25 minutes\\",\\"value\\":0.85,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Cluster Engine CPU Utilization > 0.7 for 5 datapoints within 25 minutes\\",\\"value\\":0.7,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"FreeableMemory\\",{\\"label\\":\\"Freeable\\"}],[\\"AWS/ElastiCache\\",\\"UnusedMemory\\",{\\"label\\":\\"Unused\\"}],[\\"AWS/ElastiCache\\",\\"SwapUsage\\",{\\"label\\":\\"Swap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrConnections\\",{\\"label\\":\\"Current\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Items\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrItems\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ElastiCache\\",\\"Evictions\\",{\\"label\\":\\"Evictions\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Evictions > 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "MonitoringFacade",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountCriticalC1971DC4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountRollback155ED76E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 8,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90CriticalDA6F10BC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 750,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90RollbackD3CE89CE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 8,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 750,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSCritical49F44A12": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 2,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 3600,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSRollback7F44299D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 2,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 900,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSCriticalF6FF9D38": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Critical",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSRollbackF6B051A7": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Rollback",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 8,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineCritical4D8650C6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.85,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineRollback83AD3009": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "EvaluationPeriods": 8,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 60,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.85,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineWarningCA7F3F65": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.7,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLItemsEvictedWarning3BF10FA1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The number of items evicted by the cache is too high.",
+        "AlarmName": "MyApp-Redis-ALL-Items-Evicted-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Evictions",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Evictions",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OnCriticalTopic29118B55": Object {
+      "Properties": Object {
+        "TopicName": "Criticals",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+    "OnWarningTopic4697DA2F": Object {
+      "Properties": Object {
+        "TopicName": "Warnings",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`Given threshold multiplier greater than 1.0, creates cloned monitors with more lax thresholds. 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "MonitoringFacadeMonitoringFacadeDashboardsDashboardBE67AB47": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"# My App Dashboard\\"}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **ImportedRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Count/s < 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Count/s > 1000 for 2 datapoints within 120 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P90 > 750 for 5 datapoints within 25 minutes\\",\\"value\\":750,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"5XX Fault > 10 for 5 datapoints within 25 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Redis-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CPUUtilization\\",{\\"label\\":\\"Cluster CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Engine CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"EngineCPUUtilization\\",{\\"label\\":\\"Cluster Engine CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Engine CPU Utilization > 0.85 for 5 datapoints within 25 minutes\\",\\"value\\":0.85,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Cluster Engine CPU Utilization > 0.7 for 5 datapoints within 25 minutes\\",\\"value\\":0.7,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"FreeableMemory\\",{\\"label\\":\\"Freeable\\"}],[\\"AWS/ElastiCache\\",\\"UnusedMemory\\",{\\"label\\":\\"Unused\\"}],[\\"AWS/ElastiCache\\",\\"SwapUsage\\",{\\"label\\":\\"Swap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrConnections\\",{\\"label\\":\\"Current\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Items\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrItems\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ElastiCache\\",\\"Evictions\\",{\\"label\\":\\"Evictions\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Evictions > 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "MonitoringFacade",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountCriticalC1971DC4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountRollback155ED76E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 15,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90CriticalDA6F10BC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 750,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90RollbackD3CE89CE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1125,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSCritical49F44A12": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 2,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 3600,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSRollback7F44299D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 2,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 3600,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1500,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSCriticalF6FF9D38": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Critical",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSRollbackF6B051A7": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Rollback",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 66.66666666666666,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineCritical4D8650C6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.85,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineRollback83AD3009": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1.275,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineWarningCA7F3F65": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.7,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLItemsEvictedWarning3BF10FA1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The number of items evicted by the cache is too high.",
+        "AlarmName": "MyApp-Redis-ALL-Items-Evicted-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Evictions",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Evictions",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OnCriticalTopic29118B55": Object {
+      "Properties": Object {
+        "TopicName": "Criticals",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+    "OnWarningTopic4697DA2F": Object {
+      "Properties": Object {
+        "TopicName": "Warnings",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`Given threshold multiplier, creates cloned monitors with more aggressive thresholds. 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "MonitoringFacadeMonitoringFacadeDashboardsDashboardBE67AB47": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"# My App Dashboard\\"}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"markdown\\":\\"### API Gateway Endpoint **ImportedRestApi prod**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Count/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/ApiGateway\\",\\"Count\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Count/s < 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Count/s > 1000 for 2 datapoints within 120 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/ApiGateway\\",\\"Latency\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"P90 > 750 for 5 datapoints within 25 minutes\\",\\"value\\":750,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"5XX Fault > 10 for 5 datapoints within 25 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ApiGateway\\",\\"4XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"4XX Error (avg)\\"}],[\\"AWS/ApiGateway\\",\\"5XXError\\",\\"ApiName\\",\\"ImportedRestApi\\",\\"Stage\\",\\"prod\\",{\\"label\\":\\"5XX Fault (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### ElastiCache Cluster **Redis-ALL**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CPUUtilization\\",{\\"label\\":\\"Cluster CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":11,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Engine CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"EngineCPUUtilization\\",{\\"label\\":\\"Cluster Engine CPU Utilization\\",\\"stat\\":\\"Maximum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Engine CPU Utilization > 0.85 for 5 datapoints within 25 minutes\\",\\"value\\":0.85,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Cluster Engine CPU Utilization > 0.7 for 5 datapoints within 25 minutes\\",\\"value\\":0.7,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"FreeableMemory\\",{\\"label\\":\\"Freeable\\"}],[\\"AWS/ElastiCache\\",\\"UnusedMemory\\",{\\"label\\":\\"Unused\\"}],[\\"AWS/ElastiCache\\",\\"SwapUsage\\",{\\"label\\":\\"Swap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrConnections\\",{\\"label\\":\\"Current\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Items\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/ElastiCache\\",\\"CurrItems\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/ElastiCache\\",\\"Evictions\\",{\\"label\\":\\"Evictions\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Evictions > 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "MonitoringFacade",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountCriticalC1971DC4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodFaultCountRollback155ED76E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault count is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Fault-Count-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "5XX Fault",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "5XXError",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 9,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90CriticalDA6F10BC": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 750,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodLatencyP90RollbackD3CE89CE": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-Latency-P90-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 675,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSCritical49F44A12": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 2,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 3600,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMaxTPSRollback7F44299D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too high.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MaxTPS-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 2,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 3600,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 900,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSCriticalF6FF9D38": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Critical",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppImportedRestApiprodMinTPSRollbackF6B051A7": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-ImportedRestApi-prod-MinTPS-Rollback",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "Count/s",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "ApiName",
+                    "Value": "ImportedRestApi",
+                  },
+                  Object {
+                    "Name": "Stage",
+                    "Value": "prod",
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 111.11111111111111,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineCritical4D8650C6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnCriticalTopic29118B55",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.85,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineRollback83AD3009": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Rollback",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.765,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLCPUUsageRedisEngineWarningCA7F3F65": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The CPU usage is too high.",
+        "AlarmName": "MyApp-Redis-ALL-CPU-Usage-RedisEngine-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Cluster Engine CPU Utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "EngineCPUUtilization",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.7,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MonitoringFacadeMyAppRedisALLItemsEvictedWarning3BF10FA1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnWarningTopic4697DA2F",
+          },
+        ],
+        "AlarmDescription": "The number of items evicted by the cache is too high.",
+        "AlarmName": "MyApp-Redis-ALL-Items-Evicted-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Evictions",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "Evictions",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OnCriticalTopic29118B55": Object {
+      "Properties": Object {
+        "TopicName": "Criticals",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+    "OnWarningTopic4697DA2F": Object {
+      "Properties": Object {
+        "TopicName": "Warnings",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

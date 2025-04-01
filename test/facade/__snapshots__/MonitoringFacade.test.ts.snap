@@ -1,5 +1,522 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`test of defaults Given clone function, creates cloned monitors and returns them. 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "MyAppFacadeMyAppFacadeDashboardsDashboard951173E0": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"# My App Dashboard\\"}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"markdown\\":\\"### Dynamo Table **[ImportedTable](https://",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ".console.aws.amazon.com/dynamodb/home?region=",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "#tables:selected=MyTableName)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Read Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_rcu_sum/PERIOD(consumed_rcu_sum)\\",\\"id\\":\\"consumed_read_cap\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedReadCapacityUnits\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"MyTableName\\",{\\"label\\":\\"Provisioned\\",\\"id\\":\\"provisioned_read_cap\\"}],[{\\"label\\":\\"Utilization\\",\\"expression\\":\\"100*(consumed_read_cap/provisioned_read_cap)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":5,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Consumed\\",\\"expression\\":\\"consumed_wcu_sum/PERIOD(consumed_wcu_sum)\\",\\"id\\":\\"consumed_write_cap\\"}],[\\"AWS/DynamoDB\\",\\"ConsumedWriteCapacityUnits\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"MyTableName\\",{\\"label\\":\\"Provisioned\\",\\"id\\":\\"provisioned_write_cap\\"}],[{\\"label\\":\\"Utilization\\",\\"expression\\":\\"100*(consumed_write_cap/provisioned_write_cap)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":9,\\"height\\":6,\\"x\\":6,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (Average)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/DynamoDB\\\\\\",\\\\\\"TableName\\\\\\",\\\\\\"Operation\\\\\\"} \\\\\\"TableName\\\\\\"=\\\\\\"MyTableName\\\\\\" MetricName=\\\\\\"SuccessfulRequestLatency\\\\\\"', 'Average', 300)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"GetItem > 10000 for 5 datapoints within 25 minutes\\",\\"value\\":10000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"GetItem > 5000 for 5 datapoints within 25 minutes\\",\\"value\\":5000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}},\\"legend\\":{\\"position\\":\\"right\\"}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":6,\\"x\\":15,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throttles\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Read\\",\\"expression\\":\\"FILL(readThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"ReadThrottleEvents\\",\\"TableName\\",\\"MyTableName\\",{\\"label\\":\\"Read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"MyTableName\\",{\\"label\\":\\"Write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 100 for 5 datapoints within 25 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":2,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"System Errors\\",\\"expression\\":\\"systemErrorGetItem+systemErrorBatchGetItem+systemErrorScan+systemErrorQuery+systemErrorGetRecords+systemErrorPutItem+systemErrorDeleteItem+systemErrorUpdateItem+systemErrorBatchWriteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetItem\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorScan\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorQuery\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetRecords\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorPutItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorDeleteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorUpdateItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"MyTableName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchWriteItem\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[XaXrImportedFunction](https://",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ".console.aws.amazon.com/lambda/home?region=",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "#/functions/MyFunction)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":9,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 1 for 5 datapoints within 25 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS < 5 for 5 datapoints within 25 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":9,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":9,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Faults (avg) > 0.5 for 5 datapoints within 25 minutes\\",\\"value\\":0.5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Faults (avg) > 0.25 for 5 datapoints within 25 minutes\\",\\"value\\":0.25,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":9,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Throttles (avg)\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":14,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":14,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":19,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"MyFunction\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "MyAppFacade",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "MyAppFacadeMyAppImportedTableLatencyAverageGetItemCriticalCE2E24AD": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnAlarmTopicF22649A2",
+          },
+        ],
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "MyApp-ImportedTable-Latency-Average-GetItem-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "GetItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "GetItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": "MyTableName",
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 10000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppImportedTableLatencyAverageGetItemUpperBoundCriticalD9F38439": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Cloned alarm of Average latency is too high.",
+        "AlarmName": "MyApp-ImportedTable-Latency-Average-GetItem-UpperBoundCritical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 4,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "GetItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "GetItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": "MyTableName",
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 11000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppImportedTableLatencyAverageGetItemWarning6B092EC9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "MyApp-ImportedTable-Latency-Average-GetItem-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "GetItem",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Operation",
+                    "Value": "GetItem",
+                  },
+                  Object {
+                    "Name": "TableName",
+                    "Value": "MyTableName",
+                  },
+                ],
+                "MetricName": "SuccessfulRequestLatency",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppImportedTableReadThrottledEventsCritical1A15FCE5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnAlarmTopicF22649A2",
+          },
+        ],
+        "AlarmDescription": "Read throttled events above threshold.",
+        "AlarmName": "MyApp-ImportedTable-Read-Throttled-Events-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(readThrottles,0)",
+            "Id": "expr_1",
+            "Label": "Read",
+          },
+          Object {
+            "Id": "readThrottles",
+            "Label": "Read",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TableName",
+                    "Value": "MyTableName",
+                  },
+                ],
+                "MetricName": "ReadThrottleEvents",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppImportedTableReadThrottledEventsUpperBoundCritical2562AD69": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Cloned alarm of Read throttled events above threshold.",
+        "AlarmName": "MyApp-ImportedTable-Read-Throttled-Events-UpperBoundCritical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 4,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(readThrottles,0)",
+            "Id": "expr_1",
+            "Label": "Read",
+          },
+          Object {
+            "Id": "readThrottles",
+            "Label": "Read",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "TableName",
+                    "Value": "MyTableName",
+                  },
+                ],
+                "MetricName": "ReadThrottleEvents",
+                "Namespace": "AWS/DynamoDB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 110.00000000000001,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppXaXrImportedFunctionFaultRateCritical7D4BE91C": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnAlarmTopicF22649A2",
+          },
+        ],
+        "AlarmDescription": "Fault rate is too high.",
+        "AlarmName": "MyApp-XaXrImportedFunction-Fault-Rate-Critical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Faults (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": "MyFunction",
+                  },
+                ],
+                "MetricName": "Errors",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppXaXrImportedFunctionFaultRateUpperBoundCriticalC439FCAA": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Cloned alarm of Fault rate is too high.",
+        "AlarmName": "MyApp-XaXrImportedFunction-Fault-Rate-UpperBoundCritical",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 4,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Faults (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": "MyFunction",
+                  },
+                ],
+                "MetricName": "Errors",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.55,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppXaXrImportedFunctionFaultRateWarning46056A2E": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Fault rate is too high.",
+        "AlarmName": "MyApp-XaXrImportedFunction-Fault-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Faults (avg)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": "MyFunction",
+                  },
+                ],
+                "MetricName": "Errors",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 0.25,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppXaXrImportedFunctionMinTPSCritical73D97A1A": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmActions": Array [
+          Object {
+            "Ref": "OnAlarmTopicF22649A2",
+          },
+        ],
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-XaXrImportedFunction-MinTPS-Critical",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "TPS",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Invocations",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": "MyFunction",
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "MyAppFacadeMyAppXaXrImportedFunctionMinTPSWarning04AB2576": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TPS is too low.",
+        "AlarmName": "MyApp-XaXrImportedFunction-MinTPS-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(requests,0) / PERIOD(requests)",
+            "Id": "expr_1",
+            "Label": "TPS",
+          },
+          Object {
+            "Id": "requests",
+            "Label": "Invocations",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FunctionName",
+                    "Value": "MyFunction",
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OnAlarmTopicF22649A2": Object {
+      "Properties": Object {
+        "TopicName": "Alarm",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`test of defaults typical usage 1`] = `
 Object {
   "Parameters": Object {
