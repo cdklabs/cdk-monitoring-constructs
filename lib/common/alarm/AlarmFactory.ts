@@ -62,6 +62,7 @@ export interface AlarmWithAnnotation extends AlarmMetadata {
   readonly alarmNameSuffix: string;
   readonly alarmLabel: string;
   readonly alarmDescription: string;
+  readonly alarmDefinition: AlarmCreateDefinition;
   readonly alarmRuleWhenOk: IAlarmRule;
   readonly alarmRuleWhenAlarming: IAlarmRule;
   readonly alarmRuleWhenInsufficientData: IAlarmRule;
@@ -279,6 +280,36 @@ export interface AddAlarmProps {
    * @default - no adjuster
    */
   readonly metricAdjuster?: IMetricAdjuster;
+}
+
+/**
+ * Describes the inputs to a single alarm's creation and configuration.
+ */
+export interface AlarmCreateDefinition {
+  /**
+   * The original, unadjusted metric on which the alarm was created.
+   */
+  readonly metric: MetricWithAlarmSupport;
+
+  /**
+   * The requested configuration for the alarm.
+   */
+  readonly addAlarmProps: AddAlarmProps;
+
+  /**
+   * Number of breaches required to transition into an ALARM state.
+   */
+  readonly datapointsToAlarm: number;
+
+  /**
+   * Number of periods to consider when checking the number of breaching datapoints.
+   */
+  readonly evaluationPeriods: number;
+
+  /**
+   * The alarm factory that created the alarm.
+   */
+  readonly alarmFactory: AlarmFactory;
 }
 
 /**
@@ -769,6 +800,13 @@ export class AlarmFactory {
       alarmNameSuffix,
       alarmLabel,
       alarmDescription,
+      alarmDefinition: {
+        metric,
+        addAlarmProps: props,
+        datapointsToAlarm,
+        evaluationPeriods,
+        alarmFactory: this,
+      },
       customTags: props.customTags,
       customParams: props.customParams,
       alarmRuleWhenOk: AlarmRule.fromAlarm(alarm, AlarmState.OK),
