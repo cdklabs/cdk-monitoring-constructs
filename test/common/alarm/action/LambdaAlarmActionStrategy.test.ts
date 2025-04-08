@@ -9,7 +9,7 @@ test("snapshot test: Lambda function", () => {
   const stack = new Stack();
   const onAlarmFunction = new Function(stack, "alarmLambda", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_18_X,
+    runtime: Runtime.NODEJS_LATEST,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -28,7 +28,7 @@ test("snapshot test: Lambda alias", () => {
   const stack = new Stack();
   const onAlarmFunction = new Function(stack, "alarmLambda", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_18_X,
+    runtime: Runtime.NODEJS_LATEST,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -48,7 +48,7 @@ test("snapshot test: Lambda version", () => {
   const stack = new Stack();
   const onAlarmFunction = new Function(stack, "alarmLambda", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_18_X,
+    runtime: Runtime.NODEJS_LATEST,
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
