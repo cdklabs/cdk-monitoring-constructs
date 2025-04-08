@@ -34,7 +34,7 @@ export class SecretsManagerMetricsPublisher extends Construct {
         "Custom metrics publisher for SecretsManager Secrets (cdk-monitoring-constructs)",
       handler: "index.handler",
       memorySize: 128,
-      runtime: Runtime.NODEJS_18_X,
+      runtime: Runtime.NODEJS_LATEST,
       timeout: Duration.seconds(60),
       logRetention: RetentionDays.ONE_DAY,
     });
