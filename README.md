@@ -140,10 +140,12 @@ export class MonitoringStack extends DeploymentStack {
 
 ### Customize actions
 
-Alarms should have an action setup, otherwise they are not very useful. Currently, we support notifying an SNS topic.
+Alarms should have actions set up, otherwise they are not very useful.
+
+Example of notifying an SNS topic:
 
 ```ts
-const onAlarmTopic = new Topic(this, "AlarmTopic");
+declare const onAlarmTopic: ITopic;
 
 const monitoring = new MonitoringFacade(this, "Monitoring", {
   // ...other props
@@ -167,6 +169,17 @@ monitoring
       }
     }
   });
+```
+
+Supported actions can be found [here](https://github.com/cdklabs/cdk-monitoring-constructs/tree/main/lib/common/alarm/action), including SNS and Lambda.
+
+You can also compose multiple actions using `multipleActions`:
+
+```ts
+declare const onAlarmTopic: ITopic;
+declare const onAlarmFunction: IFunction;
+
+const action: IAlarmActionStrategy = multipleActions(notifySns(onAlarmTopic), triggerLambda(onAlarmFunction));
 ```
 
 ### Custom metrics
