@@ -387,6 +387,25 @@ MathExpression {
 }
 `;
 
+exports[`snapshot test: createMetricSearch 5`] = `
+MathExpression {
+  "color": undefined,
+  "expression": "SEARCH('{\\"DummyNamespaceOverride1\\",\\"DummyNamespaceOverride2\\",\\"DummyNamespaceOverride3\\",\\"DummyDimension\\"} \\"DummyDimension\\"=\\"DummyDimensionValue\\" MyMetricPrefix-', 'Sum', 300)",
+  "label": " ",
+  "period": Duration {
+    "amount": 5,
+    "unit": TimeUnit {
+      "inMillis": 60000,
+      "isoLabel": "M",
+      "label": "minutes",
+    },
+  },
+  "searchAccount": undefined,
+  "searchRegion": undefined,
+  "usingMetrics": Object {},
+}
+`;
+
 exports[`snapshot test: global defaults with account 1`] = `
 Object {
   "metric": Metric {

@@ -149,11 +149,14 @@ export class MetricFactory {
     const finalPeriod =
       period ?? this.globalDefaults.period ?? DefaultMetricPeriod;
     const searchNamespace = this.getNamespaceWithFallback(namespace);
+    const namespacesWithQuotations = searchNamespace
+      .split(",")
+      .map((namespace) => `"${namespace.trim()}"`);
     const keysWithQuotations = Object.keys(dimensionsMap).map(
       (key) => `"${key}"`,
     );
     const namespacePlusDimensionKeys = [
-      `"${searchNamespace}"`,
+      ...namespacesWithQuotations,
       ...keysWithQuotations,
     ].join(",");
     const metricSchema = `{${namespacePlusDimensionKeys}}`;
