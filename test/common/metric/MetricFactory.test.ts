@@ -328,6 +328,15 @@ test("snapshot test: createMetricSearch", () => {
   );
 
   expect(metricWithEmptyDimensions).toMatchSnapshot();
+
+  const metricWithMultipleNamespaces = metricFactory.createMetricSearch(
+    "MyMetricPrefix-",
+    { DummyDimension: "DummyDimensionValue" },
+    MetricStatistic.SUM,
+    "DummyNamespaceOverride1, DummyNamespaceOverride2 ,DummyNamespaceOverride3",
+  );
+
+  expect(metricWithMultipleNamespaces).toMatchSnapshot();
 });
 
 test("snapshot test: createMetricAnomalyDetection", () => {
