@@ -80833,6 +80833,7 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 | <code><a href="#cdk-monitoring-constructs.GraphWidgetType.PIE">PIE</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GraphWidgetType.SINGLE_VALUE">SINGLE_VALUE</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA">STACKED_AREA</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GraphWidgetType.TABLE">TABLE</a></code> | *No description.* |
 
 ---
 
@@ -80857,6 +80858,11 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 ##### `STACKED_AREA` <a name="STACKED_AREA" id="cdk-monitoring-constructs.GraphWidgetType.STACKED_AREA"></a>
+
+---
+
+
+##### `TABLE` <a name="TABLE" id="cdk-monitoring-constructs.GraphWidgetType.TABLE"></a>
 
 ---
 
