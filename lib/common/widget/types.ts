@@ -4,6 +4,7 @@ import {
   GraphWidgetView,
   IWidget,
   SingleValueWidget,
+  TableWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
 
 export enum GraphWidgetType {
@@ -12,6 +13,7 @@ export enum GraphWidgetType {
   PIE = "Pie",
   SINGLE_VALUE = "SingleValue",
   STACKED_AREA = "StackedArea",
+  TABLE = "Table",
 }
 
 /**
@@ -50,6 +52,12 @@ export function createGraphWidget(
       return new GraphWidget({
         ...props,
         stacked: true,
+      });
+
+    case GraphWidgetType.TABLE:
+      return new TableWidget({
+        ...props,
+        metrics: [...(props.left ?? []), ...(props.right ?? [])],
       });
 
     default:

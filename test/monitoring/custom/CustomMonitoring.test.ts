@@ -188,6 +188,14 @@ test("snapshot test", () => {
           new Metric({ metricName: "DummyMetric41", namespace, dimensionsMap }),
         ],
       },
+      {
+        title: "DummyGroup5",
+        graphWidgetType: GraphWidgetType.TABLE,
+        metrics: [
+          new Metric({ metricName: "DummyMetric50", namespace, dimensionsMap }),
+          new Metric({ metricName: "DummyMetric51", namespace, dimensionsMap }),
+        ],
+      },
     ],
     useCreatedAlarms: {
       consume(alarms) {
