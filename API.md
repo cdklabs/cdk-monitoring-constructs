@@ -16751,6 +16751,7 @@ const dynamicDashboardConfiguration: DynamicDashboardConfiguration = { ... }
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.periodOverride">periodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.range">range</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.renderingPreference">renderingPreference</a></code> | <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a></code> | Dashboard rendering preference. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardConfiguration.property.variables">variables</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IVariable[]</code> | Dashboard variables to include in the dashboards. |
 
 ---
 
@@ -16805,6 +16806,19 @@ public readonly renderingPreference: DashboardRenderingPreference;
 - *Default:* DashboardRenderingPreference.INTERACTIVE_ONLY
 
 Dashboard rendering preference.
+
+---
+
+##### `variables`<sup>Optional</sup> <a name="variables" id="cdk-monitoring-constructs.DynamicDashboardConfiguration.property.variables"></a>
+
+```typescript
+public readonly variables: IVariable[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IVariable[]
+- *Default:* No variables
+
+Dashboard variables to include in the dashboards.
 
 ---
 
@@ -38720,6 +38734,7 @@ const monitoringDashboardsProps: MonitoringDashboardsProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.renderingPreference">renderingPreference</a></code> | <code><a href="#cdk-monitoring-constructs.DashboardRenderingPreference">DashboardRenderingPreference</a></code> | Dashboard rendering preference. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardPeriodOverride">summaryDashboardPeriodOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.PeriodOverride</code> | Period override for the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.summaryDashboardRange">summaryDashboardRange</a></code> | <code>aws-cdk-lib.Duration</code> | Range of the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringDashboardsProps.property.variables">variables</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IVariable[]</code> | Dashboard variables to include in the dashboards. |
 
 ---
 
@@ -38846,6 +38861,19 @@ public readonly summaryDashboardRange: Duration;
 - *Default:* 14 days
 
 Range of the summary dashboard.
+
+---
+
+##### `variables`<sup>Optional</sup> <a name="variables" id="cdk-monitoring-constructs.MonitoringDashboardsProps.property.variables"></a>
+
+```typescript
+public readonly variables: IVariable[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IVariable[]
+- *Default:* No variables
+
+Dashboard variables to include in the dashboards.
 
 ---
 

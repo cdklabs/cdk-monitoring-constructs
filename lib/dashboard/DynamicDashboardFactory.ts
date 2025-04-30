@@ -3,6 +3,7 @@ import {
   Dashboard,
   DashboardProps,
   PeriodOverride,
+  IVariable,
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 
@@ -41,6 +42,13 @@ export interface DynamicDashboardConfiguration {
    * @default - respect individual graphs (PeriodOverride.INHERIT)
    */
   readonly periodOverride?: PeriodOverride;
+
+  /**
+   * Dashboard variables to include in the dashboards.
+   *
+   * @default - No variables
+   */
+  readonly variables?: IVariable[];
 }
 
 export interface MonitoringDynamicDashboardsProps {
@@ -100,6 +108,7 @@ export class DynamicDashboardFactory
           start,
           periodOverride:
             dashboardConfig.periodOverride ?? PeriodOverride.INHERIT,
+          variables: dashboardConfig.variables,
         },
       );
 
