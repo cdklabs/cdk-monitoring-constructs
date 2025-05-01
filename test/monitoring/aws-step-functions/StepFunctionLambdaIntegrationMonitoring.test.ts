@@ -1,6 +1,10 @@
 import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
-import { Function, InlineCode, Runtime } from "aws-cdk-lib/aws-lambda";
+import {
+  determineLatestNodeRuntime,
+  Function,
+  InlineCode,
+} from "aws-cdk-lib/aws-lambda";
 
 import {
   AlarmWithAnnotation,
@@ -16,7 +20,7 @@ test("snapshot test: no alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -37,7 +41,7 @@ test("snapshot test: all alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });

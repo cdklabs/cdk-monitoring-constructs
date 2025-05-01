@@ -2,10 +2,10 @@ import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import { Color, ComparisonOperator } from "aws-cdk-lib/aws-cloudwatch";
 import {
+  determineLatestNodeRuntime,
   Function,
   InlineCode,
   LayerVersion,
-  Runtime,
 } from "aws-cdk-lib/aws-lambda";
 
 import { AlarmWithAnnotation, LambdaFunctionMonitoring } from "../../../lib";
@@ -19,7 +19,7 @@ test("snapshot test: default iterator and no alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -49,7 +49,7 @@ test("snapshot test: non-iterator and no alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -72,7 +72,7 @@ test("snapshot test: all alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -190,7 +190,7 @@ test("snapshot test: all alarms", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
     layers: [
@@ -230,7 +230,7 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -376,7 +376,7 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -519,7 +519,7 @@ test("throws error if attempting to create iterator age alarm if not an iterator
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -549,7 +549,7 @@ test("throws error if attempting to create offsetLag alarm if not an offsetLag L
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -578,7 +578,7 @@ test("doesn't create alarms for enhanced Lambda Insights metrics if not enabled"
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -689,7 +689,7 @@ test("snapshot test: latency alarms with percentage of timeout with specific tim
 
   const lambdaFunction = new Function(stack, "Function", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_18_X,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
     timeout: Duration.seconds(100),
