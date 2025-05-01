@@ -1,5 +1,9 @@
 import { Stack } from "aws-cdk-lib";
-import { Code, Function, Runtime } from "aws-cdk-lib/aws-lambda";
+import {
+  Code,
+  determineLatestNodeRuntime,
+  Function,
+} from "aws-cdk-lib/aws-lambda";
 
 import { CustomWidget } from "../../../lib/dashboard/widget/CustomWidget";
 
@@ -7,8 +11,7 @@ test("widget", () => {
   const stack = new Stack();
 
   const handler = new Function(stack, "Function", {
-    // execution environment
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     // code loaded from "lambda" directory
     code: Code.fromInline(
       'exports.handler = function(event, ctx, cb) { return cb(null, "Hello World!"); }',

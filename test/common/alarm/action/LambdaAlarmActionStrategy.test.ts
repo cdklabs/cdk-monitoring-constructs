@@ -1,7 +1,11 @@
 import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import { Alarm, Metric } from "aws-cdk-lib/aws-cloudwatch";
-import { Function, InlineCode, Runtime } from "aws-cdk-lib/aws-lambda";
+import {
+  determineLatestNodeRuntime,
+  Function,
+  InlineCode,
+} from "aws-cdk-lib/aws-lambda";
 
 import { LambdaAlarmActionStrategy } from "../../../../lib";
 
@@ -9,7 +13,7 @@ test("snapshot test: Lambda function", () => {
   const stack = new Stack();
   const onAlarmFunction = new Function(stack, "alarmLambda", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -28,7 +32,7 @@ test("snapshot test: Lambda alias", () => {
   const stack = new Stack();
   const onAlarmFunction = new Function(stack, "alarmLambda", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });
@@ -48,7 +52,7 @@ test("snapshot test: Lambda version", () => {
   const stack = new Stack();
   const onAlarmFunction = new Function(stack, "alarmLambda", {
     functionName: "DummyLambda",
-    runtime: Runtime.NODEJS_LATEST,
+    runtime: determineLatestNodeRuntime(stack),
     code: InlineCode.fromInline("{}"),
     handler: "Dummy::handler",
   });

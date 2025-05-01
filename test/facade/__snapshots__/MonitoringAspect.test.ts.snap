@@ -3582,7 +3582,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
         "Timeout": 60,
       },
       "Type": "AWS::Lambda::Function",
