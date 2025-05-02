@@ -2,6 +2,7 @@
 
 exports[`snapshot test: all alarms 1`] = `
 Object {
+  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -204,7 +205,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -976,6 +985,7 @@ Object {
 
 exports[`snapshot test: all alarms 2`] = `
 Object {
+  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -1003,7 +1013,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1014,7 +1032,7 @@ Object {
         },
         "FunctionVersion": Object {
           "Fn::GetAtt": Array [
-            "FunctionCurrentVersion4E2B22612881a8e13ea008f06ac95a40e1387c5c",
+            "FunctionCurrentVersion4E2B2261eb172f4d56d10a3af9e0cc449c9db5c1",
             "Version",
           ],
         },
@@ -1025,7 +1043,7 @@ Object {
       },
       "Type": "AWS::Lambda::Alias",
     },
-    "FunctionCurrentVersion4E2B22612881a8e13ea008f06ac95a40e1387c5c": Object {
+    "FunctionCurrentVersion4E2B2261eb172f4d56d10a3af9e0cc449c9db5c1": Object {
       "Properties": Object {
         "FunctionName": Object {
           "Ref": "Function76856677",
@@ -1097,6 +1115,7 @@ Object {
 
 exports[`snapshot test: all alarms, alarmPrefix on error dedupeString 1`] = `
 Object {
+  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -1354,7 +1373,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -2342,6 +2369,7 @@ Object {
 
 exports[`snapshot test: all alarms, alarmPrefix on latency dedupeString 1`] = `
 Object {
+  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -2599,7 +2627,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -3587,6 +3623,7 @@ Object {
 
 exports[`snapshot test: default iterator and no alarms 1`] = `
 Object {
+  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -3617,7 +3654,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -4131,6 +4176,7 @@ Object {
 
 exports[`snapshot test: latency alarms with percentage of timeout with specific timeout 1`] = `
 Object {
+  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -4212,7 +4258,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
         "Timeout": 100,
       },
       "Type": "AWS::Lambda::Function",
@@ -4571,6 +4625,7 @@ Object {
 
 exports[`snapshot test: non-iterator and no alarms 1`] = `
 Object {
+  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -4601,7 +4656,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
