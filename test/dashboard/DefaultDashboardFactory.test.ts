@@ -1,6 +1,11 @@
 import { Stack } from "aws-cdk-lib";
-import { Template } from "aws-cdk-lib/assertions";
-import { TextWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { Template, Match } from "aws-cdk-lib/assertions";
+import {
+  TextWidget,
+  DashboardVariable,
+  VariableType,
+  VariableInputType,
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import {
   DashboardRenderingPreference,
@@ -68,4 +73,29 @@ test("throws error if an empty dashboardNamePrefix is passed but dashboard are t
   }).toThrow(
     "A non-empty dashboardNamePrefix is required if dashboards are being created",
   );
+});
+
+test("default dashboards include variables", () => {
+  const stack = new Stack();
+
+  const var1 = new DashboardVariable({
+    id: "env",
+    type: VariableType.PROPERTY,
+    inputType: VariableInputType.INPUT,
+    value: "prod",
+  });
+
+  const factory = new DefaultDashboardFactory(stack, "Dashboards", {
+    dashboardNamePrefix: "DummyDashboard",
+    renderingPreference: DashboardRenderingPreference.INTERACTIVE_ONLY,
+    variables: [var1],
+  });
+
+  expect(factory.anyDashboardCreated).toBe(true);
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties("AWS::CloudWatch::Dashboard", {
+    DashboardBody: Match.stringLikeRegexp('"variables":\\['),
+  });
 });

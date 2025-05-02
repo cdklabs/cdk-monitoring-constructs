@@ -3,6 +3,7 @@ import {
   Dashboard,
   DashboardProps,
   PeriodOverride,
+  IVariable,
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 import { BitmapDashboard } from "./BitmapDashboard";
@@ -66,6 +67,12 @@ export interface MonitoringDashboardsProps {
    * @default - DashboardRenderingPreference.INTERACTIVE_ONLY
    */
   readonly renderingPreference?: DashboardRenderingPreference;
+  /**
+   * Dashboard variables to include in the dashboards.
+   *
+   * @default - No variables
+   */
+  readonly variables?: IVariable[];
 }
 
 export enum DefaultDashboards {
@@ -118,6 +125,7 @@ export class DefaultDashboardFactory
         start: detailStart,
         periodOverride:
           props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
+        variables: props.variables,
       });
       this.dashboards[DefaultDashboards.DETAIL] = this.dashboard;
     }
@@ -131,6 +139,7 @@ export class DefaultDashboardFactory
           start: summaryStart,
           periodOverride:
             props.summaryDashboardPeriodOverride ?? PeriodOverride.INHERIT,
+          variables: props.variables,
         },
       );
       this.dashboards[DefaultDashboards.SUMMARY] = this.summaryDashboard;
@@ -145,6 +154,7 @@ export class DefaultDashboardFactory
           start: detailStart,
           periodOverride:
             props.detailDashboardPeriodOverride ?? PeriodOverride.INHERIT,
+          variables: props.variables,
         },
       );
       this.dashboards[DefaultDashboards.ALARMS] = this.alarmDashboard;

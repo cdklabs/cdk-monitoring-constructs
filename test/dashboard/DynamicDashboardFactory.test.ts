@@ -1,6 +1,12 @@
 import { Duration, Stack } from "aws-cdk-lib";
-import { Template } from "aws-cdk-lib/assertions";
-import { IWidget, TextWidget } from "aws-cdk-lib/aws-cloudwatch";
+import { Template, Match } from "aws-cdk-lib/assertions";
+import {
+  IWidget,
+  TextWidget,
+  DashboardVariable,
+  VariableType,
+  VariableInputType,
+} from "aws-cdk-lib/aws-cloudwatch";
 import { DynamicDashboardFactory, IDynamicDashboardSegment } from "../../lib";
 
 enum TestDashboards {
@@ -73,4 +79,28 @@ test("does not allow reserved dashboard names", () => {
       ],
     });
   }).toThrow("Summary is a reserved name and cannot be used");
+});
+
+test("dynamic dashboards include variables", () => {
+  const stack = new Stack();
+
+  const var1 = new DashboardVariable({
+    id: "env",
+    type: VariableType.PROPERTY,
+    inputType: VariableInputType.INPUT,
+    value: "test",
+  });
+
+  const factory = new DynamicDashboardFactory(stack, "DynamicDashboards", {
+    dashboardNamePrefix: "testPrefix",
+    dashboardConfigs: [{ name: TestDashboards.Dynamic1, variables: [var1] }],
+  });
+
+  factory.addDynamicSegment(new TestSegment());
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties("AWS::CloudWatch::Dashboard", {
+    DashboardBody: Match.stringLikeRegexp('"variables":\\['),
+  });
 });
