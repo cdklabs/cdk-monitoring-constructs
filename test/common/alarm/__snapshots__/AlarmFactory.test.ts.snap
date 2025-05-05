@@ -514,3 +514,131 @@ Object {
   },
 }
 `;
+
+exports[`addCompositeAlarmFromAlarmBases: supports combining metric alarms and composite alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "DummyServiceAlarmsprefixAlarm1F4FCF957": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Testing alarm 1",
+        "AlarmName": "DummyServiceAlarms-prefix-Alarm1",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 6,
+        "EvaluationPeriods": 6,
+        "MetricName": "DummyMetric",
+        "Namespace": "DummyNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyServiceAlarmsprefixAlarm25ADF8B37": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Testing alarm 2",
+        "AlarmName": "DummyServiceAlarms-prefix-Alarm2",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 6,
+        "EvaluationPeriods": 6,
+        "MetricName": "DummyMetric",
+        "Namespace": "DummyNamespace",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 2,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DummyServiceAlarmsprefixFirstLevelBase6385B032": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-FirstLevelBase",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm1F4FCF957",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+    "DummyServiceAlarmsprefixSecondLevelBaseE5D5046F": Object {
+      "Properties": Object {
+        "ActionsEnabled": false,
+        "AlarmDescription": "Composite alarm",
+        "AlarmName": "DummyServiceAlarms-prefix-SecondLevelBase",
+        "AlarmRule": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "(ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixAlarm25ADF8B37",
+                  "Arn",
+                ],
+              },
+              "\\") OR ALARM(\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "DummyServiceAlarmsprefixFirstLevelBase6385B032",
+                  "Arn",
+                ],
+              },
+              "\\"))",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::CompositeAlarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

@@ -821,8 +821,36 @@ export class AlarmFactory {
     };
   }
 
+  /**
+   * Creates a composite alarm from a collection of alarms and composite alarms.
+   *
+   * @param alarms Array of individual alarms to be composed
+   * @param props Customization options for the composite alarm
+   * @param compositeAlarms Optional array of composite alarms to be composed together with regular alarms
+   * @returns Newly created composite alarm
+   */
   addCompositeAlarm(
     alarms: AlarmWithAnnotation[],
+    props: AddCompositeAlarmProps,
+    compositeAlarms: CompositeAlarm[] = [],
+  ): CompositeAlarm {
+    const alarmBases = [
+      ...alarms.map((alarm) => alarm.alarm),
+      ...compositeAlarms,
+    ] as AlarmBase[];
+    return this.addCompositeAlarmFromAlarmBases(alarmBases, props);
+  }
+
+  /**
+   * Creates a composite alarm from a collection of alarm base objects.
+   * This allows creation of composite alarms that include both metric alarms and other composite alarms.
+   *
+   * @param alarms Array of AlarmBase objects (can include both Alarm and CompositeAlarm)
+   * @param props Customization options for the composite alarm
+   * @returns Newly created composite alarm
+   */
+  addCompositeAlarmFromAlarmBases(
+    alarms: AlarmBase[],
     props: AddCompositeAlarmProps,
   ): CompositeAlarm {
     const actionsEnabled = this.determineActionsEnabled(
@@ -840,7 +868,10 @@ export class AlarmFactory {
       props?.documentationLink,
     );
     const dedupeString = this.alarmNamingStrategy.getDedupeString(namingInput);
-    const alarmRule = this.determineCompositeAlarmRule(alarms, props);
+    const alarmRule = this.determineCompositeAlarmRuleFromAlarmBases(
+      alarms,
+      props,
+    );
 
     const alarm = new CompositeAlarm(this.alarmScope, alarmName, {
       compositeAlarmName: alarmName,
@@ -867,8 +898,23 @@ export class AlarmFactory {
   protected determineCompositeAlarmRule(
     alarms: AlarmWithAnnotation[],
     props: AddCompositeAlarmProps,
+    compositeAlarms: CompositeAlarm[] = [],
   ): IAlarmRule {
-    const alarmRules = alarms.map((alarm) => alarm.alarmRuleWhenAlarming);
+    const alarmBases = [
+      ...alarms.map((alarm) => alarm.alarm),
+      ...compositeAlarms,
+    ] as AlarmBase[];
+    return this.determineCompositeAlarmRuleFromAlarmBases(alarmBases, props);
+  }
+
+  protected determineCompositeAlarmRuleFromAlarmBases(
+    alarms: AlarmBase[],
+    props: AddCompositeAlarmProps,
+  ): IAlarmRule {
+    const alarmRules = alarms.map((alarm) =>
+      AlarmRule.fromAlarm(alarm, AlarmState.ALARM),
+    );
+
     const operator = props.compositeOperator ?? CompositeAlarmOperator.OR;
     switch (operator) {
       case CompositeAlarmOperator.AND:

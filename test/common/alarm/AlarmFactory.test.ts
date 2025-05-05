@@ -8,6 +8,7 @@ import {
   Metric,
   Shading,
   TreatMissingData,
+  AlarmBase,
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Topic } from "aws-cdk-lib/aws-sns";
 import { Construct } from "constructs";
@@ -792,4 +793,79 @@ test("addAlarm: custom metric adjuster, applies it and DefaultMetricAdjuster aft
         ?.metricStat as CfnAlarm.MetricStatProperty
     )?.period,
   ).toEqual(Duration.minutes(10).toSeconds());
+});
+
+test("addCompositeAlarmFromAlarmBases: supports combining metric alarms and composite alarms", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: globalAlarmDefaultsWithDisambiguator,
+    localAlarmNamePrefix: "prefix",
+  });
+  const metric = new Metric({
+    namespace: "DummyNamespace",
+    metricName: "DummyMetric",
+  });
+  const alarm1 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm1",
+    alarmDescription: "Testing alarm 1",
+    threshold: 1,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const alarm2 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm2",
+    alarmDescription: "Testing alarm 2",
+    threshold: 2,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+
+  // Extract the underlying AlarmBase objects
+  const alarm1Base: AlarmBase = alarm1.alarm;
+
+  // Create first level composite alarm using the base method
+  const firstLevelComposite = factory.addCompositeAlarmFromAlarmBases(
+    [alarm1Base],
+    {
+      disambiguator: "FirstLevelBase",
+      alarmNameSuffix: "FirstLevelBase",
+    },
+  );
+
+  // Extract the underlying AlarmBase for alarm2
+  const alarm2Base: AlarmBase = alarm2.alarm;
+
+  // Create second level composite alarm that includes a metric alarm and the first level composite
+  factory.addCompositeAlarmFromAlarmBases([alarm2Base, firstLevelComposite], {
+    disambiguator: "SecondLevelBase",
+    alarmNameSuffix: "SecondLevelBase",
+    compositeOperator: CompositeAlarmOperator.OR,
+  });
+
+  // Verify the template
+  const template = Template.fromStack(stack);
+
+  // We should have two metric alarms and two composite alarms
+  template.resourceCountIs("AWS::CloudWatch::Alarm", 2);
+  template.resourceCountIs("AWS::CloudWatch::CompositeAlarm", 2);
+
+  // The first level composite should reference only alarm1
+  template.hasResourceProperties("AWS::CloudWatch::CompositeAlarm", {
+    AlarmName: Match.stringLikeRegexp("-FirstLevelBase$"),
+    AlarmRule: Match.objectLike({
+      "Fn::Join": Match.anyValue(),
+    }),
+  });
+
+  // The second level composite should reference both alarm2 and the first level composite
+  template.hasResourceProperties("AWS::CloudWatch::CompositeAlarm", {
+    AlarmName: Match.stringLikeRegexp("-SecondLevelBase$"),
+    AlarmRule: Match.objectLike({
+      "Fn::Join": Match.anyValue(),
+    }),
+  });
+
+  // Snapshot verification
+  expect(template).toMatchSnapshot();
 });
