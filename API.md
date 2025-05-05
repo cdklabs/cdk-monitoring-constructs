@@ -1062,6 +1062,8 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithDisambiguator">createdAlarmsWithDisambiguator</a></code> | Returns a subset of created alarms that are marked by a specific disambiguator. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdAlarmsWithTag">createdAlarmsWithTag</a></code> | Returns a subset of created alarms that are marked by a specific custom tag. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarms">createdCompositeAlarms</a></code> | Returns the added composite alarms. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarmsWithDisambiguator">createdCompositeAlarmsWithDisambiguator</a></code> | Returns a subset of created composite alarms that are marked by a specific disambiguator. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarmsWithTag">createdCompositeAlarmsWithTag</a></code> | Returns a subset of created composite alarms that are marked by a specific custom tag. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdDashboard">createdDashboard</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdDashboardSegments">createdDashboardSegments</a></code> | Returns all the added segments. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createdMonitorings">createdMonitorings</a></code> | Returns the added segments that subclass {@link Monitoring}. |
@@ -1331,13 +1333,12 @@ A function that will accept a source alarm and determine whether and how a new a
 ##### `createCompositeAlarmUsingDisambiguator` <a name="createCompositeAlarmUsingDisambiguator" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator"></a>
 
 ```typescript
-public createCompositeAlarmUsingDisambiguator(alarmDisambiguator: string, props?: AddCompositeAlarmProps): CompositeAlarm
+public createCompositeAlarmUsingDisambiguator(alarmDisambiguator: string, props?: AddCompositeAlarmProps, allowNestedCompositeAlarms?: boolean): CompositeAlarm
 ```
 
 Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm.
 
-This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-NOTE: This composite alarm is not added among other alarms, so it is not returned by createdAlarms() calls.
+NOTE: This composite alarm is not returned in createdAlarms() calls, use createdCompositeAlarms() instead.
 
 ###### `alarmDisambiguator`<sup>Required</sup> <a name="alarmDisambiguator" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator.parameter.alarmDisambiguator"></a>
 
@@ -1355,16 +1356,26 @@ customization options.
 
 ---
 
+###### `allowNestedCompositeAlarms`<sup>Optional</sup> <a name="allowNestedCompositeAlarms" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingDisambiguator.parameter.allowNestedCompositeAlarms"></a>
+
+- *Type:* boolean
+
+whether to allow nested composite alarms.
+
+If set to true, previously created composite alarms with the matching disambiguator will be included in the composite alarm.
+
+---
+
 ##### `createCompositeAlarmUsingTag` <a name="createCompositeAlarmUsingTag" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag"></a>
 
 ```typescript
-public createCompositeAlarmUsingTag(customTag: string, props?: AddCompositeAlarmProps): CompositeAlarm
+public createCompositeAlarmUsingTag(customTag: string, props?: AddCompositeAlarmProps, allowNestedCompositeAlarms?: boolean): CompositeAlarm
 ```
 
 Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm.
 
-This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-NOTE: This composite alarm is not added among other alarms, so it is not returned by createdAlarms() calls.
+This composite alarm is created with an 'OR' condition so it triggers with any child alarm.
+NOTE: This composite alarm is not returned in createdAlarms() calls, use createdCompositeAlarms() instead.
 
 ###### `customTag`<sup>Required</sup> <a name="customTag" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag.parameter.customTag"></a>
 
@@ -1379,6 +1390,16 @@ tag to filter alarms by.
 - *Type:* <a href="#cdk-monitoring-constructs.AddCompositeAlarmProps">AddCompositeAlarmProps</a>
 
 customization options.
+
+---
+
+###### `allowNestedCompositeAlarms`<sup>Optional</sup> <a name="allowNestedCompositeAlarms" id="cdk-monitoring-constructs.MonitoringFacade.createCompositeAlarmUsingTag.parameter.allowNestedCompositeAlarms"></a>
+
+- *Type:* boolean
+
+whether to allow nested composite alarms.
+
+If set to true, previously created composite alarms with the matching tag will be included in the composite alarm.
 
 ---
 
@@ -1435,6 +1456,38 @@ public createdCompositeAlarms(): CompositeAlarm[]
 ```
 
 Returns the added composite alarms.
+
+##### `createdCompositeAlarmsWithDisambiguator` <a name="createdCompositeAlarmsWithDisambiguator" id="cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarmsWithDisambiguator"></a>
+
+```typescript
+public createdCompositeAlarmsWithDisambiguator(disambiguator: string): CompositeAlarm[]
+```
+
+Returns a subset of created composite alarms that are marked by a specific disambiguator.
+
+###### `disambiguator`<sup>Required</sup> <a name="disambiguator" id="cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarmsWithDisambiguator.parameter.disambiguator"></a>
+
+- *Type:* string
+
+disambiguator to filter alarms by.
+
+---
+
+##### `createdCompositeAlarmsWithTag` <a name="createdCompositeAlarmsWithTag" id="cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarmsWithTag"></a>
+
+```typescript
+public createdCompositeAlarmsWithTag(customTag: string): CompositeAlarm[]
+```
+
+Returns a subset of created composite alarms that are marked by a specific custom tag.
+
+###### `customTag`<sup>Required</sup> <a name="customTag" id="cdk-monitoring-constructs.MonitoringFacade.createdCompositeAlarmsWithTag.parameter.customTag"></a>
+
+- *Type:* string
+
+tag to filter alarms by.
+
+---
 
 ##### ~~`createdDashboard`~~ <a name="createdDashboard" id="cdk-monitoring-constructs.MonitoringFacade.createdDashboard"></a>
 
@@ -12236,6 +12289,58 @@ public readonly addFailedBuildRateAlarm: {[ key: string ]: ErrorRateThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+### CompositeAlarmWithMetadata <a name="CompositeAlarmWithMetadata" id="cdk-monitoring-constructs.CompositeAlarmWithMetadata"></a>
+
+Composite alarm with metadata.
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CompositeAlarmWithMetadata.Initializer"></a>
+
+```typescript
+import { CompositeAlarmWithMetadata } from 'cdk-monitoring-constructs'
+
+const compositeAlarmWithMetadata: CompositeAlarmWithMetadata = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CompositeAlarmWithMetadata.property.alarm">alarm</a></code> | <code>aws-cdk-lib.aws_cloudwatch.CompositeAlarm</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CompositeAlarmWithMetadata.property.customTags">customTags</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.CompositeAlarmWithMetadata.property.disambiguator">disambiguator</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.CompositeAlarmWithMetadata.property.alarm"></a>
+
+```typescript
+public readonly alarm: CompositeAlarm;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.CompositeAlarm
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.CompositeAlarmWithMetadata.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.CompositeAlarmWithMetadata.property.disambiguator"></a>
+
+```typescript
+public readonly disambiguator: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -54040,7 +54145,8 @@ new AlarmFactory(alarmScope: Construct, props: AlarmFactoryProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.AlarmFactory.addAlarm">addAlarm</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.AlarmFactory.addCompositeAlarm">addCompositeAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AlarmFactory.addCompositeAlarm">addCompositeAlarm</a></code> | Creates a composite alarm from a collection of alarms and composite alarms. |
+| <code><a href="#cdk-monitoring-constructs.AlarmFactory.addCompositeAlarmFromAlarmBases">addCompositeAlarmFromAlarmBases</a></code> | Creates a composite alarm from a collection of alarm base objects. |
 
 ---
 
@@ -54065,18 +54171,58 @@ public addAlarm(metric: Metric | MathExpression, props: AddAlarmProps): AlarmWit
 ##### `addCompositeAlarm` <a name="addCompositeAlarm" id="cdk-monitoring-constructs.AlarmFactory.addCompositeAlarm"></a>
 
 ```typescript
-public addCompositeAlarm(alarms: AlarmWithAnnotation[], props: AddCompositeAlarmProps): CompositeAlarm
+public addCompositeAlarm(alarms: AlarmWithAnnotation[], props: AddCompositeAlarmProps, compositeAlarms?: CompositeAlarm[]): CompositeAlarm
 ```
+
+Creates a composite alarm from a collection of alarms and composite alarms.
 
 ###### `alarms`<sup>Required</sup> <a name="alarms" id="cdk-monitoring-constructs.AlarmFactory.addCompositeAlarm.parameter.alarms"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>[]
+
+Array of individual alarms to be composed.
 
 ---
 
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AlarmFactory.addCompositeAlarm.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.AddCompositeAlarmProps">AddCompositeAlarmProps</a>
+
+Customization options for the composite alarm.
+
+---
+
+###### `compositeAlarms`<sup>Optional</sup> <a name="compositeAlarms" id="cdk-monitoring-constructs.AlarmFactory.addCompositeAlarm.parameter.compositeAlarms"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.CompositeAlarm[]
+
+Optional array of composite alarms to be composed together with regular alarms.
+
+---
+
+##### `addCompositeAlarmFromAlarmBases` <a name="addCompositeAlarmFromAlarmBases" id="cdk-monitoring-constructs.AlarmFactory.addCompositeAlarmFromAlarmBases"></a>
+
+```typescript
+public addCompositeAlarmFromAlarmBases(alarms: AlarmBase[], props: AddCompositeAlarmProps): CompositeAlarm
+```
+
+Creates a composite alarm from a collection of alarm base objects.
+
+This allows creation of composite alarms that include both metric alarms and other composite alarms.
+
+###### `alarms`<sup>Required</sup> <a name="alarms" id="cdk-monitoring-constructs.AlarmFactory.addCompositeAlarmFromAlarmBases.parameter.alarms"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmBase[]
+
+Array of AlarmBase objects (can include both Alarm and CompositeAlarm).
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.AlarmFactory.addCompositeAlarmFromAlarmBases.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AddCompositeAlarmProps">AddCompositeAlarmProps</a>
+
+Customization options for the composite alarm.
 
 ---
 
