@@ -393,4 +393,222 @@ describe("test of defaults", () => {
     // Snapshot verification
     expect(template).toMatchSnapshot();
   });
+
+  test("createCompositeAlarmUsingTag creates a composite alarm from matching alarms", () => {
+    const stack = new Stack();
+    const onAlarmTopic = new Topic(stack, "OnAlarmTopicForComposites", {
+      topicName: "CompositeAlarmTopic",
+    });
+    const facade = new MonitoringFacade(stack, "CompositeAlarmTestFacade", {
+      metricFactoryDefaults: {
+        namespace: "CompositeTest",
+      },
+      alarmFactoryDefaults: {
+        alarmNamePrefix: "CompTest",
+        actionsEnabled: true,
+        datapointsToAlarm: 3,
+        action: notifySns(onAlarmTopic),
+      },
+    });
+
+    // Create a set of metric alarms with the same tag
+    facade.monitorDynamoTable({
+      table: Table.fromTableName(stack, "CompositeTestTable", "TestTable"),
+      addAverageSuccessfulGetItemLatencyAlarm: {
+        Critical: {
+          maxLatency: Duration.seconds(10),
+          customTags: ["comp-test-tag"],
+        },
+      },
+      addReadThrottledEventsCountAlarm: {
+        Critical: {
+          maxThrottledEventsThreshold: 100,
+          customTags: ["comp-test-tag"],
+        },
+      },
+    });
+
+    // Create first level composite alarm from metric alarms
+    const firstLevelComposite = facade.createCompositeAlarmUsingTag(
+      "comp-test-tag",
+      {
+        disambiguator: "FirstLevel",
+        alarmNameSuffix: "FirstLevel",
+        customTags: ["comp-test-nested"],
+      },
+      true, // allow nested composite alarms
+    );
+
+    expect(firstLevelComposite).toBeDefined();
+
+    // Create more metric alarms with a different tag
+    facade.monitorLambdaFunction({
+      lambdaFunction: Function.fromFunctionAttributes(
+        stack,
+        "CompositeTestFunction",
+        {
+          functionArn: `arn:aws:lambda:us-west-2:01234567890:function:TestFunction`,
+          sameEnvironment: true,
+        },
+      ),
+      addFaultRateAlarm: {
+        Critical: {
+          maxErrorRate: 0.5,
+          customTags: ["comp-test-nested"],
+        },
+      },
+    });
+
+    // Create second level composite alarm that includes metric alarms and the first level composite
+    const secondLevelComposite = facade.createCompositeAlarmUsingTag(
+      "comp-test-nested",
+      {
+        disambiguator: "SecondLevel",
+        alarmNameSuffix: "SecondLevel",
+      },
+      true, // allow nested composite alarms
+    );
+
+    expect(secondLevelComposite).toBeDefined();
+
+    // Verify the generated resources
+    const template = Template.fromStack(stack);
+
+    // Find first level composite alarm
+    const firstLevelCompositeAlarm = template.findResources(
+      "AWS::CloudWatch::CompositeAlarm",
+      Match.objectLike({
+        Properties: {
+          AlarmName: Match.stringLikeRegexp("-FirstLevel$"),
+          AlarmRule: Match.anyValue(),
+        },
+      }),
+    );
+    expect(Object.keys(firstLevelCompositeAlarm).length).toBe(1);
+
+    // Find second level composite alarm
+    const secondLevelCompositeAlarm = template.findResources(
+      "AWS::CloudWatch::CompositeAlarm",
+      Match.objectLike({
+        Properties: {
+          AlarmName: Match.stringLikeRegexp("-SecondLevel$"),
+          AlarmRule: Match.anyValue(),
+        },
+      }),
+    );
+    expect(Object.keys(secondLevelCompositeAlarm).length).toBe(1);
+
+    // Verify total number of alarms (3 metric alarms + 2 composite alarms)
+    const allAlarms = [
+      ...Object.keys(template.findResources("AWS::CloudWatch::Alarm")),
+      ...Object.keys(template.findResources("AWS::CloudWatch::CompositeAlarm")),
+    ];
+    expect(allAlarms.length).toBe(5);
+
+    // Snapshot verification
+    expect(template).toMatchSnapshot();
+  });
+
+  test("composite alarms are not nested when allowNestedCompositeAlarms is false", () => {
+    const stack = new Stack();
+    const onAlarmTopic = new Topic(stack, "AlarmTopic");
+    const facade = new MonitoringFacade(stack, "NestingTestFacade", {
+      alarmFactoryDefaults: {
+        alarmNamePrefix: "NestTest",
+        actionsEnabled: true,
+        action: notifySns(onAlarmTopic),
+      },
+    });
+
+    // Create first set of metric alarms with the "FirstGroup" tag
+    facade.monitorDynamoTable({
+      table: Table.fromTableName(stack, "FirstGroupTable", "FirstGroupTable"),
+      addAverageSuccessfulGetItemLatencyAlarm: {
+        Critical: {
+          maxLatency: Duration.seconds(10),
+          customTags: ["FirstGroup"],
+        },
+      },
+    });
+
+    // Create first level composite alarm from the "FirstGroup" tag
+    const firstLevelComposite = facade.createCompositeAlarmUsingTag(
+      "FirstGroup",
+      {
+        disambiguator: "FirstLevel",
+        alarmNameSuffix: "FirstLevel",
+        customTags: ["FirstLevelTag"],
+      },
+    );
+    expect(firstLevelComposite).toBeDefined();
+
+    // Create second set of metric alarms
+    facade.monitorLambdaFunction({
+      lambdaFunction: Function.fromFunctionName(
+        stack,
+        "SecondGroupFunction",
+        "SecondGroupFunction",
+      ),
+      addFaultRateAlarm: {
+        Critical: {
+          maxErrorRate: 0.1,
+          customTags: ["FirstLevelTag"],
+        },
+      },
+    });
+
+    // Create second level composite alarm with allowNestedCompositeAlarms = false
+    const secondLevelComposite = facade.createCompositeAlarmUsingTag(
+      "FirstLevelTag",
+      {
+        disambiguator: "SecondLevel",
+        alarmNameSuffix: "SecondLevel",
+      },
+      false, // Explicitly set allowNestedCompositeAlarms to false
+    );
+    expect(secondLevelComposite).toBeDefined();
+
+    // Verify the resources in the resulting template
+    const template = Template.fromStack(stack);
+
+    // Check that both composite alarms exist
+    const compositeAlarms = template.findResources(
+      "AWS::CloudWatch::CompositeAlarm",
+    );
+    expect(Object.keys(compositeAlarms).length).toBe(2);
+
+    // Find all the alarm ARNs that are referenced in the second level composite's AlarmRule
+    let secondLevelCompositeLogicalId: string | undefined;
+
+    // Find the logical ID of the second level composite alarm
+    for (const [logicalId, resource] of Object.entries(compositeAlarms)) {
+      if (resource.Properties?.AlarmName?.toString().includes("-SecondLevel")) {
+        secondLevelCompositeLogicalId = logicalId;
+        break;
+      }
+    }
+
+    expect(secondLevelCompositeLogicalId).toBeDefined();
+
+    // Get the AlarmRule from the second level composite alarm
+    const secondLevelRule =
+      compositeAlarms[secondLevelCompositeLogicalId!].Properties.AlarmRule;
+
+    // Convert the rule to string for inspection
+    const ruleString = JSON.stringify(secondLevelRule);
+
+    // Verify the rule doesn't include a reference to the first level composite alarm
+    // by checking it doesn't contain FirstLevel in the alarm name
+    expect(ruleString).not.toContain("FirstLevel");
+
+    // Total resources should be 2 metric alarms + 2 composite alarms = 4
+    const allAlarms = [
+      ...Object.keys(template.findResources("AWS::CloudWatch::Alarm")),
+      ...Object.keys(template.findResources("AWS::CloudWatch::CompositeAlarm")),
+    ];
+    expect(allAlarms.length).toBe(4);
+
+    // Snapshot verification
+    expect(template).toMatchSnapshot();
+  });
 });
