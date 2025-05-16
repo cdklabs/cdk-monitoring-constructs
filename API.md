@@ -29294,8 +29294,9 @@ const logMonitoringProps: LogMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.logGroupName">logGroupName</a></code> | <code>string</code> | Name of the log group to monitor. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addMaxIncomingLogsAlarm">addMaxIncomingLogsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.addMinIncomingLogsAlarm">addMinIncomingLogsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinUsageCountThreshold">MinUsageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.filterExpressions">filterExpressions</a></code> | <code>string[]</code> | Filter expressions to add. |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.limit">limit</a></code> | <code>number</code> | Maximum number of log messages to search for. |
-| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.pattern">pattern</a></code> | <code>string</code> | Pattern to search for, e.g. "ERROR". |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.pattern">pattern</a></code> | <code>string</code> | Pattern to filter `@message` field, e.g. "ERROR". |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoringProps.property.title">title</a></code> | <code>string</code> | Widget title. |
 
 ---
@@ -29460,6 +29461,29 @@ public readonly addMinIncomingLogsAlarm: {[ key: string ]: MinUsageCountThreshol
 
 ---
 
+##### `filterExpressions`<sup>Optional</sup> <a name="filterExpressions" id="cdk-monitoring-constructs.LogMonitoringProps.property.filterExpressions"></a>
+
+```typescript
+public readonly filterExpressions: string[];
+```
+
+- *Type:* string[]
+
+Filter expressions to add.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Filter.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Filter.html)
+
+---
+
+*Example*
+
+```typescript
+filterExpressions = [`level = "ERROR"`]
+// will be appended to the query as
+| filter level = "ERROR"
+```
+
+
 ##### `limit`<sup>Optional</sup> <a name="limit" id="cdk-monitoring-constructs.LogMonitoringProps.property.limit"></a>
 
 ```typescript
@@ -29481,7 +29505,7 @@ public readonly pattern: string;
 
 - *Type:* string
 
-Pattern to search for, e.g. "ERROR".
+Pattern to filter `@message` field, e.g. "ERROR".
 
 ---
 
@@ -69169,6 +69193,7 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.logGroupName">logGroupName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.filterExpressions">filterExpressions</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.logGroupUrl">logGroupUrl</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.pattern">pattern</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LogMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
@@ -69232,6 +69257,16 @@ public readonly usageAnnotations: HorizontalAnnotation[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `filterExpressions`<sup>Optional</sup> <a name="filterExpressions" id="cdk-monitoring-constructs.LogMonitoring.property.filterExpressions"></a>
+
+```typescript
+public readonly filterExpressions: string[];
+```
+
+- *Type:* string[]
 
 ---
 
