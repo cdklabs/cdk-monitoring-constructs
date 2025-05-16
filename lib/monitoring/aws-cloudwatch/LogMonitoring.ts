@@ -44,9 +44,19 @@ export interface LogMonitoringProps
   readonly title?: string;
 
   /**
-   * Pattern to search for, e.g. "ERROR"
+   * Pattern to filter `@message` field, e.g. "ERROR"
    */
   readonly pattern?: string;
+
+  /**
+   * Filter expressions to add.
+   * @example
+   * filterExpressions = [`level = "ERROR"`]
+   * // will be appended to the query as
+   * | filter level = "ERROR"
+   * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Filter.html
+   */
+  readonly filterExpressions?: string[];
 
   /**
    * Maximum number of log messages to search for.
@@ -69,6 +79,7 @@ export class LogMonitoring extends Monitoring {
   readonly title?: string;
 
   readonly pattern?: string;
+  readonly filterExpressions?: string[];
   readonly limit: number;
 
   readonly alarmFactory: AlarmFactory;
@@ -88,6 +99,7 @@ export class LogMonitoring extends Monitoring {
     this.title = props.title;
 
     this.pattern = props.pattern;
+    this.filterExpressions = props.filterExpressions;
     this.limit = props.limit ?? DefaultLimit;
 
     const namingStrategy = new MonitoringNamingStrategy({
@@ -140,7 +152,21 @@ export class LogMonitoring extends Monitoring {
   }
 
   widgets(): IWidget[] {
+    const filterStatements: string[] = [];
+
     if (this.pattern) {
+      filterStatements.push(`filter @message like /${this.pattern}/`);
+    }
+
+    if (this.filterExpressions) {
+      for (const expression of this.filterExpressions) {
+        if (expression) {
+          filterStatements.push(`filter ${expression}`);
+        }
+      }
+    }
+
+    if (filterStatements.length > 0) {
       const height = this.resolveRecommendedHeight(this.limit);
 
       return [
@@ -157,7 +183,7 @@ export class LogMonitoring extends Monitoring {
            */
           queryLines: [
             "fields @timestamp, @logStream, @message",
-            `filter @message like /${this.pattern}/`,
+            ...filterStatements,
             "sort @timestamp desc",
             `limit ${this.limit}`,
           ],
