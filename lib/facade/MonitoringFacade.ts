@@ -163,6 +163,15 @@ export interface MonitoringFacadeProps {
 }
 
 /**
+ * Composite alarm with metadata.
+ */
+export interface CompositeAlarmWithMetadata {
+  readonly alarm: CompositeAlarm;
+  readonly customTags?: string[];
+  readonly disambiguator?: string;
+}
+
+/**
  * An implementation of a {@link MonitoringScope}.
  *
  * This is a convenient main entrypoint to monitor resources.
@@ -178,7 +187,7 @@ export class MonitoringFacade extends MonitoringScope {
     | IDashboardSegment
     | IDynamicDashboardSegment
   )[];
-  protected readonly createdComposites: CompositeAlarm[];
+  protected readonly createdComposites: CompositeAlarmWithMetadata[];
   protected readonly createdClones: AlarmWithAnnotation[];
 
   constructor(scope: Construct, id: string, props?: MonitoringFacadeProps) {
@@ -325,7 +334,31 @@ export class MonitoringFacade extends MonitoringScope {
    * Returns the added composite alarms.
    */
   createdCompositeAlarms(): CompositeAlarm[] {
-    return this.createdComposites;
+    return this.createdComposites.map(({ alarm }) => alarm);
+  }
+
+  /**
+   * Returns a subset of created composite alarms that are marked by a specific custom tag.
+   *
+   * @param customTag tag to filter alarms by
+   */
+  createdCompositeAlarmsWithTag(customTag: string): CompositeAlarm[] {
+    return this.createdComposites
+      .filter(({ customTags }) => customTags?.includes(customTag))
+      .map(({ alarm }) => alarm);
+  }
+
+  /**
+   * Returns a subset of created composite alarms that are marked by a specific disambiguator.
+   *
+   * @param disambiguator disambiguator to filter alarms by
+   */
+  createdCompositeAlarmsWithDisambiguator(
+    disambiguator: string,
+  ): CompositeAlarm[] {
+    return this.createdComposites
+      .filter(({ disambiguator: d }) => d === disambiguator)
+      .map(({ alarm }) => alarm);
   }
 
   /**
@@ -349,53 +382,91 @@ export class MonitoringFacade extends MonitoringScope {
 
   /**
    * Finds a subset of created alarms that are marked by a specific custom tag and creates a composite alarm.
-   * This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-   * NOTE: This composite alarm is not added among other alarms, so it is not returned by createdAlarms() calls.
+   * This composite alarm is created with an 'OR' condition so it triggers with any child alarm.
+   * NOTE: This composite alarm is not returned in createdAlarms() calls, use createdCompositeAlarms() instead.
    *
    * @param customTag tag to filter alarms by
    * @param props customization options
+   * @param allowNestedCompositeAlarms whether to allow nested composite alarms. If set to true, previously created composite alarms with the matching tag will be included in the composite alarm.
    */
   createCompositeAlarmUsingTag(
     customTag: string,
     props?: AddCompositeAlarmProps,
+    allowNestedCompositeAlarms: boolean = false,
   ): CompositeAlarm | undefined {
-    const alarms = this.createdAlarmsWithTag(customTag);
-    if (alarms.length > 0) {
+    const metricAlarms = this.createdAlarmsWithTag(customTag).map(
+      (a) => a.alarm,
+    );
+    const compositeAlarms = allowNestedCompositeAlarms
+      ? this.createdCompositeAlarmsWithTag(customTag)
+      : [];
+    const allAlarms = [...metricAlarms, ...compositeAlarms];
+
+    if (allAlarms.length > 0) {
       const disambiguator = props?.disambiguator ?? customTag;
       const alarmFactory = this.createAlarmFactory("Composite");
-      const composite = alarmFactory.addCompositeAlarm(alarms, {
-        ...(props ?? {}),
+      const composite = alarmFactory.addCompositeAlarmFromAlarmBases(
+        allAlarms,
+        {
+          ...(props ?? {}),
+          disambiguator,
+        },
+      );
+
+      this.createdComposites.push({
+        alarm: composite,
+        customTags: props?.customTags,
         disambiguator,
       });
-      this.createdComposites.push(composite);
+
       return composite;
     }
+
     return undefined;
   }
 
   /**
    * Finds a subset of created alarms that are marked by a specific disambiguator and creates a composite alarm.
-   * This composite alarm is created with an 'OR' condition, so it triggers with any child alarm.
-   * NOTE: This composite alarm is not added among other alarms, so it is not returned by createdAlarms() calls.
+   *
+   * NOTE: This composite alarm is not returned in createdAlarms() calls, use createdCompositeAlarms() instead.
    *
    * @param alarmDisambiguator disambiguator to filter alarms by
    * @param props customization options
+   * @param allowNestedCompositeAlarms whether to allow nested composite alarms. If set to true, previously created composite alarms with the matching disambiguator will be included in the composite alarm.
    */
   createCompositeAlarmUsingDisambiguator(
     alarmDisambiguator: string,
     props?: AddCompositeAlarmProps,
+    allowNestedCompositeAlarms: boolean = false,
   ): CompositeAlarm | undefined {
-    const alarms = this.createdAlarmsWithDisambiguator(alarmDisambiguator);
-    if (alarms.length > 0) {
+    const metricAlarms = this.createdAlarmsWithDisambiguator(
+      alarmDisambiguator,
+    ).map((a) => a.alarm);
+    const compositeAlarms = allowNestedCompositeAlarms
+      ? this.createdCompositeAlarmsWithDisambiguator(alarmDisambiguator)
+      : [];
+    const allAlarms = [...metricAlarms, ...compositeAlarms];
+
+    if (allAlarms.length > 0) {
       const disambiguator = props?.disambiguator ?? alarmDisambiguator;
       const alarmFactory = this.createAlarmFactory("Composite");
-      const composite = alarmFactory.addCompositeAlarm(alarms, {
-        ...(props ?? {}),
+      const composite = alarmFactory.addCompositeAlarmFromAlarmBases(
+        allAlarms,
+        {
+          ...(props ?? {}),
+          disambiguator,
+        },
+      );
+
+      this.createdComposites.push({
+        alarm: composite,
+        customTags: props?.customTags,
         disambiguator,
       });
-      this.createdComposites.push(composite);
+
       return composite;
     }
+
     return undefined;
   }
 
