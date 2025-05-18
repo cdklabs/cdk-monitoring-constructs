@@ -74,6 +74,30 @@ export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory<Lambd
     );
   }
 
+  enhancedMetricMaxInitDuration() {
+    return this.enhancedMetric(
+      "init_duration",
+      MetricStatistic.MAX,
+      "InitDuration.Max",
+    );
+  }
+
+  enhancedMetricP90InitDuration() {
+    return this.enhancedMetric(
+      "init_duration",
+      MetricStatistic.P90,
+      "InitDuration.P90",
+    );
+  }
+
+  enhancedMetricAvgInitDuration() {
+    return this.enhancedMetric(
+      "init_duration",
+      MetricStatistic.AVERAGE,
+      "InitDuration.Avg",
+    );
+  }
+
   enhancedMetricFunctionCost() {
     return this.metricFactory.createMetricMath(
       "memory_utilization * duration",
