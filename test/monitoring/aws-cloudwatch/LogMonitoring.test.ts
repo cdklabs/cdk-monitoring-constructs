@@ -49,6 +49,35 @@ test("snapshot test: no pattern", () => {
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
+test("snapshot test: filterExpressions", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new LogMonitoring(scope, {
+    logGroupName: "DummyLogGroup",
+    filterExpressions: [`level = "ERROR"`, "sampling_rate = 0"],
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: pattern and filterExpressions", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new LogMonitoring(scope, {
+    logGroupName: "DummyLogGroup",
+    pattern: "DummyPattern",
+    filterExpressions: [`level = "ERROR"`],
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
 test("snapshot test: with alarms", () => {
   const stack = new Stack();
 
