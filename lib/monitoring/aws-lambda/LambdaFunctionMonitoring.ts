@@ -144,6 +144,20 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
     string,
     UsageThreshold
   >;
+
+  // Enhanced init duration metrics that are time-based
+  readonly addEnhancedMonitoringMaxInitDurationAlarm?: Record<
+    string,
+    DurationThreshold
+  >;
+  readonly addEnhancedMonitoringP90InitDurationAlarm?: Record<
+    string,
+    DurationThreshold
+  >;
+  readonly addEnhancedMonitoringAvgInitDurationAlarm?: Record<
+    string,
+    DurationThreshold
+  >;
 }
 
 export interface LambdaFunctionMonitoringProps
@@ -174,6 +188,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
   readonly memoryUsageAnnotations: HorizontalAnnotation[];
   readonly maxIteratorAgeAnnotations: HorizontalAnnotation[];
   readonly maxOffsetLagAnnotations: HorizontalAnnotation[];
+  readonly initDurationAnnotations: HorizontalAnnotation[];
 
   readonly tpsMetric: MetricWithAlarmSupport;
   readonly p50LatencyMetric: MetricWithAlarmSupport;
@@ -202,6 +217,9 @@ export class LambdaFunctionMonitoring extends Monitoring {
   readonly enhancedMonitoringMaxMemoryUtilizationMetric?: MetricWithAlarmSupport;
   readonly enhancedMonitoringP90MemoryUtilizationMetric?: MetricWithAlarmSupport;
   readonly enhancedMonitoringAvgMemoryUtilizationMetric?: MetricWithAlarmSupport;
+  readonly enhancedMonitoringMaxInitDurationMetric?: MetricWithAlarmSupport;
+  readonly enhancedMonitoringP90InitDurationMetric?: MetricWithAlarmSupport;
+  readonly enhancedMonitoringAvgInitDurationMetric?: MetricWithAlarmSupport;
   readonly enhancedMetricFunctionCostMetric?: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: LambdaFunctionMonitoringProps) {
@@ -238,6 +256,7 @@ export class LambdaFunctionMonitoring extends Monitoring {
     this.memoryUsageAnnotations = [];
     this.maxIteratorAgeAnnotations = [];
     this.maxOffsetLagAnnotations = [];
+    this.initDurationAnnotations = [];
 
     this.metricFactory = new LambdaFunctionMetricFactory(
       scope.createMetricFactory(),
@@ -295,6 +314,12 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.enhancedMetricFactory.enhancedMetricP90MemoryUtilization();
       this.enhancedMonitoringAvgMemoryUtilizationMetric =
         this.enhancedMetricFactory.enhancedMetricAvgMemoryUtilization();
+      this.enhancedMonitoringMaxInitDurationMetric =
+        this.enhancedMetricFactory.enhancedMetricMaxInitDuration();
+      this.enhancedMonitoringP90InitDurationMetric =
+        this.enhancedMetricFactory.enhancedMetricP90InitDuration();
+      this.enhancedMonitoringAvgInitDurationMetric =
+        this.enhancedMetricFactory.enhancedMetricAvgInitDuration();
       this.enhancedMetricFunctionCostMetric =
         this.enhancedMetricFactory.enhancedMetricFunctionCost();
 
@@ -380,6 +405,51 @@ export class LambdaFunctionMonitoring extends Monitoring {
           disambiguator,
         );
         this.memoryUsageAnnotations.push(createdAlarm.annotation);
+        this.addAlarm(createdAlarm);
+      }
+      for (const disambiguator in props.addEnhancedMonitoringMaxInitDurationAlarm) {
+        const alarmProps =
+          props.addEnhancedMonitoringMaxInitDurationAlarm[disambiguator];
+        const createdAlarm = this.latencyAlarmFactory.addCustomDurationAlarm(
+          /* eslint-disable @typescript-eslint/no-non-null-assertion */
+          this.enhancedMonitoringMaxInitDurationMetric!,
+          /* eslint-enable @typescript-eslint/no-non-null-assertion */
+          LatencyType.MAX,
+          alarmProps,
+          "InitDuration",
+          disambiguator,
+        );
+        this.initDurationAnnotations.push(createdAlarm.annotation);
+        this.addAlarm(createdAlarm);
+      }
+      for (const disambiguator in props.addEnhancedMonitoringP90InitDurationAlarm) {
+        const alarmProps =
+          props.addEnhancedMonitoringP90InitDurationAlarm[disambiguator];
+        const createdAlarm = this.latencyAlarmFactory.addCustomDurationAlarm(
+          /* eslint-disable @typescript-eslint/no-non-null-assertion */
+          this.enhancedMonitoringP90InitDurationMetric!,
+          /* eslint-enable @typescript-eslint/no-non-null-assertion */
+          LatencyType.P90,
+          alarmProps,
+          "InitDuration",
+          disambiguator,
+        );
+        this.initDurationAnnotations.push(createdAlarm.annotation);
+        this.addAlarm(createdAlarm);
+      }
+      for (const disambiguator in props.addEnhancedMonitoringAvgInitDurationAlarm) {
+        const alarmProps =
+          props.addEnhancedMonitoringAvgInitDurationAlarm[disambiguator];
+        const createdAlarm = this.latencyAlarmFactory.addCustomDurationAlarm(
+          /* eslint-disable @typescript-eslint/no-non-null-assertion */
+          this.enhancedMonitoringAvgInitDurationMetric!,
+          /* eslint-enable @typescript-eslint/no-non-null-assertion */
+          LatencyType.AVERAGE,
+          alarmProps,
+          "InitDuration",
+          disambiguator,
+        );
+        this.initDurationAnnotations.push(createdAlarm.annotation);
         this.addAlarm(createdAlarm);
       }
     }
@@ -653,15 +723,19 @@ export class LambdaFunctionMonitoring extends Monitoring {
       widgets.push(
         new Row(
           this.createLambdaInsightsCpuWidget(
-            ThirdWidth,
+            QuarterWidth,
             DefaultGraphWidgetHeight,
           ),
           this.createLambdaInsightsMemoryWidget(
-            ThirdWidth,
+            QuarterWidth,
+            DefaultGraphWidgetHeight,
+          ),
+          this.createLambdaInsightsInitDurationWidget(
+            QuarterWidth,
             DefaultGraphWidgetHeight,
           ),
           this.createLambdaInsightsFunctionCostWidget(
-            ThirdWidth,
+            QuarterWidth,
             DefaultGraphWidgetHeight,
           ),
         ),
@@ -810,6 +884,23 @@ export class LambdaFunctionMonitoring extends Monitoring {
       ],
       leftYAxis: PercentageAxisFromZeroToHundred,
       leftAnnotations: this.memoryUsageAnnotations,
+    });
+  }
+
+  createLambdaInsightsInitDurationWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Init Duration",
+      left: [
+        /* eslint-disable @typescript-eslint/no-non-null-assertion */
+        this.enhancedMonitoringMaxInitDurationMetric!,
+        this.enhancedMonitoringP90InitDurationMetric!,
+        this.enhancedMonitoringAvgInitDurationMetric!,
+        /* eslint-enable @typescript-eslint/no-non-null-assertion */
+      ],
+      leftYAxis: TimeAxisMillisFromZero,
+      leftAnnotations: this.initDurationAnnotations,
     });
   }
 

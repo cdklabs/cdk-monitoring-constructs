@@ -246,6 +246,41 @@ export class LatencyAlarmFactory {
     });
   }
 
+  addCustomDurationAlarm(
+    metric: MetricWithAlarmSupport,
+    latencyType: LatencyType,
+    props: DurationThreshold,
+    durationName: string,
+    disambiguator?: string,
+    additionalAlarmNameSuffix: string | undefined = undefined,
+  ) {
+    const alarmNameSuffix = [
+      durationName,
+      latencyType,
+      additionalAlarmNameSuffix,
+    ]
+      .filter((i) => i !== undefined)
+      .join("-");
+
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxDuration.toMilliseconds({ integral: false }),
+      alarmNameSuffix,
+      // we will dedupe any kind of latency issue to the same ticket
+      alarmDedupeStringSuffix: this.alarmFactory
+        .shouldUseDefaultDedupeForLatency
+        ? `Any${durationName}`
+        : alarmNameSuffix,
+      alarmDescription: `${latencyType} ${durationName} is too long.`,
+    });
+  }
+
   addJvmGarbageCollectionDurationAlarm(
     metric: MetricWithAlarmSupport,
     latencyType: LatencyType,

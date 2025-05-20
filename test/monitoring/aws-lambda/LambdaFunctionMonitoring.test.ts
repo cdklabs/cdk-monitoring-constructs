@@ -357,6 +357,21 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
         maxUsagePercent: 50,
       },
     },
+    addEnhancedMonitoringMaxInitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(200),
+      },
+    },
+    addEnhancedMonitoringP90InitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(150),
+      },
+    },
+    addEnhancedMonitoringAvgInitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
     useCreatedAlarms: {
       consume(alarms: AlarmWithAnnotation[]) {
         numAlarmsCreated = alarms.length;
@@ -365,7 +380,7 @@ test("snapshot test: all alarms, alarmPrefix on error dedupeString", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(20);
+  expect(numAlarmsCreated).toStrictEqual(23);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -500,6 +515,21 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
         maxUsagePercent: 50,
       },
     },
+    addEnhancedMonitoringMaxInitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(200),
+      },
+    },
+    addEnhancedMonitoringP90InitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(150),
+      },
+    },
+    addEnhancedMonitoringAvgInitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
+      },
+    },
     useCreatedAlarms: {
       consume(alarms: AlarmWithAnnotation[]) {
         numAlarmsCreated = alarms.length;
@@ -508,7 +538,7 @@ test("snapshot test: all alarms, alarmPrefix on latency dedupeString", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(20);
+  expect(numAlarmsCreated).toStrictEqual(23);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -618,6 +648,21 @@ test("doesn't create alarms for enhanced Lambda Insights metrics if not enabled"
     addEnhancedMonitoringAvgMemoryUtilizationAlarm: {
       Warning: {
         maxUsagePercent: 50,
+      },
+    },
+    addEnhancedMonitoringMaxInitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(200),
+      },
+    },
+    addEnhancedMonitoringP90InitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(150),
+      },
+    },
+    addEnhancedMonitoringAvgInitDurationAlarm: {
+      Warning: {
+        maxDuration: Duration.millis(100),
       },
     },
     useCreatedAlarms: {
