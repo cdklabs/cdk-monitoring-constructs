@@ -27212,10 +27212,13 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addConcurrentExecutionsCountAlarm">addConcurrentExecutionsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgCpuTotalTimeAlarm">addEnhancedMonitoringAvgCpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgInitDurationAlarm">addEnhancedMonitoringAvgInitDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgMemoryUtilizationAlarm">addEnhancedMonitoringAvgMemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxCpuTotalTimeAlarm">addEnhancedMonitoringMaxCpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxInitDurationAlarm">addEnhancedMonitoringMaxInitDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxMemoryUtilizationAlarm">addEnhancedMonitoringMaxMemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringP90CpuTotalTimeAlarm">addEnhancedMonitoringP90CpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringP90InitDurationAlarm">addEnhancedMonitoringP90InitDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringP90MemoryUtilizationAlarm">addEnhancedMonitoringP90MemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addFaultCountAlarm">addFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addFaultRateAlarm">addFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
@@ -27385,6 +27388,16 @@ public readonly addEnhancedMonitoringAvgCpuTotalTimeAlarm: {[ key: string ]: Dur
 
 ---
 
+##### `addEnhancedMonitoringAvgInitDurationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringAvgInitDurationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgInitDurationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringAvgInitDurationAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
 ##### `addEnhancedMonitoringAvgMemoryUtilizationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringAvgMemoryUtilizationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringAvgMemoryUtilizationAlarm"></a>
 
 ```typescript
@@ -27405,6 +27418,16 @@ public readonly addEnhancedMonitoringMaxCpuTotalTimeAlarm: {[ key: string ]: Dur
 
 ---
 
+##### `addEnhancedMonitoringMaxInitDurationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringMaxInitDurationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxInitDurationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringMaxInitDurationAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
 ##### `addEnhancedMonitoringMaxMemoryUtilizationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringMaxMemoryUtilizationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringMaxMemoryUtilizationAlarm"></a>
 
 ```typescript
@@ -27419,6 +27442,16 @@ public readonly addEnhancedMonitoringMaxMemoryUtilizationAlarm: {[ key: string ]
 
 ```typescript
 public readonly addEnhancedMonitoringP90CpuTotalTimeAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addEnhancedMonitoringP90InitDurationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringP90InitDurationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addEnhancedMonitoringP90InitDurationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringP90InitDurationAlarm: {[ key: string ]: DurationThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
@@ -27640,10 +27673,13 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addConcurrentExecutionsCountAlarm">addConcurrentExecutionsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.RunningTaskCountThreshold">RunningTaskCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringAvgCpuTotalTimeAlarm">addEnhancedMonitoringAvgCpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringAvgInitDurationAlarm">addEnhancedMonitoringAvgInitDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringAvgMemoryUtilizationAlarm">addEnhancedMonitoringAvgMemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringMaxCpuTotalTimeAlarm">addEnhancedMonitoringMaxCpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringMaxInitDurationAlarm">addEnhancedMonitoringMaxInitDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringMaxMemoryUtilizationAlarm">addEnhancedMonitoringMaxMemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringP90CpuTotalTimeAlarm">addEnhancedMonitoringP90CpuTotalTimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringP90InitDurationAlarm">addEnhancedMonitoringP90InitDurationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringP90MemoryUtilizationAlarm">addEnhancedMonitoringP90MemoryUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addFaultCountAlarm">addFaultCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addFaultRateAlarm">addFaultRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
@@ -27861,6 +27897,16 @@ public readonly addEnhancedMonitoringAvgCpuTotalTimeAlarm: {[ key: string ]: Dur
 
 ---
 
+##### `addEnhancedMonitoringAvgInitDurationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringAvgInitDurationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringAvgInitDurationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringAvgInitDurationAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
 ##### `addEnhancedMonitoringAvgMemoryUtilizationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringAvgMemoryUtilizationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringAvgMemoryUtilizationAlarm"></a>
 
 ```typescript
@@ -27881,6 +27927,16 @@ public readonly addEnhancedMonitoringMaxCpuTotalTimeAlarm: {[ key: string ]: Dur
 
 ---
 
+##### `addEnhancedMonitoringMaxInitDurationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringMaxInitDurationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringMaxInitDurationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringMaxInitDurationAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
 ##### `addEnhancedMonitoringMaxMemoryUtilizationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringMaxMemoryUtilizationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringMaxMemoryUtilizationAlarm"></a>
 
 ```typescript
@@ -27895,6 +27951,16 @@ public readonly addEnhancedMonitoringMaxMemoryUtilizationAlarm: {[ key: string ]
 
 ```typescript
 public readonly addEnhancedMonitoringP90CpuTotalTimeAlarm: {[ key: string ]: DurationThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
+
+---
+
+##### `addEnhancedMonitoringP90InitDurationAlarm`<sup>Optional</sup> <a name="addEnhancedMonitoringP90InitDurationAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addEnhancedMonitoringP90InitDurationAlarm"></a>
+
+```typescript
+public readonly addEnhancedMonitoringP90InitDurationAlarm: {[ key: string ]: DurationThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>}
@@ -67642,11 +67708,14 @@ new LambdaFunctionEnhancedMetricFactory(metricFactory: MetricFactory, props: Lam
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricAvgCpuTotalTime">enhancedMetricAvgCpuTotalTime</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricAvgInitDuration">enhancedMetricAvgInitDuration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricAvgMemoryUtilization">enhancedMetricAvgMemoryUtilization</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricFunctionCost">enhancedMetricFunctionCost</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxCpuTotalTime">enhancedMetricMaxCpuTotalTime</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxInitDuration">enhancedMetricMaxInitDuration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxMemoryUtilization">enhancedMetricMaxMemoryUtilization</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90CpuTotalTime">enhancedMetricP90CpuTotalTime</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90InitDuration">enhancedMetricP90InitDuration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90MemoryUtilization">enhancedMetricP90MemoryUtilization</a></code> | *No description.* |
 
 ---
@@ -67655,6 +67724,12 @@ new LambdaFunctionEnhancedMetricFactory(metricFactory: MetricFactory, props: Lam
 
 ```typescript
 public enhancedMetricAvgCpuTotalTime(): Metric | MathExpression
+```
+
+##### `enhancedMetricAvgInitDuration` <a name="enhancedMetricAvgInitDuration" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricAvgInitDuration"></a>
+
+```typescript
+public enhancedMetricAvgInitDuration(): Metric | MathExpression
 ```
 
 ##### `enhancedMetricAvgMemoryUtilization` <a name="enhancedMetricAvgMemoryUtilization" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricAvgMemoryUtilization"></a>
@@ -67675,6 +67750,12 @@ public enhancedMetricFunctionCost(): Metric | MathExpression
 public enhancedMetricMaxCpuTotalTime(): Metric | MathExpression
 ```
 
+##### `enhancedMetricMaxInitDuration` <a name="enhancedMetricMaxInitDuration" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxInitDuration"></a>
+
+```typescript
+public enhancedMetricMaxInitDuration(): Metric | MathExpression
+```
+
 ##### `enhancedMetricMaxMemoryUtilization` <a name="enhancedMetricMaxMemoryUtilization" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxMemoryUtilization"></a>
 
 ```typescript
@@ -67685,6 +67766,12 @@ public enhancedMetricMaxMemoryUtilization(): Metric | MathExpression
 
 ```typescript
 public enhancedMetricP90CpuTotalTime(): Metric | MathExpression
+```
+
+##### `enhancedMetricP90InitDuration` <a name="enhancedMetricP90InitDuration" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90InitDuration"></a>
+
+```typescript
+public enhancedMetricP90InitDuration(): Metric | MathExpression
 ```
 
 ##### `enhancedMetricP90MemoryUtilization` <a name="enhancedMetricP90MemoryUtilization" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90MemoryUtilization"></a>
@@ -67907,6 +67994,7 @@ new LambdaFunctionMonitoring(scope: MonitoringScope, props: LambdaFunctionMonito
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createIteratorAgeWidget">createIteratorAgeWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsCpuWidget">createLambdaInsightsCpuWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsFunctionCostWidget">createLambdaInsightsFunctionCostWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsInitDurationWidget">createLambdaInsightsInitDurationWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsMemoryWidget">createLambdaInsightsMemoryWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.createOffsetLagWidget">createOffsetLagWidget</a></code> | *No description.* |
@@ -68122,6 +68210,24 @@ public createLambdaInsightsFunctionCostWidget(width: number, height: number): Gr
 
 ---
 
+##### `createLambdaInsightsInitDurationWidget` <a name="createLambdaInsightsInitDurationWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsInitDurationWidget"></a>
+
+```typescript
+public createLambdaInsightsInitDurationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsInitDurationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsInitDurationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
 ##### `createLambdaInsightsMemoryWidget` <a name="createLambdaInsightsMemoryWidget" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.createLambdaInsightsMemoryWidget"></a>
 
 ```typescript
@@ -68232,6 +68338,7 @@ public createTpsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.faultCountMetric">faultCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.faultRateMetric">faultRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.initDurationAnnotations">initDurationAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountAnnotations">invocationCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationCountMetric">invocationCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.invocationRateAnnotations">invocationRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
@@ -68264,10 +68371,13 @@ public createTpsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMetricFactory">enhancedMetricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory">LambdaFunctionEnhancedMetricFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMetricFunctionCostMetric">enhancedMetricFunctionCostMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgCpuTotalTimeMetric">enhancedMonitoringAvgCpuTotalTimeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgInitDurationMetric">enhancedMonitoringAvgInitDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgMemoryUtilizationMetric">enhancedMonitoringAvgMemoryUtilizationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxCpuTotalTimeMetric">enhancedMonitoringMaxCpuTotalTimeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxInitDurationMetric">enhancedMonitoringMaxInitDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxMemoryUtilizationMetric">enhancedMonitoringMaxMemoryUtilizationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringP90CpuTotalTimeMetric">enhancedMonitoringP90CpuTotalTimeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringP90InitDurationMetric">enhancedMonitoringP90InitDurationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringP90MemoryUtilizationMetric">enhancedMonitoringP90MemoryUtilizationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.functionUrl">functionUrl</a></code> | <code>string</code> | *No description.* |
 
@@ -68360,6 +68470,16 @@ public readonly faultRateMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `initDurationAnnotations`<sup>Required</sup> <a name="initDurationAnnotations" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.initDurationAnnotations"></a>
+
+```typescript
+public readonly initDurationAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -68683,6 +68803,16 @@ public readonly enhancedMonitoringAvgCpuTotalTimeMetric: Metric | MathExpression
 
 ---
 
+##### `enhancedMonitoringAvgInitDurationMetric`<sup>Optional</sup> <a name="enhancedMonitoringAvgInitDurationMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgInitDurationMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringAvgInitDurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
 ##### `enhancedMonitoringAvgMemoryUtilizationMetric`<sup>Optional</sup> <a name="enhancedMonitoringAvgMemoryUtilizationMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringAvgMemoryUtilizationMetric"></a>
 
 ```typescript
@@ -68703,6 +68833,16 @@ public readonly enhancedMonitoringMaxCpuTotalTimeMetric: Metric | MathExpression
 
 ---
 
+##### `enhancedMonitoringMaxInitDurationMetric`<sup>Optional</sup> <a name="enhancedMonitoringMaxInitDurationMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxInitDurationMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringMaxInitDurationMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
 ##### `enhancedMonitoringMaxMemoryUtilizationMetric`<sup>Optional</sup> <a name="enhancedMonitoringMaxMemoryUtilizationMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringMaxMemoryUtilizationMetric"></a>
 
 ```typescript
@@ -68717,6 +68857,16 @@ public readonly enhancedMonitoringMaxMemoryUtilizationMetric: Metric | MathExpre
 
 ```typescript
 public readonly enhancedMonitoringP90CpuTotalTimeMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `enhancedMonitoringP90InitDurationMetric`<sup>Optional</sup> <a name="enhancedMonitoringP90InitDurationMetric" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.enhancedMonitoringP90InitDurationMetric"></a>
+
+```typescript
+public readonly enhancedMonitoringP90InitDurationMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
@@ -68770,10 +68920,53 @@ new LatencyAlarmFactory(alarmFactory: AlarmFactory)
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory.addCustomDurationAlarm">addCustomDurationAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory.addDurationAlarm">addDurationAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory.addIntegrationLatencyAlarm">addIntegrationLatencyAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory.addJvmGarbageCollectionDurationAlarm">addJvmGarbageCollectionDurationAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory.addLatencyAlarm">addLatencyAlarm</a></code> | *No description.* |
+
+---
+
+##### `addCustomDurationAlarm` <a name="addCustomDurationAlarm" id="cdk-monitoring-constructs.LatencyAlarmFactory.addCustomDurationAlarm"></a>
+
+```typescript
+public addCustomDurationAlarm(metric: Metric | MathExpression, latencyType: LatencyType, props: DurationThreshold, durationName: string, disambiguator?: string, additionalAlarmNameSuffix?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.LatencyAlarmFactory.addCustomDurationAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.LatencyAlarmFactory.addCustomDurationAlarm.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.LatencyAlarmFactory.addCustomDurationAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.DurationThreshold">DurationThreshold</a>
+
+---
+
+###### `durationName`<sup>Required</sup> <a name="durationName" id="cdk-monitoring-constructs.LatencyAlarmFactory.addCustomDurationAlarm.parameter.durationName"></a>
+
+- *Type:* string
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.LatencyAlarmFactory.addCustomDurationAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalAlarmNameSuffix`<sup>Optional</sup> <a name="additionalAlarmNameSuffix" id="cdk-monitoring-constructs.LatencyAlarmFactory.addCustomDurationAlarm.parameter.additionalAlarmNameSuffix"></a>
+
+- *Type:* string
 
 ---
 
