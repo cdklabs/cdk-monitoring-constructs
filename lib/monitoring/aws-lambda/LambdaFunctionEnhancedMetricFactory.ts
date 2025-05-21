@@ -98,14 +98,19 @@ export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory<Lambd
     );
   }
 
-  enhancedMetricFunctionCost() {
-    return this.metricFactory.createMetricMath(
-      "memory_utilization * duration",
-      {
-        memory_utilization: this.enhancedMetricMaxMemoryUtilization(),
-        duration: this.enhancedMetricFunctionDuration(),
-      },
-      "Function Cost (avg: ${AVG}, max: ${MAX})",
+  enhancedMetricInitDuration() {
+    return this.enhancedMetric(
+      "init_duration",
+      MetricStatistic.SUM,
+      "InitDuration.Sum",
+    );
+  }
+
+  enhancedMetricMaxTotalMemory() {
+    return this.enhancedMetric(
+      "total_memory",
+      MetricStatistic.MAX,
+      "TotalMemory",
     );
   }
 
@@ -116,6 +121,18 @@ export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory<Lambd
         region: this.region,
         account: this.account,
       }),
+    );
+  }
+
+  enhancedMetricFunctionCost() {
+    return this.metricFactory.createMetricMath(
+      "(total_memory * duration) + (total_memory * init_duration)",
+      {
+        total_memory: this.enhancedMetricMaxTotalMemory(),
+        duration: this.enhancedMetricFunctionDuration(),
+        init_duration: this.enhancedMetricInitDuration(),
+      },
+      "Function Cost (avg: ${AVG}, max: ${MAX})",
     );
   }
 
