@@ -67735,9 +67735,11 @@ new LambdaFunctionEnhancedMetricFactory(metricFactory: MetricFactory, props: Lam
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricAvgInitDuration">enhancedMetricAvgInitDuration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricAvgMemoryUtilization">enhancedMetricAvgMemoryUtilization</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricFunctionCost">enhancedMetricFunctionCost</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricInitDuration">enhancedMetricInitDuration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxCpuTotalTime">enhancedMetricMaxCpuTotalTime</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxInitDuration">enhancedMetricMaxInitDuration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxMemoryUtilization">enhancedMetricMaxMemoryUtilization</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxTotalMemory">enhancedMetricMaxTotalMemory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90CpuTotalTime">enhancedMetricP90CpuTotalTime</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90InitDuration">enhancedMetricP90InitDuration</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90MemoryUtilization">enhancedMetricP90MemoryUtilization</a></code> | *No description.* |
@@ -67768,6 +67770,12 @@ public enhancedMetricAvgMemoryUtilization(): Metric | MathExpression
 public enhancedMetricFunctionCost(): Metric | MathExpression
 ```
 
+##### `enhancedMetricInitDuration` <a name="enhancedMetricInitDuration" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricInitDuration"></a>
+
+```typescript
+public enhancedMetricInitDuration(): Metric | MathExpression
+```
+
 ##### `enhancedMetricMaxCpuTotalTime` <a name="enhancedMetricMaxCpuTotalTime" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxCpuTotalTime"></a>
 
 ```typescript
@@ -67784,6 +67792,12 @@ public enhancedMetricMaxInitDuration(): Metric | MathExpression
 
 ```typescript
 public enhancedMetricMaxMemoryUtilization(): Metric | MathExpression
+```
+
+##### `enhancedMetricMaxTotalMemory` <a name="enhancedMetricMaxTotalMemory" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricMaxTotalMemory"></a>
+
+```typescript
+public enhancedMetricMaxTotalMemory(): Metric | MathExpression
 ```
 
 ##### `enhancedMetricP90CpuTotalTime` <a name="enhancedMetricP90CpuTotalTime" id="cdk-monitoring-constructs.LambdaFunctionEnhancedMetricFactory.enhancedMetricP90CpuTotalTime"></a>

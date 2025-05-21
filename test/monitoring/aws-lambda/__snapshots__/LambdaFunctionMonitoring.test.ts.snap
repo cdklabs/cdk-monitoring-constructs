@@ -1591,15 +1591,19 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Function Cost (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"memory_utilization * duration\\"}],[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Function Cost (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(total_memory * duration) + (total_memory * init_duration)\\"}],[\\"LambdaInsights\\",\\"total_memory\\",\\"function_name\\",\\"",
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"MemoryUtilization.Max\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"memory_utilization\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              "\\",{\\"label\\":\\"TotalMemory\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"total_memory\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"duration\\"}],[\\"LambdaInsights\\",\\"init_duration\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"InitDuration.Sum\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"init_duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -3002,15 +3006,19 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Function Cost (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"memory_utilization * duration\\"}],[\\"LambdaInsights\\",\\"memory_utilization\\",\\"function_name\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Function Cost (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(total_memory * duration) + (total_memory * init_duration)\\"}],[\\"LambdaInsights\\",\\"total_memory\\",\\"function_name\\",\\"",
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"MemoryUtilization.Max\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"memory_utilization\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              "\\",{\\"label\\":\\"TotalMemory\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"total_memory\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"duration\\"}],[\\"LambdaInsights\\",\\"init_duration\\",\\"function_name\\",\\"",
+              Object {
+                "Ref": "Function76856677",
+              },
+              "\\",{\\"label\\":\\"InitDuration.Sum\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"init_duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
