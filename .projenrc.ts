@@ -46,7 +46,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     mavenGroupId: "io.github.cdklabs",
     javaPackage: "io.github.cdklabs.cdkmonitoringconstructs",
     mavenArtifactId: "cdkmonitoringconstructs",
-    mavenEndpoint: "https://s01.oss.sonatype.org",
+    mavenServerId: "central-ossrh",
   },
   // TODO: https://github.com/cdklabs/cdk-monitoring-constructs/issues/21
   // Artifact config: Go
