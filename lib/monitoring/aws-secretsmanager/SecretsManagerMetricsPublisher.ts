@@ -1,6 +1,6 @@
 import * as path from "path";
 
-import { Duration, Names } from "aws-cdk-lib";
+import { Duration, Names, RemovalPolicy } from "aws-cdk-lib";
 import { Rule, RuleTargetInput, Schedule } from "aws-cdk-lib/aws-events";
 import { LambdaFunction } from "aws-cdk-lib/aws-events-targets";
 import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
@@ -10,7 +10,7 @@ import {
   Function,
   IFunction,
 } from "aws-cdk-lib/aws-lambda";
-import { RetentionDays } from "aws-cdk-lib/aws-logs";
+import { LogGroup, RetentionDays } from "aws-cdk-lib/aws-logs";
 import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
 import { Construct } from "constructs";
 
@@ -41,7 +41,10 @@ export class SecretsManagerMetricsPublisher extends Construct {
       memorySize: 128,
       runtime: determineLatestNodeRuntime(this),
       timeout: Duration.seconds(60),
-      logRetention: RetentionDays.ONE_DAY,
+      logGroup: new LogGroup(this, "LambdaLogs", {
+        retention: RetentionDays.ONE_DAY,
+        removalPolicy: RemovalPolicy.RETAIN_ON_UPDATE_OR_DELETE,
+      }),
     });
 
     this.lambda.addToRolePolicy(
