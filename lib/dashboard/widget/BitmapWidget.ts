@@ -1,6 +1,6 @@
 import * as path from "path";
 
-import { Duration, Tags } from "aws-cdk-lib";
+import { Duration, RemovalPolicy, Tags } from "aws-cdk-lib";
 import { IWidget } from "aws-cdk-lib/aws-cloudwatch";
 import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import {
@@ -9,7 +9,7 @@ import {
   Function,
   IFunction,
 } from "aws-cdk-lib/aws-lambda";
-import { RetentionDays } from "aws-cdk-lib/aws-logs";
+import { LogGroup, RetentionDays } from "aws-cdk-lib/aws-logs";
 import { Construct } from "constructs";
 
 import { CustomWidget } from "./CustomWidget";
@@ -41,7 +41,10 @@ export class BitmapWidgetRenderingSupport extends Construct {
       memorySize: 128,
       runtime: determineLatestNodeRuntime(this),
       timeout: Duration.seconds(60),
-      logRetention: RetentionDays.ONE_DAY,
+      logGroup: new LogGroup(this, "LambdaLogs", {
+        retention: RetentionDays.ONE_DAY,
+        removalPolicy: RemovalPolicy.RETAIN_ON_UPDATE_OR_DELETE,
+      }),
     });
 
     this.handler.addToRolePolicy(
