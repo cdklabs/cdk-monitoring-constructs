@@ -1,3 +1,4 @@
+import { HttpApi } from "aws-cdk-lib/aws-apigatewayv2";
 import {
   GraphWidget,
   HorizontalAnnotation,
@@ -159,7 +160,11 @@ export class ApiGatewayV2HttpApiMonitoring extends Monitoring {
     super(scope, props);
 
     // used when humanReadableName is not provided by user
-    const fallbackNameArray = [props.api.apiId];
+    const fallbackNameArray = [
+      (props.api as HttpApi)?.httpApiName ??
+        (props.api as HttpApi)?.httpApiId ??
+        props.api.apiId,
+    ];
     fallbackNameArray.push(props.apiStage ?? "$default");
     if (props.apiMethod) {
       fallbackNameArray.push(props.apiMethod);
