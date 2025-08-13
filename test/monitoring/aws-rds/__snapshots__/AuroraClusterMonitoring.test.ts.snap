@@ -101,23 +101,23 @@ Object {
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -384,23 +384,23 @@ Object {
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -496,23 +496,23 @@ Object {
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -635,23 +635,23 @@ Object {
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "ScopeDummyAuroraCluster61A7551D",
               },
-              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Serverless Database Capacity\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

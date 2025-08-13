@@ -6679,23 +6679,63 @@ Object {
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Select P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Insert P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Update P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Delete P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Commit P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Select P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Insert P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Update P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Delete P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Commit P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6703,11 +6743,11 @@ Object {
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Read IOPS\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/RDS\\",\\"WriteIOPS\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Read IOPS\\"}],[\\"AWS/RDS\\",\\"WriteIOPS\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Read IOPS\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"markdown\\":\\"### Secret **Secret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Write IOPS\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"markdown\\":\\"### Secret **Secret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6823,23 +6863,63 @@ Object {
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Select P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Insert P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Update P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Delete P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Commit P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Select P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Insert P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Update P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Delete P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"",
+              Object {
+                "Ref": "DummyDBCluster350631DE",
+              },
+              "\\",{\\"label\\":\\"Commit P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6847,11 +6927,11 @@ Object {
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Read IOPS\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/RDS\\",\\"WriteIOPS\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Read IOPS\\"}],[\\"AWS/RDS\\",\\"WriteIOPS\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Read IOPS\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### Secret **Secret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Write IOPS\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### Secret **Secret**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Days since last change\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
