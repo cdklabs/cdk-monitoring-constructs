@@ -14,15 +14,17 @@ import {
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
-  HalfWidth,
   HighConnectionCountThreshold,
+  LatencyAlarmFactory,
+  LatencyThreshold,
+  LatencyType,
   LowConnectionCountThreshold,
+  MaxUsageCountThreshold,
   MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
-  ThirdWidth,
   TimeAxisMillisFromZero,
   UsageAlarmFactory,
   UsageThreshold,
@@ -43,6 +45,13 @@ export interface RdsClusterMonitoringOptions extends BaseMonitoringProps {
     string,
     HighConnectionCountThreshold
   >;
+  readonly addReadIOPSAlarm?: Record<string, MaxUsageCountThreshold>;
+  readonly addWriteIOPSAlarm?: Record<string, MaxUsageCountThreshold>;
+  readonly addSelectLatencyAlarm?: Record<string, LatencyThreshold>;
+  readonly addInsertLatencyAlarm?: Record<string, LatencyThreshold>;
+  readonly addUpdateLatencyAlarm?: Record<string, LatencyThreshold>;
+  readonly addDeleteLatencyAlarm?: Record<string, LatencyThreshold>;
+  readonly addCommitLatencyAlarm?: Record<string, LatencyThreshold>;
 }
 
 export interface RdsClusterMonitoringProps
@@ -55,8 +64,11 @@ export class RdsClusterMonitoring extends Monitoring {
 
   readonly usageAlarmFactory: UsageAlarmFactory;
   readonly connectionAlarmFactory: ConnectionAlarmFactory;
+  readonly latencyAlarmFactory: LatencyAlarmFactory;
   readonly usageAnnotations: HorizontalAnnotation[];
   readonly connectionAnnotations: HorizontalAnnotation[];
+  readonly latencyAnnotations: HorizontalAnnotation[];
+  readonly iopsAnnotations: HorizontalAnnotation[];
 
   readonly connectionsMetric: MetricWithAlarmSupport;
   readonly diskSpaceUsageMetric: MetricWithAlarmSupport;
@@ -66,6 +78,8 @@ export class RdsClusterMonitoring extends Monitoring {
   readonly updateLatencyMetric: MetricWithAlarmSupport;
   readonly deleteLatencyMetric: MetricWithAlarmSupport;
   readonly commitLatencyMetric: MetricWithAlarmSupport;
+  readonly readIopsMetric: MetricWithAlarmSupport;
+  readonly writeIopsMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: RdsClusterMonitoringProps) {
     super(scope, props);
@@ -82,6 +96,8 @@ export class RdsClusterMonitoring extends Monitoring {
     this.updateLatencyMetric = metricFactory.metricUpdateLatencyP90InMillis();
     this.deleteLatencyMetric = metricFactory.metricDeleteLatencyP90InMillis();
     this.commitLatencyMetric = metricFactory.metricCommitLatencyP90InMillis();
+    this.readIopsMetric = metricFactory.metricReadIOPS();
+    this.writeIopsMetric = metricFactory.metricWriteIOPS();
 
     const namingStrategy = new MonitoringNamingStrategy({
       ...props,
@@ -97,9 +113,12 @@ export class RdsClusterMonitoring extends Monitoring {
     );
     this.usageAlarmFactory = new UsageAlarmFactory(alarmFactory);
     this.connectionAlarmFactory = new ConnectionAlarmFactory(alarmFactory);
+    this.latencyAlarmFactory = new LatencyAlarmFactory(alarmFactory);
 
     this.usageAnnotations = [];
     this.connectionAnnotations = [];
+    this.latencyAnnotations = [];
+    this.iopsAnnotations = [];
 
     for (const disambiguator in props.addDiskSpaceUsageAlarm) {
       const alarmProps = props.addDiskSpaceUsageAlarm[disambiguator];
@@ -147,15 +166,106 @@ export class RdsClusterMonitoring extends Monitoring {
       this.addAlarm(createdAlarm);
     }
 
+    for (const disambiguator in props.addSelectLatencyAlarm) {
+      const alarmProps = props.addSelectLatencyAlarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.selectLatencyMetric,
+        LatencyType.P90,
+        alarmProps,
+        disambiguator,
+        "Select",
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addInsertLatencyAlarm) {
+      const alarmProps = props.addInsertLatencyAlarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.insertLatencyMetric,
+        LatencyType.P90,
+        alarmProps,
+        disambiguator,
+        "Insert",
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addUpdateLatencyAlarm) {
+      const alarmProps = props.addUpdateLatencyAlarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.updateLatencyMetric,
+        LatencyType.P90,
+        alarmProps,
+        disambiguator,
+        "Update",
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addDeleteLatencyAlarm) {
+      const alarmProps = props.addDeleteLatencyAlarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.deleteLatencyMetric,
+        LatencyType.P90,
+        alarmProps,
+        disambiguator,
+        "Delete",
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addCommitLatencyAlarm) {
+      const alarmProps = props.addCommitLatencyAlarm[disambiguator];
+      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+        this.commitLatencyMetric,
+        LatencyType.P90,
+        alarmProps,
+        disambiguator,
+        "Commit",
+      );
+      this.latencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addReadIOPSAlarm) {
+      const alarmProps = props.addReadIOPSAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMaxReadIOPSAlarm(
+        this.readIopsMetric,
+        alarmProps,
+        disambiguator,
+      );
+      this.usageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addWriteIOPSAlarm) {
+      const alarmProps = props.addWriteIOPSAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMaxWriteIOPSAlarm(
+        this.writeIopsMetric,
+        alarmProps,
+        disambiguator,
+      );
+      this.usageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
     props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
   summaryWidgets(): IWidget[] {
     return [
       this.createTitleWidget(),
-      this.createCpuAndDiskUsageWidget(ThirdWidth, DefaultSummaryWidgetHeight),
-      this.createConnectionsWidget(ThirdWidth, DefaultSummaryWidgetHeight),
-      this.createLatencyWidget(ThirdWidth, DefaultSummaryWidgetHeight),
+      this.createCpuAndDiskUsageWidget(
+        QuarterWidth,
+        DefaultSummaryWidgetHeight,
+      ),
+      this.createConnectionsWidget(QuarterWidth, DefaultSummaryWidgetHeight),
+      this.createLatencyWidget(QuarterWidth, DefaultSummaryWidgetHeight),
+      this.createIOPSWidget(QuarterWidth, DefaultSummaryWidgetHeight),
     ];
   }
 
@@ -164,7 +274,8 @@ export class RdsClusterMonitoring extends Monitoring {
       this.createTitleWidget(),
       this.createCpuAndDiskUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
       this.createConnectionsWidget(QuarterWidth, DefaultGraphWidgetHeight),
-      this.createLatencyWidget(HalfWidth, DefaultGraphWidgetHeight),
+      this.createLatencyWidget(QuarterWidth, DefaultGraphWidgetHeight),
+      this.createIOPSWidget(QuarterWidth, DefaultGraphWidgetHeight),
     ];
   }
 
@@ -211,6 +322,18 @@ export class RdsClusterMonitoring extends Monitoring {
         this.commitLatencyMetric,
       ],
       leftYAxis: TimeAxisMillisFromZero,
+      leftAnnotations: this.latencyAnnotations,
+    });
+  }
+
+  createIOPSWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "IOPS",
+      left: [this.readIopsMetric, this.writeIopsMetric],
+      leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.iopsAnnotations,
     });
   }
 }

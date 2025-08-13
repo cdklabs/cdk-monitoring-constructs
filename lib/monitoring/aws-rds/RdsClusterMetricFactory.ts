@@ -113,6 +113,14 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
     return this.metric("CommitLatency", MetricStatistic.P90, "Commit");
   }
 
+  metricReadIOPS() {
+    return this.metric("ReadIOPS", MetricStatistic.AVERAGE, "Read IOPS");
+  }
+
+  metricWriteIOPS() {
+    return this.metric("WriteIOPS", MetricStatistic.AVERAGE, "Write IOPS");
+  }
+
   metricServerlessDatabaseCapacity() {
     if (!this.isServerlessCluster(this.cluster)) {
       throw Error(

@@ -304,4 +304,42 @@ export class UsageAlarmFactory {
       alarmDescription: "The thread count is too high.",
     });
   }
+
+  addMaxReadIOPSAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MaxUsageCountThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxCount,
+      alarmNameSuffix: "Read-IOPS",
+      alarmDescription: "The read IOPS is too high.",
+    });
+  }
+
+  addMaxWriteIOPSAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MaxUsageCountThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxCount,
+      alarmNameSuffix: "Write-IOPS",
+      alarmDescription: "The write IOPS is too high.",
+    });
+  }
 }
