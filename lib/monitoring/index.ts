@@ -17,6 +17,7 @@ export * from "./aws-kinesisanalytics";
 export * from "./aws-lambda";
 export * from "./aws-loadbalancing";
 export * from "./aws-opensearch";
+export * from "./aws-osis";
 export * from "./aws-rds";
 export * from "./aws-redshift";
 export * from "./aws-s3";
