@@ -38,6 +38,28 @@ Object {
                   "Arn",
                 ],
               },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApplicationFailureCountWarningE827B83F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApplicationFailureRateWarning64E06097",
+                  "Arn",
+                ],
+              },
               "\\"]},\\"yAxis\\":{}}}]}",
             ],
           ],
@@ -71,7 +93,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"checkpoints\\"}],[{\\"label\\":\\"Failed Checkpoints/h\\",\\"expression\\":\\"(3600 * checkpoints) / PERIOD(checkpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed Checkpoints > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Failed Checkpoints/h > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -121,6 +143,79 @@ Object {
         ],
         "Threshold": 300000,
         "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApplicationFailureCountWarningE827B83F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Failure count is too high.",
+        "AlarmName": "Test-DummyApplication-Failure-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Failed Checkpoints",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Application",
+                    "Value": "DummyApplication",
+                  },
+                ],
+                "MetricName": "numberOfFailedCheckpoints",
+                "Namespace": "AWS/KinesisAnalytics",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApplicationFailureRateWarning64E06097": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Failure rate is too high.",
+        "AlarmName": "Test-DummyApplication-Failure-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "(3600 * checkpoints) / PERIOD(checkpoints)",
+            "Id": "expr_1",
+            "Label": "Failed Checkpoints/h",
+          },
+          Object {
+            "Id": "checkpoints",
+            "Label": "Failed Checkpoints",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Application",
+                    "Value": "DummyApplication",
+                  },
+                ],
+                "MetricName": "numberOfFailedCheckpoints",
+                "Namespace": "AWS/KinesisAnalytics",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.1,
+        "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -260,7 +355,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"checkpoints\\"}],[{\\"label\\":\\"Failed Checkpoints/h\\",\\"expression\\":\\"(3600 * checkpoints) / PERIOD(checkpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

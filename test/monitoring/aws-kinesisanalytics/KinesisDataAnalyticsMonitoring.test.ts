@@ -37,6 +37,16 @@ test("snapshot test: all alarms", () => {
         maxFullRestartCount: 1,
       },
     },
+    addCheckpointFailureCountAlarm: {
+      Warning: {
+        maxErrorCount: 5,
+      },
+    },
+    addCheckpointFailureRateAlarm: {
+      Warning: {
+        maxErrorRate: 0.1,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms) {
         numAlarmsCreated = alarms.length;
@@ -45,6 +55,6 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(2);
+  expect(numAlarmsCreated).toStrictEqual(4);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
