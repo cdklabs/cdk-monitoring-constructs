@@ -1,8 +1,8 @@
-import { Stack } from "aws-cdk-lib";
+import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import { AutoScalingGroup } from "aws-cdk-lib/aws-autoscaling";
 
-import { EC2Monitoring } from "../../../lib";
+import { AlarmWithAnnotation, EC2Monitoring } from "../../../lib";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
@@ -67,5 +67,38 @@ test("snapshot test: instance filter + ASG, no alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: all instances, network alarms", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  let numAlarmsCreated = 0;
+
+  const monitoring = new EC2Monitoring(scope, {
+    alarmFriendlyName: "EC2",
+    addNetworkInTotalBytesExceedThresholdAlarm: {
+      WARNING: {
+        maxNetworkInBytes: 100,
+        period: Duration.days(1),
+      },
+    },
+    addNetworkOutTotalBytesExceedThresholdAlarm: {
+      ERROR: {
+        maxNetworkOutBytes: 200,
+        period: Duration.days(4),
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms: AlarmWithAnnotation[]) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(numAlarmsCreated).toBe(2);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
