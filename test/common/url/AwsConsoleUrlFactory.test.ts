@@ -255,6 +255,25 @@ test("getRedshiftClusterUrl", () => {
   ).toEqual(expected);
 });
 
+test("getOsisPipelineUrl", () => {
+  const stack = new Stack();
+  const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });
+
+  const expected =
+    "https://eu-west-1.console.aws.amazon.com/aos/osis/home?region=eu-west-1#osis/ingestion-pipelines/PipelineName";
+
+  expect(stack.resolve(factory.getOsisPipelineUrl("PipelineName"))).toEqual(
+    expected,
+  );
+  expect(
+    stack.resolve(
+      factory.getOsisPipelineUrl(
+        Lazy.string({ produce: () => "PipelineName" }),
+      ),
+    ),
+  ).toEqual(expected);
+});
+
 test("getOpenSearchClusterUrl", () => {
   const stack = new Stack();
   const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });

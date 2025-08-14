@@ -113,6 +113,12 @@ export class AwsConsoleUrlFactory {
     return this.getAwsConsoleUrl(destinationUrl);
   }
 
+  getOsisPipelineUrl(pipelineName: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/aos/osis/home?region=${region}#osis/ingestion-pipelines/${pipelineName}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
   getRdsClusterUrl(clusterId: string): string | undefined {
     const region = this.awsAccountRegion;
     const destinationUrl = `https://${region}.console.aws.amazon.com/rds/home?region=${region}#database:id=${clusterId};is-cluster=true;tab=monitoring`;

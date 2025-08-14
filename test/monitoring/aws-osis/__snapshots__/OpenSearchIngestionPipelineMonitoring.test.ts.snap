@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestPipelineNameMaxUsageCountWarning0D82974C",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### OpenSearch Ingestion **[PipelineName](https://eu-west-1.console.aws.amazon.com/aos/osis/home?region=eu-west-1#osis/ingestion-pipelines/PipelineName)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.bulkRequestLatency.max\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.bulkRequestLatency.max\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.PipelineLatency.max\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.PipelineLatency.max\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Incoming data\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.recordsIn.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.recordsIn.count\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Source.bytesReceived.sum\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Source.bytesReceived.sum\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DLQ\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"successCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"failedCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DLQ records count > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestPipelineNameMaxUsageCountWarning0D82974C": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The count is too high.",
+        "AlarmName": "Test-PipelineName-Max-Usage-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "successCount + failedCount",
+            "Id": "expr_1",
+            "Label": "DLQ records count",
+          },
+          Object {
+            "Id": "successCount",
+            "Label": "s3.dlqS3RecordsSuccess.count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "PipelineName",
+                    "Value": "PipelineName",
+                  },
+                ],
+                "MetricName": "SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count",
+                "Namespace": "AWS/OSIS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "failedCount",
+            "Label": "s3.dlqS3RecordsFailed.count",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "PipelineName",
+                    "Value": "PipelineName",
+                  },
+                ],
+                "MetricName": "SubPipelineName.Sink.s3.dlqS3RecordsFailed.count",
+                "Namespace": "AWS/OSIS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### OpenSearch Ingestion **[PipelineName](https://eu-west-1.console.aws.amazon.com/aos/osis/home?region=eu-west-1#osis/ingestion-pipelines/PipelineName)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.bulkRequestLatency.max\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.bulkRequestLatency.max\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.PipelineLatency.max\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.PipelineLatency.max\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Incoming data\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.recordsIn.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.recordsIn.count\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Source.bytesReceived.sum\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Source.bytesReceived.sum\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DLQ\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"successCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"failedCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DLQ records count > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### OpenSearch Ingestion **[PipelineName](https://eu-west-1.console.aws.amazon.com/aos/osis/home?region=eu-west-1#osis/ingestion-pipelines/PipelineName)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.bulkRequestLatency.max\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.bulkRequestLatency.max\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.PipelineLatency.max\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.PipelineLatency.max\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Incoming data\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.recordsIn.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.recordsIn.count\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Source.bytesReceived.sum\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Source.bytesReceived.sum\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DLQ\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"successCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"failedCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### OpenSearch Ingestion **[PipelineName](https://eu-west-1.console.aws.amazon.com/aos/osis/home?region=eu-west-1#osis/ingestion-pipelines/PipelineName)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.bulkRequestLatency.max\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.bulkRequestLatency.max\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.PipelineLatency.max\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.PipelineLatency.max\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Incoming data\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.recordsIn.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Sink.recordsIn.count\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Source.bytesReceived.sum\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"Source.bytesReceived.sum\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"DLQ\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"successCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"failedCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
