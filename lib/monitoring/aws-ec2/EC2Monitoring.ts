@@ -144,11 +144,10 @@ export class EC2Monitoring extends Monitoring {
       });
 
       if (createdAlarms.length > 0) {
-        this.networkInSumLimitAnnotations.push(createdAlarms[0].annotation);
         this.networkOutSumLimitAnnotations.push(createdAlarms[0].annotation);
       }
-      props.useCreatedAlarms?.consume(this.createdAlarms());
     }
+    props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
   summaryWidgets(): IWidget[] {
