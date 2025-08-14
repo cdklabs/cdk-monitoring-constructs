@@ -6,6 +6,7 @@ import {
   BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
+  MetricWithAlarmSupport,
 } from "../../common";
 
 const EC2Namespace = "AWS/EC2";
@@ -17,7 +18,8 @@ export interface IEC2MetricFactoryStrategy {
     statistic: MetricStatistic,
     region?: string,
     account?: string,
-  ): IMetric[];
+    label?: string,
+  ): MetricWithAlarmSupport[];
 }
 
 /**
@@ -36,12 +38,13 @@ class AutoScalingGroupStrategy implements IEC2MetricFactoryStrategy {
     statistic: MetricStatistic,
     region?: string,
     account?: string,
+    label?: string,
   ) {
     return [
       metricFactory.createMetric(
         metricName,
         statistic,
-        undefined,
+        label,
         resolveDimensions(this.autoScalingGroup, undefined),
         undefined,
         EC2Namespace,
@@ -71,6 +74,7 @@ class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
     statistic: MetricStatistic,
     region?: string,
     account?: string,
+    label?: string,
   ) {
     return this.instanceIds.map((instanceId) => {
       return metricFactory.createMetric(
@@ -78,7 +82,7 @@ class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
         statistic,
         `${metricName} (${instanceId})`,
         resolveDimensions(this.autoScalingGroup, instanceId),
-        undefined,
+        label,
         EC2Namespace,
         undefined,
         region,
@@ -98,6 +102,7 @@ class AllInstancesStrategy implements IEC2MetricFactoryStrategy {
     statistic: MetricStatistic,
     region?: string,
     account?: string,
+    label?: string,
   ) {
     return [
       metricFactory.createMetricSearch(
@@ -105,7 +110,7 @@ class AllInstancesStrategy implements IEC2MetricFactoryStrategy {
         { InstanceId: undefined as unknown as string },
         statistic,
         EC2Namespace,
-        undefined,
+        label,
         undefined,
         region,
         account,
@@ -226,6 +231,22 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
     return this.metric("NetworkOut", MetricStatistic.AVERAGE);
   }
 
+  /**
+   * The number of bytes received on all network interfaces by the instance.
+   * This metric identifies the volume of incoming network traffic to a single instance.
+   */
+  metricSumNetworkInRateBytes() {
+    return this.metric("NetworkIn", MetricStatistic.SUM, "Total NetworkIn");
+  }
+
+  /**
+   * The number of bytes sent out on all network interfaces by the instance.
+   * This metric identifies the volume of outgoing network traffic from a single instance.
+   */
+  metricSumNetworkOutRateBytes() {
+    return this.metric("NetworkOut", MetricStatistic.SUM, "Total NetworkOut");
+  }
+
   private createDiskMetrics(metricName: string, statistic: MetricStatistic) {
     const classicMetrics = this.strategy.createMetrics(
       this.metricFactory,
@@ -253,11 +274,18 @@ export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
     });
   }
 
-  private metric(metricName: string, statistic: MetricStatistic) {
+  private metric(
+    metricName: string,
+    statistic: MetricStatistic,
+    label?: string,
+  ) {
     return this.strategy.createMetrics(
       this.metricFactory,
       metricName,
       statistic,
+      undefined,
+      undefined,
+      label,
     );
   }
 }

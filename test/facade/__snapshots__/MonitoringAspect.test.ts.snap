@@ -3937,7 +3937,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -3963,7 +3963,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

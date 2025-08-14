@@ -1,4 +1,9 @@
-import { GraphWidget, IMetric, IWidget } from "aws-cdk-lib/aws-cloudwatch";
+import {
+  GraphWidget,
+  HorizontalAnnotation,
+  IMetric,
+  IWidget,
+} from "aws-cdk-lib/aws-cloudwatch";
 
 import { EC2MetricFactory, EC2MetricFactoryProps } from "./EC2MetricFactory";
 import {
@@ -6,6 +11,7 @@ import {
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
+  MetricWithAlarmSupport,
   Monitoring,
   MonitoringScope,
   PercentageAxisFromZeroToHundred,
@@ -14,13 +20,28 @@ import {
   ThirdWidth,
 } from "../../common";
 import {
+  EC2AlarmFactory,
+  NetworkInThreshold,
+  NetworkOutThreshold,
+} from "../../common/monitoring/alarms/EC2AlarmFactory";
+import {
   MonitoringHeaderWidget,
   MonitoringNamingStrategy,
 } from "../../dashboard";
 
 export interface EC2MonitoringOptions
   extends EC2MetricFactoryProps,
-    BaseMonitoringProps {}
+    BaseMonitoringProps {
+  readonly addNetworkOutTotalBytesExceedThresholdAlarm?: Record<
+    string,
+    NetworkOutThreshold
+  >;
+
+  readonly addNetworkInTotalBytesExceedThresholdAlarm?: Record<
+    string,
+    NetworkInThreshold
+  >;
+}
 
 export interface EC2MonitoringProps extends EC2MonitoringOptions {}
 
@@ -28,13 +49,21 @@ export class EC2Monitoring extends Monitoring {
   readonly family: string;
   readonly title: string;
 
+  readonly ec2AlarmFactory: EC2AlarmFactory;
+
   readonly cpuUtilisationMetrics: IMetric[];
   readonly diskReadBytesMetrics: IMetric[];
   readonly diskWriteBytesMetrics: IMetric[];
   readonly diskReadOpsMetrics: IMetric[];
   readonly diskWriteOpsMetrics: IMetric[];
-  readonly networkInMetrics: IMetric[];
-  readonly networkOutMetrics: IMetric[];
+  readonly networkInMetrics: MetricWithAlarmSupport[];
+  readonly networkOutMetrics: MetricWithAlarmSupport[];
+
+  readonly networkInSumMetrics: MetricWithAlarmSupport[];
+  readonly networkOutSumMetrics: MetricWithAlarmSupport[];
+
+  readonly networkInSumLimitAnnotations: HorizontalAnnotation[];
+  readonly networkOutSumLimitAnnotations: HorizontalAnnotation[];
 
   constructor(scope: MonitoringScope, props: EC2MonitoringProps) {
     super(scope, props);
@@ -48,11 +77,28 @@ export class EC2Monitoring extends Monitoring {
     });
     this.family = props.autoScalingGroup ? "EC2 Auto Scaling Group" : "EC2";
     this.title = namingStrategy.resolveHumanReadableName();
+    this.networkOutSumLimitAnnotations = [];
+    this.networkInSumLimitAnnotations = [];
 
     const metricFactory = new EC2MetricFactory(
       scope.createMetricFactory(),
       props,
     );
+
+    // using different fallback alarm construct name
+    // as alarms don't allow whitespace
+    const fallbackAlarmConstructName = props.autoScalingGroup
+      ? props.autoScalingGroup.autoScalingGroupName
+      : "All-Instances";
+    const namingAlarmStrategy = new MonitoringNamingStrategy({
+      ...props,
+      fallbackConstructName: fallbackAlarmConstructName,
+    });
+    const alarmFactory = this.createAlarmFactory(
+      namingAlarmStrategy.resolveAlarmFriendlyName(),
+    );
+    this.ec2AlarmFactory = new EC2AlarmFactory(alarmFactory);
+
     this.cpuUtilisationMetrics =
       metricFactory.metricAverageCpuUtilisationPercent();
     this.diskReadBytesMetrics = metricFactory.metricAverageDiskReadBytes();
@@ -61,6 +107,47 @@ export class EC2Monitoring extends Monitoring {
     this.diskWriteOpsMetrics = metricFactory.metricAverageDiskWriteOps();
     this.networkInMetrics = metricFactory.metricAverageNetworkInRateBytes();
     this.networkOutMetrics = metricFactory.metricAverageNetworkOutRateBytes();
+
+    this.networkInSumMetrics = metricFactory.metricSumNetworkInRateBytes();
+    this.networkOutSumMetrics = metricFactory.metricSumNetworkOutRateBytes();
+
+    for (const disambiguator in props.addNetworkInTotalBytesExceedThresholdAlarm) {
+      const alarmProps =
+        props.addNetworkInTotalBytesExceedThresholdAlarm[disambiguator];
+
+      const createdAlarms = this.networkInMetrics.map((metric) => {
+        const createdAlarm = this.ec2AlarmFactory.addNetworkInAlarm(
+          metric,
+          alarmProps,
+          disambiguator,
+        );
+        this.addAlarm(createdAlarm);
+        return createdAlarm;
+      });
+
+      if (createdAlarms.length > 0) {
+        this.networkInSumLimitAnnotations.push(createdAlarms[0].annotation);
+      }
+    }
+
+    for (const disambiguator in props.addNetworkOutTotalBytesExceedThresholdAlarm) {
+      const alarmProps =
+        props.addNetworkOutTotalBytesExceedThresholdAlarm[disambiguator];
+      const createdAlarms = this.networkOutSumMetrics.map((metric) => {
+        const createdAlarm = this.ec2AlarmFactory.addNetworkOutAlarm(
+          metric,
+          alarmProps,
+          disambiguator,
+        );
+        this.addAlarm(createdAlarm);
+        return createdAlarm;
+      });
+
+      if (createdAlarms.length > 0) {
+        this.networkOutSumLimitAnnotations.push(createdAlarms[0].annotation);
+      }
+    }
+    props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
   summaryWidgets(): IWidget[] {
@@ -135,6 +222,12 @@ export class EC2Monitoring extends Monitoring {
       title: "Network",
       left: [...this.networkInMetrics, ...this.networkOutMetrics],
       leftYAxis: SizeAxisBytesFromZero,
+      right: [...this.networkInSumMetrics, ...this.networkOutSumMetrics],
+      rightYAxis: SizeAxisBytesFromZero,
+      rightAnnotations: [
+        ...this.networkInSumLimitAnnotations,
+        ...this.networkOutSumLimitAnnotations,
+      ],
     });
   }
 }

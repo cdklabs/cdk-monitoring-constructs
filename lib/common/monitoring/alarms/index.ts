@@ -4,6 +4,7 @@ export * from "./AuroraAlarmFactory";
 export * from "./CustomAlarmFactory";
 export * from "./ConnectionAlarmFactory";
 export * from "./DynamoAlarmFactory";
+export * from "./EC2AlarmFactory";
 export * from "./ElastiCacheAlarmFactory";
 export * from "./ErrorAlarmFactory";
 export * from "./KinesisAlarmFactory";

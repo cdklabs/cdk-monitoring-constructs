@@ -18294,6 +18294,8 @@ const eC2MonitoringOptions: EC2MonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addNetworkInTotalBytesExceedThresholdAlarm">addNetworkInTotalBytesExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.NetworkInThreshold">NetworkInThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.addNetworkOutTotalBytesExceedThresholdAlarm">addNetworkOutTotalBytesExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.NetworkOutThreshold">NetworkOutThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -18451,6 +18453,26 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addNetworkInTotalBytesExceedThresholdAlarm`<sup>Optional</sup> <a name="addNetworkInTotalBytesExceedThresholdAlarm" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.addNetworkInTotalBytesExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addNetworkInTotalBytesExceedThresholdAlarm: {[ key: string ]: NetworkInThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.NetworkInThreshold">NetworkInThreshold</a>}
+
+---
+
+##### `addNetworkOutTotalBytesExceedThresholdAlarm`<sup>Optional</sup> <a name="addNetworkOutTotalBytesExceedThresholdAlarm" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.addNetworkOutTotalBytesExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addNetworkOutTotalBytesExceedThresholdAlarm: {[ key: string ]: NetworkOutThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.NetworkOutThreshold">NetworkOutThreshold</a>}
+
+---
+
 ### EC2MonitoringProps <a name="EC2MonitoringProps" id="cdk-monitoring-constructs.EC2MonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EC2MonitoringProps.Initializer"></a>
@@ -18476,6 +18498,8 @@ const eC2MonitoringProps: EC2MonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addNetworkInTotalBytesExceedThresholdAlarm">addNetworkInTotalBytesExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.NetworkInThreshold">NetworkInThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.addNetworkOutTotalBytesExceedThresholdAlarm">addNetworkOutTotalBytesExceedThresholdAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.NetworkOutThreshold">NetworkOutThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -18630,6 +18654,26 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addNetworkInTotalBytesExceedThresholdAlarm`<sup>Optional</sup> <a name="addNetworkInTotalBytesExceedThresholdAlarm" id="cdk-monitoring-constructs.EC2MonitoringProps.property.addNetworkInTotalBytesExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addNetworkInTotalBytesExceedThresholdAlarm: {[ key: string ]: NetworkInThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.NetworkInThreshold">NetworkInThreshold</a>}
+
+---
+
+##### `addNetworkOutTotalBytesExceedThresholdAlarm`<sup>Optional</sup> <a name="addNetworkOutTotalBytesExceedThresholdAlarm" id="cdk-monitoring-constructs.EC2MonitoringProps.property.addNetworkOutTotalBytesExceedThresholdAlarm"></a>
+
+```typescript
+public readonly addNetworkOutTotalBytesExceedThresholdAlarm: {[ key: string ]: NetworkOutThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.NetworkOutThreshold">NetworkOutThreshold</a>}
 
 ---
 
@@ -39254,6 +39298,399 @@ It is used as a last resort for naming.
 
 ---
 
+### NetworkInThreshold <a name="NetworkInThreshold" id="cdk-monitoring-constructs.NetworkInThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.NetworkInThreshold.Initializer"></a>
+
+```typescript
+import { NetworkInThreshold } from 'cdk-monitoring-constructs'
+
+const networkInThreshold: NetworkInThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.NetworkInThreshold.property.maxNetworkInBytes">maxNetworkInBytes</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.NetworkInThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.NetworkInThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.NetworkInThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.NetworkInThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.NetworkInThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.NetworkInThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.NetworkInThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.NetworkInThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.NetworkInThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.NetworkInThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.NetworkInThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.NetworkInThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.NetworkInThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.NetworkInThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.NetworkInThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.NetworkInThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.NetworkInThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.NetworkInThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.NetworkInThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.NetworkInThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.NetworkInThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.NetworkInThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.NetworkInThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.NetworkInThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxNetworkInBytes`<sup>Required</sup> <a name="maxNetworkInBytes" id="cdk-monitoring-constructs.NetworkInThreshold.property.maxNetworkInBytes"></a>
+
+```typescript
+public readonly maxNetworkInBytes: number;
+```
+
+- *Type:* number
+
+---
+
 ### NetworkLoadBalancerMetricFactoryProps <a name="NetworkLoadBalancerMetricFactoryProps" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps"></a>
 
 Props to create NetworkLoadBalancerMetricFactory.
@@ -39584,6 +40021,399 @@ public readonly addUnhealthyTaskCountAlarm: {[ key: string ]: UnhealthyTaskCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UnhealthyTaskCountThreshold">UnhealthyTaskCountThreshold</a>}
+
+---
+
+### NetworkOutThreshold <a name="NetworkOutThreshold" id="cdk-monitoring-constructs.NetworkOutThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.NetworkOutThreshold.Initializer"></a>
+
+```typescript
+import { NetworkOutThreshold } from 'cdk-monitoring-constructs'
+
+const networkOutThreshold: NetworkOutThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.NetworkOutThreshold.property.maxNetworkOutBytes">maxNetworkOutBytes</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.NetworkOutThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.NetworkOutThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.NetworkOutThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.NetworkOutThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.NetworkOutThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.NetworkOutThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.NetworkOutThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.NetworkOutThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.NetworkOutThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.NetworkOutThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.NetworkOutThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.NetworkOutThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.NetworkOutThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.NetworkOutThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.NetworkOutThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.NetworkOutThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.NetworkOutThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.NetworkOutThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.NetworkOutThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.NetworkOutThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.NetworkOutThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.NetworkOutThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.NetworkOutThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.NetworkOutThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxNetworkOutBytes`<sup>Required</sup> <a name="maxNetworkOutBytes" id="cdk-monitoring-constructs.NetworkOutThreshold.property.maxNetworkOutBytes"></a>
+
+```typescript
+public readonly maxNetworkOutBytes: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -63460,6 +64290,88 @@ public readonly tableUrl: string;
 ---
 
 
+### EC2AlarmFactory <a name="EC2AlarmFactory" id="cdk-monitoring-constructs.EC2AlarmFactory"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.EC2AlarmFactory.Initializer"></a>
+
+```typescript
+import { EC2AlarmFactory } from 'cdk-monitoring-constructs'
+
+new EC2AlarmFactory(alarmFactory: AlarmFactory)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2AlarmFactory.Initializer.parameter.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.EC2AlarmFactory.Initializer.parameter.alarmFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2AlarmFactory.addNetworkInAlarm">addNetworkInAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2AlarmFactory.addNetworkOutAlarm">addNetworkOutAlarm</a></code> | *No description.* |
+
+---
+
+##### `addNetworkInAlarm` <a name="addNetworkInAlarm" id="cdk-monitoring-constructs.EC2AlarmFactory.addNetworkInAlarm"></a>
+
+```typescript
+public addNetworkInAlarm(metric: Metric | MathExpression, props: NetworkInThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.EC2AlarmFactory.addNetworkInAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.EC2AlarmFactory.addNetworkInAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.NetworkInThreshold">NetworkInThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.EC2AlarmFactory.addNetworkInAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addNetworkOutAlarm` <a name="addNetworkOutAlarm" id="cdk-monitoring-constructs.EC2AlarmFactory.addNetworkOutAlarm"></a>
+
+```typescript
+public addNetworkOutAlarm(metric: Metric | MathExpression, props: NetworkOutThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.EC2AlarmFactory.addNetworkOutAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.EC2AlarmFactory.addNetworkOutAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.NetworkOutThreshold">NetworkOutThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.EC2AlarmFactory.addNetworkOutAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+
+
+
 ### EC2MetricFactory <a name="EC2MetricFactory" id="cdk-monitoring-constructs.EC2MetricFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.EC2MetricFactory.Initializer"></a>
@@ -63500,13 +64412,15 @@ new EC2MetricFactory(metricFactory: MetricFactory, props: EC2MetricFactoryProps)
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskWriteOps">metricAverageDiskWriteOps</a></code> | Completed write operations to all instance store volumes available to the instance in a specified period of time. |
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.metricAverageNetworkInRateBytes">metricAverageNetworkInRateBytes</a></code> | The number of bytes received on all network interfaces by the instance. |
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.metricAverageNetworkOutRateBytes">metricAverageNetworkOutRateBytes</a></code> | The number of bytes sent out on all network interfaces by the instance. |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.metricSumNetworkInRateBytes">metricSumNetworkInRateBytes</a></code> | The number of bytes received on all network interfaces by the instance. |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactory.metricSumNetworkOutRateBytes">metricSumNetworkOutRateBytes</a></code> | The number of bytes sent out on all network interfaces by the instance. |
 
 ---
 
 ##### `metricAverageCpuUtilisationPercent` <a name="metricAverageCpuUtilisationPercent" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageCpuUtilisationPercent"></a>
 
 ```typescript
-public metricAverageCpuUtilisationPercent(): IMetric[]
+public metricAverageCpuUtilisationPercent(): Metric | MathExpression[]
 ```
 
 The percentage of allocated EC2 compute units that are currently in use on the instance.
@@ -63556,7 +64470,7 @@ Completed write operations to all instance store volumes available to the instan
 ##### `metricAverageNetworkInRateBytes` <a name="metricAverageNetworkInRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageNetworkInRateBytes"></a>
 
 ```typescript
-public metricAverageNetworkInRateBytes(): IMetric[]
+public metricAverageNetworkInRateBytes(): Metric | MathExpression[]
 ```
 
 The number of bytes received on all network interfaces by the instance.
@@ -63566,7 +64480,27 @@ This metric identifies the volume of incoming network traffic to a single instan
 ##### `metricAverageNetworkOutRateBytes` <a name="metricAverageNetworkOutRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageNetworkOutRateBytes"></a>
 
 ```typescript
-public metricAverageNetworkOutRateBytes(): IMetric[]
+public metricAverageNetworkOutRateBytes(): Metric | MathExpression[]
+```
+
+The number of bytes sent out on all network interfaces by the instance.
+
+This metric identifies the volume of outgoing network traffic from a single instance.
+
+##### `metricSumNetworkInRateBytes` <a name="metricSumNetworkInRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricSumNetworkInRateBytes"></a>
+
+```typescript
+public metricSumNetworkInRateBytes(): Metric | MathExpression[]
+```
+
+The number of bytes received on all network interfaces by the instance.
+
+This metric identifies the volume of incoming network traffic to a single instance.
+
+##### `metricSumNetworkOutRateBytes` <a name="metricSumNetworkOutRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricSumNetworkOutRateBytes"></a>
+
+```typescript
+public metricSumNetworkOutRateBytes(): Metric | MathExpression[]
 ```
 
 The number of bytes sent out on all network interfaces by the instance.
@@ -63812,9 +64746,14 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.diskReadOpsMetrics">diskReadOpsMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.diskWriteBytesMetrics">diskWriteBytesMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.diskWriteOpsMetrics">diskWriteOpsMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.ec2AlarmFactory">ec2AlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.EC2AlarmFactory">EC2AlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.family">family</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkInMetrics">networkInMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkOutMetrics">networkOutMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkInMetrics">networkInMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkInSumLimitAnnotations">networkInSumLimitAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkInSumMetrics">networkInSumMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkOutMetrics">networkOutMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkOutSumLimitAnnotations">networkOutSumLimitAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.networkOutSumMetrics">networkOutSumMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.EC2Monitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -63869,6 +64808,16 @@ public readonly diskWriteOpsMetrics: IMetric[];
 
 ---
 
+##### `ec2AlarmFactory`<sup>Required</sup> <a name="ec2AlarmFactory" id="cdk-monitoring-constructs.EC2Monitoring.property.ec2AlarmFactory"></a>
+
+```typescript
+public readonly ec2AlarmFactory: EC2AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.EC2AlarmFactory">EC2AlarmFactory</a>
+
+---
+
 ##### `family`<sup>Required</sup> <a name="family" id="cdk-monitoring-constructs.EC2Monitoring.property.family"></a>
 
 ```typescript
@@ -63882,20 +64831,60 @@ public readonly family: string;
 ##### `networkInMetrics`<sup>Required</sup> <a name="networkInMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkInMetrics"></a>
 
 ```typescript
-public readonly networkInMetrics: IMetric[];
+public readonly networkInMetrics: Metric | MathExpression[];
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression[]
+
+---
+
+##### `networkInSumLimitAnnotations`<sup>Required</sup> <a name="networkInSumLimitAnnotations" id="cdk-monitoring-constructs.EC2Monitoring.property.networkInSumLimitAnnotations"></a>
+
+```typescript
+public readonly networkInSumLimitAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `networkInSumMetrics`<sup>Required</sup> <a name="networkInSumMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkInSumMetrics"></a>
+
+```typescript
+public readonly networkInSumMetrics: Metric | MathExpression[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression[]
 
 ---
 
 ##### `networkOutMetrics`<sup>Required</sup> <a name="networkOutMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkOutMetrics"></a>
 
 ```typescript
-public readonly networkOutMetrics: IMetric[];
+public readonly networkOutMetrics: Metric | MathExpression[];
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric[]
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression[]
+
+---
+
+##### `networkOutSumLimitAnnotations`<sup>Required</sup> <a name="networkOutSumLimitAnnotations" id="cdk-monitoring-constructs.EC2Monitoring.property.networkOutSumLimitAnnotations"></a>
+
+```typescript
+public readonly networkOutSumLimitAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `networkOutSumMetrics`<sup>Required</sup> <a name="networkOutSumMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkOutSumMetrics"></a>
+
+```typescript
+public readonly networkOutSumMetrics: Metric | MathExpression[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression[]
 
 ---
 
@@ -82638,7 +83627,7 @@ name of dashboard for which widgets are generated.
 ##### `createMetrics` <a name="createMetrics" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics"></a>
 
 ```typescript
-public createMetrics(metricFactory: MetricFactory, metricName: string, statistic: MetricStatistic, region?: string, account?: string): IMetric[]
+public createMetrics(metricFactory: MetricFactory, metricName: string, statistic: MetricStatistic, region?: string, account?: string, label?: string): Metric | MathExpression[]
 ```
 
 ###### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.metricFactory"></a>
@@ -82666,6 +83655,12 @@ public createMetrics(metricFactory: MetricFactory, metricName: string, statistic
 ---
 
 ###### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.account"></a>
+
+- *Type:* string
+
+---
+
+###### `label`<sup>Optional</sup> <a name="label" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.label"></a>
 
 - *Type:* string
 
