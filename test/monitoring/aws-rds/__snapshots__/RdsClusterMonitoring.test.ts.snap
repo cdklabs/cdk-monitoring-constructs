@@ -60,6 +60,523 @@ Object {
                   "Arn",
                 ],
               },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP50SelectWarningB5121190",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP70SelectWarningAEF0090A",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP90SelectWarning13894E81",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP95SelectWarning327CAB3D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP99SelectWarningE608FA13",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP999SelectWarningB88DC5E3",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP9999SelectWarning69DD2A15",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP100SelectWarning87F5C4E5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyAverageSelectWarning3D329523",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP50InsertWarning86D184BD",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP70InsertWarning2610517B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP90InsertWarningB2BB0E8F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP95InsertWarning75D71E0B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP99InsertWarning10B32B79",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP999InsertWarning21953138",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":16,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP9999InsertWarningA3AFD1B3",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":20,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP100InsertWarningBD5E2DF9",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":20,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyAverageInsertWarning0959DEB6",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":20,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP50UpdateWarning423A15AA",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":20,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP70UpdateWarning3C753FA8",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":24,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP90UpdateWarning1C8A97C5",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":24,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP95UpdateWarning1FD27931",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":24,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP99UpdateWarningFF7D9E0F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":24,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP999UpdateWarningF58539BA",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":28,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP9999UpdateWarning8202F71B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":28,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP100UpdateWarning2F31DB2F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":28,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyAverageUpdateWarning19833B90",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":28,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP50DeleteWarning8746A9C1",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":32,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP70DeleteWarning35205F0F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":32,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP90DeleteWarningCD0ED18D",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":32,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP95DeleteWarning74903655",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":32,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP99DeleteWarning8314A111",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":36,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP999DeleteWarning2A865F61",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":36,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP9999DeleteWarningEABD6C82",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":36,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP100DeleteWarningB2EA6375",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":36,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyAverageDeleteWarningB0662022",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":40,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP50CommitWarningA0148D60",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":40,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP70CommitWarningA6006E88",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":40,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP90CommitWarningF929F7E9",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":40,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP95CommitWarning71A7C45A",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":44,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP99CommitWarning8374928B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":44,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP999CommitWarningCD81E7AA",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":44,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP9999CommitWarning4EAC18CF",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":44,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyP100CommitWarningDC0AFCD1",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":48,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterLatencyAverageCommitWarningB339F6C0",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":48,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterReadIOPSWarningEBF49A71",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":48,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestmyrdsclusterWriteIOPSWarning0F47D5B5",
+                  "Arn",
+                ],
+              },
               "\\"]},\\"yAxis\\":{}}}]}",
             ],
           ],
@@ -77,15 +594,19 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Read IOPS > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write IOPS > 500 for 3 datapoints within 15 minutes\\",\\"value\\":500,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select Average\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert Average\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update Average\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete Average\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit Average\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Select P50 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P70 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P90 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P95 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P99.9 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P99.99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P100 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select Average > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P50 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P70 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P90 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P95 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P99 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P99.9 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P99.99 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P100 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert Average > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P50 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P70 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P90 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P95 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P99 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P99.9 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P99.99 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P100 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update Average > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P50 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P70 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P90 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P95 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P99.9 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P99.99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P100 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete Average > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P50 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P70 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P90 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P95 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P99.9 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P99.99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P100 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit Average > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"ReadIOPS\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Read IOPS\\"}],[\\"AWS/RDS\\",\\"WriteIOPS\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Write IOPS\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -252,25 +773,1627 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestmyrdsclusterLatencyAverageCommitWarningB339F6C0": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-Average-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyAverageDeleteWarningB0662022": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-Average-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyAverageInsertWarning0959DEB6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-Average-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyAverageSelectWarning3D329523": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-Average-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyAverageUpdateWarning19833B90": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-Average-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP100CommitWarningDC0AFCD1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P100 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P100-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit P100",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p100",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP100DeleteWarningB2EA6375": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P100 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P100-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete P100",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p100",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP100InsertWarningBD5E2DF9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P100 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P100-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert P100",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p100",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP100SelectWarning87F5C4E5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P100 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P100-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select P100",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p100",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP100UpdateWarning2F31DB2F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P100 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P100-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update P100",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p100",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP50CommitWarningA0148D60": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P50 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P50-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit P50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP50DeleteWarning8746A9C1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P50 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P50-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete P50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP50InsertWarning86D184BD": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P50 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P50-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert P50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP50SelectWarningB5121190": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P50 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P50-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select P50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP50UpdateWarning423A15AA": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P50 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P50-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update P50",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p50",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP70CommitWarningA6006E88": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P70 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P70-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit P70",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p70",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP70DeleteWarning35205F0F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P70 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P70-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete P70",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p70",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP70InsertWarning2610517B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P70 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P70-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert P70",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p70",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP70SelectWarningAEF0090A": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P70 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P70-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select P70",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p70",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP70UpdateWarning3C753FA8": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P70 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P70-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update P70",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p70",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP90CommitWarningF929F7E9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P90-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP90DeleteWarningCD0ED18D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P90-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP90InsertWarningB2BB0E8F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P90-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP90SelectWarning13894E81": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P90-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP90UpdateWarning1C8A97C5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P90 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P90-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP95CommitWarning71A7C45A": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P95 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P95-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit P95",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p95",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP95DeleteWarning74903655": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P95 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P95-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete P95",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p95",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP95InsertWarning75D71E0B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P95 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P95-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert P95",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p95",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP95SelectWarning327CAB3D": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P95 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P95-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select P95",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p95",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP95UpdateWarning1FD27931": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P95 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P95-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update P95",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p95",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP9999CommitWarning4EAC18CF": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P9999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P9999-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit P99.99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP9999DeleteWarningEABD6C82": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P9999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P9999-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete P99.99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP9999InsertWarningA3AFD1B3": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P9999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P9999-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert P99.99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP9999SelectWarning69DD2A15": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P9999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P9999-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select P99.99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP9999UpdateWarning8202F71B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P9999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P9999-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update P99.99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP999CommitWarningCD81E7AA": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P999-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit P99.9",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.9",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP999DeleteWarning2A865F61": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P999-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete P99.9",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.9",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP999InsertWarning21953138": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P999-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert P99.9",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.9",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP999SelectWarningB88DC5E3": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P999-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select P99.9",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.9",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP999UpdateWarningF58539BA": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P999 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P999-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update P99.9",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99.9",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP99CommitWarning8374928B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P99 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P99-Commit-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Commit P99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "CommitLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP99DeleteWarning8314A111": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P99 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P99-Delete-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Delete P99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "DeleteLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP99InsertWarning10B32B79": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P99 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P99-Insert-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Insert P99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "InsertLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP99SelectWarningE608FA13": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P99 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P99-Select-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Select P99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "SelectLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterLatencyP99UpdateWarningFF7D9E0F": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "P99 latency is too high.",
+        "AlarmName": "Test-my-rds-cluster-Latency-P99-Update-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Update P99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "UpdateLatency",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "p99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 2000,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterReadIOPSWarningEBF49A71": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The read IOPS is too high.",
+        "AlarmName": "Test-my-rds-cluster-Read-IOPS-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Read IOPS",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "ReadIOPS",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestmyrdsclusterWriteIOPSWarning0F47D5B5": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The write IOPS is too high.",
+        "AlarmName": "Test-my-rds-cluster-Write-IOPS-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Write IOPS",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "DBClusterIdentifier",
+                    "Value": "my-rds-cluster",
+                  },
+                ],
+                "MetricName": "WriteIOPS",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 500,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "Summary68521F81": Object {
       "Properties": Object {
         "DashboardBody": Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[my-rds-cluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=my-rds-cluster;is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[my-rds-cluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=my-rds-cluster;is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Disk Usage > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"CPU Usage > 70 for 3 datapoints within 15 minutes\\",\\"value\\":70,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Read IOPS > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write IOPS > 500 for 3 datapoints within 15 minutes\\",\\"value\\":500,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Connections < 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Connections > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select Average\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert Average\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update Average\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete Average\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit Average\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P100 (avg: \${AVG})\\",\\"stat\\":\\"p100\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P70 (avg: \${AVG})\\",\\"stat\\":\\"p70\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P95 (avg: \${AVG})\\",\\"stat\\":\\"p95\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P99.9 (avg: \${AVG})\\",\\"stat\\":\\"p99.9\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P99.99 (avg: \${AVG})\\",\\"stat\\":\\"p99.99\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Select P50 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P70 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P90 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P95 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P99.9 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P99.99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select P100 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Select Average > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P50 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P70 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P90 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P95 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P99 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P99.9 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P99.99 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert P100 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Insert Average > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P50 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P70 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P90 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P95 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P99 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P99.9 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P99.99 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update P100 > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Update Average > 2000 for 3 datapoints within 15 minutes\\",\\"value\\":2000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P50 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P70 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P90 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P95 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P99.9 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P99.99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete P100 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Delete Average > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P50 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P70 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P90 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P95 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P99.9 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P99.99 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit P100 > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Commit Average > 1000 for 3 datapoints within 15 minutes\\",\\"value\\":1000,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"ReadIOPS\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Read IOPS\\"}],[\\"AWS/RDS\\",\\"WriteIOPS\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Write IOPS\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -338,11 +2461,15 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"ReadIOPS\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Read IOPS\\"}],[\\"AWS/RDS\\",\\"WriteIOPS\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Write IOPS\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -355,19 +2482,23 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[my-rds-cluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=my-rds-cluster;is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### RDS Cluster **[my-rds-cluster](https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1#database:id=my-rds-cluster;is-cluster=true;tab=monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU/Disk Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"CPUUtilization\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"CPU Usage\\"}],[{\\"label\\":\\"Disk Usage\\",\\"expression\\":\\"100 * (used/(used+free))\\"}],[\\"AWS/RDS\\",\\"VolumeBytesUsed\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"DatabaseConnections\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Query Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit\\",\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/RDS\\",\\"SelectLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Select P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"InsertLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Insert P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"UpdateLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Update P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"DeleteLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Delete P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}],[\\"AWS/RDS\\",\\"CommitLatency\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Commit P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/RDS\\",\\"ReadIOPS\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Read IOPS\\"}],[\\"AWS/RDS\\",\\"WriteIOPS\\",\\"DBClusterIdentifier\\",\\"my-rds-cluster\\",{\\"label\\":\\"Write IOPS\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

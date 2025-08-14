@@ -43622,10 +43622,58 @@ const rdsClusterMonitoringOptions: RdsClusterMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyAverageAlarm">addCommitLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP100Alarm">addCommitLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP50Alarm">addCommitLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP70Alarm">addCommitLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP90Alarm">addCommitLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP95Alarm">addCommitLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP9999Alarm">addCommitLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP999Alarm">addCommitLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP99Alarm">addCommitLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyAverageAlarm">addDeleteLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP100Alarm">addDeleteLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP50Alarm">addDeleteLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP70Alarm">addDeleteLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP90Alarm">addDeleteLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP95Alarm">addDeleteLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP9999Alarm">addDeleteLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP999Alarm">addDeleteLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP99Alarm">addDeleteLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyAverageAlarm">addInsertLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP100Alarm">addInsertLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP50Alarm">addInsertLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP70Alarm">addInsertLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP90Alarm">addInsertLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP95Alarm">addInsertLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP9999Alarm">addInsertLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP999Alarm">addInsertLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP99Alarm">addInsertLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addReadIOPSAlarm">addReadIOPSAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyAverageAlarm">addSelectLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP100Alarm">addSelectLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP50Alarm">addSelectLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP70Alarm">addSelectLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP90Alarm">addSelectLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP95Alarm">addSelectLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP9999Alarm">addSelectLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP999Alarm">addSelectLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP99Alarm">addSelectLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyAverageAlarm">addUpdateLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP100Alarm">addUpdateLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP50Alarm">addUpdateLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP70Alarm">addUpdateLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP90Alarm">addUpdateLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP95Alarm">addUpdateLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP9999Alarm">addUpdateLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP999Alarm">addUpdateLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP99Alarm">addUpdateLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addWriteIOPSAlarm">addWriteIOPSAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
 
 ---
 
@@ -43757,6 +43805,96 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addCommitLatencyAverageAlarm`<sup>Optional</sup> <a name="addCommitLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addCommitLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP100Alarm`<sup>Optional</sup> <a name="addCommitLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP100Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP50Alarm`<sup>Optional</sup> <a name="addCommitLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP50Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP70Alarm`<sup>Optional</sup> <a name="addCommitLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP70Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP90Alarm`<sup>Optional</sup> <a name="addCommitLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP90Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP95Alarm`<sup>Optional</sup> <a name="addCommitLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP95Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP9999Alarm`<sup>Optional</sup> <a name="addCommitLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP999Alarm`<sup>Optional</sup> <a name="addCommitLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP999Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP99Alarm`<sup>Optional</sup> <a name="addCommitLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCommitLatencyP99Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addCpuUsageAlarm"></a>
 
 ```typescript
@@ -43767,6 +43905,96 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addDeleteLatencyAverageAlarm`<sup>Optional</sup> <a name="addDeleteLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addDeleteLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP100Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP100Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP50Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP50Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP70Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP70Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP90Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP90Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP95Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP95Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP9999Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP999Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP999Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP99Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDeleteLatencyP99Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addDiskSpaceUsageAlarm`<sup>Optional</sup> <a name="addDiskSpaceUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addDiskSpaceUsageAlarm"></a>
 
 ```typescript
@@ -43774,6 +44002,96 @@ public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addInsertLatencyAverageAlarm`<sup>Optional</sup> <a name="addInsertLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addInsertLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP100Alarm`<sup>Optional</sup> <a name="addInsertLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP100Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP50Alarm`<sup>Optional</sup> <a name="addInsertLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP50Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP70Alarm`<sup>Optional</sup> <a name="addInsertLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP70Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP90Alarm`<sup>Optional</sup> <a name="addInsertLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP90Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP95Alarm`<sup>Optional</sup> <a name="addInsertLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP95Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP9999Alarm`<sup>Optional</sup> <a name="addInsertLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP999Alarm`<sup>Optional</sup> <a name="addInsertLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP999Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP99Alarm`<sup>Optional</sup> <a name="addInsertLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addInsertLatencyP99Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
 
 ---
 
@@ -43794,6 +44112,223 @@ public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
+
+---
+
+##### `addReadIOPSAlarm`<sup>Optional</sup> <a name="addReadIOPSAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addReadIOPSAlarm"></a>
+
+```typescript
+public readonly addReadIOPSAlarm: {[ key: string ]: MaxUsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}
+
+---
+
+##### `addSelectLatencyAverageAlarm`<sup>Optional</sup> <a name="addSelectLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addSelectLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP100Alarm`<sup>Optional</sup> <a name="addSelectLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP100Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP50Alarm`<sup>Optional</sup> <a name="addSelectLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP50Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP70Alarm`<sup>Optional</sup> <a name="addSelectLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP70Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP90Alarm`<sup>Optional</sup> <a name="addSelectLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP90Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP95Alarm`<sup>Optional</sup> <a name="addSelectLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP95Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP9999Alarm`<sup>Optional</sup> <a name="addSelectLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP999Alarm`<sup>Optional</sup> <a name="addSelectLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP999Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP99Alarm`<sup>Optional</sup> <a name="addSelectLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addSelectLatencyP99Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyAverageAlarm`<sup>Optional</sup> <a name="addUpdateLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addUpdateLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP100Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP100Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP50Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP50Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP70Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP70Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP90Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP90Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP95Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP95Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP9999Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP999Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP999Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP99Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addUpdateLatencyP99Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addWriteIOPSAlarm`<sup>Optional</sup> <a name="addWriteIOPSAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.addWriteIOPSAlarm"></a>
+
+```typescript
+public readonly addWriteIOPSAlarm: {[ key: string ]: MaxUsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}
+
+---
+
+##### `latencyTypesToRender`<sup>Optional</sup> <a name="latencyTypesToRender" id="cdk-monitoring-constructs.RdsClusterMonitoringOptions.property.latencyTypesToRender"></a>
+
+```typescript
+public readonly latencyTypesToRender: LatencyType[];
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]
+- *Default:* p90 for all operation types
+
+You can specify what latency types you want to be rendered in the dashboards.
+
+Note: any latency type with an alarm will be also added automatically.
+If the list is undefined, default values will be shown.
+If the list is empty, only the latency types with an alarm will be shown (if any).
 
 ---
 
@@ -43822,10 +44357,58 @@ const rdsClusterMonitoringProps: RdsClusterMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyAverageAlarm">addCommitLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP100Alarm">addCommitLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP50Alarm">addCommitLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP70Alarm">addCommitLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP90Alarm">addCommitLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP95Alarm">addCommitLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP9999Alarm">addCommitLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP999Alarm">addCommitLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP99Alarm">addCommitLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyAverageAlarm">addDeleteLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP100Alarm">addDeleteLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP50Alarm">addDeleteLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP70Alarm">addDeleteLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP90Alarm">addDeleteLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP95Alarm">addDeleteLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP9999Alarm">addDeleteLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP999Alarm">addDeleteLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP99Alarm">addDeleteLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDiskSpaceUsageAlarm">addDiskSpaceUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyAverageAlarm">addInsertLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP100Alarm">addInsertLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP50Alarm">addInsertLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP70Alarm">addInsertLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP90Alarm">addInsertLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP95Alarm">addInsertLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP9999Alarm">addInsertLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP999Alarm">addInsertLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP99Alarm">addInsertLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addMaxConnectionCountAlarm">addMaxConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.HighConnectionCountThreshold">HighConnectionCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addMinConnectionCountAlarm">addMinConnectionCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addReadIOPSAlarm">addReadIOPSAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyAverageAlarm">addSelectLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP100Alarm">addSelectLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP50Alarm">addSelectLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP70Alarm">addSelectLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP90Alarm">addSelectLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP95Alarm">addSelectLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP9999Alarm">addSelectLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP999Alarm">addSelectLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP99Alarm">addSelectLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyAverageAlarm">addUpdateLatencyAverageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP100Alarm">addUpdateLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP50Alarm">addUpdateLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP70Alarm">addUpdateLatencyP70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP90Alarm">addUpdateLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP95Alarm">addUpdateLatencyP95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP9999Alarm">addUpdateLatencyP9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP999Alarm">addUpdateLatencyP999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP99Alarm">addUpdateLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addWriteIOPSAlarm">addWriteIOPSAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringProps.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
 
 ---
 
@@ -43983,6 +44566,96 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addCommitLatencyAverageAlarm`<sup>Optional</sup> <a name="addCommitLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addCommitLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP100Alarm`<sup>Optional</sup> <a name="addCommitLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP100Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP50Alarm`<sup>Optional</sup> <a name="addCommitLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP50Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP70Alarm`<sup>Optional</sup> <a name="addCommitLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP70Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP90Alarm`<sup>Optional</sup> <a name="addCommitLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP90Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP95Alarm`<sup>Optional</sup> <a name="addCommitLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP95Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP9999Alarm`<sup>Optional</sup> <a name="addCommitLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP999Alarm`<sup>Optional</sup> <a name="addCommitLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP999Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addCommitLatencyP99Alarm`<sup>Optional</sup> <a name="addCommitLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCommitLatencyP99Alarm"></a>
+
+```typescript
+public readonly addCommitLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addCpuUsageAlarm`<sup>Optional</sup> <a name="addCpuUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addCpuUsageAlarm"></a>
 
 ```typescript
@@ -43993,6 +44666,96 @@ public readonly addCpuUsageAlarm: {[ key: string ]: UsageThreshold};
 
 ---
 
+##### `addDeleteLatencyAverageAlarm`<sup>Optional</sup> <a name="addDeleteLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addDeleteLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP100Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP100Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP50Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP50Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP70Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP70Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP90Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP90Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP95Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP95Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP9999Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP999Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP999Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addDeleteLatencyP99Alarm`<sup>Optional</sup> <a name="addDeleteLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDeleteLatencyP99Alarm"></a>
+
+```typescript
+public readonly addDeleteLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ##### `addDiskSpaceUsageAlarm`<sup>Optional</sup> <a name="addDiskSpaceUsageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addDiskSpaceUsageAlarm"></a>
 
 ```typescript
@@ -44000,6 +44763,96 @@ public readonly addDiskSpaceUsageAlarm: {[ key: string ]: UsageThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+---
+
+##### `addInsertLatencyAverageAlarm`<sup>Optional</sup> <a name="addInsertLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addInsertLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP100Alarm`<sup>Optional</sup> <a name="addInsertLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP100Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP50Alarm`<sup>Optional</sup> <a name="addInsertLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP50Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP70Alarm`<sup>Optional</sup> <a name="addInsertLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP70Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP90Alarm`<sup>Optional</sup> <a name="addInsertLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP90Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP95Alarm`<sup>Optional</sup> <a name="addInsertLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP95Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP9999Alarm`<sup>Optional</sup> <a name="addInsertLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP999Alarm`<sup>Optional</sup> <a name="addInsertLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP999Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addInsertLatencyP99Alarm`<sup>Optional</sup> <a name="addInsertLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addInsertLatencyP99Alarm"></a>
+
+```typescript
+public readonly addInsertLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
 
 ---
 
@@ -44020,6 +44873,223 @@ public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
+
+---
+
+##### `addReadIOPSAlarm`<sup>Optional</sup> <a name="addReadIOPSAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addReadIOPSAlarm"></a>
+
+```typescript
+public readonly addReadIOPSAlarm: {[ key: string ]: MaxUsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}
+
+---
+
+##### `addSelectLatencyAverageAlarm`<sup>Optional</sup> <a name="addSelectLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addSelectLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP100Alarm`<sup>Optional</sup> <a name="addSelectLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP100Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP50Alarm`<sup>Optional</sup> <a name="addSelectLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP50Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP70Alarm`<sup>Optional</sup> <a name="addSelectLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP70Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP90Alarm`<sup>Optional</sup> <a name="addSelectLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP90Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP95Alarm`<sup>Optional</sup> <a name="addSelectLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP95Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP9999Alarm`<sup>Optional</sup> <a name="addSelectLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP999Alarm`<sup>Optional</sup> <a name="addSelectLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP999Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addSelectLatencyP99Alarm`<sup>Optional</sup> <a name="addSelectLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addSelectLatencyP99Alarm"></a>
+
+```typescript
+public readonly addSelectLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyAverageAlarm`<sup>Optional</sup> <a name="addUpdateLatencyAverageAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyAverageAlarm"></a>
+
+```typescript
+public readonly addUpdateLatencyAverageAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP100Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP100Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP100Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP50Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP50Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP50Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP50Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP70Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP70Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP70Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP70Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP90Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP90Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP90Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP90Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP95Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP95Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP95Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP95Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP9999Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP9999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP9999Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP9999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP999Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP999Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP999Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP999Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addUpdateLatencyP99Alarm`<sup>Optional</sup> <a name="addUpdateLatencyP99Alarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addUpdateLatencyP99Alarm"></a>
+
+```typescript
+public readonly addUpdateLatencyP99Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+##### `addWriteIOPSAlarm`<sup>Optional</sup> <a name="addWriteIOPSAlarm" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.addWriteIOPSAlarm"></a>
+
+```typescript
+public readonly addWriteIOPSAlarm: {[ key: string ]: MaxUsageCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>}
+
+---
+
+##### `latencyTypesToRender`<sup>Optional</sup> <a name="latencyTypesToRender" id="cdk-monitoring-constructs.RdsClusterMonitoringProps.property.latencyTypesToRender"></a>
+
+```typescript
+public readonly latencyTypesToRender: LatencyType[];
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]
+- *Default:* p90 for all operation types
+
+You can specify what latency types you want to be rendered in the dashboards.
+
+Note: any latency type with an alarm will be also added automatically.
+If the list is undefined, default values will be shown.
+If the list is empty, only the latency types with an alarm will be shown (if any).
 
 ---
 
@@ -72375,16 +73445,23 @@ new RdsClusterMetricFactory(metricFactory: MetricFactory, props: RdsClusterMetri
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricAverageCpuUsageInPercent">metricAverageCpuUsageInPercent</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricCommitLatencyInMillis">metricCommitLatencyInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricCommitLatencyP90InMillis">metricCommitLatencyP90InMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricDeleteLatencyInMillis">metricDeleteLatencyInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricDeleteLatencyP90InMillis">metricDeleteLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricDiskSpaceUsageInPercent">metricDiskSpaceUsageInPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricFreeStorageInBytes">metricFreeStorageInBytes</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricInsertLatencyInMillis">metricInsertLatencyInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricInsertLatencyP90InMillis">metricInsertLatencyP90InMillis</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricReadIOPS">metricReadIOPS</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricSelectLatencyInMillis">metricSelectLatencyInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricSelectLatencyP90InMillis">metricSelectLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricServerlessDatabaseCapacity">metricServerlessDatabaseCapacity</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricTotalConnectionCount">metricTotalConnectionCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricUpdateLatencyInMillis">metricUpdateLatencyInMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricUpdateLatencyP90InMillis">metricUpdateLatencyP90InMillis</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricUsedStorageInBytes">metricUsedStorageInBytes</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMetricFactory.metricWriteIOPS">metricWriteIOPS</a></code> | *No description.* |
 
 ---
 
@@ -72394,11 +73471,35 @@ new RdsClusterMetricFactory(metricFactory: MetricFactory, props: RdsClusterMetri
 public metricAverageCpuUsageInPercent(): Metric | MathExpression
 ```
 
+##### `metricCommitLatencyInMillis` <a name="metricCommitLatencyInMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricCommitLatencyInMillis"></a>
+
+```typescript
+public metricCommitLatencyInMillis(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricCommitLatencyInMillis.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
 ##### `metricCommitLatencyP90InMillis` <a name="metricCommitLatencyP90InMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricCommitLatencyP90InMillis"></a>
 
 ```typescript
 public metricCommitLatencyP90InMillis(): Metric | MathExpression
 ```
+
+##### `metricDeleteLatencyInMillis` <a name="metricDeleteLatencyInMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricDeleteLatencyInMillis"></a>
+
+```typescript
+public metricDeleteLatencyInMillis(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricDeleteLatencyInMillis.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
 
 ##### `metricDeleteLatencyP90InMillis` <a name="metricDeleteLatencyP90InMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricDeleteLatencyP90InMillis"></a>
 
@@ -72418,11 +73519,41 @@ public metricDiskSpaceUsageInPercent(): Metric | MathExpression
 public metricFreeStorageInBytes(): Metric | MathExpression
 ```
 
+##### `metricInsertLatencyInMillis` <a name="metricInsertLatencyInMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricInsertLatencyInMillis"></a>
+
+```typescript
+public metricInsertLatencyInMillis(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricInsertLatencyInMillis.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
 ##### `metricInsertLatencyP90InMillis` <a name="metricInsertLatencyP90InMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricInsertLatencyP90InMillis"></a>
 
 ```typescript
 public metricInsertLatencyP90InMillis(): Metric | MathExpression
 ```
+
+##### `metricReadIOPS` <a name="metricReadIOPS" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricReadIOPS"></a>
+
+```typescript
+public metricReadIOPS(): Metric | MathExpression
+```
+
+##### `metricSelectLatencyInMillis` <a name="metricSelectLatencyInMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricSelectLatencyInMillis"></a>
+
+```typescript
+public metricSelectLatencyInMillis(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricSelectLatencyInMillis.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
 
 ##### `metricSelectLatencyP90InMillis` <a name="metricSelectLatencyP90InMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricSelectLatencyP90InMillis"></a>
 
@@ -72442,6 +73573,18 @@ public metricServerlessDatabaseCapacity(): Metric | MathExpression
 public metricTotalConnectionCount(): Metric | MathExpression
 ```
 
+##### `metricUpdateLatencyInMillis` <a name="metricUpdateLatencyInMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricUpdateLatencyInMillis"></a>
+
+```typescript
+public metricUpdateLatencyInMillis(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricUpdateLatencyInMillis.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
 ##### `metricUpdateLatencyP90InMillis` <a name="metricUpdateLatencyP90InMillis" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricUpdateLatencyP90InMillis"></a>
 
 ```typescript
@@ -72452,6 +73595,12 @@ public metricUpdateLatencyP90InMillis(): Metric | MathExpression
 
 ```typescript
 public metricUsedStorageInBytes(): Metric | MathExpression
+```
+
+##### `metricWriteIOPS` <a name="metricWriteIOPS" id="cdk-monitoring-constructs.RdsClusterMetricFactory.metricWriteIOPS"></a>
+
+```typescript
+public metricWriteIOPS(): Metric | MathExpression
 ```
 
 
@@ -72529,6 +73678,7 @@ new RdsClusterMonitoring(scope: MonitoringScope, props: RdsClusterMonitoringProp
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createCpuAndDiskUsageWidget">createCpuAndDiskUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createIOPSWidget">createIOPSWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createLatencyWidget">createLatencyWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
@@ -72668,6 +73818,24 @@ public createCpuAndDiskUsageWidget(width: number, height: number): GraphWidget
 
 ---
 
+##### `createIOPSWidget` <a name="createIOPSWidget" id="cdk-monitoring-constructs.RdsClusterMonitoring.createIOPSWidget"></a>
+
+```typescript
+public createIOPSWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.RdsClusterMonitoring.createIOPSWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.RdsClusterMonitoring.createIOPSWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
 ##### `createLatencyWidget` <a name="createLatencyWidget" id="cdk-monitoring-constructs.RdsClusterMonitoring.createLatencyWidget"></a>
 
 ```typescript
@@ -72697,30 +73865,37 @@ public createTitleWidget(): MonitoringHeaderWidget
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.commitLatencyMetric">commitLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.commitLatencyMetrics">commitLatencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionAlarmFactory">connectionAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ConnectionAlarmFactory">ConnectionAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionAnnotations">connectionAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.deleteLatencyMetric">deleteLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.deleteLatencyMetrics">deleteLatencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.diskSpaceUsageMetric">diskSpaceUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.insertLatencyMetric">insertLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.selectLatencyMetric">selectLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.insertLatencyMetrics">insertLatencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.iopsAnnotations">iopsAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.readIopsMetric">readIopsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.readLatencyAnnotations">readLatencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.selectLatencyMetrics">selectLatencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.updateLatencyMetric">updateLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.updateLatencyMetrics">updateLatencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.usageAnnotations">usageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.writeIopsMetric">writeIopsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.writeLatencyAnnotations">writeLatencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `commitLatencyMetric`<sup>Required</sup> <a name="commitLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.commitLatencyMetric"></a>
+##### `commitLatencyMetrics`<sup>Required</sup> <a name="commitLatencyMetrics" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.commitLatencyMetrics"></a>
 
 ```typescript
-public readonly commitLatencyMetric: Metric | MathExpression;
+public readonly commitLatencyMetrics: {[ key: string ]: Metric | MathExpression};
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
 
 ---
 
@@ -72764,13 +73939,13 @@ public readonly cpuUsageMetric: Metric | MathExpression;
 
 ---
 
-##### `deleteLatencyMetric`<sup>Required</sup> <a name="deleteLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.deleteLatencyMetric"></a>
+##### `deleteLatencyMetrics`<sup>Required</sup> <a name="deleteLatencyMetrics" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.deleteLatencyMetrics"></a>
 
 ```typescript
-public readonly deleteLatencyMetric: Metric | MathExpression;
+public readonly deleteLatencyMetrics: {[ key: string ]: Metric | MathExpression};
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
 
 ---
 
@@ -72784,23 +73959,73 @@ public readonly diskSpaceUsageMetric: Metric | MathExpression;
 
 ---
 
-##### `insertLatencyMetric`<sup>Required</sup> <a name="insertLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.insertLatencyMetric"></a>
+##### `insertLatencyMetrics`<sup>Required</sup> <a name="insertLatencyMetrics" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.insertLatencyMetrics"></a>
 
 ```typescript
-public readonly insertLatencyMetric: Metric | MathExpression;
+public readonly insertLatencyMetrics: {[ key: string ]: Metric | MathExpression};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
+
+---
+
+##### `iopsAnnotations`<sup>Required</sup> <a name="iopsAnnotations" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.iopsAnnotations"></a>
+
+```typescript
+public readonly iopsAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `latencyTypesToRender`<sup>Required</sup> <a name="latencyTypesToRender" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.latencyTypesToRender"></a>
+
+```typescript
+public readonly latencyTypesToRender: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `readIopsMetric`<sup>Required</sup> <a name="readIopsMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.readIopsMetric"></a>
+
+```typescript
+public readonly readIopsMetric: Metric | MathExpression;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 
-##### `selectLatencyMetric`<sup>Required</sup> <a name="selectLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.selectLatencyMetric"></a>
+##### `readLatencyAnnotations`<sup>Required</sup> <a name="readLatencyAnnotations" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.readLatencyAnnotations"></a>
 
 ```typescript
-public readonly selectLatencyMetric: Metric | MathExpression;
+public readonly readLatencyAnnotations: HorizontalAnnotation[];
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `selectLatencyMetrics`<sup>Required</sup> <a name="selectLatencyMetrics" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.selectLatencyMetrics"></a>
+
+```typescript
+public readonly selectLatencyMetrics: {[ key: string ]: Metric | MathExpression};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
 
 ---
 
@@ -72814,13 +74039,13 @@ public readonly title: string;
 
 ---
 
-##### `updateLatencyMetric`<sup>Required</sup> <a name="updateLatencyMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.updateLatencyMetric"></a>
+##### `updateLatencyMetrics`<sup>Required</sup> <a name="updateLatencyMetrics" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.updateLatencyMetrics"></a>
 
 ```typescript
-public readonly updateLatencyMetric: Metric | MathExpression;
+public readonly updateLatencyMetrics: {[ key: string ]: Metric | MathExpression};
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression}
 
 ---
 
@@ -72838,6 +74063,26 @@ public readonly usageAlarmFactory: UsageAlarmFactory;
 
 ```typescript
 public readonly usageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `writeIopsMetric`<sup>Required</sup> <a name="writeIopsMetric" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.writeIopsMetric"></a>
+
+```typescript
+public readonly writeIopsMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `writeLatencyAnnotations`<sup>Required</sup> <a name="writeLatencyAnnotations" id="cdk-monitoring-constructs.RdsClusterMonitoring.property.writeLatencyAnnotations"></a>
+
+```typescript
+public readonly writeLatencyAnnotations: HorizontalAnnotation[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
@@ -79368,8 +80613,10 @@ new UsageAlarmFactory(alarmFactory: AlarmFactory)
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxMasterCpuUsagePercentAlarm">addMaxMasterCpuUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxMasterMemoryUsagePercentAlarm">addMaxMasterMemoryUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxMemoryUsagePercentAlarm">addMaxMemoryUsagePercentAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxReadIOPSAlarm">addMaxReadIOPSAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxThreadCountUsageAlarm">addMaxThreadCountUsageAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm">addMaxUsageCountAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMaxWriteIOPSAlarm">addMaxWriteIOPSAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMemoryUsagePercentAlarm">addMemoryUsagePercentAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMinCountAlarm">addMinCountAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory.addMinUsageCountAlarm">addMinUsageCountAlarm</a></code> | *No description.* |
@@ -79580,6 +80827,30 @@ public addMaxMemoryUsagePercentAlarm(percentMetric: Metric | MathExpression, pro
 
 ---
 
+##### `addMaxReadIOPSAlarm` <a name="addMaxReadIOPSAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxReadIOPSAlarm"></a>
+
+```typescript
+public addMaxReadIOPSAlarm(metric: Metric | MathExpression, props: MaxUsageCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxReadIOPSAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxReadIOPSAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxReadIOPSAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
 ##### `addMaxThreadCountUsageAlarm` <a name="addMaxThreadCountUsageAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxThreadCountUsageAlarm"></a>
 
 ```typescript
@@ -79623,6 +80894,30 @@ public addMaxUsageCountAlarm(metric: Metric | MathExpression, props: UsageCountT
 ---
 
 ###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxUsageCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addMaxWriteIOPSAlarm` <a name="addMaxWriteIOPSAlarm" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxWriteIOPSAlarm"></a>
+
+```typescript
+public addMaxWriteIOPSAlarm(metric: Metric | MathExpression, props: MaxUsageCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxWriteIOPSAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxWriteIOPSAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MaxUsageCountThreshold">MaxUsageCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.UsageAlarmFactory.addMaxWriteIOPSAlarm.parameter.disambiguator"></a>
 
 - *Type:* string
 

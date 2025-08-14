@@ -4,6 +4,9 @@ import { IDatabaseCluster, ServerlessCluster } from "aws-cdk-lib/aws-rds";
 import {
   BaseMetricFactory,
   BaseMetricFactoryProps,
+  getLatencyTypeLabel,
+  getLatencyTypeStatistic,
+  LatencyType,
   MetricFactory,
   MetricStatistic,
 } from "../../common";
@@ -93,26 +96,79 @@ export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricF
     return this.metric("CPUUtilization", MetricStatistic.AVERAGE, "CPU Usage");
   }
 
+  metricSelectLatencyInMillis(latencyType: LatencyType) {
+    const label = getLatencyTypeLabel(latencyType);
+    return this.metric(
+      "SelectLatency",
+      getLatencyTypeStatistic(latencyType),
+      `Select ${label}`,
+    );
+  }
+
+  metricInsertLatencyInMillis(latencyType: LatencyType) {
+    const label = getLatencyTypeLabel(latencyType);
+    return this.metric(
+      "InsertLatency",
+      getLatencyTypeStatistic(latencyType),
+      `Insert ${label}`,
+    );
+  }
+
+  metricUpdateLatencyInMillis(latencyType: LatencyType) {
+    const label = getLatencyTypeLabel(latencyType);
+    return this.metric(
+      "UpdateLatency",
+      getLatencyTypeStatistic(latencyType),
+      `Update ${label}`,
+    );
+  }
+
+  metricDeleteLatencyInMillis(latencyType: LatencyType) {
+    const label = getLatencyTypeLabel(latencyType);
+    return this.metric(
+      "DeleteLatency",
+      getLatencyTypeStatistic(latencyType),
+      `Delete ${label}`,
+    );
+  }
+
+  metricCommitLatencyInMillis(latencyType: LatencyType) {
+    const label = getLatencyTypeLabel(latencyType);
+    return this.metric(
+      "CommitLatency",
+      getLatencyTypeStatistic(latencyType),
+      `Commit ${label}`,
+    );
+  }
+
+  // Backward compatibility methods
   metricSelectLatencyP90InMillis() {
-    return this.metric("SelectLatency", MetricStatistic.P90, "Select");
+    return this.metricSelectLatencyInMillis(LatencyType.P90);
   }
 
   metricInsertLatencyP90InMillis() {
-    return this.metric("InsertLatency", MetricStatistic.P90, "Insert");
+    return this.metricInsertLatencyInMillis(LatencyType.P90);
   }
 
   metricUpdateLatencyP90InMillis() {
-    return this.metric("UpdateLatency", MetricStatistic.P90, "Update");
+    return this.metricUpdateLatencyInMillis(LatencyType.P90);
   }
 
   metricDeleteLatencyP90InMillis() {
-    return this.metric("DeleteLatency", MetricStatistic.P90, "Delete");
+    return this.metricDeleteLatencyInMillis(LatencyType.P90);
   }
 
   metricCommitLatencyP90InMillis() {
-    return this.metric("CommitLatency", MetricStatistic.P90, "Commit");
+    return this.metricCommitLatencyInMillis(LatencyType.P90);
   }
 
+  metricReadIOPS() {
+    return this.metric("ReadIOPS", MetricStatistic.AVERAGE, "Read IOPS");
+  }
+
+  metricWriteIOPS() {
+    return this.metric("WriteIOPS", MetricStatistic.AVERAGE, "Write IOPS");
+  }
   metricServerlessDatabaseCapacity() {
     if (!this.isServerlessCluster(this.cluster)) {
       throw Error(
