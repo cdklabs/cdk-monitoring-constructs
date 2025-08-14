@@ -91,6 +91,8 @@ import {
   NetworkLoadBalancerMonitoringProps,
   OpenSearchClusterMonitoring,
   OpenSearchClusterMonitoringProps,
+  OpenSearchIngestionPipelineMonitoring,
+  OpenSearchIngestionPipelineMonitoringProps,
   QueueProcessingEc2ServiceMonitoringProps,
   QueueProcessingFargateServiceMonitoringProps,
   RdsClusterMonitoring,
@@ -580,6 +582,14 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorOpenSearchCluster(props: OpenSearchClusterMonitoringProps): this {
     const segment = new OpenSearchClusterMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorOpenSearchIngestionPipeline(
+    props: OpenSearchIngestionPipelineMonitoringProps,
+  ): this {
+    const segment = new OpenSearchIngestionPipelineMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }
