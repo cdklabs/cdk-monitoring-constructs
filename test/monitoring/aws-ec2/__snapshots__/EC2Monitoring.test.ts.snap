@@ -38,7 +38,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"label\\":\\"Total NetworkIn\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"label\\":\\"Total NetworkOut\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -63,7 +63,179 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"label\\":\\"Total NetworkIn\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"label\\":\\"Total NetworkOut\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: all instances, network alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkInWARNING0E45EC6B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkOutERROR5FDBBB75",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"CPUUtilization\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_0, readops_ebs_0]))\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"DiskReadOps\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_0\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"EBSReadOps\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_0\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_0, writeops_ebs_0]))\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"DiskWriteOps\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_0\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"EBSWriteOps\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_0\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readbytes_classic_0, readbytes_ebs_0]))\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"DiskReadBytes\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"readbytes_classic_0\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"EBSReadBytes\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"readbytes_ebs_0\\"}],[{\\"label\\":\\"DiskWriteBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writebytes_classic_0, writebytes_ebs_0]))\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"DiskWriteBytes\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"writebytes_classic_0\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"EBSWriteBytes\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"writebytes_ebs_0\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300) > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestEC2NetworkInWARNING0E45EC6B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network in too high",
+        "AlarmName": "Test-EC2-NetworkIn-WARNING",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "SEARCH('{\\"AWS/EC2\\",\\"InstanceId\\"}  MetricName=\\"NetworkIn\\"', 'Average', 300)",
+            "Id": "expr_1",
+            "Label": "",
+            "Period": 86400,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestEC2NetworkOutERROR5FDBBB75": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network out too high",
+        "AlarmName": "Test-EC2-NetworkOut-ERROR",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "SEARCH('{\\"AWS/EC2\\",\\"InstanceId\\"}  MetricName=\\"NetworkOut\\"', 'Sum', 300)",
+            "Id": "expr_1",
+            "Label": "Total NetworkOut",
+            "Period": 345600,
+          },
+        ],
+        "Threshold": 200,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"CPUUtilization\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_0, readops_ebs_0]))\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"DiskReadOps\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_0\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"EBSReadOps\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_0\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_0, writeops_ebs_0]))\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"DiskWriteOps\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_0\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"EBSWriteOps\\\\\\"', 'Average', 300)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_0\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300) > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -139,7 +311,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -164,7 +336,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -240,7 +412,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"color\\":\\"Total NetworkIn\\",\\"label\\":\\"NetworkIn (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"color\\":\\"Total NetworkIn\\",\\"label\\":\\"NetworkIn (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"color\\":\\"Total NetworkOut\\",\\"label\\":\\"NetworkOut (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"color\\":\\"Total NetworkOut\\",\\"label\\":\\"NetworkOut (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -265,7 +437,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"color\\":\\"Total NetworkIn\\",\\"label\\":\\"NetworkIn (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"color\\":\\"Total NetworkIn\\",\\"label\\":\\"NetworkIn (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"color\\":\\"Total NetworkOut\\",\\"label\\":\\"NetworkOut (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"color\\":\\"Total NetworkOut\\",\\"label\\":\\"NetworkOut (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -341,7 +513,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance1\\",{\\"color\\":\\"Total NetworkIn\\",\\"label\\":\\"NetworkIn (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance2\\",{\\"color\\":\\"Total NetworkIn\\",\\"label\\":\\"NetworkIn (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance1\\",{\\"color\\":\\"Total NetworkOut\\",\\"label\\":\\"NetworkOut (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance2\\",{\\"color\\":\\"Total NetworkOut\\",\\"label\\":\\"NetworkOut (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -366,7 +538,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance1\\",{\\"color\\":\\"Total NetworkIn\\",\\"label\\":\\"NetworkIn (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instance2\\",{\\"color\\":\\"Total NetworkIn\\",\\"label\\":\\"NetworkIn (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance1\\",{\\"color\\":\\"Total NetworkOut\\",\\"label\\":\\"NetworkOut (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instance2\\",{\\"color\\":\\"Total NetworkOut\\",\\"label\\":\\"NetworkOut (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

@@ -66,6 +66,7 @@ export class MonitoringNamingStrategy {
   }
 
   private getFallbackAlarmFriendlyName() {
+    console.log(this.input.fallbackConstructName);
     if (this.input.fallbackConstructName) {
       if (
         MonitoringNamingStrategy.isAlarmFriendly(
