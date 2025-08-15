@@ -293,6 +293,27 @@ test("getOpenSearchClusterUrl", () => {
   ).toEqual(expected);
 });
 
+test("getOpenSearchServerlessCollectionUrl", () => {
+  const stack = new Stack();
+  const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });
+
+  const expected =
+    "https://eu-west-1.console.aws.amazon.com/aos/home?region=eu-west-1#opensearch/collections/DummyCollectionName";
+
+  expect(
+    stack.resolve(
+      factory.getOpenSearchServerlessCollectionUrl("DummyCollectionName"),
+    ),
+  ).toEqual(expected);
+  expect(
+    stack.resolve(
+      factory.getOpenSearchServerlessCollectionUrl(
+        Lazy.string({ produce: () => "DummyCollectionName" }),
+      ),
+    ),
+  ).toEqual(expected);
+});
+
 test("getElastiCacheClusterUrl (memcached)", () => {
   const stack = new Stack();
   const factory = new AwsConsoleUrlFactory({ awsAccountId, awsAccountRegion });

@@ -93,6 +93,10 @@ import {
   OpenSearchClusterMonitoringProps,
   OpenSearchIngestionPipelineMonitoring,
   OpenSearchIngestionPipelineMonitoringProps,
+  OpenSearchServerlessIndexMonitoring,
+  OpenSearchServerlessIndexMonitoringProps,
+  OpenSearchServerlessMonitoring,
+  OpenSearchServerlessMonitoringProps,
   QueueProcessingEc2ServiceMonitoringProps,
   QueueProcessingFargateServiceMonitoringProps,
   RdsClusterMonitoring,
@@ -590,6 +594,22 @@ export class MonitoringFacade extends MonitoringScope {
     props: OpenSearchIngestionPipelineMonitoringProps,
   ): this {
     const segment = new OpenSearchIngestionPipelineMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorOpenSearchServerlessCollection(
+    props: OpenSearchServerlessMonitoringProps,
+  ): this {
+    const segment = new OpenSearchServerlessMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorOpenSearchServerlessIndex(
+    props: OpenSearchServerlessIndexMonitoringProps,
+  ): this {
+    const segment = new OpenSearchServerlessIndexMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

@@ -1098,6 +1098,8 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorNetworkLoadBalancer">monitorNetworkLoadBalancer</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchCluster">monitorOpenSearchCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchIngestionPipeline">monitorOpenSearchIngestionPipeline</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchServerlessCollection">monitorOpenSearchServerlessCollection</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchServerlessIndex">monitorOpenSearchServerlessIndex</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorQueueProcessingEc2Service">monitorQueueProcessingEc2Service</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorQueueProcessingFargateService">monitorQueueProcessingFargateService</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorRdsCluster">monitorRdsCluster</a></code> | *No description.* |
@@ -1846,6 +1848,30 @@ public monitorOpenSearchIngestionPipeline(props: OpenSearchIngestionPipelineMoni
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchIngestionPipeline.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoringProps">OpenSearchIngestionPipelineMonitoringProps</a>
+
+---
+
+##### `monitorOpenSearchServerlessCollection` <a name="monitorOpenSearchServerlessCollection" id="cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchServerlessCollection"></a>
+
+```typescript
+public monitorOpenSearchServerlessCollection(props: OpenSearchServerlessMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchServerlessCollection.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps">OpenSearchServerlessMonitoringProps</a>
+
+---
+
+##### `monitorOpenSearchServerlessIndex` <a name="monitorOpenSearchServerlessIndex" id="cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchServerlessIndex"></a>
+
+```typescript
+public monitorOpenSearchServerlessIndex(props: OpenSearchServerlessIndexMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorOpenSearchServerlessIndex.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps">OpenSearchServerlessIndexMonitoringProps</a>
 
 ---
 
@@ -44436,6 +44462,810 @@ public readonly maxAccessAttempts: number;
 
 ---
 
+### OpenSearchServerlessIndexMetricFactoryProps <a name="OpenSearchServerlessIndexMetricFactoryProps" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessIndexMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const openSearchServerlessIndexMetricFactoryProps: OpenSearchServerlessIndexMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.collection">collection</a></code> | <code>aws-cdk-lib.aws_opensearchserverless.CfnCollection</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.indexId">indexId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.indexName">indexName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `collection`<sup>Required</sup> <a name="collection" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.collection"></a>
+
+```typescript
+public readonly collection: CfnCollection;
+```
+
+- *Type:* aws-cdk-lib.aws_opensearchserverless.CfnCollection
+
+---
+
+##### `indexId`<sup>Required</sup> <a name="indexId" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.indexId"></a>
+
+```typescript
+public readonly indexId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `indexName`<sup>Required</sup> <a name="indexName" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps.property.indexName"></a>
+
+```typescript
+public readonly indexName: string;
+```
+
+- *Type:* string
+
+---
+
+### OpenSearchServerlessIndexMonitoringProps <a name="OpenSearchServerlessIndexMonitoringProps" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessIndexMonitoringProps } from 'cdk-monitoring-constructs'
+
+const openSearchServerlessIndexMonitoringProps: OpenSearchServerlessIndexMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.collection">collection</a></code> | <code>aws-cdk-lib.aws_opensearchserverless.CfnCollection</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.indexId">indexId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.indexName">indexName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `collection`<sup>Required</sup> <a name="collection" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.collection"></a>
+
+```typescript
+public readonly collection: CfnCollection;
+```
+
+- *Type:* aws-cdk-lib.aws_opensearchserverless.CfnCollection
+
+---
+
+##### `indexId`<sup>Required</sup> <a name="indexId" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.indexId"></a>
+
+```typescript
+public readonly indexId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `indexName`<sup>Required</sup> <a name="indexName" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.indexName"></a>
+
+```typescript
+public readonly indexName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+### OpenSearchServerlessMetricFactoryProps <a name="OpenSearchServerlessMetricFactoryProps" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const openSearchServerlessMetricFactoryProps: OpenSearchServerlessMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.property.collection">collection</a></code> | <code>aws-cdk-lib.aws_opensearchserverless.CfnCollection</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `collection`<sup>Required</sup> <a name="collection" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.property.collection"></a>
+
+```typescript
+public readonly collection: CfnCollection;
+```
+
+- *Type:* aws-cdk-lib.aws_opensearchserverless.CfnCollection
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* {@link RateComputationMethod.AVERAGE}
+
+---
+
+### OpenSearchServerlessMonitoringOptions <a name="OpenSearchServerlessMonitoringOptions" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const openSearchServerlessMonitoringOptions: OpenSearchServerlessMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.add4xxCountAlarm">add4xxCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.add4xxRateAlarm">add4xxRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.add5xxCountAlarm">add5xxCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.add5xxRateAlarm">add5xxRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addSearchErrorCountAlarm">addSearchErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addSearchLatencyP100Alarm">addSearchLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `add4xxCountAlarm`<sup>Optional</sup> <a name="add4xxCountAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.add4xxCountAlarm"></a>
+
+```typescript
+public readonly add4xxCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add4xxRateAlarm`<sup>Optional</sup> <a name="add4xxRateAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.add4xxRateAlarm"></a>
+
+```typescript
+public readonly add4xxRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `add5xxCountAlarm`<sup>Optional</sup> <a name="add5xxCountAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.add5xxCountAlarm"></a>
+
+```typescript
+public readonly add5xxCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add5xxRateAlarm`<sup>Optional</sup> <a name="add5xxRateAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.add5xxRateAlarm"></a>
+
+```typescript
+public readonly add5xxRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addSearchErrorCountAlarm`<sup>Optional</sup> <a name="addSearchErrorCountAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addSearchErrorCountAlarm"></a>
+
+```typescript
+public readonly addSearchErrorCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addSearchLatencyP100Alarm`<sup>Optional</sup> <a name="addSearchLatencyP100Alarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringOptions.property.addSearchLatencyP100Alarm"></a>
+
+```typescript
+public readonly addSearchLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
+### OpenSearchServerlessMonitoringProps <a name="OpenSearchServerlessMonitoringProps" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessMonitoringProps } from 'cdk-monitoring-constructs'
+
+const openSearchServerlessMonitoringProps: OpenSearchServerlessMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.collection">collection</a></code> | <code>aws-cdk-lib.aws_opensearchserverless.CfnCollection</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.rateComputationMethod">rateComputationMethod</a></code> | <code><a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.add4xxCountAlarm">add4xxCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.add4xxRateAlarm">add4xxRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.add5xxCountAlarm">add5xxCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.add5xxRateAlarm">add5xxRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addSearchErrorCountAlarm">addSearchErrorCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addSearchLatencyP100Alarm">addSearchLatencyP100Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `collection`<sup>Required</sup> <a name="collection" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.collection"></a>
+
+```typescript
+public readonly collection: CfnCollection;
+```
+
+- *Type:* aws-cdk-lib.aws_opensearchserverless.CfnCollection
+
+---
+
+##### `rateComputationMethod`<sup>Optional</sup> <a name="rateComputationMethod" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.rateComputationMethod"></a>
+
+```typescript
+public readonly rateComputationMethod: RateComputationMethod;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RateComputationMethod">RateComputationMethod</a>
+- *Default:* {@link RateComputationMethod.AVERAGE}
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `add4xxCountAlarm`<sup>Optional</sup> <a name="add4xxCountAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.add4xxCountAlarm"></a>
+
+```typescript
+public readonly add4xxCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add4xxRateAlarm`<sup>Optional</sup> <a name="add4xxRateAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.add4xxRateAlarm"></a>
+
+```typescript
+public readonly add4xxRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `add5xxCountAlarm`<sup>Optional</sup> <a name="add5xxCountAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.add5xxCountAlarm"></a>
+
+```typescript
+public readonly add5xxCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `add5xxRateAlarm`<sup>Optional</sup> <a name="add5xxRateAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.add5xxRateAlarm"></a>
+
+```typescript
+public readonly add5xxRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addSearchErrorCountAlarm`<sup>Optional</sup> <a name="addSearchErrorCountAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addSearchErrorCountAlarm"></a>
+
+```typescript
+public readonly addSearchErrorCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addSearchLatencyP100Alarm`<sup>Optional</sup> <a name="addSearchLatencyP100Alarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps.property.addSearchLatencyP100Alarm"></a>
+
+```typescript
+public readonly addSearchLatencyP100Alarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+
+---
+
 ### QueueProcessingEc2ServiceMonitoringProps <a name="QueueProcessingEc2ServiceMonitoringProps" id="cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.QueueProcessingEc2ServiceMonitoringProps.Initializer"></a>
@@ -59907,6 +60737,7 @@ new AwsConsoleUrlFactory(props: AwsConsoleUrlFactoryProps)
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getKinesisFirehoseDeliveryStreamUrl">getKinesisFirehoseDeliveryStreamUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getLambdaFunctionUrl">getLambdaFunctionUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getOpenSearchClusterUrl">getOpenSearchClusterUrl</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getOpenSearchServerlessCollectionUrl">getOpenSearchServerlessCollectionUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getOsisPipelineUrl">getOsisPipelineUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getRdsClusterUrl">getRdsClusterUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getRdsInstanceUrl">getRdsInstanceUrl</a></code> | *No description.* |
@@ -60075,6 +60906,18 @@ public getOpenSearchClusterUrl(domainName: string): string
 ```
 
 ###### `domainName`<sup>Required</sup> <a name="domainName" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getOpenSearchClusterUrl.parameter.domainName"></a>
+
+- *Type:* string
+
+---
+
+##### `getOpenSearchServerlessCollectionUrl` <a name="getOpenSearchServerlessCollectionUrl" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getOpenSearchServerlessCollectionUrl"></a>
+
+```typescript
+public getOpenSearchServerlessCollectionUrl(collectionName: string): string
+```
+
+###### `collectionName`<sup>Required</sup> <a name="collectionName" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getOpenSearchServerlessCollectionUrl.parameter.collectionName"></a>
 
 - *Type:* string
 
@@ -74982,6 +75825,705 @@ public readonly pipelineUrl: string;
 ---
 
 
+### OpenSearchServerlessIndexMetricFactory <a name="OpenSearchServerlessIndexMetricFactory" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactory"></a>
+
+> [https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-cloudwatch.html](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-cloudwatch.html)
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactory.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessIndexMetricFactory } from 'cdk-monitoring-constructs'
+
+new OpenSearchServerlessIndexMetricFactory(metricFactory: MetricFactory, props: OpenSearchServerlessIndexMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps">OpenSearchServerlessIndexMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactoryProps">OpenSearchServerlessIndexMetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactory.metricIndexSearchableDocuments">metricIndexSearchableDocuments</a></code> | *No description.* |
+
+---
+
+##### `metricIndexSearchableDocuments` <a name="metricIndexSearchableDocuments" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMetricFactory.metricIndexSearchableDocuments"></a>
+
+```typescript
+public metricIndexSearchableDocuments(): Metric | MathExpression
+```
+
+
+
+
+### OpenSearchServerlessIndexMonitoring <a name="OpenSearchServerlessIndexMonitoring" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessIndexMonitoring } from 'cdk-monitoring-constructs'
+
+new OpenSearchServerlessIndexMonitoring(scope: MonitoringScope, props: OpenSearchServerlessIndexMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps">OpenSearchServerlessIndexMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoringProps">OpenSearchServerlessIndexMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.property.metricIndexSearchableDocuments">metricIndexSearchableDocuments</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `metricIndexSearchableDocuments`<sup>Required</sup> <a name="metricIndexSearchableDocuments" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.property.metricIndexSearchableDocuments"></a>
+
+```typescript
+public readonly metricIndexSearchableDocuments: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+
+### OpenSearchServerlessMetricFactory <a name="OpenSearchServerlessMetricFactory" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory"></a>
+
+> [https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-cloudwatch.html](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-cloudwatch.html)
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessMetricFactory } from 'cdk-monitoring-constructs'
+
+new OpenSearchServerlessMetricFactory(metricFactory: MetricFactory, props: OpenSearchServerlessMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps">OpenSearchServerlessMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactoryProps">OpenSearchServerlessMetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metric4xxCount">metric4xxCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metric4xxRate">metric4xxRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metric5xxCount">metric5xxCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metric5xxRate">metric5xxRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricIngestionRequestErrors">metricIngestionRequestErrors</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricIngestionRequestLatency">metricIngestionRequestLatency</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricIngestionRequestSuccess">metricIngestionRequestSuccess</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricSearchRequestErrors">metricSearchRequestErrors</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricSearchRequestLatency">metricSearchRequestLatency</a></code> | *No description.* |
+
+---
+
+##### `metric4xxCount` <a name="metric4xxCount" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metric4xxCount"></a>
+
+```typescript
+public metric4xxCount(): Metric | MathExpression
+```
+
+##### `metric4xxRate` <a name="metric4xxRate" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metric4xxRate"></a>
+
+```typescript
+public metric4xxRate(): Metric | MathExpression
+```
+
+##### `metric5xxCount` <a name="metric5xxCount" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metric5xxCount"></a>
+
+```typescript
+public metric5xxCount(): Metric | MathExpression
+```
+
+##### `metric5xxRate` <a name="metric5xxRate" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metric5xxRate"></a>
+
+```typescript
+public metric5xxRate(): Metric | MathExpression
+```
+
+##### `metricIngestionRequestErrors` <a name="metricIngestionRequestErrors" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricIngestionRequestErrors"></a>
+
+```typescript
+public metricIngestionRequestErrors(): Metric | MathExpression
+```
+
+##### `metricIngestionRequestLatency` <a name="metricIngestionRequestLatency" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricIngestionRequestLatency"></a>
+
+```typescript
+public metricIngestionRequestLatency(statistic: LatencyType): Metric | MathExpression
+```
+
+###### `statistic`<sup>Required</sup> <a name="statistic" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricIngestionRequestLatency.parameter.statistic"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
+##### `metricIngestionRequestSuccess` <a name="metricIngestionRequestSuccess" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricIngestionRequestSuccess"></a>
+
+```typescript
+public metricIngestionRequestSuccess(): Metric | MathExpression
+```
+
+##### `metricSearchRequestErrors` <a name="metricSearchRequestErrors" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricSearchRequestErrors"></a>
+
+```typescript
+public metricSearchRequestErrors(): Metric | MathExpression
+```
+
+##### `metricSearchRequestLatency` <a name="metricSearchRequestLatency" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricSearchRequestLatency"></a>
+
+```typescript
+public metricSearchRequestLatency(statistic: LatencyType): Metric | MathExpression
+```
+
+###### `statistic`<sup>Required</sup> <a name="statistic" id="cdk-monitoring-constructs.OpenSearchServerlessMetricFactory.metricSearchRequestLatency.parameter.statistic"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
+
+
+
+### OpenSearchServerlessMonitoring <a name="OpenSearchServerlessMonitoring" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.Initializer"></a>
+
+```typescript
+import { OpenSearchServerlessMonitoring } from 'cdk-monitoring-constructs'
+
+new OpenSearchServerlessMonitoring(scope: MonitoringScope, props: OpenSearchServerlessMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps">OpenSearchServerlessMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoringProps">OpenSearchServerlessMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.errorAlarmFactory">errorAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.errorCountAnnotations">errorCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.errorRateAnnotations">errorRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metric4xxErrorCount">metric4xxErrorCount</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metric4xxErrorRate">metric4xxErrorRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metric5xxErrorCount">metric5xxErrorCount</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metric5xxErrorRate">metric5xxErrorRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricIngestionRequestErrorsCount">metricIngestionRequestErrorsCount</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricIngestionRequestLatencyAvg">metricIngestionRequestLatencyAvg</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricIngestionRequestLatencyMax">metricIngestionRequestLatencyMax</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricIngestionRequestSuccessCount">metricIngestionRequestSuccessCount</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricSearchRequestErrorsCount">metricSearchRequestErrorsCount</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricSearchRequestLatencyAvg">metricSearchRequestLatencyAvg</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricSearchRequestLatencyMax">metricSearchRequestLatencyMax</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.searchLatencyAnnotations">searchLatencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.collectionUrl">collectionUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `errorAlarmFactory`<sup>Required</sup> <a name="errorAlarmFactory" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.errorAlarmFactory"></a>
+
+```typescript
+public readonly errorAlarmFactory: ErrorAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorAlarmFactory">ErrorAlarmFactory</a>
+
+---
+
+##### `errorCountAnnotations`<sup>Required</sup> <a name="errorCountAnnotations" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.errorCountAnnotations"></a>
+
+```typescript
+public readonly errorCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `errorRateAnnotations`<sup>Required</sup> <a name="errorRateAnnotations" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.errorRateAnnotations"></a>
+
+```typescript
+public readonly errorRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `metric4xxErrorCount`<sup>Required</sup> <a name="metric4xxErrorCount" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metric4xxErrorCount"></a>
+
+```typescript
+public readonly metric4xxErrorCount: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metric4xxErrorRate`<sup>Required</sup> <a name="metric4xxErrorRate" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metric4xxErrorRate"></a>
+
+```typescript
+public readonly metric4xxErrorRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metric5xxErrorCount`<sup>Required</sup> <a name="metric5xxErrorCount" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metric5xxErrorCount"></a>
+
+```typescript
+public readonly metric5xxErrorCount: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metric5xxErrorRate`<sup>Required</sup> <a name="metric5xxErrorRate" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metric5xxErrorRate"></a>
+
+```typescript
+public readonly metric5xxErrorRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricIngestionRequestErrorsCount`<sup>Required</sup> <a name="metricIngestionRequestErrorsCount" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricIngestionRequestErrorsCount"></a>
+
+```typescript
+public readonly metricIngestionRequestErrorsCount: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricIngestionRequestLatencyAvg`<sup>Required</sup> <a name="metricIngestionRequestLatencyAvg" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricIngestionRequestLatencyAvg"></a>
+
+```typescript
+public readonly metricIngestionRequestLatencyAvg: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricIngestionRequestLatencyMax`<sup>Required</sup> <a name="metricIngestionRequestLatencyMax" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricIngestionRequestLatencyMax"></a>
+
+```typescript
+public readonly metricIngestionRequestLatencyMax: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricIngestionRequestSuccessCount`<sup>Required</sup> <a name="metricIngestionRequestSuccessCount" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricIngestionRequestSuccessCount"></a>
+
+```typescript
+public readonly metricIngestionRequestSuccessCount: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricSearchRequestErrorsCount`<sup>Required</sup> <a name="metricSearchRequestErrorsCount" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricSearchRequestErrorsCount"></a>
+
+```typescript
+public readonly metricSearchRequestErrorsCount: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricSearchRequestLatencyAvg`<sup>Required</sup> <a name="metricSearchRequestLatencyAvg" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricSearchRequestLatencyAvg"></a>
+
+```typescript
+public readonly metricSearchRequestLatencyAvg: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricSearchRequestLatencyMax`<sup>Required</sup> <a name="metricSearchRequestLatencyMax" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.metricSearchRequestLatencyMax"></a>
+
+```typescript
+public readonly metricSearchRequestLatencyMax: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `searchLatencyAnnotations`<sup>Required</sup> <a name="searchLatencyAnnotations" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.searchLatencyAnnotations"></a>
+
+```typescript
+public readonly searchLatencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `collectionUrl`<sup>Optional</sup> <a name="collectionUrl" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.property.collectionUrl"></a>
+
+```typescript
+public readonly collectionUrl: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### OpsItemAlarmActionStrategy <a name="OpsItemAlarmActionStrategy" id="cdk-monitoring-constructs.OpsItemAlarmActionStrategy"></a>
 
 - *Implements:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
@@ -83494,7 +85036,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -83585,7 +85127,7 @@ Gets the dashboard for the requested dashboard type.
 
 ### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
