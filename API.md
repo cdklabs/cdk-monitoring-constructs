@@ -25755,6 +25755,8 @@ const kinesisDataAnalyticsMonitoringOptions: KinesisDataAnalyticsMonitoringOptio
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addCheckpointFailureCountAlarm">addCheckpointFailureCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addCheckpointFailureRateAlarm">addCheckpointFailureRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addDowntimeAlarm">addDowntimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxDowntimeThreshold">MaxDowntimeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addFullRestartCountAlarm">addFullRestartCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}</code> | *No description.* |
 
@@ -25888,6 +25890,26 @@ Calls provided function to process all alarms created.
 
 ---
 
+##### `addCheckpointFailureCountAlarm`<sup>Optional</sup> <a name="addCheckpointFailureCountAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addCheckpointFailureCountAlarm"></a>
+
+```typescript
+public readonly addCheckpointFailureCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addCheckpointFailureRateAlarm`<sup>Optional</sup> <a name="addCheckpointFailureRateAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addCheckpointFailureRateAlarm"></a>
+
+```typescript
+public readonly addCheckpointFailureRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
 ##### `addDowntimeAlarm`<sup>Optional</sup> <a name="addDowntimeAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addDowntimeAlarm"></a>
 
 ```typescript
@@ -25932,6 +25954,8 @@ const kinesisDataAnalyticsMonitoringProps: KinesisDataAnalyticsMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addCheckpointFailureCountAlarm">addCheckpointFailureCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addCheckpointFailureRateAlarm">addCheckpointFailureRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addDowntimeAlarm">addDowntimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxDowntimeThreshold">MaxDowntimeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addFullRestartCountAlarm">addFullRestartCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}</code> | *No description.* |
 
@@ -26072,6 +26096,26 @@ public readonly useCreatedAlarms: IAlarmConsumer;
 - *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
 
 Calls provided function to process all alarms created.
+
+---
+
+##### `addCheckpointFailureCountAlarm`<sup>Optional</sup> <a name="addCheckpointFailureCountAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addCheckpointFailureCountAlarm"></a>
+
+```typescript
+public readonly addCheckpointFailureCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addCheckpointFailureRateAlarm`<sup>Optional</sup> <a name="addCheckpointFailureRateAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addCheckpointFailureRateAlarm"></a>
+
+```typescript
+public readonly addCheckpointFailureRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
 
 ---
 
@@ -69082,8 +69126,58 @@ new KinesisDataAnalyticsAlarmFactory(alarmFactory: AlarmFactory)
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureCountAlarm">addCheckpointFailureCountAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureRateAlarm">addCheckpointFailureRateAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addDowntimeAlarm">addDowntimeAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addFullRestartAlarm">addFullRestartAlarm</a></code> | *No description.* |
+
+---
+
+##### `addCheckpointFailureCountAlarm` <a name="addCheckpointFailureCountAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureCountAlarm"></a>
+
+```typescript
+public addCheckpointFailureCountAlarm(metric: Metric | MathExpression, props: ErrorCountThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureCountAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureCountAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addCheckpointFailureRateAlarm` <a name="addCheckpointFailureRateAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureRateAlarm"></a>
+
+```typescript
+public addCheckpointFailureRateAlarm(metric: Metric | MathExpression, props: ErrorRateThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureRateAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureRateAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureRateAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
 
 ---
 
@@ -69173,6 +69267,7 @@ new KinesisDataAnalyticsMetricFactory(metricFactory: MetricFactory, props: Kines
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricCheckpointFailureRate">metricCheckpointFailureRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricCpuUtilizationPercent">metricCpuUtilizationPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricDowntimeMs">metricDowntimeMs</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricFullRestartsCount">metricFullRestartsCount</a></code> | *No description.* |
@@ -69186,6 +69281,12 @@ new KinesisDataAnalyticsMetricFactory(metricFactory: MetricFactory, props: Kines
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricUptimeMs">metricUptimeMs</a></code> | *No description.* |
 
 ---
+
+##### `metricCheckpointFailureRate` <a name="metricCheckpointFailureRate" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricCheckpointFailureRate"></a>
+
+```typescript
+public metricCheckpointFailureRate(): Metric | MathExpression
+```
 
 ##### `metricCpuUtilizationPercent` <a name="metricCpuUtilizationPercent" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricCpuUtilizationPercent"></a>
 
@@ -69563,6 +69664,9 @@ public createTitleWidget(): MonitoringHeaderWidget
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.checkpointFailureCountAnnotations">checkpointFailureCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.checkpointFailureRateAnnotations">checkpointFailureRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.checkpointFailureRateMetric">checkpointFailureRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.cpuUtilizationPercentMetric">cpuUtilizationPercentMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.downtimeAnnotations">downtimeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.downtimeMsMetric">downtimeMsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
@@ -69578,6 +69682,36 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.oldGenerationGCTimeMsMetric">oldGenerationGCTimeMsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.kinesisDataAnalyticsUrl">kinesisDataAnalyticsUrl</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `checkpointFailureCountAnnotations`<sup>Required</sup> <a name="checkpointFailureCountAnnotations" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.checkpointFailureCountAnnotations"></a>
+
+```typescript
+public readonly checkpointFailureCountAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `checkpointFailureRateAnnotations`<sup>Required</sup> <a name="checkpointFailureRateAnnotations" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.checkpointFailureRateAnnotations"></a>
+
+```typescript
+public readonly checkpointFailureRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `checkpointFailureRateMetric`<sup>Required</sup> <a name="checkpointFailureRateMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.checkpointFailureRateMetric"></a>
+
+```typescript
+public readonly checkpointFailureRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 

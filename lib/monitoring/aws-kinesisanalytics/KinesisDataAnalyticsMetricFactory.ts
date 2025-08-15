@@ -5,6 +5,7 @@ import {
   BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
+  RateComputationMethod,
 } from "../../common";
 
 export interface KinesisDataAnalyticsMetricFactoryProps
@@ -116,6 +117,15 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
       metricStatistic: MetricStatistic.N,
       description: "GC Count",
     });
+  }
+
+  metricCheckpointFailureRate() {
+    return this.metricFactory.toRate(
+      this.metricNumberOfFailedCheckpointsCount(),
+      RateComputationMethod.PER_HOUR,
+      false,
+      "checkpoints",
+    );
   }
 
   private metric(metricsSpec: MetricsSpec) {

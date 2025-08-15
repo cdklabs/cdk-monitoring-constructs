@@ -3,6 +3,12 @@ import {
   TreatMissingData,
 } from "aws-cdk-lib/aws-cloudwatch";
 
+import {
+  ErrorAlarmFactory,
+  ErrorCountThreshold,
+  ErrorRateThreshold,
+  ErrorType,
+} from "./ErrorAlarmFactory";
 import { AlarmFactory, CustomAlarmThreshold } from "../../alarm";
 import { MetricWithAlarmSupport } from "../../metric";
 
@@ -16,9 +22,11 @@ export interface FullRestartCountThreshold extends CustomAlarmThreshold {
 
 export class KinesisDataAnalyticsAlarmFactory {
   protected readonly alarmFactory: AlarmFactory;
+  protected readonly errorAlarmFactory: ErrorAlarmFactory;
 
   constructor(alarmFactory: AlarmFactory) {
     this.alarmFactory = alarmFactory;
+    this.errorAlarmFactory = new ErrorAlarmFactory(alarmFactory);
   }
 
   addDowntimeAlarm(
@@ -60,5 +68,31 @@ export class KinesisDataAnalyticsAlarmFactory {
       alarmDescription: "Last submitted job is restarting more than usual",
       alarmDedupeStringSuffix: "KDAFullRestartAlarm",
     });
+  }
+
+  addCheckpointFailureCountAlarm(
+    metric: MetricWithAlarmSupport,
+    props: ErrorCountThreshold,
+    disambiguator?: string,
+  ) {
+    return this.errorAlarmFactory.addErrorCountAlarm(
+      metric,
+      ErrorType.FAILURE,
+      props,
+      disambiguator,
+    );
+  }
+
+  addCheckpointFailureRateAlarm(
+    metric: MetricWithAlarmSupport,
+    props: ErrorRateThreshold,
+    disambiguator?: string,
+  ) {
+    return this.errorAlarmFactory.addErrorRateAlarm(
+      metric,
+      ErrorType.FAILURE,
+      props,
+      disambiguator,
+    );
   }
 }

@@ -13,6 +13,8 @@ import {
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
+  ErrorCountThreshold,
+  ErrorRateThreshold,
   FullRestartCountThreshold,
   KinesisDataAnalyticsAlarmFactory,
   MaxDowntimeThreshold,
@@ -21,6 +23,7 @@ import {
   MonitoringScope,
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
+  RateAxisFromZero,
   SizeAxisBytesFromZero,
   TimeAxisMillisFromZero,
 } from "../../common";
@@ -34,6 +37,10 @@ export interface KinesisDataAnalyticsMonitoringOptions
   readonly addDowntimeAlarm?: Record<string, MaxDowntimeThreshold>;
 
   readonly addFullRestartCountAlarm?: Record<string, FullRestartCountThreshold>;
+
+  readonly addCheckpointFailureCountAlarm?: Record<string, ErrorCountThreshold>;
+
+  readonly addCheckpointFailureRateAlarm?: Record<string, ErrorRateThreshold>;
 }
 
 export interface KinesisDataAnalyticsMonitoringProps
@@ -47,6 +54,8 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
   readonly kdaAlarmFactory: KinesisDataAnalyticsAlarmFactory;
   readonly downtimeAnnotations: HorizontalAnnotation[];
   readonly fullRestartAnnotations: HorizontalAnnotation[];
+  readonly checkpointFailureCountAnnotations: HorizontalAnnotation[];
+  readonly checkpointFailureRateAnnotations: HorizontalAnnotation[];
 
   readonly cpuUtilizationPercentMetric: MetricWithAlarmSupport;
   readonly downtimeMsMetric: MetricWithAlarmSupport;
@@ -58,6 +67,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
   readonly numberOfFailedCheckpointsCountMetric: MetricWithAlarmSupport;
   readonly oldGenerationGCCountMetric: MetricWithAlarmSupport;
   readonly oldGenerationGCTimeMsMetric: MetricWithAlarmSupport;
+  readonly checkpointFailureRateMetric: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,
@@ -80,6 +90,8 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     this.kdaAlarmFactory = new KinesisDataAnalyticsAlarmFactory(alarmFactory);
     this.downtimeAnnotations = [];
     this.fullRestartAnnotations = [];
+    this.checkpointFailureCountAnnotations = [];
+    this.checkpointFailureRateAnnotations = [];
 
     const metricFactory = new KinesisDataAnalyticsMetricFactory(
       scope.createMetricFactory(),
@@ -103,6 +115,8 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
       metricFactory.metricOldGenerationGCCount();
     this.oldGenerationGCTimeMsMetric =
       metricFactory.metricOldGenerationGCTimeMs();
+    this.checkpointFailureRateMetric =
+      metricFactory.metricCheckpointFailureRate();
 
     for (const disambiguator in props.addDowntimeAlarm) {
       const alarmProps = props.addDowntimeAlarm[disambiguator];
@@ -123,6 +137,28 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
         disambiguator,
       );
       this.fullRestartAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addCheckpointFailureCountAlarm) {
+      const alarmProps = props.addCheckpointFailureCountAlarm[disambiguator];
+      const createdAlarm = this.kdaAlarmFactory.addCheckpointFailureCountAlarm(
+        this.numberOfFailedCheckpointsCountMetric,
+        alarmProps,
+        disambiguator,
+      );
+      this.checkpointFailureCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addCheckpointFailureRateAlarm) {
+      const alarmProps = props.addCheckpointFailureRateAlarm[disambiguator];
+      const createdAlarm = this.kdaAlarmFactory.addCheckpointFailureRateAlarm(
+        this.checkpointFailureRateMetric,
+        alarmProps,
+        disambiguator,
+      );
+      this.checkpointFailureRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
 
@@ -204,6 +240,10 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
       title: "Checkpoint Failures",
       left: [this.numberOfFailedCheckpointsCountMetric],
       leftYAxis: CountAxisFromZero,
+      leftAnnotations: this.checkpointFailureCountAnnotations,
+      right: [this.checkpointFailureRateMetric],
+      rightYAxis: RateAxisFromZero,
+      rightAnnotations: this.checkpointFailureRateAnnotations,
     });
   }
 
