@@ -67567,13 +67567,13 @@ new KinesisDataAnalyticsMonitoring(scope: MonitoringScope, props: KinesisDataAna
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
-| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createCheckpointFailuresWidget">createCheckpointFailuresWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createDownTimeWidget">createDownTimeWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createFullRestartsWidget">createFullRestartsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createGarbageCollectionWidget">createGarbageCollectionWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createKPUWidget">createKPUWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointDurationWidget">createLastCheckpointDurationWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointSizeWidget">createLastCheckpointSizeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createNumberOfFailedCheckpointsWidget">createNumberOfFailedCheckpointsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createResourceUtilizationWidget">createResourceUtilizationWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
@@ -67674,24 +67674,6 @@ Returns widgets for the requested dashboard type.
 ###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.widgetsForDashboard.parameter.name"></a>
 
 - *Type:* string
-
----
-
-##### `createCheckpointFailuresWidget` <a name="createCheckpointFailuresWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createCheckpointFailuresWidget"></a>
-
-```typescript
-public createCheckpointFailuresWidget(width: number, height: number): GraphWidget
-```
-
-###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createCheckpointFailuresWidget.parameter.width"></a>
-
-- *Type:* number
-
----
-
-###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createCheckpointFailuresWidget.parameter.height"></a>
-
-- *Type:* number
 
 ---
 
@@ -67798,6 +67780,24 @@ public createLastCheckpointSizeWidget(width: number, height: number): GraphWidge
 ---
 
 ###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createLastCheckpointSizeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createNumberOfFailedCheckpointsWidget` <a name="createNumberOfFailedCheckpointsWidget" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createNumberOfFailedCheckpointsWidget"></a>
+
+```typescript
+public createNumberOfFailedCheckpointsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createNumberOfFailedCheckpointsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.createNumberOfFailedCheckpointsWidget.parameter.height"></a>
 
 - *Type:* number
 
