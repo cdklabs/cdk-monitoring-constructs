@@ -233,7 +233,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
-  createCheckpointFailuresWidget(width: number, height: number) {
+  createNumberOfFailedCheckpointsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
       height,
@@ -295,7 +295,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
   private createCheckpointAndGcWidgets(): GraphWidget[] {
     return [
       // Checkpointing
-      this.createCheckpointFailuresWidget(
+      this.createNumberOfFailedCheckpointsWidget(
         QuarterWidth,
         DefaultGraphWidgetHeight,
       ),

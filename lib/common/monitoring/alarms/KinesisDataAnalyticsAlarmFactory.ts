@@ -20,8 +20,6 @@ export interface FullRestartCountThreshold extends CustomAlarmThreshold {
   readonly maxFullRestartCount: number;
 }
 
-// Using standard ErrorCountThreshold and ErrorRateThreshold from ErrorAlarmFactory
-
 export class KinesisDataAnalyticsAlarmFactory {
   protected readonly alarmFactory: AlarmFactory;
   protected readonly errorAlarmFactory: ErrorAlarmFactory;
