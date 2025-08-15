@@ -113,6 +113,14 @@ export class AwsConsoleUrlFactory {
     return this.getAwsConsoleUrl(destinationUrl);
   }
 
+  getOpenSearchServerlessCollectionUrl(
+    collectionName: string,
+  ): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/aos/home?region=${region}#opensearch/collections/${collectionName}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
   getOsisPipelineUrl(pipelineName: string): string | undefined {
     const region = this.awsAccountRegion;
     const destinationUrl = `https://${region}.console.aws.amazon.com/aos/osis/home?region=${region}#osis/ingestion-pipelines/${pipelineName}`;
