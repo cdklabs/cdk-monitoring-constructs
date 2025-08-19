@@ -115,11 +115,13 @@ export class EC2Monitoring extends Monitoring {
       const alarmProps =
         props.addNetworkInTotalBytesExceedThresholdAlarm[disambiguator];
 
-      const createdAlarms = this.networkInMetrics.map((metric) => {
+      const createdAlarms = this.networkInSumMetrics.map((metric, idx) => {
+        const indexedDisambiguator =
+          idx > 0 ? `${disambiguator}-${idx}` : disambiguator;
         const createdAlarm = this.ec2AlarmFactory.addNetworkInAlarm(
           metric,
           alarmProps,
-          disambiguator,
+          indexedDisambiguator,
         );
         this.addAlarm(createdAlarm);
         return createdAlarm;
@@ -133,11 +135,13 @@ export class EC2Monitoring extends Monitoring {
     for (const disambiguator in props.addNetworkOutTotalBytesExceedThresholdAlarm) {
       const alarmProps =
         props.addNetworkOutTotalBytesExceedThresholdAlarm[disambiguator];
-      const createdAlarms = this.networkOutSumMetrics.map((metric) => {
+      const createdAlarms = this.networkOutSumMetrics.map((metric, idx) => {
+        const indexedDisambiguator =
+          idx > 0 ? `${disambiguator}-${idx}` : disambiguator;
         const createdAlarm = this.ec2AlarmFactory.addNetworkOutAlarm(
           metric,
           alarmProps,
-          disambiguator,
+          indexedDisambiguator,
         );
         this.addAlarm(createdAlarm);
         return createdAlarm;

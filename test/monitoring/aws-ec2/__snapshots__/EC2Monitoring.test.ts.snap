@@ -1,5 +1,203 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`snapshot test: ASG, network alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkInWARNING0E45EC6B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkOutERROR5FDBBB75",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 Auto Scaling Group **DummyASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_0, readops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"readops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"readops_ebs_0\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_0, writeops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"writeops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"writeops_ebs_0\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readbytes_classic_0, readbytes_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"readbytes_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"readbytes_ebs_0\\"}],[{\\"label\\":\\"DiskWriteBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writebytes_classic_0, writebytes_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"writebytes_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"writebytes_ebs_0\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"label\\":\\"Total NetworkIn\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"label\\":\\"Total NetworkOut\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Total NetworkIn > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestEC2NetworkInWARNING0E45EC6B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network in too high",
+        "AlarmName": "Test-EC2-NetworkIn-WARNING",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkIn",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "AutoScalingGroupName",
+                    "Value": "DummyASG",
+                  },
+                ],
+                "MetricName": "NetworkIn",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 86400,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestEC2NetworkOutERROR5FDBBB75": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network out too high",
+        "AlarmName": "Test-EC2-NetworkOut-ERROR",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkOut",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "AutoScalingGroupName",
+                    "Value": "DummyASG",
+                  },
+                ],
+                "MetricName": "NetworkOut",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 345600,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 200,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 Auto Scaling Group **DummyASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_0, readops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"readops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"readops_ebs_0\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_0, writeops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"writeops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"visible\\":false,\\"id\\":\\"writeops_ebs_0\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\"],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"label\\":\\"Total NetworkIn\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",{\\"label\\":\\"Total NetworkOut\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Total NetworkIn > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`snapshot test: ASG, no alarms 1`] = `
 Object {
   "Parameters": Object {
@@ -168,7 +366,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300) > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Total NetworkIn > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -185,9 +383,9 @@ Object {
         "EvaluationPeriods": 3,
         "Metrics": Array [
           Object {
-            "Expression": "SEARCH('{\\"AWS/EC2\\",\\"InstanceId\\"}  MetricName=\\"NetworkIn\\"', 'Average', 300)",
+            "Expression": "SEARCH('{\\"AWS/EC2\\",\\"InstanceId\\"}  MetricName=\\"NetworkIn\\"', 'Sum', 300)",
             "Id": "expr_1",
-            "Label": "",
+            "Label": "Total NetworkIn",
             "Period": 86400,
           },
         ],
@@ -235,7 +433,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300) > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\" \\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Average', 300)\\"}],[{\\"label\\":\\"Total NetworkIn\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkIn\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}],[{\\"label\\":\\"Total NetworkOut\\",\\"expression\\":\\"SEARCH('{\\\\\\"AWS/EC2\\\\\\",\\\\\\"InstanceId\\\\\\"}  MetricName=\\\\\\"NetworkOut\\\\\\"', 'Sum', 300)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Total NetworkIn > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -374,6 +572,310 @@ Object {
 }
 `;
 
+exports[`snapshot test: instance filter + ASG, network alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkInWARNING0E45EC6B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkInWARNING140BF6EF1",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkOutERROR5FDBBB75",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkOutERROR1C333AF32",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 Auto Scaling Group **DummyASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"CPUUtilization (instanceId1)\\"}],[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"CPUUtilization (instanceId2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_0, readops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskReadOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSReadOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_0\\"}],[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_1, readops_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskReadOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSReadOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_1\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_0, writeops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskWriteOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSWriteOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_0\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_1, writeops_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskWriteOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSWriteOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readbytes_classic_0, readbytes_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskReadBytes (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readbytes_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSReadBytes (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readbytes_ebs_0\\"}],[{\\"label\\":\\"DiskReadBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readbytes_classic_1, readbytes_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskReadBytes (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readbytes_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSReadBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSReadBytes (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readbytes_ebs_1\\"}],[{\\"label\\":\\"DiskWriteBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writebytes_classic_0, writebytes_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskWriteBytes (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writebytes_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSWriteBytes (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writebytes_ebs_0\\"}],[{\\"label\\":\\"DiskWriteBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writebytes_classic_1, writebytes_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskWriteBytes (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writebytes_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSWriteBytes\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSWriteBytes (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writebytes_ebs_1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"NetworkIn (instanceId1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"NetworkIn (instanceId2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"NetworkOut (instanceId1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"NetworkOut (instanceId2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"Total NetworkIn (instanceId1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"Total NetworkIn (instanceId2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"Total NetworkOut (instanceId1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"Total NetworkOut (instanceId2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Total NetworkIn (instanceId1) > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut (instanceId1) > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestEC2NetworkInWARNING0E45EC6B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network in too high",
+        "AlarmName": "Test-EC2-NetworkIn-WARNING",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkIn (instanceId1)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "AutoScalingGroupName",
+                    "Value": "DummyASG",
+                  },
+                  Object {
+                    "Name": "InstanceId",
+                    "Value": "instanceId1",
+                  },
+                ],
+                "MetricName": "NetworkIn",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 86400,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestEC2NetworkInWARNING140BF6EF1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network in too high",
+        "AlarmName": "Test-EC2-NetworkIn-WARNING-1",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkIn (instanceId2)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "AutoScalingGroupName",
+                    "Value": "DummyASG",
+                  },
+                  Object {
+                    "Name": "InstanceId",
+                    "Value": "instanceId2",
+                  },
+                ],
+                "MetricName": "NetworkIn",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 86400,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestEC2NetworkOutERROR1C333AF32": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network out too high",
+        "AlarmName": "Test-EC2-NetworkOut-ERROR-1",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkOut (instanceId2)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "AutoScalingGroupName",
+                    "Value": "DummyASG",
+                  },
+                  Object {
+                    "Name": "InstanceId",
+                    "Value": "instanceId2",
+                  },
+                ],
+                "MetricName": "NetworkOut",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 345600,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 200,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestEC2NetworkOutERROR5FDBBB75": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network out too high",
+        "AlarmName": "Test-EC2-NetworkOut-ERROR",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkOut (instanceId1)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "AutoScalingGroupName",
+                    "Value": "DummyASG",
+                  },
+                  Object {
+                    "Name": "InstanceId",
+                    "Value": "instanceId1",
+                  },
+                ],
+                "MetricName": "NetworkOut",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 345600,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 200,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 Auto Scaling Group **DummyASG**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"CPUUtilization (instanceId1)\\"}],[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"CPUUtilization (instanceId2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_0, readops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskReadOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSReadOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_0\\"}],[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_1, readops_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskReadOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSReadOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_1\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_0, writeops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskWriteOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSWriteOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_0\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_1, writeops_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskWriteOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSWriteOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"NetworkIn (instanceId1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"NetworkIn (instanceId2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"NetworkOut (instanceId1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"NetworkOut (instanceId2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"Total NetworkIn (instanceId1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"Total NetworkIn (instanceId2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"Total NetworkOut (instanceId1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"Total NetworkOut (instanceId2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Total NetworkIn (instanceId1) > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut (instanceId1) > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`snapshot test: instance filter + ASG, no alarms 1`] = `
 Object {
   "Parameters": Object {
@@ -438,6 +940,294 @@ Object {
                 "Ref": "AWS::Region",
               },
               "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkIn (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkIn (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"NetworkOut (instance1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"NetworkOut (instance2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"Total NetworkIn (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"Total NetworkIn (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance1\\",{\\"label\\":\\"Total NetworkOut (instance1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"AutoScalingGroupName\\",\\"DummyASG\\",\\"InstanceId\\",\\"instance2\\",{\\"label\\":\\"Total NetworkOut (instance2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: instance filter, network alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkInWARNING0E45EC6B",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkInWARNING140BF6EF1",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":12,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkOutERROR5FDBBB75",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestEC2NetworkOutERROR1C333AF32",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"CPUUtilization (instanceId1)\\"}],[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"CPUUtilization (instanceId2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_0, readops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskReadOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSReadOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_0\\"}],[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_1, readops_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskReadOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSReadOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_1\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_0, writeops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskWriteOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSWriteOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_0\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_1, writeops_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskWriteOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSWriteOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readbytes_classic_0, readbytes_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskReadBytes (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readbytes_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadBytes\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSReadBytes (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readbytes_ebs_0\\"}],[{\\"label\\":\\"DiskReadBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readbytes_classic_1, readbytes_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskReadBytes\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskReadBytes (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readbytes_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSReadBytes\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSReadBytes (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readbytes_ebs_1\\"}],[{\\"label\\":\\"DiskWriteBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writebytes_classic_0, writebytes_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskWriteBytes (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writebytes_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteBytes\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSWriteBytes (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writebytes_ebs_0\\"}],[{\\"label\\":\\"DiskWriteBytes\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writebytes_classic_1, writebytes_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteBytes\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskWriteBytes (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writebytes_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSWriteBytes\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSWriteBytes (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writebytes_ebs_1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"NetworkIn (instanceId1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"NetworkIn (instanceId2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"NetworkOut (instanceId1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"NetworkOut (instanceId2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"Total NetworkIn (instanceId1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"Total NetworkIn (instanceId2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"Total NetworkOut (instanceId1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"Total NetworkOut (instanceId2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Total NetworkIn (instanceId1) > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut (instanceId1) > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestEC2NetworkInWARNING0E45EC6B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network in too high",
+        "AlarmName": "Test-EC2-NetworkIn-WARNING",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkIn (instanceId1)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "InstanceId",
+                    "Value": "instanceId1",
+                  },
+                ],
+                "MetricName": "NetworkIn",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 86400,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestEC2NetworkInWARNING140BF6EF1": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network in too high",
+        "AlarmName": "Test-EC2-NetworkIn-WARNING-1",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkIn (instanceId2)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "InstanceId",
+                    "Value": "instanceId2",
+                  },
+                ],
+                "MetricName": "NetworkIn",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 86400,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 100,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestEC2NetworkOutERROR1C333AF32": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network out too high",
+        "AlarmName": "Test-EC2-NetworkOut-ERROR-1",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkOut (instanceId2)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "InstanceId",
+                    "Value": "instanceId2",
+                  },
+                ],
+                "MetricName": "NetworkOut",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 345600,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 200,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestEC2NetworkOutERROR5FDBBB75": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Network out too high",
+        "AlarmName": "Test-EC2-NetworkOut-ERROR",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Total NetworkOut (instanceId1)",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "InstanceId",
+                    "Value": "instanceId1",
+                  },
+                ],
+                "MetricName": "NetworkOut",
+                "Namespace": "AWS/EC2",
+              },
+              "Period": 345600,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 200,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EC2 **All Instances**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"CPU Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"CPUUtilization (instanceId1)\\"}],[\\"AWS/EC2\\",\\"CPUUtilization\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"CPUUtilization (instanceId2)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Disk - OPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_0, readops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskReadOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSReadOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_0\\"}],[{\\"label\\":\\"DiskReadOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([readops_classic_1, readops_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskReadOps\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskReadOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readops_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSReadOps\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSReadOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"readops_ebs_1\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_0, writeops_ebs_0]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"DiskWriteOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_0\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"EBSWriteOps (instanceId1)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_0\\"}],[{\\"label\\":\\"DiskWriteOps\\",\\"expression\\":\\"AVG(REMOVE_EMPTY([writeops_classic_1, writeops_ebs_1]))\\"}],[\\"AWS/EC2\\",\\"DiskWriteOps\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"DiskWriteOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writeops_classic_1\\"}],[\\"AWS/EC2\\",\\"EBSWriteOps\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"EBSWriteOps (instanceId2)\\",\\"visible\\":false,\\"id\\":\\"writeops_ebs_1\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Network\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"NetworkIn (instanceId1)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"NetworkIn (instanceId2)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"NetworkOut (instanceId1)\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"NetworkOut (instanceId2)\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"Total NetworkIn (instanceId1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkIn\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"Total NetworkIn (instanceId2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instanceId1\\",{\\"label\\":\\"Total NetworkOut (instanceId1)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}],[\\"AWS/EC2\\",\\"NetworkOut\\",\\"InstanceId\\",\\"instanceId2\\",{\\"label\\":\\"Total NetworkOut (instanceId2)\\",\\"stat\\":\\"Sum\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Total NetworkIn (instanceId1) > 100 for 3 datapoints within 4320 minutes\\",\\"value\\":100,\\"yAxis\\":\\"right\\"},{\\"label\\":\\"Total NetworkOut (instanceId1) > 200 for 3 datapoints within 17280 minutes\\",\\"value\\":200,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
