@@ -31,6 +31,7 @@ export function createGraphWidget(
       return new GraphWidget({
         ...props,
         view: GraphWidgetView.BAR,
+        setPeriodToTimeRange: true,
       });
 
     case GraphWidgetType.LINE:
@@ -40,6 +41,7 @@ export function createGraphWidget(
       return new GraphWidget({
         ...props,
         view: GraphWidgetView.PIE,
+        setPeriodToTimeRange: true,
       });
 
     case GraphWidgetType.SINGLE_VALUE:
