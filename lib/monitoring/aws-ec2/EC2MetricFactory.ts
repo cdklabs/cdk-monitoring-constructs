@@ -80,7 +80,7 @@ class SelectedInstancesStrategy implements IEC2MetricFactoryStrategy {
       return metricFactory.createMetric(
         metricName,
         statistic,
-        `${label} (${instanceId})`,
+        `${label ?? metricName} (${instanceId})`,
         resolveDimensions(this.autoScalingGroup, instanceId),
         undefined,
         EC2Namespace,
