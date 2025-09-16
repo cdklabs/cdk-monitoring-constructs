@@ -38,6 +38,8 @@ export interface KinesisDataAnalyticsMonitoringOptions
 
   readonly addFullRestartCountAlarm?: Record<string, FullRestartCountThreshold>;
 
+  readonly addFullRestartRateAlarm?: Record<string, ErrorRateThreshold>;
+
   readonly addCheckpointFailureCountAlarm?: Record<string, ErrorCountThreshold>;
 
   readonly addCheckpointFailureRateAlarm?: Record<string, ErrorRateThreshold>;
@@ -54,6 +56,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
   readonly kdaAlarmFactory: KinesisDataAnalyticsAlarmFactory;
   readonly downtimeAnnotations: HorizontalAnnotation[];
   readonly fullRestartAnnotations: HorizontalAnnotation[];
+  readonly fullRestartRateAnnotations: HorizontalAnnotation[];
   readonly checkpointFailureCountAnnotations: HorizontalAnnotation[];
   readonly checkpointFailureRateAnnotations: HorizontalAnnotation[];
 
@@ -68,6 +71,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
   readonly oldGenerationGCCountMetric: MetricWithAlarmSupport;
   readonly oldGenerationGCTimeMsMetric: MetricWithAlarmSupport;
   readonly checkpointFailureRateMetric: MetricWithAlarmSupport;
+  readonly fullRestartRateMetric: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,
@@ -90,6 +94,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     this.kdaAlarmFactory = new KinesisDataAnalyticsAlarmFactory(alarmFactory);
     this.downtimeAnnotations = [];
     this.fullRestartAnnotations = [];
+    this.fullRestartRateAnnotations = [];
     this.checkpointFailureCountAnnotations = [];
     this.checkpointFailureRateAnnotations = [];
 
@@ -117,6 +122,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
       metricFactory.metricOldGenerationGCTimeMs();
     this.checkpointFailureRateMetric =
       metricFactory.metricCheckpointFailureRate();
+    this.fullRestartRateMetric = metricFactory.metricFullRestartRate();
 
     for (const disambiguator in props.addDowntimeAlarm) {
       const alarmProps = props.addDowntimeAlarm[disambiguator];
@@ -137,6 +143,17 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
         disambiguator,
       );
       this.fullRestartAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addFullRestartRateAlarm) {
+      const alarmProps = props.addFullRestartRateAlarm[disambiguator];
+      const createdAlarm = this.kdaAlarmFactory.addFullRestartRateAlarm(
+        this.fullRestartRateMetric,
+        alarmProps,
+        disambiguator,
+      );
+      this.fullRestartRateAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
 
@@ -230,6 +247,9 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
       left: [this.fullRestartsCountMetric],
       leftYAxis: CountAxisFromZero,
       leftAnnotations: this.fullRestartAnnotations,
+      right: [this.fullRestartRateMetric],
+      rightYAxis: RateAxisFromZero,
+      rightAnnotations: this.fullRestartRateAnnotations,
     });
   }
 
