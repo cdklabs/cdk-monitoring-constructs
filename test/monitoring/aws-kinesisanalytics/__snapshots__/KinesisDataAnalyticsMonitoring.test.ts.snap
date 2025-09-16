@@ -45,11 +45,22 @@ Object {
               "\\",\\"annotations\\":{\\"alarms\\":[\\"",
               Object {
                 "Fn::GetAtt": Array [
-                  "ScopeTestDummyApplicationFailureCountWarningE827B83F",
+                  "ScopeTestDummyApplicationFullRestartRateWarningE45B3639",
                   "Arn",
                 ],
               },
               "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":18,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApplicationFailureCountWarningE827B83F",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -89,11 +100,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Restarts > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Failures\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\",\\"id\\":\\"fullRestarts\\"}],[{\\"label\\":\\"Full Restart Rate\\",\\"expression\\":\\"RATE(fullRestarts)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Restarts > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Full Restart Rate > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Failures\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"checkpoints\\"}],[{\\"label\\":\\"Failed Checkpoints/h\\",\\"expression\\":\\"(3600 * checkpoints) / PERIOD(checkpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed Checkpoints > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Failed Checkpoints/h > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"numberOfFailedCheckpoints\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed Checkpoints > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Checkpoint Failure Rate > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -190,12 +201,12 @@ Object {
         "EvaluationPeriods": 3,
         "Metrics": Array [
           Object {
-            "Expression": "(3600 * checkpoints) / PERIOD(checkpoints)",
+            "Expression": "RATE(numberOfFailedCheckpoints)",
             "Id": "expr_1",
-            "Label": "Failed Checkpoints/h",
+            "Label": "Checkpoint Failure Rate",
           },
           Object {
-            "Id": "checkpoints",
+            "Id": "numberOfFailedCheckpoints",
             "Label": "Failed Checkpoints",
             "MetricStat": Object {
               "Metric": Object {
@@ -216,6 +227,45 @@ Object {
         ],
         "Threshold": 0.1,
         "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyApplicationFullRestartRateWarningE45B3639": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Full restart rate is too high",
+        "AlarmName": "Test-DummyApplication-FullRestartRate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "RATE(fullRestarts)",
+            "Id": "expr_1",
+            "Label": "Full Restart Rate",
+          },
+          Object {
+            "Id": "fullRestarts",
+            "Label": "Restarts",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Application",
+                    "Value": "DummyApplication",
+                  },
+                ],
+                "MetricName": "fullRestarts",
+                "Namespace": "AWS/KinesisAnalytics",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.1,
+        "TreatMissingData": "breaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -275,7 +325,185 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Restarts > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\",\\"id\\":\\"fullRestarts\\"}],[{\\"label\\":\\"Full Restart Rate\\",\\"expression\\":\\"RATE(fullRestarts)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Restarts > 1 for 3 datapoints within 15 minutes\\",\\"value\\":1,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Full Restart Rate > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: full restart rate alarm 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyApplicationFullRestartRateWarningE45B3639",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Analytics **[DummyApplication](https://eu-west-1.console.aws.amazon.com/kinesisanalytics/home?region=eu-west-1#/details?applicationName=DummyApplication)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"KPU Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"KPUs\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Kinesis Processing Units\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Resource Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"cpuUtilization\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"CPU Utilization\\"}],[\\"AWS/KinesisAnalytics\\",\\"heapMemoryUtilization\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Heap Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Down Time\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"downtime\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Downtime\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Full Restarts\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\",\\"id\\":\\"fullRestarts\\"}],[{\\"label\\":\\"Full Restart Rate\\",\\"expression\\":\\"RATE(fullRestarts)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Full Restart Rate > 0.05 for 3 datapoints within 15 minutes\\",\\"value\\":0.05,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Failures\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"numberOfFailedCheckpoints\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"lastCheckpointDuration\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Last Checkpoint Duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Size\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"lastCheckpointSize\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Last Checkpoint Size\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Garbage Collection\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"oldGenerationGCCount\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"GC Count\\",\\"stat\\":\\"SampleCount\\"}],[\\"AWS/KinesisAnalytics\\",\\"oldGenerationGCTime\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"GC Time\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyApplicationFullRestartRateWarningE45B3639": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Full restart rate is too high",
+        "AlarmName": "Test-DummyApplication-FullRestartRate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "RATE(fullRestarts)",
+            "Id": "expr_1",
+            "Label": "Full Restart Rate",
+          },
+          Object {
+            "Id": "fullRestarts",
+            "Label": "Restarts",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Application",
+                    "Value": "DummyApplication",
+                  },
+                ],
+                "MetricName": "fullRestarts",
+                "Namespace": "AWS/KinesisAnalytics",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.05,
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Analytics **[DummyApplication](https://eu-west-1.console.aws.amazon.com/kinesisanalytics/home?region=eu-west-1#/details?applicationName=DummyApplication)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"KPU Usage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"KPUs\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Kinesis Processing Units\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Resource Utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"cpuUtilization\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"CPU Utilization\\"}],[\\"AWS/KinesisAnalytics\\",\\"heapMemoryUtilization\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Heap Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Down Time\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"downtime\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Downtime\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Full Restarts\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\",\\"id\\":\\"fullRestarts\\"}],[{\\"label\\":\\"Full Restart Rate\\",\\"expression\\":\\"RATE(fullRestarts)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Full Restart Rate > 0.05 for 3 datapoints within 15 minutes\\",\\"value\\":0.05,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -351,11 +579,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Failures\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\",\\"id\\":\\"fullRestarts\\"}],[{\\"label\\":\\"Full Restart Rate\\",\\"expression\\":\\"RATE(fullRestarts)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Failures\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"checkpoints\\"}],[{\\"label\\":\\"Failed Checkpoints/h\\",\\"expression\\":\\"(3600 * checkpoints) / PERIOD(checkpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"numberOfFailedCheckpoints\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -396,7 +624,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Restarts\\",\\"id\\":\\"fullRestarts\\"}],[{\\"label\\":\\"Full Restart Rate\\",\\"expression\\":\\"RATE(fullRestarts)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

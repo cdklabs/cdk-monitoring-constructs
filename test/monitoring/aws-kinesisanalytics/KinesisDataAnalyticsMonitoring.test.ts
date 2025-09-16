@@ -18,6 +18,24 @@ test("snapshot test: no alarms", () => {
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
+test("snapshot test: full restart rate alarm", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new KinesisDataAnalyticsMonitoring(scope, {
+    application: "DummyApplication",
+    addFullRestartRateAlarm: {
+      Warning: {
+        maxErrorRate: 0.05,
+      },
+    },
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
 test("snapshot test: all alarms", () => {
   const stack = new Stack();
 
@@ -35,6 +53,11 @@ test("snapshot test: all alarms", () => {
     addFullRestartCountAlarm: {
       Warning: {
         maxFullRestartCount: 1,
+      },
+    },
+    addFullRestartRateAlarm: {
+      Warning: {
+        maxErrorRate: 0.1,
       },
     },
     addCheckpointFailureCountAlarm: {
@@ -55,6 +78,6 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(4);
+  expect(numAlarmsCreated).toStrictEqual(5);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
