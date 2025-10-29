@@ -5,7 +5,6 @@ import {
   BaseMetricFactoryProps,
   MetricFactory,
   MetricStatistic,
-  RateComputationMethod,
 } from "../../common";
 
 export interface KinesisDataAnalyticsMetricFactoryProps
@@ -120,11 +119,34 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
   }
 
   metricCheckpointFailureRate() {
-    return this.metricFactory.toRate(
-      this.metricNumberOfFailedCheckpointsCount(),
-      RateComputationMethod.PER_HOUR,
-      false,
-      "checkpoints",
+    // Flink reports this metric as the latest sum for the lifecycle of a job.
+    // Therefore, we truly care about rate of change
+    return this.metricFactory.createMetricMath(
+      "RATE(numberOfFailedCheckpoints)",
+      {
+        numberOfFailedCheckpoints: this.metricNumberOfFailedCheckpointsCount(),
+      },
+      "Checkpoint Failure Rate",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
+    );
+  }
+
+  metricFullRestartRate() {
+    // Flink reports this metric as the latest sum for the lifecycle of a job.
+    // Therefore, we truly care about rate of change
+    return this.metricFactory.createMetricMath(
+      "RATE(fullRestarts)",
+      {
+        fullRestarts: this.metricFullRestartsCount(),
+      },
+      "Full Restart Rate",
+      undefined,
+      undefined,
+      this.region,
+      this.account,
     );
   }
 
