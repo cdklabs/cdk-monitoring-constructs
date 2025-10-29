@@ -4798,11 +4798,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",{\\"label\\":\\"Restarts\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Failures\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",{\\"label\\":\\"Restarts\\",\\"id\\":\\"fullRestarts\\"}],[{\\"label\\":\\"Full Restart Rate\\",\\"expression\\":\\"RATE(fullRestarts)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Failures\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"checkpoints\\"}],[{\\"label\\":\\"Failed Checkpoints/h\\",\\"expression\\":\\"(3600 * checkpoints) / PERIOD(checkpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"numberOfFailedCheckpoints\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4852,7 +4852,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",{\\"label\\":\\"Restarts\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"fullRestarts\\",{\\"label\\":\\"Restarts\\",\\"id\\":\\"fullRestarts\\"}],[{\\"label\\":\\"Full Restart Rate\\",\\"expression\\":\\"RATE(fullRestarts)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

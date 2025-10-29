@@ -25759,6 +25759,7 @@ const kinesisDataAnalyticsMonitoringOptions: KinesisDataAnalyticsMonitoringOptio
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addCheckpointFailureRateAlarm">addCheckpointFailureRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addDowntimeAlarm">addDowntimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxDowntimeThreshold">MaxDowntimeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addFullRestartCountAlarm">addFullRestartCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addFullRestartRateAlarm">addFullRestartRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -25930,6 +25931,16 @@ public readonly addFullRestartCountAlarm: {[ key: string ]: FullRestartCountThre
 
 ---
 
+##### `addFullRestartRateAlarm`<sup>Optional</sup> <a name="addFullRestartRateAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions.property.addFullRestartRateAlarm"></a>
+
+```typescript
+public readonly addFullRestartRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
 ### KinesisDataAnalyticsMonitoringProps <a name="KinesisDataAnalyticsMonitoringProps" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.Initializer"></a>
@@ -25958,6 +25969,7 @@ const kinesisDataAnalyticsMonitoringProps: KinesisDataAnalyticsMonitoringProps =
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addCheckpointFailureRateAlarm">addCheckpointFailureRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addDowntimeAlarm">addDowntimeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxDowntimeThreshold">MaxDowntimeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addFullRestartCountAlarm">addFullRestartCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addFullRestartRateAlarm">addFullRestartRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 
 ---
 
@@ -26136,6 +26148,16 @@ public readonly addFullRestartCountAlarm: {[ key: string ]: FullRestartCountThre
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.FullRestartCountThreshold">FullRestartCountThreshold</a>}
+
+---
+
+##### `addFullRestartRateAlarm`<sup>Optional</sup> <a name="addFullRestartRateAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringProps.property.addFullRestartRateAlarm"></a>
+
+```typescript
+public readonly addFullRestartRateAlarm: {[ key: string ]: ErrorRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
 
 ---
 
@@ -69130,6 +69152,7 @@ new KinesisDataAnalyticsAlarmFactory(alarmFactory: AlarmFactory)
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addCheckpointFailureRateAlarm">addCheckpointFailureRateAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addDowntimeAlarm">addDowntimeAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addFullRestartAlarm">addFullRestartAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addFullRestartRateAlarm">addFullRestartRateAlarm</a></code> | *No description.* |
 
 ---
 
@@ -69229,6 +69252,30 @@ public addFullRestartAlarm(metric: Metric | MathExpression, props: FullRestartCo
 
 ---
 
+##### `addFullRestartRateAlarm` <a name="addFullRestartRateAlarm" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addFullRestartRateAlarm"></a>
+
+```typescript
+public addFullRestartRateAlarm(metric: Metric | MathExpression, props: ErrorRateThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addFullRestartRateAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addFullRestartRateAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory.addFullRestartRateAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
 
 
 
@@ -69270,6 +69317,7 @@ new KinesisDataAnalyticsMetricFactory(metricFactory: MetricFactory, props: Kines
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricCheckpointFailureRate">metricCheckpointFailureRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricCpuUtilizationPercent">metricCpuUtilizationPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricDowntimeMs">metricDowntimeMs</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricFullRestartRate">metricFullRestartRate</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricFullRestartsCount">metricFullRestartsCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricHeapMemoryUtilizationPercent">metricHeapMemoryUtilizationPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricKPUsCount">metricKPUsCount</a></code> | *No description.* |
@@ -69298,6 +69346,12 @@ public metricCpuUtilizationPercent(): Metric | MathExpression
 
 ```typescript
 public metricDowntimeMs(): Metric | MathExpression
+```
+
+##### `metricFullRestartRate` <a name="metricFullRestartRate" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricFullRestartRate"></a>
+
+```typescript
+public metricFullRestartRate(): Metric | MathExpression
 ```
 
 ##### `metricFullRestartsCount` <a name="metricFullRestartsCount" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactory.metricFullRestartsCount"></a>
@@ -69671,6 +69725,8 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.downtimeAnnotations">downtimeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.downtimeMsMetric">downtimeMsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartAnnotations">fullRestartAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartRateAnnotations">fullRestartRateAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartRateMetric">fullRestartRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartsCountMetric">fullRestartsCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.heapMemoryUtilizationPercentMetric">heapMemoryUtilizationPercentMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.kdaAlarmFactory">kdaAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAlarmFactory">KinesisDataAnalyticsAlarmFactory</a></code> | *No description.* |
@@ -69752,6 +69808,26 @@ public readonly fullRestartAnnotations: HorizontalAnnotation[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `fullRestartRateAnnotations`<sup>Required</sup> <a name="fullRestartRateAnnotations" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartRateAnnotations"></a>
+
+```typescript
+public readonly fullRestartRateAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `fullRestartRateMetric`<sup>Required</sup> <a name="fullRestartRateMetric" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.property.fullRestartRateMetric"></a>
+
+```typescript
+public readonly fullRestartRateMetric: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
 
 ---
 

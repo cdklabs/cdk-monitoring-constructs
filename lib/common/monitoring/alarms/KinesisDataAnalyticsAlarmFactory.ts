@@ -72,6 +72,26 @@ export class KinesisDataAnalyticsAlarmFactory {
     });
   }
 
+  addFullRestartRateAlarm(
+    metric: MetricWithAlarmSupport,
+    props: ErrorRateThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxErrorRate,
+      alarmNameSuffix: "FullRestartRate",
+      alarmDescription: "Full restart rate is too high",
+      alarmDedupeStringSuffix: "KDAFullRestartRateAlarm",
+    });
+  }
+
   addCheckpointFailureCountAlarm(
     metric: MetricWithAlarmSupport,
     props: ErrorCountThreshold,
