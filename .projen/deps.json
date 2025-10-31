@@ -6,6 +6,7 @@
     },
     {
       "name": "@types/node",
+      "version": "^16 <= 16.18.78",
       "type": "build"
     },
     {
@@ -16,6 +17,10 @@
     {
       "name": "@typescript-eslint/parser",
       "version": "^8",
+      "type": "build"
+    },
+    {
+      "name": "cdklabs-projen-project-types",
       "type": "build"
     },
     {
@@ -50,7 +55,7 @@
     },
     {
       "name": "jest-junit",
-      "version": "^15",
+      "version": "^16",
       "type": "build"
     },
     {
@@ -68,7 +73,6 @@
     },
     {
       "name": "jsii-rosetta",
-      "version": "1.x",
       "type": "build"
     },
     {
@@ -99,6 +103,16 @@
     {
       "name": "@aws-cdk/aws-redshift-alpha",
       "version": "2.160.0-alpha.0",
+      "type": "devenv"
+    },
+    {
+      "name": "@aws-cdk/integ-runner",
+      "version": "latest",
+      "type": "devenv"
+    },
+    {
+      "name": "@aws-cdk/integ-tests-alpha",
+      "version": "latest",
       "type": "devenv"
     },
     {

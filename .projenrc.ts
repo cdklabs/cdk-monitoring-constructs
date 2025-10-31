@@ -1,16 +1,11 @@
-import {
-  awscdk,
-  javascript,
-  github,
-  DependencyType,
-  ReleasableCommits,
-} from "projen";
-import { TrailingComma } from "projen/lib/javascript";
+import * as cdklabs from "cdklabs-projen-project-types";
+import { javascript, github, DependencyType, ReleasableCommits } from "projen";
 
 const CDK_VERSION = "2.160.0";
 
-const project = new awscdk.AwsCdkConstructLibrary({
+const project = new cdklabs.CdklabsConstructLibrary({
   name: "cdk-monitoring-constructs",
+  private: false,
   projenrcTs: true,
   repositoryUrl: "https://github.com/cdklabs/cdk-monitoring-constructs",
   author: "CDK Monitoring Constructs Team",
@@ -20,6 +15,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   defaultReleaseBranch: "main",
   majorVersion: 9,
   stability: "experimental",
+  setNodeEngineVersion: false,
 
   cdkVersion: CDK_VERSION,
   // TODO: upgrade to 5.x
@@ -30,6 +26,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   // To reduce the noisy release frequency we only release features and fixes
   releasableCommits: ReleasableCommits.featuresAndFixes(),
+
+  // Don't release for go, see below
+  jsiiTargetLanguages: [
+    cdklabs.JsiiLanguage.PYTHON,
+    cdklabs.JsiiLanguage.DOTNET,
+    cdklabs.JsiiLanguage.JAVA,
+  ],
 
   // Artifact config: Python
   publishToPypi: {
@@ -55,10 +58,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // },
 
   // Auto approval config
-  autoApproveOptions: {
-    allowedUsernames: ["cdklabs-automation"],
-    secret: "GITHUB_TOKEN",
-  },
+  enablePRAutoMerge: true,
   autoApproveUpgrades: true,
   depsUpgradeOptions: {
     workflowOptions: {
@@ -86,8 +86,13 @@ _By submitting this pull request, I confirm that my contribution is made under t
   prettier: true,
   prettierOptions: {
     settings: {
-      trailingComma: TrailingComma.ALL,
+      trailingComma: javascript.TrailingComma.ALL,
     },
+  },
+
+  // Documentation options
+  rosettaOptions: {
+    strict: false, // @todo disabled since there were many failures for me to fix
   },
 });
 
@@ -98,6 +103,9 @@ _By submitting this pull request, I confirm that my contribution is made under t
     DependencyType.DEVENV,
   );
 });
+
+// newer types don't work with our ts and jsii version
+project.addDevDeps("@types/node@^16 <= 16.18.78");
 
 // Add some other eslint rules followed across this project
 project.eslint?.addRules({
