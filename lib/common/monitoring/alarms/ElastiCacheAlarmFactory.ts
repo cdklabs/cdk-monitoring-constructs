@@ -10,6 +10,14 @@ export interface MaxItemsCountThreshold extends CustomAlarmThreshold {
   readonly maxItemsCount: number;
 }
 
+export interface MinHitRateThreshold extends CustomAlarmThreshold {
+  readonly minHitRatePercent: number;
+}
+
+export interface MaxThrottleRateThreshold extends CustomAlarmThreshold {
+  readonly maxThrottleRatePercent: number;
+}
+
 export interface MinFreeableMemoryThreshold extends CustomAlarmThreshold {
   readonly minFreeableMemoryInBytes: number;
 }
@@ -98,6 +106,44 @@ export class ElastiCacheAlarmFactory {
       threshold: props.maxUsedSwapMemoryInBytes,
       alarmNameSuffix: "Memory-Swap",
       alarmDescription: "The size of swap memory used is too high.",
+    });
+  }
+
+  addMinHitRateAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MinHitRateThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.LESS_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.minHitRatePercent,
+      alarmNameSuffix: "Hit-Rate",
+      alarmDescription: "The hit rate is too low.",
+    });
+  }
+
+  addMaxThrottleRateAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MaxThrottleRateThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxThrottleRatePercent,
+      alarmNameSuffix: "Throttle-Rate",
+      alarmDescription: "The throttle rate is too high.",
     });
   }
 }
