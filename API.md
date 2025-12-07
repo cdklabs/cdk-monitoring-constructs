@@ -127,7 +127,7 @@ to each other.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct"></a>
 
 ```typescript
 import { BitmapDashboard } from 'cdk-monitoring-constructs'
@@ -136,6 +136,20 @@ BitmapDashboard.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct.parameter.x"></a>
 
@@ -327,7 +341,7 @@ public asBitmap(widget: IWidget): CustomWidget
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct"></a>
 
 ```typescript
 import { BitmapWidgetRenderingSupport } from 'cdk-monitoring-constructs'
@@ -336,6 +350,20 @@ BitmapWidgetRenderingSupport.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct.parameter.x"></a>
 
@@ -504,7 +532,7 @@ to each other.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct"></a>
 
 ```typescript
 import { DashboardWithBitmapCopy } from 'cdk-monitoring-constructs'
@@ -513,6 +541,20 @@ DashboardWithBitmapCopy.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct.parameter.x"></a>
 
@@ -760,7 +802,7 @@ Gets the dashboard for the requested dashboard type.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct"></a>
 
 ```typescript
 import { DefaultDashboardFactory } from 'cdk-monitoring-constructs'
@@ -769,6 +811,20 @@ DefaultDashboardFactory.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct.parameter.x"></a>
 
@@ -946,7 +1002,7 @@ Gets the dashboard for the requested dashboard type.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct"></a>
 
 ```typescript
 import { DynamicDashboardFactory } from 'cdk-monitoring-constructs'
@@ -955,6 +1011,20 @@ DynamicDashboardFactory.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct.parameter.x"></a>
 
@@ -1448,7 +1518,7 @@ public createdDashboard(): Dashboard
 ##### `createdDashboardSegments` <a name="createdDashboardSegments" id="cdk-monitoring-constructs.MonitoringFacade.createdDashboardSegments"></a>
 
 ```typescript
-public createdDashboardSegments(): IDashboardSegment | IDynamicDashboardSegment[]
+public createdDashboardSegments(): (IDashboardSegment | IDynamicDashboardSegment)[]
 ```
 
 Returns all the added segments.
@@ -2135,7 +2205,7 @@ public monitorWebApplicationFirewallAclV2(props: WafV2MonitoringProps): Monitori
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct"></a>
 
 ```typescript
 import { MonitoringFacade } from 'cdk-monitoring-constructs'
@@ -2144,6 +2214,20 @@ MonitoringFacade.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct.parameter.x"></a>
 
@@ -2296,7 +2380,7 @@ Creates a new widget factory.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringScope.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringScope.isConstruct"></a>
 
 ```typescript
 import { MonitoringScope } from 'cdk-monitoring-constructs'
@@ -2305,6 +2389,20 @@ MonitoringScope.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.MonitoringScope.isConstruct.parameter.x"></a>
 
@@ -2375,7 +2473,7 @@ public addSecret(secret: ISecret): void
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct"></a>
 
 ```typescript
 import { SecretsManagerMetricsPublisher } from 'cdk-monitoring-constructs'
@@ -2384,6 +2482,20 @@ SecretsManagerMetricsPublisher.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct.parameter.x"></a>
 
@@ -13740,7 +13852,7 @@ const customMetricGroup: CustomMetricGroup = { ... }
 ##### `metrics`<sup>Required</sup> <a name="metrics" id="cdk-monitoring-constructs.CustomMetricGroup.property.metrics"></a>
 
 ```typescript
-public readonly metrics: Metric | MathExpression | CustomMetricWithAlarm | CustomMetricWithAnomalyDetection | CustomMetricSearch[];
+public readonly metrics: (Metric | MathExpression | CustomMetricWithAlarm | CustomMetricWithAnomalyDetection | CustomMetricSearch)[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression | <a href="#cdk-monitoring-constructs.CustomMetricWithAlarm">CustomMetricWithAlarm</a> | <a href="#cdk-monitoring-constructs.CustomMetricWithAnomalyDetection">CustomMetricWithAnomalyDetection</a> | <a href="#cdk-monitoring-constructs.CustomMetricSearch">CustomMetricSearch</a>[]
@@ -65329,7 +65441,7 @@ new EC2MetricFactory(metricFactory: MetricFactory, props: EC2MetricFactoryProps)
 ##### `metricAverageCpuUtilisationPercent` <a name="metricAverageCpuUtilisationPercent" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageCpuUtilisationPercent"></a>
 
 ```typescript
-public metricAverageCpuUtilisationPercent(): Metric | MathExpression[]
+public metricAverageCpuUtilisationPercent(): (Metric | MathExpression)[]
 ```
 
 The percentage of allocated EC2 compute units that are currently in use on the instance.
@@ -65341,7 +65453,7 @@ CloudWatch when the instance is not allocated a full processor core.
 ##### `metricAverageDiskReadBytes` <a name="metricAverageDiskReadBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskReadBytes"></a>
 
 ```typescript
-public metricAverageDiskReadBytes(): Metric | MathExpression[]
+public metricAverageDiskReadBytes(): (Metric | MathExpression)[]
 ```
 
 Bytes read from all instance store volumes available to the instance.
@@ -65352,7 +65464,7 @@ This can be used to determine the speed of the application.
 ##### `metricAverageDiskReadOps` <a name="metricAverageDiskReadOps" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskReadOps"></a>
 
 ```typescript
-public metricAverageDiskReadOps(): Metric | MathExpression[]
+public metricAverageDiskReadOps(): (Metric | MathExpression)[]
 ```
 
 Completed read operations from all instance store volumes available to the instance in a specified period of time.
@@ -65360,7 +65472,7 @@ Completed read operations from all instance store volumes available to the insta
 ##### `metricAverageDiskWriteBytes` <a name="metricAverageDiskWriteBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskWriteBytes"></a>
 
 ```typescript
-public metricAverageDiskWriteBytes(): Metric | MathExpression[]
+public metricAverageDiskWriteBytes(): (Metric | MathExpression)[]
 ```
 
 Bytes written to all instance store volumes available to the instance.
@@ -65371,7 +65483,7 @@ This can be used to determine the speed of the application.
 ##### `metricAverageDiskWriteOps` <a name="metricAverageDiskWriteOps" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageDiskWriteOps"></a>
 
 ```typescript
-public metricAverageDiskWriteOps(): Metric | MathExpression[]
+public metricAverageDiskWriteOps(): (Metric | MathExpression)[]
 ```
 
 Completed write operations to all instance store volumes available to the instance in a specified period of time.
@@ -65379,7 +65491,7 @@ Completed write operations to all instance store volumes available to the instan
 ##### `metricAverageNetworkInRateBytes` <a name="metricAverageNetworkInRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageNetworkInRateBytes"></a>
 
 ```typescript
-public metricAverageNetworkInRateBytes(): Metric | MathExpression[]
+public metricAverageNetworkInRateBytes(): (Metric | MathExpression)[]
 ```
 
 The number of bytes received on all network interfaces by the instance.
@@ -65389,7 +65501,7 @@ This metric identifies the volume of incoming network traffic to a single instan
 ##### `metricAverageNetworkOutRateBytes` <a name="metricAverageNetworkOutRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricAverageNetworkOutRateBytes"></a>
 
 ```typescript
-public metricAverageNetworkOutRateBytes(): Metric | MathExpression[]
+public metricAverageNetworkOutRateBytes(): (Metric | MathExpression)[]
 ```
 
 The number of bytes sent out on all network interfaces by the instance.
@@ -65399,7 +65511,7 @@ This metric identifies the volume of outgoing network traffic from a single inst
 ##### `metricSumNetworkInRateBytes` <a name="metricSumNetworkInRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricSumNetworkInRateBytes"></a>
 
 ```typescript
-public metricSumNetworkInRateBytes(): Metric | MathExpression[]
+public metricSumNetworkInRateBytes(): (Metric | MathExpression)[]
 ```
 
 The number of bytes received on all network interfaces by the instance.
@@ -65409,7 +65521,7 @@ This metric identifies the volume of incoming network traffic to a single instan
 ##### `metricSumNetworkOutRateBytes` <a name="metricSumNetworkOutRateBytes" id="cdk-monitoring-constructs.EC2MetricFactory.metricSumNetworkOutRateBytes"></a>
 
 ```typescript
-public metricSumNetworkOutRateBytes(): Metric | MathExpression[]
+public metricSumNetworkOutRateBytes(): (Metric | MathExpression)[]
 ```
 
 The number of bytes sent out on all network interfaces by the instance.
@@ -65740,7 +65852,7 @@ public readonly family: string;
 ##### `networkInMetrics`<sup>Required</sup> <a name="networkInMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkInMetrics"></a>
 
 ```typescript
-public readonly networkInMetrics: Metric | MathExpression[];
+public readonly networkInMetrics: (Metric | MathExpression)[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression[]
@@ -65760,7 +65872,7 @@ public readonly networkInSumLimitAnnotations: HorizontalAnnotation[];
 ##### `networkInSumMetrics`<sup>Required</sup> <a name="networkInSumMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkInSumMetrics"></a>
 
 ```typescript
-public readonly networkInSumMetrics: Metric | MathExpression[];
+public readonly networkInSumMetrics: (Metric | MathExpression)[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression[]
@@ -65770,7 +65882,7 @@ public readonly networkInSumMetrics: Metric | MathExpression[];
 ##### `networkOutMetrics`<sup>Required</sup> <a name="networkOutMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkOutMetrics"></a>
 
 ```typescript
-public readonly networkOutMetrics: Metric | MathExpression[];
+public readonly networkOutMetrics: (Metric | MathExpression)[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression[]
@@ -65790,7 +65902,7 @@ public readonly networkOutSumLimitAnnotations: HorizontalAnnotation[];
 ##### `networkOutSumMetrics`<sup>Required</sup> <a name="networkOutSumMetrics" id="cdk-monitoring-constructs.EC2Monitoring.property.networkOutSumMetrics"></a>
 
 ```typescript
-public readonly networkOutSumMetrics: Metric | MathExpression[];
+public readonly networkOutSumMetrics: (Metric | MathExpression)[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression[]
@@ -85379,7 +85491,7 @@ name of dashboard for which widgets are generated.
 ##### `createMetrics` <a name="createMetrics" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics"></a>
 
 ```typescript
-public createMetrics(metricFactory: MetricFactory, metricName: string, statistic: MetricStatistic, region?: string, account?: string, label?: string): Metric | MathExpression[]
+public createMetrics(metricFactory: MetricFactory, metricName: string, statistic: MetricStatistic, region?: string, account?: string, label?: string): (Metric | MathExpression)[]
 ```
 
 ###### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.IEC2MetricFactoryStrategy.createMetrics.parameter.metricFactory"></a>
