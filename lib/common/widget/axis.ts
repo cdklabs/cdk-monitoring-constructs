@@ -38,6 +38,15 @@ export const TimeAxisMillisFromZero: YAxisProps = {
 };
 
 /**
+ * Y-Axis showing time in microseconds, ranged from 0.
+ */
+export const TimeAxisMicrosFromZero: YAxisProps = {
+  min: 0,
+  label: "us",
+  showUnits: false,
+};
+
+/**
  * Y-Axis showing time in seconds, ranged from 0.
  */
 export const TimeAxisSecondsFromZero: YAxisProps = {

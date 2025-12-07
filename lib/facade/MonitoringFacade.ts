@@ -67,6 +67,8 @@ import {
   Ec2ServiceMonitoringProps,
   ElastiCacheClusterMonitoring,
   ElastiCacheClusterMonitoringProps,
+  ElastiCacheServerlessMonitoring,
+  ElastiCacheServerlessMonitoringProps,
   FargateApplicationLoadBalancerMonitoringProps,
   FargateNetworkLoadBalancerMonitoringProps,
   FargateServiceMonitoring,
@@ -616,6 +618,14 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorElastiCacheCluster(props: ElastiCacheClusterMonitoringProps): this {
     const segment = new ElastiCacheClusterMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorServerlessElastiCache(
+    props: ElastiCacheServerlessMonitoringProps,
+  ): this {
+    const segment = new ElastiCacheServerlessMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

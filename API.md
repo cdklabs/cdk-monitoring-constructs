@@ -1179,6 +1179,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorScope">monitorScope</a></code> | Uses an aspect to automatically monitor all resources in the given scope. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManager">monitorSecretsManager</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManagerSecret">monitorSecretsManagerSecret</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorServerlessElastiCache">monitorServerlessElastiCache</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSimpleEc2Service">monitorSimpleEc2Service</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSimpleFargateService">monitorSimpleFargateService</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorSnsTopic">monitorSnsTopic</a></code> | *No description.* |
@@ -2062,6 +2063,18 @@ public monitorSecretsManagerSecret(props: SecretsManagerSecretMonitoringProps): 
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorSecretsManagerSecret.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringProps">SecretsManagerSecretMonitoringProps</a>
+
+---
+
+##### `monitorServerlessElastiCache` <a name="monitorServerlessElastiCache" id="cdk-monitoring-constructs.MonitoringFacade.monitorServerlessElastiCache"></a>
+
+```typescript
+public monitorServerlessElastiCache(props: ElastiCacheServerlessMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorServerlessElastiCache.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps">ElastiCacheServerlessMonitoringProps</a>
 
 ---
 
@@ -20040,6 +20053,589 @@ as well for hosts with two vCPUs or less.
 
 ---
 
+### ElastiCacheServerlessMetricFactoryProps <a name="ElastiCacheServerlessMetricFactoryProps" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheServerlessMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const elastiCacheServerlessMetricFactoryProps: ElastiCacheServerlessMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps.property.clusterId">clusterId</a></code> | <code>string</code> | Cluster to monitor. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `clusterId`<sup>Optional</sup> <a name="clusterId" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps.property.clusterId"></a>
+
+```typescript
+public readonly clusterId: string;
+```
+
+- *Type:* string
+- *Default:* monitor all clusters
+
+Cluster to monitor.
+
+---
+
+### ElastiCacheServerlessMonitoringOptions <a name="ElastiCacheServerlessMonitoringOptions" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions"></a>
+
+Configuration options for monitoring ElastiCache Serverless clusters.
+
+Extends BaseMonitoringProps to include alarm configurations specific to
+ElastiCache Serverless metrics such as latency, throttling, cache hit rates,
+and item counts.
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.Initializer"></a>
+
+```typescript
+import { ElastiCacheServerlessMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const elastiCacheServerlessMonitoringOptions: ElastiCacheServerlessMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addAverageSuccessfulReadRequestLatencyAlarm">addAverageSuccessfulReadRequestLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | Add alarm when the average latency for successful read requests exceeds a threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addAverageSuccessfulWriteRequestLatencyAlarm">addAverageSuccessfulWriteRequestLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | Add alarm when the average latency for successful write requests exceeds a threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addHitRateAlarm">addHitRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinHitRateThreshold">MinHitRateThreshold</a>}</code> | Add alarm when the cache hit rate falls below a minimum threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addThrottleRateAlarm">addThrottleRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold">MaxThrottleRateThreshold</a>}</code> | Add alarm when the throttle rate (percentage of throttled commands) exceeds a threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addTM99SuccessfulReadRequestLatencyAlarm">addTM99SuccessfulReadRequestLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | Add alarm when the 99th percentile (TM99) latency for successful read requests exceeds a threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addTM99SuccessfulWriteRequestLatencyAlarm">addTM99SuccessfulWriteRequestLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | Add alarm when the 99th percentile (TM99) latency for successful write requests exceeds a threshold. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addAverageSuccessfulReadRequestLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulReadRequestLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addAverageSuccessfulReadRequestLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulReadRequestLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the average latency for successful read requests exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the latency threshold.
+
+---
+
+##### `addAverageSuccessfulWriteRequestLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulWriteRequestLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addAverageSuccessfulWriteRequestLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulWriteRequestLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the average latency for successful write requests exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the latency threshold.
+
+---
+
+##### `addHitRateAlarm`<sup>Optional</sup> <a name="addHitRateAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addHitRateAlarm"></a>
+
+```typescript
+public readonly addHitRateAlarm: {[ key: string ]: MinHitRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinHitRateThreshold">MinHitRateThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the cache hit rate falls below a minimum threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the minimum hit rate threshold.
+
+---
+
+##### `addThrottleRateAlarm`<sup>Optional</sup> <a name="addThrottleRateAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addThrottleRateAlarm"></a>
+
+```typescript
+public readonly addThrottleRateAlarm: {[ key: string ]: MaxThrottleRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold">MaxThrottleRateThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the throttle rate (percentage of throttled commands) exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the usage threshold.
+
+---
+
+##### `addTM99SuccessfulReadRequestLatencyAlarm`<sup>Optional</sup> <a name="addTM99SuccessfulReadRequestLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addTM99SuccessfulReadRequestLatencyAlarm"></a>
+
+```typescript
+public readonly addTM99SuccessfulReadRequestLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the 99th percentile (TM99) latency for successful read requests exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the latency threshold.
+
+---
+
+##### `addTM99SuccessfulWriteRequestLatencyAlarm`<sup>Optional</sup> <a name="addTM99SuccessfulWriteRequestLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringOptions.property.addTM99SuccessfulWriteRequestLatencyAlarm"></a>
+
+```typescript
+public readonly addTM99SuccessfulWriteRequestLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the 99th percentile (TM99) latency for successful write requests exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the latency threshold.
+
+---
+
+### ElastiCacheServerlessMonitoringProps <a name="ElastiCacheServerlessMonitoringProps" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheServerlessMonitoringProps } from 'cdk-monitoring-constructs'
+
+const elastiCacheServerlessMonitoringProps: ElastiCacheServerlessMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.clusterId">clusterId</a></code> | <code>string</code> | Cluster to monitor. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addAverageSuccessfulReadRequestLatencyAlarm">addAverageSuccessfulReadRequestLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | Add alarm when the average latency for successful read requests exceeds a threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addAverageSuccessfulWriteRequestLatencyAlarm">addAverageSuccessfulWriteRequestLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | Add alarm when the average latency for successful write requests exceeds a threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addHitRateAlarm">addHitRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinHitRateThreshold">MinHitRateThreshold</a>}</code> | Add alarm when the cache hit rate falls below a minimum threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addThrottleRateAlarm">addThrottleRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold">MaxThrottleRateThreshold</a>}</code> | Add alarm when the throttle rate (percentage of throttled commands) exceeds a threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addTM99SuccessfulReadRequestLatencyAlarm">addTM99SuccessfulReadRequestLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | Add alarm when the 99th percentile (TM99) latency for successful read requests exceeds a threshold. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addTM99SuccessfulWriteRequestLatencyAlarm">addTM99SuccessfulWriteRequestLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}</code> | Add alarm when the 99th percentile (TM99) latency for successful write requests exceeds a threshold. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `clusterId`<sup>Optional</sup> <a name="clusterId" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.clusterId"></a>
+
+```typescript
+public readonly clusterId: string;
+```
+
+- *Type:* string
+- *Default:* monitor all clusters
+
+Cluster to monitor.
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addAverageSuccessfulReadRequestLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulReadRequestLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addAverageSuccessfulReadRequestLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulReadRequestLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the average latency for successful read requests exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the latency threshold.
+
+---
+
+##### `addAverageSuccessfulWriteRequestLatencyAlarm`<sup>Optional</sup> <a name="addAverageSuccessfulWriteRequestLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addAverageSuccessfulWriteRequestLatencyAlarm"></a>
+
+```typescript
+public readonly addAverageSuccessfulWriteRequestLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the average latency for successful write requests exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the latency threshold.
+
+---
+
+##### `addHitRateAlarm`<sup>Optional</sup> <a name="addHitRateAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addHitRateAlarm"></a>
+
+```typescript
+public readonly addHitRateAlarm: {[ key: string ]: MinHitRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinHitRateThreshold">MinHitRateThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the cache hit rate falls below a minimum threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the minimum hit rate threshold.
+
+---
+
+##### `addThrottleRateAlarm`<sup>Optional</sup> <a name="addThrottleRateAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addThrottleRateAlarm"></a>
+
+```typescript
+public readonly addThrottleRateAlarm: {[ key: string ]: MaxThrottleRateThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold">MaxThrottleRateThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the throttle rate (percentage of throttled commands) exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the usage threshold.
+
+---
+
+##### `addTM99SuccessfulReadRequestLatencyAlarm`<sup>Optional</sup> <a name="addTM99SuccessfulReadRequestLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addTM99SuccessfulReadRequestLatencyAlarm"></a>
+
+```typescript
+public readonly addTM99SuccessfulReadRequestLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the 99th percentile (TM99) latency for successful read requests exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the latency threshold.
+
+---
+
+##### `addTM99SuccessfulWriteRequestLatencyAlarm`<sup>Optional</sup> <a name="addTM99SuccessfulWriteRequestLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps.property.addTM99SuccessfulWriteRequestLatencyAlarm"></a>
+
+```typescript
+public readonly addTM99SuccessfulWriteRequestLatencyAlarm: {[ key: string ]: LatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a>}
+- *Default:* no alarm
+
+Add alarm when the 99th percentile (TM99) latency for successful write requests exceeds a threshold.
+
+The key is a disambiguator (e.g., "Warning", "Critical") and the value defines the latency threshold.
+
+---
+
 ### ErrorCountThreshold <a name="ErrorCountThreshold" id="cdk-monitoring-constructs.ErrorCountThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ErrorCountThreshold.Initializer"></a>
@@ -34565,6 +35161,399 @@ public readonly maxSecretCount: number;
 
 ---
 
+### MaxThrottleRateThreshold <a name="MaxThrottleRateThreshold" id="cdk-monitoring-constructs.MaxThrottleRateThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.Initializer"></a>
+
+```typescript
+import { MaxThrottleRateThreshold } from 'cdk-monitoring-constructs'
+
+const maxThrottleRateThreshold: MaxThrottleRateThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold.property.maxThrottleRatePercent">maxThrottleRatePercent</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxThrottleRatePercent`<sup>Required</sup> <a name="maxThrottleRatePercent" id="cdk-monitoring-constructs.MaxThrottleRateThreshold.property.maxThrottleRatePercent"></a>
+
+```typescript
+public readonly maxThrottleRatePercent: number;
+```
+
+- *Type:* number
+
+---
+
 ### MaxTimeToDrainThreshold <a name="MaxTimeToDrainThreshold" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MaxTimeToDrainThreshold.Initializer"></a>
@@ -36243,6 +37232,399 @@ Behaviour in case the metric data is missing.
 
 ```typescript
 public readonly minFreeableMemoryInBytes: number;
+```
+
+- *Type:* number
+
+---
+
+### MinHitRateThreshold <a name="MinHitRateThreshold" id="cdk-monitoring-constructs.MinHitRateThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MinHitRateThreshold.Initializer"></a>
+
+```typescript
+import { MinHitRateThreshold } from 'cdk-monitoring-constructs'
+
+const minHitRateThreshold: MinHitRateThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MinHitRateThreshold.property.minHitRatePercent">minHitRatePercent</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.MinHitRateThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.MinHitRateThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MinHitRateThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.MinHitRateThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.MinHitRateThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.MinHitRateThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.MinHitRateThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.MinHitRateThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.MinHitRateThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.MinHitRateThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.MinHitRateThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.MinHitRateThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.MinHitRateThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.MinHitRateThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MinHitRateThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MinHitRateThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MinHitRateThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MinHitRateThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MinHitRateThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MinHitRateThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MinHitRateThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.MinHitRateThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MinHitRateThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>      <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>      <li>the metric used for the alarm is a <code>MathExpression</code></li>      <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MinHitRateThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `minHitRatePercent`<sup>Required</sup> <a name="minHitRatePercent" id="cdk-monitoring-constructs.MinHitRateThreshold.property.minHitRatePercent"></a>
+
+```typescript
+public readonly minHitRatePercent: number;
 ```
 
 - *Type:* number
@@ -66446,8 +67828,10 @@ new ElastiCacheAlarmFactory(alarmFactory: AlarmFactory)
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxEvictedItemsCountAlarm">addMaxEvictedItemsCountAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxItemsCountAlarm">addMaxItemsCountAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxThrottleRateAlarm">addMaxThrottleRateAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinHitRateAlarm">addMinHitRateAlarm</a></code> | *No description.* |
 
 ---
 
@@ -66499,6 +67883,30 @@ public addMaxItemsCountAlarm(metric: Metric | MathExpression, props: MaxItemsCou
 
 ---
 
+##### `addMaxThrottleRateAlarm` <a name="addMaxThrottleRateAlarm" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxThrottleRateAlarm"></a>
+
+```typescript
+public addMaxThrottleRateAlarm(metric: Metric | MathExpression, props: MaxThrottleRateThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxThrottleRateAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxThrottleRateAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MaxThrottleRateThreshold">MaxThrottleRateThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxThrottleRateAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
 ##### `addMaxUsedSwapMemoryAlarm` <a name="addMaxUsedSwapMemoryAlarm" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxUsedSwapMemoryAlarm"></a>
 
 ```typescript
@@ -66542,6 +67950,30 @@ public addMinFreeableMemoryAlarm(metric: Metric | MathExpression, props: MinFree
 ---
 
 ###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinFreeableMemoryAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addMinHitRateAlarm` <a name="addMinHitRateAlarm" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinHitRateAlarm"></a>
+
+```typescript
+public addMinHitRateAlarm(metric: Metric | MathExpression, props: MinHitRateThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinHitRateAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinHitRateAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MinHitRateThreshold">MinHitRateThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinHitRateAlarm.parameter.disambiguator"></a>
 
 - *Type:* string
 
@@ -67135,6 +68567,780 @@ public readonly clusterUrl: string;
 ```
 
 - *Type:* string
+
+---
+
+
+### ElastiCacheServerlessMetricFactory <a name="ElastiCacheServerlessMetricFactory" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory"></a>
+
+> [https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/serverless-metrics-events-redis.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/serverless-metrics-events-redis.html)
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.Initializer"></a>
+
+```typescript
+import { ElastiCacheServerlessMetricFactory } from 'cdk-monitoring-constructs'
+
+new ElastiCacheServerlessMetricFactory(metricFactory: MetricFactory, props: ElastiCacheServerlessMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps">ElastiCacheServerlessMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactoryProps">ElastiCacheServerlessMetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricAverageCacheHitRate">metricAverageCacheHitRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricAverageCacheSize">metricAverageCacheSize</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricAverageConnections">metricAverageConnections</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricCacheHits">metricCacheHits</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricCacheMisses">metricCacheMisses</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricEvictions">metricEvictions</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricMaxElastiCacheProcessingUnits">metricMaxElastiCacheProcessingUnits</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricMaxItemCount">metricMaxItemCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricNetworkBytesIn">metricNetworkBytesIn</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricNetworkBytesOut">metricNetworkBytesOut</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricSuccessfulReadRequestLatency">metricSuccessfulReadRequestLatency</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricSuccessfulWriteRequestLatency">metricSuccessfulWriteRequestLatency</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricThrottleRate">metricThrottleRate</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricTotalCmds">metricTotalCmds</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricTotalThrottledCmds">metricTotalThrottledCmds</a></code> | *No description.* |
+
+---
+
+##### `metricAverageCacheHitRate` <a name="metricAverageCacheHitRate" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricAverageCacheHitRate"></a>
+
+```typescript
+public metricAverageCacheHitRate(): Metric | MathExpression
+```
+
+##### `metricAverageCacheSize` <a name="metricAverageCacheSize" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricAverageCacheSize"></a>
+
+```typescript
+public metricAverageCacheSize(): Metric | MathExpression
+```
+
+##### `metricAverageConnections` <a name="metricAverageConnections" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricAverageConnections"></a>
+
+```typescript
+public metricAverageConnections(): Metric | MathExpression
+```
+
+##### `metricCacheHits` <a name="metricCacheHits" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricCacheHits"></a>
+
+```typescript
+public metricCacheHits(): Metric | MathExpression
+```
+
+##### `metricCacheMisses` <a name="metricCacheMisses" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricCacheMisses"></a>
+
+```typescript
+public metricCacheMisses(): Metric | MathExpression
+```
+
+##### `metricEvictions` <a name="metricEvictions" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricEvictions"></a>
+
+```typescript
+public metricEvictions(): Metric | MathExpression
+```
+
+##### `metricMaxElastiCacheProcessingUnits` <a name="metricMaxElastiCacheProcessingUnits" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricMaxElastiCacheProcessingUnits"></a>
+
+```typescript
+public metricMaxElastiCacheProcessingUnits(): Metric | MathExpression
+```
+
+##### `metricMaxItemCount` <a name="metricMaxItemCount" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricMaxItemCount"></a>
+
+```typescript
+public metricMaxItemCount(): Metric | MathExpression
+```
+
+##### `metricNetworkBytesIn` <a name="metricNetworkBytesIn" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricNetworkBytesIn"></a>
+
+```typescript
+public metricNetworkBytesIn(): Metric | MathExpression
+```
+
+##### `metricNetworkBytesOut` <a name="metricNetworkBytesOut" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricNetworkBytesOut"></a>
+
+```typescript
+public metricNetworkBytesOut(): Metric | MathExpression
+```
+
+##### `metricSuccessfulReadRequestLatency` <a name="metricSuccessfulReadRequestLatency" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricSuccessfulReadRequestLatency"></a>
+
+```typescript
+public metricSuccessfulReadRequestLatency(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricSuccessfulReadRequestLatency.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
+##### `metricSuccessfulWriteRequestLatency` <a name="metricSuccessfulWriteRequestLatency" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricSuccessfulWriteRequestLatency"></a>
+
+```typescript
+public metricSuccessfulWriteRequestLatency(latencyType: LatencyType): Metric | MathExpression
+```
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricSuccessfulWriteRequestLatency.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
+
+##### `metricThrottleRate` <a name="metricThrottleRate" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricThrottleRate"></a>
+
+```typescript
+public metricThrottleRate(): Metric | MathExpression
+```
+
+##### `metricTotalCmds` <a name="metricTotalCmds" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricTotalCmds"></a>
+
+```typescript
+public metricTotalCmds(): Metric | MathExpression
+```
+
+##### `metricTotalThrottledCmds` <a name="metricTotalThrottledCmds" id="cdk-monitoring-constructs.ElastiCacheServerlessMetricFactory.metricTotalThrottledCmds"></a>
+
+```typescript
+public metricTotalThrottledCmds(): Metric | MathExpression
+```
+
+
+
+
+### ElastiCacheServerlessMonitoring <a name="ElastiCacheServerlessMonitoring" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.Initializer"></a>
+
+```typescript
+import { ElastiCacheServerlessMonitoring } from 'cdk-monitoring-constructs'
+
+new ElastiCacheServerlessMonitoring(scope: MonitoringScope, props: ElastiCacheServerlessMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps">ElastiCacheServerlessMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoringProps">ElastiCacheServerlessMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheCmdsWidget">createCacheCmdsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheHitAndMissWidget">createCacheHitAndMissWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheSizeWidget">createCacheSizeWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createItemCountWidget">createItemCountWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createNetworkWidget">createNetworkWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createProcessingUnitsWidget">createProcessingUnitsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createSuccessfulReadLatencyWidget">createSuccessfulReadLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createSuccessfulWriteLatencyWidget">createSuccessfulWriteLatencyWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `createCacheCmdsWidget` <a name="createCacheCmdsWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheCmdsWidget"></a>
+
+```typescript
+public createCacheCmdsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheCmdsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheCmdsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createCacheHitAndMissWidget` <a name="createCacheHitAndMissWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheHitAndMissWidget"></a>
+
+```typescript
+public createCacheHitAndMissWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheHitAndMissWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheHitAndMissWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createCacheSizeWidget` <a name="createCacheSizeWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheSizeWidget"></a>
+
+```typescript
+public createCacheSizeWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheSizeWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createCacheSizeWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createConnectionsWidget` <a name="createConnectionsWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createConnectionsWidget"></a>
+
+```typescript
+public createConnectionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createConnectionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createConnectionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createItemCountWidget` <a name="createItemCountWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createItemCountWidget"></a>
+
+```typescript
+public createItemCountWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createItemCountWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createItemCountWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createNetworkWidget` <a name="createNetworkWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createNetworkWidget"></a>
+
+```typescript
+public createNetworkWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createNetworkWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createNetworkWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createProcessingUnitsWidget` <a name="createProcessingUnitsWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createProcessingUnitsWidget"></a>
+
+```typescript
+public createProcessingUnitsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createProcessingUnitsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createProcessingUnitsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createSuccessfulReadLatencyWidget` <a name="createSuccessfulReadLatencyWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createSuccessfulReadLatencyWidget"></a>
+
+```typescript
+public createSuccessfulReadLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createSuccessfulReadLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createSuccessfulReadLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createSuccessfulWriteLatencyWidget` <a name="createSuccessfulWriteLatencyWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createSuccessfulWriteLatencyWidget"></a>
+
+```typescript
+public createSuccessfulWriteLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createSuccessfulWriteLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createSuccessfulWriteLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.averageSuccessfulReadRequestLatencyAlarmAnnotations">averageSuccessfulReadRequestLatencyAlarmAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.averageSuccessfulWriteRequestLatencyAlarmAnnotations">averageSuccessfulWriteRequestLatencyAlarmAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.elastiCacheAlarmFactory">elastiCacheAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory">ElastiCacheAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.hitRateAlarmAnnotations">hitRateAlarmAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageCacheHitRate">metricAverageCacheHitRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageCacheSize">metricAverageCacheSize</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageConnections">metricAverageConnections</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageSuccessfulReadRequestLatency">metricAverageSuccessfulReadRequestLatency</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageSuccessfulWriteRequestLatency">metricAverageSuccessfulWriteRequestLatency</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricCacheHits">metricCacheHits</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricCacheMisses">metricCacheMisses</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricEvictions">metricEvictions</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricMaxElastiCacheProcessingUnits">metricMaxElastiCacheProcessingUnits</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricMaxItemCount">metricMaxItemCount</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricNetworkBytesIn">metricNetworkBytesIn</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricNetworkBytesOut">metricNetworkBytesOut</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricThrottleRate">metricThrottleRate</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricTM99SuccessfulReadRequestLatency">metricTM99SuccessfulReadRequestLatency</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricTM99SuccessfulWriteRequestLatency">metricTM99SuccessfulWriteRequestLatency</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricTotalCmds">metricTotalCmds</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricTotalThrottledCmds">metricTotalThrottledCmds</a></code> | <code>aws-cdk-lib.aws_cloudwatch.Metric \| aws-cdk-lib.aws_cloudwatch.MathExpression</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.throttleRateAlarmAnnotations">throttleRateAlarmAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.tm99SuccessfulReadRequestLatencyAlarmAnnotations">tm99SuccessfulReadRequestLatencyAlarmAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.tm99SuccessfulWriteRequestLatencyAlarmAnnotations">tm99SuccessfulWriteRequestLatencyAlarmAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+
+---
+
+##### `averageSuccessfulReadRequestLatencyAlarmAnnotations`<sup>Required</sup> <a name="averageSuccessfulReadRequestLatencyAlarmAnnotations" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.averageSuccessfulReadRequestLatencyAlarmAnnotations"></a>
+
+```typescript
+public readonly averageSuccessfulReadRequestLatencyAlarmAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `averageSuccessfulWriteRequestLatencyAlarmAnnotations`<sup>Required</sup> <a name="averageSuccessfulWriteRequestLatencyAlarmAnnotations" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.averageSuccessfulWriteRequestLatencyAlarmAnnotations"></a>
+
+```typescript
+public readonly averageSuccessfulWriteRequestLatencyAlarmAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `elastiCacheAlarmFactory`<sup>Required</sup> <a name="elastiCacheAlarmFactory" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.elastiCacheAlarmFactory"></a>
+
+```typescript
+public readonly elastiCacheAlarmFactory: ElastiCacheAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory">ElastiCacheAlarmFactory</a>
+
+---
+
+##### `hitRateAlarmAnnotations`<sup>Required</sup> <a name="hitRateAlarmAnnotations" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.hitRateAlarmAnnotations"></a>
+
+```typescript
+public readonly hitRateAlarmAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `latencyAlarmFactory`<sup>Required</sup> <a name="latencyAlarmFactory" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.latencyAlarmFactory"></a>
+
+```typescript
+public readonly latencyAlarmFactory: LatencyAlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a>
+
+---
+
+##### `metricAverageCacheHitRate`<sup>Required</sup> <a name="metricAverageCacheHitRate" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageCacheHitRate"></a>
+
+```typescript
+public readonly metricAverageCacheHitRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricAverageCacheSize`<sup>Required</sup> <a name="metricAverageCacheSize" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageCacheSize"></a>
+
+```typescript
+public readonly metricAverageCacheSize: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricAverageConnections`<sup>Required</sup> <a name="metricAverageConnections" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageConnections"></a>
+
+```typescript
+public readonly metricAverageConnections: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricAverageSuccessfulReadRequestLatency`<sup>Required</sup> <a name="metricAverageSuccessfulReadRequestLatency" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageSuccessfulReadRequestLatency"></a>
+
+```typescript
+public readonly metricAverageSuccessfulReadRequestLatency: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricAverageSuccessfulWriteRequestLatency`<sup>Required</sup> <a name="metricAverageSuccessfulWriteRequestLatency" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricAverageSuccessfulWriteRequestLatency"></a>
+
+```typescript
+public readonly metricAverageSuccessfulWriteRequestLatency: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricCacheHits`<sup>Required</sup> <a name="metricCacheHits" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricCacheHits"></a>
+
+```typescript
+public readonly metricCacheHits: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricCacheMisses`<sup>Required</sup> <a name="metricCacheMisses" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricCacheMisses"></a>
+
+```typescript
+public readonly metricCacheMisses: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricEvictions`<sup>Required</sup> <a name="metricEvictions" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricEvictions"></a>
+
+```typescript
+public readonly metricEvictions: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricMaxElastiCacheProcessingUnits`<sup>Required</sup> <a name="metricMaxElastiCacheProcessingUnits" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricMaxElastiCacheProcessingUnits"></a>
+
+```typescript
+public readonly metricMaxElastiCacheProcessingUnits: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricMaxItemCount`<sup>Required</sup> <a name="metricMaxItemCount" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricMaxItemCount"></a>
+
+```typescript
+public readonly metricMaxItemCount: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricNetworkBytesIn`<sup>Required</sup> <a name="metricNetworkBytesIn" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricNetworkBytesIn"></a>
+
+```typescript
+public readonly metricNetworkBytesIn: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricNetworkBytesOut`<sup>Required</sup> <a name="metricNetworkBytesOut" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricNetworkBytesOut"></a>
+
+```typescript
+public readonly metricNetworkBytesOut: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricThrottleRate`<sup>Required</sup> <a name="metricThrottleRate" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricThrottleRate"></a>
+
+```typescript
+public readonly metricThrottleRate: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricTM99SuccessfulReadRequestLatency`<sup>Required</sup> <a name="metricTM99SuccessfulReadRequestLatency" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricTM99SuccessfulReadRequestLatency"></a>
+
+```typescript
+public readonly metricTM99SuccessfulReadRequestLatency: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricTM99SuccessfulWriteRequestLatency`<sup>Required</sup> <a name="metricTM99SuccessfulWriteRequestLatency" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricTM99SuccessfulWriteRequestLatency"></a>
+
+```typescript
+public readonly metricTM99SuccessfulWriteRequestLatency: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricTotalCmds`<sup>Required</sup> <a name="metricTotalCmds" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricTotalCmds"></a>
+
+```typescript
+public readonly metricTotalCmds: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `metricTotalThrottledCmds`<sup>Required</sup> <a name="metricTotalThrottledCmds" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.metricTotalThrottledCmds"></a>
+
+```typescript
+public readonly metricTotalThrottledCmds: Metric | MathExpression;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.Metric | aws-cdk-lib.aws_cloudwatch.MathExpression
+
+---
+
+##### `throttleRateAlarmAnnotations`<sup>Required</sup> <a name="throttleRateAlarmAnnotations" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.throttleRateAlarmAnnotations"></a>
+
+```typescript
+public readonly throttleRateAlarmAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tm99SuccessfulReadRequestLatencyAlarmAnnotations`<sup>Required</sup> <a name="tm99SuccessfulReadRequestLatencyAlarmAnnotations" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.tm99SuccessfulReadRequestLatencyAlarmAnnotations"></a>
+
+```typescript
+public readonly tm99SuccessfulReadRequestLatencyAlarmAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `tm99SuccessfulWriteRequestLatencyAlarmAnnotations`<sup>Required</sup> <a name="tm99SuccessfulWriteRequestLatencyAlarmAnnotations" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.property.tm99SuccessfulWriteRequestLatencyAlarmAnnotations"></a>
+
+```typescript
+public readonly tm99SuccessfulWriteRequestLatencyAlarmAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -85358,7 +87564,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring">ElastiCacheServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -85449,7 +87655,7 @@ Gets the dashboard for the requested dashboard type.
 
 ### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring">ElastiCacheServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
