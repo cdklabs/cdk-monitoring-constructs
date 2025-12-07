@@ -75,6 +75,9 @@
     "aws-cdk-lib": "^2.160.0",
     "constructs": "^10.0.5"
   },
+  "resolutions": {
+    "@types/babel__traverse": "7.18.2"
+  },
   "keywords": [
     "cdk",
     "cloudwatch",
