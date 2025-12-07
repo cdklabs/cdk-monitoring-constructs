@@ -1,0 +1,306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "ScopeTestALLHitRateWarningFFADBA48": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The hit rate is too low.",
+        "AlarmName": "Test-ALL-Hit-Rate-Warning",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Hit rate",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "CacheHitRate",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 80,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestALLLatencyAverageSuccessfulReadRequestWarning0DAE9B23": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-ALL-Latency-Average-SuccessfulReadRequest-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Read Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "SuccessfulReadRequestLatency",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestALLLatencyAverageSuccessfulWriteRequestWarning5D192F30": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Average latency is too high.",
+        "AlarmName": "Test-ALL-Latency-Average-SuccessfulWriteRequest-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Write Average",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "SuccessfulWriteRequestLatency",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestALLLatencyTM99SuccessfulReadRequestWarningECDA17B4": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM99 latency is too high.",
+        "AlarmName": "Test-ALL-Latency-TM99-SuccessfulReadRequest-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Read TM99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "SuccessfulReadRequestLatency",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "tm99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestALLLatencyTM99SuccessfulWriteRequestWarning8C3A154B": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "TM99 latency is too high.",
+        "AlarmName": "Test-ALL-Latency-TM99-SuccessfulWriteRequest-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Write TM99",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "SuccessfulWriteRequestLatency",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "tm99",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestALLThrottleRateWarning14A913C6": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The throttle rate is too high.",
+        "AlarmName": "Test-ALL-Throttle-Rate-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "FILL(IF(total > 0, 100 * throttles/total, 0), 0)",
+            "Id": "expr_1",
+            "Label": "Throttle Rate",
+          },
+          Object {
+            "Id": "throttles",
+            "Label": "Throttled Cmds",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "ThrottledCmds",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "total",
+            "Label": "Cmds",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "TotalCmdsCount",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: cluster ID specified 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
