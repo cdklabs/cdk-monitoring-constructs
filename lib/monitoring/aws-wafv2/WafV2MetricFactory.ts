@@ -8,7 +8,6 @@ import {
 } from "../../common";
 
 const MetricNamespace = "AWS/WAFV2";
-const AllRulesDimensionValue = "ALL";
 
 export interface WafV2MetricFactoryProps extends BaseMetricFactoryProps {
   /**
@@ -31,9 +30,9 @@ export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProp
     }
 
     this.dimensions = {
-      Rule: AllRulesDimensionValue,
+      Rule: "ALL",
       WebACL: props.acl.name,
-      ...(props.region && { Region: props.region }),
+      ...(props.acl.scope === "REGIONAL" && { Region: props.region }),
     };
   }
 
