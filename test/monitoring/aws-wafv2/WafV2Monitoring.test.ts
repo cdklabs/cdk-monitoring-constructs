@@ -1,12 +1,13 @@
 import { Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
+import { Dimension } from "aws-cdk-lib/aws-cloudwatch";
 import { CfnWebACL } from "aws-cdk-lib/aws-wafv2";
 
-import { WafV2Monitoring } from "../../../lib";
+import { AlarmWithAnnotation, WafV2Monitoring } from "../../../lib";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
-test("snapshot test: no alarms", () => {
+test("snapshot test: alarms with REGIONAL ACL", () => {
   const stack = new Stack();
   const acl = new CfnWebACL(stack, "DummyAcl", {
     name: "DummyAclName",
@@ -21,9 +22,31 @@ test("snapshot test: no alarms", () => {
 
   const scope = new TestMonitoringScope(stack, "Scope");
 
-  const monitoring = new WafV2Monitoring(scope, { acl, region: "us-east-1" });
+  let numAlarmsCreated = 0;
+
+  const monitoring = new WafV2Monitoring(scope, {
+    acl,
+    region: "us-east-1",
+    addBlockedRequestsCountAlarm: {
+      Warning: {
+        maxErrorCount: 5,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms) {
+        expect(getDimensions(alarms[0])).toEqual([
+          { name: "Region", value: "us-east-1" },
+          { name: "Rule", value: "ALL" },
+          { name: "WebACL", value: "DummyAclName" },
+        ]);
+
+        numAlarmsCreated = alarms.length;
+      },
+    },
+  });
 
   addMonitoringDashboardsToStack(stack, monitoring);
+  expect(numAlarmsCreated).toStrictEqual(1);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -47,7 +70,44 @@ test("with REGIONAL ACL but no region prop, throws error", () => {
   );
 });
 
-test("snapshot test: all alarms", () => {
+test("with CLOUDFRONT ACL and region prop, does not include as dimension", () => {
+  const stack = new Stack();
+  const acl = new CfnWebACL(stack, "DummyAcl", {
+    name: "DummyAclName",
+    defaultAction: { allow: {} },
+    scope: "CLOUDFRONT",
+    visibilityConfig: {
+      sampledRequestsEnabled: true,
+      cloudWatchMetricsEnabled: true,
+      metricName: "DummyMetricName",
+    },
+  });
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new WafV2Monitoring(scope, {
+    acl,
+    region: "us-west-2",
+    addBlockedRequestsCountAlarm: {
+      Warning: {
+        maxErrorCount: 5,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms) {
+        expect(getDimensions(alarms[0])).toEqual([
+          { name: "Rule", value: "ALL" },
+          { name: "WebACL", value: "DummyAclName" },
+        ]);
+      },
+    },
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("snapshot test: all alarms ", () => {
   const stack = new Stack();
   const acl = new CfnWebACL(stack, "DummyAcl", {
     name: "DummyAclName",
@@ -87,3 +147,7 @@ test("snapshot test: all alarms", () => {
   expect(numAlarmsCreated).toStrictEqual(2);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
+
+function getDimensions(alarm: AlarmWithAnnotation): Dimension[] | undefined {
+  return alarm.alarmDefinition.metric.toMetricConfig().metricStat?.dimensions;
+}

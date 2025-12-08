@@ -1,6 +1,178 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot test: all alarms 1`] = `
+exports[`snapshot test: alarms with REGIONAL ACL 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAclBlockedCountWarning03870863",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DummyAcl": Object {
+      "Properties": Object {
+        "DefaultAction": Object {
+          "Allow": Object {},
+        },
+        "Name": "DummyAclName",
+        "Scope": "REGIONAL",
+        "VisibilityConfig": Object {
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "DummyMetricName",
+          "SampledRequestsEnabled": true,
+        },
+      },
+      "Type": "AWS::WAFv2::WebACL",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Web Application Firewall **DummyAcl**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Allowed Requests\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Blocked > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyAclBlockedCountWarning03870863": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Blocked count is too high.",
+        "AlarmName": "Test-DummyAcl-Blocked-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Blocked",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Region",
+                    "Value": "us-east-1",
+                  },
+                  Object {
+                    "Name": "Rule",
+                    "Value": "ALL",
+                  },
+                  Object {
+                    "Name": "WebACL",
+                    "Value": "DummyAclName",
+                  },
+                ],
+                "MetricName": "BlockedRequests",
+                "Namespace": "AWS/WAFV2",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Web Application Firewall **DummyAcl**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Allowed Requests\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Blocked > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: all alarms  1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -245,7 +417,7 @@ Object {
 }
 `;
 
-exports[`snapshot test: no alarms 1`] = `
+exports[`with CLOUDFRONT ACL and region prop, does not include as dimension 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -257,7 +429,25 @@ Object {
   "Resources": Object {
     "Alarm7103F465": Object {
       "Properties": Object {
-        "DashboardBody": "{\\"widgets\\":[]}",
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyAclBlockedCountWarning03870863",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
       },
       "Type": "AWS::CloudWatch::Dashboard",
     },
@@ -267,7 +457,7 @@ Object {
           "Allow": Object {},
         },
         "Name": "DummyAclName",
-        "Scope": "REGIONAL",
+        "Scope": "CLOUDFRONT",
         "VisibilityConfig": Object {
           "CloudWatchMetricsEnabled": true,
           "MetricName": "DummyMetricName",
@@ -286,20 +476,58 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Blocked > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-west-2\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
       },
       "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyAclBlockedCountWarning03870863": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Blocked count is too high.",
+        "AlarmName": "Test-DummyAcl-Blocked-Count-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Blocked",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "Rule",
+                    "Value": "ALL",
+                  },
+                  Object {
+                    "Name": "WebACL",
+                    "Value": "DummyAclName",
+                  },
+                ],
+                "MetricName": "BlockedRequests",
+                "Namespace": "AWS/WAFV2",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "Summary68521F81": Object {
       "Properties": Object {
@@ -311,15 +539,15 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Blocked > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Blocked Requests (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-west-2\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
