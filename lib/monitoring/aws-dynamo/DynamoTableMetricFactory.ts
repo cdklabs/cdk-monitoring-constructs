@@ -27,7 +27,7 @@ export interface DynamoTableMetricFactoryProps extends BaseMetricFactoryProps {
   readonly billingMode?: BillingMode;
 }
 
-export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetricFactoryProps> {
+export class DynamoTableMetricFactory extends BaseMetricFactory {
   protected readonly table: ITable;
 
   constructor(

@@ -674,6 +674,14 @@
     chalk "^4.1.2"
     semver "^7.6.3"
 
+"@jsii/check-node@1.113.0":
+  version "1.113.0"
+  resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.113.0.tgz#13075880ea626ba8738ee3a220fa6d83fe710091"
+  integrity sha512-6iPLiQiSVn8/D89ycIpj78cMfmxOIU/F9RUTVYwLqKPw4cxpR+BCC4N83WKyGkZxhOxULLa9f5q+rkWq/vAMpA==
+  dependencies:
+    chalk "^4.1.2"
+    semver "^7.7.2"
+
 "@jsii/check-node@1.121.0":
   version "1.121.0"
   resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.121.0.tgz#cfb32df36b38c308deb8e64f0406d73a55aaa8f1"
@@ -689,10 +697,17 @@
   dependencies:
     ajv "^8.17.1"
 
-"@jsii/spec@1.121.0", "@jsii/spec@^1.105.0", "@jsii/spec@^1.121.0":
+"@jsii/spec@1.121.0", "@jsii/spec@^1.121.0":
   version "1.121.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.121.0.tgz#43eeee50904151cebd1a68b2e93e35f104e24ee5"
   integrity sha512-TDDUKTSRgRB0j2Yti+LOgUzjka8D+NdJm9vzYu1DOGu8Oje8cl9hRYZUmGoW8dWQLnF1dcouUP0n9PLvVKzu5w==
+  dependencies:
+    ajv "^8.17.1"
+
+"@jsii/spec@^1.105.0", "@jsii/spec@^1.113.0":
+  version "1.120.0"
+  resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.120.0.tgz#fc0fe02e3cd946ca45698c7b9ddb382e31cab89c"
+  integrity sha512-BurJOykpQNhqR80h6/RXX5i8rEO574KUP5BfiKApe+RAsEevCdfF7+Ev5ekrUgMfxxfvaQZyNEY640hXPQgq1w==
   dependencies:
     ajv "^8.17.1"
 
@@ -816,7 +831,7 @@
     "@babel/parser" "^7.1.0"
     "@babel/types" "^7.0.0"
 
-"@types/babel__traverse@*", "@types/babel__traverse@7.18.2", "@types/babel__traverse@^7.0.4", "@types/babel__traverse@^7.0.6":
+"@types/babel__traverse@*", "@types/babel__traverse@^7.0.4", "@types/babel__traverse@^7.0.6":
   version "7.18.2"
   resolved "https://registry.yarnpkg.com/@types/babel__traverse/-/babel__traverse-7.18.2.tgz#235bf339d17185bdec25e024ca19cce257cc7309"
   integrity sha512-FcFaxOr2V5KZCviw1TnutEMVUVsGt4D2hP1TAfXZAMKuHYW3xQhe3jTxNPWutgCJ3/X1c5yX8ZoGVEItxKbwBg==
@@ -884,10 +899,12 @@
   dependencies:
     undici-types "~7.16.0"
 
-"@types/node@^16 <= 16.18.78":
-  version "16.18.78"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.78.tgz#3d97264128712f2eb59f1f8456bcfc5d56d8105c"
-  integrity sha512-2poPMDdsGfvhcLmgJZ85QrIfN6z3PijYRMiV0FWIEUiQW/t/lzH7BEm4vN+HMhjZXbtIKssMcAxTcgu4Rm83YA==
+"@types/node@^18":
+  version "18.19.130"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.130.tgz#da4c6324793a79defb7a62cba3947ec5add00d59"
+  integrity sha512-GRaXQx6jGfL8sKfaIDD6OupbIHBr9jv7Jnaml9tB7l4v068PAOXqfcujMMo5PhbIs6ggR1XODELqahT2R8v0fg==
+  dependencies:
+    undici-types "~5.26.4"
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.4"
@@ -3836,7 +3853,7 @@ jsii-rosetta@1.x:
     workerpool "^6.5.1"
     yargs "^16.2.0"
 
-jsii@1.105.0, jsii@1.x:
+jsii@1.105.0:
   version "1.105.0"
   resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.105.0.tgz#50669cd6f4cf4693016d2762d7d615a1620d0d2b"
   integrity sha512-klGY28DWQzzK64Cl4PFvmb/U9QSeqhLKDscU2BrHHo07T4i5Tw7ML6dd3ZB3D4kiYgWEmUha/o+L14hhVZ3hjA==
@@ -3854,6 +3871,24 @@ jsii@1.105.0, jsii@1.x:
     spdx-license-list "^6.9.0"
     typescript "~3.9.10"
     yargs "^16.2.0"
+
+jsii@~5.7:
+  version "5.7.22"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.7.22.tgz#e2347f9a16b4132e93d459c0da6d82af64119ce8"
+  integrity sha512-hphnBdNJMhiNOreQX/rdY2hifdKEY2SZ/sQSIxNkAWftj+hhgv34Y1wNijZAKfzUbHykGJCkD6ksSUbeCy6RyA==
+  dependencies:
+    "@jsii/check-node" "1.113.0"
+    "@jsii/spec" "^1.113.0"
+    case "^1.6.3"
+    chalk "^4"
+    fast-deep-equal "^3.1.3"
+    log4js "^6.9.1"
+    semver "^7.7.2"
+    semver-intersect "^1.5.0"
+    sort-json "^2.0.1"
+    spdx-license-list "^6.10.0"
+    typescript "~5.7"
+    yargs "^17.7.2"
 
 json-buffer@3.0.1:
   version "3.0.1"
@@ -5536,6 +5571,11 @@ typescript@~3.9.10:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.10.tgz#70f3910ac7a51ed6bef79da7800690b19bf778b8"
   integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
 
+typescript@~5.7:
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.3.tgz#919b44a7dbb8583a9b856d162be24a54bf80073e"
+  integrity sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==
+
 uglify-js@^3.1.4:
   version "3.19.3"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.19.3.tgz#82315e9bbc6f2b25888858acd1fff8441035b77f"
@@ -5550,6 +5590,11 @@ unbox-primitive@^1.1.0:
     has-bigints "^1.0.2"
     has-symbols "^1.1.0"
     which-boxed-primitive "^1.1.1"
+
+undici-types@~5.26.4:
+  version "5.26.5"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
+  integrity sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==
 
 undici-types@~7.16.0:
   version "7.16.0"

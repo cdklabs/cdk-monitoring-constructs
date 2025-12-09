@@ -42,7 +42,7 @@ export interface CloudFrontDistributionMetricFactoryProps
  * To get the CloudFront metrics from the CloudWatch API, you must use the US East (N. Virginia) Region (us-east-1).
  * https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/programming-cloudwatch-metrics.html
  */
-export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<CloudFrontDistributionMetricFactoryProps> {
+export class CloudFrontDistributionMetricFactory extends BaseMetricFactory {
   private readonly fillTpsWithZeroes: boolean;
   private readonly rateComputationMethod: RateComputationMethod;
   private readonly dimensionsMap: DimensionsMap;
