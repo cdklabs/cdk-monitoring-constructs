@@ -25,7 +25,7 @@ export interface StepFunctionMetricFactoryProps extends BaseMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class StepFunctionMetricFactory extends BaseMetricFactory<StepFunctionMetricFactoryProps> {
+export class StepFunctionMetricFactory extends BaseMetricFactory {
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
 

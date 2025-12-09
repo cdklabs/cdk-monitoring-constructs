@@ -13,7 +13,7 @@ export interface SecretsManagerSecretMetricFactoryProps
   readonly secret: ISecret;
 }
 
-export class SecretsManagerSecretMetricFactory extends BaseMetricFactory<SecretsManagerSecretMetricFactoryProps> {
+export class SecretsManagerSecretMetricFactory extends BaseMetricFactory {
   static readonly Namespace = "SecretsManager";
   static readonly MetricNameDaysSinceLastChange = "DaysSinceLastChange";
   static readonly MetricNameDaysSinceLastRotation = "DaysSinceLastRotation";

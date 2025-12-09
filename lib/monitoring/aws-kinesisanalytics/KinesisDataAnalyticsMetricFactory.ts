@@ -24,7 +24,7 @@ interface MetricsSpec {
 /**
  * @see https://docs.aws.amazon.com/kinesisanalytics/latest/java/metrics-dimensions.html
  */
-export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<KinesisDataAnalyticsMetricFactoryProps> {
+export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
