@@ -33,7 +33,7 @@ import {
 /**
  * @deprecated Extend {@link BaseMonitoringAspectType} instead.
  *
- * This type is not compatable with JSII@5.x.
+ * This type is not compatable with JSII@5.x and will be removed in the next major version
  */
 export type MonitoringAspectType<T> = BaseMonitoringAspectType & {
   readonly props?: T;
