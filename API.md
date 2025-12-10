@@ -4875,6 +4875,48 @@ public readonly additionalDescription: string;
 
 ---
 
+### ApiGatewayAspectType <a name="ApiGatewayAspectType" id="cdk-monitoring-constructs.ApiGatewayAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ApiGatewayAspectType.Initializer"></a>
+
+```typescript
+import { ApiGatewayAspectType } from 'cdk-monitoring-constructs'
+
+const apiGatewayAspectType: ApiGatewayAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions">ApiGatewayMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.ApiGatewayAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.ApiGatewayAspectType.property.props"></a>
+
+```typescript
+public readonly props: ApiGatewayMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoringOptions">ApiGatewayMonitoringOptions</a>
+
+---
+
 ### ApiGatewayMetricFactoryProps <a name="ApiGatewayMetricFactoryProps" id="cdk-monitoring-constructs.ApiGatewayMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ApiGatewayMetricFactoryProps.Initializer"></a>
@@ -5991,6 +6033,48 @@ If the list is undefined, default values will be shown.
 If the list is empty, only the latency types with an alarm will be shown (if any).
 
 > [DefaultLatencyTypesToRender)](DefaultLatencyTypesToRender))
+
+---
+
+### ApiGatewayV2AspectType <a name="ApiGatewayV2AspectType" id="cdk-monitoring-constructs.ApiGatewayV2AspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ApiGatewayV2AspectType.Initializer"></a>
+
+```typescript
+import { ApiGatewayV2AspectType } from 'cdk-monitoring-constructs'
+
+const apiGatewayV2AspectType: ApiGatewayV2AspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2AspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.ApiGatewayV2AspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions">ApiGatewayV2MonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.ApiGatewayV2AspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.ApiGatewayV2AspectType.property.props"></a>
+
+```typescript
+public readonly props: ApiGatewayV2MonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ApiGatewayV2MonitoringOptions">ApiGatewayV2MonitoringOptions</a>
 
 ---
 
@@ -7642,6 +7726,48 @@ public readonly applicationTargetGroup: IApplicationTargetGroup;
 
 ---
 
+### AppSyncAspectType <a name="AppSyncAspectType" id="cdk-monitoring-constructs.AppSyncAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AppSyncAspectType.Initializer"></a>
+
+```typescript
+import { AppSyncAspectType } from 'cdk-monitoring-constructs'
+
+const appSyncAspectType: AppSyncAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AppSyncAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.AppSyncAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions">AppSyncMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.AppSyncAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.AppSyncAspectType.property.props"></a>
+
+```typescript
+public readonly props: AppSyncMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AppSyncMonitoringOptions">AppSyncMonitoringOptions</a>
+
+---
+
 ### AppSyncMetricFactoryProps <a name="AppSyncMetricFactoryProps" id="cdk-monitoring-constructs.AppSyncMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AppSyncMetricFactoryProps.Initializer"></a>
@@ -8279,6 +8405,48 @@ method to compute TPS.
 
 ---
 
+### AuroraClusterAspectType <a name="AuroraClusterAspectType" id="cdk-monitoring-constructs.AuroraClusterAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AuroraClusterAspectType.Initializer"></a>
+
+```typescript
+import { AuroraClusterAspectType } from 'cdk-monitoring-constructs'
+
+const auroraClusterAspectType: AuroraClusterAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.AuroraClusterAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions">AuroraClusterMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.AuroraClusterAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.AuroraClusterAspectType.property.props"></a>
+
+```typescript
+public readonly props: AuroraClusterMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AuroraClusterMonitoringOptions">AuroraClusterMonitoringOptions</a>
+
+---
+
 ### AuroraClusterMonitoringOptions <a name="AuroraClusterMonitoringOptions" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AuroraClusterMonitoringOptions.Initializer"></a>
@@ -8700,6 +8868,48 @@ public readonly addMinConnectionCountAlarm: {[ key: string ]: LowConnectionCount
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowConnectionCountThreshold">LowConnectionCountThreshold</a>}
+
+---
+
+### AutoScalingGroupAspectType <a name="AutoScalingGroupAspectType" id="cdk-monitoring-constructs.AutoScalingGroupAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.AutoScalingGroupAspectType.Initializer"></a>
+
+```typescript
+import { AutoScalingGroupAspectType } from 'cdk-monitoring-constructs'
+
+const autoScalingGroupAspectType: AutoScalingGroupAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.AutoScalingGroupAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions">AutoScalingGroupMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.AutoScalingGroupAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.AutoScalingGroupAspectType.property.props"></a>
+
+```typescript
+public readonly props: AutoScalingGroupMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoringOptions">AutoScalingGroupMonitoringOptions</a>
 
 ---
 
@@ -9841,6 +10051,37 @@ Region where the metrics exist.
 
 ---
 
+### BaseMonitoringAspectType <a name="BaseMonitoringAspectType" id="cdk-monitoring-constructs.BaseMonitoringAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.BaseMonitoringAspectType.Initializer"></a>
+
+```typescript
+import { BaseMonitoringAspectType } from 'cdk-monitoring-constructs'
+
+const baseMonitoringAspectType: BaseMonitoringAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BaseMonitoringAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.BaseMonitoringAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
 ### BaseMonitoringProps <a name="BaseMonitoringProps" id="cdk-monitoring-constructs.BaseMonitoringProps"></a>
 
 Base class for properties passed to each monitoring construct.
@@ -10141,6 +10382,48 @@ public readonly addQueueMinSizeAlarm: {[ key: string ]: MinMessageCountThreshold
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinMessageCountThreshold">MinMessageCountThreshold</a>}
+
+---
+
+### BillingAspectType <a name="BillingAspectType" id="cdk-monitoring-constructs.BillingAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.BillingAspectType.Initializer"></a>
+
+```typescript
+import { BillingAspectType } from 'cdk-monitoring-constructs'
+
+const billingAspectType: BillingAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BillingAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.BillingAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.BillingMonitoringOptions">BillingMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.BillingAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.BillingAspectType.property.props"></a>
+
+```typescript
+public readonly props: BillingMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.BillingMonitoringOptions">BillingMonitoringOptions</a>
 
 ---
 
@@ -10471,6 +10754,48 @@ public readonly addTotalCostAnomalyAlarm: {[ key: string ]: AnomalyDetectionThre
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.AnomalyDetectionThreshold">AnomalyDetectionThreshold</a>}
+
+---
+
+### CertificateManagerAspectType <a name="CertificateManagerAspectType" id="cdk-monitoring-constructs.CertificateManagerAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CertificateManagerAspectType.Initializer"></a>
+
+```typescript
+import { CertificateManagerAspectType } from 'cdk-monitoring-constructs'
+
+const certificateManagerAspectType: CertificateManagerAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.CertificateManagerAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.CertificateManagerAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.CertificateManagerAspectType.property.props"></a>
+
+```typescript
+public readonly props: CertificateManagerMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.CertificateManagerMonitoringOptions">CertificateManagerMonitoringOptions</a>
 
 ---
 
@@ -11301,6 +11626,48 @@ public readonly additionalDescription: string;
 
 ---
 
+### CloudFrontAspectType <a name="CloudFrontAspectType" id="cdk-monitoring-constructs.CloudFrontAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CloudFrontAspectType.Initializer"></a>
+
+```typescript
+import { CloudFrontAspectType } from 'cdk-monitoring-constructs'
+
+const cloudFrontAspectType: CloudFrontAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.CloudFrontAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions">CloudFrontDistributionMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.CloudFrontAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.CloudFrontAspectType.property.props"></a>
+
+```typescript
+public readonly props: CloudFrontDistributionMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoringOptions">CloudFrontDistributionMonitoringOptions</a>
+
+---
+
 ### CloudFrontDistributionMetricFactoryProps <a name="CloudFrontDistributionMetricFactoryProps" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CloudFrontDistributionMetricFactoryProps.Initializer"></a>
@@ -11909,6 +12276,48 @@ public readonly logGroupName: string;
 - *Type:* string
 
 Name of the log group to monitor.
+
+---
+
+### CodeBuildAspectType <a name="CodeBuildAspectType" id="cdk-monitoring-constructs.CodeBuildAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CodeBuildAspectType.Initializer"></a>
+
+```typescript
+import { CodeBuildAspectType } from 'cdk-monitoring-constructs'
+
+const codeBuildAspectType: CodeBuildAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.CodeBuildAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions">CodeBuildProjectMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.CodeBuildAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.CodeBuildAspectType.property.props"></a>
+
+```typescript
+public readonly props: CodeBuildProjectMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoringOptions">CodeBuildProjectMonitoringOptions</a>
 
 ---
 
@@ -15972,6 +16381,48 @@ public readonly minDaysToExpiry: number;
 
 ---
 
+### DocumentDbAspectType <a name="DocumentDbAspectType" id="cdk-monitoring-constructs.DocumentDbAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.DocumentDbAspectType.Initializer"></a>
+
+```typescript
+import { DocumentDbAspectType } from 'cdk-monitoring-constructs'
+
+const documentDbAspectType: DocumentDbAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.DocumentDbAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions">DocumentDbMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.DocumentDbAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.DocumentDbAspectType.property.props"></a>
+
+```typescript
+public readonly props: DocumentDbMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.DocumentDbMonitoringOptions">DocumentDbMonitoringOptions</a>
+
+---
+
 ### DocumentDbMetricFactoryProps <a name="DocumentDbMetricFactoryProps" id="cdk-monitoring-constructs.DocumentDbMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.DocumentDbMetricFactoryProps.Initializer"></a>
@@ -16983,6 +17434,48 @@ public readonly variables: IVariable[];
 - *Default:* No variables
 
 Dashboard variables to include in the dashboards.
+
+---
+
+### DynamoTableAspectType <a name="DynamoTableAspectType" id="cdk-monitoring-constructs.DynamoTableAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.DynamoTableAspectType.Initializer"></a>
+
+```typescript
+import { DynamoTableAspectType } from 'cdk-monitoring-constructs'
+
+const dynamoTableAspectType: DynamoTableAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.DynamoTableAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions">DynamoTableMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.DynamoTableAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.DynamoTableAspectType.property.props"></a>
+
+```typescript
+public readonly props: DynamoTableMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.DynamoTableMonitoringOptions">DynamoTableMonitoringOptions</a>
 
 ---
 
@@ -18343,6 +18836,48 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cl
 
 ---
 
+### EC2AspectType <a name="EC2AspectType" id="cdk-monitoring-constructs.EC2AspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EC2AspectType.Initializer"></a>
+
+```typescript
+import { EC2AspectType } from 'cdk-monitoring-constructs'
+
+const eC2AspectType: EC2AspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EC2AspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.EC2AspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions">EC2MonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.EC2AspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.EC2AspectType.property.props"></a>
+
+```typescript
+public readonly props: EC2MonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.EC2MonitoringOptions">EC2MonitoringOptions</a>
+
+---
+
 ### EC2MetricFactoryProps <a name="EC2MetricFactoryProps" id="cdk-monitoring-constructs.EC2MetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EC2MetricFactoryProps.Initializer"></a>
@@ -19477,6 +20012,48 @@ When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum 
 
 `invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+### ElastiCacheAspectType <a name="ElastiCacheAspectType" id="cdk-monitoring-constructs.ElastiCacheAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ElastiCacheAspectType.Initializer"></a>
+
+```typescript
+import { ElastiCacheAspectType } from 'cdk-monitoring-constructs'
+
+const elastiCacheAspectType: ElastiCacheAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions">ElastiCacheClusterMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.ElastiCacheAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.ElastiCacheAspectType.property.props"></a>
+
+```typescript
+public readonly props: ElastiCacheClusterMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions">ElastiCacheClusterMonitoringOptions</a>
 
 ---
 
@@ -23469,6 +24046,48 @@ public readonly maxFullRestartCount: number;
 
 ---
 
+### GlueJobAspectType <a name="GlueJobAspectType" id="cdk-monitoring-constructs.GlueJobAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.GlueJobAspectType.Initializer"></a>
+
+```typescript
+import { GlueJobAspectType } from 'cdk-monitoring-constructs'
+
+const glueJobAspectType: GlueJobAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.GlueJobAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.GlueJobAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions">GlueJobMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.GlueJobAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.GlueJobAspectType.property.props"></a>
+
+```typescript
+public readonly props: GlueJobMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions">GlueJobMonitoringOptions</a>
+
+---
+
 ### GlueJobMetricFactoryProps <a name="GlueJobMetricFactoryProps" id="cdk-monitoring-constructs.GlueJobMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.GlueJobMetricFactoryProps.Initializer"></a>
@@ -26380,6 +26999,48 @@ public readonly value: string;
 
 ---
 
+### KinesisDataAnalyticsAspectType <a name="KinesisDataAnalyticsAspectType" id="cdk-monitoring-constructs.KinesisDataAnalyticsAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataAnalyticsAspectType.Initializer"></a>
+
+```typescript
+import { KinesisDataAnalyticsAspectType } from 'cdk-monitoring-constructs'
+
+const kinesisDataAnalyticsAspectType: KinesisDataAnalyticsAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions">KinesisDataAnalyticsMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.KinesisDataAnalyticsAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.KinesisDataAnalyticsAspectType.property.props"></a>
+
+```typescript
+public readonly props: KinesisDataAnalyticsMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoringOptions">KinesisDataAnalyticsMonitoringOptions</a>
+
+---
+
 ### KinesisDataAnalyticsMetricFactoryProps <a name="KinesisDataAnalyticsMetricFactoryProps" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataAnalyticsMetricFactoryProps.Initializer"></a>
@@ -26866,6 +27527,48 @@ public readonly addFullRestartRateAlarm: {[ key: string ]: ErrorRateThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+### KinesisDataStreamAspectType <a name="KinesisDataStreamAspectType" id="cdk-monitoring-constructs.KinesisDataStreamAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisDataStreamAspectType.Initializer"></a>
+
+```typescript
+import { KinesisDataStreamAspectType } from 'cdk-monitoring-constructs'
+
+const kinesisDataStreamAspectType: KinesisDataStreamAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.KinesisDataStreamAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions">KinesisDataStreamMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.KinesisDataStreamAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.KinesisDataStreamAspectType.property.props"></a>
+
+```typescript
+public readonly props: KinesisDataStreamMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoringOptions">KinesisDataStreamMonitoringOptions</a>
 
 ---
 
@@ -27380,6 +28083,48 @@ public readonly addWriteProvisionedThroughputExceededAlarm: {[ key: string ]: Re
 
 ---
 
+### KinesisFirehoseAspectType <a name="KinesisFirehoseAspectType" id="cdk-monitoring-constructs.KinesisFirehoseAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisFirehoseAspectType.Initializer"></a>
+
+```typescript
+import { KinesisFirehoseAspectType } from 'cdk-monitoring-constructs'
+
+const kinesisFirehoseAspectType: KinesisFirehoseAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.KinesisFirehoseAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions">KinesisFirehoseMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.KinesisFirehoseAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.KinesisFirehoseAspectType.property.props"></a>
+
+```typescript
+public readonly props: KinesisFirehoseMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoringOptions">KinesisFirehoseMonitoringOptions</a>
+
+---
+
 ### KinesisFirehoseMetricFactoryProps <a name="KinesisFirehoseMetricFactoryProps" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.KinesisFirehoseMetricFactoryProps.Initializer"></a>
@@ -27880,6 +28625,48 @@ Indicates that the Kinesis Firehose has record format conversion enabled.
 This impacts what widgets are shown.
 
 > [https://docs.aws.amazon.com/firehose/latest/dev/enable-record-format-conversion.html](https://docs.aws.amazon.com/firehose/latest/dev/enable-record-format-conversion.html)
+
+---
+
+### LambdaFunctionAspectType <a name="LambdaFunctionAspectType" id="cdk-monitoring-constructs.LambdaFunctionAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LambdaFunctionAspectType.Initializer"></a>
+
+```typescript
+import { LambdaFunctionAspectType } from 'cdk-monitoring-constructs'
+
+const lambdaFunctionAspectType: LambdaFunctionAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions">LambdaFunctionMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.LambdaFunctionAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.LambdaFunctionAspectType.property.props"></a>
+
+```typescript
+public readonly props: LambdaFunctionMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions">LambdaFunctionMonitoringOptions</a>
 
 ---
 
@@ -40005,383 +40792,338 @@ const monitoringAspectProps: MonitoringAspectProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.acm">acm</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway">apiGateway</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2">apiGatewayV2</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.appSync">appSync</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.auroraCluster">auroraCluster</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.billing">billing</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.cloudFront">cloudFront</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.codeBuild">codeBuild</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.documentDb">documentDb</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.dynamoDB">dynamoDB</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.ec2">ec2</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.elasticCache">elasticCache</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.glue">glue</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataAnalytics">kinesisDataAnalytics</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataStream">kinesisDataStream</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisFirehose">kinesisFirehose</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.lambda">lambda</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.openSearch">openSearch</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rds">rds</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rdsCluster">rdsCluster</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rdsInstance">rdsInstance</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.redshift">redshift</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.s3">s3</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.secretsManager">secretsManager</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sns">sns</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sqs">sqs</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.stepFunctions">stepFunctions</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.syntheticsCanaries">syntheticsCanaries</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.webApplicationFirewallAclV2">webApplicationFirewallAclV2</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.acm">acm</a></code> | <code><a href="#cdk-monitoring-constructs.CertificateManagerAspectType">CertificateManagerAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway">apiGateway</a></code> | <code><a href="#cdk-monitoring-constructs.ApiGatewayAspectType">ApiGatewayAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2">apiGatewayV2</a></code> | <code><a href="#cdk-monitoring-constructs.ApiGatewayV2AspectType">ApiGatewayV2AspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.appSync">appSync</a></code> | <code><a href="#cdk-monitoring-constructs.AppSyncAspectType">AppSyncAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.auroraCluster">auroraCluster</a></code> | <code><a href="#cdk-monitoring-constructs.AuroraClusterAspectType">AuroraClusterAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code><a href="#cdk-monitoring-constructs.AutoScalingGroupAspectType">AutoScalingGroupAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.billing">billing</a></code> | <code><a href="#cdk-monitoring-constructs.BillingAspectType">BillingAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.cloudFront">cloudFront</a></code> | <code><a href="#cdk-monitoring-constructs.CloudFrontAspectType">CloudFrontAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.codeBuild">codeBuild</a></code> | <code><a href="#cdk-monitoring-constructs.CodeBuildAspectType">CodeBuildAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.documentDb">documentDb</a></code> | <code><a href="#cdk-monitoring-constructs.DocumentDbAspectType">DocumentDbAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.dynamoDB">dynamoDB</a></code> | <code><a href="#cdk-monitoring-constructs.DynamoTableAspectType">DynamoTableAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.ec2">ec2</a></code> | <code><a href="#cdk-monitoring-constructs.EC2AspectType">EC2AspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.elasticCache">elasticCache</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheAspectType">ElastiCacheAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.glue">glue</a></code> | <code><a href="#cdk-monitoring-constructs.GlueJobAspectType">GlueJobAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataAnalytics">kinesisDataAnalytics</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAspectType">KinesisDataAnalyticsAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataStream">kinesisDataStream</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisDataStreamAspectType">KinesisDataStreamAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisFirehose">kinesisFirehose</a></code> | <code><a href="#cdk-monitoring-constructs.KinesisFirehoseAspectType">KinesisFirehoseAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.lambda">lambda</a></code> | <code><a href="#cdk-monitoring-constructs.LambdaFunctionAspectType">LambdaFunctionAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.openSearch">openSearch</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAspectType">OpenSearchClusterAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rds">rds</a></code> | <code><a href="#cdk-monitoring-constructs.RdsClusterAspectType">RdsClusterAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rdsCluster">rdsCluster</a></code> | <code><a href="#cdk-monitoring-constructs.RdsClusterAspectType">RdsClusterAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.rdsInstance">rdsInstance</a></code> | <code><a href="#cdk-monitoring-constructs.RdsInstanceAspectType">RdsInstanceAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.redshift">redshift</a></code> | <code><a href="#cdk-monitoring-constructs.RedshiftClusterAspectType">RedshiftClusterAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.s3">s3</a></code> | <code><a href="#cdk-monitoring-constructs.S3BucketAspectType">S3BucketAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.secretsManager">secretsManager</a></code> | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretAspectType">SecretsManagerSecretAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sns">sns</a></code> | <code><a href="#cdk-monitoring-constructs.SnsTopicAspectType">SnsTopicAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.sqs">sqs</a></code> | <code><a href="#cdk-monitoring-constructs.SqsQueueAspectType">SqsQueueAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.stepFunctions">stepFunctions</a></code> | <code><a href="#cdk-monitoring-constructs.StepFunctionAspectType">StepFunctionAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.syntheticsCanaries">syntheticsCanaries</a></code> | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryAspectType">SyntheticsCanaryAspectType</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringAspectProps.property.webApplicationFirewallAclV2">webApplicationFirewallAclV2</a></code> | <code><a href="#cdk-monitoring-constructs.WafV2AspectType">WafV2AspectType</a></code> | *No description.* |
 
 ---
 
 ##### `acm`<sup>Optional</sup> <a name="acm" id="cdk-monitoring-constructs.MonitoringAspectProps.property.acm"></a>
 
 ```typescript
-public readonly acm: MonitoringAspectType;
+public readonly acm: CertificateManagerAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.CertificateManagerAspectType">CertificateManagerAspectType</a>
 
 ---
 
 ##### `apiGateway`<sup>Optional</sup> <a name="apiGateway" id="cdk-monitoring-constructs.MonitoringAspectProps.property.apiGateway"></a>
 
 ```typescript
-public readonly apiGateway: MonitoringAspectType;
+public readonly apiGateway: ApiGatewayAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.ApiGatewayAspectType">ApiGatewayAspectType</a>
 
 ---
 
 ##### `apiGatewayV2`<sup>Optional</sup> <a name="apiGatewayV2" id="cdk-monitoring-constructs.MonitoringAspectProps.property.apiGatewayV2"></a>
 
 ```typescript
-public readonly apiGatewayV2: MonitoringAspectType;
+public readonly apiGatewayV2: ApiGatewayV2AspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.ApiGatewayV2AspectType">ApiGatewayV2AspectType</a>
 
 ---
 
 ##### `appSync`<sup>Optional</sup> <a name="appSync" id="cdk-monitoring-constructs.MonitoringAspectProps.property.appSync"></a>
 
 ```typescript
-public readonly appSync: MonitoringAspectType;
+public readonly appSync: AppSyncAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.AppSyncAspectType">AppSyncAspectType</a>
 
 ---
 
 ##### `auroraCluster`<sup>Optional</sup> <a name="auroraCluster" id="cdk-monitoring-constructs.MonitoringAspectProps.property.auroraCluster"></a>
 
 ```typescript
-public readonly auroraCluster: MonitoringAspectType;
+public readonly auroraCluster: AuroraClusterAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.AuroraClusterAspectType">AuroraClusterAspectType</a>
 
 ---
 
 ##### `autoScalingGroup`<sup>Optional</sup> <a name="autoScalingGroup" id="cdk-monitoring-constructs.MonitoringAspectProps.property.autoScalingGroup"></a>
 
 ```typescript
-public readonly autoScalingGroup: MonitoringAspectType;
+public readonly autoScalingGroup: AutoScalingGroupAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.AutoScalingGroupAspectType">AutoScalingGroupAspectType</a>
 
 ---
 
 ##### `billing`<sup>Optional</sup> <a name="billing" id="cdk-monitoring-constructs.MonitoringAspectProps.property.billing"></a>
 
 ```typescript
-public readonly billing: MonitoringAspectType;
+public readonly billing: BillingAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.BillingAspectType">BillingAspectType</a>
 
 ---
 
 ##### `cloudFront`<sup>Optional</sup> <a name="cloudFront" id="cdk-monitoring-constructs.MonitoringAspectProps.property.cloudFront"></a>
 
 ```typescript
-public readonly cloudFront: MonitoringAspectType;
+public readonly cloudFront: CloudFrontAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.CloudFrontAspectType">CloudFrontAspectType</a>
 
 ---
 
 ##### `codeBuild`<sup>Optional</sup> <a name="codeBuild" id="cdk-monitoring-constructs.MonitoringAspectProps.property.codeBuild"></a>
 
 ```typescript
-public readonly codeBuild: MonitoringAspectType;
+public readonly codeBuild: CodeBuildAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.CodeBuildAspectType">CodeBuildAspectType</a>
 
 ---
 
 ##### `documentDb`<sup>Optional</sup> <a name="documentDb" id="cdk-monitoring-constructs.MonitoringAspectProps.property.documentDb"></a>
 
 ```typescript
-public readonly documentDb: MonitoringAspectType;
+public readonly documentDb: DocumentDbAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.DocumentDbAspectType">DocumentDbAspectType</a>
 
 ---
 
 ##### `dynamoDB`<sup>Optional</sup> <a name="dynamoDB" id="cdk-monitoring-constructs.MonitoringAspectProps.property.dynamoDB"></a>
 
 ```typescript
-public readonly dynamoDB: MonitoringAspectType;
+public readonly dynamoDB: DynamoTableAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.DynamoTableAspectType">DynamoTableAspectType</a>
 
 ---
 
 ##### `ec2`<sup>Optional</sup> <a name="ec2" id="cdk-monitoring-constructs.MonitoringAspectProps.property.ec2"></a>
 
 ```typescript
-public readonly ec2: MonitoringAspectType;
+public readonly ec2: EC2AspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.EC2AspectType">EC2AspectType</a>
 
 ---
 
 ##### `elasticCache`<sup>Optional</sup> <a name="elasticCache" id="cdk-monitoring-constructs.MonitoringAspectProps.property.elasticCache"></a>
 
 ```typescript
-public readonly elasticCache: MonitoringAspectType;
+public readonly elasticCache: ElastiCacheAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.ElastiCacheAspectType">ElastiCacheAspectType</a>
 
 ---
 
 ##### `glue`<sup>Optional</sup> <a name="glue" id="cdk-monitoring-constructs.MonitoringAspectProps.property.glue"></a>
 
 ```typescript
-public readonly glue: MonitoringAspectType;
+public readonly glue: GlueJobAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.GlueJobAspectType">GlueJobAspectType</a>
 
 ---
 
 ##### `kinesisDataAnalytics`<sup>Optional</sup> <a name="kinesisDataAnalytics" id="cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataAnalytics"></a>
 
 ```typescript
-public readonly kinesisDataAnalytics: MonitoringAspectType;
+public readonly kinesisDataAnalytics: KinesisDataAnalyticsAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsAspectType">KinesisDataAnalyticsAspectType</a>
 
 ---
 
 ##### `kinesisDataStream`<sup>Optional</sup> <a name="kinesisDataStream" id="cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisDataStream"></a>
 
 ```typescript
-public readonly kinesisDataStream: MonitoringAspectType;
+public readonly kinesisDataStream: KinesisDataStreamAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisDataStreamAspectType">KinesisDataStreamAspectType</a>
 
 ---
 
 ##### `kinesisFirehose`<sup>Optional</sup> <a name="kinesisFirehose" id="cdk-monitoring-constructs.MonitoringAspectProps.property.kinesisFirehose"></a>
 
 ```typescript
-public readonly kinesisFirehose: MonitoringAspectType;
+public readonly kinesisFirehose: KinesisFirehoseAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.KinesisFirehoseAspectType">KinesisFirehoseAspectType</a>
 
 ---
 
 ##### `lambda`<sup>Optional</sup> <a name="lambda" id="cdk-monitoring-constructs.MonitoringAspectProps.property.lambda"></a>
 
 ```typescript
-public readonly lambda: MonitoringAspectType;
+public readonly lambda: LambdaFunctionAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.LambdaFunctionAspectType">LambdaFunctionAspectType</a>
 
 ---
 
 ##### `openSearch`<sup>Optional</sup> <a name="openSearch" id="cdk-monitoring-constructs.MonitoringAspectProps.property.openSearch"></a>
 
 ```typescript
-public readonly openSearch: MonitoringAspectType;
+public readonly openSearch: OpenSearchClusterAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchClusterAspectType">OpenSearchClusterAspectType</a>
 
 ---
 
 ##### ~~`rds`~~<sup>Optional</sup> <a name="rds" id="cdk-monitoring-constructs.MonitoringAspectProps.property.rds"></a>
 
-- *Deprecated:* Use rdsCluster instead.
+- *Deprecated:* Use {@link rdsCluster} instead.
 
 ```typescript
-public readonly rds: MonitoringAspectType;
+public readonly rds: RdsClusterAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.RdsClusterAspectType">RdsClusterAspectType</a>
 
 ---
 
 ##### `rdsCluster`<sup>Optional</sup> <a name="rdsCluster" id="cdk-monitoring-constructs.MonitoringAspectProps.property.rdsCluster"></a>
 
 ```typescript
-public readonly rdsCluster: MonitoringAspectType;
+public readonly rdsCluster: RdsClusterAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.RdsClusterAspectType">RdsClusterAspectType</a>
 
 ---
 
 ##### `rdsInstance`<sup>Optional</sup> <a name="rdsInstance" id="cdk-monitoring-constructs.MonitoringAspectProps.property.rdsInstance"></a>
 
 ```typescript
-public readonly rdsInstance: MonitoringAspectType;
+public readonly rdsInstance: RdsInstanceAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.RdsInstanceAspectType">RdsInstanceAspectType</a>
 
 ---
 
 ##### `redshift`<sup>Optional</sup> <a name="redshift" id="cdk-monitoring-constructs.MonitoringAspectProps.property.redshift"></a>
 
 ```typescript
-public readonly redshift: MonitoringAspectType;
+public readonly redshift: RedshiftClusterAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.RedshiftClusterAspectType">RedshiftClusterAspectType</a>
 
 ---
 
 ##### `s3`<sup>Optional</sup> <a name="s3" id="cdk-monitoring-constructs.MonitoringAspectProps.property.s3"></a>
 
 ```typescript
-public readonly s3: MonitoringAspectType;
+public readonly s3: S3BucketAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.S3BucketAspectType">S3BucketAspectType</a>
 
 ---
 
 ##### `secretsManager`<sup>Optional</sup> <a name="secretsManager" id="cdk-monitoring-constructs.MonitoringAspectProps.property.secretsManager"></a>
 
 ```typescript
-public readonly secretsManager: MonitoringAspectType;
+public readonly secretsManager: SecretsManagerSecretAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.SecretsManagerSecretAspectType">SecretsManagerSecretAspectType</a>
 
 ---
 
 ##### `sns`<sup>Optional</sup> <a name="sns" id="cdk-monitoring-constructs.MonitoringAspectProps.property.sns"></a>
 
 ```typescript
-public readonly sns: MonitoringAspectType;
+public readonly sns: SnsTopicAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.SnsTopicAspectType">SnsTopicAspectType</a>
 
 ---
 
 ##### `sqs`<sup>Optional</sup> <a name="sqs" id="cdk-monitoring-constructs.MonitoringAspectProps.property.sqs"></a>
 
 ```typescript
-public readonly sqs: MonitoringAspectType;
+public readonly sqs: SqsQueueAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.SqsQueueAspectType">SqsQueueAspectType</a>
 
 ---
 
 ##### `stepFunctions`<sup>Optional</sup> <a name="stepFunctions" id="cdk-monitoring-constructs.MonitoringAspectProps.property.stepFunctions"></a>
 
 ```typescript
-public readonly stepFunctions: MonitoringAspectType;
+public readonly stepFunctions: StepFunctionAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.StepFunctionAspectType">StepFunctionAspectType</a>
 
 ---
 
 ##### `syntheticsCanaries`<sup>Optional</sup> <a name="syntheticsCanaries" id="cdk-monitoring-constructs.MonitoringAspectProps.property.syntheticsCanaries"></a>
 
 ```typescript
-public readonly syntheticsCanaries: MonitoringAspectType;
+public readonly syntheticsCanaries: SyntheticsCanaryAspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
+- *Type:* <a href="#cdk-monitoring-constructs.SyntheticsCanaryAspectType">SyntheticsCanaryAspectType</a>
 
 ---
 
 ##### `webApplicationFirewallAclV2`<sup>Optional</sup> <a name="webApplicationFirewallAclV2" id="cdk-monitoring-constructs.MonitoringAspectProps.property.webApplicationFirewallAclV2"></a>
 
 ```typescript
-public readonly webApplicationFirewallAclV2: MonitoringAspectType;
+public readonly webApplicationFirewallAclV2: WafV2AspectType;
 ```
 
-- *Type:* <a href="#cdk-monitoring-constructs.MonitoringAspectType">MonitoringAspectType</a>
-
----
-
-### MonitoringAspectType <a name="MonitoringAspectType" id="cdk-monitoring-constructs.MonitoringAspectType"></a>
-
-#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MonitoringAspectType.Initializer"></a>
-
-```typescript
-import { MonitoringAspectType } from 'cdk-monitoring-constructs'
-
-const monitoringAspectType: MonitoringAspectType = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
-| <code><a href="#cdk-monitoring-constructs.MonitoringAspectType.property.props">props</a></code> | <code>any</code> | The monitoring props for this resource. |
-
----
-
-##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.MonitoringAspectType.property.enabled"></a>
-
-```typescript
-public readonly enabled: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-If the monitoring aspect is enabled for this resource.
-
----
-
-##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringAspectType.property.props"></a>
-
-```typescript
-public readonly props: any;
-```
-
-- *Type:* any
-- *Default:* none
-
-The monitoring props for this resource.
+- *Type:* <a href="#cdk-monitoring-constructs.WafV2AspectType">WafV2AspectType</a>
 
 ---
 
@@ -42393,6 +43135,48 @@ public readonly maxNotificationsFailedCount: number;
 ```
 
 - *Type:* number
+
+---
+
+### OpenSearchClusterAspectType <a name="OpenSearchClusterAspectType" id="cdk-monitoring-constructs.OpenSearchClusterAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.OpenSearchClusterAspectType.Initializer"></a>
+
+```typescript
+import { OpenSearchClusterAspectType } from 'cdk-monitoring-constructs'
+
+const openSearchClusterAspectType: OpenSearchClusterAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.OpenSearchClusterAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions">OpenSearchClusterMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.OpenSearchClusterAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.OpenSearchClusterAspectType.property.props"></a>
+
+```typescript
+public readonly props: OpenSearchClusterMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoringOptions">OpenSearchClusterMonitoringOptions</a>
 
 ---
 
@@ -47222,6 +48006,48 @@ public readonly addServiceAlarms: BaseFargateServiceAlarms;
 
 ---
 
+### RdsClusterAspectType <a name="RdsClusterAspectType" id="cdk-monitoring-constructs.RdsClusterAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsClusterAspectType.Initializer"></a>
+
+```typescript
+import { RdsClusterAspectType } from 'cdk-monitoring-constructs'
+
+const rdsClusterAspectType: RdsClusterAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.RdsClusterAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions">RdsClusterMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.RdsClusterAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.RdsClusterAspectType.property.props"></a>
+
+```typescript
+public readonly props: RdsClusterMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RdsClusterMonitoringOptions">RdsClusterMonitoringOptions</a>
+
+---
+
 ### RdsClusterMetricFactoryProps <a name="RdsClusterMetricFactoryProps" id="cdk-monitoring-constructs.RdsClusterMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsClusterMetricFactoryProps.Initializer"></a>
@@ -48793,6 +49619,48 @@ If the list is empty, only the latency types with an alarm will be shown (if any
 
 ---
 
+### RdsInstanceAspectType <a name="RdsInstanceAspectType" id="cdk-monitoring-constructs.RdsInstanceAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsInstanceAspectType.Initializer"></a>
+
+```typescript
+import { RdsInstanceAspectType } from 'cdk-monitoring-constructs'
+
+const rdsInstanceAspectType: RdsInstanceAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.RdsInstanceAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions">RdsInstanceMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.RdsInstanceAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.RdsInstanceAspectType.property.props"></a>
+
+```typescript
+public readonly props: RdsInstanceMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RdsInstanceMonitoringOptions">RdsInstanceMonitoringOptions</a>
+
+---
+
 ### RdsInstanceMetricFactoryProps <a name="RdsInstanceMetricFactoryProps" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RdsInstanceMetricFactoryProps.Initializer"></a>
@@ -50047,6 +50915,48 @@ public readonly maxRecordsThrottledThreshold: number;
 ```
 
 - *Type:* number
+
+---
+
+### RedshiftClusterAspectType <a name="RedshiftClusterAspectType" id="cdk-monitoring-constructs.RedshiftClusterAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.RedshiftClusterAspectType.Initializer"></a>
+
+```typescript
+import { RedshiftClusterAspectType } from 'cdk-monitoring-constructs'
+
+const redshiftClusterAspectType: RedshiftClusterAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.RedshiftClusterAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions">RedshiftClusterMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.RedshiftClusterAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.RedshiftClusterAspectType.property.props"></a>
+
+```typescript
+public readonly props: RedshiftClusterMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoringOptions">RedshiftClusterMonitoringOptions</a>
 
 ---
 
@@ -51325,6 +52235,48 @@ public readonly maxRunningTaskRate: number;
 
 ---
 
+### S3BucketAspectType <a name="S3BucketAspectType" id="cdk-monitoring-constructs.S3BucketAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.S3BucketAspectType.Initializer"></a>
+
+```typescript
+import { S3BucketAspectType } from 'cdk-monitoring-constructs'
+
+const s3BucketAspectType: S3BucketAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.S3BucketAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.S3BucketAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions">S3BucketMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.S3BucketAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.S3BucketAspectType.property.props"></a>
+
+```typescript
+public readonly props: S3BucketMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.S3BucketMonitoringOptions">S3BucketMonitoringOptions</a>
+
+---
+
 ### S3BucketMetricFactoryProps <a name="S3BucketMetricFactoryProps" id="cdk-monitoring-constructs.S3BucketMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.S3BucketMetricFactoryProps.Initializer"></a>
@@ -52179,6 +53131,48 @@ public readonly addMinNumberSecretsAlarm: {[ key: string ]: MinSecretCountThresh
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MinSecretCountThreshold">MinSecretCountThreshold</a>}
+
+---
+
+### SecretsManagerSecretAspectType <a name="SecretsManagerSecretAspectType" id="cdk-monitoring-constructs.SecretsManagerSecretAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SecretsManagerSecretAspectType.Initializer"></a>
+
+```typescript
+import { SecretsManagerSecretAspectType } from 'cdk-monitoring-constructs'
+
+const secretsManagerSecretAspectType: SecretsManagerSecretAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions">SecretsManagerSecretMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.SecretsManagerSecretAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.SecretsManagerSecretAspectType.property.props"></a>
+
+```typescript
+public readonly props: SecretsManagerSecretMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoringOptions">SecretsManagerSecretMonitoringOptions</a>
 
 ---
 
@@ -53295,6 +54289,48 @@ Optional target topic for when the alarm goes into the OK state.
 
 ---
 
+### SnsTopicAspectType <a name="SnsTopicAspectType" id="cdk-monitoring-constructs.SnsTopicAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SnsTopicAspectType.Initializer"></a>
+
+```typescript
+import { SnsTopicAspectType } from 'cdk-monitoring-constructs'
+
+const snsTopicAspectType: SnsTopicAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.SnsTopicAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions">SnsTopicMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.SnsTopicAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.SnsTopicAspectType.property.props"></a>
+
+```typescript
+public readonly props: SnsTopicMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.SnsTopicMonitoringOptions">SnsTopicMonitoringOptions</a>
+
+---
+
 ### SnsTopicMetricFactoryProps <a name="SnsTopicMetricFactoryProps" id="cdk-monitoring-constructs.SnsTopicMetricFactoryProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SnsTopicMetricFactoryProps.Initializer"></a>
@@ -53737,6 +54773,48 @@ public readonly addMinNumberOfMessagesPublishedAlarm: {[ key: string ]: LowMessa
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LowMessagesPublishedThreshold">LowMessagesPublishedThreshold</a>}
+
+---
+
+### SqsQueueAspectType <a name="SqsQueueAspectType" id="cdk-monitoring-constructs.SqsQueueAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SqsQueueAspectType.Initializer"></a>
+
+```typescript
+import { SqsQueueAspectType } from 'cdk-monitoring-constructs'
+
+const sqsQueueAspectType: SqsQueueAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.SqsQueueAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions">SqsQueueMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.SqsQueueAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.SqsQueueAspectType.property.props"></a>
+
+```typescript
+public readonly props: SqsQueueMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.SqsQueueMonitoringOptions">SqsQueueMonitoringOptions</a>
 
 ---
 
@@ -54859,6 +55937,48 @@ public readonly addTimedOutActivitiesCountAlarm: {[ key: string ]: ErrorCountThr
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+### StepFunctionAspectType <a name="StepFunctionAspectType" id="cdk-monitoring-constructs.StepFunctionAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.StepFunctionAspectType.Initializer"></a>
+
+```typescript
+import { StepFunctionAspectType } from 'cdk-monitoring-constructs'
+
+const stepFunctionAspectType: StepFunctionAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.StepFunctionAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions">StepFunctionMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.StepFunctionAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.StepFunctionAspectType.property.props"></a>
+
+```typescript
+public readonly props: StepFunctionMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.StepFunctionMonitoringOptions">StepFunctionMonitoringOptions</a>
 
 ---
 
@@ -56094,6 +57214,48 @@ public readonly addTimedOutServiceIntegrationsCountAlarm: {[ key: string ]: Erro
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+### SyntheticsCanaryAspectType <a name="SyntheticsCanaryAspectType" id="cdk-monitoring-constructs.SyntheticsCanaryAspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.SyntheticsCanaryAspectType.Initializer"></a>
+
+```typescript
+import { SyntheticsCanaryAspectType } from 'cdk-monitoring-constructs'
+
+const syntheticsCanaryAspectType: SyntheticsCanaryAspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryAspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryAspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions">SyntheticsCanaryMonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.SyntheticsCanaryAspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.SyntheticsCanaryAspectType.property.props"></a>
+
+```typescript
+public readonly props: SyntheticsCanaryMonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoringOptions">SyntheticsCanaryMonitoringOptions</a>
 
 ---
 
@@ -58302,6 +59464,48 @@ If this is defined, the local alarm name prefix used in naming alarms for the co
 The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
 
 > [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+### WafV2AspectType <a name="WafV2AspectType" id="cdk-monitoring-constructs.WafV2AspectType"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.WafV2AspectType.Initializer"></a>
+
+```typescript
+import { WafV2AspectType } from 'cdk-monitoring-constructs'
+
+const wafV2AspectType: WafV2AspectType = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.WafV2AspectType.property.enabled">enabled</a></code> | <code>boolean</code> | If the monitoring aspect is enabled for this resource. |
+| <code><a href="#cdk-monitoring-constructs.WafV2AspectType.property.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.WafV2MonitoringOptions">WafV2MonitoringOptions</a></code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-monitoring-constructs.WafV2AspectType.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If the monitoring aspect is enabled for this resource.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-monitoring-constructs.WafV2AspectType.property.props"></a>
+
+```typescript
+public readonly props: WafV2MonitoringOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.WafV2MonitoringOptions">WafV2MonitoringOptions</a>
 
 ---
 
@@ -71073,6 +72277,8 @@ Return the widget JSON for use in the dashboard.
 
 - *Deprecated:* Use {@link KeyValueTableWidgetV2} instead.
 
+This class is not compatable with JSII
+
 ```typescript
 public readonly height: number;
 ```
@@ -71086,6 +72292,8 @@ The amount of vertical grid units the widget will take up.
 ##### ~~`width`~~<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.KeyValueTableWidget.property.width"></a>
 
 - *Deprecated:* Use {@link KeyValueTableWidgetV2} instead.
+
+This class is not compatable with JSII
 
 ```typescript
 public readonly width: number;
@@ -71101,6 +72309,8 @@ The amount of horizontal grid units the widget will take up.
 
 - *Deprecated:* Use {@link KeyValueTableWidgetV2} instead.
 
+This class is not compatable with JSII
+
 ```typescript
 public readonly warnings: string[];
 ```
@@ -71114,6 +72324,8 @@ Any warnings that are produced as a result of putting together this widget.
 ##### ~~`warningsV2`~~<sup>Optional</sup> <a name="warningsV2" id="cdk-monitoring-constructs.KeyValueTableWidget.property.warningsV2"></a>
 
 - *Deprecated:* Use {@link KeyValueTableWidgetV2} instead.
+
+This class is not compatable with JSII
 
 ```typescript
 public readonly warningsV2: {[ key: string ]: string};

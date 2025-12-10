@@ -12,7 +12,6 @@ import * as cloudfrontOrigins from "aws-cdk-lib/aws-cloudfront-origins";
 import * as codebuild from "aws-cdk-lib/aws-codebuild";
 import * as docdb from "aws-cdk-lib/aws-docdb";
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
-import { Vpc } from "aws-cdk-lib/aws-ec2";
 import * as ec2 from "aws-cdk-lib/aws-ec2";
 import * as elasticache from "aws-cdk-lib/aws-elasticache";
 import * as elasticsearch from "aws-cdk-lib/aws-elasticsearch";
@@ -238,7 +237,7 @@ describe("MonitoringAspect", () => {
     const facade = createDummyMonitoringFacade(stack);
 
     new docdb.DatabaseCluster(stack, "DummyCluster", {
-      vpc: new Vpc(stack, "DummyVpc"),
+      vpc: new ec2.Vpc(stack, "DummyVpc"),
       instanceType: ec2.InstanceType.of(
         ec2.InstanceClass.R6G,
         ec2.InstanceSize.LARGE,

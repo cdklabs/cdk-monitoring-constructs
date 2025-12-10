@@ -16,7 +16,7 @@ import * as kinesisfirehose from "aws-cdk-lib/aws-kinesisfirehose";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as opensearch from "aws-cdk-lib/aws-opensearchservice";
 import * as rds from "aws-cdk-lib/aws-rds";
-import { CfnCluster } from "aws-cdk-lib/aws-redshift";
+import * as redshift from "aws-cdk-lib/aws-redshift";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager";
 import * as sns from "aws-cdk-lib/aws-sns";
@@ -28,7 +28,7 @@ import { IConstruct } from "constructs";
 
 import {
   MonitoringAspectProps,
-  MonitoringAspectType,
+  BaseMonitoringAspectType,
 } from "./IMonitoringAspect";
 import { MonitoringFacade } from "./MonitoringFacade";
 import { ElastiCacheClusterType } from "../monitoring";
@@ -84,8 +84,8 @@ export class MonitoringAspect implements IAspect {
     }
   }
 
-  private getMonitoringDetails<T>(
-    aspectOptions?: MonitoringAspectType<T>,
+  private getMonitoringDetails<T extends Record<string, any>>(
+    aspectOptions?: BaseMonitoringAspectType & { props?: T },
   ): [boolean, T?] {
     const isEnabled = aspectOptions?.enabled ?? true;
     const props = aspectOptions?.props;
@@ -342,7 +342,7 @@ export class MonitoringAspect implements IAspect {
   private monitorRedshift(node: IConstruct) {
     const [isEnabled, props] = this.getMonitoringDetails(this.props.redshift);
     if (isEnabled && this.isProbablyL2RedshiftCluster(node)) {
-      const cfnCluster = (node as any).cluster as CfnCluster;
+      const cfnCluster = (node as any).cluster as redshift.CfnCluster;
       this.monitoringFacade.monitorRedshiftCluster({
         clusterIdentifier: cfnCluster.ref,
         alarmFriendlyName: cfnCluster.node.path,
@@ -353,7 +353,7 @@ export class MonitoringAspect implements IAspect {
 
   private isProbablyL2RedshiftCluster(node: IConstruct): boolean {
     return (
-      (node as any).cluster instanceof CfnCluster &&
+      (node as any).cluster instanceof redshift.CfnCluster &&
       !!(node as any).clusterName &&
       !!(node as any).node?.path
     );
