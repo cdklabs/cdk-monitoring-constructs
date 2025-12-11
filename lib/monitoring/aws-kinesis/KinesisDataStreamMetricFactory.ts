@@ -17,7 +17,7 @@ export interface KinesisDataStreamMetricFactoryProps
 /**
  * @see https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
  */
-export class KinesisDataStreamMetricFactory extends BaseMetricFactory<KinesisDataStreamMetricFactoryProps> {
+export class KinesisDataStreamMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(

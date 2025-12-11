@@ -30,7 +30,7 @@ export interface NetworkLoadBalancerMetricFactoryProps
  * Metric factory to create metrics for network load-balanced service.
  */
 export class NetworkLoadBalancerMetricFactory
-  extends BaseMetricFactory<NetworkLoadBalancerMetricFactoryProps>
+  extends BaseMetricFactory
   implements ILoadBalancerMetricFactory
 {
   protected readonly networkLoadBalancer: INetworkLoadBalancer;

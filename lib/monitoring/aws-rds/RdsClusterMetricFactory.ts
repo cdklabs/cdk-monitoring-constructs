@@ -25,7 +25,7 @@ export interface RdsClusterMetricFactoryProps extends BaseMetricFactoryProps {
   readonly cluster?: IDatabaseCluster | ServerlessCluster;
 }
 
-export class RdsClusterMetricFactory extends BaseMetricFactory<RdsClusterMetricFactoryProps> {
+export class RdsClusterMetricFactory extends BaseMetricFactory {
   readonly clusterIdentifier: string;
   readonly cluster?: IDatabaseCluster | ServerlessCluster;
   protected readonly dimensionsMap: DimensionsMap;

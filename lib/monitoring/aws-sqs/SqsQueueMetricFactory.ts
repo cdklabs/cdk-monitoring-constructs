@@ -11,7 +11,7 @@ export interface SqsQueueMetricFactoryProps extends BaseMetricFactoryProps {
   readonly queue: IQueue;
 }
 
-export class SqsQueueMetricFactory extends BaseMetricFactory<SqsQueueMetricFactoryProps> {
+export class SqsQueueMetricFactory extends BaseMetricFactory {
   protected readonly queue: IQueue;
 
   constructor(metricFactory: MetricFactory, props: SqsQueueMetricFactoryProps) {
