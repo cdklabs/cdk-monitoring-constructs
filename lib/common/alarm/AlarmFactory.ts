@@ -422,6 +422,14 @@ export interface AddCompositeAlarmProps {
   readonly compositeOperator?: CompositeAlarmOperator;
 
   /**
+   * Options for AT_LEAST operator.
+   * Required when compositeOperator is AT_LEAST.
+   *
+   * @default - undefined
+   */
+  readonly atLeastOptions?: CompositeAlarmAtLeastOptions;
+
+  /**
    * Actions will be suppressed if the suppressor alarm is in the ALARM state.
    *
    * @default - no suppressor alarm
@@ -462,6 +470,76 @@ export enum CompositeAlarmOperator {
    * trigger if any of the alarms is triggered
    */
   OR,
+
+  /**
+   * trigger if at least M alarms are in the specified state
+   * Requires atLeastOptions to be specified
+   */
+  AT_LEAST,
+}
+
+/**
+ * Threshold for AT_LEAST operator.
+ */
+export abstract class AtLeastThreshold {
+  /**
+   * Create a count-based threshold.
+   * @param count The minimum number of alarms that must be in the specified state
+   */
+  public static count(count: number): AtLeastThreshold {
+    return new AtLeastThresholdCount(count);
+  }
+
+  /**
+   * Create a percentage-based threshold.
+   * @param percentage The minimum percentage of alarms (0-100) that must be in the specified state
+   */
+  public static percentage(percentage: number): AtLeastThreshold {
+    return new AtLeastThresholdPercentage(percentage);
+  }
+
+  /**
+   * @internal
+   */
+  public abstract _renderThreshold(): string;
+}
+
+class AtLeastThresholdCount extends AtLeastThreshold {
+  constructor(private readonly count: number) {
+    super();
+  }
+
+  public _renderThreshold(): string {
+    return this.count.toString();
+  }
+}
+
+class AtLeastThresholdPercentage extends AtLeastThreshold {
+  constructor(private readonly percentage: number) {
+    super();
+  }
+
+  public _renderThreshold(): string {
+    return `${this.percentage}%`;
+  }
+}
+
+/**
+ * Configuration for AT_LEAST composite alarm operator.
+ */
+export interface CompositeAlarmAtLeastOptions {
+  /**
+   * Threshold for AT_LEAST operator.
+   * Use AtLeastThreshold.count() or AtLeastThreshold.percentage().
+   */
+  readonly threshold: AtLeastThreshold;
+
+  /**
+   * Alarm state for AT_LEAST operator.
+   *
+   * @default - ALARM
+   */
+  readonly state?: AlarmState;
 }
 
 export interface AlarmFactoryDefaults {
@@ -868,13 +946,47 @@ export class AlarmFactory {
     alarms: AlarmWithAnnotation[],
     props: AddCompositeAlarmProps,
   ): IAlarmRule {
-    const alarmRules = alarms.map((alarm) => alarm.alarmRuleWhenAlarming);
     const operator = props.compositeOperator ?? CompositeAlarmOperator.OR;
     switch (operator) {
-      case CompositeAlarmOperator.AND:
+      case CompositeAlarmOperator.AND: {
+        const alarmRules = alarms.map((alarm) => alarm.alarmRuleWhenAlarming);
         return AlarmRule.allOf(...alarmRules);
-      case CompositeAlarmOperator.OR:
+      }
+      case CompositeAlarmOperator.OR: {
+        const alarmRules = alarms.map((alarm) => alarm.alarmRuleWhenAlarming);
         return AlarmRule.anyOf(...alarmRules);
+      }
+      case CompositeAlarmOperator.AT_LEAST: {
+        if (!props.atLeastOptions) {
+          throw new Error(
+            "atLeastOptions must be specified when using AT_LEAST operator",
+          );
+        }
+        const threshold = props.atLeastOptions.threshold;
+        if (threshold instanceof AtLeastThresholdCount) {
+          const count = (threshold as any).count;
+          if (count < 0 || count > alarms.length) {
+            throw new Error(
+              `atLeastOptions.threshold count (${count}) must be between 0 and ${alarms.length} (number of alarms)`,
+            );
+          }
+        } else if (threshold instanceof AtLeastThresholdPercentage) {
+          const percentage = (threshold as any).percentage;
+          if (percentage < 0 || percentage > 100) {
+            throw new Error(
+              `atLeastOptions.threshold percentage (${percentage}) must be between 0 and 100`,
+            );
+          }
+        }
+        const state = props.atLeastOptions.state ?? AlarmState.ALARM;
+        const alarmNames = alarms.map((alarm) => alarm.alarm.alarmName);
+        const thresholdString = threshold._renderThreshold();
+        const stateString = state.toString();
+        const alarmList = alarmNames.join(", ");
+        return AlarmRule.fromString(
+          `AT_LEAST(${thresholdString}, ${stateString}, (${alarmList}))`,
+        );
+      }
       default:
         throw new Error(`Unsupported composite alarm operator: ${operator}`);
     }
