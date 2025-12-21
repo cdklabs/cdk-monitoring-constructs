@@ -501,7 +501,7 @@ export abstract class AtLeastThreshold {
   /**
    * @internal
    */
-  public abstract _renderThreshold(): string;
+  public abstract _renderThreshold(alarms: IAlarm[]): string;
 }
 
 class AtLeastThresholdCount extends AtLeastThreshold {
@@ -509,7 +509,12 @@ class AtLeastThresholdCount extends AtLeastThreshold {
     super();
   }
 
-  public _renderThreshold(): string {
+  public _renderThreshold(alarms: IAlarm[]): string {
+    if (this.count < 0 || this.count > alarms.length) {
+      throw new Error(
+        `atLeastOptions.threshold count (${this.count}) must be between 0 and ${alarms.length} (number of alarms)`,
+      );
+    }
     return this.count.toString();
   }
 }
@@ -519,7 +524,12 @@ class AtLeastThresholdPercentage extends AtLeastThreshold {
     super();
   }
 
-  public _renderThreshold(): string {
+  public _renderThreshold(alarms: IAlarm[]): string {
+    if (this.percentage < 0 || this.percentage > 100) {
+      throw new Error(
+        `atLeastOptions.threshold percentage (${this.percentage}) must be between 0 and 100`,
+      );
+    }
     return `${this.percentage}%`;
   }
 }
@@ -963,24 +973,10 @@ export class AlarmFactory {
           );
         }
         const threshold = props.atLeastOptions.threshold;
-        if (threshold instanceof AtLeastThresholdCount) {
-          const count = (threshold as any).count;
-          if (count < 0 || count > alarms.length) {
-            throw new Error(
-              `atLeastOptions.threshold count (${count}) must be between 0 and ${alarms.length} (number of alarms)`,
-            );
-          }
-        } else if (threshold instanceof AtLeastThresholdPercentage) {
-          const percentage = (threshold as any).percentage;
-          if (percentage < 0 || percentage > 100) {
-            throw new Error(
-              `atLeastOptions.threshold percentage (${percentage}) must be between 0 and 100`,
-            );
-          }
-        }
         const state = props.atLeastOptions.state ?? AlarmState.ALARM;
+        const alarmObjects = alarms.map((alarm) => alarm.alarm);
         const alarmNames = alarms.map((alarm) => alarm.alarm.alarmName);
-        const thresholdString = threshold._renderThreshold();
+        const thresholdString = threshold._renderThreshold(alarmObjects);
         const stateString = state.toString();
         const alarmList = alarmNames.join(", ");
         return AlarmRule.fromString(
