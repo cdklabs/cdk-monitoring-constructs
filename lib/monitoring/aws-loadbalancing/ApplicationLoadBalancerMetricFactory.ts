@@ -30,7 +30,7 @@ export interface ApplicationLoadBalancerMetricFactoryProps
  * Metric factory to create metrics for application load-balanced service.
  */
 export class ApplicationLoadBalancerMetricFactory
-  extends BaseMetricFactory<ApplicationLoadBalancerMetricFactoryProps>
+  extends BaseMetricFactory
   implements ILoadBalancerMetricFactory
 {
   protected readonly applicationLoadBalancer: IApplicationLoadBalancer;

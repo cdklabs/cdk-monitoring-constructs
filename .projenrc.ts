@@ -18,8 +18,6 @@ const project = new cdklabs.CdklabsConstructLibrary({
   setNodeEngineVersion: false,
 
   cdkVersion: CDK_VERSION,
-  // TODO: upgrade to 5.x
-  jsiiVersion: "1.x",
 
   srcdir: "lib",
   testdir: "test",
@@ -27,7 +25,7 @@ const project = new cdklabs.CdklabsConstructLibrary({
   // To reduce the noisy release frequency we only release features and fixes
   releasableCommits: ReleasableCommits.featuresAndFixes(),
 
-  // Don't release for go, see below
+  // Don't release for Go, see below
   jsiiTargetLanguages: [
     cdklabs.JsiiLanguage.PYTHON,
     cdklabs.JsiiLanguage.DOTNET,
@@ -102,12 +100,6 @@ _By submitting this pull request, I confirm that my contribution is made under t
     `${dep}@${CDK_VERSION}-alpha.0`,
     DependencyType.DEVENV,
   );
-});
-
-// newer types don't work with our ts and jsii version
-project.addDevDeps("@types/node@^16 <= 16.18.78");
-project.package.addField("resolutions", {
-  "@types/babel__traverse": "7.18.2",
 });
 
 // Add some other eslint rules followed across this project

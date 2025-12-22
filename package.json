@@ -46,7 +46,7 @@
     "@aws-cdk/integ-runner": "latest",
     "@aws-cdk/integ-tests-alpha": "latest",
     "@types/jest": "^27",
-    "@types/node": "^16 <= 16.18.78",
+    "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk-lib": "2.160.0",
@@ -60,7 +60,7 @@
     "eslint-plugin-prettier": "^4.2.5",
     "jest": "^27",
     "jest-junit": "^16",
-    "jsii": "1.x",
+    "jsii": "~5.7",
     "jsii-diff": "^1.121.0",
     "jsii-docgen": "^10.5.0",
     "jsii-pacmak": "^1.121.0",
@@ -74,9 +74,6 @@
   "peerDependencies": {
     "aws-cdk-lib": "^2.160.0",
     "constructs": "^10.0.5"
-  },
-  "resolutions": {
-    "@types/babel__traverse": "7.18.2"
   },
   "keywords": [
     "cdk",

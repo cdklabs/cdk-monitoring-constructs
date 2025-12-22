@@ -30,15 +30,6 @@ import {
   WafV2MonitoringOptions,
 } from "../monitoring";
 
-/**
- * @deprecated Extend {@link BaseMonitoringAspectType} instead.
- *
- * This type is not compatable with JSII@5.x and will be removed in the next major version.
- */
-export type MonitoringAspectType<T> = BaseMonitoringAspectType & {
-  readonly props?: T;
-};
-
 export interface BaseMonitoringAspectType {
   /**
    * If the monitoring aspect is enabled for this resource.

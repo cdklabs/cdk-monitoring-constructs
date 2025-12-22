@@ -15,7 +15,7 @@ export interface AutoScalingGroupMetricFactoryProps
   readonly autoScalingGroup: IAutoScalingGroup;
 }
 
-export class AutoScalingGroupMetricFactory extends BaseMetricFactory<AutoScalingGroupMetricFactoryProps> {
+export class AutoScalingGroupMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(

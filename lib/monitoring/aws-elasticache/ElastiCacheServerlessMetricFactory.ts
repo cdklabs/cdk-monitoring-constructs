@@ -23,7 +23,7 @@ export interface ElastiCacheServerlessMetricFactoryProps
 /**
  * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/serverless-metrics-events-redis.html
  */
-export class ElastiCacheServerlessMetricFactory extends BaseMetricFactory<ElastiCacheServerlessMetricFactoryProps> {
+export class ElastiCacheServerlessMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(

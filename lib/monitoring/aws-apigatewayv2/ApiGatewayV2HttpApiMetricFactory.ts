@@ -39,7 +39,7 @@ export interface ApiGatewayV2HttpApiMetricFactoryProps
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory<ApiGatewayV2HttpApiMetricFactoryProps> {
+export class ApiGatewayV2HttpApiMetricFactory extends BaseMetricFactory {
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
