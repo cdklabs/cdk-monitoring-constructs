@@ -524,7 +524,7 @@ class AtLeastThresholdPercentage extends AtLeastThreshold {
     super();
   }
 
-  public _renderThreshold(alarms: IAlarm[]): string {
+  public _renderThreshold(_alarms: IAlarm[]): string {
     if (this.percentage < 0 || this.percentage > 100) {
       throw new Error(
         `atLeastOptions.threshold percentage (${this.percentage}) must be between 0 and 100`,
