@@ -127,7 +127,7 @@ to each other.
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct"></a>
 
 ```typescript
 import { BitmapDashboard } from 'cdk-monitoring-constructs'
@@ -136,20 +136,6 @@ BitmapDashboard.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.BitmapDashboard.isConstruct.parameter.x"></a>
 
@@ -341,7 +327,7 @@ public asBitmap(widget: IWidget): CustomWidget
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct"></a>
 
 ```typescript
 import { BitmapWidgetRenderingSupport } from 'cdk-monitoring-constructs'
@@ -350,20 +336,6 @@ BitmapWidgetRenderingSupport.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.isConstruct.parameter.x"></a>
 
@@ -532,7 +504,7 @@ to each other.
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct"></a>
 
 ```typescript
 import { DashboardWithBitmapCopy } from 'cdk-monitoring-constructs'
@@ -541,20 +513,6 @@ DashboardWithBitmapCopy.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.isConstruct.parameter.x"></a>
 
@@ -802,7 +760,7 @@ Gets the dashboard for the requested dashboard type.
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct"></a>
 
 ```typescript
 import { DefaultDashboardFactory } from 'cdk-monitoring-constructs'
@@ -811,20 +769,6 @@ DefaultDashboardFactory.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DefaultDashboardFactory.isConstruct.parameter.x"></a>
 
@@ -1002,7 +946,7 @@ Gets the dashboard for the requested dashboard type.
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct"></a>
 
 ```typescript
 import { DynamicDashboardFactory } from 'cdk-monitoring-constructs'
@@ -1011,20 +955,6 @@ DynamicDashboardFactory.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.DynamicDashboardFactory.isConstruct.parameter.x"></a>
 
@@ -2218,7 +2148,7 @@ public monitorWebApplicationFirewallAclV2(props: WafV2MonitoringProps): Monitori
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct"></a>
 
 ```typescript
 import { MonitoringFacade } from 'cdk-monitoring-constructs'
@@ -2227,20 +2157,6 @@ MonitoringFacade.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.MonitoringFacade.isConstruct.parameter.x"></a>
 
@@ -2393,7 +2309,7 @@ Creates a new widget factory.
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringScope.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.MonitoringScope.isConstruct"></a>
 
 ```typescript
 import { MonitoringScope } from 'cdk-monitoring-constructs'
@@ -2402,20 +2318,6 @@ MonitoringScope.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.MonitoringScope.isConstruct.parameter.x"></a>
 
@@ -2486,7 +2388,7 @@ public addSecret(secret: ISecret): void
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct"></a>
 
 ```typescript
 import { SecretsManagerMetricsPublisher } from 'cdk-monitoring-constructs'
@@ -2495,20 +2397,6 @@ SecretsManagerMetricsPublisher.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.isConstruct.parameter.x"></a>
 
@@ -3029,6 +2917,7 @@ const addCompositeAlarmProps: AddCompositeAlarmProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.alarmNameSuffix">alarmNameSuffix</a></code> | <code>string</code> | Suffix added to base alarm name. |
+| <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.atLeastOptions">atLeastOptions</a></code> | <code><a href="#cdk-monitoring-constructs.CompositeAlarmAtLeastOptions">CompositeAlarmAtLeastOptions</a></code> | Options for AT_LEAST operator. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.compositeOperator">compositeOperator</a></code> | <code><a href="#cdk-monitoring-constructs.CompositeAlarmOperator">CompositeAlarmOperator</a></code> | Logical operator used to aggregate the status individual alarms. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
 | <code><a href="#cdk-monitoring-constructs.AddCompositeAlarmProps.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
@@ -3188,6 +3077,21 @@ public readonly alarmNameSuffix: string;
 Suffix added to base alarm name.
 
 Alarm names need to be unique.
+
+---
+
+##### `atLeastOptions`<sup>Optional</sup> <a name="atLeastOptions" id="cdk-monitoring-constructs.AddCompositeAlarmProps.property.atLeastOptions"></a>
+
+```typescript
+public readonly atLeastOptions: CompositeAlarmAtLeastOptions;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.CompositeAlarmAtLeastOptions">CompositeAlarmAtLeastOptions</a>
+- *Default:* undefined
+
+Options for AT_LEAST operator.
+
+Required when compositeOperator is AT_LEAST.
 
 ---
 
@@ -12809,6 +12713,54 @@ public readonly addFailedBuildRateAlarm: {[ key: string ]: ErrorRateThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+### CompositeAlarmAtLeastOptions <a name="CompositeAlarmAtLeastOptions" id="cdk-monitoring-constructs.CompositeAlarmAtLeastOptions"></a>
+
+Configuration for AT_LEAST composite alarm operator.
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.CompositeAlarmAtLeastOptions.Initializer"></a>
+
+```typescript
+import { CompositeAlarmAtLeastOptions } from 'cdk-monitoring-constructs'
+
+const compositeAlarmAtLeastOptions: CompositeAlarmAtLeastOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.CompositeAlarmAtLeastOptions.property.threshold">threshold</a></code> | <code><a href="#cdk-monitoring-constructs.AtLeastThreshold">AtLeastThreshold</a></code> | Threshold for AT_LEAST operator. |
+| <code><a href="#cdk-monitoring-constructs.CompositeAlarmAtLeastOptions.property.state">state</a></code> | <code>aws-cdk-lib.aws_cloudwatch.AlarmState</code> | Alarm state for AT_LEAST operator. |
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="cdk-monitoring-constructs.CompositeAlarmAtLeastOptions.property.threshold"></a>
+
+```typescript
+public readonly threshold: AtLeastThreshold;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AtLeastThreshold">AtLeastThreshold</a>
+
+Threshold for AT_LEAST operator.
+
+Use AtLeastThreshold.count() or AtLeastThreshold.percentage().
+
+---
+
+##### `state`<sup>Optional</sup> <a name="state" id="cdk-monitoring-constructs.CompositeAlarmAtLeastOptions.property.state"></a>
+
+```typescript
+public readonly state: AlarmState;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmState
+- *Default:* ALARM
+
+Alarm state for AT_LEAST operator.
 
 ---
 
@@ -62587,6 +62539,71 @@ public readonly tpsMetric: Metric | MathExpression;
 ---
 
 
+### AtLeastThreshold <a name="AtLeastThreshold" id="cdk-monitoring-constructs.AtLeastThreshold"></a>
+
+Threshold for AT_LEAST operator.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AtLeastThreshold.Initializer"></a>
+
+```typescript
+import { AtLeastThreshold } from 'cdk-monitoring-constructs'
+
+new AtLeastThreshold()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AtLeastThreshold.count">count</a></code> | Create a count-based threshold. |
+| <code><a href="#cdk-monitoring-constructs.AtLeastThreshold.percentage">percentage</a></code> | Create a percentage-based threshold. |
+
+---
+
+##### `count` <a name="count" id="cdk-monitoring-constructs.AtLeastThreshold.count"></a>
+
+```typescript
+import { AtLeastThreshold } from 'cdk-monitoring-constructs'
+
+AtLeastThreshold.count(count: number)
+```
+
+Create a count-based threshold.
+
+###### `count`<sup>Required</sup> <a name="count" id="cdk-monitoring-constructs.AtLeastThreshold.count.parameter.count"></a>
+
+- *Type:* number
+
+The minimum number of alarms that must be in the specified state.
+
+---
+
+##### `percentage` <a name="percentage" id="cdk-monitoring-constructs.AtLeastThreshold.percentage"></a>
+
+```typescript
+import { AtLeastThreshold } from 'cdk-monitoring-constructs'
+
+AtLeastThreshold.percentage(percentage: number)
+```
+
+Create a percentage-based threshold.
+
+###### `percentage`<sup>Required</sup> <a name="percentage" id="cdk-monitoring-constructs.AtLeastThreshold.percentage.parameter.percentage"></a>
+
+- *Type:* number
+
+The minimum percentage of alarms (0-100) that must be in the specified state.
+
+---
+
+
+
 ### AuroraAlarmFactory <a name="AuroraAlarmFactory" id="cdk-monitoring-constructs.AuroraAlarmFactory"></a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AuroraAlarmFactory.Initializer"></a>
@@ -89167,6 +89184,7 @@ alarm to represent.
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.CompositeAlarmOperator.AND">AND</a></code> | trigger only if all the alarms are triggered. |
 | <code><a href="#cdk-monitoring-constructs.CompositeAlarmOperator.OR">OR</a></code> | trigger if any of the alarms is triggered. |
+| <code><a href="#cdk-monitoring-constructs.CompositeAlarmOperator.AT_LEAST">AT_LEAST</a></code> | trigger if at least M alarms are in the specified state Requires atLeastOptions to be specified. |
 
 ---
 
@@ -89180,6 +89198,13 @@ trigger only if all the alarms are triggered.
 ##### `OR` <a name="OR" id="cdk-monitoring-constructs.CompositeAlarmOperator.OR"></a>
 
 trigger if any of the alarms is triggered.
+
+---
+
+
+##### `AT_LEAST` <a name="AT_LEAST" id="cdk-monitoring-constructs.CompositeAlarmOperator.AT_LEAST"></a>
+
+trigger if at least M alarms are in the specified state Requires atLeastOptions to be specified.
 
 ---
 
