@@ -26,7 +26,7 @@ export interface ElastiCacheClusterMetricFactoryProps
 /**
  * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheMetrics.html
  */
-export class ElastiCacheClusterMetricFactory extends BaseMetricFactory<ElastiCacheClusterMetricFactoryProps> {
+export class ElastiCacheClusterMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(

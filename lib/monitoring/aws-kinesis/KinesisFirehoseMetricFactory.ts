@@ -17,7 +17,7 @@ export interface KinesisFirehoseMetricFactoryProps
 /**
  * @see https://docs.aws.amazon.com/firehose/latest/dev/monitoring-with-cloudwatch-metrics.html
  */
-export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFirehoseMetricFactoryProps> {
+export class KinesisFirehoseMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(

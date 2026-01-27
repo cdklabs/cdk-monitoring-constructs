@@ -21,7 +21,7 @@ export interface BaseServiceMetricFactoryProps extends BaseMetricFactoryProps {
 /**
  * Metric factory for a base service (parent class for e.g. Fargate and EC2 services).
  */
-export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetricFactoryProps> {
+export class BaseServiceMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
   /**
    * @deprecated This isn't required by cdk-monitoring-constructs anymore; use your own reference.

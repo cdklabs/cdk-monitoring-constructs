@@ -21,7 +21,7 @@ export interface FluentBitMetricFactoryProps extends BaseMetricFactoryProps {
   readonly namespace?: string;
 }
 
-export class FluentBitMetricFactory extends BaseMetricFactory<FluentBitMetricFactoryProps> {
+export class FluentBitMetricFactory extends BaseMetricFactory {
   protected readonly namespace: string;
   protected readonly scope: MonitoringScope;
 

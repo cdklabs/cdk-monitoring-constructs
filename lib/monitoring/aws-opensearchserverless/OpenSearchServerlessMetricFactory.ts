@@ -31,7 +31,7 @@ export interface OpenSearchServerlessMetricFactoryProps
  *
  * @see https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-cloudwatch.html
  */
-export class OpenSearchServerlessMetricFactory extends BaseMetricFactory<OpenSearchServerlessMetricFactoryProps> {
+export class OpenSearchServerlessMetricFactory extends BaseMetricFactory {
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
 
