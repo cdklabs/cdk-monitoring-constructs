@@ -164,7 +164,7 @@ export interface EC2MetricFactoryProps extends BaseMetricFactoryProps {
   readonly instanceIds?: string[];
 }
 
-export class EC2MetricFactory extends BaseMetricFactory<EC2MetricFactoryProps> {
+export class EC2MetricFactory extends BaseMetricFactory {
   protected readonly strategy: IEC2MetricFactoryStrategy;
 
   constructor(metricFactory: MetricFactory, props: EC2MetricFactoryProps) {

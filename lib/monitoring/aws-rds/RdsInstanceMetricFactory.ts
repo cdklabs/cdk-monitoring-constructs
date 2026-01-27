@@ -20,7 +20,7 @@ export interface RdsInstanceMetricFactoryProps extends BaseMetricFactoryProps {
   readonly instance: IDatabaseInstance;
 }
 
-export class RdsInstanceMetricFactory extends BaseMetricFactory<RdsInstanceMetricFactoryProps> {
+export class RdsInstanceMetricFactory extends BaseMetricFactory {
   readonly instanceIdentifier: string;
   readonly instance: IDatabaseInstance;
   protected readonly dimensionsMap: DimensionsMap;

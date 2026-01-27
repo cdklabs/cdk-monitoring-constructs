@@ -1,5 +1,5 @@
 import * as cdklabs from "cdklabs-projen-project-types";
-import { javascript, github, DependencyType, ReleasableCommits } from "projen";
+import { DependencyType, github, javascript, ReleasableCommits } from "projen";
 
 const CDK_VERSION = "2.160.0";
 
@@ -18,8 +18,7 @@ const project = new cdklabs.CdklabsConstructLibrary({
   setNodeEngineVersion: false,
 
   cdkVersion: CDK_VERSION,
-  // TODO: upgrade to 5.x
-  jsiiVersion: "1.x",
+  jsiiVersion: "5.9",
 
   srcdir: "lib",
   testdir: "test",

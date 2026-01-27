@@ -16,7 +16,7 @@ export interface RedshiftClusterMetricFactoryProps
   readonly clusterIdentifier: string;
 }
 
-export class RedshiftClusterMetricFactory extends BaseMetricFactory<RedshiftClusterMetricFactoryProps> {
+export class RedshiftClusterMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(

@@ -16,7 +16,7 @@ export interface CertificateManagerMetricFactoryProps
   readonly certificate: ICertificate;
 }
 
-export class CertificateManagerMetricFactory extends BaseMetricFactory<CertificateManagerMetricFactoryProps> {
+export class CertificateManagerMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(

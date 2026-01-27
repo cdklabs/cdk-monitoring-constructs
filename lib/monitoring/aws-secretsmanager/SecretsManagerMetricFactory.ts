@@ -16,7 +16,7 @@ const TYPE = "Resource";
 
 export type SecretsManagerMetricFactoryProps = BaseMetricFactoryProps;
 
-export class SecretsManagerMetricFactory extends BaseMetricFactory<SecretsManagerMetricFactoryProps> {
+export class SecretsManagerMetricFactory extends BaseMetricFactory {
   constructor(
     metricFactory: MetricFactory,
     props: SecretsManagerMetricFactoryProps,
