@@ -14,6 +14,7 @@ import {
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
+  FullWidth,
   HalfWidth,
   HealthyTaskCountThreshold,
   HealthyTaskPercentThreshold,
@@ -152,14 +153,16 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
   }
 
   summaryWidgets(): IWidget[] {
+    const widgetWidth = this.isTaskHealthSupported ? HalfWidth : FullWidth;
+
     const widgets = [
       this.createTitleWidget(),
-      this.createTcpFlowsWidget(HalfWidth, DefaultSummaryWidgetHeight),
+      this.createTcpFlowsWidget(widgetWidth, DefaultSummaryWidgetHeight),
     ];
 
     if (this.isTaskHealthSupported) {
       widgets.push(
-        this.createTaskHealthWidget(HalfWidth, DefaultSummaryWidgetHeight),
+        this.createTaskHealthWidget(widgetWidth, DefaultSummaryWidgetHeight),
       );
     }
 
@@ -167,14 +170,16 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
   }
 
   widgets(): IWidget[] {
+    const widgetWidth = this.isTaskHealthSupported ? HalfWidth : FullWidth;
+
     const widgets = [
       this.createTitleWidget(),
-      this.createTcpFlowsWidget(HalfWidth, DefaultGraphWidgetHeight),
+      this.createTcpFlowsWidget(widgetWidth, DefaultGraphWidgetHeight),
     ];
 
     if (this.isTaskHealthSupported) {
       widgets.push(
-        this.createTaskHealthWidget(HalfWidth, DefaultGraphWidgetHeight),
+        this.createTaskHealthWidget(widgetWidth, DefaultGraphWidgetHeight),
       );
     }
 
