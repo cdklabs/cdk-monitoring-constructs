@@ -1,11 +1,12 @@
 import {
   INetworkLoadBalancer,
   INetworkTargetGroup,
+  TargetType,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import {
-  ILoadBalancerMetricFactory,
   BaseLoadBalancerMetricFactoryProps,
+  ILoadBalancerMetricFactory,
 } from "./LoadBalancerMetricFactory";
 import {
   BaseMetricFactory,
@@ -24,6 +25,13 @@ export interface NetworkLoadBalancerMetricFactoryProps
     BaseMetricFactoryProps {
   readonly networkLoadBalancer: INetworkLoadBalancer;
   readonly networkTargetGroup: INetworkTargetGroup;
+  /**
+   * Target type for the NetworkLoadBalancer.
+   * Set explicitly to ensure that unnecessary widgets are not rendered.
+   * By default, we will provide task health metrics, which are not
+   * relevant to the {@link TargetType.ALB} targets.
+   */
+  readonly networkLoadBalancerTargetType?: TargetType;
 }
 
 /**
