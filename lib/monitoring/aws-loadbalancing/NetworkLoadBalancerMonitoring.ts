@@ -4,6 +4,7 @@ import {
   IWidget,
 } from "aws-cdk-lib/aws-cloudwatch";
 
+import { TargetType } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 import {
   NetworkLoadBalancerMetricFactory,
   NetworkLoadBalancerMetricFactoryProps,
@@ -13,6 +14,7 @@ import {
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
+  FullWidth,
   HalfWidth,
   HealthyTaskCountThreshold,
   HealthyTaskPercentThreshold,
@@ -51,6 +53,7 @@ export interface NetworkLoadBalancerMonitoringProps
 export class NetworkLoadBalancerMonitoring extends Monitoring {
   protected readonly humanReadableName: string;
   protected readonly metricFactory: NetworkLoadBalancerMetricFactory;
+  protected readonly networkLoadBalancerTargetType?: TargetType;
 
   protected readonly taskHealthAlarmFactory: TaskHealthAlarmFactory;
   protected readonly throughputAlarmFactory: ThroughputAlarmFactory;
@@ -77,6 +80,7 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
       fallbackConstructName,
     });
     this.humanReadableName = namingStrategy.resolveHumanReadableName();
+    this.networkLoadBalancerTargetType = props.networkLoadBalancerTargetType;
 
     this.metricFactory = new NetworkLoadBalancerMetricFactory(
       scope.createMetricFactory(),
@@ -149,19 +153,37 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
   }
 
   summaryWidgets(): IWidget[] {
-    return [
+    const widgetWidth = this.isTaskHealthSupported ? HalfWidth : FullWidth;
+
+    const widgets = [
       this.createTitleWidget(),
-      this.createTcpFlowsWidget(HalfWidth, DefaultSummaryWidgetHeight),
-      this.createTaskHealthWidget(HalfWidth, DefaultSummaryWidgetHeight),
+      this.createTcpFlowsWidget(widgetWidth, DefaultSummaryWidgetHeight),
     ];
+
+    if (this.isTaskHealthSupported) {
+      widgets.push(
+        this.createTaskHealthWidget(widgetWidth, DefaultSummaryWidgetHeight),
+      );
+    }
+
+    return widgets;
   }
 
   widgets(): IWidget[] {
-    return [
+    const widgetWidth = this.isTaskHealthSupported ? HalfWidth : FullWidth;
+
+    const widgets = [
       this.createTitleWidget(),
-      this.createTcpFlowsWidget(HalfWidth, DefaultGraphWidgetHeight),
-      this.createTaskHealthWidget(HalfWidth, DefaultGraphWidgetHeight),
+      this.createTcpFlowsWidget(widgetWidth, DefaultGraphWidgetHeight),
     ];
+
+    if (this.isTaskHealthSupported) {
+      widgets.push(
+        this.createTaskHealthWidget(widgetWidth, DefaultGraphWidgetHeight),
+      );
+    }
+
+    return widgets;
   }
 
   protected createTitleWidget() {
@@ -196,5 +218,18 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
       right: [this.processedBytesMetric],
       rightYAxis: SizeAxisBytesFromZero,
     });
+  }
+
+  /**
+   * @see https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html
+   */
+  protected get isTaskHealthSupported(): boolean {
+    if (this.networkLoadBalancerTargetType) {
+      return [TargetType.INSTANCE, TargetType.IP].includes(
+        this.networkLoadBalancerTargetType,
+      );
+    }
+
+    return true;
   }
 }
