@@ -585,7 +585,6 @@ export class AlarmFactory {
     props: AddAlarmProps,
   ): AlarmWithAnnotation {
     // adjust the metric
-
     const metricAdjuster = props.metricAdjuster
       ? CompositeMetricAdjuster.of(
           props.metricAdjuster,
@@ -602,7 +601,6 @@ export class AlarmFactory {
     let alarmMetric: MetricWithAlarmSupport = adjustedMetric;
 
     // prepare primary alarm properties
-
     const actionsEnabled = this.determineActionsEnabled(
       props.actionsEnabled,
       props.disambiguator,
@@ -646,7 +644,6 @@ export class AlarmFactory {
     }
 
     // apply metric math for minimum metric samples
-
     if (props.minSampleCountToEvaluateDatapoint) {
       let label: string = `${adjustedMetric}`;
       let metricExpression: string;
@@ -701,7 +698,6 @@ export class AlarmFactory {
     }
 
     // create primary alarm
-
     const primaryAlarm = alarmMetric.createAlarm(this.alarmScope, alarmName, {
       alarmName,
       alarmDescription,
@@ -721,7 +717,6 @@ export class AlarmFactory {
 
     // create composite alarm for min metric samples (if defined)
     // deprecated in favour of minSampleCountToEvaluateDatapoint
-
     if (
       !props.minSampleCountToEvaluateDatapoint &&
       props.minMetricSamplesToAlarm
@@ -758,18 +753,16 @@ export class AlarmFactory {
     }
 
     // attach alarm actions
-
     action.addAlarmActions({
       alarm,
       action,
       dedupeString,
       disambiguator: props.disambiguator,
-      customTags: props.customTags ?? [],
-      customParams: props.customParams ?? {},
+      customTags: props.customTags,
+      customParams: props.customParams,
     });
 
     // create annotation for the primary alarm
-
     const annotation = this.createAnnotation({
       alarm: primaryAlarm,
       action,
@@ -792,7 +785,6 @@ export class AlarmFactory {
     });
 
     // return the final result
-
     return {
       alarm,
       action,
@@ -826,18 +818,20 @@ export class AlarmFactory {
     props: AddCompositeAlarmProps,
   ): CompositeAlarm {
     const actionsEnabled = this.determineActionsEnabled(
-      props?.actionsEnabled,
-      props?.disambiguator,
+      props.actionsEnabled,
+      props.disambiguator,
     );
-    const action =
-      props.actionOverride ?? this.globalAlarmDefaults.action ?? noopAction();
+    const action = this.determineAction(
+      props.disambiguator,
+      props.actionOverride,
+    );
     const namingInput = { alarmNameSuffix: "Composite", ...props };
     const alarmName = this.alarmNamingStrategy.getName(namingInput);
     const alarmDescription = this.generateDescription(
-      props?.alarmDescription ?? "Composite alarm",
-      props?.alarmDescriptionOverride,
-      props?.runbookLink,
-      props?.documentationLink,
+      props.alarmDescription ?? "Composite alarm",
+      props.alarmDescriptionOverride,
+      props.runbookLink,
+      props.documentationLink,
     );
     const dedupeString = this.alarmNamingStrategy.getDedupeString(namingInput);
     const alarmRule = this.determineCompositeAlarmRule(alarms, props);
@@ -847,18 +841,18 @@ export class AlarmFactory {
       alarmDescription,
       alarmRule,
       actionsEnabled,
-      actionsSuppressor: props?.actionsSuppressor,
-      actionsSuppressorExtensionPeriod: props?.actionsSuppressorExtensionPeriod,
-      actionsSuppressorWaitPeriod: props?.actionsSuppressorWaitPeriod,
+      actionsSuppressor: props.actionsSuppressor,
+      actionsSuppressorExtensionPeriod: props.actionsSuppressorExtensionPeriod,
+      actionsSuppressorWaitPeriod: props.actionsSuppressorWaitPeriod,
     });
 
     action.addAlarmActions({
       alarm,
       action,
       dedupeString,
-      disambiguator: props?.disambiguator,
-      customTags: props?.customTags,
-      customParams: props?.customParams,
+      disambiguator: props.disambiguator,
+      customTags: props.customTags,
+      customParams: props.customParams,
     });
 
     return alarm;
@@ -908,7 +902,7 @@ export class AlarmFactory {
       return actionOverride;
     }
 
-    // Default by disambiugator
+    // Default by disambiguator
     if (
       disambiguator &&
       this.globalAlarmDefaults.disambiguatorAction?.[disambiguator]
