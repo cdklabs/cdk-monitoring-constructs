@@ -19336,6 +19336,7 @@ const ec2NetworkLoadBalancerMonitoringProps: Ec2NetworkLoadBalancerMonitoringPro
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancerTargetType">networkLoadBalancerTargetType</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.TargetType</code> | Target type for the NetworkLoadBalancer. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -19424,6 +19425,22 @@ public readonly networkTargetGroup: INetworkTargetGroup;
 ```
 
 - *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
+
+---
+
+##### `networkLoadBalancerTargetType`<sup>Optional</sup> <a name="networkLoadBalancerTargetType" id="cdk-monitoring-constructs.Ec2NetworkLoadBalancerMonitoringProps.property.networkLoadBalancerTargetType"></a>
+
+```typescript
+public readonly networkLoadBalancerTargetType: TargetType;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.TargetType
+
+Target type for the NetworkLoadBalancer.
+
+Set explicitly to ensure that unnecessary widgets are not rendered.
+By default, we will provide task health metrics, which are not
+relevant to the {@link TargetType.ALB} targets.
 
 ---
 
@@ -22319,6 +22336,7 @@ const fargateNetworkLoadBalancerMonitoringProps: FargateNetworkLoadBalancerMonit
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancerTargetType">networkLoadBalancerTargetType</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.TargetType</code> | Target type for the NetworkLoadBalancer. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -22407,6 +22425,22 @@ public readonly networkTargetGroup: INetworkTargetGroup;
 ```
 
 - *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
+
+---
+
+##### `networkLoadBalancerTargetType`<sup>Optional</sup> <a name="networkLoadBalancerTargetType" id="cdk-monitoring-constructs.FargateNetworkLoadBalancerMonitoringProps.property.networkLoadBalancerTargetType"></a>
+
+```typescript
+public readonly networkLoadBalancerTargetType: TargetType;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.TargetType
+
+Target type for the NetworkLoadBalancer.
+
+Set explicitly to ensure that unnecessary widgets are not rendered.
+By default, we will provide task health metrics, which are not
+relevant to the {@link TargetType.ALB} targets.
 
 ---
 
@@ -41992,6 +42026,7 @@ const networkLoadBalancerMetricFactoryProps: NetworkLoadBalancerMetricFactoryPro
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancerTargetType">networkLoadBalancerTargetType</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.TargetType</code> | Target type for the NetworkLoadBalancer. |
 
 ---
 
@@ -42064,6 +42099,22 @@ public readonly networkTargetGroup: INetworkTargetGroup;
 
 ---
 
+##### `networkLoadBalancerTargetType`<sup>Optional</sup> <a name="networkLoadBalancerTargetType" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactoryProps.property.networkLoadBalancerTargetType"></a>
+
+```typescript
+public readonly networkLoadBalancerTargetType: TargetType;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.TargetType
+
+Target type for the NetworkLoadBalancer.
+
+Set explicitly to ensure that unnecessary widgets are not rendered.
+By default, we will provide task health metrics, which are not
+relevant to the {@link TargetType.ALB} targets.
+
+---
+
 ### NetworkLoadBalancerMonitoringProps <a name="NetworkLoadBalancerMonitoringProps" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.Initializer"></a>
@@ -42083,6 +42134,7 @@ const networkLoadBalancerMonitoringProps: NetworkLoadBalancerMonitoringProps = {
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancer">networkLoadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkTargetGroup">networkTargetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancerTargetType">networkLoadBalancerTargetType</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.TargetType</code> | Target type for the NetworkLoadBalancer. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
@@ -42163,6 +42215,22 @@ public readonly networkTargetGroup: INetworkTargetGroup;
 ```
 
 - *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroup
+
+---
+
+##### `networkLoadBalancerTargetType`<sup>Optional</sup> <a name="networkLoadBalancerTargetType" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoringProps.property.networkLoadBalancerTargetType"></a>
+
+```typescript
+public readonly networkLoadBalancerTargetType: TargetType;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.TargetType
+
+Target type for the NetworkLoadBalancer.
+
+Set explicitly to ensure that unnecessary widgets are not rendered.
+By default, we will provide task health metrics, which are not
+relevant to the {@link TargetType.ALB} targets.
 
 ---
 

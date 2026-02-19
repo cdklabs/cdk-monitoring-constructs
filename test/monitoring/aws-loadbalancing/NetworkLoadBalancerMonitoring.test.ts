@@ -4,6 +4,7 @@ import { Vpc } from "aws-cdk-lib/aws-ec2";
 import {
   NetworkLoadBalancer,
   NetworkTargetGroup,
+  TargetType,
 } from "aws-cdk-lib/aws-elasticloadbalancingv2";
 
 import {
@@ -69,6 +70,24 @@ test.each([createNlb, importNlb])(
     expect(Template.fromStack(stack)).toMatchSnapshot();
   },
 );
+
+test("snapshot nlb test: unsupported task health", () => {
+  let props = importNlb();
+  const networkLoadBalancer = props.networkLoadBalancer;
+  const networkTargetGroup = props.networkTargetGroup;
+  const stack = props.stack;
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+  const monitoring = new NetworkLoadBalancerMonitoring(scope, {
+    networkLoadBalancer,
+    networkTargetGroup,
+    alarmFriendlyName: "DummyNetworkLoadBalancer",
+    networkLoadBalancerTargetType: TargetType.ALB,
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
 
 test.each([createNlb, importNlb])(
   "snapshot nlb test: all alarms - %#",

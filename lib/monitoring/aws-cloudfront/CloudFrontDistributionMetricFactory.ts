@@ -66,7 +66,7 @@ export class CloudFrontDistributionMetricFactory extends BaseMetricFactory<Cloud
     return this.metricFactory.createMetric(
       "Requests",
       MetricStatistic.SUM,
-      "Uploaded",
+      "Requests",
       this.dimensionsMap,
       undefined,
       CloudFrontNamespace,

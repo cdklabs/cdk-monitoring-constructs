@@ -2142,11 +2142,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Uploaded/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/CloudFront\\",\\"Requests\\",\\"DistributionId\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/CloudFront\\",\\"Requests\\",\\"DistributionId\\",\\"",
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Uploaded\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2224,11 +2224,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Uploaded/s\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/CloudFront\\",\\"Requests\\",\\"DistributionId\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/CloudFront\\",\\"Requests\\",\\"DistributionId\\",\\"",
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Uploaded\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
