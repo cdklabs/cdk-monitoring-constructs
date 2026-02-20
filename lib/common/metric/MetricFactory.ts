@@ -97,8 +97,8 @@ export class MetricFactory {
    * @param label metric label (required, as there is no reasonable default)
    * @param color metric color; if undefined, uses a CloudWatch provided color (preferred)
    * @param period specify a custom period; if undefined, uses the global default
-   * @param region specify a custom region; if undefined, uses the global default
-   * @param account specify a custom account; if undefined, uses the global default
+   * @param region -- deprecated. only relevant in searches, please use createSearchMetric if doing cross region search
+   * @param account -- deprecated. only relevant in searches, please use createSearchMetric if doing cross region search
    */
   createMetricMath(
     expression: string,
@@ -109,16 +109,17 @@ export class MetricFactory {
     region?: string,
     account?: string,
   ): MetricWithAlarmSupport {
+    if (region || account) {
+      console.warn(
+        "Using region or account is deprecated in metric math. This will be removed in a future version",
+      );
+    }
     return new MathExpression({
       label,
       color,
       expression,
       usingMetrics,
       period: period ?? this.globalDefaults.period ?? DefaultMetricPeriod,
-      searchRegion: this.resolveRegion(region ?? this.globalDefaults.region),
-      searchAccount: this.resolveAccount(
-        account ?? this.globalDefaults.account,
-      ),
     });
   }
 
@@ -286,8 +287,6 @@ export class MetricFactory {
         label,
         metric.color,
         metric.period,
-        this.getRegion(metric),
-        this.getAccount(metric),
       );
     }
   }
@@ -321,8 +320,6 @@ export class MetricFactory {
         label,
         metric.color,
         metric.period,
-        this.getRegion(metric),
-        this.getAccount(metric),
       );
     }
   }
@@ -378,8 +375,6 @@ export class MetricFactory {
             avgLabel,
             avgMetric.color,
             avgMetric.period,
-            this.getRegion(avgMetric),
-            this.getAccount(avgMetric),
           );
         }
         return avgMetric;
@@ -399,8 +394,6 @@ export class MetricFactory {
           perSecondLabel,
           metric.color,
           metric.period,
-          this.getRegion(metric),
-          this.getAccount(metric),
         );
       case RateComputationMethod.PER_MINUTE:
         return this.createMetricMath(
@@ -409,8 +402,6 @@ export class MetricFactory {
           `${labelPrefix}/m${labelAppendix}`,
           metric.color,
           metric.period,
-          this.getRegion(metric),
-          this.getAccount(metric),
         );
       case RateComputationMethod.PER_HOUR:
         return this.createMetricMath(
@@ -419,8 +410,6 @@ export class MetricFactory {
           `${labelPrefix}/h${labelAppendix}`,
           metric.color,
           metric.period,
-          this.getRegion(metric),
-          this.getAccount(metric),
         );
       case RateComputationMethod.PER_DAY:
         return this.createMetricMath(
@@ -429,8 +418,6 @@ export class MetricFactory {
           `${labelPrefix}/d${labelAppendix}`,
           metric.color,
           metric.period,
-          this.getRegion(metric),
-          this.getAccount(metric),
         );
     }
   }
@@ -507,16 +494,6 @@ export class MetricFactory {
 
     return;
   }
-  private getAccount(metric: MetricWithAlarmSupport): string | undefined {
-    let metricAccount: string | undefined;
-    if (metric instanceof MathExpression) {
-      metricAccount = metric.searchAccount;
-    } else {
-      metricAccount = metric.account;
-    }
-
-    return this.resolveAccount(metricAccount);
-  }
 
   /**
    * Attempts to get the region from the metric if it differs from the scope.
@@ -532,15 +509,5 @@ export class MetricFactory {
     }
 
     return;
-  }
-  private getRegion(metric: MetricWithAlarmSupport): string | undefined {
-    let metricRegion: string | undefined;
-    if (metric instanceof MathExpression) {
-      metricRegion = metric.searchRegion;
-    } else {
-      metricRegion = metric.region;
-    }
-
-    return this.resolveRegion(metricRegion);
   }
 }

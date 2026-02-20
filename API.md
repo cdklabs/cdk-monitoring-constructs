@@ -77006,7 +77006,7 @@ if undefined, uses the global default
 ##### `createMetricMath` <a name="createMetricMath" id="cdk-monitoring-constructs.MetricFactory.createMetricMath"></a>
 
 ```typescript
-public createMetricMath(expression: string, usingMetrics: {[ key: string ]: IMetric}, label: string, color?: string, period?: Duration, region?: string, account?: string): Metric | MathExpression
+public createMetricMath(expression: string, usingMetrics: {[ key: string ]: IMetric}, label: string, color?: string, period?: Duration): Metric | MathExpression
 ```
 
 Factory method that creates a metric math expression.
@@ -77052,26 +77052,6 @@ if undefined, uses a CloudWatch provided color (preferred)
 - *Type:* aws-cdk-lib.Duration
 
 specify a custom period;
-
-if undefined, uses the global default
-
----
-
-###### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.MetricFactory.createMetricMath.parameter.region"></a>
-
-- *Type:* string
-
-specify a custom region;
-
-if undefined, uses the global default
-
----
-
-###### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.MetricFactory.createMetricMath.parameter.account"></a>
-
-- *Type:* string
-
-specify a custom account;
 
 if undefined, uses the global default
 

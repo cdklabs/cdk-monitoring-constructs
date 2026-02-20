@@ -67,7 +67,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -134,7 +134,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"us-east-1\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -484,7 +484,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-west-2\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -547,7 +547,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\",\\"region\\":\\"us-west-2\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Blocked (rate)\\",\\"expression\\":\\"100 * (blocked / (allowed + blocked))\\"}],[\\"AWS/WAFV2\\",\\"AllowedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Allowed\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Rule\\",\\"ALL\\",\\"WebACL\\",\\"DummyAclName\\",{\\"label\\":\\"Blocked\\",\\"region\\":\\"us-west-2\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

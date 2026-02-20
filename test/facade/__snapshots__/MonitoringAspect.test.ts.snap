@@ -2142,7 +2142,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/CloudFront\\",\\"Requests\\",\\"DistributionId\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/CloudFront\\",\\"Requests\\",\\"DistributionId\\",\\"",
               Object {
                 "Ref": "Distribution830FAC52",
               },
@@ -2224,7 +2224,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\",\\"region\\":\\"us-east-1\\"}],[\\"AWS/CloudFront\\",\\"Requests\\",\\"DistributionId\\",\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/CloudFront\\",\\"Requests\\",\\"DistributionId\\",\\"",
               Object {
                 "Ref": "Distribution830FAC52",
               },
