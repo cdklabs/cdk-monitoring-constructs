@@ -127,10 +127,6 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
         numberOfFailedCheckpoints: this.metricNumberOfFailedCheckpointsCount(),
       },
       "Checkpoint Failure Rate",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 
@@ -143,10 +139,6 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
         fullRestarts: this.metricFullRestartsCount(),
       },
       "Full Restart Rate",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 

@@ -200,10 +200,6 @@ export class ElastiCacheServerlessMetricFactory extends BaseMetricFactory<Elasti
         total: this.metricTotalCmds(),
       },
       "Throttle Rate",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 
