@@ -477,7 +477,7 @@ Object {
         "label": "minutes",
       },
     },
-    "searchAccount": "123456789",
+    "searchAccount": undefined,
     "searchRegion": undefined,
     "usingMetrics": Object {},
     "warnings": Array [
@@ -577,8 +577,8 @@ Object {
         "label": "minutes",
       },
     },
-    "searchAccount": "123456789",
-    "searchRegion": "us-west-2",
+    "searchAccount": undefined,
+    "searchRegion": undefined,
     "usingMetrics": Object {},
     "warnings": Array [
       "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
@@ -878,7 +878,7 @@ Object {
       },
     },
     "searchAccount": undefined,
-    "searchRegion": "us-west-2",
+    "searchRegion": undefined,
     "usingMetrics": Object {},
     "warnings": Array [
       "Math expression 'DummyExpression' references unknown identifiers: ummyExpression. Please add them to the 'usingMetrics' map.",
@@ -965,8 +965,8 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": "01234567890",
-  "searchRegion": "eu-west-1",
+  "searchAccount": undefined,
+  "searchRegion": undefined,
   "usingMetrics": Object {
     "m1": Metric {
       "account": "01234567890",
@@ -1005,8 +1005,8 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": "01234567890",
-  "searchRegion": "eu-west-1",
+  "searchAccount": undefined,
+  "searchRegion": undefined,
   "usingMetrics": Object {
     "m1": Metric {
       "account": "01234567890",
@@ -1045,8 +1045,8 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": "01234567890",
-  "searchRegion": "eu-west-1",
+  "searchAccount": undefined,
+  "searchRegion": undefined,
   "usingMetrics": Object {
     "m1": Metric {
       "account": "01234567890",
@@ -1085,8 +1085,8 @@ MathExpression {
       "label": "minutes",
     },
   },
-  "searchAccount": "01234567890",
-  "searchRegion": "eu-west-1",
+  "searchAccount": undefined,
+  "searchRegion": undefined,
   "usingMetrics": Object {
     "m1": Metric {
       "account": "01234567890",

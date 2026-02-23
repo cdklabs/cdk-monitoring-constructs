@@ -604,6 +604,363 @@ Object {
 }
 `;
 
+exports[`snapshot test: cross account 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyQueueQueueTimeToDrainMaxWarningD9560D70",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Queue4A7E3555": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "QueueName": "DummyQueue",
+      },
+      "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
+              Object {
+                "Ref": "Queue4A7E3555",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/SQS\\",\\"ApproximateNumberOfMessagesVisible\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Visible\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Oldest Message Age\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/SQS\\",\\"ApproximateAgeOfOldestMessage\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Age\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Size\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/SQS\\",\\"SentMessageSize\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Size\\",\\"accountId\\":\\"different-account\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Producer vs Consumer (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Production TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(productionVolume / PERIOD(productionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Deleted\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Time to Drain (seconds) (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"ApproximateNumberOfMessagesVisible\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Visible\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Deleted\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyQueueQueueTimeToDrainMaxWarningD9560D70": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "Time to drain messages in the queue is too high.",
+        "AlarmName": "Test-DummyQueue-Queue-TimeToDrain-Max-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))",
+            "Id": "expr_1",
+            "Label": "Time to Drain (seconds)",
+          },
+          Object {
+            "AccountId": "different-account",
+            "Id": "visibleMessages",
+            "Label": "Visible",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "ApproximateNumberOfMessagesVisible",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "AccountId": "different-account",
+            "Id": "incomingVolume",
+            "Label": "Incoming",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfMessagesSent",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "AccountId": "different-account",
+            "Id": "consumptionVolume",
+            "Label": "Deleted",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "QueueName",
+                    "Value": Object {
+                      "Fn::GetAtt": Array [
+                        "Queue4A7E3555",
+                        "QueueName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "NumberOfMessagesDeleted",
+                "Namespace": "AWS/SQS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 21600,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### SQS Queue **[DummyQueue](https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/",
+              Object {
+                "Ref": "Queue4A7E3555",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Producer vs Consumer (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Production TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(productionVolume / PERIOD(productionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Deleted\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Time to Drain (seconds) (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"ApproximateNumberOfMessagesVisible\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Visible\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Deleted\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/SQS\\",\\"ApproximateNumberOfMessagesVisible\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Visible\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Oldest Message Age\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/SQS\\",\\"ApproximateAgeOfOldestMessage\\",\\"QueueName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "Queue4A7E3555",
+                  "QueueName",
+                ],
+              },
+              "\\",{\\"label\\":\\"Age\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`snapshot test: no alarms 1`] = `
 Object {
   "Parameters": Object {
