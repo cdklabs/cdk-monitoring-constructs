@@ -77857,10 +77857,13 @@ new NetworkLoadBalancerMetricFactory(metricFactory: MetricFactory, props: Networ
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricActiveConnectionCount">metricActiveConnectionCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricClientResetCount">metricClientResetCount</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricElbResetCount">metricElbResetCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricHealthyTaskCount">metricHealthyTaskCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricHealthyTaskInPercent">metricHealthyTaskInPercent</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricNewConnectionCount">metricNewConnectionCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricProcessedBytesMin">metricProcessedBytesMin</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricTargetResetCount">metricTargetResetCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricUnhealthyRoutingCount">metricUnhealthyRoutingCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricUnhealthyTaskCount">metricUnhealthyTaskCount</a></code> | *No description.* |
 
@@ -77870,6 +77873,18 @@ new NetworkLoadBalancerMetricFactory(metricFactory: MetricFactory, props: Networ
 
 ```typescript
 public metricActiveConnectionCount(): Metric | MathExpression
+```
+
+##### `metricClientResetCount` <a name="metricClientResetCount" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricClientResetCount"></a>
+
+```typescript
+public metricClientResetCount(): Metric | MathExpression
+```
+
+##### `metricElbResetCount` <a name="metricElbResetCount" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricElbResetCount"></a>
+
+```typescript
+public metricElbResetCount(): Metric | MathExpression
 ```
 
 ##### `metricHealthyTaskCount` <a name="metricHealthyTaskCount" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricHealthyTaskCount"></a>
@@ -77894,6 +77909,12 @@ public metricNewConnectionCount(): Metric | MathExpression
 
 ```typescript
 public metricProcessedBytesMin(): Metric | MathExpression
+```
+
+##### `metricTargetResetCount` <a name="metricTargetResetCount" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricTargetResetCount"></a>
+
+```typescript
+public metricTargetResetCount(): Metric | MathExpression
 ```
 
 ##### `metricUnhealthyRoutingCount` <a name="metricUnhealthyRoutingCount" id="cdk-monitoring-constructs.NetworkLoadBalancerMetricFactory.metricUnhealthyRoutingCount"></a>
