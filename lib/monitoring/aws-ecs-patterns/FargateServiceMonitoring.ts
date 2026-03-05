@@ -25,6 +25,7 @@ import {
   HealthyTaskCountThreshold,
   HealthyTaskPercentThreshold,
   MetricFactory,
+  MetricStatistic,
   MetricWithAlarmSupport,
   MinProcessedBytesThreshold,
   Monitoring,
@@ -40,6 +41,7 @@ import {
   UnhealthyTaskCountThreshold,
   UsageAlarmFactory,
   UsageThreshold,
+  UsageType,
 } from "../../common";
 import {
   MonitoringHeaderWidget,
@@ -63,6 +65,8 @@ export interface BaseFargateServiceAlarms {
   readonly maxAutoScalingTaskCount?: number;
   readonly addCpuUsageAlarm?: Record<string, UsageThreshold>;
   readonly addMemoryUsageAlarm?: Record<string, UsageThreshold>;
+  readonly addCpuP100UsageAlarm?: Record<string, UsageThreshold>;
+  readonly addMemoryP100UsageAlarm?: Record<string, UsageThreshold>;
 
   /**
    * Container Insights needs to be enabled for the cluster for this alarm.
@@ -176,7 +180,9 @@ export class FargateServiceMonitoring extends Monitoring {
   readonly unhealthyTaskCountMetric?: MetricWithAlarmSupport;
   readonly healthyTaskPercentMetric?: MetricWithAlarmSupport;
   readonly cpuUtilisationMetric: MetricWithAlarmSupport;
+  readonly cpuP100UtilisationMetric: MetricWithAlarmSupport;
   readonly memoryUtilisationMetric: MetricWithAlarmSupport;
+  readonly memoryP100UtilisationMetric: MetricWithAlarmSupport;
   readonly runningTaskCountMetric: MetricWithAlarmSupport;
   readonly ephemeralStorageUsageMetric: MetricWithAlarmSupport;
   readonly activeTcpFlowCountMetric?: MetricWithAlarmSupport;
@@ -230,8 +236,16 @@ export class FargateServiceMonitoring extends Monitoring {
     }
     this.cpuUtilisationMetric =
       this.baseServiceMetricFactory.metricClusterCpuUtilisationInPercent();
+    this.cpuP100UtilisationMetric =
+      this.baseServiceMetricFactory.metricClusterCpuUtilisationInPercent(
+        MetricStatistic.P100,
+      );
     this.memoryUtilisationMetric =
       this.baseServiceMetricFactory.metricClusterMemoryUtilisationInPercent();
+    this.memoryP100UtilisationMetric =
+      this.baseServiceMetricFactory.metricClusterMemoryUtilisationInPercent(
+        MetricStatistic.P100,
+      );
     this.runningTaskCountMetric =
       this.baseServiceMetricFactory.metricRunningTaskCount();
     this.ephemeralStorageUsageMetric =
@@ -313,11 +327,33 @@ export class FargateServiceMonitoring extends Monitoring {
       this.cpuUsageAnnotations.push(createdAlarm.annotation);
       this.addAlarm(createdAlarm);
     }
+    for (const disambiguator in props.addCpuP100UsageAlarm) {
+      const alarmProps = props.addCpuP100UsageAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMaxCpuUsagePercentAlarm(
+        this.cpuP100UtilisationMetric,
+        alarmProps,
+        disambiguator,
+        UsageType.P100,
+      );
+      this.cpuUsageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
     for (const disambiguator in props.addMemoryUsageAlarm) {
       const alarmProps = props.addMemoryUsageAlarm[disambiguator];
       const createdAlarm = this.usageAlarmFactory.addMaxMemoryUsagePercentAlarm(
         this.memoryUtilisationMetric,
         alarmProps,
+        disambiguator,
+      );
+      this.memoryUsageAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+    for (const disambiguator in props.addMemoryP100UsageAlarm) {
+      const alarmProps = props.addMemoryP100UsageAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMemoryUsagePercentAlarm(
+        this.memoryP100UtilisationMetric,
+        alarmProps,
+        UsageType.P100,
         disambiguator,
       );
       this.memoryUsageAnnotations.push(createdAlarm.annotation);
@@ -408,7 +444,7 @@ export class FargateServiceMonitoring extends Monitoring {
       width,
       height,
       title: "CPU Utilization",
-      left: [this.cpuUtilisationMetric],
+      left: [this.cpuUtilisationMetric, this.cpuP100UtilisationMetric],
       leftYAxis: PercentageAxisFromZeroToHundred,
       leftAnnotations: this.cpuUsageAnnotations,
     });
@@ -419,7 +455,7 @@ export class FargateServiceMonitoring extends Monitoring {
       width,
       height,
       title: "Memory Utilization",
-      left: [this.memoryUtilisationMetric],
+      left: [this.memoryUtilisationMetric, this.memoryP100UtilisationMetric],
       leftYAxis: PercentageAxisFromZeroToHundred,
       leftAnnotations: this.memoryUsageAnnotations,
     });
