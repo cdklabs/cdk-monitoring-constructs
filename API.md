@@ -70651,7 +70651,7 @@ new ErrorAlarmFactory(alarmFactory: AlarmFactory)
 ##### `addErrorCountAlarm` <a name="addErrorCountAlarm" id="cdk-monitoring-constructs.ErrorAlarmFactory.addErrorCountAlarm"></a>
 
 ```typescript
-public addErrorCountAlarm(metric: Metric | MathExpression, errorType: ErrorType, props: ErrorCountThreshold, disambiguator?: string): AlarmWithAnnotation
+public addErrorCountAlarm(metric: Metric | MathExpression, errorType: string, props: ErrorCountThreshold, disambiguator?: string): AlarmWithAnnotation
 ```
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ErrorAlarmFactory.addErrorCountAlarm.parameter.metric"></a>
@@ -70662,7 +70662,7 @@ public addErrorCountAlarm(metric: Metric | MathExpression, errorType: ErrorType,
 
 ###### `errorType`<sup>Required</sup> <a name="errorType" id="cdk-monitoring-constructs.ErrorAlarmFactory.addErrorCountAlarm.parameter.errorType"></a>
 
-- *Type:* <a href="#cdk-monitoring-constructs.ErrorType">ErrorType</a>
+- *Type:* string
 
 ---
 
@@ -70681,7 +70681,7 @@ public addErrorCountAlarm(metric: Metric | MathExpression, errorType: ErrorType,
 ##### `addErrorRateAlarm` <a name="addErrorRateAlarm" id="cdk-monitoring-constructs.ErrorAlarmFactory.addErrorRateAlarm"></a>
 
 ```typescript
-public addErrorRateAlarm(metric: Metric | MathExpression, errorType: ErrorType, props: ErrorRateThreshold, disambiguator?: string): AlarmWithAnnotation
+public addErrorRateAlarm(metric: Metric | MathExpression, errorType: string, props: ErrorRateThreshold, disambiguator?: string): AlarmWithAnnotation
 ```
 
 ###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ErrorAlarmFactory.addErrorRateAlarm.parameter.metric"></a>
@@ -70692,7 +70692,7 @@ public addErrorRateAlarm(metric: Metric | MathExpression, errorType: ErrorType, 
 
 ###### `errorType`<sup>Required</sup> <a name="errorType" id="cdk-monitoring-constructs.ErrorAlarmFactory.addErrorRateAlarm.parameter.errorType"></a>
 
-- *Type:* <a href="#cdk-monitoring-constructs.ErrorType">ErrorType</a>
+- *Type:* string
 
 ---
 
