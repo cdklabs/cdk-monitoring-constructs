@@ -39,7 +39,7 @@ export class ErrorAlarmFactory {
 
   addErrorCountAlarm(
     metric: MetricWithAlarmSupport,
-    errorType: ErrorType,
+    errorType: ErrorType | string,
     props: ErrorCountThreshold,
     disambiguator?: string,
   ) {
@@ -65,7 +65,7 @@ export class ErrorAlarmFactory {
 
   addErrorRateAlarm(
     metric: MetricWithAlarmSupport,
-    errorType: ErrorType,
+    errorType: ErrorType | string,
     props: ErrorRateThreshold,
     disambiguator?: string,
   ) {
