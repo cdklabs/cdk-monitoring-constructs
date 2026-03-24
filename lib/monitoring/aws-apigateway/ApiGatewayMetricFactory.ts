@@ -57,7 +57,7 @@ export class ApiGatewayMetricFactory extends BaseMetricFactory<ApiGatewayMetricF
       props.rateComputationMethod ?? RateComputationMethod.AVERAGE;
     this.dimensionsMap = {
       ApiName: props.api.restApiName,
-      Stage: props.apiStage ?? "prod",
+      Stage: props.apiStage ?? props.api.deploymentStage?.stageName ?? "prod",
       ...(props.apiMethod && { Method: props.apiMethod }),
       ...(props.apiResource && { Resource: props.apiResource }),
     };
