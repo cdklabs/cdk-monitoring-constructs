@@ -1,4 +1,4 @@
-import { IAspect, Stack } from "aws-cdk-lib";
+import { IAspect, Stack, Arn, ArnFormat } from "aws-cdk-lib";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
 import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2";
 import * as appsync from "aws-cdk-lib/aws-appsync";
@@ -61,6 +61,7 @@ export class MonitoringAspect implements IAspect {
     this.monitorGlue(node);
     this.monitorKinesisAnalytics(node);
     this.monitorKinesisDataStream(node);
+    this.monitorKinesisDataStreamConsumer(node);
     this.monitorKinesisFirehose(node);
     this.monitorLambda(node);
     this.monitorOpenSearch(node);
@@ -268,6 +269,24 @@ export class MonitoringAspect implements IAspect {
     if (isEnabled && node instanceof kinesis.CfnStream) {
       this.monitoringFacade.monitorKinesisDataStream({
         streamName: node.name!,
+        alarmFriendlyName: node.node.path,
+        ...props,
+      });
+    }
+  }
+
+  private monitorKinesisDataStreamConsumer(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.kinesisDataStreamConsumer,
+    );
+    if (isEnabled && node instanceof kinesis.CfnStreamConsumer) {
+      const streamName = Arn.split(
+        node.streamArn,
+        ArnFormat.SLASH_RESOURCE_NAME,
+      ).resourceName!;
+      this.monitoringFacade.monitorKinesisDataStreamConsumer({
+        streamName,
+        consumerName: node.consumerName,
         alarmFriendlyName: node.node.path,
         ...props,
       });

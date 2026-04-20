@@ -5095,6 +5095,137 @@ Object {
 }
 `;
 
+exports[`MonitoringAspect Kinesis DataStreamConsumer 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "DashboardFactoryAlarmDashboard6286FAD3": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[]}",
+        "DashboardName": "DummyDashboard-Alarms",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardFactoryDashboard3E20AD6E": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-PT8H\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Stream Consumer **[my-kinesis-data-stream-my-consumer](https://",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ".console.aws.amazon.com/kinesis/home?region=",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "#/streams/details/my-kinesis-data-stream/monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator (Consumer)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"SubscribeToShardEvent.MillisBehindLatest\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Millis Behind Latest\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Subscribe Success\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"SubscribeToShard.Success\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Subscribe Success\\"}],[\\"AWS/Kinesis\\",\\"SubscribeToShardEvent.Success\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Event Success\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":1,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rate Exceeded\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"SubscribeToShard.RateExceeded\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Rate Exceeded\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":1,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Records\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"SubscribeToShardEvent.Records\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Records\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Bytes\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"SubscribeToShardEvent.Bytes\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Bytes\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "DummyDashboard",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DashboardFactorySummaryDashboard5F4BC8C5": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"start\\":\\"-P14D\\",\\"periodOverride\\":\\"inherit\\",\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### Kinesis Data Stream Consumer **[my-kinesis-data-stream-my-consumer](https://",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ".console.aws.amazon.com/kinesis/home?region=",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "#/streams/details/my-kinesis-data-stream/monitoring)**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator (Consumer)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"SubscribeToShardEvent.MillisBehindLatest\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Millis Behind Latest\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Subscribe Success\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"SubscribeToShard.Success\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Subscribe Success\\"}],[\\"AWS/Kinesis\\",\\"SubscribeToShardEvent.Success\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Event Success\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":1,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rate Exceeded\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Kinesis\\",\\"SubscribeToShard.RateExceeded\\",\\"ConsumerName\\",\\"my-consumer\\",\\"StreamName\\",\\"my-kinesis-data-stream\\",{\\"label\\":\\"Rate Exceeded\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":1,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+        "DashboardName": "DummyDashboard-Summary",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DummyStreamConsumer": Object {
+      "Properties": Object {
+        "ConsumerName": "my-consumer",
+        "StreamARN": "arn:aws:kinesis:us-east-1:123456789012:stream/my-kinesis-data-stream",
+      },
+      "Type": "AWS::Kinesis::StreamConsumer",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`MonitoringAspect Kinesis Firehose 1`] = `
 Object {
   "Parameters": Object {
