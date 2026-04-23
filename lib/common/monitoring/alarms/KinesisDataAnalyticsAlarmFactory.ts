@@ -20,6 +20,11 @@ export interface FullRestartCountThreshold extends CustomAlarmThreshold {
   readonly maxFullRestartCount: number;
 }
 
+export interface MaxBackPressuredTimeMsPerSecondThreshold
+  extends CustomAlarmThreshold {
+  readonly maxBackPressuredTimeMsPerSecond: number;
+}
+
 export class KinesisDataAnalyticsAlarmFactory {
   protected readonly alarmFactory: AlarmFactory;
   protected readonly errorAlarmFactory: ErrorAlarmFactory;
@@ -87,6 +92,26 @@ export class KinesisDataAnalyticsAlarmFactory {
       alarmNameSuffix: "FullRestartRate",
       alarmDescription: "Full restart rate is too high",
       alarmDedupeStringSuffix: "KDAFullRestartRateAlarm",
+    });
+  }
+
+  addBackPressuredTimeMsPerSecondAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MaxBackPressuredTimeMsPerSecondThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxBackPressuredTimeMsPerSecond,
+      alarmNameSuffix: "BackPressuredTime",
+      alarmDescription: "Application back pressure has exceeded thresholds",
+      alarmDedupeStringSuffix: "KDABackPressuredTimeAlarm",
     });
   }
 

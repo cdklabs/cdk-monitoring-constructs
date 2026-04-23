@@ -52,6 +52,11 @@ test("snapshot test: all alarms", () => {
         maxErrorRate: 0.1,
       },
     },
+    addBackPressuredTimeMsPerSecondAlarm: {
+      Warning: {
+        maxBackPressuredTimeMsPerSecond: 500,
+      },
+    },
     useCreatedAlarms: {
       consume(alarms) {
         numAlarmsCreated = alarms.length;
@@ -60,6 +65,6 @@ test("snapshot test: all alarms", () => {
   });
 
   addMonitoringDashboardsToStack(stack, monitoring);
-  expect(numAlarmsCreated).toStrictEqual(5);
+  expect(numAlarmsCreated).toStrictEqual(6);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
