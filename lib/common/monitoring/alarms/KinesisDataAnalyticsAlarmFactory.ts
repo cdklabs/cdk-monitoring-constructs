@@ -25,8 +25,6 @@ export interface MaxBackPressuredTimeMsPerSecondThreshold
   readonly maxBackPressuredTimeMsPerSecond: number;
 }
 
-// Using standard ErrorCountThreshold and ErrorRateThreshold from ErrorAlarmFactory
-
 export class KinesisDataAnalyticsAlarmFactory {
   protected readonly alarmFactory: AlarmFactory;
   protected readonly errorAlarmFactory: ErrorAlarmFactory;
@@ -112,7 +110,7 @@ export class KinesisDataAnalyticsAlarmFactory {
       disambiguator,
       threshold: props.maxBackPressuredTimeMsPerSecond,
       alarmNameSuffix: "BackPressuredTime",
-      alarmDescription: "Application is spending too much time back pressured",
+      alarmDescription: "Application back pressure has exceeded thresholds",
       alarmDedupeStringSuffix: "KDABackPressuredTimeAlarm",
     });
   }

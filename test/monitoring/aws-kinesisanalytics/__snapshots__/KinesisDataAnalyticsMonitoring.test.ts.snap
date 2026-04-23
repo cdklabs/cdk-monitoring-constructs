@@ -141,7 +141,7 @@ Object {
     "ScopeTestDummyApplicationBackPressuredTimeWarningBD0B832B": Object {
       "Properties": Object {
         "ActionsEnabled": true,
-        "AlarmDescription": "Application is spending too much time back pressured",
+        "AlarmDescription": "Application back pressure has exceeded thresholds",
         "AlarmName": "Test-DummyApplication-BackPressuredTime-Warning",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
