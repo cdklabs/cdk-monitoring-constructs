@@ -12,6 +12,9 @@ import {
   DynamoTableMonitoringOptions,
   EC2MonitoringOptions,
   ElastiCacheClusterMonitoringOptions,
+  BaseFargateServiceMonitoringProps,
+  BaseLoadBalancedFargateServiceMonitoringProps,
+  BaseQueueProcessingFargateServiceMonitoringOptions,
   GlueJobMonitoringOptions,
   KinesisDataAnalyticsMonitoringOptions,
   KinesisDataStreamMonitoringOptions,
@@ -99,6 +102,20 @@ export interface ElastiCacheAspectType extends BaseMonitoringAspectType {
   readonly props?: ElastiCacheClusterMonitoringOptions;
 }
 
+export interface FargateServiceAspectType extends BaseMonitoringAspectType {
+  readonly props?: BaseFargateServiceMonitoringProps;
+}
+
+export interface LoadBalancedFargateServiceAspectType
+  extends BaseMonitoringAspectType {
+  readonly props?: BaseLoadBalancedFargateServiceMonitoringProps;
+}
+
+export interface QueueProcessingFargateServiceAspectType
+  extends BaseMonitoringAspectType {
+  readonly props?: BaseQueueProcessingFargateServiceMonitoringOptions;
+}
+
 export interface GlueJobAspectType extends BaseMonitoringAspectType {
   readonly props?: GlueJobMonitoringOptions;
 }
@@ -179,6 +196,9 @@ export interface MonitoringAspectProps {
   readonly dynamoDB?: DynamoTableAspectType;
   readonly ec2?: EC2AspectType;
   readonly elasticCache?: ElastiCacheAspectType;
+  readonly fargateService?: FargateServiceAspectType;
+  readonly fargateLoadBalancedService?: LoadBalancedFargateServiceAspectType;
+  readonly queueProcessingFargateService?: QueueProcessingFargateServiceAspectType;
   readonly glue?: GlueJobAspectType;
   readonly kinesisDataAnalytics?: KinesisDataAnalyticsAspectType;
   readonly kinesisDataStream?: KinesisDataStreamAspectType;
