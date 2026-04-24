@@ -268,7 +268,7 @@
       "description": "Prepare a release from \"main\" branch",
       "env": {
         "RELEASE": "true",
-        "MAJOR": "9"
+        "MAJOR": "10"
       },
       "steps": [
         {

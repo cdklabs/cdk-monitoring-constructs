@@ -13,7 +13,7 @@ const project = new cdklabs.CdklabsConstructLibrary({
   keywords: ["cloudwatch", "monitoring"],
 
   defaultReleaseBranch: "main",
-  majorVersion: 9,
+  majorVersion: 10,
   stability: "experimental",
   setNodeEngineVersion: false,
 
