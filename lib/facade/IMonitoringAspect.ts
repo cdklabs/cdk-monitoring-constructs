@@ -17,6 +17,7 @@ import {
   BaseQueueProcessingFargateServiceMonitoringOptions,
   GlueJobMonitoringOptions,
   KinesisDataAnalyticsMonitoringOptions,
+  KinesisDataStreamConsumerMonitoringOptions,
   KinesisDataStreamMonitoringOptions,
   KinesisFirehoseMonitoringOptions,
   LambdaFunctionMonitoringOptions,
@@ -129,6 +130,11 @@ export interface KinesisDataStreamAspectType extends BaseMonitoringAspectType {
   readonly props?: KinesisDataStreamMonitoringOptions;
 }
 
+export interface KinesisDataStreamConsumerAspectType
+  extends BaseMonitoringAspectType {
+  readonly props?: KinesisDataStreamConsumerMonitoringOptions;
+}
+
 export interface KinesisFirehoseAspectType extends BaseMonitoringAspectType {
   readonly props?: KinesisFirehoseMonitoringOptions;
 }
@@ -202,6 +208,7 @@ export interface MonitoringAspectProps {
   readonly glue?: GlueJobAspectType;
   readonly kinesisDataAnalytics?: KinesisDataAnalyticsAspectType;
   readonly kinesisDataStream?: KinesisDataStreamAspectType;
+  readonly kinesisDataStreamConsumer?: KinesisDataStreamConsumerAspectType;
   readonly kinesisFirehose?: KinesisFirehoseAspectType;
   readonly lambda?: LambdaFunctionAspectType;
   readonly openSearch?: OpenSearchClusterAspectType;
