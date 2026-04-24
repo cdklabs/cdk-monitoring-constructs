@@ -8,6 +8,8 @@ import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import * as codebuild from "aws-cdk-lib/aws-codebuild";
 import * as docdb from "aws-cdk-lib/aws-docdb";
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
+import * as ecs from "aws-cdk-lib/aws-ecs";
+import * as ecsPatterns from "aws-cdk-lib/aws-ecs-patterns";
 import * as elasticsearch from "aws-cdk-lib/aws-elasticsearch";
 import * as glue from "aws-cdk-lib/aws-glue";
 import * as kinesis from "aws-cdk-lib/aws-kinesis";
@@ -58,6 +60,9 @@ export class MonitoringAspect implements IAspect {
     this.monitorCodeBuild(node);
     this.monitorDocumentDb(node);
     this.monitorDynamoDb(node);
+    this.monitorFargateService(node);
+    this.monitorFargateLoadBalancedService(node);
+    this.monitorQueueProcessingFargateService(node);
     this.monitorGlue(node);
     this.monitorKinesisAnalytics(node);
     this.monitorKinesisDataStream(node);
@@ -237,6 +242,76 @@ export class MonitoringAspect implements IAspect {
         ...props,
       });
     }
+  }
+
+  private monitorFargateService(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.fargateService,
+    );
+    if (
+      isEnabled &&
+      node instanceof ecs.FargateService &&
+      !this.isInsideFargatePattern(node)
+    ) {
+      this.monitoringFacade.monitorSimpleFargateService({
+        fargateService: node,
+        ...props,
+      });
+    }
+  }
+
+  private monitorFargateLoadBalancedService(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.fargateLoadBalancedService,
+    );
+    if (
+      isEnabled &&
+      (node instanceof ecsPatterns.ApplicationLoadBalancedFargateService ||
+        node instanceof ecsPatterns.NetworkLoadBalancedFargateService)
+    ) {
+      this.monitoringFacade.monitorFargateService({
+        fargateService: node,
+        ...props,
+      });
+    }
+  }
+
+  private monitorQueueProcessingFargateService(node: IConstruct) {
+    const [isEnabled, props] = this.getMonitoringDetails(
+      this.props.queueProcessingFargateService,
+    );
+    if (
+      isEnabled &&
+      node instanceof ecsPatterns.QueueProcessingFargateService
+    ) {
+      this.monitoringFacade.monitorQueueProcessingFargateService({
+        fargateService: node,
+        ...props,
+      });
+    }
+  }
+
+  /**
+   * Returns true if the FargateService is owned by an L3 ecs-patterns
+   * construct (ApplicationLoadBalancedFargateService,
+   * NetworkLoadBalancedFargateService, QueueProcessingFargateService).
+   * The L3 pattern has its own aspect hook, so monitoring the inner
+   * service separately would duplicate alarms.
+   */
+  private isInsideFargatePattern(service: ecs.FargateService): boolean {
+    const MAX_ANCESTOR_DEPTH = 3;
+    let current: IConstruct | undefined = service.node.scope;
+    for (let i = 0; i < MAX_ANCESTOR_DEPTH && current; i++) {
+      if (
+        current instanceof ecsPatterns.ApplicationLoadBalancedFargateService ||
+        current instanceof ecsPatterns.NetworkLoadBalancedFargateService ||
+        current instanceof ecsPatterns.QueueProcessingFargateService
+      ) {
+        return true;
+      }
+      current = current.node.scope;
+    }
+    return false;
   }
 
   private monitorGlue(node: IConstruct) {
