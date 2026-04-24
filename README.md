@@ -112,7 +112,7 @@ _Important note_: **Please, do NOT import anything from the `/dist/lib` package.
 
 For examples of monitoring different resources, refer to [the unit tests](https://github.com/cdklabs/cdk-monitoring-constructs/tree/main/test/monitoring).
 
-```ts
+```ts nofixture
 export interface MonitoringStackProps extends DeploymentStackProps {
   // ...
 }
@@ -147,7 +147,7 @@ Alarms should have actions set up, otherwise they are not very useful.
 
 Example of notifying an SNS topic:
 
-```ts
+```ts nofixture
 declare const onAlarmTopic: ITopic;
 
 const monitoring = new MonitoringFacade(this, "Monitoring", {
@@ -161,7 +161,7 @@ const monitoring = new MonitoringFacade(this, "Monitoring", {
 
 You can override the default topic for any alarm like this:
 
-```ts
+```ts nofixture
 monitoring
   .monitorSomething(something, {
     addSomeAlarm: {
@@ -178,7 +178,7 @@ Supported actions can be found [here](https://github.com/cdklabs/cdk-monitoring-
 
 You can also compose multiple actions using `multipleActions`:
 
-```ts
+```ts nofixture
 declare const onAlarmTopic: ITopic;
 declare const onAlarmFunction: IFunction;
 
@@ -198,12 +198,12 @@ Below we are listing a couple of examples. Let us assume that there are three ex
 They can either be created by hand (`new Metric({...})`) or (preferably) by using `metricFactory` (that can be obtained from facade).
 The advantage of using the shared `metricFactory` is that you do not need to worry about period, etc.
 
-```ts
+```ts nofixture
 // create metrics manually
 const m1 = new Metric(/* ... */);
 ```
 
-```ts
+```ts nofixture
 const metricFactory = monitoringFacade.createMetricFactory();
 
 // create metrics using metric factory
@@ -260,8 +260,8 @@ monitorCustom({
       dimensionsMap: {
         FirstDimension: "FirstDimensionValue",
         // Allow any value for the given dimension (pardon the weird typing to satisfy DimensionsMap)
-        SecondDimension: undefined as unknown as string
-      }
+        SecondDimension: undefined as unknown as string,
+      },
       statistic: MetricStatistic.SUM,
     }
   ]
@@ -290,7 +290,7 @@ monitoring
 This will ensure the alarm can be used on a Route53 Health Check or otherwise throw an `Error` indicating why the alarm can't be used.
 In order to easily find your Route53 Health Check alarms later on, you can apply a custom tag to them as follows:
 
-```ts
+```ts nofixture
 import { CfnHealthCheck } from "aws-cdk-lib/aws-route53";
 
 monitoring
@@ -342,7 +342,7 @@ While the dashboard widgets defined in the library are meant to cover most use c
 To modify the widgets:
 
 1. Extend the appropriate `Monitoring` class (e.g., `LambdaFunctionMonitoring` for `monitorLambdaFunction`) and override the relevant methods (e.g., `widgets`):
-    ```ts
+    ```ts nofixture
     export class MyCustomizedLambdaFunctionMonitoring extends LambdaFunctionMonitoring {
       widgets(): IWidget[] {
         return [
@@ -352,7 +352,7 @@ To modify the widgets:
     }
     ```
 1. Use the facade's `addSegment` method with your custom class:
-    ```ts
+    ```ts nofixture
     declare const facade: MonitoringFacade;
 
     facade.addSegment(new MyCustomizedLambdaFunctionMonitoring(facade, {
@@ -375,7 +375,7 @@ The below code sample will generate two dashboards with the following names:
 * ExampleDashboards-Infrastructure
 
 
-```ts
+```ts nofixture
 // create the dynamic dashboard factory.
 const factory = new DynamicDashboardFactory(stack, "DynamicDashboards", {
   dashboardNamePrefix: "ExampleDashboards",
@@ -396,7 +396,7 @@ const factory = new DynamicDashboardFactory(stack, "DynamicDashboards", {
 #### Create `IDynamicDashboardSegment` implementations
 For each construct you want monitored, you will need to create an implementation of an `IDynamicDashboardSegment`. The following is a basic reference implementation as an example:
 
-```ts
+```ts nofixture
 export enum DashboardTypes {
   HostedService = "HostedService",
   Infrastructure = "Infrastructure",
@@ -422,7 +422,7 @@ class ExampleSegment implements IDynamicDashboardSegment {
 
 When you have instances of an `IDynamicDashboardSegment` to use, they can be added to your dashboard like this:
 
-```ts
+```ts nofixture
 monitoring.addDynamicSegment(new ExampleSegment());
 ```
 
@@ -505,7 +505,7 @@ When given a list of alarms created using `MonitoringFacade`, the facade can app
 user-supplied function on each, generating new alarms with customizations from the
 function.
 
-```ts
+```ts nofixture
 // Clone alarms using a cloning-function
 const criticalAlarms = monitoring.createdAlarmsWithDisambiguator("Critical");
 const clones = monitoring.cloneAlarms(criticalAlarms, (a) => {
@@ -548,6 +548,53 @@ const rollbackAlarms = monitoring.cloneAlarms(criticalAlarms, ScaleAlarms({
    evaluationPeriodsMultiplier: 0.5,
 }));
 ```
+
+## Upgrading from v9
+
+This version upgrades to JSII 5, which does not support generics, tuples, or certain TypeScript-specific type constructs.
+If you have custom extensions of this library, you may need to make the following changes:
+
+### `BaseMetricFactory` is no longer generic
+
+If you have custom metric factories that extend `BaseMetricFactory`, remove the generic type parameter:
+
+```ts nofixture
+// Before
+export class MyMetricFactory extends BaseMetricFactory<MyMetricFactoryProps> {
+  constructor(metricFactory: MetricFactory, props: MyMetricFactoryProps) {
+    super(metricFactory, props);
+  }
+}
+
+// After
+export class MyMetricFactory extends BaseMetricFactory {
+  constructor(metricFactory: MetricFactory, props: MyMetricFactoryProps) {
+    super(metricFactory, props);
+  }
+}
+```
+
+The `region` and `account` properties are now available on `BaseMetricFactory` directly (from `BaseMetricFactoryProps`).
+
+### `KeyValueTableWidgetV2` removed
+
+`KeyValueTableWidgetV2` was a temporary alias. Use `KeyValueTableWidget` directly.
+
+### `KeyValueTableWidget` no longer accepts tuple arrays
+
+The `[string, string][]` constructor overload has been removed. Use `KeyValue[]` instead:
+
+```ts nofixture
+// Before
+new KeyValueTableWidget([["key1", "value1"], ["key2", "value2"]]);
+
+// After
+new KeyValueTableWidget([{ key: "key1", value: "value1" }, { key: "key2", value: "value2" }]);
+```
+
+### `MonitoringAspectType<T>` removed
+
+The generic `MonitoringAspectType<T>` type alias has been removed. Use `BaseMonitoringAspectType` instead.
 
 ## Contributing
 

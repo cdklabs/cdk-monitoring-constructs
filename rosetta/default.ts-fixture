@@ -1,12 +1,45 @@
 // Fixture with packages imported, but nothing else
 import { Construct } from 'constructs';
 import {
+  App,
+  Duration,
   Stack,
 } from 'aws-cdk-lib';
+import { IWidget, Metric, PeriodOverride, TextWidget } from 'aws-cdk-lib/aws-cloudwatch';
+import { Table } from 'aws-cdk-lib/aws-dynamodb';
+import { IFunction } from 'aws-cdk-lib/aws-lambda';
+import { CfnHealthCheck } from 'aws-cdk-lib/aws-route53';
+import { ITopic } from 'aws-cdk-lib/aws-sns';
+import {
+  DashboardRenderingPreference,
+  DynamicDashboardFactory,
+  IAlarmActionStrategy,
+  IDynamicDashboardSegment,
+  LambdaFunctionMonitoring,
+  MetricStatistic,
+  MonitoringFacade,
+  Route53HealthCheckMetricAdjuster,
+  ScaleAlarms,
+  SnsAlarmActionStrategy,
+  multipleActions,
+  notifySns,
+  triggerLambda,
+} from 'cdk-monitoring-constructs';
 
 class Fixture extends Stack {
   constructor(scope: Construct, id: string) {
     super(scope, id);
+
+    const stack = this;
+    const monitoring: any = new MonitoringFacade(this, "FixtureMonitoring");
+    const monitoringFacade: any = monitoring;
+    const onAlarmTopic: ITopic = undefined as any;
+    const something: any = undefined;
+    const m1 = new Metric({ namespace: "Fixture", metricName: "Fixture" });
+
+    function monitorCustom(props: any): any {
+      return monitoring.monitorCustom(props);
+    }
 
     /// here
   }
