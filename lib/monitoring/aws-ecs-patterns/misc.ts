@@ -24,6 +24,9 @@ interface BaseQueueProcessingServiceMonitoringProps
   readonly addDeadLetterQueueAlarms?: BaseDlqAlarms;
 }
 
+export interface BaseQueueProcessingFargateServiceMonitoringOptions
+  extends BaseQueueProcessingServiceMonitoringProps {}
+
 export interface QueueProcessingFargateServiceMonitoringProps
   extends BaseQueueProcessingServiceMonitoringProps {
   readonly fargateService: QueueProcessingFargateService;

@@ -81,7 +81,7 @@ export interface BaseFargateServiceAlarms {
 /**
  * Monitoring props for any type of Fargate service.
  */
-interface BaseFargateServiceMonitoringProps
+export interface BaseFargateServiceMonitoringProps
   extends BaseMonitoringProps,
     BaseFargateServiceAlarms {}
 
@@ -96,7 +96,7 @@ export interface SimpleFargateServiceMonitoringProps
 /**
  * Base of Monitoring props for load-balanced Fargate service.
  */
-interface BaseLoadBalancedFargateServiceMonitoringProps
+export interface BaseLoadBalancedFargateServiceMonitoringProps
   extends BaseFargateServiceMonitoringProps {
   readonly addHealthyTaskCountAlarm?: Record<string, HealthyTaskCountThreshold>;
   readonly addUnhealthyTaskCountAlarm?: Record<
