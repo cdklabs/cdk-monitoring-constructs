@@ -118,6 +118,13 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
     });
   }
 
+  metricBackPressuredTimeMsPerSecond() {
+    return this.metric({
+      name: "backPressuredTimeMsPerSecond",
+      description: "Back Pressured Time",
+    });
+  }
+
   metricCheckpointFailureRate() {
     // Flink reports this metric as the latest sum for the lifecycle of a job.
     // Therefore, we truly care about rate of change
