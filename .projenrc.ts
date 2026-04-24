@@ -18,6 +18,7 @@ const project = new cdklabs.CdklabsConstructLibrary({
   setNodeEngineVersion: false,
 
   cdkVersion: CDK_VERSION,
+  jsiiVersion: "~5.9",
 
   srcdir: "lib",
   testdir: "test",
@@ -90,6 +91,7 @@ _By submitting this pull request, I confirm that my contribution is made under t
 
   // Documentation options
   rosettaOptions: {
+    version: "5",
     strict: false, // @todo disabled since there were many failures for me to fix
   },
 });
