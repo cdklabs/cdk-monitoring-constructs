@@ -25,7 +25,7 @@ export interface OpenSearchClusterMetricFactoryProps
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class OpenSearchClusterMetricFactory extends BaseMetricFactory<OpenSearchClusterMetricFactoryProps> {
+export class OpenSearchClusterMetricFactory extends BaseMetricFactory {
   protected readonly domainMetrics: OpenSearchBackportedMetrics;
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;

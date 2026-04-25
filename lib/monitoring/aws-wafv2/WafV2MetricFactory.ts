@@ -19,7 +19,7 @@ export interface WafV2MetricFactoryProps extends BaseMetricFactoryProps {
 /**
  * https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html
  */
-export class WafV2MetricFactory extends BaseMetricFactory<WafV2MetricFactoryProps> {
+export class WafV2MetricFactory extends BaseMetricFactory {
   protected readonly dimensions: DimensionHash;
 
   constructor(metricFactory: MetricFactory, props: WafV2MetricFactoryProps) {

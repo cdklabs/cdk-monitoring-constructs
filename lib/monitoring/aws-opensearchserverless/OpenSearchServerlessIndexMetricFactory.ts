@@ -23,7 +23,7 @@ export interface OpenSearchServerlessIndexMetricFactoryProps
  *
  * @see https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-cloudwatch.html
  */
-export class OpenSearchServerlessIndexMetricFactory extends BaseMetricFactory<OpenSearchServerlessIndexMetricFactoryProps> {
+export class OpenSearchServerlessIndexMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
