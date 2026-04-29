@@ -1,7 +1,7 @@
 import * as cdklabs from "cdklabs-projen-project-types";
 import { javascript, github, DependencyType, ReleasableCommits } from "projen";
 
-const CDK_VERSION = "2.160.0";
+const CDK_VERSION = "2.251.0";
 
 const project = new cdklabs.CdklabsConstructLibrary({
   name: "cdk-monitoring-constructs",
@@ -18,6 +18,7 @@ const project = new cdklabs.CdklabsConstructLibrary({
   setNodeEngineVersion: false,
 
   cdkVersion: CDK_VERSION,
+  constructsVersion: "10.5.0",
   jsiiVersion: "~5.9",
 
   srcdir: "lib",

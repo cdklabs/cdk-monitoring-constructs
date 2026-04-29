@@ -52,7 +52,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"successCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"failedCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DLQ records count > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"id\\":\\"successCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"id\\":\\"failedCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DLQ records count > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -72,6 +72,7 @@ Object {
             "Expression": "successCount + failedCount",
             "Id": "expr_1",
             "Label": "DLQ records count",
+            "ReturnData": true,
           },
           Object {
             "Id": "successCount",
@@ -135,7 +136,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"successCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"failedCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DLQ records count > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"id\\":\\"successCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"id\\":\\"failedCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"DLQ records count > 0 for 3 datapoints within 15 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -207,7 +208,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"successCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"failedCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"id\\":\\"successCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"id\\":\\"failedCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -232,7 +233,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"successCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"failedCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"DLQ records count\\",\\"expression\\":\\"successCount + failedCount\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsSuccess.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsSuccess.count\\",\\"id\\":\\"successCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/OSIS\\",\\"SubPipelineName.Sink.s3.dlqS3RecordsFailed.count\\",\\"PipelineName\\",\\"PipelineName\\",{\\"label\\":\\"s3.dlqS3RecordsFailed.count\\",\\"id\\":\\"failedCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

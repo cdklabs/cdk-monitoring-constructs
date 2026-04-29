@@ -158,14 +158,14 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -176,21 +176,21 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Visible\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -405,6 +405,7 @@ Object {
             "Expression": "(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))",
             "Id": "expr_1",
             "Label": "Time to Drain (seconds)",
+            "ReturnData": true,
           },
           Object {
             "Id": "visibleMessages",
@@ -505,14 +506,14 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -523,21 +524,21 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Visible\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -707,14 +708,14 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -725,21 +726,21 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Visible\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -759,6 +760,7 @@ Object {
             "Expression": "(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))",
             "Id": "expr_1",
             "Label": "Time to Drain (seconds)",
+            "ReturnData": true,
           },
           Object {
             "AccountId": "different-account",
@@ -862,14 +864,14 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -880,21 +882,21 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Visible\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"accountId\\":\\"different-account\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1046,14 +1048,14 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1064,21 +1066,21 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Visible\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -1106,14 +1108,14 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1124,21 +1126,21 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Visible\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1255,11 +1257,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Production TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(productionVolume / PERIOD(productionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Production TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(productionVolume / PERIOD(productionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Time to Drain (seconds) (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"ApproximateNumberOfMessagesVisible\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Visible\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Time to Drain (seconds) (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"ApproximateNumberOfMessagesVisible\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -1280,11 +1282,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Production TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(productionVolume / PERIOD(productionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Production TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(productionVolume / PERIOD(productionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Time to Drain (seconds) (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"ApproximateNumberOfMessagesVisible\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Visible\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Time to Drain (seconds) (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(visibleMessages / (consumptionVolume - incomingVolume)) * (PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"ApproximateNumberOfMessagesVisible\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"DummyQueueRef\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
