@@ -206,7 +206,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -218,7 +218,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -238,11 +238,11 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
+              "\\",{\\"label\\":\\"Read\\",\\"id\\":\\"readThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Write\\",\\"id\\":\\"writeThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -250,39 +250,39 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorBatchGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorScan\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorScan\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorQuery\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorQuery\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetRecords\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetRecords\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorPutItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorPutItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorDeleteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorDeleteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorUpdateItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorUpdateItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchWriteItem\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"System Errors > 5 for 3 datapoints within 40 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"id\\":\\"systemErrorBatchWriteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"System Errors > 5 for 3 datapoints within 40 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -698,6 +698,7 @@ Object {
             "Expression": "consumed_rcu_sum/PERIOD(consumed_rcu_sum)",
             "Id": "expr_1",
             "Label": "Consumed",
+            "ReturnData": true,
           },
           Object {
             "Id": "consumed_rcu_sum",
@@ -738,6 +739,7 @@ Object {
             "Expression": "FILL(readThrottles,0)",
             "Id": "expr_1",
             "Label": "Read",
+            "ReturnData": true,
           },
           Object {
             "Id": "readThrottles",
@@ -779,6 +781,7 @@ Object {
             "Expression": "systemErrorGetItem+systemErrorBatchGetItem+systemErrorScan+systemErrorQuery+systemErrorGetRecords+systemErrorPutItem+systemErrorDeleteItem+systemErrorUpdateItem+systemErrorBatchWriteItem",
             "Id": "expr_1",
             "Label": "System Errors",
+            "ReturnData": true,
           },
           Object {
             "Id": "systemErrorGetItem",
@@ -1015,6 +1018,7 @@ Object {
             "Expression": "consumed_wcu_sum/PERIOD(consumed_wcu_sum)",
             "Id": "expr_1",
             "Label": "Consumed",
+            "ReturnData": true,
           },
           Object {
             "Id": "consumed_wcu_sum",
@@ -1055,6 +1059,7 @@ Object {
             "Expression": "FILL(writeThrottles,0)",
             "Id": "expr_1",
             "Label": "Write",
+            "ReturnData": true,
           },
           Object {
             "Id": "writeThrottles",
@@ -1101,7 +1106,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -1113,7 +1118,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -1213,7 +1218,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -1225,7 +1230,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -1245,11 +1250,11 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
+              "\\",{\\"label\\":\\"Read\\",\\"id\\":\\"readThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Write\\",\\"id\\":\\"writeThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1257,39 +1262,39 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorBatchGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorScan\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorScan\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorQuery\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorQuery\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetRecords\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetRecords\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorPutItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorPutItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorDeleteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorDeleteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorUpdateItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorUpdateItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchWriteItem\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"id\\":\\"systemErrorBatchWriteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -1314,7 +1319,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -1326,7 +1331,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
@@ -1598,7 +1603,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 35 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 35 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1606,7 +1611,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 30 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":9,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (Average)\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 30 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":9,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (Average)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1622,11 +1627,11 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
+              "\\",{\\"label\\":\\"Read\\",\\"id\\":\\"readThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Write\\",\\"id\\":\\"writeThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Read > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Write > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1634,39 +1639,39 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorBatchGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorScan\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorScan\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorQuery\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorQuery\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetRecords\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetRecords\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorPutItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorPutItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorDeleteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorDeleteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorUpdateItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorUpdateItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchWriteItem\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"System Errors > 5 for 3 datapoints within 40 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"id\\":\\"systemErrorBatchWriteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"System Errors > 5 for 3 datapoints within 40 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -2082,6 +2087,7 @@ Object {
             "Expression": "consumed_rcu_sum/PERIOD(consumed_rcu_sum)",
             "Id": "expr_1",
             "Label": "Consumed",
+            "ReturnData": true,
           },
           Object {
             "Id": "consumed_rcu_sum",
@@ -2122,6 +2128,7 @@ Object {
             "Expression": "FILL(readThrottles,0)",
             "Id": "expr_1",
             "Label": "Read",
+            "ReturnData": true,
           },
           Object {
             "Id": "readThrottles",
@@ -2163,6 +2170,7 @@ Object {
             "Expression": "systemErrorGetItem+systemErrorBatchGetItem+systemErrorScan+systemErrorQuery+systemErrorGetRecords+systemErrorPutItem+systemErrorDeleteItem+systemErrorUpdateItem+systemErrorBatchWriteItem",
             "Id": "expr_1",
             "Label": "System Errors",
+            "ReturnData": true,
           },
           Object {
             "Id": "systemErrorGetItem",
@@ -2399,6 +2407,7 @@ Object {
             "Expression": "consumed_wcu_sum/PERIOD(consumed_wcu_sum)",
             "Id": "expr_1",
             "Label": "Consumed",
+            "ReturnData": true,
           },
           Object {
             "Id": "consumed_wcu_sum",
@@ -2439,6 +2448,7 @@ Object {
             "Expression": "FILL(writeThrottles,0)",
             "Id": "expr_1",
             "Label": "Write",
+            "ReturnData": true,
           },
           Object {
             "Id": "writeThrottles",
@@ -2485,7 +2495,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 35 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 35 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2493,7 +2503,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 30 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Consumed > 100 for 3 datapoints within 30 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -2586,7 +2596,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":3,\\"x\\":0,\\"y\\":4,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2594,7 +2604,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":9,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (Average)\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":9,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency (Average)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2610,11 +2620,11 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
+              "\\",{\\"label\\":\\"Read\\",\\"id\\":\\"readThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"label\\":\\"Write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Write\\",\\"id\\":\\"writeThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2622,39 +2632,39 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorBatchGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorScan\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorScan\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorQuery\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorQuery\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetRecords\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetRecords\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorPutItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorPutItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorDeleteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorDeleteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorUpdateItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorUpdateItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchWriteItem\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"id\\":\\"systemErrorBatchWriteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -2679,7 +2689,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Write Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2687,7 +2697,7 @@ Object {
               Object {
                 "Ref": "TableCD117FA1",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },

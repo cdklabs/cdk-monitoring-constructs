@@ -5,6 +5,7 @@ import {
 
 import { AlarmFactory, CustomAlarmThreshold } from "../../alarm";
 import { MetricWithAlarmSupport } from "../../metric";
+import { AnomalyDetectionMathExpression } from "../../metric/AnomalyDetectionMathExpression";
 
 export interface AnomalyDetectionThreshold extends CustomAlarmThreshold {
   readonly standardDeviationForAlarm: number;
@@ -26,12 +27,24 @@ export class AnomalyDetectingAlarmFactory {
     disambiguator: string,
     props: AnomalyDetectionThreshold,
   ) {
-    return this.alarmFactory.addAlarm(metric, {
+    // Wrap the metric in an AnomalyDetectionMathExpression if it isn't already one.
+    // This ensures the alarm is created with the ANOMALY_DETECTION_BAND expression,
+    // matching the pattern used by CustomMonitoring and MetricFactory.
+    const alarmMetric =
+      metric instanceof AnomalyDetectionMathExpression
+        ? metric
+        : new AnomalyDetectionMathExpression({
+            expression: `ANOMALY_DETECTION_BAND(m1, ${props.standardDeviationForAlarm})`,
+            usingMetrics: { m1: metric },
+            period: metric.period,
+          });
+
+    return this.alarmFactory.addAlarm(alarmMetric, {
       ...props,
       disambiguator,
       treatMissingData:
         props.treatMissingDataOverride ?? TreatMissingData.MISSING,
-      // Dummy threshold value. This gets removed later.
+      // Dummy threshold value. This gets removed later by AnomalyDetectionMathExpression.createAlarm().
       threshold: 0,
       comparisonOperator: this.getComparisonOperator(props),
       alarmDedupeStringSuffix: props.dedupeStringOverride,

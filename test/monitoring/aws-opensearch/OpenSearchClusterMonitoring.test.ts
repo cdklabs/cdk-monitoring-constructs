@@ -10,28 +10,50 @@ import {
 } from "../../../lib";
 import { TestMonitoringScope } from "../TestMonitoringScope";
 
-const stack = new Stack();
-[
-  new elasticsearch.CfnDomain(stack, "ElasticsearchCfnDomain", {
-    domainName: "es-cfn-domain",
-  }),
-  new elasticsearch.Domain(stack, "ElasticsearchDomain", {
-    domainName: "es-domain",
-    version: elasticsearch.ElasticsearchVersion.V7_7,
-  }),
-  new opensearch.CfnDomain(stack, "OpenSearchCfnDomain", {
-    domainName: "os-cfn-domain",
-  }),
-  new opensearch.Domain(stack, "OpenSearchDomain", {
-    domainName: "os-domain",
-    version: opensearch.EngineVersion.OPENSEARCH_1_0,
-  }),
-].forEach((domain) => {
-  test(`snapshot test: no alarms for ${domain.node.id}`, () => {
-    const scope = new TestMonitoringScope(
-      stack,
-      "Scope-NoAlarms-" + domain.node.id,
-    );
+interface DomainConfig {
+  readonly id: string;
+  readonly create: (stack: Stack) => any;
+}
+
+const domainConfigs: DomainConfig[] = [
+  {
+    id: "ElasticsearchCfnDomain",
+    create: (stack) =>
+      new elasticsearch.CfnDomain(stack, "ElasticsearchCfnDomain", {
+        domainName: "es-cfn-domain",
+      }),
+  },
+  {
+    id: "ElasticsearchDomain",
+    create: (stack) =>
+      new elasticsearch.Domain(stack, "ElasticsearchDomain", {
+        domainName: "es-domain",
+        version: elasticsearch.ElasticsearchVersion.V7_7,
+      }),
+  },
+  {
+    id: "OpenSearchCfnDomain",
+    create: (stack) =>
+      new opensearch.CfnDomain(stack, "OpenSearchCfnDomain", {
+        domainName: "os-cfn-domain",
+      }),
+  },
+  {
+    id: "OpenSearchDomain",
+    create: (stack) =>
+      new opensearch.Domain(stack, "OpenSearchDomain", {
+        domainName: "os-domain",
+        version: opensearch.EngineVersion.OPENSEARCH_1_0,
+      }),
+  },
+];
+
+domainConfigs.forEach(({ id, create }) => {
+  test(`snapshot test: no alarms for ${id}`, () => {
+    const stack = new Stack();
+    const domain = create(stack);
+
+    const scope = new TestMonitoringScope(stack, "Scope-NoAlarms-" + id);
 
     new OpenSearchClusterMonitoring(scope, {
       domain,
@@ -40,11 +62,11 @@ const stack = new Stack();
     expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 
-  test(`snapshot test: all alarms for ${domain.node.id}`, () => {
-    const scope = new TestMonitoringScope(
-      stack,
-      "Scope-AllAlarms-" + domain.node.id,
-    );
+  test(`snapshot test: all alarms for ${id}`, () => {
+    const stack = new Stack();
+    const domain = create(stack);
+
+    const scope = new TestMonitoringScope(stack, "Scope-AllAlarms-" + id);
 
     let numAlarmsCreated = 0;
 

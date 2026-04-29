@@ -2,7 +2,6 @@
 
 exports[`snapshot test: Lambda alias 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -44,15 +43,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs22.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -63,7 +54,7 @@ Object {
         },
         "FunctionVersion": Object {
           "Fn::GetAtt": Array [
-            "alarmLambdaCurrentVersionBDCE825C70892026f75c21f8b73d1d91982fbdfc",
+            "alarmLambdaCurrentVersionBDCE825C55fc0e3c7a2ea40759d2b83e21e05642",
             "Version",
           ],
         },
@@ -90,7 +81,10 @@ Object {
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "alarmLambdaCurrentVersionBDCE825C70892026f75c21f8b73d1d91982fbdfc": Object {
+    "alarmLambdaCurrentVersionBDCE825C55fc0e3c7a2ea40759d2b83e21e05642": Object {
+      "Metadata": Object {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": Object {
         "FunctionName": Object {
           "Ref": "alarmLambda131DB691",
@@ -162,7 +156,6 @@ Object {
 
 exports[`snapshot test: Lambda function 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -207,15 +200,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs22.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -305,7 +290,6 @@ Object {
 
 exports[`snapshot test: Lambda version 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -318,7 +302,7 @@ Object {
       "Properties": Object {
         "AlarmActions": Array [
           Object {
-            "Ref": "alarmLambdaCurrentVersionBDCE825C70892026f75c21f8b73d1d91982fbdfc",
+            "Ref": "alarmLambdaCurrentVersionBDCE825C55fc0e3c7a2ea40759d2b83e21e05642",
           },
         ],
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
@@ -347,15 +331,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs22.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -363,7 +339,7 @@ Object {
       "Properties": Object {
         "Action": "lambda:InvokeFunction",
         "FunctionName": Object {
-          "Ref": "alarmLambdaCurrentVersionBDCE825C70892026f75c21f8b73d1d91982fbdfc",
+          "Ref": "alarmLambdaCurrentVersionBDCE825C55fc0e3c7a2ea40759d2b83e21e05642",
         },
         "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
         "SourceAccount": Object {
@@ -378,7 +354,10 @@ Object {
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "alarmLambdaCurrentVersionBDCE825C70892026f75c21f8b73d1d91982fbdfc": Object {
+    "alarmLambdaCurrentVersionBDCE825C55fc0e3c7a2ea40759d2b83e21e05642": Object {
+      "Metadata": Object {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": Object {
         "FunctionName": Object {
           "Ref": "alarmLambda131DB691",

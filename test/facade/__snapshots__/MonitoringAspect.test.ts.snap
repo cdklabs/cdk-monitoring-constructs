@@ -159,7 +159,7 @@ Object {
               Object {
                 "Ref": "DummyRestApiProdStageB70B7437",
               },
-              "\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Count\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -225,7 +225,7 @@ Object {
               Object {
                 "Ref": "DummyRestApiProdStageB70B7437",
               },
-              "\\",{\\"label\\":\\"Count\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Count\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -339,6 +339,9 @@ Object {
       "DependsOn": Array [
         "DummyRestApiANYCDDCFD86",
       ],
+      "Metadata": Object {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": Object {
         "RestApiId": Object {
           "Ref": "DummyRestApi328A173A",
@@ -350,6 +353,9 @@ Object {
       "DependsOn": Array [
         "DummyRestApiANYCDDCFD86",
       ],
+      "Metadata": Object {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": Object {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": Object {
@@ -469,7 +475,7 @@ Object {
               Object {
                 "Ref": "DummyHttpApi8EEBCC85",
               },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -547,7 +553,7 @@ Object {
               Object {
                 "Ref": "DummyHttpApi8EEBCC85",
               },
-              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"Stage\\",\\"$default\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -677,7 +683,7 @@ Object {
                   "ApiId",
                 ],
               },
-              "\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -763,7 +769,7 @@ Object {
                   "ApiId",
                 ],
               },
-              "\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2146,7 +2152,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2228,7 +2234,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2527,7 +2533,7 @@ Object {
         "EncryptionKey": "alias/aws/s3",
         "Environment": Object {
           "ComputeType": "BUILD_GENERAL1_SMALL",
-          "Image": "aws/codebuild/standard:1.0",
+          "Image": "aws/codebuild/standard:7.0",
           "ImagePullCredentialsType": "CODEBUILD",
           "PrivilegedMode": false,
           "Type": "LINUX_CONTAINER",
@@ -2703,7 +2709,6 @@ Object {
 
 exports[`MonitoringAspect DocumentDB 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -2835,7 +2840,99 @@ Object {
                   ],
                 ],
               },
-              "\\",{\\"label\\":\\"Days\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Days\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":12,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Lambda](https://",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ".console.aws.amazon.com/lambda/home?region=",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "#/functions/",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":0,\\"y\\":13,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":13,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":13,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":13,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Rates\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Throttles (avg)\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":18,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Invocations\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"Throttles\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Throttles\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Lambda\\",\\"ConcurrentExecutions\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Concurrent\\",\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"ProvisionedConcurrencySpilloverInvocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Provisioned Concurrency Spillovers\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":18,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Faults\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":23,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Iterator\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"IteratorAge\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Iterator Age\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -2947,7 +3044,51 @@ Object {
                   ],
                 ],
               },
-              "\\",{\\"label\\":\\"Days\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Days\\",\\"stat\\":\\"Maximum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":13,\\"properties\\":{\\"markdown\\":\\"### Lambda Function **[Lambda](https://",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ".console.aws.amazon.com/lambda/home?region=",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "#/functions/",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":14,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TPS\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":14,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"P50 (avg: \${AVG})\\",\\"stat\\":\\"p50\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"P90 (avg: \${AVG})\\",\\"stat\\":\\"p90\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"P99 (avg: \${AVG})\\",\\"stat\\":\\"p99\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":14,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/Lambda\\",\\"Errors\\",\\"FunctionName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeSecretsManagerMetricsPublisherLambda0179F12B",
+              },
+              "\\",{\\"label\\":\\"Faults (avg)\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -3500,15 +3641,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs22.x",
         "Timeout": 60,
       },
       "Type": "AWS::Lambda::Function",
@@ -3706,7 +3839,7 @@ Object {
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
@@ -3718,7 +3851,7 @@ Object {
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
@@ -3738,11 +3871,11 @@ Object {
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"label\\":\\"Read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readThrottles\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
+              "\\",{\\"label\\":\\"Read\\",\\"id\\":\\"readThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Write\\",\\"expression\\":\\"FILL(writeThrottles,0)\\"}],[\\"AWS/DynamoDB\\",\\"WriteThrottleEvents\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"label\\":\\"Write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeThrottles\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Write\\",\\"id\\":\\"writeThrottles\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3750,39 +3883,39 @@ Object {
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchGetItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchGetItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorBatchGetItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Scan\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorScan\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorScan\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"Query\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorQuery\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorQuery\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"GetRecords\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorGetRecords\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorGetRecords\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"PutItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorPutItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorPutItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"DeleteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorDeleteItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorDeleteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"UpdateItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorUpdateItem\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"systemErrorUpdateItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"SystemErrors\\",\\"Operation\\",\\"BatchWriteItem\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"systemErrorBatchWriteItem\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"id\\":\\"systemErrorBatchWriteItem\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -3816,7 +3949,7 @@ Object {
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_rcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_rcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedReadCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
@@ -3828,7 +3961,7 @@ Object {
               Object {
                 "Ref": "DummyTable77F0C182",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumed_wcu_sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
+              "\\",{\\"id\\":\\"consumed_wcu_sum\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/DynamoDB\\",\\"ProvisionedWriteCapacityUnits\\",\\"TableName\\",\\"",
               Object {
                 "Ref": "DummyTable77F0C182",
               },
@@ -4670,7 +4803,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"CPU\\",\\"expression\\":\\"cpu * 100\\"}],[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU Usage (executor average)\\",\\"visible\\":false,\\"id\\":\\"cpu\\"}],[{\\"label\\":\\"Heap\\",\\"expression\\":\\"heap * 100\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"JVM Heap usage (executor average)\\",\\"visible\\":false,\\"id\\":\\"heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"CPU\\",\\"expression\\":\\"cpu * 100\\"}],[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU Usage (executor average)\\",\\"id\\":\\"cpu\\",\\"visible\\":false}],[{\\"label\\":\\"Heap\\",\\"expression\\":\\"heap * 100\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"JVM Heap usage (executor average)\\",\\"id\\":\\"heap\\",\\"visible\\":false}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4700,7 +4833,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"CPU\\",\\"expression\\":\\"cpu * 100\\"}],[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU Usage (executor average)\\",\\"visible\\":false,\\"id\\":\\"cpu\\"}],[{\\"label\\":\\"Heap\\",\\"expression\\":\\"heap * 100\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"JVM Heap usage (executor average)\\",\\"visible\\":false,\\"id\\":\\"heap\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"CPU\\",\\"expression\\":\\"cpu * 100\\"}],[\\"Glue\\",\\"glue.ALL.system.cpuSystemLoad\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"CPU Usage (executor average)\\",\\"id\\":\\"cpu\\",\\"visible\\":false}],[{\\"label\\":\\"Heap\\",\\"expression\\":\\"heap * 100\\"}],[\\"Glue\\",\\"glue.ALL.jvm.heap.usage\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"gauge\\",{\\"label\\":\\"JVM Heap usage (executor average)\\",\\"id\\":\\"heap\\",\\"visible\\":false}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -4806,7 +4939,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"numberOfFailedCheckpoints\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",{\\"label\\":\\"Failed Checkpoints\\",\\"id\\":\\"numberOfFailedCheckpoints\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5273,7 +5406,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",{\\"label\\":\\"Incoming (bytes)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"bytes_in\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"visible\\":false,\\"id\\":\\"bytes_max\\"}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming (Records)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"records_in\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",{\\"label\\":\\"Records/s Limit\\",\\"visible\\":false,\\"id\\":\\"records_max\\"}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests_in\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"visible\\":false,\\"id\\":\\"requests_max\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Bytes\\",\\"expression\\":\\"(bytes_in / PERIOD(bytes_in)) / bytes_max\\"}],[\\"AWS/Firehose\\",\\"IncomingBytes\\",{\\"label\\":\\"Incoming (bytes)\\",\\"id\\":\\"bytes_in\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"BytesPerSecondLimit\\",{\\"label\\":\\"Incoming Bytes/s Limit\\",\\"id\\":\\"bytes_max\\",\\"visible\\":false}],[{\\"label\\":\\"Records\\",\\"expression\\":\\"(records_in / PERIOD(records_in)) / records_max\\"}],[\\"AWS/Firehose\\",\\"IncomingRecords\\",{\\"label\\":\\"Incoming (Records)\\",\\"id\\":\\"records_in\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"RecordsPerSecondLimit\\",{\\"label\\":\\"Records/s Limit\\",\\"id\\":\\"records_max\\",\\"visible\\":false}],[{\\"label\\":\\"PutRequests\\",\\"expression\\":\\"(requests_in / PERIOD(requests_in)) / requests_max\\"}],[\\"AWS/Firehose\\",\\"IncomingPutRequests\\",{\\"label\\":\\"Incoming (PutRequest)\\",\\"id\\":\\"requests_in\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/Firehose\\",\\"PutRequestsPerSecondLimit\\",{\\"label\\":\\"PutRequests/s Limit\\",\\"id\\":\\"requests_max\\",\\"visible\\":false}]],\\"annotations\\":{\\"horizontal\\":[{\\"value\\":1,\\"label\\":\\"100% usage\\",\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -5388,7 +5521,7 @@ Object {
               Object {
                 "Ref": "DummyFunction3BB5AE03",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5494,7 +5627,7 @@ Object {
               Object {
                 "Ref": "DummyFunction3BB5AE03",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5541,7 +5674,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": "nodejs22.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -5654,7 +5787,7 @@ Object {
               Object {
                 "Ref": "DummyOSDomain7A35A5DB",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5750,7 +5883,7 @@ Object {
               Object {
                 "Ref": "DummyOSDomain7A35A5DB",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",{\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
@@ -5758,7 +5891,7 @@ Object {
               Object {
                 "Ref": "DummyOSDomain7A35A5DB",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5830,7 +5963,7 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":12,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5886,11 +6019,11 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":17,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":17,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5946,7 +6079,7 @@ Object {
               Object {
                 "Ref": "DummyESDomainE8B8361E",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":23,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":23,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6042,7 +6175,7 @@ Object {
               Object {
                 "Ref": "DummyESDomainE8B8361E",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",{\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
@@ -6050,7 +6183,7 @@ Object {
               Object {
                 "Ref": "DummyESDomainE8B8361E",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":28,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":28,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6122,7 +6255,7 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":34,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",{\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":34,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6178,11 +6311,11 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",{\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":39,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",{\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":39,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Master CPU/Memory Usage\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6252,7 +6385,7 @@ Object {
               Object {
                 "Ref": "DummyOSDomain7A35A5DB",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6352,7 +6485,7 @@ Object {
               Object {
                 "Ref": "DummyOSDomain7A35A5DB",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",{\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
@@ -6360,7 +6493,7 @@ Object {
               Object {
                 "Ref": "DummyOSDomain7A35A5DB",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[Resource](https://",
+              "\\",{\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[Resource](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6376,7 +6509,7 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":8,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6432,11 +6565,11 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":14,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyESDomain](https://",
+              "\\",\\"DomainName\\",\\"dummy-os-domain\\",{\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":14,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[DummyESDomain](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6460,7 +6593,7 @@ Object {
               Object {
                 "Ref": "DummyESDomainE8B8361E",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":15,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",{\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":15,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6560,7 +6693,7 @@ Object {
               Object {
                 "Ref": "DummyESDomainE8B8361E",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",{\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
@@ -6568,7 +6701,7 @@ Object {
               Object {
                 "Ref": "DummyESDomainE8B8361E",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":21,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[Resource](https://",
+              "\\",{\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":21,\\"properties\\":{\\"markdown\\":\\"### Elasticsearch Domain **[Resource](https://",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6584,7 +6717,7 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":22,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
+              "\\",\\"DomainName\\",{\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":22,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Indexing Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6640,11 +6773,11 @@ Object {
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
+              "\\",\\"DomainName\\",{\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ES\\",\\"FreeStorageSpace\\",\\"ClientId\\",\\"",
               Object {
                 "Ref": "AWS::AccountId",
               },
-              "\\",\\"DomainName\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"DomainName\\",{\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -6696,7 +6829,7 @@ Object {
         },
         "DomainEndpointOptions": Object {
           "EnforceHTTPS": false,
-          "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
+          "TLSSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
         },
         "DomainName": "dummy-os-domain",
         "EBSOptions": Object {
@@ -6794,11 +6927,11 @@ Object {
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Used\\",\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Free\\",\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Minimum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6978,11 +7111,11 @@ Object {
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Used\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"used\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Used\\",\\"id\\":\\"used\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/RDS\\",\\"FreeLocalStorage\\",\\"DBClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyDBCluster350631DE",
               },
-              "\\",{\\"label\\":\\"Free\\",\\"stat\\":\\"Minimum\\",\\"visible\\":false,\\"id\\":\\"free\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Free\\",\\"id\\":\\"free\\",\\"visible\\":false,\\"stat\\":\\"Minimum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":6,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Connections\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7770,15 +7903,15 @@ Object {
               Object {
                 "Ref": "DummyClusterBF18C710",
               },
-              "\\",\\"latency\\",\\"short\\",{\\"label\\":\\"short\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"sQueryLatency90\\"}],[{\\"label\\":\\"Medium P90\\",\\"expression\\":\\"mQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"",
+              "\\",\\"latency\\",\\"short\\",{\\"label\\":\\"short\\",\\"id\\":\\"sQueryLatency90\\",\\"visible\\":false,\\"stat\\":\\"p90\\"}],[{\\"label\\":\\"Medium P90\\",\\"expression\\":\\"mQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyClusterBF18C710",
               },
-              "\\",\\"latency\\",\\"medium\\",{\\"label\\":\\"medium\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"mQueryLatency90\\"}],[{\\"label\\":\\"Long P90\\",\\"expression\\":\\"lQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"",
+              "\\",\\"latency\\",\\"medium\\",{\\"label\\":\\"medium\\",\\"id\\":\\"mQueryLatency90\\",\\"visible\\":false,\\"stat\\":\\"p90\\"}],[{\\"label\\":\\"Long P90\\",\\"expression\\":\\"lQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyClusterBF18C710",
               },
-              "\\",\\"latency\\",\\"long\\",{\\"label\\":\\"long\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"lQueryLatency90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"latency\\",\\"long\\",{\\"label\\":\\"long\\",\\"id\\":\\"lQueryLatency90\\",\\"visible\\":false,\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7786,11 +7919,11 @@ Object {
               Object {
                 "Ref": "DummyClusterBF18C710",
               },
-              "\\",{\\"label\\":\\"Read P90\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"readLatency\\"}],[{\\"label\\":\\"Write P90\\",\\"expression\\":\\"writeLatency * 1000\\"}],[\\"AWS/Redshift\\",\\"WriteLatency\\",\\"ClusterIdentifier\\",\\"",
+              "\\",{\\"label\\":\\"Read P90\\",\\"id\\":\\"readLatency\\",\\"visible\\":false,\\"stat\\":\\"p90\\"}],[{\\"label\\":\\"Write P90\\",\\"expression\\":\\"writeLatency * 1000\\"}],[\\"AWS/Redshift\\",\\"WriteLatency\\",\\"ClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyClusterBF18C710",
               },
-              "\\",{\\"label\\":\\"Write P90\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"writeLatency\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Maintenance\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Write P90\\",\\"id\\":\\"writeLatency\\",\\"visible\\":false,\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Maintenance\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -7852,15 +7985,15 @@ Object {
               Object {
                 "Ref": "DummyClusterBF18C710",
               },
-              "\\",\\"latency\\",\\"short\\",{\\"label\\":\\"short\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"sQueryLatency90\\"}],[{\\"label\\":\\"Medium P90\\",\\"expression\\":\\"mQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"",
+              "\\",\\"latency\\",\\"short\\",{\\"label\\":\\"short\\",\\"id\\":\\"sQueryLatency90\\",\\"visible\\":false,\\"stat\\":\\"p90\\"}],[{\\"label\\":\\"Medium P90\\",\\"expression\\":\\"mQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyClusterBF18C710",
               },
-              "\\",\\"latency\\",\\"medium\\",{\\"label\\":\\"medium\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"mQueryLatency90\\"}],[{\\"label\\":\\"Long P90\\",\\"expression\\":\\"lQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"",
+              "\\",\\"latency\\",\\"medium\\",{\\"label\\":\\"medium\\",\\"id\\":\\"mQueryLatency90\\",\\"visible\\":false,\\"stat\\":\\"p90\\"}],[{\\"label\\":\\"Long P90\\",\\"expression\\":\\"lQueryLatency90 / 1000\\"}],[\\"AWS/Redshift\\",\\"QueryDuration\\",\\"ClusterIdentifier\\",\\"",
               Object {
                 "Ref": "DummyClusterBF18C710",
               },
-              "\\",\\"latency\\",\\"long\\",{\\"label\\":\\"long\\",\\"stat\\":\\"p90\\",\\"visible\\":false,\\"id\\":\\"lQueryLatency90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"latency\\",\\"long\\",{\\"label\\":\\"long\\",\\"id\\":\\"lQueryLatency90\\",\\"visible\\":false,\\"stat\\":\\"p90\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -7881,7 +8014,7 @@ Object {
         "Encrypted": true,
         "MasterUserPassword": "password",
         "MasterUsername": "admin",
-        "NodeType": "dc2.large",
+        "NodeType": "ra3.large",
         "NumberOfNodes": 2,
         "PubliclyAccessible": false,
         "VpcSecurityGroupIds": Array [
@@ -8737,14 +8870,14 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "DummyQueue3EE6D24A",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -8755,21 +8888,21 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Visible\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "DummyQueue3EE6D24A",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "DummyQueue3EE6D24A",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -8806,14 +8939,14 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"productionVolume\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"productionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Consumption TPS (avg: \${AVG}, max: \${MAX})\\",\\"expression\\":\\"(consumptionVolume / PERIOD(consumptionVolume))\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "DummyQueue3EE6D24A",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Time to drain\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -8824,21 +8957,21 @@ Object {
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Visible\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"visibleMessages\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Visible\\",\\"id\\":\\"visibleMessages\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesSent\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "DummyQueue3EE6D24A",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Incoming\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"incomingVolume\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
+              "\\",{\\"label\\":\\"Incoming\\",\\"id\\":\\"incomingVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/SQS\\",\\"NumberOfMessagesDeleted\\",\\"QueueName\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "DummyQueue3EE6D24A",
                   "QueueName",
                 ],
               },
-              "\\",{\\"label\\":\\"Deleted\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"consumptionVolume\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Deleted\\",\\"id\\":\\"consumptionVolume\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"sec\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":0,\\"y\\":7,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Message Count\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -9406,11 +9539,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"",
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"id\\":\\"allowed\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"id\\":\\"blocked\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -9448,11 +9581,11 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"allowed\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"",
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Allowed\\",\\"id\\":\\"allowed\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/WAFV2\\",\\"BlockedRequests\\",\\"Region\\",\\"",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"blocked\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
+              "\\",\\"Rule\\",\\"ALL\\",{\\"label\\":\\"Blocked\\",\\"id\\":\\"blocked\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
