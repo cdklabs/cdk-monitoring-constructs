@@ -113,6 +113,81 @@ export enum MetricStatistic {
   TM9999_TOP = "TM(99.99%:100%)",
 
   /**
+   * trimmed sum; calculates the sum after removing the 50% of data points with the highest values
+   */
+  TS50 = "ts50",
+  /**
+   * trimmed sum; calculates the sum after removing the 30% of data points with the highest values
+   */
+  TS70 = "ts70",
+  /**
+   * trimmed sum; calculates the sum after removing the 10% of data points with the highest values
+   */
+  TS90 = "ts90",
+  /**
+   * trimmed sum; calculates the sum after removing the 5% of data points with the highest values
+   */
+  TS95 = "ts95",
+  /**
+   * trimmed sum; calculates the sum after removing the 1% of data points with the highest values
+   */
+  TS99 = "ts99",
+  /**
+   * trimmed sum; calculates the sum after removing the 0.1% of data points with the highest values
+   */
+  TS999 = "ts99.9",
+  /**
+   * trimmed sum; calculates the sum after removing the 0.01% of data points with the highest values
+   */
+  TS9999 = "ts99.99",
+
+  /**
+   * trimmed sum; calculates the sum after removing the 1% lowest data points and the 1% highest data points
+   */
+  TS99_BOTH = "TS(1%:99%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 5% lowest data points and the 5% highest data points
+   */
+  TS95_BOTH = "TS(5%:95%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 10% lowest data points and the 10% highest data points
+   */
+  TS90_BOTH = "TS(10%:90%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 15% lowest data points and the 15% highest data points
+   */
+  TS85_BOTH = "TS(15%:85%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 20% lowest data points and the 20% highest data points
+   */
+  TS80_BOTH = "TS(20%:80%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 25% lowest data points and the 25% highest data points
+   */
+  TS75_BOTH = "TS(25%:75%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 30% lowest data points and the 30% highest data points
+   */
+  TS70_BOTH = "TS(30%:70%)",
+
+  /**
+   * trimmed sum; calculates the sum after removing the 95% lowest data points
+   */
+  TS95_TOP = "TS(95%:100%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 99% lowest data points
+   */
+  TS99_TOP = "TS(99%:100%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 99.9% lowest data points
+   */
+  TS999_TOP = "TS(99.9%:100%)",
+  /**
+   * trimmed sum; calculates the sum after removing the 99.99% lowest data points
+   */
+  TS9999_TOP = "TS(99.99%:100%)",
+
+  /**
    * winsorized mean; calculates the average while treating the 50% of the highest values to be equal to the value at the 50th percentile
    */
   WM50 = "wm50",
