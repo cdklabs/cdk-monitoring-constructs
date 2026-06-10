@@ -59,3 +59,94 @@ test("snapshot test: all alarms", () => {
   addMonitoringDashboardsToStack(stack, monitoring);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
+
+test("snapshot test: state change alarms", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  let numAlarmsCreated = 0;
+
+  const monitoring = new GlueJobMonitoring(scope, {
+    jobName: "DummyGlueJob",
+    alarmFriendlyName: "DummyGlueAlarm",
+    addJobFailedStateCountAlarm: {
+      Warning: {
+        maxErrorCount: 1,
+      },
+    },
+    addJobTimeoutStateCountAlarm: {
+      Warning: {
+        maxErrorCount: 1,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms: AlarmWithAnnotation[]) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
+  });
+
+  expect(numAlarmsCreated).toStrictEqual(2);
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("state change alarms create EventBridge rules", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  new GlueJobMonitoring(scope, {
+    jobName: "MyJob",
+    addJobFailedStateCountAlarm: {
+      Critical: {
+        maxErrorCount: 1,
+      },
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::Events::Rule", {
+    EventPattern: {
+      source: ["aws.glue"],
+      "detail-type": ["Glue Job State Change"],
+      detail: {
+        jobName: ["MyJob"],
+        state: ["FAILED"],
+      },
+    },
+  });
+});
+
+test("EventBridge rules are always created", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  new GlueJobMonitoring(scope, {
+    jobName: "MyJob",
+  });
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::Events::Rule", {
+    EventPattern: {
+      source: ["aws.glue"],
+      "detail-type": ["Glue Job State Change"],
+      detail: {
+        jobName: ["MyJob"],
+        state: ["FAILED"],
+      },
+    },
+  });
+  template.hasResourceProperties("AWS::Events::Rule", {
+    EventPattern: {
+      source: ["aws.glue"],
+      "detail-type": ["Glue Job State Change"],
+      detail: {
+        jobName: ["MyJob"],
+        state: ["TIMEOUT"],
+      },
+    },
+  });
+});
