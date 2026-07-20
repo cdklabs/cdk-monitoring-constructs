@@ -4674,7 +4674,15 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Killed\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"Glue\\",\\"glue.driver.aggregate.numFailedTasks\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Failed\\",\\"stat\\":\\"Sum\\"}],[\\"Glue\\",\\"glue.driver.aggregate.numKilledTasks\\",\\"JobName\\",\\"DummyJob\\",\\"JobRunId\\",\\"ALL\\",\\"Type\\",\\"count\\",{\\"label\\":\\"Killed\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Events\\",\\"TriggeredRules\\",\\"RuleName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeGlueJobFAILEDStateChangeRule60A7A542",
+              },
+              "\\",{\\"label\\":\\"Job FAILED\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/Events\\",\\"TriggeredRules\\",\\"RuleName\\",\\"",
+              Object {
+                "Ref": "MonitoringFacadeGlueJobTIMEOUTStateChangeRuleEE6C5811",
+              },
+              "\\",{\\"label\\":\\"Job TIMEOUT\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":3,\\"height\\":5,\\"x\\":21,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4719,6 +4727,52 @@ Object {
         "Role": "arn:aws:iam::123456789012:role/service-role/GlueServiceRole-1A2B3C4D",
       },
       "Type": "AWS::Glue::Job",
+    },
+    "MonitoringFacadeGlueJobFAILEDStateChangeRule60A7A542": Object {
+      "Properties": Object {
+        "Description": "Event rule for catching DummyJob FAILED",
+        "EventPattern": Object {
+          "detail": Object {
+            "jobName": Array [
+              "DummyJob",
+            ],
+            "state": Array [
+              "FAILED",
+            ],
+          },
+          "detail-type": Array [
+            "Glue Job State Change",
+          ],
+          "source": Array [
+            "aws.glue",
+          ],
+        },
+        "State": "ENABLED",
+      },
+      "Type": "AWS::Events::Rule",
+    },
+    "MonitoringFacadeGlueJobTIMEOUTStateChangeRuleEE6C5811": Object {
+      "Properties": Object {
+        "Description": "Event rule for catching DummyJob TIMEOUT",
+        "EventPattern": Object {
+          "detail": Object {
+            "jobName": Array [
+              "DummyJob",
+            ],
+            "state": Array [
+              "TIMEOUT",
+            ],
+          },
+          "detail-type": Array [
+            "Glue Job State Change",
+          ],
+          "source": Array [
+            "aws.glue",
+          ],
+        },
+        "State": "ENABLED",
+      },
+      "Type": "AWS::Events::Rule",
     },
   },
   "Rules": Object {
