@@ -25638,6 +25638,8 @@ const glueJobMonitoringOptions: GlueJobMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addFailedTaskCountAlarm">addFailedTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addFailedTaskRateAlarm">addFailedTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addJobFailedStateCountAlarm">addJobFailedStateCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addJobTimeoutStateCountAlarm">addJobTimeoutStateCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskCountAlarm">addKilledTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskRateAlarm">addKilledTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 
@@ -25812,6 +25814,26 @@ public readonly addFailedTaskRateAlarm: {[ key: string ]: ErrorRateThreshold};
 
 ---
 
+##### `addJobFailedStateCountAlarm`<sup>Optional</sup> <a name="addJobFailedStateCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addJobFailedStateCountAlarm"></a>
+
+```typescript
+public readonly addJobFailedStateCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addJobTimeoutStateCountAlarm`<sup>Optional</sup> <a name="addJobTimeoutStateCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addJobTimeoutStateCountAlarm"></a>
+
+```typescript
+public readonly addJobTimeoutStateCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
 ##### `addKilledTaskCountAlarm`<sup>Optional</sup> <a name="addKilledTaskCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringOptions.property.addKilledTaskCountAlarm"></a>
 
 ```typescript
@@ -25859,6 +25881,8 @@ const glueJobMonitoringProps: GlueJobMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addFailedTaskCountAlarm">addFailedTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addFailedTaskRateAlarm">addFailedTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addJobFailedStateCountAlarm">addJobFailedStateCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addJobTimeoutStateCountAlarm">addJobTimeoutStateCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskCountAlarm">addKilledTaskCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoringProps.property.addKilledTaskRateAlarm">addKilledTaskRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 
@@ -26030,6 +26054,26 @@ public readonly addFailedTaskRateAlarm: {[ key: string ]: ErrorRateThreshold};
 ```
 
 - *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}
+
+---
+
+##### `addJobFailedStateCountAlarm`<sup>Optional</sup> <a name="addJobFailedStateCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.addJobFailedStateCountAlarm"></a>
+
+```typescript
+public readonly addJobFailedStateCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
+
+---
+
+##### `addJobTimeoutStateCountAlarm`<sup>Optional</sup> <a name="addJobTimeoutStateCountAlarm" id="cdk-monitoring-constructs.GlueJobMonitoringProps.property.addJobTimeoutStateCountAlarm"></a>
+
+```typescript
+public readonly addJobTimeoutStateCountAlarm: {[ key: string ]: ErrorCountThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorCountThreshold">ErrorCountThreshold</a>}
 
 ---
 
@@ -74921,6 +74965,8 @@ public createUtilizationWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.failedTaskCountMetric">failedTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.failedTaskRateMetric">failedTaskRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.heapMemoryUsageMetric">heapMemoryUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.jobFailedStateMetric">jobFailedStateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.jobTimeoutStateMetric">jobTimeoutStateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.killedTaskCountMetric">killedTaskCountMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.killedTaskRateMetric">killedTaskRateMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.GlueJobMonitoring.property.neededExecutorsMetric">neededExecutorsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
@@ -75042,6 +75088,26 @@ public readonly failedTaskRateMetric: MathExpression | Metric;
 
 ```typescript
 public readonly heapMemoryUsageMetric: MathExpression | Metric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+##### `jobFailedStateMetric`<sup>Required</sup> <a name="jobFailedStateMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.jobFailedStateMetric"></a>
+
+```typescript
+public readonly jobFailedStateMetric: MathExpression | Metric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+##### `jobTimeoutStateMetric`<sup>Required</sup> <a name="jobTimeoutStateMetric" id="cdk-monitoring-constructs.GlueJobMonitoring.property.jobTimeoutStateMetric"></a>
+
+```typescript
+public readonly jobTimeoutStateMetric: MathExpression | Metric;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
