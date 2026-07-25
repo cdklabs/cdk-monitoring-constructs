@@ -139,7 +139,7 @@ Object {
                   "ApiId",
                 ],
               },
-              "\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -493,6 +493,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -537,6 +538,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -585,7 +587,7 @@ Object {
                   "ApiId",
                 ],
               },
-              "\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"SampleCount\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 100 for 3 datapoints within 15 minutes\\",\\"value\\":100,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -745,7 +747,7 @@ Object {
                   "ApiId",
                 ],
               },
-              "\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -830,7 +832,7 @@ Object {
                   "ApiId",
                 ],
               },
-              "\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -983,7 +985,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS (min: \${MIN}, max: \${MAX}, avg: \${AVG})\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"DummyApiFromElsewhere\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS (min: \${MIN}, max: \${MAX}, avg: \${AVG})\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"DummyApiFromElsewhere\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1012,7 +1014,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS (min: \${MIN}, max: \${MAX}, avg: \${AVG})\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"DummyApiFromElsewhere\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS (min: \${MIN}, max: \${MAX}, avg: \${AVG})\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/AppSync\\",\\"Latency\\",\\"GraphQLAPIId\\",\\"DummyApiFromElsewhere\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"SampleCount\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

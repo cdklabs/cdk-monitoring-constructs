@@ -107,8 +107,11 @@ test("snapshot test", () => {
 });
 
 test("each stack in an app gets its own publisher instance", () => {
-  const app = new App();
-  for (const stack of [new Stack(app, "Stack1"), new Stack(app, "Stack2")]) {
+  const templates: Template[] = [];
+  for (const stackName of ["Stack1", "Stack2"]) {
+    const app = new App();
+    const stack = new Stack(app, stackName);
+
     const scope = new TestMonitoringScope(stack, "Scope");
 
     new SecretsManagerSecretMonitoring(scope, {
@@ -121,6 +124,9 @@ test("each stack in an app gets its own publisher instance", () => {
       });
     }
 
-    expect(Template.fromStack(stack)).toMatchSnapshot();
+    templates.push(Template.fromStack(stack));
   }
+  templates.forEach((template) => {
+    expect(template).toMatchSnapshot();
+  });
 });

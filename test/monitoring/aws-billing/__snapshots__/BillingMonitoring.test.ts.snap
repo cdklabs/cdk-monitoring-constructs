@@ -109,6 +109,11 @@ Object {
         "EvaluationPeriods": 3,
         "Metrics": Array [
           Object {
+            "Expression": "ANOMALY_DETECTION_BAND(m1, 5)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          Object {
             "Id": "m1",
             "Label": "Estimated Charges",
             "MetricStat": Object {
@@ -128,7 +133,7 @@ Object {
             "ReturnData": true,
           },
         ],
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",

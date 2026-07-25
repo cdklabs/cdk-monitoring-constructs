@@ -4,7 +4,7 @@
 
 ### BitmapDashboard <a name="BitmapDashboard" id="cdk-monitoring-constructs.BitmapDashboard"></a>
 
-- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware
 
 Specific subtype of dashboard that renders supported widgets as bitmaps, while preserving the overall layout.
 
@@ -48,6 +48,7 @@ new BitmapDashboard(scope: Construct, id: string, props: DashboardProps)
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addVariable">addVariable</a></code> | Add a variable to the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
@@ -79,7 +80,27 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="cdk-monitoring-constructs.BitmapDashboard.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="cdk-monitoring-constructs.BitmapDashboard.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -133,7 +154,12 @@ Widgets given in multiple calls to add() will be laid out stacked on
 top of each other.
 
 Multiple widgets added in the same call to add() will be laid out next
-to each other.
+to each other. **However**, keep in mind that CloudWatch will vertically
+compact your dashboard. That means that if there is unused space
+above a widget, it will be shifted upwards as far as possible to fill
+that space. Add empty `TextWidget`s as a spacer in the row above
+your widgets you need to keep multiple side-by-side widgets
+consistently spaced.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.BitmapDashboard.addWidgets.parameter.widgets"></a>
 
@@ -220,7 +246,7 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.dashboardArn">dashboardArn</a></code> | <code>string</code> | ARN of this dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.dashboardName">dashboardName</a></code> | <code>string</code> | The name of this dashboard. |
@@ -245,16 +271,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -294,6 +321,25 @@ The name of this dashboard.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="cdk-monitoring-constructs.BitmapDashboard.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### BitmapWidgetRenderingSupport <a name="BitmapWidgetRenderingSupport" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport"></a>
 
@@ -455,7 +501,7 @@ public readonly handler: IFunction;
 
 ### DashboardWithBitmapCopy <a name="DashboardWithBitmapCopy" id="cdk-monitoring-constructs.DashboardWithBitmapCopy"></a>
 
-- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware
 
 Composite dashboard which keeps a normal dashboard with its bitmap copy.
 
@@ -501,6 +547,7 @@ new DashboardWithBitmapCopy(scope: Construct, id: string, props: DashboardProps)
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addVariable">addVariable</a></code> | Add a variable to the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
@@ -532,7 +579,27 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -586,7 +653,12 @@ Widgets given in multiple calls to add() will be laid out stacked on
 top of each other.
 
 Multiple widgets added in the same call to add() will be laid out next
-to each other.
+to each other. **However**, keep in mind that CloudWatch will vertically
+compact your dashboard. That means that if there is unused space
+above a widget, it will be shifted upwards as far as possible to fill
+that space. Add empty `TextWidget`s as a spacer in the row above
+your widgets you need to keep multiple side-by-side widgets
+consistently spaced.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets.parameter.widgets"></a>
 
@@ -673,7 +745,7 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.dashboardArn">dashboardArn</a></code> | <code>string</code> | ARN of this dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.dashboardName">dashboardName</a></code> | <code>string</code> | The name of this dashboard. |
@@ -698,16 +770,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -747,6 +820,25 @@ The name of this dashboard.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DefaultDashboardFactory <a name="DefaultDashboardFactory" id="cdk-monitoring-constructs.DefaultDashboardFactory"></a>
 
@@ -4396,11 +4488,32 @@ const alarmSummaryMatrixWidgetProps: AlarmSummaryMatrixWidgetProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.accountId">accountId</a></code> | <code>string</code> | The AWS account ID where the metrics are located. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.height">height</a></code> | <code>number</code> | Height of the widget. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.region">region</a></code> | <code>string</code> | The region the metrics of this graph should be taken from. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.title">title</a></code> | <code>string</code> | Title for the graph. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.width">width</a></code> | <code>number</code> | Width of the widget, in a grid of 24 units wide. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.alarmArns">alarmArns</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `accountId`<sup>Optional</sup> <a name="accountId" id="cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.accountId"></a>
+
+```typescript
+public readonly accountId: string;
+```
+
+- *Type:* string
+- *Default:* Current account
+
+The AWS account ID where the metrics are located.
+
+This enables cross-account functionality for CloudWatch dashboards.
+Before using this feature, ensure that proper cross-account sharing is configured
+between the monitoring account and source account.
+
+For more information, see:
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html
 
 ---
 

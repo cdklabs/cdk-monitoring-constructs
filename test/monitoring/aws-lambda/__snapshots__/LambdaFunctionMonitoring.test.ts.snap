@@ -2,7 +2,6 @@
 
 exports[`snapshot test: all alarms 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -205,15 +204,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs24.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -266,7 +257,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -622,6 +613,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -663,6 +655,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -925,7 +918,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -993,7 +986,6 @@ Object {
 
 exports[`snapshot test: all alarms 2`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -1021,15 +1013,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs24.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1040,7 +1024,7 @@ Object {
         },
         "FunctionVersion": Object {
           "Fn::GetAtt": Array [
-            "FunctionCurrentVersion4E2B2261eb172f4d56d10a3af9e0cc449c9db5c1",
+            "FunctionCurrentVersion4E2B2261c48d6775dd06a6d2da2302557121f02a",
             "Version",
           ],
         },
@@ -1051,7 +1035,10 @@ Object {
       },
       "Type": "AWS::Lambda::Alias",
     },
-    "FunctionCurrentVersion4E2B2261eb172f4d56d10a3af9e0cc449c9db5c1": Object {
+    "FunctionCurrentVersion4E2B2261c48d6775dd06a6d2da2302557121f02a": Object {
+      "Metadata": Object {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": Object {
         "FunctionName": Object {
           "Ref": "Function76856677",
@@ -1123,7 +1110,6 @@ Object {
 
 exports[`snapshot test: all alarms, alarmPrefix on error dedupeString 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -1414,15 +1400,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs24.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1475,7 +1453,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1607,15 +1585,15 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"TotalMemory\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"total_memory\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              "\\",{\\"label\\":\\"TotalMemory\\",\\"id\\":\\"total_memory\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"duration\\"}],[\\"LambdaInsights\\",\\"init_duration\\",\\"function_name\\",\\"",
+              "\\",{\\"id\\":\\"duration\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"LambdaInsights\\",\\"init_duration\\",\\"function_name\\",\\"",
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"InitDuration.Sum\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"init_duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"InitDuration.Sum\\",\\"id\\":\\"init_duration\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -2139,6 +2117,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -2216,6 +2195,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -2478,7 +2458,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2546,7 +2526,6 @@ Object {
 
 exports[`snapshot test: all alarms, alarmPrefix on latency dedupeString 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -2837,15 +2816,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs24.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -2898,7 +2869,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3030,15 +3001,15 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"TotalMemory\\",\\"stat\\":\\"Maximum\\",\\"visible\\":false,\\"id\\":\\"total_memory\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
+              "\\",{\\"label\\":\\"TotalMemory\\",\\"id\\":\\"total_memory\\",\\"visible\\":false,\\"stat\\":\\"Maximum\\"}],[\\"AWS/Lambda\\",\\"Duration\\",\\"FunctionName\\",\\"",
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"duration\\"}],[\\"LambdaInsights\\",\\"init_duration\\",\\"function_name\\",\\"",
+              "\\",{\\"id\\":\\"duration\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"LambdaInsights\\",\\"init_duration\\",\\"function_name\\",\\"",
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"InitDuration.Sum\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"init_duration\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
+              "\\",{\\"label\\":\\"InitDuration.Sum\\",\\"id\\":\\"init_duration\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"MB*ms\\",\\"showUnits\\":false}}}}]}",
             ],
           ],
         },
@@ -3562,6 +3533,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -3639,6 +3611,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -3901,7 +3874,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS <= 0 for 1 datapoints within 5 minutes\\",\\"value\\":0,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 1 datapoints within 5 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3969,7 +3942,6 @@ Object {
 
 exports[`snapshot test: default iterator and no alarms 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -4000,15 +3972,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs24.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -4061,7 +4025,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4158,7 +4122,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4297,7 +4261,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"DummyLambda\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"DummyLambda\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4474,7 +4438,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"DummyLambda\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"DummyLambda\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4522,7 +4486,6 @@ Object {
 
 exports[`snapshot test: latency alarms with percentage of timeout with specific timeout 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -4604,15 +4567,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs24.x",
         "Timeout": 100,
       },
       "Type": "AWS::Lambda::Function",
@@ -4666,7 +4621,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4911,7 +4866,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4979,7 +4934,6 @@ Object {
 
 exports[`snapshot test: non-iterator and no alarms 1`] = `
 Object {
-  "Mappings": [MAPPING REMOVED],
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -5010,15 +4964,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": Object {
-          "Fn::FindInMap": Array [
-            "LatestNodeRuntimeMap",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            "value",
-          ],
-        },
+        "Runtime": "nodejs24.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -5071,7 +5017,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5160,7 +5106,7 @@ Object {
               Object {
                 "Ref": "Function76856677",
               },
-              "\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5277,7 +5223,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"DummyLambda\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"DummyLambda\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5386,7 +5332,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"DummyLambda\\",{\\"label\\":\\"Invocations\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[{\\"label\\":\\"TPS\\",\\"expression\\":\\"FILL(requests,0) / PERIOD(requests)\\"}],[\\"AWS/Lambda\\",\\"Invocations\\",\\"FunctionName\\",\\"DummyLambda\\",{\\"label\\":\\"Invocations\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Latency\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

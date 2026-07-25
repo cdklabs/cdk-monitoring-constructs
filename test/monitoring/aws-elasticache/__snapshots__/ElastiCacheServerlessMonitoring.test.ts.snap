@@ -163,6 +163,7 @@ Object {
             "Expression": "FILL(IF(total > 0, 100 * throttles/total, 0), 0)",
             "Id": "expr_1",
             "Label": "Throttle Rate",
+            "ReturnData": true,
           },
           Object {
             "Id": "throttles",

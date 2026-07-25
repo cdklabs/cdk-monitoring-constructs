@@ -43,14 +43,14 @@
     "organization": true
   },
   "devDependencies": {
-    "@aws-cdk/aws-redshift-alpha": "2.160.0-alpha.0",
+    "@aws-cdk/aws-redshift-alpha": "2.260.0-alpha.0",
     "@aws-cdk/integ-runner": "latest",
     "@aws-cdk/integ-tests-alpha": "latest",
     "@types/jest": "^27",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
-    "aws-cdk-lib": "2.160.0",
+    "aws-cdk-lib": "2.260.0",
     "cdklabs-projen-project-types": "^0.6.23",
     "commit-and-tag-version": "^13",
     "constructs": "10.5.1",
@@ -73,7 +73,7 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.160.0",
+    "aws-cdk-lib": "^2.260.0",
     "constructs": "^10.5.1"
   },
   "keywords": [

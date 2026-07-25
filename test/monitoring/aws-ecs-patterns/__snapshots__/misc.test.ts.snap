@@ -495,7 +495,7 @@ def lambda_handler(event, context):
   lifecycle_event = json.loads(event['Records'][0]['Sns']['Message'])
   instance_id = lifecycle_event.get('EC2InstanceId')
   if not instance_id:
-    print('Got event without EC2InstanceId: %s', json.dumps(dict(event, ResponseURL='...')))
+    print(f\\"Got event without EC2InstanceId: { json.dumps(dict(event, ResponseURL='...')) }\\")
     return
 
   instance_arn = container_instance_arn(cluster, instance_id)
@@ -588,7 +588,7 @@ def pick(dct, *keys):
             "Arn",
           ],
         },
-        "Runtime": "python3.9",
+        "Runtime": "python3.13",
         "Tags": Array [
           Object {
             "Key": "Name",
@@ -914,10 +914,7 @@ echo ECS_CLUSTER=",
                 Object {
                   "Ref": "ClusterEB0386A7",
                 },
-                " >> /etc/ecs/ecs.config
-sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
-sudo service iptables save
-echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
+                " >> /etc/ecs/ecs.config",
               ],
             ],
           },
@@ -1994,7 +1991,7 @@ def lambda_handler(event, context):
   lifecycle_event = json.loads(event['Records'][0]['Sns']['Message'])
   instance_id = lifecycle_event.get('EC2InstanceId')
   if not instance_id:
-    print('Got event without EC2InstanceId: %s', json.dumps(dict(event, ResponseURL='...')))
+    print(f\\"Got event without EC2InstanceId: { json.dumps(dict(event, ResponseURL='...')) }\\")
     return
 
   instance_arn = container_instance_arn(cluster, instance_id)
@@ -2087,7 +2084,7 @@ def pick(dct, *keys):
             "Arn",
           ],
         },
-        "Runtime": "python3.9",
+        "Runtime": "python3.13",
         "Tags": Array [
           Object {
             "Key": "Name",
@@ -2413,10 +2410,7 @@ echo ECS_CLUSTER=",
                 Object {
                   "Ref": "ClusterEB0386A7",
                 },
-                " >> /etc/ecs/ecs.config
-sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
-sudo service iptables save
-echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
+                " >> /etc/ecs/ecs.config",
               ],
             ],
           },

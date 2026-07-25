@@ -1,7 +1,7 @@
 import * as cdklabs from "cdklabs-projen-project-types";
 import { javascript, github, DependencyType, ReleasableCommits } from "projen";
 
-const CDK_VERSION = "2.160.0";
+const CDK_VERSION = "2.260.0";
 
 const project = new cdklabs.CdklabsConstructLibrary({
   name: "cdk-monitoring-constructs",
@@ -13,7 +13,7 @@ const project = new cdklabs.CdklabsConstructLibrary({
   keywords: ["cloudwatch", "monitoring"],
 
   defaultReleaseBranch: "main",
-  majorVersion: 10,
+  majorVersion: 11,
   stability: "experimental",
   setNodeEngineVersion: false,
 
