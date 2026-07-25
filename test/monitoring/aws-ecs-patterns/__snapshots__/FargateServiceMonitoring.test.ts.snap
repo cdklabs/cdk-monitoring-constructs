@@ -694,7 +694,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -879,6 +879,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -959,6 +960,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -2896,7 +2898,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -3081,6 +3083,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -3161,6 +3164,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -5098,7 +5102,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -5283,6 +5287,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -5363,6 +5368,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -7172,7 +7178,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -8462,7 +8468,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -9752,7 +9758,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -11101,7 +11107,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -11286,6 +11292,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -11366,6 +11373,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -13067,7 +13075,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -13252,6 +13260,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -13332,6 +13341,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -15033,7 +15043,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -15218,6 +15228,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -15298,6 +15309,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -16882,7 +16894,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -18037,7 +18049,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -19192,7 +19204,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ServiceLBE9A1ADBC",
@@ -20493,7 +20505,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -20678,6 +20690,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -20758,6 +20771,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -22369,7 +22383,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -22554,6 +22568,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -22634,6 +22649,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -24245,7 +24261,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -24430,6 +24446,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -24510,6 +24527,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -26015,7 +26033,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -27130,7 +27148,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -28245,7 +28263,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -29438,6 +29456,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -30635,6 +30654,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -31832,6 +31852,7 @@ Object {
             "Expression": "100 * (used/total)",
             "Id": "expr_1",
             "Label": "Ephemeral Storage Usage",
+            "ReturnData": true,
           },
           Object {
             "Id": "used",
@@ -35337,7 +35358,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"net/LoadBalancer/123\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

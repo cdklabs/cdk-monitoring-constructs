@@ -177,7 +177,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Traffic\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Traffic\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -301,6 +301,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -346,6 +347,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -396,7 +398,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -623,7 +625,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -755,6 +757,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -800,6 +803,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -850,7 +854,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1077,7 +1081,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1209,6 +1213,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -1254,6 +1259,7 @@ Object {
             "Expression": "FILL(requests,0) / PERIOD(requests)",
             "Id": "expr_1",
             "Label": "TPS",
+            "ReturnData": true,
           },
           Object {
             "Id": "requests",
@@ -1304,7 +1310,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"TPS < 10 for 3 datapoints within 15 minutes\\",\\"value\\":10,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"TPS > 20 for 3 datapoints within 15 minutes\\",\\"value\\":20,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1480,7 +1486,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Traffic\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Traffic\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1529,7 +1535,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1705,7 +1711,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1762,7 +1768,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1938,7 +1944,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Hit Rate\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1995,7 +2001,7 @@ Object {
               Object {
                 "Ref": "Distribution830FAC52",
               },
-              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"requests\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
+              "\\",\\"Region\\",\\"Global\\",{\\"label\\":\\"Requests\\",\\"id\\":\\"requests\\",\\"visible\\":false,\\"region\\":\\"us-east-1\\",\\"stat\\":\\"Sum\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Errors (rate)\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

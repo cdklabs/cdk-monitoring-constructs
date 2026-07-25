@@ -711,6 +711,7 @@ Object {
             "Expression": "IF(sampleCount > 15, metric)",
             "Id": "expr_1",
             "Label": "DummyMetric12",
+            "ReturnData": true,
           },
           Object {
             "Id": "metric",
