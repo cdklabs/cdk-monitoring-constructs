@@ -2521,7 +2521,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster CPU Utilization",
+            "Label": "Cluster CPU Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -4701,7 +4701,7 @@ Object {
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster CPU Utilization",
+            "Label": "Cluster CPU Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [

@@ -12,8 +12,12 @@ import {
   DynamoTableMonitoringOptions,
   EC2MonitoringOptions,
   ElastiCacheClusterMonitoringOptions,
+  BaseFargateServiceMonitoringProps,
+  BaseLoadBalancedFargateServiceMonitoringProps,
+  BaseQueueProcessingFargateServiceMonitoringOptions,
   GlueJobMonitoringOptions,
   KinesisDataAnalyticsMonitoringOptions,
+  KinesisDataStreamConsumerMonitoringOptions,
   KinesisDataStreamMonitoringOptions,
   KinesisFirehoseMonitoringOptions,
   LambdaFunctionMonitoringOptions,
@@ -29,15 +33,6 @@ import {
   SyntheticsCanaryMonitoringOptions,
   WafV2MonitoringOptions,
 } from "../monitoring";
-
-/**
- * @deprecated Extend {@link BaseMonitoringAspectType} instead.
- *
- * This type is not compatable with JSII@5.x and will be removed in the next major version.
- */
-export type MonitoringAspectType<T> = BaseMonitoringAspectType & {
-  readonly props?: T;
-};
 
 export interface BaseMonitoringAspectType {
   /**
@@ -99,6 +94,20 @@ export interface ElastiCacheAspectType extends BaseMonitoringAspectType {
   readonly props?: ElastiCacheClusterMonitoringOptions;
 }
 
+export interface FargateServiceAspectType extends BaseMonitoringAspectType {
+  readonly props?: BaseFargateServiceMonitoringProps;
+}
+
+export interface LoadBalancedFargateServiceAspectType
+  extends BaseMonitoringAspectType {
+  readonly props?: BaseLoadBalancedFargateServiceMonitoringProps;
+}
+
+export interface QueueProcessingFargateServiceAspectType
+  extends BaseMonitoringAspectType {
+  readonly props?: BaseQueueProcessingFargateServiceMonitoringOptions;
+}
+
 export interface GlueJobAspectType extends BaseMonitoringAspectType {
   readonly props?: GlueJobMonitoringOptions;
 }
@@ -110,6 +119,11 @@ export interface KinesisDataAnalyticsAspectType
 
 export interface KinesisDataStreamAspectType extends BaseMonitoringAspectType {
   readonly props?: KinesisDataStreamMonitoringOptions;
+}
+
+export interface KinesisDataStreamConsumerAspectType
+  extends BaseMonitoringAspectType {
+  readonly props?: KinesisDataStreamConsumerMonitoringOptions;
 }
 
 export interface KinesisFirehoseAspectType extends BaseMonitoringAspectType {
@@ -179,9 +193,13 @@ export interface MonitoringAspectProps {
   readonly dynamoDB?: DynamoTableAspectType;
   readonly ec2?: EC2AspectType;
   readonly elasticCache?: ElastiCacheAspectType;
+  readonly fargateService?: FargateServiceAspectType;
+  readonly fargateLoadBalancedService?: LoadBalancedFargateServiceAspectType;
+  readonly queueProcessingFargateService?: QueueProcessingFargateServiceAspectType;
   readonly glue?: GlueJobAspectType;
   readonly kinesisDataAnalytics?: KinesisDataAnalyticsAspectType;
   readonly kinesisDataStream?: KinesisDataStreamAspectType;
+  readonly kinesisDataStreamConsumer?: KinesisDataStreamConsumerAspectType;
   readonly kinesisFirehose?: KinesisFirehoseAspectType;
   readonly lambda?: LambdaFunctionAspectType;
   readonly openSearch?: OpenSearchClusterAspectType;

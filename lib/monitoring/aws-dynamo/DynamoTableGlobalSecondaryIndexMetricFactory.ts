@@ -16,7 +16,7 @@ export interface DynamoTableGlobalSecondaryIndexMetricFactoryProps
   readonly globalSecondaryIndexName: string;
 }
 
-export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFactory<DynamoTableGlobalSecondaryIndexMetricFactoryProps> {
+export class DynamoTableGlobalSecondaryIndexMetricFactory extends BaseMetricFactory {
   protected readonly table: ITable;
   protected readonly dimensionsMap: DimensionsMap;
 

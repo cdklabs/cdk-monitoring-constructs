@@ -27,7 +27,7 @@ export interface DynamoTableMetricFactoryProps extends BaseMetricFactoryProps {
   readonly billingMode?: BillingMode;
 }
 
-export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetricFactoryProps> {
+export class DynamoTableMetricFactory extends BaseMetricFactory {
   protected readonly table: ITable;
 
   constructor(
@@ -72,10 +72,6 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
         }),
       },
       ConsumedLabel,
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 
@@ -90,10 +86,6 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
         }),
       },
       ConsumedLabel,
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 
@@ -105,10 +97,6 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
         provisioned_read_cap: this.metricProvisionedReadCapacityUnits(),
       },
       "Utilization",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 
@@ -120,10 +108,6 @@ export class DynamoTableMetricFactory extends BaseMetricFactory<DynamoTableMetri
         provisioned_write_cap: this.metricProvisionedWriteCapacityUnits(),
       },
       "Utilization",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 

@@ -1,6 +1,7 @@
 import { Duration, Stack } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
 import { IRestApi, RestApi } from "aws-cdk-lib/aws-apigateway";
+import { Dimension } from "aws-cdk-lib/aws-cloudwatch";
 
 import { AlarmWithAnnotation, ApiGatewayMonitoring } from "../../../lib";
 import { addMonitoringDashboardsToStack } from "../../utils/SnapshotUtil";
@@ -375,3 +376,69 @@ test("snapshot test: all alarms using interface", () => {
   expect(numAlarmsCreated).toStrictEqual(26);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
+
+test("uses prod as the stage dimension and title stage when apiStage is omitted and deploymentStage is undefined", () => {
+  const stack = new Stack();
+  const api: IRestApi = RestApi.fromRestApiId(
+    stack,
+    "ThisShouldBeTheApiName",
+    "thisIsNotUsed",
+  );
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new ApiGatewayMonitoring(scope, {
+    api,
+    add5XXFaultCountAlarm: {
+      Warning: {
+        maxErrorCount: 1,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms) {
+        expect(getDimensions(alarms[0])).toEqual([
+          { name: "ApiName", value: "ThisShouldBeTheApiName" },
+          { name: "Stage", value: "prod" },
+        ]);
+      },
+    },
+  });
+
+  expect(monitoring.title).toStrictEqual("ThisShouldBeTheApiName prod");
+});
+
+test("uses deployment stage name when apiStage is omitted", () => {
+  const stack = new Stack();
+  const api = new RestApi(stack, "DummyApi", {
+    deployOptions: {
+      stageName: "beta",
+    },
+  });
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const monitoring = new ApiGatewayMonitoring(scope, {
+    api,
+    add5XXFaultCountAlarm: {
+      Warning: {
+        maxErrorCount: 1,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms) {
+        expect(getDimensions(alarms[0])).toEqual([
+          { name: "ApiName", value: "DummyApi" },
+          { name: "Stage", value: api.deploymentStage.stageName },
+        ]);
+      },
+    },
+  });
+
+  expect(monitoring.title).toStrictEqual(
+    `${api.restApiName} ${api.deploymentStage.stageName}`,
+  );
+});
+
+function getDimensions(alarm: AlarmWithAnnotation): Dimension[] | undefined {
+  return alarm.alarmDefinition.metric.toMetricConfig().metricStat?.dimensions;
+}

@@ -23,7 +23,7 @@ export interface SyntheticsCanaryMetricFactoryProps
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class SyntheticsCanaryMetricFactory extends BaseMetricFactory<SyntheticsCanaryMetricFactoryProps> {
+export class SyntheticsCanaryMetricFactory extends BaseMetricFactory {
   protected readonly canary: Canary;
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;

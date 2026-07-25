@@ -25,6 +25,17 @@ export interface RecordsFailedThreshold extends CustomAlarmThreshold {
   readonly maxRecordsFailedThreshold: number;
 }
 
+export interface ConsumerRateExceededThreshold extends CustomAlarmThreshold {
+  /** Threshold for SubscribeToShard.RateExceeded average (0.0–1.0). */
+  readonly maxRateExceeded: number;
+}
+
+export interface MinConsumerSubscribeToShardSuccessThreshold
+  extends CustomAlarmThreshold {
+  /** Minimum acceptable SubscribeToShard.Success average (0.0–1.0). */
+  readonly minSuccessRate: number;
+}
+
 export class KinesisAlarmFactory {
   protected readonly alarmFactory: AlarmFactory;
 
@@ -164,6 +175,68 @@ export class KinesisAlarmFactory {
       threshold,
       alarmNameSuffix: "WriteThroughputExceeded",
       alarmDescription: `Number of records resulting in write throughput capacity throttling reached the threshold of ${threshold}.`,
+    });
+  }
+
+  addConsumerIteratorMaxAgeAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MaxIteratorAgeThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxAgeInMillis,
+      alarmNameSuffix: "ConsumerIteratorMaxAge",
+      alarmDescription: `Consumer SubscribeToShardEvent MillisBehindLatest is too high.`,
+      alarmDedupeStringSuffix: "AnyConsumerIteratorMaxAge",
+    });
+  }
+
+  addConsumerSubscribeToShardRateExceededAlarm(
+    metric: MetricWithAlarmSupport,
+    props: ConsumerRateExceededThreshold,
+    disambiguator?: string,
+  ) {
+    const threshold = props.maxRateExceeded;
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold,
+      alarmNameSuffix: "ConsumerSubscribeToShardRateExceeded",
+      alarmDescription: `Consumer SubscribeToShard rate exceeded threshold of ${threshold}.`,
+      alarmDedupeStringSuffix: "ConsumerSubscribeToShardRateExceeded",
+    });
+  }
+
+  addConsumerSubscribeToShardSuccessAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MinConsumerSubscribeToShardSuccessThreshold,
+    disambiguator?: string,
+  ) {
+    const threshold = props.minSuccessRate;
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.NOT_BREACHING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.LESS_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold,
+      alarmNameSuffix: "ConsumerSubscribeToShardSuccess",
+      alarmDescription: `Consumer SubscribeToShard success rate fell below threshold of ${threshold}.`,
+      alarmDedupeStringSuffix: "ConsumerSubscribeToShardSuccess",
     });
   }
 }

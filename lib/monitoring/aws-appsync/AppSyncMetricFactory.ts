@@ -28,7 +28,7 @@ export interface AppSyncMetricFactoryProps extends BaseMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class AppSyncMetricFactory extends BaseMetricFactory<AppSyncMetricFactoryProps> {
+export class AppSyncMetricFactory extends BaseMetricFactory {
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;

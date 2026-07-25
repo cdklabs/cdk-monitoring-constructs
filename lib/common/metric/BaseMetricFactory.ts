@@ -18,14 +18,12 @@ export interface BaseMetricFactoryProps {
   readonly account?: string;
 }
 
-export abstract class BaseMetricFactory<
-  PropsType extends BaseMetricFactoryProps,
-> {
+export abstract class BaseMetricFactory {
   protected readonly metricFactory: MetricFactory;
   protected readonly account?: string;
   protected readonly region?: string;
 
-  constructor(metricFactory: MetricFactory, props: PropsType) {
+  constructor(metricFactory: MetricFactory, props: BaseMetricFactoryProps) {
     this.metricFactory = metricFactory;
     this.account = props.account;
     this.region = props.region;

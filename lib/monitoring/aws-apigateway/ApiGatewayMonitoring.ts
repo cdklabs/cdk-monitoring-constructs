@@ -116,7 +116,9 @@ export class ApiGatewayMonitoring extends Monitoring {
 
     // used when humanReadableName is not provided by user
     const fallbackNameArray = [props.api.restApiName];
-    fallbackNameArray.push(props.apiStage ?? "prod");
+    const stageName =
+      props.apiStage ?? props.api.deploymentStage?.stageName ?? "prod";
+    fallbackNameArray.push(stageName);
     if (props.apiMethod) {
       fallbackNameArray.push(props.apiMethod);
     }

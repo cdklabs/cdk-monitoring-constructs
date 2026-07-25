@@ -81,6 +81,8 @@ import {
   GlueJobMonitoringProps,
   KinesisDataAnalyticsMonitoring,
   KinesisDataAnalyticsMonitoringProps,
+  KinesisDataStreamConsumerMonitoring,
+  KinesisDataStreamConsumerMonitoringProps,
   KinesisDataStreamMonitoring,
   KinesisDataStreamMonitoringProps,
   KinesisFirehoseMonitoring,
@@ -762,6 +764,14 @@ export class MonitoringFacade extends MonitoringScope {
 
   monitorKinesisDataStream(props: KinesisDataStreamMonitoringProps): this {
     const segment = new KinesisDataStreamMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorKinesisDataStreamConsumer(
+    props: KinesisDataStreamConsumerMonitoringProps,
+  ): this {
+    const segment = new KinesisDataStreamConsumerMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

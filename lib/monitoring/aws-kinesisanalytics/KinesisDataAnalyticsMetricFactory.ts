@@ -24,7 +24,7 @@ interface MetricsSpec {
 /**
  * @see https://docs.aws.amazon.com/kinesisanalytics/latest/java/metrics-dimensions.html
  */
-export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<KinesisDataAnalyticsMetricFactoryProps> {
+export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
@@ -118,6 +118,13 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
     });
   }
 
+  metricBackPressuredTimeMsPerSecond() {
+    return this.metric({
+      name: "backPressuredTimeMsPerSecond",
+      description: "Back Pressured Time",
+    });
+  }
+
   metricCheckpointFailureRate() {
     // Flink reports this metric as the latest sum for the lifecycle of a job.
     // Therefore, we truly care about rate of change
@@ -127,10 +134,6 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
         numberOfFailedCheckpoints: this.metricNumberOfFailedCheckpointsCount(),
       },
       "Checkpoint Failure Rate",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 
@@ -143,10 +146,6 @@ export class KinesisDataAnalyticsMetricFactory extends BaseMetricFactory<Kinesis
         fullRestarts: this.metricFullRestartsCount(),
       },
       "Full Restart Rate",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 

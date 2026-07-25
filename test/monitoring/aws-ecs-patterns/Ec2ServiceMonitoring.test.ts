@@ -109,6 +109,16 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             maxUsagePercent: 80,
           },
         },
+        addCpuP100UsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
+          },
+        },
+        addMemoryP100UsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
+          },
+        },
         addRunningTaskCountAlarm: {
           Warning: {
             maxRunningTasks: 5,
@@ -134,7 +144,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(8);
+      expect(numAlarmsCreated).toStrictEqual(10);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
 
@@ -241,6 +251,16 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
             maxUsagePercent: 80,
           },
         },
+        addCpuP100UsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
+          },
+        },
+        addMemoryP100UsageAlarm: {
+          Warning: {
+            maxUsagePercent: 90,
+          },
+        },
         addRunningTaskCountAlarm: {
           Warning: {
             maxRunningTasks: 5,
@@ -266,7 +286,7 @@ import { TestMonitoringScope } from "../TestMonitoringScope";
       });
 
       addMonitoringDashboardsToStack(stack, monitoring);
-      expect(numAlarmsCreated).toStrictEqual(8);
+      expect(numAlarmsCreated).toStrictEqual(10);
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
   },

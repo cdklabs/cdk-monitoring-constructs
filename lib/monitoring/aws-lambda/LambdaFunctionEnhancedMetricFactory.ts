@@ -14,7 +14,7 @@ export interface LambdaFunctionEnhancedMetricFactoryProps
   readonly lambdaFunction: IFunction;
 }
 
-export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory<LambdaFunctionEnhancedMetricFactoryProps> {
+export class LambdaFunctionEnhancedMetricFactory extends BaseMetricFactory {
   protected readonly lambdaFunction: IFunction;
 
   constructor(

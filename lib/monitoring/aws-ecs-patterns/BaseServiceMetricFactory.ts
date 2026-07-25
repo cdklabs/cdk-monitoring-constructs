@@ -21,7 +21,7 @@ export interface BaseServiceMetricFactoryProps extends BaseMetricFactoryProps {
 /**
  * Metric factory for a base service (parent class for e.g. Fargate and EC2 services).
  */
-export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetricFactoryProps> {
+export class BaseServiceMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
   /**
    * @deprecated This isn't required by cdk-monitoring-constructs anymore; use your own reference.
@@ -41,11 +41,13 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
     this.service = props.service;
   }
 
-  metricClusterCpuUtilisationInPercent() {
+  metricClusterCpuUtilisationInPercent(
+    statistic: MetricStatistic = MetricStatistic.AVERAGE,
+  ) {
     return this.metricFactory.createMetric(
       "CPUUtilization",
-      MetricStatistic.AVERAGE,
-      "Cluster CPU Utilization",
+      statistic,
+      `Cluster CPU Utilization ${statistic}`,
       this.dimensionsMap,
       undefined,
       EcsNamespace,
@@ -55,11 +57,13 @@ export class BaseServiceMetricFactory extends BaseMetricFactory<BaseServiceMetri
     );
   }
 
-  metricClusterMemoryUtilisationInPercent() {
+  metricClusterMemoryUtilisationInPercent(
+    statistic: MetricStatistic = MetricStatistic.AVERAGE,
+  ) {
     return this.metricFactory.createMetric(
       "MemoryUtilization",
-      MetricStatistic.AVERAGE,
-      "Cluster Memory Utilization",
+      statistic,
+      `Cluster Memory Utilization ${statistic}`,
       this.dimensionsMap,
       undefined,
       EcsNamespace,

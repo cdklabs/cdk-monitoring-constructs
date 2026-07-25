@@ -17,7 +17,7 @@ export interface CloudWatchLogsMetricFactoryProps
   readonly logGroupName: string;
 }
 
-export class CloudWatchLogsMetricFactory extends BaseMetricFactory<CloudWatchLogsMetricFactoryProps> {
+export class CloudWatchLogsMetricFactory extends BaseMetricFactory {
   private readonly dimensionsMap: DimensionsMap;
 
   constructor(

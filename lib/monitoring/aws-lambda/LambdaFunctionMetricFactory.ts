@@ -33,7 +33,7 @@ export interface LambdaFunctionMetricFactoryProps
   readonly lambdaInsightsEnabled?: boolean;
 }
 
-export class LambdaFunctionMetricFactory extends BaseMetricFactory<LambdaFunctionMetricFactoryProps> {
+export class LambdaFunctionMetricFactory extends BaseMetricFactory {
   protected readonly lambdaFunction: IFunction;
   protected readonly fillTpsWithZeroes: boolean;
   protected readonly rateComputationMethod: RateComputationMethod;

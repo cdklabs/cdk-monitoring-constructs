@@ -18,7 +18,7 @@ export interface GlueJobMetricFactoryProps extends BaseMetricFactoryProps {
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class GlueJobMetricFactory extends BaseMetricFactory<GlueJobMetricFactoryProps> {
+export class GlueJobMetricFactory extends BaseMetricFactory {
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
   protected readonly typeCountDimensionsMap: DimensionsMap;

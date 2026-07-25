@@ -38,7 +38,7 @@ export interface NetworkLoadBalancerMetricFactoryProps
  * Metric factory to create metrics for network load-balanced service.
  */
 export class NetworkLoadBalancerMetricFactory
-  extends BaseMetricFactory<NetworkLoadBalancerMetricFactoryProps>
+  extends BaseMetricFactory
   implements ILoadBalancerMetricFactory
 {
   protected readonly networkLoadBalancer: INetworkLoadBalancer;
@@ -140,6 +140,39 @@ export class NetworkLoadBalancerMetricFactory
       "FILL(unhealthyRoutingFlowCount, 0)",
       { unhealthyRoutingFlowCount },
       "Unhealthy routing (fail open)",
+    );
+  }
+
+  metricClientResetCount() {
+    return this.metricFactory.adaptMetric(
+      this.networkLoadBalancer.metrics.tcpClientResetCount({
+        label: "Client Reset",
+        statistic: MetricStatistic.SUM,
+        region: this.region,
+        account: this.account,
+      }),
+    );
+  }
+
+  metricTargetResetCount() {
+    return this.metricFactory.adaptMetric(
+      this.networkLoadBalancer.metrics.tcpTargetResetCount({
+        label: "Target Reset",
+        statistic: MetricStatistic.SUM,
+        region: this.region,
+        account: this.account,
+      }),
+    );
+  }
+
+  metricElbResetCount() {
+    return this.metricFactory.adaptMetric(
+      this.networkLoadBalancer.metrics.tcpElbResetCount({
+        label: "ELB Reset",
+        statistic: MetricStatistic.SUM,
+        region: this.region,
+        account: this.account,
+      }),
     );
   }
 }

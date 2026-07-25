@@ -20,7 +20,7 @@ export interface DocumentDbMetricFactoryProps extends BaseMetricFactoryProps {
   readonly cluster: IDatabaseCluster;
 }
 
-export class DocumentDbMetricFactory extends BaseMetricFactory<DocumentDbMetricFactoryProps> {
+export class DocumentDbMetricFactory extends BaseMetricFactory {
   readonly clusterIdentifier: string;
   protected readonly dimensionsMap: DimensionsMap;
 

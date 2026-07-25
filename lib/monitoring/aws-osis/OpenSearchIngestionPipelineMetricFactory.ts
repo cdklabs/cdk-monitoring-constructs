@@ -22,7 +22,7 @@ export interface OpenSearchIngestionPipelineMetricFactoryProps
  *
  * @see https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-pipeline-metrics.html
  */
-export class OpenSearchIngestionPipelineMetricFactory extends BaseMetricFactory<OpenSearchIngestionPipelineMetricFactoryProps> {
+export class OpenSearchIngestionPipelineMetricFactory extends BaseMetricFactory {
   protected readonly subPipelineName: string;
   protected readonly source: string;
   protected readonly sink: string;

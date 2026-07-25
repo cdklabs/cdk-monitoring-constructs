@@ -13,7 +13,7 @@ export interface CodeBuildProjectMetricFactoryProps
   readonly project: IProject;
 }
 
-export class CodeBuildProjectMetricFactory extends BaseMetricFactory<CodeBuildProjectMetricFactoryProps> {
+export class CodeBuildProjectMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
   protected readonly project: IProject;
 

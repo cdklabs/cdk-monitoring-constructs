@@ -17,6 +17,7 @@ import {
   ErrorRateThreshold,
   FullRestartCountThreshold,
   KinesisDataAnalyticsAlarmFactory,
+  MaxBackPressuredTimeMsPerSecondThreshold,
   MaxDowntimeThreshold,
   MetricWithAlarmSupport,
   Monitoring,
@@ -40,6 +41,11 @@ export interface KinesisDataAnalyticsMonitoringOptions
 
   readonly addFullRestartRateAlarm?: Record<string, ErrorRateThreshold>;
 
+  readonly addBackPressuredTimeMsPerSecondAlarm?: Record<
+    string,
+    MaxBackPressuredTimeMsPerSecondThreshold
+  >;
+
   readonly addCheckpointFailureCountAlarm?: Record<string, ErrorCountThreshold>;
 
   readonly addCheckpointFailureRateAlarm?: Record<string, ErrorRateThreshold>;
@@ -57,6 +63,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
   readonly downtimeAnnotations: HorizontalAnnotation[];
   readonly fullRestartAnnotations: HorizontalAnnotation[];
   readonly fullRestartRateAnnotations: HorizontalAnnotation[];
+  readonly backPressuredTimeMsPerSecondAnnotations: HorizontalAnnotation[];
   readonly checkpointFailureCountAnnotations: HorizontalAnnotation[];
   readonly checkpointFailureRateAnnotations: HorizontalAnnotation[];
 
@@ -72,6 +79,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
   readonly oldGenerationGCTimeMsMetric: MetricWithAlarmSupport;
   readonly checkpointFailureRateMetric: MetricWithAlarmSupport;
   readonly fullRestartRateMetric: MetricWithAlarmSupport;
+  readonly backPressuredTimeMsPerSecondMetric: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,
@@ -95,6 +103,7 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     this.downtimeAnnotations = [];
     this.fullRestartAnnotations = [];
     this.fullRestartRateAnnotations = [];
+    this.backPressuredTimeMsPerSecondAnnotations = [];
     this.checkpointFailureCountAnnotations = [];
     this.checkpointFailureRateAnnotations = [];
 
@@ -123,6 +132,8 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     this.checkpointFailureRateMetric =
       metricFactory.metricCheckpointFailureRate();
     this.fullRestartRateMetric = metricFactory.metricFullRestartRate();
+    this.backPressuredTimeMsPerSecondMetric =
+      metricFactory.metricBackPressuredTimeMsPerSecond();
 
     for (const disambiguator in props.addDowntimeAlarm) {
       const alarmProps = props.addDowntimeAlarm[disambiguator];
@@ -154,6 +165,21 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
         disambiguator,
       );
       this.fullRestartRateAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addBackPressuredTimeMsPerSecondAlarm) {
+      const alarmProps =
+        props.addBackPressuredTimeMsPerSecondAlarm[disambiguator];
+      const createdAlarm =
+        this.kdaAlarmFactory.addBackPressuredTimeMsPerSecondAlarm(
+          this.backPressuredTimeMsPerSecondMetric,
+          alarmProps,
+          disambiguator,
+        );
+      this.backPressuredTimeMsPerSecondAnnotations.push(
+        createdAlarm.annotation,
+      );
       this.addAlarm(createdAlarm);
     }
 
@@ -253,6 +279,17 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
     });
   }
 
+  createBackPressuredTimeWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Back Pressured Time",
+      left: [this.backPressuredTimeMsPerSecondMetric],
+      leftYAxis: TimeAxisMillisFromZero,
+      leftAnnotations: this.backPressuredTimeMsPerSecondAnnotations,
+    });
+  }
+
   createNumberOfFailedCheckpointsWidget(width: number, height: number) {
     return new GraphWidget({
       width,
@@ -314,6 +351,11 @@ export class KinesisDataAnalyticsMonitoring extends Monitoring {
 
   private createCheckpointAndGcWidgets(): GraphWidget[] {
     return [
+      // Back Pressure
+      this.createBackPressuredTimeWidget(
+        QuarterWidth,
+        DefaultGraphWidgetHeight,
+      ),
       // Checkpointing
       this.createNumberOfFailedCheckpointsWidget(
         QuarterWidth,

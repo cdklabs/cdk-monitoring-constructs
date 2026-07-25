@@ -14,7 +14,6 @@ import {
   CountAxisFromZero,
   DefaultGraphWidgetHeight,
   DefaultSummaryWidgetHeight,
-  FullWidth,
   HalfWidth,
   HealthyTaskCountThreshold,
   HealthyTaskPercentThreshold,
@@ -24,6 +23,7 @@ import {
   MonitoringScope,
   SizeAxisBytesFromZero,
   TaskHealthAlarmFactory,
+  ThirdWidth,
   ThroughputAlarmFactory,
   UnhealthyTaskCountThreshold,
 } from "../../common";
@@ -67,6 +67,9 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
   protected readonly newTcpFlowCountMetric: MetricWithAlarmSupport;
   protected readonly unhealthyRoutingFlowCountMetric: MetricWithAlarmSupport;
   protected readonly processedBytesMetric: MetricWithAlarmSupport;
+  protected readonly clientResetCountMetric: MetricWithAlarmSupport;
+  protected readonly targetResetCountMetric: MetricWithAlarmSupport;
+  protected readonly elbResetCountMetric: MetricWithAlarmSupport;
 
   constructor(
     scope: MonitoringScope,
@@ -97,6 +100,9 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
     this.unhealthyRoutingFlowCountMetric =
       this.metricFactory.metricUnhealthyRoutingCount();
     this.processedBytesMetric = this.metricFactory.metricProcessedBytesMin();
+    this.clientResetCountMetric = this.metricFactory.metricClientResetCount();
+    this.targetResetCountMetric = this.metricFactory.metricTargetResetCount();
+    this.elbResetCountMetric = this.metricFactory.metricElbResetCount();
 
     const alarmFactory = this.createAlarmFactory(
       namingStrategy.resolveAlarmFriendlyName(),
@@ -153,11 +159,12 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
   }
 
   summaryWidgets(): IWidget[] {
-    const widgetWidth = this.isTaskHealthSupported ? HalfWidth : FullWidth;
+    const widgetWidth = this.isTaskHealthSupported ? ThirdWidth : HalfWidth;
 
     const widgets = [
       this.createTitleWidget(),
       this.createTcpFlowsWidget(widgetWidth, DefaultSummaryWidgetHeight),
+      this.createTcpResetCountsWidget(widgetWidth, DefaultSummaryWidgetHeight),
     ];
 
     if (this.isTaskHealthSupported) {
@@ -170,11 +177,12 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
   }
 
   widgets(): IWidget[] {
-    const widgetWidth = this.isTaskHealthSupported ? HalfWidth : FullWidth;
+    const widgetWidth = this.isTaskHealthSupported ? ThirdWidth : HalfWidth;
 
     const widgets = [
       this.createTitleWidget(),
       this.createTcpFlowsWidget(widgetWidth, DefaultGraphWidgetHeight),
+      this.createTcpResetCountsWidget(widgetWidth, DefaultGraphWidgetHeight),
     ];
 
     if (this.isTaskHealthSupported) {
@@ -217,6 +225,20 @@ export class NetworkLoadBalancerMonitoring extends Monitoring {
       leftYAxis: CountAxisFromZero,
       right: [this.processedBytesMetric],
       rightYAxis: SizeAxisBytesFromZero,
+    });
+  }
+
+  protected createTcpResetCountsWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "TCP Reset Counts",
+      left: [
+        this.clientResetCountMetric,
+        this.targetResetCountMetric,
+        this.elbResetCountMetric,
+      ],
+      leftYAxis: CountAxisFromZero,
     });
   }
 

@@ -20,7 +20,7 @@ export interface StepFunctionLambdaIntegrationMetricFactoryProps
   readonly rateComputationMethod?: RateComputationMethod;
 }
 
-export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactory<StepFunctionLambdaIntegrationMetricFactoryProps> {
+export class StepFunctionLambdaIntegrationMetricFactory extends BaseMetricFactory {
   protected readonly rateComputationMethod: RateComputationMethod;
   protected readonly dimensionsMap: DimensionsMap;
 

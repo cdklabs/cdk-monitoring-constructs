@@ -623,7 +623,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -638,7 +649,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -843,7 +865,7 @@ Object {
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster CPU Utilization",
+            "Label": "Cluster CPU Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -1148,7 +1170,7 @@ Object {
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster Memory Utilization",
+            "Label": "Cluster Memory Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -1478,7 +1500,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1493,7 +1526,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2318,7 +2362,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2333,7 +2388,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2370,7 +2436,7 @@ Object {
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster CPU Utilization",
+            "Label": "Cluster CPU Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -2519,7 +2585,7 @@ Object {
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster Memory Utilization",
+            "Label": "Cluster Memory Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -2756,7 +2822,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2771,7 +2848,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3517,7 +3605,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3532,7 +3631,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3848,7 +3958,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -3863,7 +3984,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4604,7 +4736,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4619,7 +4762,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4731,7 +4885,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -4746,7 +4911,18 @@ Object {
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6173,7 +6349,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6188,7 +6375,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6393,7 +6591,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster CPU Utilization",
+            "Label": "Cluster CPU Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -6698,7 +6896,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster Memory Utilization",
+            "Label": "Cluster Memory Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -6965,7 +7163,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6980,7 +7189,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -8385,7 +8605,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -8400,7 +8631,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -8437,7 +8679,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster CPU Utilization",
+            "Label": "Cluster CPU Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -8586,7 +8828,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
         "Metrics": Array [
           Object {
             "Id": "m1",
-            "Label": "Cluster Memory Utilization",
+            "Label": "Cluster Memory Utilization Average",
             "MetricStat": Object {
               "Metric": Object {
                 "Dimensions": Array [
@@ -8784,7 +9026,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster CPU Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -8799,7 +9052,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Cluster Memory Utilization Average > 80 for 3 datapoints within 15 minutes\\",\\"value\\":80,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -10134,7 +10398,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -10149,7 +10424,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -10402,7 +10688,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -10417,7 +10714,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -11726,7 +12034,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":6,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -11741,7 +12060,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Flows\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -11814,7 +12144,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster CPU Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster CPU Utilization Average\\"}],[\\"AWS/ECS\\",\\"CPUUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster CPU Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Memory Utilization\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -11829,7 +12170,18 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "Name",
                 ],
               },
-              "\\",{\\"label\\":\\"Cluster Memory Utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",{\\"label\\":\\"Cluster Memory Utilization Average\\"}],[\\"AWS/ECS\\",\\"MemoryUtilization\\",\\"ClusterName\\",\\"",
+              Object {
+                "Ref": "ClusterEB0386A7",
+              },
+              "\\",\\"ServiceName\\",\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ServiceD69D759B",
+                  "Name",
+                ],
+              },
+              "\\",{\\"label\\":\\"Cluster Memory Utilization p100\\",\\"stat\\":\\"p100\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

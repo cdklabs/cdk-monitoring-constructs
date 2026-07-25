@@ -96,3 +96,25 @@ test("snapshot test: all alarms", () => {
   expect(numAlarmsCreated).toStrictEqual(6);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
+
+test("snapshot test: cross account", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const queue = new Queue(stack, "Queue", {
+    queueName: "DummyQueue",
+  });
+
+  const monitoring = new SqsQueueMonitoring(scope, {
+    queue,
+    account: "different-account",
+    addQueueMaxTimeToDrainMessagesAlarm: {
+      Warning: {
+        maxTimeToDrain: Duration.hours(6),
+      },
+    },
+  });
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});

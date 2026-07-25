@@ -402,6 +402,24 @@ describe("MonitoringAspect", () => {
       // THEN
       expect(Template.fromStack(stack)).toMatchSnapshot();
     });
+
+    test("DataStreamConsumer", () => {
+      // GIVEN
+      const stack = new Stack();
+      const facade = createDummyMonitoringFacade(stack);
+
+      new kinesis.CfnStreamConsumer(stack, "DummyStreamConsumer", {
+        consumerName: "my-consumer",
+        streamArn:
+          "arn:aws:kinesis:us-east-1:123456789012:stream/my-kinesis-data-stream",
+      });
+
+      // WHEN
+      facade.monitorScope(stack, defaultAspectProps);
+
+      // THEN
+      expect(Template.fromStack(stack)).toMatchSnapshot();
+    });
   });
 
   test("Lambda", () => {

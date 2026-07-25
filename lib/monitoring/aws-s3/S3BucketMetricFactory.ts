@@ -33,7 +33,7 @@ export interface S3BucketMetricFactoryProps extends BaseMetricFactoryProps {
   readonly storageType?: StorageType;
 }
 
-export class S3BucketMetricFactory extends BaseMetricFactory<S3BucketMetricFactoryProps> {
+export class S3BucketMetricFactory extends BaseMetricFactory {
   protected readonly props: S3BucketMetricFactoryProps;
 
   constructor(metricFactory: MetricFactory, props: S3BucketMetricFactoryProps) {

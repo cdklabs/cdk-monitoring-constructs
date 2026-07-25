@@ -17,7 +17,7 @@ export interface KinesisFirehoseMetricFactoryProps
 /**
  * @see https://docs.aws.amazon.com/firehose/latest/dev/monitoring-with-cloudwatch-metrics.html
  */
-export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFirehoseMetricFactoryProps> {
+export class KinesisFirehoseMetricFactory extends BaseMetricFactory {
   protected readonly dimensionsMap: DimensionsMap;
 
   constructor(
@@ -151,10 +151,6 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
         bytes_max: this.metricBytesPerSecondLimit(),
       },
       "Incoming Bytes / Limit",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 
@@ -166,10 +162,6 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
         records_max: this.metricRecordsPerSecondLimit(),
       },
       "Incoming Records / Limit",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 
@@ -181,10 +173,6 @@ export class KinesisFirehoseMetricFactory extends BaseMetricFactory<KinesisFireh
         requests_max: this.metricPutRequestsPerSecondLimit(),
       },
       "Incoming PutRequests / Limit",
-      undefined,
-      undefined,
-      this.region,
-      this.account,
     );
   }
 

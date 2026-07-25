@@ -10,7 +10,7 @@ export interface SnsTopicMetricFactoryProps extends BaseMetricFactoryProps {
   readonly topic: ITopic;
 }
 
-export class SnsTopicMetricFactory extends BaseMetricFactory<SnsTopicMetricFactoryProps> {
+export class SnsTopicMetricFactory extends BaseMetricFactory {
   protected readonly topic: ITopic;
 
   constructor(metricFactory: MetricFactory, props: SnsTopicMetricFactoryProps) {

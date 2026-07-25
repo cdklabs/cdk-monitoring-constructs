@@ -2,7 +2,9 @@ import {
   GraphWidget,
   HorizontalAnnotation,
   IWidget,
+  Metric,
 } from "aws-cdk-lib/aws-cloudwatch";
+import { Rule } from "aws-cdk-lib/aws-events";
 
 import {
   GlueJobMetricFactory,
@@ -40,6 +42,8 @@ export interface GlueJobMonitoringOptions
   readonly addFailedTaskRateAlarm?: Record<string, ErrorRateThreshold>;
   readonly addKilledTaskCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addKilledTaskRateAlarm?: Record<string, ErrorRateThreshold>;
+  readonly addJobFailedStateCountAlarm?: Record<string, ErrorCountThreshold>;
+  readonly addJobTimeoutStateCountAlarm?: Record<string, ErrorCountThreshold>;
 }
 
 export interface GlueJobMonitoringProps extends GlueJobMonitoringOptions {}
@@ -64,6 +68,8 @@ export class GlueJobMonitoring extends Monitoring {
   readonly failedTaskRateMetric: MetricWithAlarmSupport;
   readonly killedTaskCountMetric: MetricWithAlarmSupport;
   readonly killedTaskRateMetric: MetricWithAlarmSupport;
+  readonly jobFailedStateMetric: MetricWithAlarmSupport;
+  readonly jobTimeoutStateMetric: MetricWithAlarmSupport;
 
   constructor(scope: MonitoringScope, props: GlueJobMonitoringProps) {
     super(scope, props);
@@ -156,6 +162,39 @@ export class GlueJobMonitoring extends Monitoring {
       this.addAlarm(createdAlarm);
     }
 
+    this.jobFailedStateMetric = this.createStateChangeMetric(
+      props.jobName,
+      "FAILED",
+    );
+    this.jobTimeoutStateMetric = this.createStateChangeMetric(
+      props.jobName,
+      "TIMEOUT",
+    );
+
+    for (const disambiguator in props.addJobFailedStateCountAlarm) {
+      const alarmProps = props.addJobFailedStateCountAlarm[disambiguator];
+      const createdAlarm = this.errorAlarmFactory.addErrorCountAlarm(
+        this.jobFailedStateMetric,
+        ErrorType.FAILURE,
+        alarmProps,
+        disambiguator,
+      );
+      this.errorCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
+    for (const disambiguator in props.addJobTimeoutStateCountAlarm) {
+      const alarmProps = props.addJobTimeoutStateCountAlarm[disambiguator];
+      const createdAlarm = this.errorAlarmFactory.addErrorCountAlarm(
+        this.jobTimeoutStateMetric,
+        ErrorType.TIMED_OUT,
+        alarmProps,
+        disambiguator,
+      );
+      this.errorCountAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
     props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
@@ -232,7 +271,12 @@ export class GlueJobMonitoring extends Monitoring {
       width,
       height,
       title: "Errors",
-      left: [this.failedTaskCountMetric, this.killedTaskCountMetric],
+      left: [
+        this.failedTaskCountMetric,
+        this.killedTaskCountMetric,
+        this.jobFailedStateMetric,
+        this.jobTimeoutStateMetric,
+      ],
       leftYAxis: CountAxisFromZero,
       leftAnnotations: this.errorCountAnnotations,
     });
@@ -246,6 +290,33 @@ export class GlueJobMonitoring extends Monitoring {
       left: [this.failedTaskRateMetric, this.killedTaskRateMetric],
       leftYAxis: RateAxisFromZero,
       leftAnnotations: this.errorRateAnnotations,
+    });
+  }
+
+  private createStateChangeMetric(
+    jobName: string,
+    state: string,
+  ): MetricWithAlarmSupport {
+    const rule = new Rule(this.scope, `GlueJob-${state}-StateChangeRule`, {
+      description: `Event rule for catching ${jobName} ${state}`,
+      eventPattern: {
+        source: ["aws.glue"],
+        detailType: ["Glue Job State Change"],
+        detail: {
+          jobName: [jobName],
+          state: [state],
+        },
+      },
+    });
+
+    return new Metric({
+      namespace: "AWS/Events",
+      metricName: "TriggeredRules",
+      dimensionsMap: {
+        RuleName: rule.ruleName,
+      },
+      statistic: "Sum",
+      label: `Job ${state}`,
     });
   }
 }
