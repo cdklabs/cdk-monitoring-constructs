@@ -45,6 +45,8 @@ new BitmapDashboard(scope: Construct, id: string, props: DashboardProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addVariable">addVariable</a></code> | Add a variable to the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
@@ -58,6 +60,47 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.BitmapDashboard.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.BitmapDashboard.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="cdk-monitoring-constructs.BitmapDashboard.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="cdk-monitoring-constructs.BitmapDashboard.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy"></a>
 
@@ -109,7 +152,12 @@ Widgets given in multiple calls to add() will be laid out stacked on
 top of each other.
 
 Multiple widgets added in the same call to add() will be laid out next
-to each other.
+to each other. **However**, keep in mind that CloudWatch will vertically
+compact your dashboard. That means that if there is unused space
+above a widget, it will be shifted upwards as far as possible to fill
+that space. Add empty `TextWidget`s as a spacer in the row above
+your widgets you need to keep multiple side-by-side widgets
+consistently spaced.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.BitmapDashboard.addWidgets.parameter.widgets"></a>
 
@@ -196,7 +244,7 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.dashboardArn">dashboardArn</a></code> | <code>string</code> | ARN of this dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.dashboardName">dashboardName</a></code> | <code>string</code> | The name of this dashboard. |
@@ -221,16 +269,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -270,6 +319,25 @@ The name of this dashboard.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="cdk-monitoring-constructs.BitmapDashboard.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### BitmapWidgetRenderingSupport <a name="BitmapWidgetRenderingSupport" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport"></a>
 
@@ -309,6 +377,7 @@ new BitmapWidgetRenderingSupport(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.asBitmap">asBitmap</a></code> | *No description.* |
 
 ---
@@ -320,6 +389,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `asBitmap` <a name="asBitmap" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.asBitmap"></a>
 
@@ -450,6 +540,8 @@ new DashboardWithBitmapCopy(scope: Construct, id: string, props: DashboardProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addVariable">addVariable</a></code> | Add a variable to the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
@@ -463,6 +555,47 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy"></a>
 
@@ -514,7 +647,12 @@ Widgets given in multiple calls to add() will be laid out stacked on
 top of each other.
 
 Multiple widgets added in the same call to add() will be laid out next
-to each other.
+to each other. **However**, keep in mind that CloudWatch will vertically
+compact your dashboard. That means that if there is unused space
+above a widget, it will be shifted upwards as far as possible to fill
+that space. Add empty `TextWidget`s as a spacer in the row above
+your widgets you need to keep multiple side-by-side widgets
+consistently spaced.
 
 ###### `widgets`<sup>Required</sup> <a name="widgets" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets.parameter.widgets"></a>
 
@@ -601,7 +739,7 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.dashboardArn">dashboardArn</a></code> | <code>string</code> | ARN of this dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.dashboardName">dashboardName</a></code> | <code>string</code> | The name of this dashboard. |
@@ -626,16 +764,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -675,6 +814,25 @@ The name of this dashboard.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DefaultDashboardFactory <a name="DefaultDashboardFactory" id="cdk-monitoring-constructs.DefaultDashboardFactory"></a>
 
@@ -719,6 +877,7 @@ new DefaultDashboardFactory(scope: Construct, id: string, props: MonitoringDashb
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.addDynamicSegment">addDynamicSegment</a></code> | Adds a dynamic dashboard segment. |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.addSegment">addSegment</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.createdAlarmDashboard">createdAlarmDashboard</a></code> | *No description.* |
@@ -735,6 +894,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.DefaultDashboardFactory.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.DefaultDashboardFactory.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.DefaultDashboardFactory.addDynamicSegment"></a>
 
@@ -953,6 +1133,7 @@ new DynamicDashboardFactory(scope: Construct, id: string, props: MonitoringDynam
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.addDynamicSegment">addDynamicSegment</a></code> | Adds a dynamic dashboard segment. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.getDashboard">getDashboard</a></code> | Gets the dashboard for the requested dashboard type. |
 
@@ -965,6 +1146,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.DynamicDashboardFactory.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.DynamicDashboardFactory.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.DynamicDashboardFactory.addDynamicSegment"></a>
 
@@ -1114,6 +1316,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createAwsConsoleUrlFactory">createAwsConsoleUrlFactory</a></code> | Creates a new factory that creates AWS Console URLs. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
@@ -1202,6 +1405,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.MonitoringFacade.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.MonitoringFacade.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.MonitoringFacade.createAlarmFactory"></a>
 
@@ -2341,6 +2565,7 @@ dash `--`.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MonitoringScope.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringScope.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringScope.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringScope.createAwsConsoleUrlFactory">createAwsConsoleUrlFactory</a></code> | Creates a new factory that creates AWS Console URLs. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringScope.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
@@ -2355,6 +2580,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.MonitoringScope.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.MonitoringScope.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.MonitoringScope.createAlarmFactory"></a>
 
@@ -2466,6 +2712,7 @@ The tree node.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.addSecret">addSecret</a></code> | *No description.* |
 
 ---
@@ -2477,6 +2724,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addSecret` <a name="addSecret" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.addSecret"></a>
 
@@ -4208,11 +4476,32 @@ const alarmSummaryMatrixWidgetProps: AlarmSummaryMatrixWidgetProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.accountId">accountId</a></code> | <code>string</code> | The AWS account ID where the metrics are located. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.height">height</a></code> | <code>number</code> | Height of the widget. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.region">region</a></code> | <code>string</code> | The region the metrics of this graph should be taken from. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.title">title</a></code> | <code>string</code> | Title for the graph. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.width">width</a></code> | <code>number</code> | Width of the widget, in a grid of 24 units wide. |
 | <code><a href="#cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.alarmArns">alarmArns</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `accountId`<sup>Optional</sup> <a name="accountId" id="cdk-monitoring-constructs.AlarmSummaryMatrixWidgetProps.property.accountId"></a>
+
+```typescript
+public readonly accountId: string;
+```
+
+- *Type:* string
+- *Default:* Current account
+
+The AWS account ID where the metrics are located.
+
+This enables cross-account functionality for CloudWatch dashboards.
+Before using this feature, ensure that proper cross-account sharing is configured
+between the monitoring account and source account.
+
+For more information, see:
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html
 
 ---
 

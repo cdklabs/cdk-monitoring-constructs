@@ -4,7 +4,10 @@ import {
 } from "aws-cdk-lib/aws-cloudwatch";
 
 import { AlarmFactory, CustomAlarmThreshold } from "../../alarm";
-import { MetricWithAlarmSupport } from "../../metric";
+import {
+  AnomalyDetectionMathExpression,
+  MetricWithAlarmSupport,
+} from "../../metric";
 
 export interface AnomalyDetectionThreshold extends CustomAlarmThreshold {
   readonly standardDeviationForAlarm: number;
@@ -26,12 +29,21 @@ export class AnomalyDetectingAlarmFactory {
     disambiguator: string,
     props: AnomalyDetectionThreshold,
   ) {
-    return this.alarmFactory.addAlarm(metric, {
+    const alarmMetric =
+      metric instanceof AnomalyDetectionMathExpression
+        ? metric
+        : new AnomalyDetectionMathExpression({
+            expression: `ANOMALY_DETECTION_BAND(m1, ${props.standardDeviationForAlarm})`,
+            usingMetrics: { m1: metric },
+            period: metric.period,
+          });
+
+    return this.alarmFactory.addAlarm(alarmMetric, {
       ...props,
       disambiguator,
       treatMissingData:
         props.treatMissingDataOverride ?? TreatMissingData.MISSING,
-      // Dummy threshold value. This gets removed later.
+      // Dummy threshold value. This gets removed later by AnomalyDetectionMathExpression.createAlarm().
       threshold: 0,
       comparisonOperator: this.getComparisonOperator(props),
       alarmDedupeStringSuffix: props.dedupeStringOverride,

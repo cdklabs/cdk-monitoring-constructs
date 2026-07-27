@@ -5,6 +5,7 @@ Array [
   Object {
     "height": 4,
     "properties": Object {
+      "accountId": undefined,
       "annotations": Object {
         "horizontal": Array [
           Object {
@@ -26,12 +27,13 @@ Array [
         ],
       },
       "end": undefined,
+      "labels": undefined,
       "legend": undefined,
       "liveData": undefined,
       "metrics": Array [
         DropEmptyObjectAtTheEndOfAnArray {
           "creationStack": Array [
-            "stack traces disabled",
+            "Token stack traces are no longer captured",
           ],
           "value": Array [
             "Dummy",
@@ -71,6 +73,7 @@ Array [
   Object {
     "height": 4,
     "properties": Object {
+      "accountId": undefined,
       "annotations": Object {
         "horizontal": Array [
           Object {
@@ -81,6 +84,7 @@ Array [
         "vertical": undefined,
       },
       "end": undefined,
+      "labels": undefined,
       "legend": Object {
         "position": "hidden",
       },
@@ -88,7 +92,7 @@ Array [
       "metrics": Array [
         DropEmptyObjectAtTheEndOfAnArray {
           "creationStack": Array [
-            "stack traces disabled",
+            "Token stack traces are no longer captured",
           ],
           "value": Array [
             "Dummy",
@@ -125,6 +129,7 @@ Array [
   Object {
     "height": 4,
     "properties": Object {
+      "accountId": undefined,
       "annotations": Object {
         "horizontal": Array [
           Object {
@@ -142,12 +147,13 @@ Array [
         ],
       },
       "end": undefined,
+      "labels": undefined,
       "legend": undefined,
       "liveData": undefined,
       "metrics": Array [
         DropEmptyObjectAtTheEndOfAnArray {
           "creationStack": Array [
-            "stack traces disabled",
+            "Token stack traces are no longer captured",
           ],
           "value": Array [
             "Dummy",
@@ -156,7 +162,7 @@ Array [
         },
         DropEmptyObjectAtTheEndOfAnArray {
           "creationStack": Array [
-            "stack traces disabled",
+            "Token stack traces are no longer captured",
           ],
           "value": Array [
             "Dummy",

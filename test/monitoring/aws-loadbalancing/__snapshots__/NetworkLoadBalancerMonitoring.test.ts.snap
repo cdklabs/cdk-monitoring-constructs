@@ -147,7 +147,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -301,6 +301,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -708,7 +709,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -1348,7 +1349,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1376,6 +1377,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -1549,7 +1551,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -1691,7 +1693,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -1863,7 +1865,7 @@ Object {
                   "LoadBalancerFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "NLB55158F82",
@@ -2452,7 +2454,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2477,7 +2479,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2549,7 +2551,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":5,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2570,7 +2572,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingFlowCount\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/NetworkELB\\",\\"ActiveFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\"}],[\\"AWS/NetworkELB\\",\\"NewFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingFlowCount, 0)\\"}],[\\"AWS/NetworkELB\\",\\"UnhealthyRoutingFlowCount\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingFlowCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/NetworkELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"network/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":12,\\"height\\":6,\\"x\\":12,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"TCP Reset Counts\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },

@@ -727,7 +727,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ALBAEE750D2",
@@ -912,6 +912,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -2403,7 +2404,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2483,6 +2484,7 @@ Object {
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -3709,7 +3711,7 @@ Object {
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ALBAEE750D2",
@@ -4777,7 +4779,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -5791,7 +5793,7 @@ def lambda_handler(event, context):
   lifecycle_event = json.loads(event['Records'][0]['Sns']['Message'])
   instance_id = lifecycle_event.get('EC2InstanceId')
   if not instance_id:
-    print('Got event without EC2InstanceId: %s', json.dumps(dict(event, ResponseURL='...')))
+    print(f\\"Got event without EC2InstanceId: { json.dumps(dict(event, ResponseURL='...')) }\\")
     return
 
   instance_arn = container_instance_arn(cluster, instance_id)
@@ -5884,7 +5886,7 @@ def pick(dct, *keys):
             "Arn",
           ],
         },
-        "Runtime": "python3.9",
+        "Runtime": "python3.13",
         "Tags": Array [
           Object {
             "Key": "Name",
@@ -6231,10 +6233,7 @@ echo ECS_CLUSTER=",
                 Object {
                   "Ref": "ClusterEB0386A7",
                 },
-                " >> /etc/ecs/ecs.config
-sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
-sudo service iptables save
-echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
+                " >> /etc/ecs/ecs.config",
               ],
             ],
           },
@@ -6453,7 +6452,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ALBAEE750D2",
@@ -6638,6 +6637,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -8068,7 +8068,7 @@ def lambda_handler(event, context):
   lifecycle_event = json.loads(event['Records'][0]['Sns']['Message'])
   instance_id = lifecycle_event.get('EC2InstanceId')
   if not instance_id:
-    print('Got event without EC2InstanceId: %s', json.dumps(dict(event, ResponseURL='...')))
+    print(f\\"Got event without EC2InstanceId: { json.dumps(dict(event, ResponseURL='...')) }\\")
     return
 
   instance_arn = container_instance_arn(cluster, instance_id)
@@ -8161,7 +8161,7 @@ def pick(dct, *keys):
             "Arn",
           ],
         },
-        "Runtime": "python3.9",
+        "Runtime": "python3.13",
         "Tags": Array [
           Object {
             "Key": "Name",
@@ -8487,10 +8487,7 @@ echo ECS_CLUSTER=",
                 Object {
                   "Ref": "ClusterEB0386A7",
                 },
-                " >> /etc/ecs/ecs.config
-sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
-sudo service iptables save
-echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
+                " >> /etc/ecs/ecs.config",
               ],
             ],
           },
@@ -8646,7 +8643,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -8726,6 +8723,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
             "Expression": "(healthyTaskCount / (healthyTaskCount + unhealthyTaskCount)) * 100",
             "Id": "expr_1",
             "Label": "Healthy Task Percent",
+            "ReturnData": true,
           },
           Object {
             "Id": "healthyTaskCount",
@@ -9840,7 +9838,7 @@ def lambda_handler(event, context):
   lifecycle_event = json.loads(event['Records'][0]['Sns']['Message'])
   instance_id = lifecycle_event.get('EC2InstanceId')
   if not instance_id:
-    print('Got event without EC2InstanceId: %s', json.dumps(dict(event, ResponseURL='...')))
+    print(f\\"Got event without EC2InstanceId: { json.dumps(dict(event, ResponseURL='...')) }\\")
     return
 
   instance_arn = container_instance_arn(cluster, instance_id)
@@ -9933,7 +9931,7 @@ def pick(dct, *keys):
             "Arn",
           ],
         },
-        "Runtime": "python3.9",
+        "Runtime": "python3.13",
         "Tags": Array [
           Object {
             "Key": "Name",
@@ -10280,10 +10278,7 @@ echo ECS_CLUSTER=",
                 Object {
                   "Ref": "ClusterEB0386A7",
                 },
-                " >> /etc/ecs/ecs.config
-sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
-sudo service iptables save
-echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
+                " >> /etc/ecs/ecs.config",
               ],
             ],
           },
@@ -10502,7 +10497,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
                   "TargetGroupFullName",
                 ],
               },
-              "\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
+              "\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "ALBAEE750D2",
@@ -11497,7 +11492,7 @@ def lambda_handler(event, context):
   lifecycle_event = json.loads(event['Records'][0]['Sns']['Message'])
   instance_id = lifecycle_event.get('EC2InstanceId')
   if not instance_id:
-    print('Got event without EC2InstanceId: %s', json.dumps(dict(event, ResponseURL='...')))
+    print(f\\"Got event without EC2InstanceId: { json.dumps(dict(event, ResponseURL='...')) }\\")
     return
 
   instance_arn = container_instance_arn(cluster, instance_id)
@@ -11590,7 +11585,7 @@ def pick(dct, *keys):
             "Arn",
           ],
         },
-        "Runtime": "python3.9",
+        "Runtime": "python3.13",
         "Tags": Array [
           Object {
             "Key": "Name",
@@ -11916,10 +11911,7 @@ echo ECS_CLUSTER=",
                 Object {
                   "Ref": "ClusterEB0386A7",
                 },
-                " >> /etc/ecs/ecs.config
-sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
-sudo service iptables save
-echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
+                " >> /etc/ecs/ecs.config",
               ],
             ],
           },
@@ -12075,7 +12067,7 @@ echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config",
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"unhealthyRoutingRequestCount\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/ApplicationELB\\",\\"ActiveConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Active\\",\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"NewConnectionCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"New\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Unhealthy routing (fail open)\\",\\"expression\\":\\"FILL(unhealthyRoutingRequestCount, 0)\\"}],[\\"AWS/ApplicationELB\\",\\"UnhealthyRoutingRequestCount\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",\\"TargetGroup\\",\\"targetgroup/my-target-group/50dc6c495c0c9188\\",{\\"id\\":\\"unhealthyRoutingRequestCount\\",\\"visible\\":false,\\"stat\\":\\"Sum\\"}],[\\"AWS/ApplicationELB\\",\\"ProcessedBytes\\",\\"LoadBalancer\\",\\"app/my-load-balancer/50dc6c495c0c9188\\",{\\"label\\":\\"Processed Bytes (min)\\",\\"stat\\":\\"Minimum\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":18,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Task Health\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
