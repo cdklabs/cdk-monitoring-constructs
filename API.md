@@ -30896,6 +30896,13 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM50Alarm">addLatencyTM50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM70Alarm">addLatencyTM70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM90Alarm">addLatencyTM90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM95Alarm">addLatencyTM95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM9999Alarm">addLatencyTM9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM999Alarm">addLatencyTM999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM99Alarm">addLatencyTM99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
@@ -30907,6 +30914,7 @@ const lambdaFunctionMonitoringOptions: LambdaFunctionMonitoringOptions = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.isIterator">isIterator</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.isOffsetLag">isOffsetLag</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source which uses offsets for records (e.g. Kafka streams). This impacts what widgets are shown, as well as validates the ability to use addMaxOffsetLagAlarm. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
 
 ---
 
@@ -31198,6 +31206,76 @@ public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold | Latency
 
 ---
 
+##### `addLatencyTM50Alarm`<sup>Optional</sup> <a name="addLatencyTM50Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM50Alarm"></a>
+
+```typescript
+public readonly addLatencyTM50Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM70Alarm`<sup>Optional</sup> <a name="addLatencyTM70Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM70Alarm"></a>
+
+```typescript
+public readonly addLatencyTM70Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM90Alarm`<sup>Optional</sup> <a name="addLatencyTM90Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM90Alarm"></a>
+
+```typescript
+public readonly addLatencyTM90Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM95Alarm`<sup>Optional</sup> <a name="addLatencyTM95Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM95Alarm"></a>
+
+```typescript
+public readonly addLatencyTM95Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM9999Alarm`<sup>Optional</sup> <a name="addLatencyTM9999Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM9999Alarm"></a>
+
+```typescript
+public readonly addLatencyTM9999Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM999Alarm`<sup>Optional</sup> <a name="addLatencyTM999Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM999Alarm"></a>
+
+```typescript
+public readonly addLatencyTM999Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM99Alarm`<sup>Optional</sup> <a name="addLatencyTM99Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLatencyTM99Alarm"></a>
+
+```typescript
+public readonly addLatencyTM99Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
 ##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.addLowTpsAlarm"></a>
 
 ```typescript
@@ -31314,6 +31392,23 @@ Indicates that the Lambda function handles an event source which uses offsets fo
 
 ---
 
+##### `latencyTypesToRender`<sup>Optional</sup> <a name="latencyTypesToRender" id="cdk-monitoring-constructs.LambdaFunctionMonitoringOptions.property.latencyTypesToRender"></a>
+
+```typescript
+public readonly latencyTypesToRender: LatencyType[];
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]
+- *Default:* p50, p90, p99 (@see DefaultLatencyTypesToRender)
+
+You can specify what latency types you want to be rendered in the dashboards.
+
+Note: any latency type with an alarm will be also added automatically.
+If the list is undefined, default values will be shown.
+If the list is empty, only the latency types with an alarm will be shown (if any).
+
+---
+
 ### LambdaFunctionMonitoringProps <a name="LambdaFunctionMonitoringProps" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.Initializer"></a>
@@ -31357,6 +31452,13 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP50Alarm">addLatencyP50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP90Alarm">addLatencyP90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyP99Alarm">addLatencyP99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM50Alarm">addLatencyTM50Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM70Alarm">addLatencyTM70Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM90Alarm">addLatencyTM90Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM95Alarm">addLatencyTM95Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM9999Alarm">addLatencyTM9999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM999Alarm">addLatencyTM999Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM99Alarm">addLatencyTM99Alarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLowTpsAlarm">addLowTpsAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LowTpsThreshold">LowTpsThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxIteratorAgeAlarm">addMaxIteratorAgeAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxAgeThreshold">MaxAgeThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addMaxLatencyAlarm">addMaxLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> \| <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}</code> | *No description.* |
@@ -31368,6 +31470,7 @@ const lambdaFunctionMonitoringProps: LambdaFunctionMonitoringProps = { ... }
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addThrottlesRateAlarm">addThrottlesRateAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.ErrorRateThreshold">ErrorRateThreshold</a>}</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.isIterator">isIterator</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream). This impacts what widgets are shown, as well as validates the ability to use addMaxIteratorAgeAlarm. |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.isOffsetLag">isOffsetLag</a></code> | <code>boolean</code> | Indicates that the Lambda function handles an event source which uses offsets for records (e.g. Kafka streams). This impacts what widgets are shown, as well as validates the ability to use addMaxOffsetLagAlarm. |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]</code> | You can specify what latency types you want to be rendered in the dashboards. |
 
 ---
 
@@ -31707,6 +31810,76 @@ public readonly addLatencyP99Alarm: {[ key: string ]: LatencyThreshold | Latency
 
 ---
 
+##### `addLatencyTM50Alarm`<sup>Optional</sup> <a name="addLatencyTM50Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM50Alarm"></a>
+
+```typescript
+public readonly addLatencyTM50Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM70Alarm`<sup>Optional</sup> <a name="addLatencyTM70Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM70Alarm"></a>
+
+```typescript
+public readonly addLatencyTM70Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM90Alarm`<sup>Optional</sup> <a name="addLatencyTM90Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM90Alarm"></a>
+
+```typescript
+public readonly addLatencyTM90Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM95Alarm`<sup>Optional</sup> <a name="addLatencyTM95Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM95Alarm"></a>
+
+```typescript
+public readonly addLatencyTM95Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM9999Alarm`<sup>Optional</sup> <a name="addLatencyTM9999Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM9999Alarm"></a>
+
+```typescript
+public readonly addLatencyTM9999Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM999Alarm`<sup>Optional</sup> <a name="addLatencyTM999Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM999Alarm"></a>
+
+```typescript
+public readonly addLatencyTM999Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
+##### `addLatencyTM99Alarm`<sup>Optional</sup> <a name="addLatencyTM99Alarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLatencyTM99Alarm"></a>
+
+```typescript
+public readonly addLatencyTM99Alarm: {[ key: string ]: LatencyThreshold | LatencyTimeoutPercentageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.LatencyThreshold">LatencyThreshold</a> | <a href="#cdk-monitoring-constructs.LatencyTimeoutPercentageThreshold">LatencyTimeoutPercentageThreshold</a>}
+
+---
+
 ##### `addLowTpsAlarm`<sup>Optional</sup> <a name="addLowTpsAlarm" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.addLowTpsAlarm"></a>
 
 ```typescript
@@ -31820,6 +31993,23 @@ public readonly isOffsetLag: boolean;
 - *Default:* false
 
 Indicates that the Lambda function handles an event source which uses offsets for records (e.g. Kafka streams). This impacts what widgets are shown, as well as validates the ability to use addMaxOffsetLagAlarm.
+
+---
+
+##### `latencyTypesToRender`<sup>Optional</sup> <a name="latencyTypesToRender" id="cdk-monitoring-constructs.LambdaFunctionMonitoringProps.property.latencyTypesToRender"></a>
+
+```typescript
+public readonly latencyTypesToRender: LatencyType[];
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>[]
+- *Default:* p50, p90, p99 (@see DefaultLatencyTypesToRender)
+
+You can specify what latency types you want to be rendered in the dashboards.
+
+Note: any latency type with an alarm will be also added automatically.
+If the list is undefined, default values will be shown.
+If the list is empty, only the latency types with an alarm will be shown (if any).
 
 ---
 
@@ -79115,6 +79305,8 @@ public createTpsWidget(width: number, height: number): GraphWidget
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.lambdaInsightsEnabled">lambdaInsightsEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAlarmFactory">latencyAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.LatencyAlarmFactory">LatencyAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyAnnotations">latencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyMetrics">latencyMetrics</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric}</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyTypesToRender">latencyTypesToRender</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeAnnotations">maxIteratorAgeAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxIteratorAgeMetric">maxIteratorAgeMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring.property.maxLatencyMetric">maxLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
@@ -79328,6 +79520,26 @@ public readonly latencyAnnotations: HorizontalAnnotation[];
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `latencyMetrics`<sup>Required</sup> <a name="latencyMetrics" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyMetrics"></a>
+
+```typescript
+public readonly latencyMetrics: {[ key: string ]: MathExpression | Metric};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric}
+
+---
+
+##### `latencyTypesToRender`<sup>Required</sup> <a name="latencyTypesToRender" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.property.latencyTypesToRender"></a>
+
+```typescript
+public readonly latencyTypesToRender: string[];
+```
+
+- *Type:* string[]
 
 ---
 

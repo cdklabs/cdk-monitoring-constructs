@@ -780,3 +780,44 @@ test("snapshot test: latency alarms with percentage of timeout with specific tim
   expect(numAlarmsCreated).toStrictEqual(4);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
+
+test("snapshot test: trimmed mean latency alarms", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  const lambdaFunction = Function.fromFunctionArn(
+    stack,
+    "Function",
+    "arn:aws:lambda:us-west-2:123456789012:function:DummyLambda",
+  );
+
+  let numAlarmsCreated = 0;
+
+  const monitoring = new LambdaFunctionMonitoring(scope, {
+    lambdaFunction,
+    humanReadableName: "Dummy Lambda for testing",
+    alarmFriendlyName: "DummyLambda",
+    addLatencyTM90Alarm: {
+      Warning: {
+        maxLatency: Duration.millis(150),
+        datapointsToAlarm: 3,
+      },
+    },
+    addLatencyTM99Alarm: {
+      Warning: {
+        maxLatencyPercentageOfTimeout: 90,
+        datapointsToAlarm: 22,
+      },
+    },
+    useCreatedAlarms: {
+      consume(alarms: AlarmWithAnnotation[]) {
+        numAlarmsCreated = alarms.length;
+      },
+    },
+  });
+
+  addMonitoringDashboardsToStack(stack, monitoring);
+  expect(numAlarmsCreated).toStrictEqual(2);
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
