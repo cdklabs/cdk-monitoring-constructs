@@ -1,5 +1,5 @@
 import { Duration, Stack } from "aws-cdk-lib";
-import { Template } from "aws-cdk-lib/assertions";
+import { Match, Template } from "aws-cdk-lib/assertions";
 
 import {
   AlarmWithAnnotation,
@@ -64,6 +64,34 @@ test("snapshot test: cluster ID specified", () => {
   });
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("metrics use the clusterId dimension that serverless caches publish under (#750)", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  new ElastiCacheServerlessMonitoring(scope, {
+    clusterId: DummyClusterId,
+    humanReadableName: DummyClusterId,
+    alarmFriendlyName: DummyClusterId,
+    addHitRateAlarm: { Warning: { minHitRatePercent: 80 } },
+  });
+
+  // Serverless caches publish AWS/ElastiCache metrics ONLY under the `clusterId` dimension
+  // (node-based clusters use `CacheClusterId`) — see
+  // https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/serverless-metrics-events-redis.html
+  Template.fromStack(stack).hasResourceProperties("AWS::CloudWatch::Alarm", {
+    Metrics: Match.arrayWith([
+      Match.objectLike({
+        MetricStat: Match.objectLike({
+          Metric: Match.objectLike({
+            Dimensions: [{ Name: "clusterId", Value: DummyClusterId }],
+          }),
+        }),
+      }),
+    ]),
+  });
 });
 
 test("widgets: summaryWidgets", () => {

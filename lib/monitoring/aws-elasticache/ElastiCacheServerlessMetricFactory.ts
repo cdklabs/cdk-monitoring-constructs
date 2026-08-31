@@ -34,7 +34,7 @@ export class ElastiCacheServerlessMetricFactory extends BaseMetricFactory {
 
     this.dimensionsMap = {};
     if (props.clusterId) {
-      this.dimensionsMap.CacheClusterId = props.clusterId;
+      this.dimensionsMap.clusterId = props.clusterId;
     }
   }
 
