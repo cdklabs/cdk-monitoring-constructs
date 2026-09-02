@@ -57,6 +57,12 @@ import {
   MonitoringNamingStrategy,
 } from "../../dashboard";
 
+const DefaultLatencyTypesToRender = [
+  LatencyType.P50,
+  LatencyType.P90,
+  LatencyType.P99,
+];
+
 export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
   /**
    * Indicates that the Lambda function handles an event source (e.g. DynamoDB event stream).
@@ -89,6 +95,43 @@ export interface LambdaFunctionMonitoringOptions extends BaseMonitoringProps {
     string,
     LatencyThreshold | LatencyTimeoutPercentageThreshold
   >;
+  readonly addLatencyTM50Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addLatencyTM70Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addLatencyTM90Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addLatencyTM95Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addLatencyTM99Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addLatencyTM999Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+  readonly addLatencyTM9999Alarm?: Record<
+    string,
+    LatencyThreshold | LatencyTimeoutPercentageThreshold
+  >;
+
+  /**
+   * You can specify what latency types you want to be rendered in the dashboards.
+   * Note: any latency type with an alarm will be also added automatically.
+   * If the list is undefined, default values will be shown.
+   * If the list is empty, only the latency types with an alarm will be shown (if any).
+   * @default - p50, p90, p99 (@see DefaultLatencyTypesToRender)
+   */
+  readonly latencyTypesToRender?: LatencyType[];
 
   readonly addFaultCountAlarm?: Record<string, ErrorCountThreshold>;
   readonly addFaultRateAlarm?: Record<string, ErrorRateThreshold>;
@@ -195,6 +238,9 @@ export class LambdaFunctionMonitoring extends Monitoring {
   readonly p90LatencyMetric: MetricWithAlarmSupport;
   readonly p99LatencyMetric: MetricWithAlarmSupport;
   readonly maxLatencyMetric: MetricWithAlarmSupport;
+  // keys are LatencyType, but JSII doesn't like non-string types
+  readonly latencyMetrics: Record<string, MetricWithAlarmSupport>;
+  readonly latencyTypesToRender: string[];
   readonly faultCountMetric: MetricWithAlarmSupport;
   readonly faultRateMetric: MetricWithAlarmSupport;
   readonly invocationCountMetric: MetricWithAlarmSupport;
@@ -265,18 +311,18 @@ export class LambdaFunctionMonitoring extends Monitoring {
     this.tpsMetric = this.metricFactory.metricInvocationRate(
       RateComputationMethod.PER_SECOND,
     );
-    this.p50LatencyMetric = this.metricFactory.metricLatencyInMillis(
-      LatencyType.P50,
-    );
-    this.p90LatencyMetric = this.metricFactory.metricLatencyInMillis(
-      LatencyType.P90,
-    );
-    this.p99LatencyMetric = this.metricFactory.metricLatencyInMillis(
-      LatencyType.P99,
-    );
-    this.maxLatencyMetric = this.metricFactory.metricLatencyInMillis(
-      LatencyType.MAX,
-    );
+    this.latencyMetrics = {};
+    Object.values(LatencyType).forEach((latencyType) => {
+      this.latencyMetrics[latencyType] =
+        this.metricFactory.metricLatencyInMillis(latencyType);
+    });
+    this.latencyTypesToRender = [
+      ...(props.latencyTypesToRender ?? DefaultLatencyTypesToRender),
+    ];
+    this.p50LatencyMetric = this.latencyMetrics[LatencyType.P50];
+    this.p90LatencyMetric = this.latencyMetrics[LatencyType.P90];
+    this.p99LatencyMetric = this.latencyMetrics[LatencyType.P99];
+    this.maxLatencyMetric = this.latencyMetrics[LatencyType.MAX];
     this.faultCountMetric = this.metricFactory.metricFaultCount();
     this.faultRateMetric = this.metricFactory.metricFaultRate();
     this.invocationCountMetric = this.metricFactory.metricInvocationCount();
@@ -453,49 +499,35 @@ export class LambdaFunctionMonitoring extends Monitoring {
         this.addAlarm(createdAlarm);
       }
     }
-    for (const disambiguator in props.addLatencyP50Alarm) {
-      const alarmProps = props.addLatencyP50Alarm[disambiguator];
-      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
-        this.p50LatencyMetric,
-        LatencyType.P50,
-        this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
-        disambiguator,
-      );
-      this.latencyAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
-    }
-    for (const disambiguator in props.addLatencyP90Alarm) {
-      const alarmProps = props.addLatencyP90Alarm[disambiguator];
-      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
-        this.p90LatencyMetric,
-        LatencyType.P90,
-        this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
-        disambiguator,
-      );
-      this.latencyAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
-    }
-    for (const disambiguator in props.addLatencyP99Alarm) {
-      const alarmProps = props.addLatencyP99Alarm[disambiguator];
-      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
-        this.p99LatencyMetric,
-        LatencyType.P99,
-        this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
-        disambiguator,
-      );
-      this.latencyAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
-    }
-    for (const disambiguator in props.addMaxLatencyAlarm) {
-      const alarmProps = props.addMaxLatencyAlarm[disambiguator];
-      const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
-        this.maxLatencyMetric,
-        LatencyType.MAX,
-        this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
-        disambiguator,
-      );
-      this.latencyAnnotations.push(createdAlarm.annotation);
-      this.addAlarm(createdAlarm);
+    const latencyAlarmDefinitions = {
+      [LatencyType.P50]: props.addLatencyP50Alarm,
+      [LatencyType.P90]: props.addLatencyP90Alarm,
+      [LatencyType.P99]: props.addLatencyP99Alarm,
+      [LatencyType.MAX]: props.addMaxLatencyAlarm,
+      [LatencyType.TM50]: props.addLatencyTM50Alarm,
+      [LatencyType.TM70]: props.addLatencyTM70Alarm,
+      [LatencyType.TM90]: props.addLatencyTM90Alarm,
+      [LatencyType.TM95]: props.addLatencyTM95Alarm,
+      [LatencyType.TM99]: props.addLatencyTM99Alarm,
+      [LatencyType.TM999]: props.addLatencyTM999Alarm,
+      [LatencyType.TM9999]: props.addLatencyTM9999Alarm,
+    };
+    for (const [latencyType, alarmDefinition] of Object.entries(
+      latencyAlarmDefinitions,
+    )) {
+      for (const disambiguator in alarmDefinition) {
+        const alarmProps = alarmDefinition[disambiguator];
+        const latencyTypeEnum = latencyType as LatencyType;
+        const createdAlarm = this.latencyAlarmFactory.addLatencyAlarm(
+          this.latencyMetrics[latencyTypeEnum],
+          latencyTypeEnum,
+          this.convertToLatencyThreshold(alarmProps, props.lambdaFunction),
+          disambiguator,
+        );
+        this.latencyAnnotations.push(createdAlarm.annotation);
+        this.latencyTypesToRender.push(latencyTypeEnum);
+        this.addAlarm(createdAlarm);
+      }
     }
 
     for (const disambiguator in props.addFaultCountAlarm) {
@@ -765,15 +797,15 @@ export class LambdaFunctionMonitoring extends Monitoring {
   }
 
   createLatencyWidget(width: number, height: number) {
+    const left = Array.from(new Set(this.latencyTypesToRender))
+      .sort()
+      .map((type) => this.latencyMetrics[type]);
+
     return new GraphWidget({
       width,
       height,
       title: "Latency",
-      left: [
-        this.p50LatencyMetric,
-        this.p90LatencyMetric,
-        this.p99LatencyMetric,
-      ],
+      left,
       leftYAxis: TimeAxisMillisFromZero,
       leftAnnotations: this.latencyAnnotations,
     });
