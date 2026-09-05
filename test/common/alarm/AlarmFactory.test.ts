@@ -9,6 +9,11 @@ import {
   Shading,
   TreatMissingData,
 } from "aws-cdk-lib/aws-cloudwatch";
+import {
+  determineLatestNodeRuntime,
+  Function,
+  InlineCode,
+} from "aws-cdk-lib/aws-lambda";
 import { Topic } from "aws-cdk-lib/aws-sns";
 import { Construct } from "constructs";
 
@@ -25,15 +30,15 @@ import {
   MetricStatistic,
   multipleActions,
   noopAction,
+  notifySns,
   SnsAlarmActionStrategy,
+  triggerLambda,
 } from "../../../lib";
 
 const stack = new Stack();
 const construct = new Construct(stack, "SampleConstruct");
 
-const snsAction = new SnsAlarmActionStrategy({
-  onAlarmTopic: new Topic(stack, "Dummy2"),
-});
+const snsAction = notifySns(new Topic(stack, "Dummy2"));
 
 class SampleAlarmActionStrategy implements IAlarmActionStrategy {
   readonly prop = "Sample";
@@ -564,10 +569,6 @@ test("addCompositeAlarm: snapshot for operator", () => {
     globalAlarmDefaults: globalAlarmDefaultsWithDisambiguator,
     localAlarmNamePrefix: "prefix",
   });
-  const metric = new Metric({
-    namespace: "DummyNamespace",
-    metricName: "DummyMetric",
-  });
   const alarm1 = factory.addAlarm(metric, {
     alarmNameSuffix: "Alarm1",
     alarmDescription: "Testing alarm 1",
@@ -594,6 +595,67 @@ test("addCompositeAlarm: snapshot for operator", () => {
   });
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("addCompositeAlarm: with actions", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: {
+      alarmNamePrefix: "DummyServiceAlarms",
+      actionsEnabled: true,
+      datapointsToAlarm: 6,
+      action: notifySns(new Topic(stack, "DefaultTopic")),
+      disambiguatorAction: {
+        Critical: notifySns(new Topic(stack, "CriticalTopic")),
+        Warning: notifySns(new Topic(stack, "WarningTopic")),
+      },
+    },
+    localAlarmNamePrefix: "prefix",
+  });
+  const alarm = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm",
+    alarmDescription: "Testing alarm",
+    threshold: 1,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+
+  // Should use action defined in disambiguatorAction
+  factory.addCompositeAlarm([alarm], {
+    disambiguator: "Critical",
+  });
+
+  // Should ignore action defined in disambiguatorAction in favor of actionOverride
+  factory.addCompositeAlarm([alarm], {
+    disambiguator: "Warning",
+    actionOverride: triggerLambda(
+      new Function(stack, "FunctionAction", {
+        runtime: determineLatestNodeRuntime(stack),
+        code: InlineCode.fromInline("{}"),
+        handler: "Dummy::handler",
+      }),
+    ),
+  });
+
+  // Should use default action
+  factory.addCompositeAlarm([alarm], {
+    disambiguator: "Unknown",
+  });
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties("AWS::CloudWatch::CompositeAlarm", {
+    AlarmName: "DummyServiceAlarms-prefix-Composite-Critical",
+    AlarmActions: [{ Ref: "CriticalTopic48D98EE4" }],
+  });
+  template.hasResourceProperties("AWS::CloudWatch::CompositeAlarm", {
+    AlarmName: "DummyServiceAlarms-prefix-Composite-Warning",
+    AlarmActions: [{ "Fn::GetAtt": ["FunctionActionD082C8F7", "Arn"] }],
+  });
+  template.hasResourceProperties("AWS::CloudWatch::CompositeAlarm", {
+    AlarmName: "DummyServiceAlarms-prefix-Composite-Unknown",
+    AlarmActions: [{ Ref: "DefaultTopicC4DC856F" }],
+  });
 });
 
 test("addCompositeAlarm: snapshot for suppressor alarm props", () => {
