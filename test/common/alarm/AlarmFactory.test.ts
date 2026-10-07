@@ -18,6 +18,7 @@ import {
   AlarmFactory,
   AlarmFactoryDefaults,
   AlarmNamingInput,
+  AtLeastThreshold,
   CompositeAlarmOperator,
   IAlarmActionStrategy,
   IAlarmNamingStrategy,
@@ -594,6 +595,174 @@ test("addCompositeAlarm: snapshot for operator", () => {
   });
 
   expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("addCompositeAlarm: AT_LEAST operator with absolute threshold", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: globalAlarmDefaultsWithDisambiguator,
+    localAlarmNamePrefix: "prefix",
+  });
+  const metric = new Metric({
+    namespace: "DummyNamespace",
+    metricName: "DummyMetric",
+  });
+  const alarm1 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm1",
+    alarmDescription: "Testing alarm 1",
+    threshold: 1,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const alarm2 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm2",
+    alarmDescription: "Testing alarm 2",
+    threshold: 2,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const alarm3 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm3",
+    alarmDescription: "Testing alarm 3",
+    threshold: 3,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  factory.addCompositeAlarm([alarm1, alarm2, alarm3], {
+    disambiguator: "CompositeAtLeast",
+    alarmNameSuffix: "CompositeAtLeast",
+    compositeOperator: CompositeAlarmOperator.AT_LEAST,
+    atLeastOptions: { threshold: AtLeastThreshold.count(2) },
+  });
+
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("addCompositeAlarm: AT_LEAST operator with percentage threshold", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: globalAlarmDefaultsWithDisambiguator,
+    localAlarmNamePrefix: "prefix",
+  });
+  const metric = new Metric({
+    namespace: "DummyNamespace",
+    metricName: "DummyMetric",
+  });
+  const alarm1 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm1",
+    alarmDescription: "Testing alarm 1",
+    threshold: 1,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const alarm2 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm2",
+    alarmDescription: "Testing alarm 2",
+    threshold: 2,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const alarm3 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm3",
+    alarmDescription: "Testing alarm 3",
+    threshold: 3,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const alarm4 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm4",
+    alarmDescription: "Testing alarm 4",
+    threshold: 4,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  factory.addCompositeAlarm([alarm1, alarm2, alarm3, alarm4], {
+    disambiguator: "CompositeAtLeast50Percent",
+    alarmNameSuffix: "CompositeAtLeast50Percent",
+    compositeOperator: CompositeAlarmOperator.AT_LEAST,
+    atLeastOptions: { threshold: AtLeastThreshold.percentage(50) },
+  });
+
+  expect(Template.fromStack(stack)).toMatchSnapshot();
+});
+
+test("addCompositeAlarm: AT_LEAST operator throws error when options is missing", () => {
+  expect(() => {
+    factory.addCompositeAlarm([], {
+      disambiguator: "CompositeAtLeastNoOptions",
+      alarmNameSuffix: "CompositeAtLeastNoOptions",
+      compositeOperator: CompositeAlarmOperator.AT_LEAST,
+    });
+  }).toThrow("atLeastOptions must be specified when using AT_LEAST operator");
+});
+
+test("addCompositeAlarm: AT_LEAST operator throws error when count exceeds alarm count", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: globalAlarmDefaultsWithDisambiguator,
+    localAlarmNamePrefix: "prefix",
+  });
+  const metric = new Metric({
+    namespace: "DummyNamespace",
+    metricName: "DummyMetric",
+  });
+  const alarm1 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm1",
+    alarmDescription: "Testing alarm 1",
+    threshold: 1,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  const alarm2 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm2",
+    alarmDescription: "Testing alarm 2",
+    threshold: 2,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  expect(() => {
+    factory.addCompositeAlarm([alarm1, alarm2], {
+      disambiguator: "CompositeAtLeastTooHigh",
+      alarmNameSuffix: "CompositeAtLeastTooHigh",
+      compositeOperator: CompositeAlarmOperator.AT_LEAST,
+      atLeastOptions: { threshold: AtLeastThreshold.count(5) },
+    });
+  }).toThrow(
+    "atLeastOptions.threshold count (5) must be between 0 and 2 (number of alarms)",
+  );
+});
+
+test("addCompositeAlarm: AT_LEAST operator throws error when percentage is out of range", () => {
+  const stack = new Stack();
+  const factory = new AlarmFactory(stack, {
+    globalMetricDefaults,
+    globalAlarmDefaults: globalAlarmDefaultsWithDisambiguator,
+    localAlarmNamePrefix: "prefix",
+  });
+  const metric = new Metric({
+    namespace: "DummyNamespace",
+    metricName: "DummyMetric",
+  });
+  const alarm1 = factory.addAlarm(metric, {
+    alarmNameSuffix: "Alarm1",
+    alarmDescription: "Testing alarm 1",
+    threshold: 1,
+    comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+    treatMissingData: TreatMissingData.MISSING,
+  });
+  expect(() => {
+    factory.addCompositeAlarm([alarm1], {
+      disambiguator: "CompositeAtLeastInvalidPercentage",
+      alarmNameSuffix: "CompositeAtLeastInvalidPercentage",
+      compositeOperator: CompositeAlarmOperator.AT_LEAST,
+      atLeastOptions: { threshold: AtLeastThreshold.percentage(150) },
+    });
+  }).toThrow(
+    "atLeastOptions.threshold percentage (150) must be between 0 and 100",
+  );
 });
 
 test("addCompositeAlarm: snapshot for suppressor alarm props", () => {
