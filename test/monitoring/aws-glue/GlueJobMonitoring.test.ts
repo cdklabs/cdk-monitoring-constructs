@@ -119,6 +119,35 @@ test("state change alarms create EventBridge rules", () => {
   });
 });
 
+test("two Glue jobs can share the same monitoring scope", () => {
+  const stack = new Stack();
+
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  new GlueJobMonitoring(scope, {
+    jobName: "JobA",
+  });
+  new GlueJobMonitoring(scope, {
+    jobName: "JobB",
+  });
+
+  const template = Template.fromStack(stack);
+  for (const jobName of ["JobA", "JobB"]) {
+    for (const state of ["FAILED", "TIMEOUT"]) {
+      template.hasResourceProperties("AWS::Events::Rule", {
+        EventPattern: {
+          source: ["aws.glue"],
+          "detail-type": ["Glue Job State Change"],
+          detail: {
+            jobName: [jobName],
+            state: [state],
+          },
+        },
+      });
+    }
+  }
+});
+
 test("EventBridge rules are always created", () => {
   const stack = new Stack();
 
