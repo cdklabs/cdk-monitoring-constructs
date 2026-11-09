@@ -83,12 +83,33 @@ export abstract class FillingAlarmAnnotationStrategy
 }
 
 /**
- * Default annotation strategy that returns the built-in alarm annotation.
+ * Mapping of two-character comparison operator sequences (as rendered by
+ * Alarm.toAnnotation) to their single-glyph Unicode equivalents.
+ */
+const OPERATOR_GLYPHS: Record<string, string> = {
+  ">=": "≥",
+  "<=": "≤",
+};
+
+/**
+ * Default annotation strategy that returns the built-in alarm annotation,
+ * with two-character comparison operators (>=, <=) replaced by their
+ * single-glyph Unicode equivalents (≥, ≤) for readability.
  */
 export class DefaultAlarmAnnotationStrategy extends FillingAlarmAnnotationStrategy {
   protected createAnnotationToFill(
     props: AlarmAnnotationStrategyProps,
   ): HorizontalAnnotation {
-    return props.alarm.toAnnotation();
+    const annotation = props.alarm.toAnnotation();
+    if (annotation.label) {
+      let label = annotation.label;
+      for (const [ascii, glyph] of Object.entries(OPERATOR_GLYPHS)) {
+        // Operators are space-padded in the label produced by toAnnotation,
+        // so pad the search string to avoid touching metric names.
+        label = label.replace(` ${ascii} `, ` ${glyph} `);
+      }
+      return { ...annotation, label };
+    }
+    return annotation;
   }
 }
