@@ -26,6 +26,11 @@ export interface MaxUsedSwapMemoryThreshold extends CustomAlarmThreshold {
   readonly maxUsedSwapMemoryInBytes: number;
 }
 
+export interface MaxStringBasedCmdsLatencyThreshold
+  extends CustomAlarmThreshold {
+  readonly maxLatencyInMicroseconds: number;
+}
+
 export class ElastiCacheAlarmFactory {
   protected readonly alarmFactory: AlarmFactory;
 
@@ -144,6 +149,25 @@ export class ElastiCacheAlarmFactory {
       threshold: props.maxThrottleRatePercent,
       alarmNameSuffix: "Throttle-Rate",
       alarmDescription: "The throttle rate is too high.",
+    });
+  }
+
+  addMaxStringBasedCmdsLatencyAlarm(
+    metric: MetricWithAlarmSupport,
+    props: MaxStringBasedCmdsLatencyThreshold,
+    disambiguator?: string,
+  ) {
+    return this.alarmFactory.addAlarm(metric, {
+      treatMissingData:
+        props.treatMissingDataOverride ?? TreatMissingData.MISSING,
+      comparisonOperator:
+        props.comparisonOperatorOverride ??
+        ComparisonOperator.GREATER_THAN_THRESHOLD,
+      ...props,
+      disambiguator,
+      threshold: props.maxLatencyInMicroseconds,
+      alarmNameSuffix: "StringBasedCmds-Latency",
+      alarmDescription: "The latency of string-based commands is too high.",
     });
   }
 }

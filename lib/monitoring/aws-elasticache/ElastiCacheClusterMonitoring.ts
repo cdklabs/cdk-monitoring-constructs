@@ -17,7 +17,9 @@ import {
   DefaultTwoLinerGraphWidgetHalfHeight,
   DefaultSummaryWidgetHeight,
   ElastiCacheAlarmFactory,
+  LatencyType,
   MaxItemsCountThreshold,
+  MaxStringBasedCmdsLatencyThreshold,
   MaxUsedSwapMemoryThreshold,
   MetricWithAlarmSupport,
   MinFreeableMemoryThreshold,
@@ -26,6 +28,7 @@ import {
   PercentageAxisFromZeroToHundred,
   QuarterWidth,
   SizeAxisBytesFromZero,
+  TimeAxisMicrosFromZero,
   ThirdWidth,
   UsageAlarmFactory,
   UsageThreshold,
@@ -82,6 +85,24 @@ export interface ElastiCacheClusterMonitoringOptions
     string,
     MaxUsedSwapMemoryThreshold
   >;
+
+  /**
+   * Add alarm on the percentage of memory in use (relative to the Redis
+   * engine's `maxmemory`). Only supported for Redis clusters.
+   */
+  readonly addDatabaseMemoryUsagePercentageAlarm?: Record<
+    string,
+    UsageThreshold
+  >;
+
+  /**
+   * Add alarm on the latency of string-based commands (for example SET, GET).
+   * Only supported for Redis clusters.
+   */
+  readonly addStringBasedCmdsLatencyAlarm?: Record<
+    string,
+    MaxStringBasedCmdsLatencyThreshold
+  >;
 }
 
 export interface ElastiCacheClusterMonitoringProps
@@ -102,6 +123,8 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
   readonly itemsMemoryMetric: MetricWithAlarmSupport;
   readonly itemsCountMetrics: MetricWithAlarmSupport;
   readonly itemsEvictedMetrics: MetricWithAlarmSupport;
+  readonly databaseMemoryUsagePercentageMetric?: MetricWithAlarmSupport;
+  readonly stringBasedCmdsLatencyMetric?: MetricWithAlarmSupport;
 
   readonly usageAlarmFactory: UsageAlarmFactory;
   readonly elastiCacheAlarmFactory: ElastiCacheAlarmFactory;
@@ -110,6 +133,8 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
   readonly itemsCountAnnotations: HorizontalAnnotation[];
   readonly evictedItemsCountAnnotations: HorizontalAnnotation[];
   readonly memoryUsageAnnotations: HorizontalAnnotation[];
+  readonly databaseMemoryUsagePercentageAnnotations: HorizontalAnnotation[];
+  readonly stringBasedCmdsLatencyAnnotations: HorizontalAnnotation[];
 
   constructor(
     scope: MonitoringScope,
@@ -152,12 +177,22 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       metricFactory.metricAverageCachedItemsSizeInBytes();
     this.itemsCountMetrics = metricFactory.metricMaxItemCount();
     this.itemsEvictedMetrics = metricFactory.metricEvictions();
+    if (props.clusterType === ElastiCacheClusterType.REDIS) {
+      this.databaseMemoryUsagePercentageMetric =
+        metricFactory.metricMaxDatabaseMemoryUsagePercentage();
+      this.stringBasedCmdsLatencyMetric =
+        metricFactory.metricStringBasedCmdsLatencyInMicroseconds(
+          LatencyType.P90,
+        );
+    }
 
     this.cpuUsageAnnotations = [];
     this.redisEngineCpuUsageAnnotations = [];
     this.itemsCountAnnotations = [];
     this.evictedItemsCountAnnotations = [];
     this.memoryUsageAnnotations = [];
+    this.databaseMemoryUsagePercentageAnnotations = [];
+    this.stringBasedCmdsLatencyAnnotations = [];
 
     const alarmFactory = this.createAlarmFactory(
       namingStrategy.resolveAlarmFriendlyName(),
@@ -242,6 +277,50 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       this.addAlarm(createdAlarm);
     }
 
+    if (
+      props.addDatabaseMemoryUsagePercentageAlarm !== undefined &&
+      props.clusterType !== ElastiCacheClusterType.REDIS
+    ) {
+      throw new Error(
+        "It is only possible to alarm on Database Memory Usage Percentage for Redis clusters",
+      );
+    }
+
+    for (const disambiguator in props.addDatabaseMemoryUsagePercentageAlarm) {
+      const alarmProps =
+        props.addDatabaseMemoryUsagePercentageAlarm[disambiguator];
+      const createdAlarm = this.usageAlarmFactory.addMaxMemoryUsagePercentAlarm(
+        this.databaseMemoryUsagePercentageMetric!,
+        alarmProps,
+        disambiguator,
+      );
+      this.databaseMemoryUsagePercentageAnnotations.push(
+        createdAlarm.annotation,
+      );
+      this.addAlarm(createdAlarm);
+    }
+
+    if (
+      props.addStringBasedCmdsLatencyAlarm !== undefined &&
+      props.clusterType !== ElastiCacheClusterType.REDIS
+    ) {
+      throw new Error(
+        "It is only possible to alarm on String-Based Commands Latency for Redis clusters",
+      );
+    }
+
+    for (const disambiguator in props.addStringBasedCmdsLatencyAlarm) {
+      const alarmProps = props.addStringBasedCmdsLatencyAlarm[disambiguator];
+      const createdAlarm =
+        this.elastiCacheAlarmFactory.addMaxStringBasedCmdsLatencyAlarm(
+          this.stringBasedCmdsLatencyMetric!,
+          alarmProps,
+          disambiguator,
+        );
+      this.stringBasedCmdsLatencyAnnotations.push(createdAlarm.annotation);
+      this.addAlarm(createdAlarm);
+    }
+
     props.useCreatedAlarms?.consume(this.createdAlarms());
   }
 
@@ -271,6 +350,16 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
         this.createMemoryUsageWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createConnectionsWidget(QuarterWidth, DefaultGraphWidgetHeight),
         this.createItemCountWidget(QuarterWidth, DefaultGraphWidgetHeight),
+        new Column(
+          this.createDatabaseMemoryUsagePercentageWidget(
+            QuarterWidth,
+            DefaultTwoLinerGraphWidgetHalfHeight,
+          ),
+          this.createStringBasedCmdsLatencyWidget(
+            QuarterWidth,
+            DefaultTwoLinerGraphWidgetHalfHeight,
+          ),
+        ),
       ];
     } else {
       return [
@@ -349,6 +438,32 @@ export class ElastiCacheClusterMonitoring extends Monitoring {
       title: "Connections",
       left: [this.connectionsMetric],
       leftYAxis: CountAxisFromZero,
+    });
+  }
+
+  createDatabaseMemoryUsagePercentageWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "Database Memory Usage",
+      left: this.databaseMemoryUsagePercentageMetric
+        ? [this.databaseMemoryUsagePercentageMetric]
+        : [],
+      leftYAxis: PercentageAxisFromZeroToHundred,
+      leftAnnotations: this.databaseMemoryUsagePercentageAnnotations,
+    });
+  }
+
+  createStringBasedCmdsLatencyWidget(width: number, height: number) {
+    return new GraphWidget({
+      width,
+      height,
+      title: "String-Based Commands Latency",
+      left: this.stringBasedCmdsLatencyMetric
+        ? [this.stringBasedCmdsLatencyMetric]
+        : [],
+      leftYAxis: TimeAxisMicrosFromZero,
+      leftAnnotations: this.stringBasedCmdsLatencyAnnotations,
     });
   }
 }
