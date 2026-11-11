@@ -21471,11 +21471,13 @@ const elastiCacheClusterMonitoringOptions: ElastiCacheClusterMonitoringOptions =
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.clusterType">clusterType</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterType">ElastiCacheClusterType</a></code> | Cluster type (needed, since each type has their own specific metrics). |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add CPU usage alarm (useful for all clusterTypes including Redis). |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addDatabaseMemoryUsagePercentageAlarm">addDatabaseMemoryUsagePercentageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add alarm on the percentage of memory in use (relative to the Redis engine's `maxmemory`). |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxEvictedItemsCountAlarm">addMaxEvictedItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on number of evicted items. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxItemsCountAlarm">addMaxItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on total number of items. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold">MaxUsedSwapMemoryThreshold</a>}</code> | Add alarm on amount of used swap memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}</code> | Add alarm on amount of freeable memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addRedisEngineCpuUsageAlarm">addRedisEngineCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add Redis engine CPU usage alarm. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addStringBasedCmdsLatencyAlarm">addStringBasedCmdsLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold">MaxStringBasedCmdsLatencyThreshold</a>}</code> | Add alarm on the latency of string-based commands (for example SET, GET). |
 
 ---
 
@@ -21631,6 +21633,20 @@ Add CPU usage alarm (useful for all clusterTypes including Redis).
 
 ---
 
+##### `addDatabaseMemoryUsagePercentageAlarm`<sup>Optional</sup> <a name="addDatabaseMemoryUsagePercentageAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addDatabaseMemoryUsagePercentageAlarm"></a>
+
+```typescript
+public readonly addDatabaseMemoryUsagePercentageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Add alarm on the percentage of memory in use (relative to the Redis engine's `maxmemory`).
+
+Only supported for Redis clusters.
+
+---
+
 ##### `addMaxEvictedItemsCountAlarm`<sup>Optional</sup> <a name="addMaxEvictedItemsCountAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addMaxEvictedItemsCountAlarm"></a>
 
 ```typescript
@@ -21694,6 +21710,20 @@ as well for hosts with two vCPUs or less.
 
 ---
 
+##### `addStringBasedCmdsLatencyAlarm`<sup>Optional</sup> <a name="addStringBasedCmdsLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringOptions.property.addStringBasedCmdsLatencyAlarm"></a>
+
+```typescript
+public readonly addStringBasedCmdsLatencyAlarm: {[ key: string ]: MaxStringBasedCmdsLatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold">MaxStringBasedCmdsLatencyThreshold</a>}
+
+Add alarm on the latency of string-based commands (for example SET, GET).
+
+Only supported for Redis clusters.
+
+---
+
 ### ElastiCacheClusterMonitoringProps <a name="ElastiCacheClusterMonitoringProps" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.Initializer"></a>
@@ -21720,11 +21750,13 @@ const elastiCacheClusterMonitoringProps: ElastiCacheClusterMonitoringProps = { .
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.clusterType">clusterType</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterType">ElastiCacheClusterType</a></code> | Cluster type (needed, since each type has their own specific metrics). |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addCpuUsageAlarm">addCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add CPU usage alarm (useful for all clusterTypes including Redis). |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addDatabaseMemoryUsagePercentageAlarm">addDatabaseMemoryUsagePercentageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add alarm on the percentage of memory in use (relative to the Redis engine's `maxmemory`). |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMaxEvictedItemsCountAlarm">addMaxEvictedItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on number of evicted items. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMaxItemsCountAlarm">addMaxItemsCountAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxItemsCountThreshold">MaxItemsCountThreshold</a>}</code> | Add alarm on total number of items. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxUsedSwapMemoryThreshold">MaxUsedSwapMemoryThreshold</a>}</code> | Add alarm on amount of used swap memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MinFreeableMemoryThreshold">MinFreeableMemoryThreshold</a>}</code> | Add alarm on amount of freeable memory. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addRedisEngineCpuUsageAlarm">addRedisEngineCpuUsageAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Add Redis engine CPU usage alarm. |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addStringBasedCmdsLatencyAlarm">addStringBasedCmdsLatencyAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold">MaxStringBasedCmdsLatencyThreshold</a>}</code> | Add alarm on the latency of string-based commands (for example SET, GET). |
 
 ---
 
@@ -21893,6 +21925,20 @@ Add CPU usage alarm (useful for all clusterTypes including Redis).
 
 ---
 
+##### `addDatabaseMemoryUsagePercentageAlarm`<sup>Optional</sup> <a name="addDatabaseMemoryUsagePercentageAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addDatabaseMemoryUsagePercentageAlarm"></a>
+
+```typescript
+public readonly addDatabaseMemoryUsagePercentageAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Add alarm on the percentage of memory in use (relative to the Redis engine's `maxmemory`).
+
+Only supported for Redis clusters.
+
+---
+
 ##### `addMaxEvictedItemsCountAlarm`<sup>Optional</sup> <a name="addMaxEvictedItemsCountAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addMaxEvictedItemsCountAlarm"></a>
 
 ```typescript
@@ -21953,6 +21999,20 @@ Add Redis engine CPU usage alarm.
 
 It is recommended to monitor CPU utilization with `addCpuUsageAlarm`
 as well for hosts with two vCPUs or less.
+
+---
+
+##### `addStringBasedCmdsLatencyAlarm`<sup>Optional</sup> <a name="addStringBasedCmdsLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoringProps.property.addStringBasedCmdsLatencyAlarm"></a>
+
+```typescript
+public readonly addStringBasedCmdsLatencyAlarm: {[ key: string ]: MaxStringBasedCmdsLatencyThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold">MaxStringBasedCmdsLatencyThreshold</a>}
+
+Add alarm on the latency of string-based commands (for example SET, GET).
+
+Only supported for Redis clusters.
 
 ---
 
@@ -38593,6 +38653,399 @@ Behaviour in case the metric data is missing.
 
 ```typescript
 public readonly maxSecretCount: number;
+```
+
+- *Type:* number
+
+---
+
+### MaxStringBasedCmdsLatencyThreshold <a name="MaxStringBasedCmdsLatencyThreshold" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.Initializer"></a>
+
+```typescript
+import { MaxStringBasedCmdsLatencyThreshold } from 'cdk-monitoring-constructs'
+
+const maxStringBasedCmdsLatencyThreshold: MaxStringBasedCmdsLatencyThreshold = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.actionOverride">actionOverride</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a></code> | Allows to override the default alarm action. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.actionsEnabled">actionsEnabled</a></code> | <code>boolean</code> | Enables the configured CloudWatch alarm ticketing actions. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.alarmDedupeStringSuffix">alarmDedupeStringSuffix</a></code> | <code>string</code> | If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.alarmDescriptionOverride">alarmDescriptionOverride</a></code> | <code>string</code> | A text included in the generated ticket description body, which fully replaces the generated text. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.alarmNameOverride">alarmNameOverride</a></code> | <code>string</code> | If this is defined, the alarm name is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.comparisonOperatorOverride">comparisonOperatorOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | Comparison operator used to compare actual value against the threshold. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.customParams">customParams</a></code> | <code>{[ key: string ]: any}</code> | This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.customTags">customTags</a></code> | <code>string[]</code> | This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | Number of breaches required to transition into an ALARM state. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.dedupeStringOverride">dedupeStringOverride</a></code> | <code>string</code> | If this is defined, the alarm dedupe string is set to this exact value. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.documentationLink">documentationLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a></code> | <code>boolean</code> | Used only for alarms based on percentiles. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | Number of periods to consider when checking the number of breaching datapoints. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.fillAlarmRange">fillAlarmRange</a></code> | <code>boolean</code> | Indicates whether the alarming range of values should be highlighted in the widget. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.metricAdjuster">metricAdjuster</a></code> | <code><a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a></code> | If specified, adjusts the metric before creating an alarm from it. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.minMetricSamplesToAlarm">minMetricSamplesToAlarm</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed to trigger the alarm. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.minSampleCountToEvaluateDatapoint">minSampleCountToEvaluateDatapoint</a></code> | <code>number</code> | Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.overrideAnnotationColor">overrideAnnotationColor</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation color. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.overrideAnnotationLabel">overrideAnnotationLabel</a></code> | <code>string</code> | If specified, it modifies the final alarm annotation label. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.overrideAnnotationVisibility">overrideAnnotationVisibility</a></code> | <code>boolean</code> | If specified, it modifies the final alarm annotation visibility. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Period override for the metric to alarm on. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.runbookLink">runbookLink</a></code> | <code>string</code> | An optional link included in the generated ticket description body. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.sampleCountMetricId">sampleCountMetricId</a></code> | <code>string</code> | This property is required in the following situation: <ol>     <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>     <li>the metric used for the alarm is a <code>MathExpression</code></li>     <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.treatMissingDataOverride">treatMissingDataOverride</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Behaviour in case the metric data is missing. |
+| <code><a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.maxLatencyInMicroseconds">maxLatencyInMicroseconds</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `actionOverride`<sup>Optional</sup> <a name="actionOverride" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.actionOverride"></a>
+
+```typescript
+public readonly actionOverride: IAlarmActionStrategy;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmActionStrategy">IAlarmActionStrategy</a>
+- *Default:* undefined (default action will be used, if any)
+
+Allows to override the default alarm action.
+
+---
+
+##### `actionsEnabled`<sup>Optional</sup> <a name="actionsEnabled" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.actionsEnabled"></a>
+
+```typescript
+public readonly actionsEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the same as monitoring facade default
+
+Enables the configured CloudWatch alarm ticketing actions.
+
+---
+
+##### `alarmDedupeStringSuffix`<sup>Optional</sup> <a name="alarmDedupeStringSuffix" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.alarmDedupeStringSuffix"></a>
+
+```typescript
+public readonly alarmDedupeStringSuffix: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no suffix)
+
+If this is defined, the default resource-specific alarm dedupe string will be set and this will be added as a suffix.
+
+This allows you to specify the same dedupe string for a family of alarms.
+Cannot be defined at the same time as dedupeStringOverride.
+
+---
+
+##### `alarmDescriptionOverride`<sup>Optional</sup> <a name="alarmDescriptionOverride" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.alarmDescriptionOverride"></a>
+
+```typescript
+public readonly alarmDescriptionOverride: string;
+```
+
+- *Type:* string
+- *Default:* default auto-generated content only
+
+A text included in the generated ticket description body, which fully replaces the generated text.
+
+---
+
+##### `alarmNameOverride`<sup>Optional</sup> <a name="alarmNameOverride" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.alarmNameOverride"></a>
+
+```typescript
+public readonly alarmNameOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the alarm name is set to this exact value.
+
+Please be aware that you need to specify prefix for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `comparisonOperatorOverride`<sup>Optional</sup> <a name="comparisonOperatorOverride" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.comparisonOperatorOverride"></a>
+
+```typescript
+public readonly comparisonOperatorOverride: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* alarm-specific default
+
+Comparison operator used to compare actual value against the threshold.
+
+---
+
+##### `customParams`<sup>Optional</sup> <a name="customParams" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.customParams"></a>
+
+```typescript
+public readonly customParams: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* no parameters
+
+This allows user to attach custom parameters to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `customTags`<sup>Optional</sup> <a name="customTags" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.customTags"></a>
+
+```typescript
+public readonly customTags: string[];
+```
+
+- *Type:* string[]
+- *Default:* no tags
+
+This allows user to attach custom values to this alarm, which can later be accessed from the "useCreatedAlarms" method.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of breaches required to transition into an ALARM state.
+
+---
+
+##### `dedupeStringOverride`<sup>Optional</sup> <a name="dedupeStringOverride" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.dedupeStringOverride"></a>
+
+```typescript
+public readonly dedupeStringOverride: string;
+```
+
+- *Type:* string
+- *Default:* undefined (no override)
+
+If this is defined, the alarm dedupe string is set to this exact value.
+
+Please be aware that you need to handle deduping for different stages (Beta, Prod...) and regions (EU, NA...) manually.
+
+---
+
+##### `documentationLink`<sup>Optional</sup> <a name="documentationLink" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.documentationLink"></a>
+
+```typescript
+public readonly documentationLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `evaluateLowSampleCountPercentile`<sup>Optional</sup> <a name="evaluateLowSampleCountPercentile" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.evaluateLowSampleCountPercentile"></a>
+
+```typescript
+public readonly evaluateLowSampleCountPercentile: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Used only for alarms based on percentiles.
+
+If you specify <code>false</code>, the alarm state does not change during periods with too few data points to be statistically significant.
+If you specify <code>true</code>, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* the same as monitoring facade default
+
+Number of periods to consider when checking the number of breaching datapoints.
+
+---
+
+##### `fillAlarmRange`<sup>Optional</sup> <a name="fillAlarmRange" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.fillAlarmRange"></a>
+
+```typescript
+public readonly fillAlarmRange: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Indicates whether the alarming range of values should be highlighted in the widget.
+
+---
+
+##### `metricAdjuster`<sup>Optional</sup> <a name="metricAdjuster" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.metricAdjuster"></a>
+
+```typescript
+public readonly metricAdjuster: IMetricAdjuster;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IMetricAdjuster">IMetricAdjuster</a>
+- *Default:* no adjuster
+
+If specified, adjusts the metric before creating an alarm from it.
+
+---
+
+##### ~~`minMetricSamplesToAlarm`~~<sup>Optional</sup> <a name="minMetricSamplesToAlarm" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.minMetricSamplesToAlarm"></a>
+
+- *Deprecated:* Use minSampleCountToEvaluateDatapoint instead. minMetricSamplesAlarm uses different evaluation
+period for its child alarms, so it doesn't guarantee that each datapoint in the evaluation period has
+sufficient number of samples
+
+```typescript
+public readonly minMetricSamplesToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be added to the alarm
+
+Specifies how many samples (N) of the metric is needed to trigger the alarm.
+
+If this property is specified, a composite alarm is created of the following:
+<ul>
+<li>The original alarm, created without this property being used; this alarm will have no actions set.</li>
+<li>A secondary alarm, which will monitor the same metric with the N (SampleCount) statistic, checking the sample count.</li>
+</ul>
+This composite alarm will be returned as a result and uses the specified alarm actions.
+
+---
+
+##### `minSampleCountToEvaluateDatapoint`<sup>Optional</sup> <a name="minSampleCountToEvaluateDatapoint" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.minSampleCountToEvaluateDatapoint"></a>
+
+```typescript
+public readonly minSampleCountToEvaluateDatapoint: number;
+```
+
+- *Type:* number
+- *Default:* default behaviour - no condition on sample count will be used
+
+Specifies how many samples (N) of the metric is needed in a datapoint to be evaluated for alarming.
+
+If this property is specified, your metric will be subject to MathExpression that will add an IF condition
+to your metric to make sure that each datapoint is evaluated only if it has sufficient number of samples.
+If the number of samples is not sufficient, the datapoint will be treated as missing data and will be evaluated
+according to the treatMissingData parameter.
+If specified, deprecated minMetricSamplesToAlarm has no effect.
+
+---
+
+##### `overrideAnnotationColor`<sup>Optional</sup> <a name="overrideAnnotationColor" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.overrideAnnotationColor"></a>
+
+```typescript
+public readonly overrideAnnotationColor: string;
+```
+
+- *Type:* string
+- *Default:* no override (default color)
+
+If specified, it modifies the final alarm annotation color.
+
+---
+
+##### `overrideAnnotationLabel`<sup>Optional</sup> <a name="overrideAnnotationLabel" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.overrideAnnotationLabel"></a>
+
+```typescript
+public readonly overrideAnnotationLabel: string;
+```
+
+- *Type:* string
+- *Default:* no override (default label)
+
+If specified, it modifies the final alarm annotation label.
+
+---
+
+##### `overrideAnnotationVisibility`<sup>Optional</sup> <a name="overrideAnnotationVisibility" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.overrideAnnotationVisibility"></a>
+
+```typescript
+public readonly overrideAnnotationVisibility: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no override (default visibility)
+
+If specified, it modifies the final alarm annotation visibility.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* the default specified in MetricFactory
+
+Period override for the metric to alarm on.
+
+---
+
+##### `runbookLink`<sup>Optional</sup> <a name="runbookLink" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.runbookLink"></a>
+
+```typescript
+public readonly runbookLink: string;
+```
+
+- *Type:* string
+- *Default:* no additional link will be added
+
+An optional link included in the generated ticket description body.
+
+---
+
+##### `sampleCountMetricId`<sup>Optional</sup> <a name="sampleCountMetricId" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.sampleCountMetricId"></a>
+
+```typescript
+public readonly sampleCountMetricId: string;
+```
+
+- *Type:* string
+
+This property is required in the following situation: <ol>     <li><code>minSampleCountToEvaluateDatapoint</code> is specified</li>     <li>the metric used for the alarm is a <code>MathExpression</code></li>     <li>the <code>MathExpression</code> is composed of more than one metric</li> </ol>.
+
+In this situation, this property indicates the metric Id in the MathExpression’s <code>usingMetrics</code>
+property that should be used as the sampleCount metric for the new MathExpression as described in the documentation
+for <code>minSampleCountToEvaluateDatapoint</code>.
+
+---
+
+##### `treatMissingDataOverride`<sup>Optional</sup> <a name="treatMissingDataOverride" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.treatMissingDataOverride"></a>
+
+```typescript
+public readonly treatMissingDataOverride: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* alarm-specific default
+
+Behaviour in case the metric data is missing.
+
+---
+
+##### `maxLatencyInMicroseconds`<sup>Required</sup> <a name="maxLatencyInMicroseconds" id="cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold.property.maxLatencyInMicroseconds"></a>
+
+```typescript
+public readonly maxLatencyInMicroseconds: number;
 ```
 
 - *Type:* number
@@ -72274,6 +72727,7 @@ new ElastiCacheAlarmFactory(alarmFactory: AlarmFactory)
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxEvictedItemsCountAlarm">addMaxEvictedItemsCountAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxItemsCountAlarm">addMaxItemsCountAlarm</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxStringBasedCmdsLatencyAlarm">addMaxStringBasedCmdsLatencyAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxThrottleRateAlarm">addMaxThrottleRateAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxUsedSwapMemoryAlarm">addMaxUsedSwapMemoryAlarm</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMinFreeableMemoryAlarm">addMinFreeableMemoryAlarm</a></code> | *No description.* |
@@ -72324,6 +72778,30 @@ public addMaxItemsCountAlarm(metric: MathExpression | Metric, props: MaxItemsCou
 ---
 
 ###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxItemsCountAlarm.parameter.disambiguator"></a>
+
+- *Type:* string
+
+---
+
+##### `addMaxStringBasedCmdsLatencyAlarm` <a name="addMaxStringBasedCmdsLatencyAlarm" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxStringBasedCmdsLatencyAlarm"></a>
+
+```typescript
+public addMaxStringBasedCmdsLatencyAlarm(metric: MathExpression | Metric, props: MaxStringBasedCmdsLatencyThreshold, disambiguator?: string): AlarmWithAnnotation
+```
+
+###### `metric`<sup>Required</sup> <a name="metric" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxStringBasedCmdsLatencyAlarm.parameter.metric"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxStringBasedCmdsLatencyAlarm.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MaxStringBasedCmdsLatencyThreshold">MaxStringBasedCmdsLatencyThreshold</a>
+
+---
+
+###### `disambiguator`<sup>Optional</sup> <a name="disambiguator" id="cdk-monitoring-constructs.ElastiCacheAlarmFactory.addMaxStringBasedCmdsLatencyAlarm.parameter.disambiguator"></a>
 
 - *Type:* string
 
@@ -72470,10 +72948,12 @@ new ElastiCacheClusterMetricFactory(metricFactory: MetricFactory, props: ElastiC
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricAverageUnusedMemoryInBytes">metricAverageUnusedMemoryInBytes</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricEvictions">metricEvictions</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxCpuUtilizationInPercent">metricMaxCpuUtilizationInPercent</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxDatabaseMemoryUsagePercentage">metricMaxDatabaseMemoryUsagePercentage</a></code> | The percentage of the memory available for the cluster that is in use. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxItemCount">metricMaxItemCount</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxRedisEngineCpuUtilizationInPercent">metricMaxRedisEngineCpuUtilizationInPercent</a></code> | Because Redis is single-threaded, you can use this metric to analyze the load of the Redis process itself. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricNetworkBytesIn">metricNetworkBytesIn</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricNetworkBytesOut">metricNetworkBytesOut</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricStringBasedCmdsLatencyInMicroseconds">metricStringBasedCmdsLatencyInMicroseconds</a></code> | The amount of time it takes to execute string-based commands (for example, SET, GET). |
 
 ---
 
@@ -72519,6 +72999,19 @@ public metricEvictions(): MathExpression | Metric
 public metricMaxCpuUtilizationInPercent(): MathExpression | Metric
 ```
 
+##### `metricMaxDatabaseMemoryUsagePercentage` <a name="metricMaxDatabaseMemoryUsagePercentage" id="cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxDatabaseMemoryUsagePercentage"></a>
+
+```typescript
+public metricMaxDatabaseMemoryUsagePercentage(): MathExpression | Metric
+```
+
+The percentage of the memory available for the cluster that is in use.
+
+This is not the host-level memory usage, but the percentage of
+`maxmemory` (as defined by the Redis engine) currently in use.
+
+> [https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html)
+
 ##### `metricMaxItemCount` <a name="metricMaxItemCount" id="cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricMaxItemCount"></a>
 
 ```typescript
@@ -72550,6 +73043,24 @@ public metricNetworkBytesIn(): MathExpression | Metric
 ```typescript
 public metricNetworkBytesOut(): MathExpression | Metric
 ```
+
+##### `metricStringBasedCmdsLatencyInMicroseconds` <a name="metricStringBasedCmdsLatencyInMicroseconds" id="cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricStringBasedCmdsLatencyInMicroseconds"></a>
+
+```typescript
+public metricStringBasedCmdsLatencyInMicroseconds(latencyType: LatencyType): MathExpression | Metric
+```
+
+The amount of time it takes to execute string-based commands (for example, SET, GET).
+
+Reported by CloudWatch in microseconds.
+
+> [https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html)
+
+###### `latencyType`<sup>Required</sup> <a name="latencyType" id="cdk-monitoring-constructs.ElastiCacheClusterMetricFactory.metricStringBasedCmdsLatencyInMicroseconds.parameter.latencyType"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.LatencyType">LatencyType</a>
+
+---
 
 
 
@@ -72598,9 +73109,11 @@ new ElastiCacheClusterMonitoring(scope: MonitoringScope, props: ElastiCacheClust
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createConnectionsWidget">createConnectionsWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createCpuUsageWidget">createCpuUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createDatabaseMemoryUsagePercentageWidget">createDatabaseMemoryUsagePercentageWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createItemCountWidget">createItemCountWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createMemoryUsageWidget">createMemoryUsageWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createRedisEngineCpuUsageWidget">createRedisEngineCpuUsageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createStringBasedCmdsLatencyWidget">createStringBasedCmdsLatencyWidget</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
 
 ---
@@ -72739,6 +73252,24 @@ public createCpuUsageWidget(width: number, height: number): GraphWidget
 
 ---
 
+##### `createDatabaseMemoryUsagePercentageWidget` <a name="createDatabaseMemoryUsagePercentageWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createDatabaseMemoryUsagePercentageWidget"></a>
+
+```typescript
+public createDatabaseMemoryUsagePercentageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createDatabaseMemoryUsagePercentageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createDatabaseMemoryUsagePercentageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
 ##### `createItemCountWidget` <a name="createItemCountWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createItemCountWidget"></a>
 
 ```typescript
@@ -72793,6 +73324,24 @@ public createRedisEngineCpuUsageWidget(width: number, height: number): GraphWidg
 
 ---
 
+##### `createStringBasedCmdsLatencyWidget` <a name="createStringBasedCmdsLatencyWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createStringBasedCmdsLatencyWidget"></a>
+
+```typescript
+public createStringBasedCmdsLatencyWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createStringBasedCmdsLatencyWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createStringBasedCmdsLatencyWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
 ##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.createTitleWidget"></a>
 
 ```typescript
@@ -72808,6 +73357,7 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.connectionsMetric">connectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.cpuUsageAnnotations">cpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.cpuUsageMetric">cpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.databaseMemoryUsagePercentageAnnotations">databaseMemoryUsagePercentageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.elastiCacheAlarmFactory">elastiCacheAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.ElastiCacheAlarmFactory">ElastiCacheAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.evictedItemsCountAnnotations">evictedItemsCountAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.freeableMemoryMetric">freeableMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
@@ -72818,11 +73368,14 @@ public createTitleWidget(): MonitoringHeaderWidget
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.memoryUsageAnnotations">memoryUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.redisEngineCpuUsageAnnotations">redisEngineCpuUsageAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.redisEngineCpuUsageMetric">redisEngineCpuUsageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.stringBasedCmdsLatencyAnnotations">stringBasedCmdsLatencyAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.swapMemoryMetric">swapMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.unusedMemoryMetric">unusedMemoryMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.usageAlarmFactory">usageAlarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.UsageAlarmFactory">UsageAlarmFactory</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.clusterUrl">clusterUrl</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.databaseMemoryUsagePercentageMetric">databaseMemoryUsagePercentageMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.stringBasedCmdsLatencyMetric">stringBasedCmdsLatencyMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
 
 ---
 
@@ -72863,6 +73416,16 @@ public readonly cpuUsageMetric: MathExpression | Metric;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+##### `databaseMemoryUsagePercentageAnnotations`<sup>Required</sup> <a name="databaseMemoryUsagePercentageAnnotations" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.databaseMemoryUsagePercentageAnnotations"></a>
+
+```typescript
+public readonly databaseMemoryUsagePercentageAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
 
 ---
 
@@ -72966,6 +73529,16 @@ public readonly redisEngineCpuUsageMetric: MathExpression | Metric;
 
 ---
 
+##### `stringBasedCmdsLatencyAnnotations`<sup>Required</sup> <a name="stringBasedCmdsLatencyAnnotations" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.stringBasedCmdsLatencyAnnotations"></a>
+
+```typescript
+public readonly stringBasedCmdsLatencyAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
 ##### `swapMemoryMetric`<sup>Required</sup> <a name="swapMemoryMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.swapMemoryMetric"></a>
 
 ```typescript
@@ -73013,6 +73586,26 @@ public readonly clusterUrl: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `databaseMemoryUsagePercentageMetric`<sup>Optional</sup> <a name="databaseMemoryUsagePercentageMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.databaseMemoryUsagePercentageMetric"></a>
+
+```typescript
+public readonly databaseMemoryUsagePercentageMetric: MathExpression | Metric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+##### `stringBasedCmdsLatencyMetric`<sup>Optional</sup> <a name="stringBasedCmdsLatencyMetric" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.property.stringBasedCmdsLatencyMetric"></a>
+
+```typescript
+public readonly stringBasedCmdsLatencyMetric: MathExpression | Metric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
 
 ---
 
