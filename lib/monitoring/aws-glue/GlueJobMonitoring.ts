@@ -297,7 +297,7 @@ export class GlueJobMonitoring extends Monitoring {
     jobName: string,
     state: string,
   ): MetricWithAlarmSupport {
-    const rule = new Rule(this.scope, `GlueJob-${state}-StateChangeRule`, {
+    const rule = new Rule(this.scope, `${jobName}-${state}-StateChangeRule`, {
       description: `Event rule for catching ${jobName} ${state}`,
       eventPattern: {
         source: ["aws.glue"],
