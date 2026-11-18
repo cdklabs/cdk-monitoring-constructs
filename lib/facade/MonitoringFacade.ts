@@ -65,6 +65,8 @@ import {
   Ec2NetworkLoadBalancerMonitoringProps,
   Ec2ServiceMonitoring,
   Ec2ServiceMonitoringProps,
+  EfsMonitoring,
+  EfsMonitoringProps,
   ElastiCacheClusterMonitoring,
   ElastiCacheClusterMonitoringProps,
   ElastiCacheServerlessMonitoring,
@@ -614,6 +616,12 @@ export class MonitoringFacade extends MonitoringScope {
     props: OpenSearchServerlessIndexMonitoringProps,
   ): this {
     const segment = new OpenSearchServerlessIndexMonitoring(this, props);
+    this.addSegment(segment, props);
+    return this;
+  }
+
+  monitorEfsFileSystem(props: EfsMonitoringProps): this {
+    const segment = new EfsMonitoring(this, props);
     this.addSegment(segment, props);
     return this;
   }

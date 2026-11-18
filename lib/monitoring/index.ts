@@ -10,6 +10,7 @@ export * from "./aws-docdb";
 export * from "./aws-dynamo";
 export * from "./aws-ec2";
 export * from "./aws-ecs-patterns";
+export * from "./aws-efs";
 export * from "./aws-elasticache";
 export * from "./aws-glue";
 export * from "./aws-kinesis";
