@@ -47,6 +47,7 @@ new BitmapDashboard(scope: Construct, id: string, props: DashboardProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapDashboard.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addVariable">addVariable</a></code> | Add a variable to the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.BitmapDashboard.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
@@ -60,6 +61,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.BitmapDashboard.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.BitmapDashboard.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-monitoring-constructs.BitmapDashboard.applyRemovalPolicy"></a>
 
@@ -313,6 +335,7 @@ new BitmapWidgetRenderingSupport(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.BitmapWidgetRenderingSupport.asBitmap">asBitmap</a></code> | *No description.* |
 
 ---
@@ -324,6 +347,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `asBitmap` <a name="asBitmap" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport.asBitmap"></a>
 
@@ -456,6 +500,7 @@ new DashboardWithBitmapCopy(scope: Construct, id: string, props: DashboardProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addVariable">addVariable</a></code> | Add a variable to the dashboard. |
 | <code><a href="#cdk-monitoring-constructs.DashboardWithBitmapCopy.addWidgets">addWidgets</a></code> | Add a widget to the dashboard. |
@@ -469,6 +514,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-monitoring-constructs.DashboardWithBitmapCopy.applyRemovalPolicy"></a>
 
@@ -725,6 +791,7 @@ new DefaultDashboardFactory(scope: Construct, id: string, props: MonitoringDashb
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.addDynamicSegment">addDynamicSegment</a></code> | Adds a dynamic dashboard segment. |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.addSegment">addSegment</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.DefaultDashboardFactory.createdAlarmDashboard">createdAlarmDashboard</a></code> | *No description.* |
@@ -741,6 +808,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.DefaultDashboardFactory.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.DefaultDashboardFactory.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.DefaultDashboardFactory.addDynamicSegment"></a>
 
@@ -959,6 +1047,7 @@ new DynamicDashboardFactory(scope: Construct, id: string, props: MonitoringDynam
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.addDynamicSegment">addDynamicSegment</a></code> | Adds a dynamic dashboard segment. |
 | <code><a href="#cdk-monitoring-constructs.DynamicDashboardFactory.getDashboard">getDashboard</a></code> | Gets the dashboard for the requested dashboard type. |
 
@@ -971,6 +1060,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.DynamicDashboardFactory.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.DynamicDashboardFactory.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addDynamicSegment` <a name="addDynamicSegment" id="cdk-monitoring-constructs.DynamicDashboardFactory.addDynamicSegment"></a>
 
@@ -1122,6 +1232,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createAwsConsoleUrlFactory">createAwsConsoleUrlFactory</a></code> | Creates a new factory that creates AWS Console URLs. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
@@ -1210,6 +1321,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.MonitoringFacade.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.MonitoringFacade.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.MonitoringFacade.createAlarmFactory"></a>
 
@@ -2351,6 +2483,7 @@ dash `--`.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.MonitoringScope.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.MonitoringScope.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringScope.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringScope.createAwsConsoleUrlFactory">createAwsConsoleUrlFactory</a></code> | Creates a new factory that creates AWS Console URLs. |
 | <code><a href="#cdk-monitoring-constructs.MonitoringScope.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
@@ -2365,6 +2498,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.MonitoringScope.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.MonitoringScope.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.MonitoringScope.createAlarmFactory"></a>
 
@@ -2478,6 +2632,7 @@ The tree node.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-monitoring-constructs.SecretsManagerMetricsPublisher.addSecret">addSecret</a></code> | *No description.* |
 
 ---
@@ -2489,6 +2644,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addSecret` <a name="addSecret" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher.addSecret"></a>
 

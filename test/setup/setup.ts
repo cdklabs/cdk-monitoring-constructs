@@ -28,3 +28,5 @@ expect.addSnapshotSerializer({
             "stack traces disabled",
           ]`,
 });
+
+export {};
