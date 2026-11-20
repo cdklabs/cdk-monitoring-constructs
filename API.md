@@ -4,6 +4,8 @@
 
 ### BitmapDashboard <a name="BitmapDashboard" id="cdk-monitoring-constructs.BitmapDashboard"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource
+
 Specific subtype of dashboard that renders supported widgets as bitmaps, while preserving the overall layout.
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.BitmapDashboard.Initializer"></a>
@@ -273,6 +275,8 @@ The name of this dashboard.
 
 ### BitmapWidgetRenderingSupport <a name="BitmapWidgetRenderingSupport" id="cdk-monitoring-constructs.BitmapWidgetRenderingSupport"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 Support for rendering bitmap widgets on the server side.
 
 It is a custom widget lambda with some additional roles and helper methods.
@@ -406,6 +410,8 @@ public readonly handler: IFunction;
 
 
 ### DashboardWithBitmapCopy <a name="DashboardWithBitmapCopy" id="cdk-monitoring-constructs.DashboardWithBitmapCopy"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource
 
 Composite dashboard which keeps a normal dashboard with its bitmap copy.
 
@@ -678,7 +684,7 @@ The name of this dashboard.
 
 ### DefaultDashboardFactory <a name="DefaultDashboardFactory" id="cdk-monitoring-constructs.DefaultDashboardFactory"></a>
 
-- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, <a href="#cdk-monitoring-constructs.IDashboardFactory">IDashboardFactory</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DefaultDashboardFactory.Initializer"></a>
 
@@ -912,7 +918,7 @@ public readonly summaryDashboard: Dashboard;
 
 ### DynamicDashboardFactory <a name="DynamicDashboardFactory" id="cdk-monitoring-constructs.DynamicDashboardFactory"></a>
 
-- *Implements:* <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, <a href="#cdk-monitoring-constructs.IDynamicDashboardFactory">IDynamicDashboardFactory</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DynamicDashboardFactory.Initializer"></a>
 
@@ -1067,6 +1073,8 @@ public readonly dashboards: {[ key: string ]: Dashboard};
 
 
 ### MonitoringFacade <a name="MonitoringFacade" id="cdk-monitoring-constructs.MonitoringFacade"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable
 
 An implementation of a {@link MonitoringScope}.
 
@@ -2297,6 +2305,8 @@ public readonly dashboardFactory: IDynamicDashboardFactory;
 
 ### MonitoringScope <a name="MonitoringScope" id="cdk-monitoring-constructs.MonitoringScope"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 A scope where all monitored constructs are managed from (i.e., alarms, dashboards, etc.).
 
 Standard usages will use {@link MonitoringFacade }.
@@ -2460,6 +2470,8 @@ The tree node.
 
 
 ### SecretsManagerMetricsPublisher <a name="SecretsManagerMetricsPublisher" id="cdk-monitoring-constructs.SecretsManagerMetricsPublisher"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -63387,6 +63399,8 @@ public readonly shouldUseDefaultDedupeForLatency: boolean;
 
 ### AlarmMatrixWidget <a name="AlarmMatrixWidget" id="cdk-monitoring-constructs.AlarmMatrixWidget"></a>
 
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IWidget
+
 Wrapper of Alarm Status Widget which auto-calcultes height based on the number of alarms.
 
 Always takes the maximum width.
@@ -63614,6 +63628,8 @@ How to generate the label for the alarm displayed on a widget.
 
 ### AlarmSummaryMatrixWidget <a name="AlarmSummaryMatrixWidget" id="cdk-monitoring-constructs.AlarmSummaryMatrixWidget"></a>
 
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IWidget
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AlarmSummaryMatrixWidget.Initializer"></a>
 
 ```typescript
@@ -63796,6 +63812,8 @@ public addAlarmWhenOutOfBand(metric: MathExpression | Metric, alarmNameSuffix: s
 
 
 ### AnomalyDetectionMathExpression <a name="AnomalyDetectionMathExpression" id="cdk-monitoring-constructs.AnomalyDetectionMathExpression"></a>
+
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IMetric
 
 Captures specific MathExpression for anomaly detection, for which alarm generation is different.
 
@@ -64152,6 +64170,8 @@ public metricTps(): MathExpression | Metric
 
 
 ### ApiGatewayMonitoring <a name="ApiGatewayMonitoring" id="cdk-monitoring-constructs.ApiGatewayMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.ApiGatewayMonitoring.Initializer"></a>
 
@@ -64725,6 +64745,8 @@ public metricTps(): MathExpression | Metric
 
 
 ### ApiGatewayV2HttpApiMonitoring <a name="ApiGatewayV2HttpApiMonitoring" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring.Initializer"></a>
 
@@ -65355,6 +65377,8 @@ public metricTps(): MathExpression | Metric
 
 ### AppSyncMonitoring <a name="AppSyncMonitoring" id="cdk-monitoring-constructs.AppSyncMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AppSyncMonitoring.Initializer"></a>
 
 ```typescript
@@ -65855,6 +65879,8 @@ public addMaxServerlessDatabaseCapacity(metric: MathExpression | Metric, props: 
 
 
 ### AuroraClusterMonitoring <a name="AuroraClusterMonitoring" id="cdk-monitoring-constructs.AuroraClusterMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AuroraClusterMonitoring.Initializer"></a>
 
@@ -66377,6 +66403,8 @@ This metric identifies the number of instances that are in service, pending, and
 
 
 ### AutoScalingGroupMonitoring <a name="AutoScalingGroupMonitoring" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.AutoScalingGroupMonitoring.Initializer"></a>
 
@@ -67165,6 +67193,8 @@ public metricTotalCostInUsd(): MathExpression | Metric
 
 ### BillingMonitoring <a name="BillingMonitoring" id="cdk-monitoring-constructs.BillingMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.BillingMonitoring.Initializer"></a>
 
 ```typescript
@@ -67462,6 +67492,8 @@ public metricDaysToExpiry(): MathExpression | Metric
 
 
 ### CertificateManagerMonitoring <a name="CertificateManagerMonitoring" id="cdk-monitoring-constructs.CertificateManagerMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CertificateManagerMonitoring.Initializer"></a>
 
@@ -67792,6 +67824,8 @@ public metricTotalErrorRateAverage(): MathExpression | Metric
 
 
 ### CloudFrontDistributionMonitoring <a name="CloudFrontDistributionMonitoring" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CloudFrontDistributionMonitoring.Initializer"></a>
 
@@ -68326,6 +68360,8 @@ public metricSucceededBuildCount(): MathExpression | Metric
 
 
 ### CodeBuildProjectMonitoring <a name="CodeBuildProjectMonitoring" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CodeBuildProjectMonitoring.Initializer"></a>
 
@@ -68890,6 +68926,8 @@ public addCustomAlarm(metric: MathExpression | Metric, alarmNameSuffix: string, 
 
 ### CustomMonitoring <a name="CustomMonitoring" id="cdk-monitoring-constructs.CustomMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 Custom monitoring is a construct allowing you to monitor your own custom metrics.
 
 The entire construct consists of metric groups.
@@ -69137,6 +69175,8 @@ public readonly height: number;
 
 ### CustomWidget <a name="CustomWidget" id="cdk-monitoring-constructs.CustomWidget"></a>
 
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IWidget
+
 A dashboard widget that can be customized using a Lambda.
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.CustomWidget.Initializer"></a>
@@ -69258,6 +69298,8 @@ Any warnings that are produced as a result of putting together this widget.
 
 
 ### DefaultAlarmAnnotationStrategy <a name="DefaultAlarmAnnotationStrategy" id="cdk-monitoring-constructs.DefaultAlarmAnnotationStrategy"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IAlarmAnnotationStrategy">IAlarmAnnotationStrategy</a>
 
 Default annotation strategy that returns the built-in alarm annotation.
 
@@ -69534,6 +69576,8 @@ public readonly clusterIdentifier: string;
 
 
 ### DocumentDbMonitoring <a name="DocumentDbMonitoring" id="cdk-monitoring-constructs.DocumentDbMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DocumentDbMonitoring.Initializer"></a>
 
@@ -69891,6 +69935,8 @@ public readonly url: string;
 
 ### DoNotModifyDedupeString <a name="DoNotModifyDedupeString" id="cdk-monitoring-constructs.DoNotModifyDedupeString"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IAlarmDedupeStringProcessor">IAlarmDedupeStringProcessor</a>
+
 Default dedupe strategy - does not add any prefix nor suffix.
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DoNotModifyDedupeString.Initializer"></a>
@@ -69961,6 +70007,8 @@ Process the dedupe string which was specified by the user as an override.
 
 
 ### DoubleAxisGraphWidget <a name="DoubleAxisGraphWidget" id="cdk-monitoring-constructs.DoubleAxisGraphWidget"></a>
+
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IWidget
 
 Line graph widget with both left and right axes.
 
@@ -70310,6 +70358,8 @@ public metricThrottledWriteRequestCount(): MathExpression | Metric
 
 ### DynamoTableGlobalSecondaryIndexMonitoring <a name="DynamoTableGlobalSecondaryIndexMonitoring" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring.Initializer"></a>
 
 ```typescript
@@ -70591,6 +70641,8 @@ public metricWriteCapacityUtilizationPercentage(): MathExpression | Metric
 
 
 ### DynamoTableMonitoring <a name="DynamoTableMonitoring" id="cdk-monitoring-constructs.DynamoTableMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.DynamoTableMonitoring.Initializer"></a>
 
@@ -71341,6 +71393,8 @@ This metric identifies the volume of outgoing network traffic from a single inst
 
 ### EC2Monitoring <a name="EC2Monitoring" id="cdk-monitoring-constructs.EC2Monitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.EC2Monitoring.Initializer"></a>
 
 ```typescript
@@ -71729,6 +71783,8 @@ public readonly title: string;
 
 
 ### Ec2ServiceMonitoring <a name="Ec2ServiceMonitoring" id="cdk-monitoring-constructs.Ec2ServiceMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.Ec2ServiceMonitoring.Initializer"></a>
 
@@ -72556,6 +72612,8 @@ public metricNetworkBytesOut(): MathExpression | Metric
 
 ### ElastiCacheClusterMonitoring <a name="ElastiCacheClusterMonitoring" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.ElastiCacheClusterMonitoring.Initializer"></a>
 
 ```typescript
@@ -73176,6 +73234,8 @@ public metricTotalThrottledCmds(): MathExpression | Metric
 
 
 ### ElastiCacheServerlessMonitoring <a name="ElastiCacheServerlessMonitoring" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.ElastiCacheServerlessMonitoring.Initializer"></a>
 
@@ -73960,6 +74020,8 @@ Process the dedupe string which was specified by the user as an override.
 
 ### FargateServiceMonitoring <a name="FargateServiceMonitoring" id="cdk-monitoring-constructs.FargateServiceMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.FargateServiceMonitoring.Initializer"></a>
 
 ```typescript
@@ -74626,6 +74688,8 @@ public storageMetrics(logGroup: ILogGroup): Metric[]
 
 ### FluentBitMonitoring <a name="FluentBitMonitoring" id="cdk-monitoring-constructs.FluentBitMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.FluentBitMonitoring.Initializer"></a>
 
 ```typescript
@@ -74894,6 +74958,8 @@ public metricTotalWrittenBytesToS3(): MathExpression | Metric
 
 
 ### GlueJobMonitoring <a name="GlueJobMonitoring" id="cdk-monitoring-constructs.GlueJobMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.GlueJobMonitoring.Initializer"></a>
 
@@ -75347,6 +75413,8 @@ public readonly title: string;
 
 ### HeaderWidget <a name="HeaderWidget" id="cdk-monitoring-constructs.HeaderWidget"></a>
 
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IWidget
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.HeaderWidget.Initializer"></a>
 
 ```typescript
@@ -75487,6 +75555,8 @@ Any warnings that are produced as a result of putting together this widget.
 
 
 ### KeyValueTableWidget <a name="KeyValueTableWidget" id="cdk-monitoring-constructs.KeyValueTableWidget"></a>
+
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IWidget
 
 A widget that displays key-value pairs in a table format.
 
@@ -76202,6 +76272,8 @@ public metricUptimeMs(): MathExpression | Metric
 
 ### KinesisDataAnalyticsMonitoring <a name="KinesisDataAnalyticsMonitoring" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring.Initializer"></a>
 
 ```typescript
@@ -76873,6 +76945,8 @@ Success rate of SubscribeToShard calls (connect handshake).
 
 ### KinesisDataStreamConsumerMonitoring <a name="KinesisDataStreamConsumerMonitoring" id="cdk-monitoring-constructs.KinesisDataStreamConsumerMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.KinesisDataStreamConsumerMonitoring.Initializer"></a>
 
 ```typescript
@@ -77446,6 +77520,8 @@ public metricWriteProvisionedThroughputExceededPercent(): MathExpression | Metri
 
 
 ### KinesisDataStreamMonitoring <a name="KinesisDataStreamMonitoring" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.KinesisDataStreamMonitoring.Initializer"></a>
 
@@ -78159,6 +78235,8 @@ public metricThrottledRecordCount(): MathExpression | Metric
 
 
 ### KinesisFirehoseMonitoring <a name="KinesisFirehoseMonitoring" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.KinesisFirehoseMonitoring.Initializer"></a>
 
@@ -78905,6 +78983,8 @@ public metricTps(): MathExpression | Metric
 
 
 ### LambdaFunctionMonitoring <a name="LambdaFunctionMonitoring" id="cdk-monitoring-constructs.LambdaFunctionMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.LambdaFunctionMonitoring.Initializer"></a>
 
@@ -80162,6 +80242,8 @@ public addLogCountAlarm(metric: MathExpression | Metric, logLevel: LogLevel, pro
 
 ### LogMonitoring <a name="LogMonitoring" id="cdk-monitoring-constructs.LogMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 Monitors a CloudWatch log group for various patterns.
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.LogMonitoring.Initializer"></a>
@@ -81294,6 +81376,8 @@ All aspects can visit an IConstruct.
 
 ### MonitoringHeaderWidget <a name="MonitoringHeaderWidget" id="cdk-monitoring-constructs.MonitoringHeaderWidget"></a>
 
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IWidget
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.MonitoringHeaderWidget.Initializer"></a>
 
 ```typescript
@@ -81672,6 +81756,8 @@ public metricUnhealthyTaskCount(): MathExpression | Metric
 
 
 ### NetworkLoadBalancerMonitoring <a name="NetworkLoadBalancerMonitoring" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.NetworkLoadBalancerMonitoring.Initializer"></a>
 
@@ -82539,6 +82625,8 @@ public metricTps(): MathExpression | Metric
 
 ### OpenSearchClusterMonitoring <a name="OpenSearchClusterMonitoring" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpenSearchClusterMonitoring.Initializer"></a>
 
 ```typescript
@@ -83129,6 +83217,8 @@ public metricSourceBytesReceivedSum(): MathExpression | Metric
 
 ### OpenSearchIngestionPipelineMonitoring <a name="OpenSearchIngestionPipelineMonitoring" id="cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring.Initializer"></a>
 
 ```typescript
@@ -83439,6 +83529,8 @@ public metricIndexSearchableDocuments(): MathExpression | Metric
 
 ### OpenSearchServerlessIndexMonitoring <a name="OpenSearchServerlessIndexMonitoring" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring.Initializer"></a>
 
 ```typescript
@@ -83728,6 +83820,8 @@ public metricSearchRequestLatency(statistic: LatencyType): MathExpression | Metr
 
 
 ### OpenSearchServerlessMonitoring <a name="OpenSearchServerlessMonitoring" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.OpenSearchServerlessMonitoring.Initializer"></a>
 
@@ -84583,6 +84677,8 @@ public readonly cluster: IDatabaseCluster | ServerlessCluster;
 
 ### RdsClusterMonitoring <a name="RdsClusterMonitoring" id="cdk-monitoring-constructs.RdsClusterMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.RdsClusterMonitoring.Initializer"></a>
 
 ```typescript
@@ -85198,6 +85294,8 @@ public readonly instanceIdentifier: string;
 
 ### RdsInstanceMonitoring <a name="RdsInstanceMonitoring" id="cdk-monitoring-constructs.RdsInstanceMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.RdsInstanceMonitoring.Initializer"></a>
 
 ```typescript
@@ -85691,6 +85789,8 @@ public metricWriteLatencyP90InMillis(): MathExpression | Metric
 
 
 ### RedshiftClusterMonitoring <a name="RedshiftClusterMonitoring" id="cdk-monitoring-constructs.RedshiftClusterMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.RedshiftClusterMonitoring.Initializer"></a>
 
@@ -86263,6 +86363,8 @@ public metricNumberOfObjects(): MathExpression | Metric
 
 ### S3BucketMonitoring <a name="S3BucketMonitoring" id="cdk-monitoring-constructs.S3BucketMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.S3BucketMonitoring.Initializer"></a>
 
 ```typescript
@@ -86561,6 +86663,8 @@ public metricSecretCount(): MathExpression | Metric
 
 
 ### SecretsManagerMonitoring <a name="SecretsManagerMonitoring" id="cdk-monitoring-constructs.SecretsManagerMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SecretsManagerMonitoring.Initializer"></a>
 
@@ -86876,6 +86980,8 @@ public readonly Namespace: string;
 
 ### SecretsManagerSecretMonitoring <a name="SecretsManagerSecretMonitoring" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SecretsManagerSecretMonitoring.Initializer"></a>
 
 ```typescript
@@ -87125,6 +87231,8 @@ public readonly title: string;
 
 
 ### SingleAxisGraphWidget <a name="SingleAxisGraphWidget" id="cdk-monitoring-constructs.SingleAxisGraphWidget"></a>
+
+- *Implements:* aws-cdk-lib.aws_cloudwatch.IWidget
 
 Line graph widget with one axis only (left).
 
@@ -87496,6 +87604,8 @@ public metricOutgoingMessageCount(): MathExpression | Metric
 
 
 ### SnsTopicMonitoring <a name="SnsTopicMonitoring" id="cdk-monitoring-constructs.SnsTopicMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SnsTopicMonitoring.Initializer"></a>
 
@@ -87906,6 +88016,8 @@ public metricTimeToDrain(): MathExpression | Metric
 
 
 ### SqsQueueMonitoring <a name="SqsQueueMonitoring" id="cdk-monitoring-constructs.SqsQueueMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SqsQueueMonitoring.Initializer"></a>
 
@@ -88321,6 +88433,8 @@ public readonly queueUrl: string;
 
 
 ### SqsQueueMonitoringWithDlq <a name="SqsQueueMonitoringWithDlq" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.SqsQueueMonitoringWithDlq.Initializer"></a>
 
@@ -88933,6 +89047,8 @@ public metricActivityTimeP99InMillis(): MathExpression | Metric
 
 ### StepFunctionActivityMonitoring <a name="StepFunctionActivityMonitoring" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.StepFunctionActivityMonitoring.Initializer"></a>
 
 ```typescript
@@ -89405,6 +89521,8 @@ public metricFunctionTimeP99InMillis(): MathExpression | Metric
 
 ### StepFunctionLambdaIntegrationMonitoring <a name="StepFunctionLambdaIntegrationMonitoring" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring.Initializer"></a>
 
 ```typescript
@@ -89841,6 +89959,8 @@ public metricExecutionTimeP99InMillis(): MathExpression | Metric
 
 
 ### StepFunctionMonitoring <a name="StepFunctionMonitoring" id="cdk-monitoring-constructs.StepFunctionMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.StepFunctionMonitoring.Initializer"></a>
 
@@ -90336,6 +90456,8 @@ public metricServiceIntegrationTimeP99InMillis(): MathExpression | Metric
 
 ### StepFunctionServiceIntegrationMonitoring <a name="StepFunctionServiceIntegrationMonitoring" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring"></a>
 
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+
 #### Initializers <a name="Initializers" id="cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring.Initializer"></a>
 
 ```typescript
@@ -90733,6 +90855,8 @@ public metricSuccessInPercent(): MathExpression | Metric
 
 
 ### SyntheticsCanaryMonitoring <a name="SyntheticsCanaryMonitoring" id="cdk-monitoring-constructs.SyntheticsCanaryMonitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 Monitoring for CloudWatch Synthetics Canaries.
 
@@ -92014,6 +92138,8 @@ public metricBlockedRequestsRate(): MathExpression | Metric
 
 
 ### WafV2Monitoring <a name="WafV2Monitoring" id="cdk-monitoring-constructs.WafV2Monitoring"></a>
+
+- *Implements:* <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 Monitoring for AWS Web Application Firewall.
 
