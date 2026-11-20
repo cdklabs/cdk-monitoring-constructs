@@ -107,11 +107,9 @@ test("snapshot test", () => {
 });
 
 test("each stack in an app gets its own publisher instance", () => {
-  const templates: Template[] = [];
-  for (const stackName of ["Stack1", "Stack2"]) {
-    const app = new App();
-    const stack = new Stack(app, stackName);
-
+  const app = new App();
+  const stacks = [new Stack(app, "Stack1"), new Stack(app, "Stack2")];
+  for (const stack of stacks) {
     const scope = new TestMonitoringScope(stack, "Scope");
 
     new SecretsManagerSecretMonitoring(scope, {
@@ -123,10 +121,11 @@ test("each stack in an app gets its own publisher instance", () => {
         secret: new Secret(stack, "Secret2"),
       });
     }
-
-    templates.push(Template.fromStack(stack));
   }
-  templates.forEach((template) => {
-    expect(template).toMatchSnapshot();
-  });
+
+  // Synthesize only after both stacks are fully built, since the app's
+  // construct tree must not change after the first synthesis.
+  for (const stack of stacks) {
+    expect(Template.fromStack(stack)).toMatchSnapshot();
+  }
 });
