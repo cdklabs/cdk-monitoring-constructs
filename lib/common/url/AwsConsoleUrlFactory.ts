@@ -60,6 +60,12 @@ export class AwsConsoleUrlFactory {
     return this.getAwsConsoleUrl(destinationUrl);
   }
 
+  getEfsFileSystemUrl(fileSystemId: string): string | undefined {
+    const region = this.awsAccountRegion;
+    const destinationUrl = `https://${region}.console.aws.amazon.com/efs/home?region=${region}#/file-systems/${fileSystemId}`;
+    return this.getAwsConsoleUrl(destinationUrl);
+  }
+
   getDynamoTableUrl(tableName: string): string | undefined {
     const region = this.awsAccountRegion;
     const destinationUrl = `https://${region}.console.aws.amazon.com/dynamodb/home?region=${region}#tables:selected=${tableName}`;
