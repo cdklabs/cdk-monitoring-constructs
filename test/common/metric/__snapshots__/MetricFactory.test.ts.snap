@@ -20,6 +20,7 @@ MathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": undefined,
       "metricName": "DummyMetric",
       "namespace": "DummyNamespace",
@@ -34,9 +35,13 @@ MathExpression {
       "region": undefined,
       "statistic": "Average",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -60,6 +65,7 @@ MathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": undefined,
       "metricName": "DummyMetric",
       "namespace": "DummyNamespace",
@@ -74,9 +80,13 @@ MathExpression {
       "region": undefined,
       "statistic": "Average",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -85,6 +95,7 @@ Metric {
   "account": undefined,
   "color": undefined,
   "dimensions": undefined,
+  "id": undefined,
   "label": undefined,
   "metricName": "DummyMetricName-NoOptionalParams",
   "namespace": "DummyNamespace",
@@ -99,7 +110,9 @@ Metric {
   "region": undefined,
   "statistic": "p90",
   "unit": undefined,
+  "visible": undefined,
   "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -110,6 +123,7 @@ Metric {
   "dimensions": Object {
     "DummyDimension": "DummyDimensionValue",
   },
+  "id": undefined,
   "label": "DummyLabel",
   "metricName": "DummyMetricName-AllOptionalParams",
   "namespace": "DummyNamespaceOverride",
@@ -124,7 +138,9 @@ Metric {
   "region": undefined,
   "statistic": "p90",
   "unit": undefined,
+  "visible": undefined,
   "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -133,6 +149,7 @@ Metric {
   "account": "123456789",
   "color": "#abcdef",
   "dimensions": Object {},
+  "id": undefined,
   "label": "DummyLabel",
   "metricName": "DummyMetricName-AllOptionalParams",
   "namespace": "DummyNamespaceOverride",
@@ -147,7 +164,9 @@ Metric {
   "region": "us-west-2",
   "statistic": "p90",
   "unit": undefined,
+  "visible": undefined,
   "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -171,6 +190,7 @@ AnomalyDetectionMathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": undefined,
       "metricName": "DummyMetric",
       "namespace": "DummyNamespace",
@@ -185,9 +205,13 @@ AnomalyDetectionMathExpression {
       "region": undefined,
       "statistic": "Average",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -211,6 +235,7 @@ MathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": undefined,
       "metricName": "a",
       "namespace": "DummyNamespace",
@@ -225,12 +250,15 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
     "b": Metric {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": undefined,
       "metricName": "b",
       "namespace": "DummyNamespace",
@@ -245,9 +273,13 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -271,6 +303,7 @@ MathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": undefined,
       "metricName": "a",
       "namespace": "DummyNamespace",
@@ -285,12 +318,15 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
     "b": Metric {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": undefined,
       "metricName": "b",
       "namespace": "DummyNamespace",
@@ -305,9 +341,13 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -327,6 +367,8 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -346,6 +388,8 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -365,6 +409,8 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -384,6 +430,8 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -403,6 +451,8 @@ MathExpression {
   "searchAccount": undefined,
   "searchRegion": undefined,
   "usingMetrics": Object {},
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -412,6 +462,7 @@ Object {
     "account": "123456789",
     "color": undefined,
     "dimensions": undefined,
+    "id": undefined,
     "label": undefined,
     "metricName": "DummyMetricName",
     "namespace": "DummyNamespace",
@@ -426,7 +477,9 @@ Object {
     "region": undefined,
     "statistic": "p90",
     "unit": undefined,
+    "visible": undefined,
     "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricAnomalyDetection": AnomalyDetectionMathExpression {
     "color": undefined,
@@ -447,6 +500,7 @@ Object {
         "account": undefined,
         "color": undefined,
         "dimensions": undefined,
+        "id": undefined,
         "label": undefined,
         "metricName": "DummyMetric1",
         "namespace": "DummyNamespace",
@@ -461,9 +515,13 @@ Object {
         "region": undefined,
         "statistic": "Average",
         "unit": undefined,
+        "visible": undefined,
         "warnings": undefined,
+        "warningsV2": undefined,
       },
     },
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricMath": MathExpression {
     "color": undefined,
@@ -502,6 +560,8 @@ Object {
     "searchAccount": "123456789",
     "searchRegion": undefined,
     "usingMetrics": Object {},
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
 }
 `;
@@ -512,6 +572,7 @@ Object {
     "account": "123456789",
     "color": undefined,
     "dimensions": undefined,
+    "id": undefined,
     "label": undefined,
     "metricName": "DummyMetricName",
     "namespace": "CustomTestNamespace",
@@ -526,7 +587,9 @@ Object {
     "region": "us-west-2",
     "statistic": "p90",
     "unit": undefined,
+    "visible": undefined,
     "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricAnomalyDetection": AnomalyDetectionMathExpression {
     "color": undefined,
@@ -547,6 +610,7 @@ Object {
         "account": undefined,
         "color": undefined,
         "dimensions": undefined,
+        "id": undefined,
         "label": undefined,
         "metricName": "DummyMetric1",
         "namespace": "DummyNamespace",
@@ -561,9 +625,13 @@ Object {
         "region": undefined,
         "statistic": "Average",
         "unit": undefined,
+        "visible": undefined,
         "warnings": undefined,
+        "warningsV2": undefined,
       },
     },
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricMath": MathExpression {
     "color": undefined,
@@ -602,6 +670,8 @@ Object {
     "searchAccount": "123456789",
     "searchRegion": "us-west-2",
     "usingMetrics": Object {},
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
 }
 `;
@@ -612,6 +682,7 @@ Object {
     "account": undefined,
     "color": undefined,
     "dimensions": undefined,
+    "id": undefined,
     "label": undefined,
     "metricName": "DummyMetricName",
     "namespace": "CustomTestNamespace",
@@ -626,7 +697,9 @@ Object {
     "region": undefined,
     "statistic": "p90",
     "unit": undefined,
+    "visible": undefined,
     "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricAnomalyDetection": AnomalyDetectionMathExpression {
     "color": undefined,
@@ -647,6 +720,7 @@ Object {
         "account": undefined,
         "color": undefined,
         "dimensions": undefined,
+        "id": undefined,
         "label": undefined,
         "metricName": "DummyMetric1",
         "namespace": "DummyNamespace",
@@ -661,9 +735,13 @@ Object {
         "region": undefined,
         "statistic": "Average",
         "unit": undefined,
+        "visible": undefined,
         "warnings": undefined,
+        "warningsV2": undefined,
       },
     },
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricMath": MathExpression {
     "color": undefined,
@@ -702,6 +780,8 @@ Object {
     "searchAccount": undefined,
     "searchRegion": undefined,
     "usingMetrics": Object {},
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
 }
 `;
@@ -712,6 +792,7 @@ Object {
     "account": undefined,
     "color": undefined,
     "dimensions": undefined,
+    "id": undefined,
     "label": undefined,
     "metricName": "DummyMetricName",
     "namespace": "DummyNamespace",
@@ -726,7 +807,9 @@ Object {
     "region": undefined,
     "statistic": "p90",
     "unit": undefined,
+    "visible": undefined,
     "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricAnomalyDetection": AnomalyDetectionMathExpression {
     "color": undefined,
@@ -747,6 +830,7 @@ Object {
         "account": undefined,
         "color": undefined,
         "dimensions": undefined,
+        "id": undefined,
         "label": undefined,
         "metricName": "DummyMetric1",
         "namespace": "DummyNamespace",
@@ -761,9 +845,13 @@ Object {
         "region": undefined,
         "statistic": "Average",
         "unit": undefined,
+        "visible": undefined,
         "warnings": undefined,
+        "warningsV2": undefined,
       },
     },
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricMath": MathExpression {
     "color": undefined,
@@ -802,6 +890,8 @@ Object {
     "searchAccount": undefined,
     "searchRegion": undefined,
     "usingMetrics": Object {},
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
 }
 `;
@@ -812,6 +902,7 @@ Object {
     "account": undefined,
     "color": undefined,
     "dimensions": undefined,
+    "id": undefined,
     "label": undefined,
     "metricName": "DummyMetricName",
     "namespace": "DummyNamespace",
@@ -826,7 +917,9 @@ Object {
     "region": "us-west-2",
     "statistic": "p90",
     "unit": undefined,
+    "visible": undefined,
     "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricAnomalyDetection": AnomalyDetectionMathExpression {
     "color": undefined,
@@ -847,6 +940,7 @@ Object {
         "account": undefined,
         "color": undefined,
         "dimensions": undefined,
+        "id": undefined,
         "label": undefined,
         "metricName": "DummyMetric1",
         "namespace": "DummyNamespace",
@@ -861,9 +955,13 @@ Object {
         "region": undefined,
         "statistic": "Average",
         "unit": undefined,
+        "visible": undefined,
         "warnings": undefined,
+        "warningsV2": undefined,
       },
     },
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
   "metricMath": MathExpression {
     "color": undefined,
@@ -902,6 +1000,8 @@ Object {
     "searchAccount": undefined,
     "searchRegion": "us-west-2",
     "usingMetrics": Object {},
+    "warnings": undefined,
+    "warningsV2": undefined,
   },
 }
 `;
@@ -911,6 +1011,7 @@ Metric {
   "account": "01234567890",
   "color": "#ff7f0e",
   "dimensions": undefined,
+  "id": undefined,
   "label": "Label (avg) (min: \${MIN}, max: \${MAX})",
   "metricName": "Metric",
   "namespace": "Namespace",
@@ -925,7 +1026,9 @@ Metric {
   "region": "eu-west-1",
   "statistic": "Average",
   "unit": undefined,
+  "visible": undefined,
   "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -934,6 +1037,7 @@ Metric {
   "account": "1111111111",
   "color": "#ff7f0e",
   "dimensions": undefined,
+  "id": undefined,
   "label": "Label (avg) (min: \${MIN}, max: \${MAX})",
   "metricName": "Metric",
   "namespace": "Namespace",
@@ -948,7 +1052,9 @@ Metric {
   "region": "eu-west-1",
   "statistic": "Average",
   "unit": undefined,
+  "visible": undefined,
   "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -972,6 +1078,7 @@ MathExpression {
       "account": "01234567890",
       "color": "#ff7f0e",
       "dimensions": undefined,
+      "id": undefined,
       "label": "Label",
       "metricName": "Metric",
       "namespace": "Namespace",
@@ -986,9 +1093,13 @@ MathExpression {
       "region": "eu-west-1",
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -1012,6 +1123,7 @@ MathExpression {
       "account": "01234567890",
       "color": "#ff7f0e",
       "dimensions": undefined,
+      "id": undefined,
       "label": "Label",
       "metricName": "Metric",
       "namespace": "Namespace",
@@ -1026,9 +1138,13 @@ MathExpression {
       "region": "eu-west-1",
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -1052,6 +1168,7 @@ MathExpression {
       "account": "01234567890",
       "color": "#ff7f0e",
       "dimensions": undefined,
+      "id": undefined,
       "label": "Label",
       "metricName": "Metric",
       "namespace": "Namespace",
@@ -1066,9 +1183,13 @@ MathExpression {
       "region": "eu-west-1",
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -1092,6 +1213,7 @@ MathExpression {
       "account": "01234567890",
       "color": "#ff7f0e",
       "dimensions": undefined,
+      "id": undefined,
       "label": "Label",
       "metricName": "Metric",
       "namespace": "Namespace",
@@ -1106,9 +1228,13 @@ MathExpression {
       "region": "eu-west-1",
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -1117,6 +1243,7 @@ Metric {
   "account": undefined,
   "color": undefined,
   "dimensions": undefined,
+  "id": undefined,
   "label": "Label (avg)",
   "metricName": "Metric",
   "namespace": "DummyNamespace",
@@ -1131,7 +1258,9 @@ Metric {
   "region": undefined,
   "statistic": "Average",
   "unit": undefined,
+  "visible": undefined,
   "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -1155,6 +1284,7 @@ MathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": "Label",
       "metricName": "Metric",
       "namespace": "DummyNamespace",
@@ -1169,9 +1299,13 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -1195,6 +1329,7 @@ MathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": "Label",
       "metricName": "Metric",
       "namespace": "DummyNamespace",
@@ -1209,9 +1344,13 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -1235,6 +1374,7 @@ MathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": "Label",
       "metricName": "Metric",
       "namespace": "DummyNamespace",
@@ -1249,9 +1389,13 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;
 
@@ -1275,6 +1419,7 @@ MathExpression {
       "account": undefined,
       "color": undefined,
       "dimensions": undefined,
+      "id": undefined,
       "label": "Label",
       "metricName": "Metric",
       "namespace": "DummyNamespace",
@@ -1289,8 +1434,12 @@ MathExpression {
       "region": undefined,
       "statistic": "Sum",
       "unit": undefined,
+      "visible": undefined,
       "warnings": undefined,
+      "warningsV2": undefined,
     },
   },
+  "warnings": undefined,
+  "warningsV2": undefined,
 }
 `;

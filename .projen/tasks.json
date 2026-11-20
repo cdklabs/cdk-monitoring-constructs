@@ -349,7 +349,7 @@
       "description": "Prepare a release from \"main\" branch",
       "env": {
         "RELEASE": "true",
-        "MAJOR": "10"
+        "MAJOR": "11"
       },
       "steps": [
         {

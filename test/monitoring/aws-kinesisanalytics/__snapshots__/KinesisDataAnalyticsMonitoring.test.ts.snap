@@ -119,7 +119,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"numberOfFailedCheckpoints\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed Checkpoints > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Checkpoint Failure Rate > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"id\\":\\"numberOfFailedCheckpoints\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Failed Checkpoints > 5 for 3 datapoints within 15 minutes\\",\\"value\\":5,\\"yAxis\\":\\"left\\"},{\\"label\\":\\"Checkpoint Failure Rate > 0.1 for 3 datapoints within 15 minutes\\",\\"value\\":0.1,\\"yAxis\\":\\"right\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -253,6 +253,7 @@ Object {
             "Expression": "RATE(numberOfFailedCheckpoints)",
             "Id": "expr_1",
             "Label": "Checkpoint Failure Rate",
+            "ReturnData": true,
           },
           Object {
             "Id": "numberOfFailedCheckpoints",
@@ -292,6 +293,7 @@ Object {
             "Expression": "RATE(fullRestarts)",
             "Id": "expr_1",
             "Label": "Full Restart Rate",
+            "ReturnData": true,
           },
           Object {
             "Id": "fullRestarts",
@@ -458,7 +460,7 @@ Object {
               Object {
                 "Ref": "AWS::Region",
               },
-              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"stat\\":\\"Sum\\",\\"id\\":\\"numberOfFailedCheckpoints\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
+              "\\",\\"metrics\\":[[\\"AWS/KinesisAnalytics\\",\\"numberOfFailedCheckpoints\\",\\"Application\\",\\"DummyApplication\\",{\\"label\\":\\"Failed Checkpoints\\",\\"id\\":\\"numberOfFailedCheckpoints\\",\\"stat\\":\\"Sum\\"}],[{\\"label\\":\\"Checkpoint Failure Rate\\",\\"expression\\":\\"RATE(numberOfFailedCheckpoints)\\",\\"yAxis\\":\\"right\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false},\\"right\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":5,\\"x\\":12,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Checkpoint Duration\\",\\"region\\":\\"",
               Object {
                 "Ref": "AWS::Region",
               },
