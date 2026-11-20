@@ -17,6 +17,13 @@ const project = new cdklabs.CdklabsConstructLibrary({
   stability: "experimental",
   setNodeEngineVersion: false,
 
+  packageManager: javascript.NodePackageManager.YARN_BERRY,
+  yarnBerryOptions: {
+    yarnRcOptions: {
+      nodeLinker: javascript.YarnNodeLinker.NODE_MODULES,
+    },
+  },
+
   cdkVersion: CDK_VERSION,
   jsiiVersion: "~5.9",
 
