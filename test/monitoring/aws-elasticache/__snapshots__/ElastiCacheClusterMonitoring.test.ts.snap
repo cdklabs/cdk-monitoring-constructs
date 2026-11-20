@@ -318,6 +318,62 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ScopeTestRedisALLMemoryUsageWarning551BE1F9": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The memory usage is too high.",
+        "AlarmName": "Test-Redis-ALL-Memory-Usage-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "Database Memory Usage",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "DatabaseMemoryUsagePercentage",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 61,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestRedisALLStringBasedCmdsLatencyWarning9F4EFA80": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The latency of string-based commands is too high.",
+        "AlarmName": "Test-Redis-ALL-StringBasedCmds-Latency-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "StringBasedCmdsLatency P90",
+            "MetricStat": Object {
+              "Metric": Object {
+                "MetricName": "StringBasedCmdsLatency",
+                "Namespace": "AWS/ElastiCache",
+              },
+              "Period": 300,
+              "Stat": "p90",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 71,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
   },
   "Rules": Object {
     "CheckBootstrapVersion": Object {

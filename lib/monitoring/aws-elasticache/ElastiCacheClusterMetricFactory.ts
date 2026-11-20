@@ -3,6 +3,9 @@ import { DimensionsMap } from "aws-cdk-lib/aws-cloudwatch";
 import {
   BaseMetricFactory,
   BaseMetricFactoryProps,
+  getLatencyTypeLabel,
+  getLatencyTypeStatistic,
+  LatencyType,
   MetricFactory,
   MetricStatistic,
 } from "../../common";
@@ -194,6 +197,47 @@ export class ElastiCacheClusterMetricFactory extends BaseMetricFactory {
       "NetworkBytesOut",
       MetricStatistic.SUM,
       "Bytes Out",
+      this.dimensionsMap,
+      undefined,
+      Namespace,
+      undefined,
+      this.region,
+      this.account,
+    );
+  }
+
+  /**
+   * The percentage of the memory available for the cluster that is in use.
+   * This is not the host-level memory usage, but the percentage of
+   * `maxmemory` (as defined by the Redis engine) currently in use.
+   *
+   * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html
+   */
+  metricMaxDatabaseMemoryUsagePercentage() {
+    return this.metricFactory.createMetric(
+      "DatabaseMemoryUsagePercentage",
+      MetricStatistic.MAX,
+      "Database Memory Usage",
+      this.dimensionsMap,
+      undefined,
+      Namespace,
+      undefined,
+      this.region,
+      this.account,
+    );
+  }
+
+  /**
+   * The amount of time it takes to execute string-based commands (for example, SET, GET).
+   * Reported by CloudWatch in microseconds.
+   *
+   * @see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html
+   */
+  metricStringBasedCmdsLatencyInMicroseconds(latencyType: LatencyType) {
+    return this.metricFactory.createMetric(
+      "StringBasedCmdsLatency",
+      getLatencyTypeStatistic(latencyType),
+      `StringBasedCmdsLatency ${getLatencyTypeLabel(latencyType)}`,
       this.dimensionsMap,
       undefined,
       Namespace,

@@ -57,6 +57,12 @@ test("snapshot test: all alarms", () => {
     addMaxEvictedItemsCountAlarm: { Warning: { maxItemsCount: 31 } },
     addMinFreeableMemoryAlarm: { Warning: { minFreeableMemoryInBytes: 41 } },
     addMaxUsedSwapMemoryAlarm: { Warning: { maxUsedSwapMemoryInBytes: 51 } },
+    addDatabaseMemoryUsagePercentageAlarm: {
+      Warning: { maxUsagePercent: 61 },
+    },
+    addStringBasedCmdsLatencyAlarm: {
+      Warning: { maxLatencyInMicroseconds: 71 },
+    },
     useCreatedAlarms: {
       consume(alarms: AlarmWithAnnotation[]) {
         numAlarmsCreatedForRedis = alarms.length;
@@ -65,7 +71,7 @@ test("snapshot test: all alarms", () => {
   });
 
   expect(numAlarmsCreatedForMemcached).toStrictEqual(5);
-  expect(numAlarmsCreatedForRedis).toStrictEqual(6);
+  expect(numAlarmsCreatedForRedis).toStrictEqual(8);
   expect(Template.fromStack(stack)).toMatchSnapshot();
 });
 
@@ -103,5 +109,39 @@ test("validation test: redisEngineCpuUsageAlarm added for non-redis cluster ", (
       }),
   ).toThrowError(
     "It is only possible to alarm on Redis Engine CPU Usage for Redis clusters",
+  );
+});
+
+test("validation test: databaseMemoryUsagePercentageAlarm added for non-redis cluster ", () => {
+  const stack = new Stack();
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  expect(
+    () =>
+      new ElastiCacheClusterMonitoring(scope, {
+        clusterType: ElastiCacheClusterType.MEMCACHED,
+        addDatabaseMemoryUsagePercentageAlarm: {
+          Warning: { maxUsagePercent: 10 },
+        },
+      }),
+  ).toThrowError(
+    "It is only possible to alarm on Database Memory Usage Percentage for Redis clusters",
+  );
+});
+
+test("validation test: stringBasedCmdsLatencyAlarm added for non-redis cluster ", () => {
+  const stack = new Stack();
+  const scope = new TestMonitoringScope(stack, "Scope");
+
+  expect(
+    () =>
+      new ElastiCacheClusterMonitoring(scope, {
+        clusterType: ElastiCacheClusterType.MEMCACHED,
+        addStringBasedCmdsLatencyAlarm: {
+          Warning: { maxLatencyInMicroseconds: 10 },
+        },
+      }),
+  ).toThrowError(
+    "It is only possible to alarm on String-Based Commands Latency for Redis clusters",
   );
 });
