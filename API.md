@@ -1364,6 +1364,7 @@ new MonitoringFacade(scope: Construct, id: string, props?: MonitoringFacadeProps
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorEC2Instances">monitorEC2Instances</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorEc2NetworkLoadBalancer">monitorEc2NetworkLoadBalancer</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorEc2Service">monitorEc2Service</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorEfsFileSystem">monitorEfsFileSystem</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorElastiCacheCluster">monitorElastiCacheCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorElasticsearchCluster">monitorElasticsearchCluster</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.MonitoringFacade.monitorFargateApplicationLoadBalancer">monitorFargateApplicationLoadBalancer</a></code> | *No description.* |
@@ -1972,6 +1973,18 @@ public monitorEc2Service(props: Ec2ServiceMonitoringProps): MonitoringFacade
 ###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorEc2Service.parameter.props"></a>
 
 - *Type:* <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoringProps">Ec2ServiceMonitoringProps</a>
+
+---
+
+##### `monitorEfsFileSystem` <a name="monitorEfsFileSystem" id="cdk-monitoring-constructs.MonitoringFacade.monitorEfsFileSystem"></a>
+
+```typescript
+public monitorEfsFileSystem(props: EfsMonitoringProps): MonitoringFacade
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.MonitoringFacade.monitorEfsFileSystem.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.EfsMonitoringProps">EfsMonitoringProps</a>
 
 ---
 
@@ -21639,6 +21652,445 @@ When `invertLoadBalancerTaskCountMetricsStatistics` is set to true, the maximum 
 
 `invertLoadBalancerTaskCountMetricsStatistics` is recommended to set to true as per the guidelines at
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#metric-statistics
+
+---
+
+### EfsMetricFactoryProps <a name="EfsMetricFactoryProps" id="cdk-monitoring-constructs.EfsMetricFactoryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EfsMetricFactoryProps.Initializer"></a>
+
+```typescript
+import { EfsMetricFactoryProps } from 'cdk-monitoring-constructs'
+
+const efsMetricFactoryProps: EfsMetricFactoryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactoryProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactoryProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactoryProps.property.fileSystem">fileSystem</a></code> | <code>aws-cdk-lib.aws_efs.IFileSystem</code> | file system to monitor. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.EfsMetricFactoryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.EfsMetricFactoryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `fileSystem`<sup>Required</sup> <a name="fileSystem" id="cdk-monitoring-constructs.EfsMetricFactoryProps.property.fileSystem"></a>
+
+```typescript
+public readonly fileSystem: IFileSystem;
+```
+
+- *Type:* aws-cdk-lib.aws_efs.IFileSystem
+
+file system to monitor.
+
+---
+
+### EfsMonitoringOptions <a name="EfsMonitoringOptions" id="cdk-monitoring-constructs.EfsMonitoringOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EfsMonitoringOptions.Initializer"></a>
+
+```typescript
+import { EfsMonitoringOptions } from 'cdk-monitoring-constructs'
+
+const efsMonitoringOptions: EfsMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.addIOLimitUtilizationAlarm">addIOLimitUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Alarm when PercentIOLimit exceeds a percentage (General Purpose performance mode only). |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringOptions.property.addThroughputUtilizationAlarm">addThroughputUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Alarm when throughput utilization (metered vs. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addIOLimitUtilizationAlarm`<sup>Optional</sup> <a name="addIOLimitUtilizationAlarm" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.addIOLimitUtilizationAlarm"></a>
+
+```typescript
+public readonly addIOLimitUtilizationAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Alarm when PercentIOLimit exceeds a percentage (General Purpose performance mode only).
+
+---
+
+##### `addThroughputUtilizationAlarm`<sup>Optional</sup> <a name="addThroughputUtilizationAlarm" id="cdk-monitoring-constructs.EfsMonitoringOptions.property.addThroughputUtilizationAlarm"></a>
+
+```typescript
+public readonly addThroughputUtilizationAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Alarm when throughput utilization (metered vs.
+
+permitted throughput) exceeds a percentage.
+
+---
+
+### EfsMonitoringProps <a name="EfsMonitoringProps" id="cdk-monitoring-constructs.EfsMonitoringProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-monitoring-constructs.EfsMonitoringProps.Initializer"></a>
+
+```typescript
+import { EfsMonitoringProps } from 'cdk-monitoring-constructs'
+
+const efsMonitoringProps: EfsMonitoringProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.account">account</a></code> | <code>string</code> | Account where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.region">region</a></code> | <code>string</code> | Region where the metrics exist. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.fileSystem">fileSystem</a></code> | <code>aws-cdk-lib.aws_efs.IFileSystem</code> | file system to monitor. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.localAlarmNamePrefixOverride">localAlarmNamePrefixOverride</a></code> | <code>string</code> | If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.addToAlarmDashboard">addToAlarmDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to alarm dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.addToDetailDashboard">addToDetailDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to detailed dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.addToSummaryDashboard">addToSummaryDashboard</a></code> | <code>boolean</code> | Flag indicating if the widgets should be added to summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.useCreatedAlarms">useCreatedAlarms</a></code> | <code><a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a></code> | Calls provided function to process all alarms created. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.addIOLimitUtilizationAlarm">addIOLimitUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Alarm when PercentIOLimit exceeds a percentage (General Purpose performance mode only). |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps.property.addThroughputUtilizationAlarm">addThroughputUtilizationAlarm</a></code> | <code>{[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}</code> | Alarm when throughput utilization (metered vs. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-monitoring-constructs.EfsMonitoringProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* The account configured by the construct holding the Monitoring construct
+
+Account where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-monitoring-constructs.EfsMonitoringProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* The region configured by the construct holding the Monitoring construct
+
+Region where the metrics exist.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)
+
+---
+
+##### `fileSystem`<sup>Required</sup> <a name="fileSystem" id="cdk-monitoring-constructs.EfsMonitoringProps.property.fileSystem"></a>
+
+```typescript
+public readonly fileSystem: IFileSystem;
+```
+
+- *Type:* aws-cdk-lib.aws_efs.IFileSystem
+
+file system to monitor.
+
+---
+
+##### `alarmFriendlyName`<sup>Optional</sup> <a name="alarmFriendlyName" id="cdk-monitoring-constructs.EfsMonitoringProps.property.alarmFriendlyName"></a>
+
+```typescript
+public readonly alarmFriendlyName: string;
+```
+
+- *Type:* string
+- *Default:* derives name from the construct itself
+
+Plain name, used in naming alarms.
+
+This unique among other resources, and respect the AWS CDK restriction posed on alarm names.
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+---
+
+##### `humanReadableName`<sup>Optional</sup> <a name="humanReadableName" id="cdk-monitoring-constructs.EfsMonitoringProps.property.humanReadableName"></a>
+
+```typescript
+public readonly humanReadableName: string;
+```
+
+- *Type:* string
+- *Default:* use alarmFriendlyName
+
+Human-readable name is a freeform string, used as a caption or description.
+
+There are no limitations on what it can be.
+
+---
+
+##### `localAlarmNamePrefixOverride`<sup>Optional</sup> <a name="localAlarmNamePrefixOverride" id="cdk-monitoring-constructs.EfsMonitoringProps.property.localAlarmNamePrefixOverride"></a>
+
+```typescript
+public readonly localAlarmNamePrefixOverride: string;
+```
+
+- *Type:* string
+
+If this is defined, the local alarm name prefix used in naming alarms for the construct will be set to this value.
+
+The length must be 1 - 255 characters and although the validation rules are undocumented, we recommend using ASCII and hyphens.
+
+> [AlarmNamingStrategy for more details on alarm name prefixes](AlarmNamingStrategy for more details on alarm name prefixes)
+
+---
+
+##### `addToAlarmDashboard`<sup>Optional</sup> <a name="addToAlarmDashboard" id="cdk-monitoring-constructs.EfsMonitoringProps.property.addToAlarmDashboard"></a>
+
+```typescript
+public readonly addToAlarmDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to alarm dashboard.
+
+---
+
+##### `addToDetailDashboard`<sup>Optional</sup> <a name="addToDetailDashboard" id="cdk-monitoring-constructs.EfsMonitoringProps.property.addToDetailDashboard"></a>
+
+```typescript
+public readonly addToDetailDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to detailed dashboard.
+
+---
+
+##### `addToSummaryDashboard`<sup>Optional</sup> <a name="addToSummaryDashboard" id="cdk-monitoring-constructs.EfsMonitoringProps.property.addToSummaryDashboard"></a>
+
+```typescript
+public readonly addToSummaryDashboard: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag indicating if the widgets should be added to summary dashboard.
+
+---
+
+##### `useCreatedAlarms`<sup>Optional</sup> <a name="useCreatedAlarms" id="cdk-monitoring-constructs.EfsMonitoringProps.property.useCreatedAlarms"></a>
+
+```typescript
+public readonly useCreatedAlarms: IAlarmConsumer;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.IAlarmConsumer">IAlarmConsumer</a>
+
+Calls provided function to process all alarms created.
+
+---
+
+##### `addIOLimitUtilizationAlarm`<sup>Optional</sup> <a name="addIOLimitUtilizationAlarm" id="cdk-monitoring-constructs.EfsMonitoringProps.property.addIOLimitUtilizationAlarm"></a>
+
+```typescript
+public readonly addIOLimitUtilizationAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Alarm when PercentIOLimit exceeds a percentage (General Purpose performance mode only).
+
+---
+
+##### `addThroughputUtilizationAlarm`<sup>Optional</sup> <a name="addThroughputUtilizationAlarm" id="cdk-monitoring-constructs.EfsMonitoringProps.property.addThroughputUtilizationAlarm"></a>
+
+```typescript
+public readonly addThroughputUtilizationAlarm: {[ key: string ]: UsageThreshold};
+```
+
+- *Type:* {[ key: string ]: <a href="#cdk-monitoring-constructs.UsageThreshold">UsageThreshold</a>}
+
+Alarm when throughput utilization (metered vs.
+
+permitted throughput) exceeds a percentage.
 
 ---
 
@@ -67022,6 +67474,7 @@ new AwsConsoleUrlFactory(props: AwsConsoleUrlFactoryProps)
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getCodeBuildProjectUrl">getCodeBuildProjectUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getDocumentDbClusterUrl">getDocumentDbClusterUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getDynamoTableUrl">getDynamoTableUrl</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getEfsFileSystemUrl">getEfsFileSystemUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getElastiCacheClusterUrl">getElastiCacheClusterUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getKinesisAnalyticsUrl">getKinesisAnalyticsUrl</a></code> | *No description.* |
 | <code><a href="#cdk-monitoring-constructs.AwsConsoleUrlFactory.getKinesisDataStreamUrl">getKinesisDataStreamUrl</a></code> | *No description.* |
@@ -67119,6 +67572,18 @@ public getDynamoTableUrl(tableName: string): string
 ```
 
 ###### `tableName`<sup>Required</sup> <a name="tableName" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getDynamoTableUrl.parameter.tableName"></a>
+
+- *Type:* string
+
+---
+
+##### `getEfsFileSystemUrl` <a name="getEfsFileSystemUrl" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getEfsFileSystemUrl"></a>
+
+```typescript
+public getEfsFileSystemUrl(fileSystemId: string): string
+```
+
+###### `fileSystemId`<sup>Required</sup> <a name="fileSystemId" id="cdk-monitoring-constructs.AwsConsoleUrlFactory.getEfsFileSystemUrl.parameter.fileSystemId"></a>
 
 - *Type:* string
 
@@ -72587,6 +73052,536 @@ public readonly unhealthyTaskCountMetric: MathExpression | Metric;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+
+### EfsMetricFactory <a name="EfsMetricFactory" id="cdk-monitoring-constructs.EfsMetricFactory"></a>
+
+Metric math divides by PERIOD() so rates stay per-second when a dashboard widens the period, matching the graphs in the EFS console.
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.EfsMetricFactory.Initializer"></a>
+
+```typescript
+import { EfsMetricFactory } from 'cdk-monitoring-constructs'
+
+new EfsMetricFactory(metricFactory: MetricFactory, props: EfsMetricFactoryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.Initializer.parameter.metricFactory">metricFactory</a></code> | <code><a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.EfsMetricFactoryProps">EfsMetricFactoryProps</a></code> | *No description.* |
+
+---
+
+##### `metricFactory`<sup>Required</sup> <a name="metricFactory" id="cdk-monitoring-constructs.EfsMetricFactory.Initializer.parameter.metricFactory"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MetricFactory">MetricFactory</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.EfsMetricFactory.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.EfsMetricFactoryProps">EfsMetricFactoryProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricClientConnections">metricClientConnections</a></code> | ClientConnections is a per-minute sum, so this normalises it to connections per minute. |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricDataReadBytesPerSecond">metricDataReadBytesPerSecond</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricDataReadIops">metricDataReadIops</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricDataWriteBytesPerSecond">metricDataWriteBytesPerSecond</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricDataWriteIops">metricDataWriteIops</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricIOLimitUtilizationPercent">metricIOLimitUtilizationPercent</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricMetadataBytesPerSecond">metricMetadataBytesPerSecond</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricMetadataIops">metricMetadataIops</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricStorageBytes">metricStorageBytes</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.metricThroughputUtilizationPercent">metricThroughputUtilizationPercent</a></code> | *No description.* |
+
+---
+
+##### `metricClientConnections` <a name="metricClientConnections" id="cdk-monitoring-constructs.EfsMetricFactory.metricClientConnections"></a>
+
+```typescript
+public metricClientConnections(): MathExpression | Metric
+```
+
+ClientConnections is a per-minute sum, so this normalises it to connections per minute.
+
+##### `metricDataReadBytesPerSecond` <a name="metricDataReadBytesPerSecond" id="cdk-monitoring-constructs.EfsMetricFactory.metricDataReadBytesPerSecond"></a>
+
+```typescript
+public metricDataReadBytesPerSecond(): MathExpression | Metric
+```
+
+##### `metricDataReadIops` <a name="metricDataReadIops" id="cdk-monitoring-constructs.EfsMetricFactory.metricDataReadIops"></a>
+
+```typescript
+public metricDataReadIops(): MathExpression | Metric
+```
+
+##### `metricDataWriteBytesPerSecond` <a name="metricDataWriteBytesPerSecond" id="cdk-monitoring-constructs.EfsMetricFactory.metricDataWriteBytesPerSecond"></a>
+
+```typescript
+public metricDataWriteBytesPerSecond(): MathExpression | Metric
+```
+
+##### `metricDataWriteIops` <a name="metricDataWriteIops" id="cdk-monitoring-constructs.EfsMetricFactory.metricDataWriteIops"></a>
+
+```typescript
+public metricDataWriteIops(): MathExpression | Metric
+```
+
+##### `metricIOLimitUtilizationPercent` <a name="metricIOLimitUtilizationPercent" id="cdk-monitoring-constructs.EfsMetricFactory.metricIOLimitUtilizationPercent"></a>
+
+```typescript
+public metricIOLimitUtilizationPercent(): MathExpression | Metric
+```
+
+##### `metricMetadataBytesPerSecond` <a name="metricMetadataBytesPerSecond" id="cdk-monitoring-constructs.EfsMetricFactory.metricMetadataBytesPerSecond"></a>
+
+```typescript
+public metricMetadataBytesPerSecond(): MathExpression | Metric
+```
+
+##### `metricMetadataIops` <a name="metricMetadataIops" id="cdk-monitoring-constructs.EfsMetricFactory.metricMetadataIops"></a>
+
+```typescript
+public metricMetadataIops(): MathExpression | Metric
+```
+
+##### `metricStorageBytes` <a name="metricStorageBytes" id="cdk-monitoring-constructs.EfsMetricFactory.metricStorageBytes"></a>
+
+```typescript
+public metricStorageBytes(storageClass: EfsStorageClass): MathExpression | Metric
+```
+
+###### `storageClass`<sup>Required</sup> <a name="storageClass" id="cdk-monitoring-constructs.EfsMetricFactory.metricStorageBytes.parameter.storageClass"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.EfsStorageClass">EfsStorageClass</a>
+
+---
+
+##### `metricThroughputUtilizationPercent` <a name="metricThroughputUtilizationPercent" id="cdk-monitoring-constructs.EfsMetricFactory.metricThroughputUtilizationPercent"></a>
+
+```typescript
+public metricThroughputUtilizationPercent(): MathExpression | Metric
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMetricFactory.property.fileSystemId">fileSystemId</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `fileSystemId`<sup>Required</sup> <a name="fileSystemId" id="cdk-monitoring-constructs.EfsMetricFactory.property.fileSystemId"></a>
+
+```typescript
+public readonly fileSystemId: string;
+```
+
+- *Type:* string
+
+---
+
+
+### EfsMonitoring <a name="EfsMonitoring" id="cdk-monitoring-constructs.EfsMonitoring"></a>
+
+#### Initializers <a name="Initializers" id="cdk-monitoring-constructs.EfsMonitoring.Initializer"></a>
+
+```typescript
+import { EfsMonitoring } from 'cdk-monitoring-constructs'
+
+new EfsMonitoring(scope: MonitoringScope, props: EfsMonitoringProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.Initializer.parameter.scope">scope</a></code> | <code><a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-monitoring-constructs.EfsMonitoringProps">EfsMonitoringProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-monitoring-constructs.EfsMonitoring.Initializer.parameter.scope"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.MonitoringScope">MonitoringScope</a>
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-monitoring-constructs.EfsMonitoring.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.EfsMonitoringProps">EfsMonitoringProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.addAlarm">addAlarm</a></code> | Adds an alarm. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.alarmWidgets">alarmWidgets</a></code> | Returns widgets for all alarms. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createAlarmFactory">createAlarmFactory</a></code> | Creates a new alarm factory. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createdAlarms">createdAlarms</a></code> | Returns all the alarms created. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createMetricFactory">createMetricFactory</a></code> | Creates a new metric factory. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createWidgetFactory">createWidgetFactory</a></code> | Creates a new widget factory. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.summaryWidgets">summaryWidgets</a></code> | Returns widgets to be placed on the summary dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.widgets">widgets</a></code> | Returns widgets to be placed on the main dashboard. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.widgetsForDashboard">widgetsForDashboard</a></code> | Returns widgets for the requested dashboard type. |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createClientConnectionsWidget">createClientConnectionsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createIOLimitUtilizationWidget">createIOLimitUtilizationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createIopsWidget">createIopsWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createStorageWidget">createStorageWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createThroughputUtilizationWidget">createThroughputUtilizationWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createThroughputWidget">createThroughputWidget</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.createTitleWidget">createTitleWidget</a></code> | *No description.* |
+
+---
+
+##### `addAlarm` <a name="addAlarm" id="cdk-monitoring-constructs.EfsMonitoring.addAlarm"></a>
+
+```typescript
+public addAlarm(alarm: AlarmWithAnnotation): void
+```
+
+Adds an alarm.
+
+###### `alarm`<sup>Required</sup> <a name="alarm" id="cdk-monitoring-constructs.EfsMonitoring.addAlarm.parameter.alarm"></a>
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmWithAnnotation">AlarmWithAnnotation</a>
+
+alarm to add.
+
+---
+
+##### `alarmWidgets` <a name="alarmWidgets" id="cdk-monitoring-constructs.EfsMonitoring.alarmWidgets"></a>
+
+```typescript
+public alarmWidgets(): IWidget[]
+```
+
+Returns widgets for all alarms.
+
+These can go to runbook or to service dashboard.
+
+##### `createAlarmFactory` <a name="createAlarmFactory" id="cdk-monitoring-constructs.EfsMonitoring.createAlarmFactory"></a>
+
+```typescript
+public createAlarmFactory(alarmNamePrefix: string): AlarmFactory
+```
+
+Creates a new alarm factory.
+
+Alarms created will be named with the given prefix, unless a local name override is present.
+
+###### `alarmNamePrefix`<sup>Required</sup> <a name="alarmNamePrefix" id="cdk-monitoring-constructs.EfsMonitoring.createAlarmFactory.parameter.alarmNamePrefix"></a>
+
+- *Type:* string
+
+alarm name prefix.
+
+---
+
+##### `createdAlarms` <a name="createdAlarms" id="cdk-monitoring-constructs.EfsMonitoring.createdAlarms"></a>
+
+```typescript
+public createdAlarms(): AlarmWithAnnotation[]
+```
+
+Returns all the alarms created.
+
+##### `createMetricFactory` <a name="createMetricFactory" id="cdk-monitoring-constructs.EfsMonitoring.createMetricFactory"></a>
+
+```typescript
+public createMetricFactory(): MetricFactory
+```
+
+Creates a new metric factory.
+
+##### `createWidgetFactory` <a name="createWidgetFactory" id="cdk-monitoring-constructs.EfsMonitoring.createWidgetFactory"></a>
+
+```typescript
+public createWidgetFactory(): IWidgetFactory
+```
+
+Creates a new widget factory.
+
+##### `summaryWidgets` <a name="summaryWidgets" id="cdk-monitoring-constructs.EfsMonitoring.summaryWidgets"></a>
+
+```typescript
+public summaryWidgets(): IWidget[]
+```
+
+Returns widgets to be placed on the summary dashboard.
+
+##### `widgets` <a name="widgets" id="cdk-monitoring-constructs.EfsMonitoring.widgets"></a>
+
+```typescript
+public widgets(): IWidget[]
+```
+
+Returns widgets to be placed on the main dashboard.
+
+##### `widgetsForDashboard` <a name="widgetsForDashboard" id="cdk-monitoring-constructs.EfsMonitoring.widgetsForDashboard"></a>
+
+```typescript
+public widgetsForDashboard(name: string): IWidget[]
+```
+
+Returns widgets for the requested dashboard type.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-monitoring-constructs.EfsMonitoring.widgetsForDashboard.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `createClientConnectionsWidget` <a name="createClientConnectionsWidget" id="cdk-monitoring-constructs.EfsMonitoring.createClientConnectionsWidget"></a>
+
+```typescript
+public createClientConnectionsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EfsMonitoring.createClientConnectionsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EfsMonitoring.createClientConnectionsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createIOLimitUtilizationWidget` <a name="createIOLimitUtilizationWidget" id="cdk-monitoring-constructs.EfsMonitoring.createIOLimitUtilizationWidget"></a>
+
+```typescript
+public createIOLimitUtilizationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EfsMonitoring.createIOLimitUtilizationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EfsMonitoring.createIOLimitUtilizationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createIopsWidget` <a name="createIopsWidget" id="cdk-monitoring-constructs.EfsMonitoring.createIopsWidget"></a>
+
+```typescript
+public createIopsWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EfsMonitoring.createIopsWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EfsMonitoring.createIopsWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createStorageWidget` <a name="createStorageWidget" id="cdk-monitoring-constructs.EfsMonitoring.createStorageWidget"></a>
+
+```typescript
+public createStorageWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EfsMonitoring.createStorageWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EfsMonitoring.createStorageWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createThroughputUtilizationWidget` <a name="createThroughputUtilizationWidget" id="cdk-monitoring-constructs.EfsMonitoring.createThroughputUtilizationWidget"></a>
+
+```typescript
+public createThroughputUtilizationWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EfsMonitoring.createThroughputUtilizationWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EfsMonitoring.createThroughputUtilizationWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createThroughputWidget` <a name="createThroughputWidget" id="cdk-monitoring-constructs.EfsMonitoring.createThroughputWidget"></a>
+
+```typescript
+public createThroughputWidget(width: number, height: number): GraphWidget
+```
+
+###### `width`<sup>Required</sup> <a name="width" id="cdk-monitoring-constructs.EfsMonitoring.createThroughputWidget.parameter.width"></a>
+
+- *Type:* number
+
+---
+
+###### `height`<sup>Required</sup> <a name="height" id="cdk-monitoring-constructs.EfsMonitoring.createThroughputWidget.parameter.height"></a>
+
+- *Type:* number
+
+---
+
+##### `createTitleWidget` <a name="createTitleWidget" id="cdk-monitoring-constructs.EfsMonitoring.createTitleWidget"></a>
+
+```typescript
+public createTitleWidget(): MonitoringHeaderWidget
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.alarmFactory">alarmFactory</a></code> | <code><a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.clientConnectionsMetric">clientConnectionsMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.ioLimitAnnotations">ioLimitAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.ioLimitUtilizationMetric">ioLimitUtilizationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.iopsMetrics">iopsMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.storageBytesMetrics">storageBytesMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.throughputAnnotations">throughputAnnotations</a></code> | <code>aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.throughputMetrics">throughputMetrics</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric[]</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.throughputUtilizationMetric">throughputUtilizationMetric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.MathExpression \| aws-cdk-lib.aws_cloudwatch.Metric</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsMonitoring.property.url">url</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `alarmFactory`<sup>Required</sup> <a name="alarmFactory" id="cdk-monitoring-constructs.EfsMonitoring.property.alarmFactory"></a>
+
+```typescript
+public readonly alarmFactory: AlarmFactory;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.AlarmFactory">AlarmFactory</a>
+
+---
+
+##### `clientConnectionsMetric`<sup>Required</sup> <a name="clientConnectionsMetric" id="cdk-monitoring-constructs.EfsMonitoring.property.clientConnectionsMetric"></a>
+
+```typescript
+public readonly clientConnectionsMetric: MathExpression | Metric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+##### `ioLimitAnnotations`<sup>Required</sup> <a name="ioLimitAnnotations" id="cdk-monitoring-constructs.EfsMonitoring.property.ioLimitAnnotations"></a>
+
+```typescript
+public readonly ioLimitAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `ioLimitUtilizationMetric`<sup>Required</sup> <a name="ioLimitUtilizationMetric" id="cdk-monitoring-constructs.EfsMonitoring.property.ioLimitUtilizationMetric"></a>
+
+```typescript
+public readonly ioLimitUtilizationMetric: MathExpression | Metric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+##### `iopsMetrics`<sup>Required</sup> <a name="iopsMetrics" id="cdk-monitoring-constructs.EfsMonitoring.property.iopsMetrics"></a>
+
+```typescript
+public readonly iopsMetrics: (MathExpression | Metric)[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric[]
+
+---
+
+##### `storageBytesMetrics`<sup>Required</sup> <a name="storageBytesMetrics" id="cdk-monitoring-constructs.EfsMonitoring.property.storageBytesMetrics"></a>
+
+```typescript
+public readonly storageBytesMetrics: (MathExpression | Metric)[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric[]
+
+---
+
+##### `throughputAnnotations`<sup>Required</sup> <a name="throughputAnnotations" id="cdk-monitoring-constructs.EfsMonitoring.property.throughputAnnotations"></a>
+
+```typescript
+public readonly throughputAnnotations: HorizontalAnnotation[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation[]
+
+---
+
+##### `throughputMetrics`<sup>Required</sup> <a name="throughputMetrics" id="cdk-monitoring-constructs.EfsMonitoring.property.throughputMetrics"></a>
+
+```typescript
+public readonly throughputMetrics: (MathExpression | Metric)[];
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric[]
+
+---
+
+##### `throughputUtilizationMetric`<sup>Required</sup> <a name="throughputUtilizationMetric" id="cdk-monitoring-constructs.EfsMonitoring.property.throughputUtilizationMetric"></a>
+
+```typescript
+public readonly throughputUtilizationMetric: MathExpression | Metric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MathExpression | aws-cdk-lib.aws_cloudwatch.Metric
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-monitoring-constructs.EfsMonitoring.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `url`<sup>Optional</sup> <a name="url" id="cdk-monitoring-constructs.EfsMonitoring.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -93015,7 +94010,7 @@ Dashboard placement override props.
 
 ### IDashboardSegment <a name="IDashboardSegment" id="cdk-monitoring-constructs.IDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring">ElastiCacheServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamConsumerMonitoring">KinesisDataStreamConsumerMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.EfsMonitoring">EfsMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring">ElastiCacheServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamConsumerMonitoring">KinesisDataStreamConsumerMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDashboardSegment">IDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -93106,7 +94101,7 @@ Gets the dashboard for the requested dashboard type.
 
 ### IDynamicDashboardSegment <a name="IDynamicDashboardSegment" id="cdk-monitoring-constructs.IDynamicDashboardSegment"></a>
 
-- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring">ElastiCacheServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamConsumerMonitoring">KinesisDataStreamConsumerMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
+- *Implemented By:* <a href="#cdk-monitoring-constructs.ApiGatewayMonitoring">ApiGatewayMonitoring</a>, <a href="#cdk-monitoring-constructs.ApiGatewayV2HttpApiMonitoring">ApiGatewayV2HttpApiMonitoring</a>, <a href="#cdk-monitoring-constructs.AppSyncMonitoring">AppSyncMonitoring</a>, <a href="#cdk-monitoring-constructs.AuroraClusterMonitoring">AuroraClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.AutoScalingGroupMonitoring">AutoScalingGroupMonitoring</a>, <a href="#cdk-monitoring-constructs.BillingMonitoring">BillingMonitoring</a>, <a href="#cdk-monitoring-constructs.CertificateManagerMonitoring">CertificateManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.CloudFrontDistributionMonitoring">CloudFrontDistributionMonitoring</a>, <a href="#cdk-monitoring-constructs.CodeBuildProjectMonitoring">CodeBuildProjectMonitoring</a>, <a href="#cdk-monitoring-constructs.CustomMonitoring">CustomMonitoring</a>, <a href="#cdk-monitoring-constructs.DocumentDbMonitoring">DocumentDbMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableGlobalSecondaryIndexMonitoring">DynamoTableGlobalSecondaryIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.DynamoTableMonitoring">DynamoTableMonitoring</a>, <a href="#cdk-monitoring-constructs.EC2Monitoring">EC2Monitoring</a>, <a href="#cdk-monitoring-constructs.Ec2ServiceMonitoring">Ec2ServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.EfsMonitoring">EfsMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheClusterMonitoring">ElastiCacheClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.ElastiCacheServerlessMonitoring">ElastiCacheServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.FargateServiceMonitoring">FargateServiceMonitoring</a>, <a href="#cdk-monitoring-constructs.FluentBitMonitoring">FluentBitMonitoring</a>, <a href="#cdk-monitoring-constructs.GlueJobMonitoring">GlueJobMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataAnalyticsMonitoring">KinesisDataAnalyticsMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamConsumerMonitoring">KinesisDataStreamConsumerMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisDataStreamMonitoring">KinesisDataStreamMonitoring</a>, <a href="#cdk-monitoring-constructs.KinesisFirehoseMonitoring">KinesisFirehoseMonitoring</a>, <a href="#cdk-monitoring-constructs.LambdaFunctionMonitoring">LambdaFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.LogMonitoring">LogMonitoring</a>, <a href="#cdk-monitoring-constructs.Monitoring">Monitoring</a>, <a href="#cdk-monitoring-constructs.NetworkLoadBalancerMonitoring">NetworkLoadBalancerMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchClusterMonitoring">OpenSearchClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchIngestionPipelineMonitoring">OpenSearchIngestionPipelineMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessIndexMonitoring">OpenSearchServerlessIndexMonitoring</a>, <a href="#cdk-monitoring-constructs.OpenSearchServerlessMonitoring">OpenSearchServerlessMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsClusterMonitoring">RdsClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.RdsInstanceMonitoring">RdsInstanceMonitoring</a>, <a href="#cdk-monitoring-constructs.RedshiftClusterMonitoring">RedshiftClusterMonitoring</a>, <a href="#cdk-monitoring-constructs.S3BucketMonitoring">S3BucketMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerMonitoring">SecretsManagerMonitoring</a>, <a href="#cdk-monitoring-constructs.SecretsManagerSecretMonitoring">SecretsManagerSecretMonitoring</a>, <a href="#cdk-monitoring-constructs.SingleWidgetDashboardSegment">SingleWidgetDashboardSegment</a>, <a href="#cdk-monitoring-constructs.SnsTopicMonitoring">SnsTopicMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoring">SqsQueueMonitoring</a>, <a href="#cdk-monitoring-constructs.SqsQueueMonitoringWithDlq">SqsQueueMonitoringWithDlq</a>, <a href="#cdk-monitoring-constructs.StaticSegmentDynamicAdapter">StaticSegmentDynamicAdapter</a>, <a href="#cdk-monitoring-constructs.StepFunctionActivityMonitoring">StepFunctionActivityMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionLambdaIntegrationMonitoring">StepFunctionLambdaIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionMonitoring">StepFunctionMonitoring</a>, <a href="#cdk-monitoring-constructs.StepFunctionServiceIntegrationMonitoring">StepFunctionServiceIntegrationMonitoring</a>, <a href="#cdk-monitoring-constructs.SyntheticsCanaryMonitoring">SyntheticsCanaryMonitoring</a>, <a href="#cdk-monitoring-constructs.WafV2Monitoring">WafV2Monitoring</a>, <a href="#cdk-monitoring-constructs.IDynamicDashboardSegment">IDynamicDashboardSegment</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -93481,6 +94476,55 @@ Create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 ##### `ALARMS` <a name="ALARMS" id="cdk-monitoring-constructs.DefaultDashboards.ALARMS"></a>
+
+---
+
+
+### EfsStorageClass <a name="EfsStorageClass" id="cdk-monitoring-constructs.EfsStorageClass"></a>
+
+EFS storage classes reported by the StorageBytes metric.
+
+See https://docs.aws.amazon.com/efs/latest/ug/efs-metrics.html
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.EfsStorageClass.TOTAL">TOTAL</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsStorageClass.STANDARD">STANDARD</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsStorageClass.IA">IA</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsStorageClass.IA_SIZE_OVERHEAD">IA_SIZE_OVERHEAD</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsStorageClass.ARCHIVE">ARCHIVE</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.EfsStorageClass.ARCHIVE_SIZE_OVERHEAD">ARCHIVE_SIZE_OVERHEAD</a></code> | *No description.* |
+
+---
+
+##### `TOTAL` <a name="TOTAL" id="cdk-monitoring-constructs.EfsStorageClass.TOTAL"></a>
+
+---
+
+
+##### `STANDARD` <a name="STANDARD" id="cdk-monitoring-constructs.EfsStorageClass.STANDARD"></a>
+
+---
+
+
+##### `IA` <a name="IA" id="cdk-monitoring-constructs.EfsStorageClass.IA"></a>
+
+---
+
+
+##### `IA_SIZE_OVERHEAD` <a name="IA_SIZE_OVERHEAD" id="cdk-monitoring-constructs.EfsStorageClass.IA_SIZE_OVERHEAD"></a>
+
+---
+
+
+##### `ARCHIVE` <a name="ARCHIVE" id="cdk-monitoring-constructs.EfsStorageClass.ARCHIVE"></a>
+
+---
+
+
+##### `ARCHIVE_SIZE_OVERHEAD` <a name="ARCHIVE_SIZE_OVERHEAD" id="cdk-monitoring-constructs.EfsStorageClass.ARCHIVE_SIZE_OVERHEAD"></a>
 
 ---
 

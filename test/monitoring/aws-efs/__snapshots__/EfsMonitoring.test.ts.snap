@@ -1,0 +1,1508 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test: all alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFileSystemThroughputUtilizationWarning3AFFAB74",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}},{\\"type\\":\\"metric\\",\\"width\\":6,\\"height\\":4,\\"x\\":6,\\"y\\":0,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"annotations\\":{\\"alarms\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "ScopeTestDummyFileSystemIOLimitUtilizationWarning1B5EC296",
+                  "Arn",
+                ],
+              },
+              "\\"]},\\"yAxis\\":{}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DummyFileSystem6AB56CBD": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "Encrypted": true,
+        "FileSystemTags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyFileSystem",
+          },
+        ],
+      },
+      "Type": "AWS::EFS::FileSystem",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "DummyFileSystemEfsMountTarget186FF8989": Object {
+      "Properties": Object {
+        "FileSystemId": Object {
+          "Ref": "DummyFileSystem6AB56CBD",
+        },
+        "SecurityGroups": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "DummyFileSystemEfsSecurityGroup9F2A5418",
+              "GroupId",
+            ],
+          },
+        ],
+        "SubnetId": Object {
+          "Ref": "VpcPrivateSubnet1Subnet536B997A",
+        },
+      },
+      "Type": "AWS::EFS::MountTarget",
+    },
+    "DummyFileSystemEfsMountTarget2D6916A85": Object {
+      "Properties": Object {
+        "FileSystemId": Object {
+          "Ref": "DummyFileSystem6AB56CBD",
+        },
+        "SecurityGroups": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "DummyFileSystemEfsSecurityGroup9F2A5418",
+              "GroupId",
+            ],
+          },
+        ],
+        "SubnetId": Object {
+          "Ref": "VpcPrivateSubnet2Subnet3788AAA1",
+        },
+      },
+      "Type": "AWS::EFS::MountTarget",
+    },
+    "DummyFileSystemEfsSecurityGroup9F2A5418": Object {
+      "Properties": Object {
+        "GroupDescription": "Default/DummyFileSystem/EfsSecurityGroup",
+        "SecurityGroupEgress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyFileSystem",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::SecurityGroup",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EFS File System **[DummyFileSystem](https://eu-west-1.console.aws.amazon.com/efs/home?region=eu-west-1#/file-systems/",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throughput utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Throughput utilization\\",\\"expression\\":\\"100 * (metered / PERIOD(metered)) / permitted\\"}],[\\"AWS/EFS\\",\\"MeteredIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metered\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"metered\\"}],[\\"AWS/EFS\\",\\"PermittedThroughput\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Permitted\\",\\"visible\\":false,\\"id\\":\\"permitted\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throughput utilization > 75 for 3 datapoints within 15 minutes\\",\\"value\\":75,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS by type\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Data read\\",\\"expression\\":\\"readOps / PERIOD(readOps)\\"}],[\\"AWS/EFS\\",\\"DataReadIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data read\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"readOps\\"}],[{\\"label\\":\\"Data write\\",\\"expression\\":\\"writeOps / PERIOD(writeOps)\\"}],[\\"AWS/EFS\\",\\"DataWriteIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data write\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"writeOps\\"}],[{\\"label\\":\\"Metadata\\",\\"expression\\":\\"metadataOps / PERIOD(metadataOps)\\"}],[\\"AWS/EFS\\",\\"MetadataIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metadata\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"metadataOps\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throughput by type (bytes/s)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Data read\\",\\"expression\\":\\"readBytes / PERIOD(readBytes)\\"}],[\\"AWS/EFS\\",\\"DataReadIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readBytes\\"}],[{\\"label\\":\\"Data write\\",\\"expression\\":\\"writeBytes / PERIOD(writeBytes)\\"}],[\\"AWS/EFS\\",\\"DataWriteIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeBytes\\"}],[{\\"label\\":\\"Metadata\\",\\"expression\\":\\"metadataBytes / PERIOD(metadataBytes)\\"}],[\\"AWS/EFS\\",\\"MetadataIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metadata\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"metadataBytes\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EFS\\",\\"PercentIOLimit\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"IOPS utilization\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"IOPS utilization > 90 for 3 datapoints within 15 minutes\\",\\"value\\":90,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Client connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Client connections\\",\\"expression\\":\\"connections / (PERIOD(connections) / 60)\\"}],[\\"AWS/EFS\\",\\"ClientConnections\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Storage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Total\\",{\\"label\\":\\"Total\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Standard\\",{\\"label\\":\\"Standard\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"IA\\",{\\"label\\":\\"IA\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"IASizeOverhead\\",{\\"label\\":\\"IASizeOverhead\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Archive\\",{\\"label\\":\\"Archive\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"ArchiveSizeOverhead\\",{\\"label\\":\\"ArchiveSizeOverhead\\",\\"period\\":900}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "ScopeTestDummyFileSystemIOLimitUtilizationWarning1B5EC296": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The file system is close to its General Purpose IO limit.",
+        "AlarmName": "Test-DummyFileSystem-IO-Limit-Utilization-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Id": "m1",
+            "Label": "IOPS utilization",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FileSystemId",
+                    "Value": Object {
+                      "Ref": "DummyFileSystem6AB56CBD",
+                    },
+                  },
+                ],
+                "MetricName": "PercentIOLimit",
+                "Namespace": "AWS/EFS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "Threshold": 90,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ScopeTestDummyFileSystemThroughputUtilizationWarning3AFFAB74": Object {
+      "Properties": Object {
+        "ActionsEnabled": true,
+        "AlarmDescription": "The file system throughput utilization is too high.",
+        "AlarmName": "Test-DummyFileSystem-Throughput-Utilization-Warning",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": Array [
+          Object {
+            "Expression": "100 * (metered / PERIOD(metered)) / permitted",
+            "Id": "expr_1",
+            "Label": "Throughput utilization",
+          },
+          Object {
+            "Id": "metered",
+            "Label": "Metered",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FileSystemId",
+                    "Value": Object {
+                      "Ref": "DummyFileSystem6AB56CBD",
+                    },
+                  },
+                ],
+                "MetricName": "MeteredIOBytes",
+                "Namespace": "AWS/EFS",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          Object {
+            "Id": "permitted",
+            "Label": "Permitted",
+            "MetricStat": Object {
+              "Metric": Object {
+                "Dimensions": Array [
+                  Object {
+                    "Name": "FileSystemId",
+                    "Value": Object {
+                      "Ref": "DummyFileSystem6AB56CBD",
+                    },
+                  },
+                ],
+                "MetricName": "PermittedThroughput",
+                "Namespace": "AWS/EFS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 75,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EFS File System **[DummyFileSystem](https://eu-west-1.console.aws.amazon.com/efs/home?region=eu-west-1#/file-systems/",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throughput utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Throughput utilization\\",\\"expression\\":\\"100 * (metered / PERIOD(metered)) / permitted\\"}],[\\"AWS/EFS\\",\\"MeteredIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metered\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"metered\\"}],[\\"AWS/EFS\\",\\"PermittedThroughput\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Permitted\\",\\"visible\\":false,\\"id\\":\\"permitted\\"}]],\\"annotations\\":{\\"horizontal\\":[{\\"label\\":\\"Throughput utilization > 75 for 3 datapoints within 15 minutes\\",\\"value\\":75,\\"yAxis\\":\\"left\\"}]},\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS by type\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Data read\\",\\"expression\\":\\"readOps / PERIOD(readOps)\\"}],[\\"AWS/EFS\\",\\"DataReadIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data read\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"readOps\\"}],[{\\"label\\":\\"Data write\\",\\"expression\\":\\"writeOps / PERIOD(writeOps)\\"}],[\\"AWS/EFS\\",\\"DataWriteIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data write\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"writeOps\\"}],[{\\"label\\":\\"Metadata\\",\\"expression\\":\\"metadataOps / PERIOD(metadataOps)\\"}],[\\"AWS/EFS\\",\\"MetadataIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metadata\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"metadataOps\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Storage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Total\\",{\\"label\\":\\"Total\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Standard\\",{\\"label\\":\\"Standard\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"IA\\",{\\"label\\":\\"IA\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"IASizeOverhead\\",{\\"label\\":\\"IASizeOverhead\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Archive\\",{\\"label\\":\\"Archive\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"ArchiveSizeOverhead\\",{\\"label\\":\\"ArchiveSizeOverhead\\",\\"period\\":900}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Vpc8378EB38": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VpcIGWD7BA715C": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VpcPrivateSubnet1DefaultRouteBE02A9ED": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VpcPublicSubnet1NATGateway4D7517AA",
+        },
+        "RouteTableId": Object {
+          "Ref": "VpcPrivateSubnet1RouteTableB2C5B500",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPrivateSubnet1RouteTableAssociation70C59FA6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VpcPrivateSubnet1RouteTableB2C5B500",
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPrivateSubnet1Subnet536B997A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPrivateSubnet1RouteTableB2C5B500": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPrivateSubnet1Subnet536B997A": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.128.0/18",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPrivateSubnet2DefaultRoute060D2087": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VpcPublicSubnet2NATGateway9182C01D",
+        },
+        "RouteTableId": Object {
+          "Ref": "VpcPrivateSubnet2RouteTableA678073B",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPrivateSubnet2RouteTableA678073B": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPrivateSubnet2RouteTableAssociationA89CAD56": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VpcPrivateSubnet2RouteTableA678073B",
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPrivateSubnet2Subnet3788AAA1",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPrivateSubnet2Subnet3788AAA1": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.192.0/18",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPublicSubnet1DefaultRoute3DA9E72A": Object {
+      "DependsOn": Array [
+        "VpcVPCGWBF912B6E",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VpcPublicSubnet1RouteTable6C95E38E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPublicSubnet1EIPD7E02669": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VpcPublicSubnet1NATGateway4D7517AA": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet1DefaultRoute3DA9E72A",
+        "VpcPublicSubnet1RouteTableAssociation97140677",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VpcPublicSubnet1EIPD7E02669",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet1Subnet5C2D37C4",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VpcPublicSubnet1RouteTable6C95E38E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPublicSubnet1RouteTableAssociation97140677": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VpcPublicSubnet1RouteTable6C95E38E",
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet1Subnet5C2D37C4",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPublicSubnet1Subnet5C2D37C4": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.0.0/18",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPublicSubnet2DefaultRoute97F91067": Object {
+      "DependsOn": Array [
+        "VpcVPCGWBF912B6E",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VpcPublicSubnet2RouteTable94F7E489",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPublicSubnet2EIP3C605A87": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VpcPublicSubnet2NATGateway9182C01D": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet2DefaultRoute97F91067",
+        "VpcPublicSubnet2RouteTableAssociationDD5762D8",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VpcPublicSubnet2EIP3C605A87",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet2Subnet691E08A3",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VpcPublicSubnet2RouteTable94F7E489": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPublicSubnet2RouteTableAssociationDD5762D8": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VpcPublicSubnet2RouteTable94F7E489",
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet2Subnet691E08A3",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPublicSubnet2Subnet691E08A3": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.64.0/18",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcVPCGWBF912B6E": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`snapshot test: no alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Alarm7103F465": Object {
+      "Properties": Object {
+        "DashboardBody": "{\\"widgets\\":[]}",
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "DummyFileSystem6AB56CBD": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "Encrypted": true,
+        "FileSystemTags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyFileSystem",
+          },
+        ],
+      },
+      "Type": "AWS::EFS::FileSystem",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "DummyFileSystemEfsMountTarget186FF8989": Object {
+      "Properties": Object {
+        "FileSystemId": Object {
+          "Ref": "DummyFileSystem6AB56CBD",
+        },
+        "SecurityGroups": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "DummyFileSystemEfsSecurityGroup9F2A5418",
+              "GroupId",
+            ],
+          },
+        ],
+        "SubnetId": Object {
+          "Ref": "VpcPrivateSubnet1Subnet536B997A",
+        },
+      },
+      "Type": "AWS::EFS::MountTarget",
+    },
+    "DummyFileSystemEfsMountTarget2D6916A85": Object {
+      "Properties": Object {
+        "FileSystemId": Object {
+          "Ref": "DummyFileSystem6AB56CBD",
+        },
+        "SecurityGroups": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "DummyFileSystemEfsSecurityGroup9F2A5418",
+              "GroupId",
+            ],
+          },
+        ],
+        "SubnetId": Object {
+          "Ref": "VpcPrivateSubnet2Subnet3788AAA1",
+        },
+      },
+      "Type": "AWS::EFS::MountTarget",
+    },
+    "DummyFileSystemEfsSecurityGroup9F2A5418": Object {
+      "Properties": Object {
+        "GroupDescription": "Default/DummyFileSystem/EfsSecurityGroup",
+        "SecurityGroupEgress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/DummyFileSystem",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::SecurityGroup",
+    },
+    "Resource": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EFS File System **[DummyFileSystem](https://eu-west-1.console.aws.amazon.com/efs/home?region=eu-west-1#/file-systems/",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throughput utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Throughput utilization\\",\\"expression\\":\\"100 * (metered / PERIOD(metered)) / permitted\\"}],[\\"AWS/EFS\\",\\"MeteredIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metered\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"metered\\"}],[\\"AWS/EFS\\",\\"PermittedThroughput\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Permitted\\",\\"visible\\":false,\\"id\\":\\"permitted\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS by type\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Data read\\",\\"expression\\":\\"readOps / PERIOD(readOps)\\"}],[\\"AWS/EFS\\",\\"DataReadIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data read\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"readOps\\"}],[{\\"label\\":\\"Data write\\",\\"expression\\":\\"writeOps / PERIOD(writeOps)\\"}],[\\"AWS/EFS\\",\\"DataWriteIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data write\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"writeOps\\"}],[{\\"label\\":\\"Metadata\\",\\"expression\\":\\"metadataOps / PERIOD(metadataOps)\\"}],[\\"AWS/EFS\\",\\"MetadataIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metadata\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"metadataOps\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throughput by type (bytes/s)\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Data read\\",\\"expression\\":\\"readBytes / PERIOD(readBytes)\\"}],[\\"AWS/EFS\\",\\"DataReadIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data read\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"readBytes\\"}],[{\\"label\\":\\"Data write\\",\\"expression\\":\\"writeBytes / PERIOD(writeBytes)\\"}],[\\"AWS/EFS\\",\\"DataWriteIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data write\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"writeBytes\\"}],[{\\"label\\":\\"Metadata\\",\\"expression\\":\\"metadataBytes / PERIOD(metadataBytes)\\"}],[\\"AWS/EFS\\",\\"MetadataIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metadata\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"metadataBytes\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":0,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EFS\\",\\"PercentIOLimit\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"IOPS utilization\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":8,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Client connections\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Client connections\\",\\"expression\\":\\"connections / (PERIOD(connections) / 60)\\"}],[\\"AWS/EFS\\",\\"ClientConnections\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Connections\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"connections\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Count\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":5,\\"x\\":16,\\"y\\":6,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Storage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Total\\",{\\"label\\":\\"Total\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Standard\\",{\\"label\\":\\"Standard\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"IA\\",{\\"label\\":\\"IA\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"IASizeOverhead\\",{\\"label\\":\\"IASizeOverhead\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Archive\\",{\\"label\\":\\"Archive\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"ArchiveSizeOverhead\\",{\\"label\\":\\"ArchiveSizeOverhead\\",\\"period\\":900}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Summary68521F81": Object {
+      "Properties": Object {
+        "DashboardBody": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"widgets\\":[{\\"type\\":\\"text\\",\\"width\\":24,\\"height\\":1,\\"x\\":0,\\"y\\":0,\\"properties\\":{\\"markdown\\":\\"### EFS File System **[DummyFileSystem](https://eu-west-1.console.aws.amazon.com/efs/home?region=eu-west-1#/file-systems/",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              ")**\\"}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":0,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Throughput utilization\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Throughput utilization\\",\\"expression\\":\\"100 * (metered / PERIOD(metered)) / permitted\\"}],[\\"AWS/EFS\\",\\"MeteredIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metered\\",\\"stat\\":\\"Sum\\",\\"visible\\":false,\\"id\\":\\"metered\\"}],[\\"AWS/EFS\\",\\"PermittedThroughput\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Permitted\\",\\"visible\\":false,\\"id\\":\\"permitted\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"max\\":100,\\"label\\":\\"%\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":8,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"IOPS by type\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[{\\"label\\":\\"Data read\\",\\"expression\\":\\"readOps / PERIOD(readOps)\\"}],[\\"AWS/EFS\\",\\"DataReadIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data read\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"readOps\\"}],[{\\"label\\":\\"Data write\\",\\"expression\\":\\"writeOps / PERIOD(writeOps)\\"}],[\\"AWS/EFS\\",\\"DataWriteIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Data write\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"writeOps\\"}],[{\\"label\\":\\"Metadata\\",\\"expression\\":\\"metadataOps / PERIOD(metadataOps)\\"}],[\\"AWS/EFS\\",\\"MetadataIOBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",{\\"label\\":\\"Metadata\\",\\"stat\\":\\"SampleCount\\",\\"visible\\":false,\\"id\\":\\"metadataOps\\"}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"Rate\\",\\"showUnits\\":false}}}},{\\"type\\":\\"metric\\",\\"width\\":8,\\"height\\":6,\\"x\\":16,\\"y\\":1,\\"properties\\":{\\"view\\":\\"timeSeries\\",\\"title\\":\\"Storage\\",\\"region\\":\\"",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              "\\",\\"metrics\\":[[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Total\\",{\\"label\\":\\"Total\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Standard\\",{\\"label\\":\\"Standard\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"IA\\",{\\"label\\":\\"IA\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"IASizeOverhead\\",{\\"label\\":\\"IASizeOverhead\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"Archive\\",{\\"label\\":\\"Archive\\",\\"period\\":900}],[\\"AWS/EFS\\",\\"StorageBytes\\",\\"FileSystemId\\",\\"",
+              Object {
+                "Ref": "DummyFileSystem6AB56CBD",
+              },
+              "\\",\\"StorageClass\\",\\"ArchiveSizeOverhead\\",{\\"label\\":\\"ArchiveSizeOverhead\\",\\"period\\":900}]],\\"yAxis\\":{\\"left\\":{\\"min\\":0,\\"label\\":\\"bytes\\",\\"showUnits\\":false}}}}]}",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudWatch::Dashboard",
+    },
+    "Vpc8378EB38": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VpcIGWD7BA715C": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VpcPrivateSubnet1DefaultRouteBE02A9ED": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VpcPublicSubnet1NATGateway4D7517AA",
+        },
+        "RouteTableId": Object {
+          "Ref": "VpcPrivateSubnet1RouteTableB2C5B500",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPrivateSubnet1RouteTableAssociation70C59FA6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VpcPrivateSubnet1RouteTableB2C5B500",
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPrivateSubnet1Subnet536B997A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPrivateSubnet1RouteTableB2C5B500": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPrivateSubnet1Subnet536B997A": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.128.0/18",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPrivateSubnet2DefaultRoute060D2087": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VpcPublicSubnet2NATGateway9182C01D",
+        },
+        "RouteTableId": Object {
+          "Ref": "VpcPrivateSubnet2RouteTableA678073B",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPrivateSubnet2RouteTableA678073B": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPrivateSubnet2RouteTableAssociationA89CAD56": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VpcPrivateSubnet2RouteTableA678073B",
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPrivateSubnet2Subnet3788AAA1",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPrivateSubnet2Subnet3788AAA1": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.192.0/18",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPublicSubnet1DefaultRoute3DA9E72A": Object {
+      "DependsOn": Array [
+        "VpcVPCGWBF912B6E",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VpcPublicSubnet1RouteTable6C95E38E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPublicSubnet1EIPD7E02669": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VpcPublicSubnet1NATGateway4D7517AA": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet1DefaultRoute3DA9E72A",
+        "VpcPublicSubnet1RouteTableAssociation97140677",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VpcPublicSubnet1EIPD7E02669",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet1Subnet5C2D37C4",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VpcPublicSubnet1RouteTable6C95E38E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPublicSubnet1RouteTableAssociation97140677": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VpcPublicSubnet1RouteTable6C95E38E",
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet1Subnet5C2D37C4",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPublicSubnet1Subnet5C2D37C4": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.0.0/18",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPublicSubnet2DefaultRoute97F91067": Object {
+      "DependsOn": Array [
+        "VpcVPCGWBF912B6E",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VpcPublicSubnet2RouteTable94F7E489",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPublicSubnet2EIP3C605A87": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VpcPublicSubnet2NATGateway9182C01D": Object {
+      "DependsOn": Array [
+        "VpcPublicSubnet2DefaultRoute97F91067",
+        "VpcPublicSubnet2RouteTableAssociationDD5762D8",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VpcPublicSubnet2EIP3C605A87",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet2Subnet691E08A3",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VpcPublicSubnet2RouteTable94F7E489": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPublicSubnet2RouteTableAssociationDD5762D8": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VpcPublicSubnet2RouteTable94F7E489",
+        },
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet2Subnet691E08A3",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPublicSubnet2Subnet691E08A3": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.64.0/18",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "Default/Vpc/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcVPCGWBF912B6E": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
